@@ -5,10 +5,10 @@ const fileNameLength=20;
 var endOfLine = require('os').EOL;
 
 function getNoteName(dstPath, note){
-  const fNameArray = note['title'].split(' ');
+  const fNameArray = note['title'] ? note['title'].toString().split(' ') : 'Untitled';
     const fName = (fNameArray.length >=2) ? `${fNameArray[0]}_${fNameArray[1]}`: fNameArray.join('_');
     const fileNamePrefix = fName.substring(0,fileNameLength)
-                                .replace(/[\\/!-.;+:\ ?]+/g,"_");;
+                                .replace(/[\\/!-.;+:\ ?]+/g,"_").toLowerCase();
     const indexList = fs.readdirSync(dstPath)
                         .filter((file) => file.indexOf(fileNamePrefix) > -1)
                         .map((file) => {
