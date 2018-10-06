@@ -26,7 +26,3 @@ The converted Markdown files will being stored in `out/md` directory.
 ```javascript
  yarle.dropTheRope(<your_enex_filepath>);
 ```
-
-
-If you have a feeling that I missed something, do not hesitate to contact.
-
