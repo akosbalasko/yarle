@@ -1,6 +1,6 @@
 {
   "name": "yarle",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Yet Another Rope Ladder from Evernote",
   "main": "./dropTheRope.js",
   "scripts": {
