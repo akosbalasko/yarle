@@ -1,6 +1,6 @@
 {
-  "name": "yarle",
-  "version": "1.0.1",
+  "name": "yarle-evernote-to-md",
+  "version": "1.0.2",
   "description": "Yet Another Rope Ladder from Evernote",
   "main": "./dropTheRope.js",
   "scripts": {
