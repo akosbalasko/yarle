@@ -1,0 +1,28 @@
+{
+  "name": "enex-md",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dropTheRope.js",
+  "scripts": {
+    "start": "node ./dropTheRope.js",
+    "test": "nyc --reporter=html --reporter=text mocha"
+  },
+  "author": "Akos Balasko",
+  "dependencies": {
+    "@ronomon/utimes": "^2.3.0",
+    "execSync": "^1.0.2",
+    "fast-xml-parser": "^3.12.5",
+    "fs-extra": "4.0.2",
+    "he": "^1.2.0",
+    "moment": "^2.22.2",
+    "turndown": "^5.0.1"
+  },
+  "engines": {
+    "node": "8.9.4",
+    "npm": "5.6.0"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "nyc": "^13.0.1"
+  }
+}
