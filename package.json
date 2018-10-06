@@ -1,7 +1,7 @@
 {
-  "name": "enex-md",
+  "name": "yarle",
   "version": "1.0.0",
-  "description": "",
+  "description": "Yet Another Rope Ladder from Evernote",
   "main": "./dropTheRope.js",
   "scripts": {
     "start": "node ./dropTheRope.js",

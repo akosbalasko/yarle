@@ -18,7 +18,7 @@ The converted Markdown files will being stored in `out/md` directory.
 
 ### Using cmd: 
 ```shell
-  node ./main.js <your_enex_filepath>
+  node ./dropTheRope.js <your_enex_filepath>
 ```
 
 ### In program: 
