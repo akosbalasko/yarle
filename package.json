@@ -1,7 +1,15 @@
 {
   "name": "yarle-evernote-to-md",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Yet Another Rope Ladder from Evernote",
+  "keywords":[
+    "evernote",
+    "enex",
+    "converter",
+    "md",
+    "markdown",
+    "enex to md"
+  ],
   "main": "./dropTheRope.js",
   "scripts": {
     "start": "node ./dropTheRope.js",
