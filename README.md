@@ -9,12 +9,12 @@ A tool that converts enex note(s) into Markdown format in order to let you escap
 - Works with enex files that contain single or multiple notes also.
 - Works with notes that contain pictures too.
 - Puts `title`, `creation time`, `update time`, `tags`, and `latlong` meta-information into md as metadata.
-- Updates md file's access and modification timestamp's according to the note's update time.
-- Organizes all attachments into a _resources subfolder (to keep the notes' folder simple as possible).
+- Updates md files' access and modification timestamps according to the notes' update time.
+- Organizes all attachments into a _resources subfolder (to keep the notes' folder as simple as possible).
 
 ## Usage:
 
-The converted Markdown files will being stored in `out/md` directory.
+The converted Markdown files will be stored in `out/md` directory.
 
 ### Using cmd: 
 ```shell
