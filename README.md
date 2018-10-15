@@ -14,7 +14,7 @@ A tool that converts enex note(s) into Markdown format in order to let you escap
 
 ## Usage:
 
-The converted Markdown files will be stored in `out/md` directory.
+Those markdown notes that contains external resources such pictures or files, are stored in `/out/complexNotes` subfolder, while in case of simple, plain-text notes go to `/out/simpleNotes` folder.
 
 ### Using cmd: 
 ```shell

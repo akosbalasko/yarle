@@ -6,12 +6,16 @@ var TurndownService = require('turndown')
 const options = require('./xml-parser.options');
 const utils = require('./utils');
 
-const dstPath = `${__dirname}/../out/md`;
-const resourcePath =`${dstPath}/_resources`
+// simpleNotes folder will contain those notes that contains plain text only 
+const simpleMdPath = `${__dirname}/../out/simpleNotes`;
+// complexNotes folder contains notes that have external resources (eg. images, pdf etc.) 
+const complexMdPath = `${__dirname}/../out/complexNotes`;
+const resourcePath =`${complexMdPath}/_resources`
 
 var turndownService = new TurndownService();
 var resourceHashes={};
-utils.clearDistDir(dstPath);
+utils.clearDistDir(simpleMdPath);
+utils.clearDistDir(complexMdPath);
 
 function dropTheRope(enexFile){
 
@@ -19,6 +23,7 @@ function dropTheRope(enexFile){
     var notebook = parser.parse(content,options);
     var notes = notebook['en-export'];
     utils.clearDistDir(resourcePath);
+    
   if (notes)
     if (Array.isArray(notes['note']))
       for (let note of notes['note'])
@@ -28,15 +33,15 @@ function dropTheRope(enexFile){
 
 function processNode(note){
   let data='';
-  let metadata = utils.getMetadata(note);
-  data = data.concat(metadata);
   let content =note['content']['__cdata'];
-  const absFilePath = utils.getFilePath(dstPath, note);
-  const  noteName =utils.getNoteName(dstPath,note);
-  const relativeWorkDir = `${noteName}.resources`;
-  const absoluteWorkDir = `${resourcePath}/${relativeWorkDir}`;
+  let absFilePath = utils.getFilePath(simpleMdPath, note);
   if (note['resource']){
-    
+    absFilePath = utils.getFilePath(complexMdPath, note);
+    data = data.concat(utils.getTitle(complexMdPath,note));
+
+    const relativeWorkDir = `${utils.getResourceDir(complexMdPath,note)}.resources`;
+    const absoluteWorkDir = `${resourcePath}/${relativeWorkDir}`;
+
     utils.clearDistDir(absoluteWorkDir)
     if (Array.isArray(note['resource'])){
       for (let j=0; j< note['resource'].length; ++j){
@@ -47,16 +52,23 @@ function processNode(note){
         utils.clearDistDir(absoluteWorkDir)
         processResource(absoluteWorkDir, note['resource']);
     }
+  
+    //en-media
+    for (let hash in resourceHashes){
+      const replace = `<en-media [^>]*hash="${hash}".[^>]*\/>`;
+      var re = new RegExp(replace,"g");
+      content = content.replace(re,`<img alt=${resourceHashes[hash]} src=./_resources/${relativeWorkDir}/${resourceHashes[hash].replace(/ /g,'\ ')}>`);
+    }
   }
-  //en-media
-  for (let hash in resourceHashes){
-    const replace = `<en-media [^>]*hash="${hash}".[^>]*\/>`;
-    var re = new RegExp(replace,"g");
-    content = content.replace(re,`<img alt=${resourceHashes[hash]} src=./_resources/${relativeWorkDir}/${resourceHashes[hash].replace(/ /g,'\ ')}>`);
+  else{
+    data = data.concat(utils.getTitle(simpleMdPath,note));
+
   }
   var markdown = turndownService.turndown(content)
   data = data.concat(markdown);
-  
+  let metadata = utils.getMetadata(note);
+  data = data.concat(metadata);
+
   try{
     fs.writeFileSync(absFilePath, data);
     utils.setFileDates(absFilePath,note)
