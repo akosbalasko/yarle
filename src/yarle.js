@@ -35,13 +35,8 @@ function processNode(note){
   let data='';
   let content =note['content']['__cdata'];
   let absFilePath = utils.getFilePath(simpleMdPath, note);
-  let noteName =utils.getNoteName(simpleMdPath,note);
-  
-
-
   if (note['resource']){
     absFilePath = utils.getFilePath(complexMdPath, note);
-    noteName =utils.getNoteName(complexMdPath,note);
     data = data.concat(utils.getTitle(complexMdPath,note));
 
     const relativeWorkDir = `${utils.getResourceDir(complexMdPath,note)}.resources`;
