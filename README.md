@@ -29,7 +29,7 @@ Those markdown notes that contains external resources such pictures or files, ar
 
 ## Release notes
 
-### version 1.3.0, fixes and improvements:
+### version 1.2.0, fixes and improvements:
 
 - File name conventions changed (whitespaces are generated instead of underscores)
 - Metadata is moved at the end of the text and transformed as code snippet (looks better in Ulysses)
