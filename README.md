@@ -26,9 +26,11 @@ Those markdown notes that contains external resources such pictures or files, ar
 ```javascript
  yarle.dropTheRope(<your_enex_filepath>);
 ```
-### Release notes
-#### version 1.3.0, fixes and improvements:
 
-- File name conventions changed (whitespaces used instead of underscores)
+## Release notes
+
+### version 1.2.0, fixes and improvements:
+
+- File name conventions changed (whitespaces are generated instead of underscores)
 - Metadata is moved at the end of the text and transformed as code snippet (looks better in Ulysses)
 - Fix on HTML to MD conversion (turndown package is configured better to do not add multiple newline characters )
