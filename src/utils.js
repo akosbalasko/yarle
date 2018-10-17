@@ -45,9 +45,7 @@ function getFilePath(dstPath, note){
 
 function getMetadata(note){
     return ''.concat(logBeginning())
-             //.concat(logCreationTime(note))
-             //.concat(logUpdateTime(note))
-             //.concat(logLatLong(note))
+             .concat(logLatLong(note))
              .concat(logTags(note))
              .concat(logBeginning());
     

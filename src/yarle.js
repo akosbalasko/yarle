@@ -80,7 +80,6 @@ function processNode(note){
     data = data.concat(utils.getTitle(simpleMdPath,note));
 
   }
-  //.replace(/\n[\s]*\n/g,'\n')
   var markdown = turndownService.turndown(content);
   data = data.concat(markdown);
   let metadata = utils.getMetadata(note);
