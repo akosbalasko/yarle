@@ -3,16 +3,32 @@ const fs = require('fs');
 var parser = require('fast-xml-parser');
 var moment = require('moment');
 var TurndownService = require('turndown')
-const options = require('./xml-parser.options');
+const parserOptions = require('./xml-parser.options');
 const utils = require('./utils');
 
+let options = {
+  'no-metadata': false,
+  'sourceFile': undefined
+}
 // simpleNotes folder will contain those notes that contains plain text only 
 const simpleMdPath = `${__dirname}/../out/simpleNotes`;
 // complexNotes folder contains notes that have external resources (eg. images, pdf etc.) 
 const complexMdPath = `${__dirname}/../out/complexNotes`;
 const resourcePath =`${complexMdPath}/_resources`
 
-var turndownService = new TurndownService();
+var turndownService = new TurndownService({
+    br: '',
+    blankReplacement: function (content, node) {
+      return node.isBlock ? '\n\n' : ''
+    },
+    keepReplacement: function (content, node) {
+      return node.isBlock ? '\n' + node.outerHTML + '\n' : node.outerHTML
+    },
+    defaultReplacement: function (content, node) {
+      return node.isBlock ? '\n' + content + '\n' : content
+    }
+
+});
 var resourceHashes={};
 utils.clearDistDir(simpleMdPath);
 utils.clearDistDir(complexMdPath);
@@ -20,7 +36,7 @@ utils.clearDistDir(complexMdPath);
 function dropTheRope(enexFile){
 
     const content = fs.readFileSync(enexFile, 'utf8');
-    var notebook = parser.parse(content,options);
+    var notebook = parser.parse(content,parserOptions);
     var notes = notebook['en-export'];
     utils.clearDistDir(resourcePath);
     
@@ -64,7 +80,8 @@ function processNode(note){
     data = data.concat(utils.getTitle(simpleMdPath,note));
 
   }
-  var markdown = turndownService.turndown(content)
+  //.replace(/\n[\s]*\n/g,'\n')
+  var markdown = turndownService.turndown(content);
   data = data.concat(markdown);
   let metadata = utils.getMetadata(note);
   data = data.concat(metadata);
@@ -94,3 +111,4 @@ function processResource(workDir, resource){
   }
 
 module.exports.dropTheRope = dropTheRope;
+module.exports.options = options;
