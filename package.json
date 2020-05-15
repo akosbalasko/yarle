@@ -2,7 +2,7 @@
   "name": "yarle-evernote-to-md",
   "version": "1.2.0",
   "description": "Yet Another Rope Ladder from Evernote",
-  "keywords":[
+  "keywords": [
     "evernote",
     "enex",
     "converter",
@@ -30,8 +30,8 @@
     "npm": "5.6.0"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/akosbalasko/yarle"
+    "type": "git",
+    "url": "https://github.com/akosbalasko/yarle"
   },
   "homepage": "https://github.com/akosbalasko/yarle",
   "license": "(MIT OR Apache-2.0)",
