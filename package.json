@@ -12,21 +12,30 @@
   ],
   "main": "./dropTheRope.js",
   "scripts": {
-    "start": "node ./dropTheRope.js",
+    "build": "tsc --project ./src/tsconfig.json",
+    "coverage": "nyc mocha",
+    "lint": "tslint --project ./src/tsconfig.json",
+    "start": "node ./dist/dropTheRope.js",
     "test": "nyc --reporter=html --reporter=text mocha"
   },
   "author": "Akos Balasko",
   "dependencies": {
-    "@ronomon/utimes": "^2.3.0",
-    "execSync": "^1.0.2",
-    "fast-xml-parser": "^3.12.5",
+    "@ronomon/utimes": "2.3.0",
+    "@types/fs-extra": "^8.1.0",
+    "execSync": "1.0.2",
+    "fast-xml-parser": "3.12.5",
     "fs-extra": "4.0.2",
-    "he": "^1.2.0",
-    "moment": "^2.22.2",
-    "turndown": "^5.0.1"
+    "he": "1.2.0",
+    "moment": "2.22.2",
+    "ts-node": "8.5.4",
+    "tslint": "5.19.0",
+    "tslint-config-prettier": "1.13.0",
+    "tslint-microsoft-contrib": "6.2.0",
+    "turndown": "5.0.1",
+    "typescript": "3.8.3"
   },
   "engines": {
-    "node": "8.9.4",
+    "node": "10.18.1",
     "npm": "5.6.0"
   },
   "repository": {
@@ -36,7 +45,10 @@
   "homepage": "https://github.com/akosbalasko/yarle",
   "license": "(MIT OR Apache-2.0)",
   "devDependencies": {
-    "mocha": "^5.2.0",
-    "nyc": "^13.0.1"
+    "@types/he": "^1.1.1",
+    "@types/node": "14.0.1",
+    "@types/turndown": "^5.0.0",
+    "mocha": "5.2.0",
+    "nyc": "13.0.1"
   }
 }

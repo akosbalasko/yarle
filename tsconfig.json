@@ -1,0 +1,23 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "preserveSymlinks": true,
+    "target": "es2017",
+    "module": "commonjs",
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "declaration": true,
+    "sourceMap": true,
+    "strict": true,
+    "strictNullChecks": false,
+    "typeRoots": [
+      "typings",
+      "node_modules/@types"
+    ]
+  },
+  "exclude": [
+    "**/dist"
+  ]
+}
