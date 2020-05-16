@@ -1,6 +1,6 @@
 import * as minimist from 'minimist';
 
-import * as yarle from './../src/yarle';
+import * as yarle from './yarle';
 import { YarleOptions } from './YarleOptions';
 
 /* istanbul ignore next */

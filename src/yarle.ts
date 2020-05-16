@@ -25,7 +25,7 @@ const turndownService = new TurndownService({
       return node.isBlock ? `\n${node.outerHTML}\n` : node.outerHTML;
     },
     defaultReplacement: (content, node: any) => {
-      return node.isBlock ? `\n${content}\n\n` : content;
+      return node.isBlock ? `\n${content}\n` : content;
     },
   });
 
