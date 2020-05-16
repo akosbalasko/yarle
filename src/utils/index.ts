@@ -1,3 +1,3 @@
-export * from './contentUtils';
-export * from './fileNameUtils';
-export * from './folderUtils';
+export * from './ContentUtils';
+export * from './FileNameUtils';
+export * from './FolderUtils';

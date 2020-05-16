@@ -13,6 +13,7 @@ export let yarleOptions: YarleOptions  = {
   outputDir: './mdNotes',
   isMetadataNeeded: false,
   isZettelkastenNeeded: false,
+  plainTextNotesOnly: false,
 };
 
 /* istanbul ignore next */
@@ -45,9 +46,15 @@ export const dropTheRope = (options: YarleOptions): void => {
 
   if (notes)
     if (Array.isArray(notes['note']))
-      for (const note of notes['note'])
-        processNode(note);
-    else processNode(notes['note']);
+      for (const note of notes['note']){
+        if (!(yarleOptions.plainTextNotesOnly && note['resource'])){
+          processNode(note);
+        }
+      }
+    else
+    if (!(yarleOptions.plainTextNotesOnly && notes['note'] as any)['resource'])
+        processNode(notes['note']);
+
 };
 
 const processNode = (note: any): void => {
