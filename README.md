@@ -29,7 +29,13 @@ Those markdown notes that contains external resources such pictures or files, ar
 ### In program: 
 
 ```javascript
- yarle.dropTheRope(<your_enex_filepath>);
+ const options: YarleOptions = {
+        enexFile: 'enexFile',
+        outputDir: 'outputDir',
+        isZettelkastenNeeded: true,
+        isMetadataNeeded: false ,
+    };
+ yarle.dropTheRope(options>);
 ```
 
 ## Release notes
