@@ -52,11 +52,26 @@ describe('dropTheRope ', () => {
 
     });
 
+    it('Note with zettelkastel id', () => {
+        const options: YarleOptions = {
+            enexFile: './test/data/test-noteWithZettelKasten.enex',
+            outputDir: 'out',
+            isMetadataNeeded: true,
+            isZettelkastenNeeded: true,
+        };
+        yarle.dropTheRope(options);
+        assert.equal(fs.existsSync(`${__dirname}/../out/simpleNotes/201810061043| test -note with text only.md`), true);
+        assert.equal(fs.readFileSync(`${__dirname}/../out/simpleNotes/201810061043| test -note with text only.md`, 'utf8'),
+                     fs.readFileSync(`${__dirname}/data/test-noteWithZettelKasten.md`, 'utf8'));
+
+    });
+
     it('Note without metadata', () => {
         const options: YarleOptions = {
             enexFile: './test/data/test-noteWithoutMetadata.enex',
             outputDir: 'out',
             isMetadataNeeded: false,
+            isZettelkastenNeeded: false,
         };
         yarle.dropTheRope(options);
         assert.equal(fs.existsSync(`${__dirname}/../out/simpleNotes/test -note without metadata.md`), true);
