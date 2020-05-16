@@ -3,4 +3,5 @@ export interface YarleOptions {
     outputDir?: string;
     isMetadataNeeded?: boolean;
     isZettelkastenNeeded?: boolean;
+    plainTextNotesOnly?: boolean;
 };
