@@ -35,7 +35,7 @@ Those markdown notes that contains external resources such pictures or files, ar
         isZettelkastenNeeded: true,
         isMetadataNeeded: false ,
     };
- yarle.dropTheRope(options>);
+ yarle.dropTheRope(options);
 ```
 
 ## Release notes
