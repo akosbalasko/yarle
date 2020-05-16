@@ -3,20 +3,18 @@ import * as fs from 'fs';
 import * as parser from 'fast-xml-parser';
 import * as moment from 'moment';
 import * as TurndownService from 'turndown';
+import { mkdirsSync } from 'fs-extra';
 
 import { xmlParserOptions } from './xml-parser.options';
 import * as utils from './utils';
+import { Options } from './options';
 
-/*
-export let options = {
-  'no-metadata': false,
-};*/
-
-// simpleNotes folder will contain those notes that contains plain text only
-const simpleMdPath = `${__dirname}/../out/simpleNotes`;
-// complexNotes folder contains notes that have external resources (eg. images, pdf etc.)
-const complexMdPath = `${__dirname}/../out/complexNotes`;
-const resourcePath = `${complexMdPath}/_resources`;
+export let yarleOptions: Options = {
+  enexFile: 'notebook.enex',
+  outputDir: './mdNotes',
+  isMetadataNeeded: false,
+  isZettelkastenNeeded: false,
+};
 
 const turndownService = new TurndownService({
     br: '',
@@ -32,15 +30,18 @@ const turndownService = new TurndownService({
   });
 
 const resourceHashes: any = {};
-utils.clearDistDir(simpleMdPath);
-utils.clearDistDir(complexMdPath);
 
-export const dropTheRope = (enexFile: any): void => {
+const setOptions = (options: Options): void => {
+  yarleOptions = options;
+};
 
-  const content = fs.readFileSync(enexFile, 'utf8');
+export const dropTheRope = (options: Options): void => {
+  setOptions(options);
+  utils.setPaths();
+  const content = fs.readFileSync(options.enexFile, 'utf8');
   const notebook = parser.parse(content, xmlParserOptions);
   const notes = notebook['en-export'];
-  utils.clearDistDir(resourcePath);
+  utils.clearResourceDistDir();
 
   if (notes)
     if (Array.isArray(notes['note']))
@@ -52,36 +53,37 @@ export const dropTheRope = (enexFile: any): void => {
 const processNode = (note: any): void => {
   let data = '';
   let content = note['content']['__cdata'];
-  let absFilePath = utils.getFilePath(simpleMdPath, note);
+  let absFilePath = utils.getSimpleFilePath(note);
   if (note['resource']) {
-    absFilePath = utils.getFilePath(complexMdPath, note);
-    data = data.concat(utils.getTitle(complexMdPath, note));
+    absFilePath = utils.getComplexFilePath(note);
+    data = data.concat(utils.getTitle(utils.paths.complexMdPath, note));
 
-    const relativeWorkDir = `${utils.getResourceDir(complexMdPath, note)}.resources`;
-    const absoluteWorkDir = `${resourcePath}/${relativeWorkDir}`;
+    const relativeResourceWorkDir = `${utils.getResourceDir(utils.paths.complexMdPath, note)}.resources`;
+    const absoluteResourceWorkDir = `${utils.paths.resourcePath}/${relativeResourceWorkDir}`;
 
-    utils.clearDistDir(absoluteWorkDir);
+    utils.clearResourceDir(note);
     if (Array.isArray(note['resource']))
       for (const resource of note['resource'])
-        processResource(absoluteWorkDir, resource);
+        processResource(absoluteResourceWorkDir, resource);
     else {
-      utils.clearDistDir(absoluteWorkDir);
-      processResource(absoluteWorkDir, note['resource']);
+      utils.clearResourceDir(note);
+      processResource(absoluteResourceWorkDir, note['resource']);
     }
 
-    for (const hash of resourceHashes) {
+    for (const hash of Object.keys(resourceHashes)) {
       const replace = `<en-media [^>]*hash="${hash}".[^>]*\/>`;
       const re = new RegExp(replace, 'g');
-      content = content.replace(re, `<img alt=${resourceHashes[hash]} src=./_resources/${relativeWorkDir}/${resourceHashes[hash].replace(/ /g, '\ ')}>`);
+      content = content.replace(re, `<img alt=${resourceHashes[hash]} src=./_resources/${relativeResourceWorkDir}/${resourceHashes[hash].replace(/ /g, '\ ')}>`);
     }
   } else
-    data = data.concat(utils.getTitle(simpleMdPath, note));
+    data = data.concat(utils.getTitle(utils.paths.simpleMdPath, note));
 
   const markdown = turndownService.turndown(content);
   data = data.concat(markdown);
-  const metadata = utils.getMetadata(note);
-  data = data.concat(metadata);
-
+  if (yarleOptions.isMetadataNeeded) {
+    const metadata = utils.getMetadata(note);
+    data = data.concat(metadata);
+  }
   try {
     fs.writeFileSync(absFilePath, data);
     utils.setFileDates(absFilePath, note);
