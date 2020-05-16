@@ -4,6 +4,10 @@
 
 A tool that converts enex note(s) into Markdown format in order to let you escape from Evernote universe with all your belongings.
 
+## Version 2.0.3
+
+ - plaintext-notes-only command line argument added, that enables you to skip converting notes with any resources, pictures, pdf, etc.
+
 ## Version 2.0: 
 
  - The whole tool is reimplemented in Typescript
@@ -23,7 +27,7 @@ Those markdown notes that contains external resources such pictures or files, ar
 
 ### Using cmd: 
 ```shell
-  npm run start -- --enexFile=GeneralNotes.enex --outputDir=./out --include-metadata --zettelkasten
+  npm run start -- --enexFile=GeneralNotes.enex --outputDir=./out --include-metadata --zettelkasten --plaintext-notes-only
 ```
 
 ### In program: 
