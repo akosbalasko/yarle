@@ -1,11 +1,20 @@
-import * as yarle from './yarle';
+import * as minimist from 'minimist';
 
-// yarle.options = {sourceFile: process.argv[2]};
-const options: any = {};
-if (process.argv.includes('--no-metadata'))
-    options['no-metadata'] = true;
+import * as yarle from './../src/yarle';
+import { YarleOptions } from './YarleOptions';
 
-options['enexFile'] = process.argv[2];
+/* istanbul ignore next */
+export const run = () => {
+    const argv = minimist(process.argv.slice(2));
 
-yarle.dropTheRope(options);
-process.exit();
+    const options: YarleOptions = {
+        enexFile: argv['enexFile'],
+        outputDir: argv['outputDir'],
+        isZettelkastenNeeded: argv['zettelkasten'] || false,
+        isMetadataNeeded: argv['include-metadata'] || false ,
+    };
+
+    yarle.dropTheRope(options);
+    process.exit();
+};
+run();
