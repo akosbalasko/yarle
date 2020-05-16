@@ -4,6 +4,11 @@
 
 A tool that converts enex note(s) into Markdown format in order to let you escape from Evernote universe with all your belongings.
 
+## Version 2.0: 
+
+ - The whole tool is reimplemented in Typescript
+ - ZettelKasten ID is an option for filename generation (format is <id>|(pipe) <title>.md or <id>.md if there is no title)
+
 ## Features:
 
 - Works with enex files that contain single or multiple notes also.
