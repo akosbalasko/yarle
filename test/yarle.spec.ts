@@ -159,11 +159,27 @@ describe('dropTheRope ', () => {
 
     });
 
+
+    it('Enex file plaintextonly', () => {
+        const options: YarleOptions = {
+            enexFile: './test/data/test-threePictures.enex',
+            outputDir: 'out',
+            isMetadataNeeded: true,
+            plainTextNotesOnly: true,
+
+        };
+        yarle.dropTheRope(options);
+        assert.equal(fs.existsSync(`${__dirname}/../out/complexNotes/test - note with more pictures.md`), false);
+
+    });
+
     it('Enex file with two notes with same names', () => {
         const options: YarleOptions = {
             enexFile: './test/data/test-twoNotesWithSameName.enex',
             outputDir: 'out',
             isMetadataNeeded: true,
+            plainTextNotesOnly: false,
+
 
         };
         yarle.dropTheRope(options);

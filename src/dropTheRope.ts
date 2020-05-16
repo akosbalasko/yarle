@@ -12,6 +12,7 @@ export const run = () => {
         outputDir: argv['outputDir'],
         isZettelkastenNeeded: argv['zettelkasten'] || false,
         isMetadataNeeded: argv['include-metadata'] || false ,
+        plainTextNotesOnly: argv['plaintext-notes-only'] || false ,
     };
 
     yarle.dropTheRope(options);
