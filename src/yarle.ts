@@ -3,19 +3,19 @@ import * as fs from 'fs';
 import * as parser from 'fast-xml-parser';
 import * as moment from 'moment';
 import * as TurndownService from 'turndown';
-import { mkdirsSync } from 'fs-extra';
 
 import { xmlParserOptions } from './xml-parser.options';
 import * as utils from './utils';
-import { Options } from './options';
+import { YarleOptions  } from './YarleOptions';
 
-export let yarleOptions: Options = {
+export let yarleOptions: YarleOptions  = {
   enexFile: 'notebook.enex',
   outputDir: './mdNotes',
   isMetadataNeeded: false,
   isZettelkastenNeeded: false,
 };
 
+/* istanbul ignore next */
 const turndownService = new TurndownService({
     br: '',
     blankReplacement: (content, node: any) => {
@@ -25,17 +25,17 @@ const turndownService = new TurndownService({
       return node.isBlock ? `\n${node.outerHTML}\n` : node.outerHTML;
     },
     defaultReplacement: (content, node: any) => {
-      return node.isBlock ? `\n${content}\n` : content;
+      return node.isBlock ? `\n${content}\n\n` : content;
     },
   });
 
 const resourceHashes: any = {};
 
-const setOptions = (options: Options): void => {
-  yarleOptions = options;
+const setOptions = (options: YarleOptions): void => {
+  yarleOptions = {...yarleOptions, ...options};
 };
 
-export const dropTheRope = (options: Options): void => {
+export const dropTheRope = (options: YarleOptions): void => {
   setOptions(options);
   utils.setPaths();
   const content = fs.readFileSync(options.enexFile, 'utf8');

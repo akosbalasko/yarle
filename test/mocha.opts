@@ -1,0 +1,8 @@
+--require ts-node/register/type-check
+--require source-map-support/register
+--full-trace
+--bail
+--ui bdd
+--colors
+--watch-extensions ts
+test/**/*.spec.ts

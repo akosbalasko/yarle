@@ -22,22 +22,19 @@ export const getFileIndex = (dstPath: string, note: any): number | string => {
 
 export const getFilePrefix = (note: any): string => {
   let fileName = '';
-  console.log("zettelkasten: " + yarleOptions.isZettelkastenNeeded);
-  if (yarleOptions.isZettelkastenNeeded)
-    fileName += getZettelKastelId(note);
-    console.log("zettelkasten id : " + fileName);
-
-  if (note['title'])
-    fileName += ` | ${note['title'].toString()}`;
-  else if (!yarleOptions.isZettelkastenNeeded)
-    fileName += 'Untitled';
+  if (yarleOptions.isZettelkastenNeeded) {
+    fileName += `${getZettelKastelId(note)}`;
+    if (note['title']) {
+      fileName += `| ${note['title'].toString()}`;
+    }
+  } else fileName +=
+    note['title'] ? `${note['title'].toString()}` : 'Untitled';
 
   fileName = fileName
   .substring(0, FILENAME_LENGTH)
   .replace(/[\\/!.;+:_\?]+/g, ' ')
   .toLowerCase();
 
-  console.log("generated Id : " + fileName);
 
   return fileName;
   };

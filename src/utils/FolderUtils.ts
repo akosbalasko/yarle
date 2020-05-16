@@ -1,5 +1,4 @@
 import * as fsExtra from 'fs-extra';
-import { EOL } from 'os';
 import * as fs from 'fs';
 
 import { Path } from './../paths';
@@ -46,6 +45,13 @@ export const clearResourceDir = (note: any): void => {
 export const clearResourceDistDir = (): void => {
   clearDistDir(paths.resourcePath);
 };
+export const clearSimpleNotesDistDir = (): void => {
+  clearDistDir(paths.simpleMdPath);
+};
+
+export const clearComplexNotesDistDir = (): void => {
+  clearDistDir(paths.complexMdPath);
+}
 
 export const setPaths = (): void => {
 

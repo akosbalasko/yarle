@@ -1,15 +1,9 @@
 # TEST - note with more pictures
 Squirrels
 
-  
-
 ![pic.jpg](./_resources/test_-_note_with_more_pictures.resources/pic.jpg)
 
-  
-
 ![squirell3.jpeg](./_resources/test_-_note_with_more_pictures.resources/squirell3.jpeg)
-
-  
 
 ![squirell2.jpg](./_resources/test_-_note_with_more_pictures.resources/squirell2.jpg)
 
