@@ -12,9 +12,23 @@ A tool that converts enex note(s) into Markdown format in order to let you escap
 - Updates md files' access and modification timestamps according to the notes' update time.
 - Organizes all attachments into a _resources subfolder (to keep the notes' folder as simple as possible).
 
+## Installation
+
+ - install Node.js (![details here](https://nodejs.org/en/download/))
+ - clone or download this repo
+ - npm i
+ 
 ## Usage:
 
-Those markdown notes that contains external resources such pictures or files, are stored in `/<outputDir>/complexNotes` subfolder, while in case of simple, plain-text notes go to `/<outputDir>/simpleNotes` folder.
+Those markdown notes that contains external resources such pictures or files, are stored in `/<outputDir>/complexNotes` subfolder, the simple plain-text ones go to `/<outputDir>/simpleNotes` folder.
+
+## Options:
+
+ - --enexFile=<your-enex-file> , specifies the exported Evernote notebook
+ - --outputDir=<relative_output_dir> , this is the main output dir in where the extracted markdown files are going to be created
+ - --include-metadata , if its set, then every markdown file will be extended by metadata (tags, time of creation, time of last update, lat-lon coordinates) 
+ - --zettelkasten , puts Zettelkasten Id (based on time of creation) at the beginning of the file name
+  --plaintext-notes-only, skips those notes, which has attachment, or picture in it.
 
 ### Using cmd: 
 ```shell
