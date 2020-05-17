@@ -14,7 +14,7 @@ A tool that converts enex note(s) into Markdown format in order to let you escap
 
 ## Installation
 
- - install Node.js (![details here](https://nodejs.org/en/download/))
+ - [install Node.js](https://nodejs.org/en/download/)
  - clone or download this repo
  - npm i
  
@@ -24,11 +24,11 @@ Those markdown notes that contains external resources such pictures or files, ar
 
 ## Options:
 
- - --enexFile=<your-enex-file> , specifies the exported Evernote notebook
- - --outputDir=<relative_output_dir> , this is the main output dir in where the extracted markdown files are going to be created
- - --include-metadata , if its set, then every markdown file will be extended by metadata (tags, time of creation, time of last update, lat-lon coordinates) 
- - --zettelkasten , puts Zettelkasten Id (based on time of creation) at the beginning of the file name
-  --plaintext-notes-only, skips those notes, which has attachment, or picture in it.
+ - ```--enexFile=<your-enex-file>``` , specifies the exported Evernote notebook
+ - ```--outputDir=<relative_output_dir>``` , this is the main output dir in where the extracted markdown files are going to be created
+ - ```--include-metadata``` , if it's set, then every markdown file will be extended by metadata (tags, time of creation, time of last update, lat-lon coordinates) 
+ - ```--zettelkasten``` , puts Zettelkasten Id (based on time of creation) at the beginning of the file name
+ - ```--plaintext-notes-only``` , skips those notes, which has attachment, or picture in it.
 
 ### Using cmd: 
 ```shell
