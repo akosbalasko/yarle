@@ -4,15 +4,6 @@
 
 A tool that converts enex note(s) into Markdown format in order to let you escape from Evernote universe with all your belongings.
 
-## Version 2.0.3
-
- - plaintext-notes-only command line argument added, that enables you to skip converting notes with any resources, pictures, pdf, etc.
-
-## Version 2.0: 
-
- - The whole tool is reimplemented in Typescript
- - ZettelKasten ID is an option for filename generation (format is <id>|(pipe) <title>.md or <id>.md if there is no title)
-
 ## Features:
 
 - Works with enex files that contain single or multiple notes also.
@@ -43,6 +34,15 @@ Those markdown notes that contains external resources such pictures or files, ar
 ```
 
 ## Release notes
+
+### Version 2.0.3
+
+ - plaintext-notes-only command line argument added, that enables you to skip converting notes with any resources, pictures, pdf, etc.
+
+### Version 2.0: 
+
+ - The whole tool is reimplemented in Typescript
+ - ZettelKasten ID is an option for filename generation (format is <id>|(pipe) <title>.md or <id>.md if there is no title)
 
 ### version 1.2.0, fixes and improvements:
 
