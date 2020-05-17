@@ -49,11 +49,11 @@ Those markdown notes that contains external resources such pictures or files, ar
 
 ## Release notes
 
-### Version 2.0.3
+### Version 2.0.4
 
  - plaintext-notes-only command line argument added, that enables you to skip converting notes with any resources, pictures, pdf, etc.
 
-### Version 2.0: 
+### Version 2.0.1: 
 
  - The whole tool is reimplemented in Typescript
  - ZettelKasten ID is an option for filename generation (format is <id>|(pipe) <title>.md or <id>.md if there is no title)
