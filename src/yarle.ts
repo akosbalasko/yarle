@@ -2,11 +2,14 @@
 import * as fs from 'fs';
 import * as parser from 'fast-xml-parser';
 import * as moment from 'moment';
-import * as TurndownService from 'turndown';
+/*import * as showdown from 'showdown';
+import * as jsdom from 'jsdom';
+*/
 
 import { xmlParserOptions } from './xml-parser.options';
 import * as utils from './utils';
 import { YarleOptions  } from './YarleOptions';
+import { getTurndownService } from './utils/TurndownService';
 
 export let yarleOptions: YarleOptions  = {
   enexFile: 'notebook.enex',
@@ -15,21 +18,15 @@ export let yarleOptions: YarleOptions  = {
   isZettelkastenNeeded: false,
   plainTextNotesOnly: false,
 };
+/*
+showdown.extension('skip-en-note', () => {
+  return [{ type: 'lang', regex: /<en-note>/gm, replace: '' }];
+});
+const converter = new showdown.Converter({extensions: ['skip-en-note']});
 
-/* istanbul ignore next */
-const turndownService = new TurndownService({
-    br: '',
-    blankReplacement: (content, node: any) => {
-      return node.isBlock ? '\n\n' : '';
-    },
-    keepReplacement: (content, node: any) => {
-      return node.isBlock ? `\n${node.outerHTML}\n` : node.outerHTML;
-    },
-    defaultReplacement: (content, node: any) => {
-      return node.isBlock ? `\n${content}\n` : content;
-    },
-  });
-
+converter.setOption('tables', 'true');
+const dom = new jsdom.JSDOM();
+*/
 const resourceHashes: any = {};
 
 const setOptions = (options: YarleOptions): void => {
@@ -46,8 +43,8 @@ export const dropTheRope = (options: YarleOptions): void => {
 
   if (notes)
     if (Array.isArray(notes['note']))
-      for (const note of notes['note']){
-        if (!(yarleOptions.plainTextNotesOnly && note['resource'])){
+      for (const note of notes['note']) {
+        if (!(yarleOptions.plainTextNotesOnly && note['resource'])) {
           processNode(note);
         }
       }
@@ -85,7 +82,8 @@ const processNode = (note: any): void => {
   } else
     data = data.concat(utils.getTitle(utils.paths.simpleMdPath, note));
 
-  const markdown = turndownService.turndown(content);
+  const markdown = getTurndownService().turndown(content);
+
   data = data.concat(markdown);
   if (yarleOptions.isMetadataNeeded) {
     const metadata = utils.getMetadata(note);

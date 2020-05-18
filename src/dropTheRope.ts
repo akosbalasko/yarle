@@ -1,9 +1,9 @@
+/* istanbul ignore file */
 import * as minimist from 'minimist';
 
 import * as yarle from './yarle';
 import { YarleOptions } from './YarleOptions';
 
-/* istanbul ignore next */
 export const run = () => {
     const argv = minimist(process.argv.slice(2));
 
