@@ -49,7 +49,7 @@ Those markdown notes that contains external resources such pictures or files, ar
 
 ## Release notes
 
-### Version 2.1.0
+### Version 2.1.1
 
  - Conversion of tables, lists, numbered lists and checkboxes are supported.
 
