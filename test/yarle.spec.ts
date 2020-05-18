@@ -192,4 +192,36 @@ describe('dropTheRope ', () => {
         assert.equal(fs.readFileSync(`${__dirname}/../out/simpleNotes/untitled.1.md`, 'utf8'),
                     fs.readFileSync(`${__dirname}/data/test-twoNotesWithSameName.1.md`, 'utf8'));
     });
+
+    it('Enex file with table', () => {
+        const options: YarleOptions = {
+            enexFile: './test/data/test-table.enex',
+            outputDir: 'out',
+            isMetadataNeeded: true,
+            plainTextNotesOnly: false,
+
+        };
+        yarle.dropTheRope(options);
+        assert.equal(fs.existsSync(`${__dirname}/../out/simpleNotes/table.md`), true);
+
+        assert.equal(fs.readFileSync(`${__dirname}/../out/simpleNotes/table.md`, 'utf8'),
+                     fs.readFileSync(`${__dirname}/data/test-table.md`, 'utf8'));
+
+    });
+
+    it('Enex file with specialItems', () => {
+        const options: YarleOptions = {
+            enexFile: './test/data/test-specialItems.enex',
+            outputDir: 'out',
+            isMetadataNeeded: true,
+            plainTextNotesOnly: false,
+
+        };
+        yarle.dropTheRope(options);
+        assert.equal(fs.existsSync(`${__dirname}/../out/simpleNotes/special items.md`), true);
+
+        assert.equal(fs.readFileSync(`${__dirname}/../out/simpleNotes/special items.md`, 'utf8'),
+                     fs.readFileSync(`${__dirname}/data/test-specialItems.md`, 'utf8'));
+
+    });
 });
