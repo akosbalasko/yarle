@@ -13,6 +13,7 @@ export const run = () => {
         isZettelkastenNeeded: argv['zettelkasten'] || false,
         isMetadataNeeded: argv['include-metadata'] || false ,
         plainTextNotesOnly: argv['plaintext-notes-only'] || false ,
+        wikiStyleMediaLinks: argv['wikistyle-media-links'] || false ,
     };
 
     yarle.dropTheRope(options);

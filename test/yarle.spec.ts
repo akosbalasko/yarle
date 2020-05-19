@@ -224,4 +224,21 @@ describe('dropTheRope ', () => {
                      fs.readFileSync(`${__dirname}/data/test-specialItems.md`, 'utf8'));
 
     });
+
+    it('Enex file with links with resources', () => {
+        const options: YarleOptions = {
+            enexFile: './test/data/test-externalLinkWithPicture.enex',
+            outputDir: 'out',
+            isMetadataNeeded: true,
+            plainTextNotesOnly: false,
+            wikiStyleMediaLinks: true,
+
+        };
+        yarle.dropTheRope(options);
+        assert.equal(fs.existsSync(`${__dirname}/../out/complexNotes/Link With Picture.md`), true);
+
+        assert.equal(fs.readFileSync(`${__dirname}/../out/complexNotes/Link With Picture.md`, 'utf8'),
+                     fs.readFileSync(`${__dirname}/data/test-externalLinkWithPicture.md`, 'utf8'));
+
+    });
 });

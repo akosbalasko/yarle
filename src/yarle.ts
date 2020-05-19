@@ -2,9 +2,7 @@
 import * as fs from 'fs';
 import * as parser from 'fast-xml-parser';
 import * as moment from 'moment';
-/*import * as showdown from 'showdown';
-import * as jsdom from 'jsdom';
-*/
+import { cloneDeep } from 'lodash';
 
 import { xmlParserOptions } from './xml-parser.options';
 import * as utils from './utils';
@@ -17,16 +15,9 @@ export let yarleOptions: YarleOptions  = {
   isMetadataNeeded: false,
   isZettelkastenNeeded: false,
   plainTextNotesOnly: false,
+  wikiStyleMediaLinks: false,
 };
-/*
-showdown.extension('skip-en-note', () => {
-  return [{ type: 'lang', regex: /<en-note>/gm, replace: '' }];
-});
-const converter = new showdown.Converter({extensions: ['skip-en-note']});
 
-converter.setOption('tables', 'true');
-const dom = new jsdom.JSDOM();
-*/
 const resourceHashes: any = {};
 
 const setOptions = (options: YarleOptions): void => {
@@ -75,9 +66,7 @@ const processNode = (note: any): void => {
     }
 
     for (const hash of Object.keys(resourceHashes)) {
-      const replace = `<en-media [^>]*hash="${hash}".[^>]*\/>`;
-      const re = new RegExp(replace, 'g');
-      content = content.replace(re, `<img alt=${resourceHashes[hash]} src=./_resources/${relativeResourceWorkDir}/${resourceHashes[hash].replace(/ /g, '\ ')}>`);
+      content = addMediaReference(content, resourceHashes, hash, relativeResourceWorkDir);
     }
   } else
     data = data.concat(utils.getTitle(utils.paths.simpleMdPath, note));
@@ -99,6 +88,22 @@ const processNode = (note: any): void => {
   }
 
 };
+const addMediaReference = (content: string, resourceHashes: any, hash: any, relativeResourceWorkDir: string): string => {
+
+  const src = `./_resources/${relativeResourceWorkDir}/${resourceHashes[hash].replace(/ /g, '\ ')}`;
+  let updatedContent = cloneDeep(content);
+  const replace = (hash === 'any') ?
+    '<en-media [^>]*hash=".[^>]*\/>' :
+    `<en-media [^>]*hash="${hash}".[^>]*\/>`;
+  const re = new RegExp(replace, 'g');
+
+  updatedContent = (!yarleOptions.wikiStyleMediaLinks) ?
+    content.replace(re, `<img alt=${resourceHashes[hash]} src=${src}>`) :
+    content.replace(re, `<a href=${src}>${resourceHashes[hash]}</a>`);
+
+  return updatedContent;
+
+};
 
 const processResource = (workDir: string, resource: any): void => {
     const data = resource['data'];
@@ -110,7 +115,8 @@ const processResource = (workDir: string, resource: any): void => {
       const hashIndex = resource['recognition']['__cdata'].match(/[a-f0-9]{32}/);
       resourceHashes[hashIndex as any] = fileName;
 
-    }
+    } else resourceHashes['any'] = fileName;
+
     const accessTime = moment(timeStamp);
     fs.writeFileSync(absFilePath, data, 'base64');
     const atime = accessTime.valueOf() / 1000;
