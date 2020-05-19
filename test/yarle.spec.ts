@@ -225,6 +225,23 @@ describe('dropTheRope ', () => {
 
     });
 
+    it('Enex file with links ', () => {
+        const options: YarleOptions = {
+            enexFile: './test/data/test-externalLink.enex',
+            outputDir: 'out',
+            isMetadataNeeded: true,
+            plainTextNotesOnly: false,
+            wikiStyleMediaLinks: false,
+
+        };
+        yarle.dropTheRope(options);
+        assert.equal(fs.existsSync(`${__dirname}/../out/simpleNotes/External Link.md`), true);
+
+        assert.equal(fs.readFileSync(`${__dirname}/../out/simpleNotes/External Link.md`, 'utf8'),
+                     fs.readFileSync(`${__dirname}/data/test-externalLink.md`, 'utf8'));
+
+    });
+
     it('Enex file with links with resources', () => {
         const options: YarleOptions = {
             enexFile: './test/data/test-externalLinkWithPicture.enex',
