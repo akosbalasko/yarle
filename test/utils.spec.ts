@@ -19,7 +19,7 @@ describe('SetFileDates', () => {
     });
 
     it('happy path =» file exists and modified successfully', () => {
-        utils.setFileDates('./test/data/test-justText.enex',notes['note']);
+        utils.setFileDates('./test/data/test-justText.enex', notes['note']);
         const fStat = fs.statSync('./test/data/test-justText.enex');
         const atime = moment(fStat.atime).format();
         const mtime = moment(fStat.mtime).format();
