@@ -159,7 +159,7 @@ describe('dropTheRope ', () => {
 
     });
 
-    it('Enex file plaintextonly', () => {
+    it('Enex file plaintextonly - skipping note that has resource in it', () => {
         const options: YarleOptions = {
             enexFile: './test/data/test-threePictures.enex',
             outputDir: 'out',
@@ -171,13 +171,26 @@ describe('dropTheRope ', () => {
         assert.equal(fs.existsSync(`${__dirname}/../out/complexNotes/test - note with more pictures.md`), false);
 
     });
+    it('Enex file skip Location', () => {
+        const options: YarleOptions = {
+            enexFile: './test/data/test-skipLocation.enex',
+            outputDir: 'out',
+            isMetadataNeeded: true,
+            skipLocation: true,
 
+        };
+        yarle.dropTheRope(options);
+        assert.equal(fs.existsSync(`${__dirname}/../out/simpleNotes/SkipLocation.md`), true);
+        assert.equal(fs.readFileSync(`${__dirname}/../out/simpleNotes/SkipLocation.md`, 'utf8'),
+        fs.readFileSync(`${__dirname}/data/test-SkipLocation.md`, 'utf8'));
+    });
     it('Enex file with two notes with same names', () => {
         const options: YarleOptions = {
             enexFile: './test/data/test-twoNotesWithSameName.enex',
             outputDir: 'out',
             isMetadataNeeded: true,
             plainTextNotesOnly: false,
+            skipLocation: false,
 
         };
         yarle.dropTheRope(options);

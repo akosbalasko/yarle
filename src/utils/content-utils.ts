@@ -3,14 +3,19 @@ import * as moment from 'moment';
 import * as fs from 'fs';
 
 import { getFileIndex } from './filename-utils';
+import { yarleOptions } from './../yarle';
 
 export const getMetadata = (note: any): string => {
-    return ''.concat(logSeparator())
-             .concat(logCreationTime(note))
-             .concat(logUpdateTime(note))
-             .concat(logLatLong(note))
-             .concat(logTags(note))
-             .concat(logSeparator());
+  if (!yarleOptions.isMetadataNeeded) {
+    return '';
+  }
+
+  return ''.concat(logSeparator())
+            .concat(logCreationTime(note))
+            .concat(logUpdateTime(note))
+            .concat(logLatLong(note))
+            .concat(logTags(note))
+            .concat(logSeparator());
 
 };
 
@@ -28,25 +33,25 @@ export const getTitle = (dstPath: string, note: any): string => {
 };
 
 export const logCreationTime = (note: any): string => {
-    return note['created']
+    return (!yarleOptions.skipCreationTime && note['created'])
            ? `    Created at: ${moment(note['created']).format()}${EOL}`
            : '';
   };
 
 export const logUpdateTime = (note: any): string => {
-  return note['updated']
+  return (!yarleOptions.skipUpdateTime && note['updated'])
           ? `    Updated at: ${moment(note['updated']).format()}${EOL}`
           : '';
 };
 
 export const logLatLong = (note: any): string => {
-  return (note['note-attributes'] && note['note-attributes']['longitude'])
+  return (!yarleOptions.skipLocation && note['note-attributes'] && note['note-attributes']['longitude'])
           ? `    Where: ${note['note-attributes']['longitude']},${note['note-attributes']['latitude']}${EOL}`
           : '';
 };
 
 export const logTags = (note: any): string => {
-  return note['tag']
+  return (!yarleOptions.skipTags && note['tag'])
           ? `    Tag(s): ${note['tag']}${EOL}`
           : '';
 };
