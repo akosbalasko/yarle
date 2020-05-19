@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as moment from 'moment';
 
-import { yarleOptions } from './../yarle';
+import { yarleOptions } from '../yarle';
 
 const FILENAME_LENGTH = 50;
 

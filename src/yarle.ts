@@ -1,15 +1,11 @@
 
 import * as fs from 'fs';
 import * as parser from 'fast-xml-parser';
-import * as moment from 'moment';
-/*import * as showdown from 'showdown';
-import * as jsdom from 'jsdom';
-*/
 
 import { xmlParserOptions } from './xml-parser.options';
 import * as utils from './utils';
 import { YarleOptions  } from './YarleOptions';
-import { getTurndownService } from './utils/TurndownService';
+import { processNode } from './process-node';
 
 export let yarleOptions: YarleOptions  = {
   enexFile: 'notebook.enex',
@@ -17,17 +13,8 @@ export let yarleOptions: YarleOptions  = {
   isMetadataNeeded: false,
   isZettelkastenNeeded: false,
   plainTextNotesOnly: false,
+  wikiStyleMediaLinks: false,
 };
-/*
-showdown.extension('skip-en-note', () => {
-  return [{ type: 'lang', regex: /<en-note>/gm, replace: '' }];
-});
-const converter = new showdown.Converter({extensions: ['skip-en-note']});
-
-converter.setOption('tables', 'true');
-const dom = new jsdom.JSDOM();
-*/
-const resourceHashes: any = {};
 
 const setOptions = (options: YarleOptions): void => {
   yarleOptions = {...yarleOptions, ...options};
@@ -53,66 +40,3 @@ export const dropTheRope = (options: YarleOptions): void => {
         processNode(notes['note']);
 
 };
-
-const processNode = (note: any): void => {
-  let data = '';
-  let content = note['content']['__cdata'];
-  let absFilePath = utils.getSimpleFilePath(note);
-  if (note['resource']) {
-    absFilePath = utils.getComplexFilePath(note);
-    data = data.concat(utils.getTitle(utils.paths.complexMdPath, note));
-
-    const relativeResourceWorkDir = `${utils.getResourceDir(utils.paths.complexMdPath, note)}.resources`;
-    const absoluteResourceWorkDir = `${utils.paths.resourcePath}/${relativeResourceWorkDir}`;
-
-    utils.clearResourceDir(note);
-    if (Array.isArray(note['resource']))
-      for (const resource of note['resource'])
-        processResource(absoluteResourceWorkDir, resource);
-    else {
-      utils.clearResourceDir(note);
-      processResource(absoluteResourceWorkDir, note['resource']);
-    }
-
-    for (const hash of Object.keys(resourceHashes)) {
-      const replace = `<en-media [^>]*hash="${hash}".[^>]*\/>`;
-      const re = new RegExp(replace, 'g');
-      content = content.replace(re, `<img alt=${resourceHashes[hash]} src=./_resources/${relativeResourceWorkDir}/${resourceHashes[hash].replace(/ /g, '\ ')}>`);
-    }
-  } else
-    data = data.concat(utils.getTitle(utils.paths.simpleMdPath, note));
-
-  const markdown = getTurndownService().turndown(content);
-
-  data = data.concat(markdown);
-  if (yarleOptions.isMetadataNeeded) {
-    const metadata = utils.getMetadata(note);
-    data = data.concat(metadata);
-  }
-  try {
-    fs.writeFileSync(absFilePath, data);
-    utils.setFileDates(absFilePath, note);
-  } catch (e) {
-    // tslint:disable-next-line: no-console
-    console.log('Cannot write file ', e);
-    throw e;
-  }
-
-};
-
-const processResource = (workDir: string, resource: any): void => {
-    const data = resource['data'];
-    const timeStamp = resource['resource-attributes']['timestamp'];
-    const fileName = resource['resource-attributes']['file-name'];
-    const absFilePath = `${workDir}/${fileName}`;
-    // tslint:disable-next-line: curly
-    if (resource['recognition'] && resource['recognition']['__cdata'] && fileName) {
-      const hashIndex = resource['recognition']['__cdata'].match(/[a-f0-9]{32}/);
-      resourceHashes[hashIndex as any] = fileName;
-
-    }
-    const accessTime = moment(timeStamp);
-    fs.writeFileSync(absFilePath, data, 'base64');
-    const atime = accessTime.valueOf() / 1000;
-    fs.utimesSync(absFilePath, atime, atime);
-  };
