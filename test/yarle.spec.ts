@@ -159,7 +159,6 @@ describe('dropTheRope ', () => {
 
     });
 
-
     it('Enex file plaintextonly', () => {
         const options: YarleOptions = {
             enexFile: './test/data/test-threePictures.enex',
@@ -179,7 +178,6 @@ describe('dropTheRope ', () => {
             outputDir: 'out',
             isMetadataNeeded: true,
             plainTextNotesOnly: false,
-
 
         };
         yarle.dropTheRope(options);

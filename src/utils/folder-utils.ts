@@ -2,8 +2,9 @@ import * as fsExtra from 'fs-extra';
 import * as fs from 'fs';
 
 import { Path } from '../paths';
-import { getNoteFileName, getNoteName } from './filename-utils';
 import { yarleOptions } from '../yarle';
+
+import { getNoteFileName, getNoteName } from './filename-utils';
 
 export const paths: Path = {};
 
@@ -29,8 +30,9 @@ export const getComplexFilePath = (note: any): string => {
 };
 
 const clearDistDir = (dstPath: string): void => {
-    if (fs.existsSync(dstPath))
+    if (fs.existsSync(dstPath)) {
         fsExtra.removeSync(dstPath);
+    }
     fs.mkdirSync(dstPath);
 };
 
@@ -51,7 +53,7 @@ export const clearSimpleNotesDistDir = (): void => {
 
 export const clearComplexNotesDistDir = (): void => {
   clearDistDir(paths.complexMdPath);
-}
+};
 
 export const setPaths = (): void => {
 

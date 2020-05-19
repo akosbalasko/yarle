@@ -16,14 +16,15 @@ export const getMetadata = (note: any): string => {
 
 export const getTitle = (dstPath: string, note: any): string => {
     const index = getFileIndex(dstPath, note);
-    if (index  === '')
+    if (index  === '') {
       return note['title']
            ? `# ${note['title']}${EOL}`
            : '';
-    else
+    } else {
       return note['title']
              ? `# ${note['title']}.${index}${EOL}`
              : '';
+    }
 };
 
 export const logCreationTime = (note: any): string => {

@@ -45,9 +45,9 @@ export const getTurndownService = (): TurndownService => {
                     },
                 };
                 const nodeProxy =  new Proxy(node.attributes, handler);
-                if (!nodeProxy.href.value.startsWith('http') && !nodeProxy.href.value.startsWith('www'))
+                if (!nodeProxy.href.value.startsWith('http') && !nodeProxy.href.value.startsWith('www')) {
                     return `[[${node.innerHTML}]]`;
-                else {
+                } else {
                     return `[${node.innerHTML}](${nodeProxy.href.value})`;
                 }
             },
@@ -56,4 +56,4 @@ export const getTurndownService = (): TurndownService => {
     turndownService.use(gfm);
 
     return turndownService;
-}
+};

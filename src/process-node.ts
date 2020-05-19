@@ -12,9 +12,9 @@ export const processNode = (note: any): void => {
       getSimpleFilePath(note);
 
     data = data.concat(getNoteTitle(note));
-    if (isComplex(note))
+    if (isComplex(note)) {
       content = processResources(note, content);
-
+    }
     const markdown = convertHtml2Md(content);
     data = data.concat(markdown);
     if (yarleOptions.isMetadataNeeded) {

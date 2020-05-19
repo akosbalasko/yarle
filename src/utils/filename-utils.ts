@@ -27,14 +27,13 @@ export const getFilePrefix = (note: any): string => {
     if (note['title']) {
       fileName += `| ${note['title'].toString()}`;
     }
-  } else fileName +=
+  } else { fileName +=
     note['title'] ? `${note['title'].toString()}` : 'Untitled';
-
+  }
   fileName = fileName
   .substring(0, FILENAME_LENGTH)
   .replace(/[\\/!.;+:_\?]+/g, ' ')
   .toLowerCase();
-
 
   return fileName;
   };
