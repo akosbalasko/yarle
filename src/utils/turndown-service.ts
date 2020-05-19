@@ -1,7 +1,7 @@
 import * as TurndownService from 'turndown';
 import { gfm } from 'joplin-turndown-plugin-gfm';
 
-import { yarleOptions } from './../yarle';
+import { yarleOptions } from '../yarle';
 
 export const getTurndownService = (): TurndownService => {
     /* istanbul ignore next */

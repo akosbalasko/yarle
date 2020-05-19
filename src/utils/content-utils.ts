@@ -2,7 +2,7 @@ import { EOL } from 'os';
 import * as moment from 'moment';
 import * as fs from 'fs';
 
-import { getFileIndex } from './fileNameUtils';
+import { getFileIndex } from './filename-utils';
 
 export const getMetadata = (note: any): string => {
     return ''.concat(logSeparator())

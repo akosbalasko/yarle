@@ -1,5 +1,5 @@
 export interface YarleOptions {
-    enexFile: string;
+    enexFile?: string;
     outputDir?: string;
     isMetadataNeeded?: boolean;
     isZettelkastenNeeded?: boolean;

@@ -1,9 +1,9 @@
 import * as fsExtra from 'fs-extra';
 import * as fs from 'fs';
 
-import { Path } from './../paths';
-import { getNoteFileName, getNoteName } from './fileNameUtils';
-import { yarleOptions } from './../yarle';
+import { Path } from '../paths';
+import { getNoteFileName, getNoteName } from './filename-utils';
+import { yarleOptions } from '../yarle';
 
 export const paths: Path = {};
 

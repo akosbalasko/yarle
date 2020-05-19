@@ -1,6 +1,6 @@
 {
   "name": "yarle-evernote-to-md",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "Yet Another Rope Ladder from Evernote",
   "keywords": [
     "evernote",
@@ -29,7 +29,7 @@
     "he": "1.2.0",
     "joplin-turndown-plugin-gfm": "1.0.12",
     "jsdom": "15.0.0",
-    "lodash": "^4.17.15",
+    "lodash": "4.17.15",
     "minimist": "1.2.5",
     "moment": "2.22.2",
     "proxyquire": "2.1.3",
