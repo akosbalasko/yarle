@@ -55,6 +55,10 @@ Those markdown notes that contains external resources such pictures or files, ar
 
 ## Release notes
 
+### Version 2.3.0
+
+ - Skipping parts of metadata in configurable via options
+  
 ### Version 2.2.0
 
  - Links are generated in wiki-style links ([[link]]) if `--wikistyle-media-links` option is set
