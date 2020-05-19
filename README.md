@@ -52,6 +52,7 @@ Those markdown notes that contains external resources such pictures or files, ar
 ### Version 2.2.0
 
  - Links can be generated in wiki-style links ([[link]]) if `--wikistyle-media-links` option is set
+ - Bugfix: Notes with single resources are exported fine 
  - Codebase refactored
 
 
