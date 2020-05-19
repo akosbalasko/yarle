@@ -29,6 +29,7 @@ Those markdown notes that contains external resources such pictures or files, ar
  - ```--include-metadata``` , if it's set, then every markdown file will be extended by metadata (tags, time of creation, time of last update, lat-lon coordinates) 
  - ```--zettelkasten``` , puts Zettelkasten Id (based on time of creation) at the beginning of the file name
  - ```--plaintext-notes-only``` , skips those notes, which has attachment, or picture in it.
+ - ```--wikistyle-media-links```, links are generated in wiki-style
 
 ### Using cmd: 
 ```shell
@@ -51,7 +52,7 @@ Those markdown notes that contains external resources such pictures or files, ar
 
 ### Version 2.2.0
 
- - Links can be generated in wiki-style links ([[link]]) if `--wikistyle-media-links` option is set
+ - Links are generated in wiki-style links ([[link]]) if `--wikistyle-media-links` option is set
  - Bugfix: Notes with single resources are exported fine 
  - Codebase refactored
 
