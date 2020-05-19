@@ -49,6 +49,12 @@ Those markdown notes that contains external resources such pictures or files, ar
 
 ## Release notes
 
+### Version 2.2.0
+
+ - Links can be generated in wiki-style links ([[link]]) if `--wikistyle-media-links` option is set
+ - Codebase refactored
+
+
 ### Version 2.1.1
 
  - Conversion of tables, lists, numbered lists and checkboxes are supported.
