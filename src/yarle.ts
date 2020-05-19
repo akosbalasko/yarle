@@ -28,15 +28,15 @@ export const dropTheRope = (options: YarleOptions): void => {
   const notes = notebook['en-export'];
   utils.clearResourceDistDir();
 
-  if (notes)
-    if (Array.isArray(notes['note']))
+  if (notes) {
+    if (Array.isArray(notes['note'])) {
       for (const note of notes['note']) {
         if (!(yarleOptions.plainTextNotesOnly && note['resource'])) {
           processNode(note);
         }
       }
-    else
-    if (!(yarleOptions.plainTextNotesOnly && notes['note'] as any)['resource'])
+    } else if (!(yarleOptions.plainTextNotesOnly && notes['note'] as any)['resource']) {
         processNode(notes['note']);
-
+    }
+  }
 };

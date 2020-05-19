@@ -157,8 +157,7 @@
     ],
     "eofline": true,
     "curly": [
-      true,
-      "as-needed"
+      true
     ],
     "whitespace": [
       true,

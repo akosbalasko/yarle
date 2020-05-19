@@ -30,6 +30,11 @@ Those markdown notes that contains external resources such pictures or files, ar
  - ```--zettelkasten``` , puts Zettelkasten Id (based on time of creation) at the beginning of the file name
  - ```--plaintext-notes-only``` , skips those notes, which has attachment, or picture in it.
  - ```--wikistyle-media-links```, links are generated in wiki-style
+ - ```--skip-latlng```, does not include location into metadata section
+ - ```--skip-creation-time```, does not include creation time into metadata section
+ - ```--skip-update-time```, does not include update time into metadata section
+ - ```--skip-tags``` , does not include tags into metadata section
+       
 
 ### Using cmd: 
 ```shell

@@ -12,12 +12,13 @@ export const processResources = (note: any, content: string): string => {
     const absoluteResourceWorkDir = `${utils.paths.resourcePath}/${relativeResourceWorkDir}`;
 
     utils.clearResourceDir(note);
-    if (Array.isArray(note['resource']))
-      for (const resource of note['resource'])
+    if (Array.isArray(note['resource'])) {
+      for (const resource of note['resource']) {
         resourceHashes = {
           ...resourceHashes,
           ...processResource(absoluteResourceWorkDir, resource)};
-    else {
+      }
+    } else {
       utils.clearResourceDir(note);
       resourceHashes = {
         ...resourceHashes,
@@ -59,8 +60,9 @@ const processResource = (workDir: string, resource: any): any => {
     const hashIndex = resource['recognition']['__cdata'].match(/[a-f0-9]{32}/);
     resourceHash[hashIndex as any] = fileName;
 
-    } else resourceHash['any'] = fileName;
-
+    } else {
+      resourceHash['any'] = fileName;
+    }
     const accessTime = moment(timeStamp);
     fs.writeFileSync(absFilePath, data, 'base64');
     const atime = accessTime.valueOf() / 1000;
@@ -68,4 +70,3 @@ const processResource = (workDir: string, resource: any): any => {
 
     return resourceHash;
 };
-  

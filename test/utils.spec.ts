@@ -6,18 +6,6 @@ import * as moment from 'moment';
 import * as utils from './../src/utils';
 import * as  options from './../src/xml-parser.options';
 
-/*
-    setFileDates,
-    logBeginning,
-    logTags,
-    logLatLong,
-    logUpdateTime,
-    logCreationTime,
-    logTitle,
-    getMetadata,
-    getFilePath,
-    getNoteName,
-*/
 describe('SetFileDates', () => {
     let content;
     let notebook;
@@ -31,7 +19,7 @@ describe('SetFileDates', () => {
     });
 
     it('happy path =» file exists and modified successfully', () => {
-        utils.setFileDates('./test/data/test-justText.enex',notes['note']);
+        utils.setFileDates('./test/data/test-justText.enex', notes['note']);
         const fStat = fs.statSync('./test/data/test-justText.enex');
         const atime = moment(fStat.atime).format();
         const mtime = moment(fStat.mtime).format();
@@ -53,13 +41,13 @@ describe('SetFileDates', () => {
     });
     it('set to now if no updated field in note',  () => {
             notes['note']['updated'] = undefined;
-            utils.setFileDates('./test/data/test-justText.enex',notes['note'])
+            utils.setFileDates('./test/data/test-justText.enex', notes['note']);
             const fStat = fs.statSync('./test/data/test-justText.enex');
             const atime = moment(fStat.atime).format();
             const mtime = moment(fStat.mtime).format();
             const referTime = moment();
             assert.equal(atime, referTime.format());
-            assert.equal(mtime, referTime.format())
+            assert.equal(mtime, referTime.format());
 
     });
 
