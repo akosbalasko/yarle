@@ -45,10 +45,12 @@ export const getTurndownService = (): TurndownService => {
                     },
                 };
                 const nodeProxy =  new Proxy(node.attributes, handler);
-                if (!nodeProxy.href.value.startsWith('http') && !nodeProxy.href.value.startsWith('www')) {
-                    return `[[${node.innerHTML}]]`;
-                } else {
-                    return `[${node.innerHTML}](${nodeProxy.href.value})`;
+                if (nodeProxy.href) {
+                    if (!nodeProxy.href.value.startsWith('http') && !nodeProxy.href.value.startsWith('www')) {
+                        return `[[${node.innerHTML}]]`;
+                    } else {
+                        return `[${node.innerHTML}](${nodeProxy.href.value})`;
+                    }
                 }
             },
         });
