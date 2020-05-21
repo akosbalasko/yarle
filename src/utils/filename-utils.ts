@@ -24,7 +24,7 @@ export const getFilePrefix = (note: any): string => {
   let fileName = '';
   if (yarleOptions.isZettelkastenNeeded) {
     fileName += `${getZettelKastelId(note)}`;
-    if (note['title']) {
+    if (note['title'] && note['title'].toLowerCase() !== 'untitled') {
       fileName += `| ${note['title'].toString()}`;
     }
   } else { fileName +=
