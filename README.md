@@ -56,6 +56,12 @@ Those markdown notes that contains external resources such pictures or files, ar
 
 ## Release notes
 
+### Version 2.3.2
+
+ - Bugfix: untitled notes' title is removed from the generated filename if Zettelkasten is required.
+ - Bugfix: tags are moved to the top and # added as prefix for each if it's missing. 
+
+
 ### Version 2.3.0
 
  - Skipping parts of metadata in configurable via options
