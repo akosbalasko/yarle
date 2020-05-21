@@ -1,4 +1,4 @@
-import { getComplexFilePath, getMetadata, getNoteContent, getNoteTitle, getSimpleFilePath, isComplex } from './utils';
+import { getComplexFilePath, getMetadata, getNoteContent, getNoteTitle, getSimpleFilePath, isComplex, logTags } from './utils';
 import { yarleOptions } from './yarle';
 import { writeMdFile } from './utils/file-utils';
 import { processResources } from './process-resources';
@@ -12,6 +12,9 @@ export const processNode = (note: any): void => {
       getSimpleFilePath(note);
 
     data = data.concat(getNoteTitle(note));
+    if (yarleOptions.isMetadataNeeded) {
+      data = data.concat(logTags(note));
+    }
     if (isComplex(note)) {
       content = processResources(note, content);
     }
