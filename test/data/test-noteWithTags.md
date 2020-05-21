@@ -1,6 +1,9 @@
 # TEST -note with text only
 
+---
 Tag(s): #tag1 #tag2
+
+---
 
 This is the content
 

@@ -5,6 +5,8 @@ import * as fs from 'fs';
 import { getFileIndex } from './filename-utils';
 import { yarleOptions } from './../yarle';
 
+const TAG_SECTION_SEPARATOR = '---';
+
 export const getMetadata = (note: any): string => {
   if (!yarleOptions.isMetadataNeeded) {
     return '';
@@ -59,7 +61,7 @@ export const logTags = (note: any): string => {
     return cleanTag.startsWith('#') ? cleanTag : `#${cleanTag}`;
   });
 
-  return `${EOL}Tag(s): ${tags.join(' ')}${EOL}${EOL}`;
+  return `${EOL}${TAG_SECTION_SEPARATOR}${EOL}Tag(s): ${tags.join(' ')}${EOL}${EOL}${TAG_SECTION_SEPARATOR}${EOL}${EOL}`;
   }
 
   return '';
