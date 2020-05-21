@@ -54,14 +54,14 @@ export const logLatLong = (note: any): string => {
 export const logTags = (note: any): string => {
 
   if (!yarleOptions.skipTags && note['tag']) {
+    const tagArray = Array.isArray(note['tag']) ? note['tag'] : [note['tag']];
+    const tags = tagArray.map((tag: string) => {
+      const cleanTag = tag.replace(/ /g, '-');
 
-  const tags = note['tag'].map((tag: string) => {
-    const cleanTag = tag.replace(/ /g, '-');
+      return cleanTag.startsWith('#') ? cleanTag : `#${cleanTag}`;
+    });
 
-    return cleanTag.startsWith('#') ? cleanTag : `#${cleanTag}`;
-  });
-
-  return `${EOL}${TAG_SECTION_SEPARATOR}${EOL}Tag(s): ${tags.join(' ')}${EOL}${EOL}${TAG_SECTION_SEPARATOR}${EOL}${EOL}`;
+    return `${EOL}${TAG_SECTION_SEPARATOR}${EOL}Tag(s): ${tags.join(' ')}${EOL}${EOL}${TAG_SECTION_SEPARATOR}${EOL}${EOL}`;
   }
 
   return '';
