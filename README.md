@@ -25,7 +25,7 @@ Those markdown notes that contains external resources such pictures or files, ar
 
 ## Options:
 
- - ```--enexFile=<your-enex-file>``` , specifies the exported Evernote notebook
+ - ```--enexSource=<your-enex-file> or the folder of your enex files``` , specifies the exported Evernote notebook(s)
  - ```--outputDir=<relative_output_dir>``` , this is the main output dir in where the extracted markdown files are going to be created
  - ```--include-metadata``` , if it's set, then every markdown file will be extended by metadata (tags, time of creation, time of last update, lat-lon coordinates) 
  - ```--zettelkasten``` , puts Zettelkasten Id (based on time of creation) at the beginning of the file name
