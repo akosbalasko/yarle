@@ -26,7 +26,7 @@ export const dropTheRope = (options: YarleOptions): void => {
   const content = fs.readFileSync(options.enexFile, 'utf8');
   const notebook = parser.parse(content, xmlParserOptions);
   const notes = notebook['en-export'];
-  utils.clearResourceDistDir();
+  // utils.clearResourceDistDir();
 
   if (notes) {
     if (Array.isArray(notes['note'])) {
