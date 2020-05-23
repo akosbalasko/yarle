@@ -56,6 +56,11 @@ Those markdown notes that contains external resources such pictures or files, ar
 
 ## Release notes
 
+### Version 2.4.0
+
+ - Folders can be added as input, in this case all the enex files within this folder will be transformed 
+ - Zettelkasten IDs are unique, if multiple notes has been created in the same minute, then they will be indexed by numbers starting from 1 (except the first, it has no index)
+ 
 ### Version 2.3.2
 
  - Bugfix: untitled notes' title is removed from the generated filename if Zettelkasten is required.
