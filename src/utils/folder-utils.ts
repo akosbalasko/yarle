@@ -57,14 +57,16 @@ export const clearComplexNotesDistDir = (): void => {
 
 export const setPaths = (): void => {
 
-  paths.simpleMdPath = `${process.cwd()}/${yarleOptions.outputDir}/simpleNotes`;
-  paths.complexMdPath = `${process.cwd()}/${yarleOptions.outputDir}/complexNotes`;
-  paths.resourcePath = `${process.cwd()}/${yarleOptions.outputDir}/complexNotes/_resources`;
+  const enexFolder = yarleOptions.enexFile.split('/');
+  const enexFile = (enexFolder.length >= 1 ?  enexFolder[enexFolder.length - 1] : enexFolder[0]).split('.')[0];
+  paths.simpleMdPath = `${process.cwd()}/${yarleOptions.outputDir}/simpleNotes/${enexFile}`;
+  paths.complexMdPath = `${process.cwd()}/${yarleOptions.outputDir}/complexNotes/${enexFile}`;
+  paths.resourcePath = `${process.cwd()}/${yarleOptions.outputDir}/complexNotes/${enexFile}/_resources`;
 
   fsExtra.mkdirsSync(paths.simpleMdPath);
   fsExtra.mkdirsSync(paths.complexMdPath);
   fsExtra.mkdirsSync(paths.resourcePath);
-  clearDistDir(paths.simpleMdPath);
-  clearDistDir(paths.complexMdPath);
+  // clearDistDir(paths.simpleMdPath);
+  // clearDistDir(paths.complexMdPath);
 
 };

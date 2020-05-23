@@ -21,16 +21,9 @@ export const getMetadata = (note: any): string => {
 };
 
 export const getTitle = (dstPath: string, note: any): string => {
-    const index = getFileIndex(dstPath, note);
-    if (index  === '') {
-      return note['title']
-           ? `# ${note['title']}${EOL}`
-           : '';
-    } else {
-      return note['title']
-             ? `# ${note['title']}.${index}${EOL}`
-             : '';
-    }
+  return note['title']
+        ? `# ${note['title']}${EOL}`
+        : '';
 };
 
 export const logCreationTime = (note: any): string => {
