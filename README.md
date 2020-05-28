@@ -18,6 +18,7 @@ A tool that converts enex note(s) into Markdown format in order to let you escap
   
  - clone or download this repo
  - npm i
+ - npm run build
  
 ## Usage:
 
@@ -39,7 +40,7 @@ Those markdown notes that contains external resources such pictures or files, ar
 
 ### Using cmd: 
 ```shell
-  npm run start -- --enexFile=GeneralNotes.enex --outputDir=./out --include-metadata --zettelkasten --plaintext-notes-only
+  npm run start -- --enexSource=GeneralNotes.enex --outputDir=./out --include-metadata --zettelkasten --plaintext-notes-only
 ```
 
 ### In program: 
@@ -55,6 +56,11 @@ Those markdown notes that contains external resources such pictures or files, ar
 ```
 
 ## Release notes
+
+## Version 2.4.1
+
+As a hotfix internal images are skipped to be referenced from the generated Markdown files. 
+
 
 ### Version 2.4.0
 
