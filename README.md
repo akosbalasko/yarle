@@ -18,6 +18,7 @@ A tool that converts enex note(s) into Markdown format in order to let you escap
   
  - clone or download this repo
  - npm i
+ - npm run build
  
 ## Usage:
 
