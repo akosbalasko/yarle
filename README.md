@@ -12,6 +12,10 @@ A tool that converts enex note(s) into Markdown format in order to let you escap
 - Updates md files' access and modification timestamps according to the notes' update time.
 - Organizes all attachments into a _resources subfolder (to keep the notes' folder as simple as possible).
 
+## Restrictions: 
+
+- Notes of Web Clips are not supported (yet).
+
 ## Installation
 
  - [install Node.js](https://nodejs.org/en/download/). Please use Node 10.18.1 because of 3rd party dependencies rebuild problems. 
