@@ -59,7 +59,7 @@ Those markdown notes that contains external resources such pictures or files, ar
 
 ## Version 2.4.1
 
-As a hotfix internal images are skipped to be referenced from the generated Markdown files. 
+As a hotfix internal images (e.g. web clips) are skipped to be referenced from the generated Markdown files. 
 
 
 ### Version 2.4.0
