@@ -14,7 +14,6 @@ export const run = () => {
         isZettelkastenNeeded: argv['zettelkasten'] || false,
         isMetadataNeeded: argv['include-metadata'] || false ,
         plainTextNotesOnly: argv['plaintext-notes-only'] || false ,
-        wikiStyleMediaLinks: argv['wikistyle-media-links'] || false ,
         skipLocation: argv['skip-latlng'] || false ,
         skipCreationTime: argv['skip-creation-time'] || false ,
         skipUpdateTime: argv['skip-update-time'] || false ,

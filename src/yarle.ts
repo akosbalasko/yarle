@@ -13,7 +13,6 @@ export let yarleOptions: YarleOptions  = {
   isMetadataNeeded: false,
   isZettelkastenNeeded: false,
   plainTextNotesOnly: false,
-  wikiStyleMediaLinks: false,
 };
 
 const setOptions = (options: YarleOptions): void => {

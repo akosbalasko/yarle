@@ -4,7 +4,6 @@ export interface YarleOptions {
     isMetadataNeeded?: boolean;
     isZettelkastenNeeded?: boolean;
     plainTextNotesOnly?: boolean;
-    wikiStyleMediaLinks?: boolean;
     skipLocation?: boolean;
     skipCreationTime?: boolean;
     skipUpdateTime?: boolean;
