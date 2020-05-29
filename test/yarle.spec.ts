@@ -288,4 +288,20 @@ describe('dropTheRope ', () => {
                     fs.readFileSync(`${__dirname}/data/test-linksNoteB.md`, 'utf8'));
 
     });
+
+    it('Enex file with highlighted text', () => {
+        const options: YarleOptions = {
+            enexFile: './test/data/test-highlights.enex',
+            outputDir: 'out',
+            isMetadataNeeded: true,
+            plainTextNotesOnly: false,
+
+        };
+        yarle.dropTheRope(options);
+        assert.equal(fs.existsSync(`${__dirname}/../out/simpleNotes/test-highlights/highlights.md`), true);
+
+        assert.equal(fs.readFileSync(`${__dirname}/../out/simpleNotes/test-highlights/highlights.md`, 'utf8'),
+                     fs.readFileSync(`${__dirname}/data/test-highlights.md`, 'utf8'));
+
+    });
 });

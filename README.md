@@ -60,6 +60,11 @@ Those markdown notes that contains external resources such pictures or files, ar
 
 ## Release notes
 
+## Version 2.6.0
+
+ - Highlights supported
+ - Typescript building bugfix
+
 ## Version 2.5.0
 
  - Generating links in wiki-style links is supported by default, its command line argument is removed.

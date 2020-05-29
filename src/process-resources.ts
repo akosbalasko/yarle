@@ -34,18 +34,20 @@ export const processResources = (note: any, content: string): string => {
 
 const addMediaReference = (content: string, resourceHashes: any, hash: any, relativeResourceWorkDir: string): string => {
 
-const src = `./_resources/${relativeResourceWorkDir}/${resourceHashes[hash].replace(/ /g, '\ ')}`;
-let updatedContent = cloneDeep(content);
-const replace = (hash === 'any') ?
-    '<en-media [^>]*hash=".[^>]*\/>' :
-    `<en-media [^>]*hash="${hash}".[^>]*\/>`;
-const re = new RegExp(replace, 'g');
+  const src = `./_resources/${relativeResourceWorkDir}/${resourceHashes[hash].replace(/ /g, '\ ')}`;
+  let updatedContent = cloneDeep(content);
+  const replace = (hash === 'any') ?
+      '<en-media [^>]*hash=".[^>]*\/>' :
+      `<en-media [^>]*hash="${hash}".[^>]*\/>`;
+  const re = new RegExp(replace, 'g');
 
-updatedContent = (!yarleOptions.wikiStyleMediaLinks) ?
-    content.replace(re, `<img alt=${resourceHashes[hash]} src=${src}>`) :
-    content.replace(re, `<a href=${src}>${resourceHashes[hash]}</a>`);
+  /* updatedContent = (!yarleOptions.wikiStyleMediaLinks) ?
+      content.replace(re, `<img alt=${resourceHashes[hash]} src=${src}>`) :
+      content.replace(re, `<a href=${src}>${resourceHashes[hash]}</a>`);
+  */
+  updatedContent = content.replace(re, `<a href=${src}>${resourceHashes[hash]}</a>`);
 
-return updatedContent;
+  return updatedContent;
 
 };
 
