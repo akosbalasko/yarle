@@ -1,7 +1,8 @@
 import * as TurndownService from 'turndown';
 import { gfm } from 'joplin-turndown-plugin-gfm';
 
-import { yarleOptions } from '../yarle';
+import { wikiStyleLinksRule } from './turndown-rules/wikistyle-links-rule';
+import { taskItemsRule } from './turndown-rules/task-items-rule';
 
 export const getTurndownService = (): TurndownService => {
     /* istanbul ignore next */
@@ -18,43 +19,8 @@ export const getTurndownService = (): TurndownService => {
         },
     });
 
-    turndownService.addRule('EvernoteTaskItems', {
-        filter: (node: any) =>  {
-            return node.nodeName === 'EN-TODO';
-        },
-        replacement: (content: any, node: any) => {
-            const handler = {
-                get(target: any, key: any): any {
-                    return target[key];
-                },
-            };
-            const nodeProxy =  new Proxy(node.attributes, handler);
-
-            return `${(nodeProxy.checked.value === 'true' ? '- [x]' : '- [ ]')} ${node.innerHTML}`;
-        },
-    });
-    if (yarleOptions.wikiStyleMediaLinks) {
-        turndownService.addRule('wikistyle links', {
-            filter: (node: any) =>  {
-                return node.nodeName === 'A';
-            },
-            replacement: (content: any, node: any) => {
-                const handler = {
-                    get(target: any, key: any): any {
-                        return target[key];
-                    },
-                };
-                const nodeProxy =  new Proxy(node.attributes, handler);
-                if (nodeProxy.href) {
-                    if (!nodeProxy.href.value.startsWith('http') && !nodeProxy.href.value.startsWith('www')) {
-                        return `[[${node.innerHTML}]]`;
-                    } else {
-                        return `[${node.innerHTML}](${nodeProxy.href.value})`;
-                    }
-                }
-            },
-        });
-    }
+    turndownService.addRule('evernote task items', taskItemsRule);
+    turndownService.addRule('wikistyle links', wikiStyleLinksRule);
     turndownService.use(gfm);
 
     return turndownService;

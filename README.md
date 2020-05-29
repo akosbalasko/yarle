@@ -35,7 +35,6 @@ Those markdown notes that contains external resources such pictures or files, ar
  - ```--include-metadata``` , if it's set, then every markdown file will be extended by metadata (tags, time of creation, time of last update, lat-lon coordinates) 
  - ```--zettelkasten``` , puts Zettelkasten Id (based on time of creation) at the beginning of the file name
  - ```--plaintext-notes-only``` , skips those notes, which has attachment, or picture in it.
- - ```--wikistyle-media-links```, links are generated in wiki-style
  - ```--skip-latlng```, does not include location into metadata section
  - ```--skip-creation-time```, does not include creation time into metadata section
  - ```--skip-update-time```, does not include update time into metadata section
@@ -60,6 +59,11 @@ Those markdown notes that contains external resources such pictures or files, ar
 ```
 
 ## Release notes
+
+## Version 2.5.0
+
+ - Generating links in wiki-style links is supported by default, its command line argument is removed.
+ - Evernote's internal links among the notes are supported in the case if the **note title** and **its created reference** is the same text.  
 
 ## Version 2.4.1
 

@@ -242,7 +242,6 @@ describe('dropTheRope ', () => {
             outputDir: 'out',
             isMetadataNeeded: true,
             plainTextNotesOnly: false,
-            wikiStyleMediaLinks: false,
 
         };
         yarle.dropTheRope(options);
@@ -259,7 +258,6 @@ describe('dropTheRope ', () => {
             outputDir: 'out',
             isMetadataNeeded: true,
             plainTextNotesOnly: false,
-            wikiStyleMediaLinks: true,
 
         };
         yarle.dropTheRope(options);
@@ -267,6 +265,27 @@ describe('dropTheRope ', () => {
 
         assert.equal(fs.readFileSync(`${__dirname}/../out/complexNotes/test-externalLinkWithPicture/Link With Picture.md`, 'utf8'),
                      fs.readFileSync(`${__dirname}/data/test-externalLinkWithPicture.md`, 'utf8'));
+
+    });
+
+    it('Enex file with internal links ', () => {
+        const options: YarleOptions = {
+            enexFile: './test/data/test-links.enex',
+            outputDir: 'out',
+            isMetadataNeeded: true,
+            plainTextNotesOnly: false,
+
+        };
+        yarle.dropTheRope(options);
+        assert.equal(fs.existsSync(`${__dirname}/../out/simpleNotes/test-links/notea.md`), true);
+
+        assert.equal(fs.readFileSync(`${__dirname}/../out/simpleNotes/test-links/notea.md`, 'utf8'),
+                     fs.readFileSync(`${__dirname}/data/test-linksNoteA.md`, 'utf8'));
+
+        assert.equal(fs.existsSync(`${__dirname}/../out/simpleNotes/test-links/noteb.md`), true);
+
+        assert.equal(fs.readFileSync(`${__dirname}/../out/simpleNotes/test-links/noteb.md`, 'utf8'),
+                    fs.readFileSync(`${__dirname}/data/test-linksNoteB.md`, 'utf8'));
 
     });
 });
