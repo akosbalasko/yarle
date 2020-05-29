@@ -41,10 +41,6 @@ const addMediaReference = (content: string, resourceHashes: any, hash: any, rela
       `<en-media [^>]*hash="${hash}".[^>]*\/>`;
   const re = new RegExp(replace, 'g');
 
-  /* updatedContent = (!yarleOptions.wikiStyleMediaLinks) ?
-      content.replace(re, `<img alt=${resourceHashes[hash]} src=${src}>`) :
-      content.replace(re, `<a href=${src}>${resourceHashes[hash]}</a>`);
-  */
   updatedContent = content.replace(re, `<a href=${src}>${resourceHashes[hash]}</a>`);
 
   return updatedContent;
