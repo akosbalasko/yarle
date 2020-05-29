@@ -18,7 +18,9 @@ export const processNode = (note: any): void => {
     if (isComplex(note)) {
       content = processResources(note, content);
     }
+
     const markdown = convertHtml2Md(content);
+
     data = data.concat(markdown);
     if (yarleOptions.isMetadataNeeded) {
       const metadata = getMetadata(note);
