@@ -65,7 +65,7 @@ Those markdown notes that contains external resources such pictures or files, ar
  - Highlights supported
  - Typescript building bugfix
 
-## Version 2.5.0
+## Version 2.5.0
 
  - Generating links in wiki-style links is supported by default, its command line argument is removed.
  - Evernote's internal links among the notes are supported in the case if the **note title** and **its created reference** is the same text.  
