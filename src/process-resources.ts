@@ -37,11 +37,18 @@ const addMediaReference = (content: string, resourceHashes: any, hash: any, rela
   const src = `./_resources/${relativeResourceWorkDir}/${resourceHashes[hash].replace(/ /g, '\ ')}`;
   let updatedContent = cloneDeep(content);
   const replace = (hash === 'any') ?
-      '<en-media [^>]*hash=".[^>]*\/>' :
-      `<en-media [^>]*hash="${hash}".[^>]*\/>`;
+      '<en-media ([^>]*)hash=".([^>]*)>' :
+      `<en-media ([^>]*)hash="${hash}".([^>]*)>`;
+
   const re = new RegExp(replace, 'g');
 
-  updatedContent = content.replace(re, `<a href=${src}>${resourceHashes[hash]}</a>`);
+  const matchedElements = content.match(re);
+
+  updatedContent = (matchedElements.length > 0 &&
+    matchedElements[0].split('type=').length > 1 &&
+    matchedElements[0].split('type=')[1].startsWith('"image')) ?
+    content.replace(re, `<img alt="${resourceHashes[hash]}" src="${src}">`) :
+    content.replace(re, `<a href="${src}">${resourceHashes[hash]}</a>`);
 
   return updatedContent;
 

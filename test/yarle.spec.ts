@@ -123,6 +123,23 @@ describe('dropTheRope ', () => {
 
     });
 
+    it('Enex file with note containing text and picture', () => {
+        const options: YarleOptions = {
+            enexFile: './test/data/test-textwithImage.enex',
+            outputDir: 'out',
+            isMetadataNeeded: true,
+
+        };
+        yarle.dropTheRope(options);
+        assert.equal(fs.existsSync(`${__dirname}/../out/complexNotes/test-textWithImage/untitled.md`), true);
+        assert.equal(fs.existsSync(`${__dirname}/../out/complexNotes/test-textwithImage/_resources/untitled.resources`), true);
+
+        assert.equal(fs.readFileSync(`${__dirname}/../out/complexNotes//test-textWithImage/untitled.md`, 'utf8'),
+        fs.readFileSync(`${__dirname}/data/test-textWithImage.md`, 'utf8'));
+
+    });
+
+
     it('Enex file with multiple notes', () => {
         const options: YarleOptions = {
             enexFile: './test/data/test-twoNotes.enex',
@@ -302,6 +319,22 @@ describe('dropTheRope ', () => {
 
         assert.equal(fs.readFileSync(`${__dirname}/../out/simpleNotes/test-highlights/highlights.md`, 'utf8'),
                      fs.readFileSync(`${__dirname}/data/test-highlights.md`, 'utf8'));
+
+    });
+
+    it('Enex file with PDF attachment', () => {
+        const options: YarleOptions = {
+            enexFile: './test/data/test-pdfAttachment.enex',
+            outputDir: 'out',
+            isMetadataNeeded: true,
+            plainTextNotesOnly: false,
+
+        };
+        yarle.dropTheRope(options);
+        assert.equal(
+            fs.existsSync(`${__dirname}/../out/complexNotes/test-pdfAttachment/pdfattachment.md`), true);
+        assert.equal(
+            fs.existsSync(`${__dirname}/../out/complexNotes/test-pdfAttachment/_resources/pdfattachment.resources/sample.pdf`), true);
 
     });
 });
