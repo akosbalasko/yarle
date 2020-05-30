@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE en-export SYSTEM "http://xml.evernote.com/pub/evernote-export3.dtd">
-<en-export export-date="20181006T084912Z" application="Evernote" version="Evernote Mac 7.5 (457109)">
-<note><title>TEST - note with picture</title><content><![CDATA[<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd"><en-note><div>This is the content</div> <en-media hash="42ea2dcbabcc6ef03771109f5d1cc6d2" type="image/jpeg" /><div><br /></div></en-note>]]></content><created>20181006T084414Z</created><updated>20181006T084610Z</updated><note-attributes><author>akos</author><source>desktop.mac</source><reminder-order>0</reminder-order></note-attributes><resource><data encoding="base64">/9j/4AAQSkZJRgABAQEASABIAAD/7QBmUGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAC4cAVoAAxslRxwC
+<en-export export-date="20200530T093813Z" application="Evernote" version="Evernote Mac 7.14 (458265)">
+<note><title>Untitled</title><content><![CDATA[<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd"><en-note><div>Plain content of the text</div><div><br /></div><div>Image starts<en-media hash="42ea2dcbabcc6ef03771109f5d1cc6d2" type="image/jpeg" /></div><div><br /></div><div> </div><div><br /></div><div><br /></div><div>Image ends</div></en-note>]]></content><created>20200530T093656Z</created><updated>20200530T093749Z</updated><note-attributes><latitude>46.37542724609375</latitude><longitude>18.13947104762727</longitude><altitude>129.0209045410156</altitude><author>akos</author><source>desktop.mac</source><reminder-order>0</reminder-order></note-attributes><resource><data encoding="base64">/9j/4AAQSkZJRgABAQEASABIAAD/7QBmUGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAC4cAVoAAxslRxwC
 AAACAAIcAnQAGkdlZXJ0IFdlZ2dlbi9Ib3RTcG90IE1lZGlhOEJJTQQlAAAAAAAQzRRFUa3iUrclKBNE
 kcBqJf/hAEBFeGlmAABJSSoACAAAAAEAmIICABsAAAAaAAAAAAAAAEdlZXJ0IFdlZ2dlbi9Ib3RTcG90
 IE1lZGlhAAAAAP/hBERodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvADw/eHBhY2tldCBiZWdpbj0i
