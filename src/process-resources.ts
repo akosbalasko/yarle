@@ -44,7 +44,7 @@ const addMediaReference = (content: string, resourceHashes: any, hash: any, rela
 
   const matchedElements = content.match(re);
 
-  updatedContent = (matchedElements.length > 0 &&
+  updatedContent = (matchedElements && matchedElements.length > 0 &&
     matchedElements[0].split('type=').length > 1 &&
     matchedElements[0].split('type=')[1].startsWith('"image')) ?
     content.replace(re, `<img alt="${resourceHashes[hash]}" src="${src}">`) :
@@ -60,7 +60,7 @@ const processResource = (workDir: string, resource: any): any => {
 
     if (resource['resource-attributes'] && resource['resource-attributes']['file-name']) {
       const timeStamp = resource['resource-attributes']['timestamp'];
-      const fileName = resource['resource-attributes']['file-name'];
+      const fileName = resource['resource-attributes']['file-name'].substr(0, 50);
       const absFilePath = `${workDir}/${fileName}`;
       // tslint:disable-next-line: curly
       if (resource['recognition'] && resource['recognition']['__cdata'] && fileName) {
