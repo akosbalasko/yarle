@@ -60,6 +60,10 @@ Those markdown notes that contains external resources such pictures or files, ar
 
 ## Release notes
 
+## Version 2.6.4
+
+ - Small bugfixes 
+
 ## Version 2.6.1
 
  - Attached images are converted as standard Markdown images instead of as wikistyle-links. 
