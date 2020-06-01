@@ -58,24 +58,22 @@ const processResource = (workDir: string, resource: any): any => {
     const resourceHash: any = {};
     const data = resource['data'];
 
-    if (resource['resource-attributes'] && resource['resource-attributes']['file-name']) {
-      const timeStamp = resource['resource-attributes']['timestamp'];
-      const fileName = resource['resource-attributes']['file-name'].substr(0, 50);
-      const absFilePath = `${workDir}/${fileName}`;
-      // tslint:disable-next-line: curly
-      if (resource['recognition'] && resource['recognition']['__cdata'] && fileName) {
-        const hashIndex = resource['recognition']['__cdata'].match(/[a-f0-9]{32}/);
-        resourceHash[hashIndex as any] = fileName;
-      } else {
-        resourceHash['any'] = fileName;
-      }
+    const fileName = utils.getResourceFileName(workDir, resource);
+    const absFilePath = `${workDir}/${fileName}`;
 
-      const accessTime = timeStamp ? moment(timeStamp) : moment();
-      fs.writeFileSync(absFilePath, data, 'base64');
-      const atime = accessTime.valueOf() / 1000;
-      fs.utimesSync(absFilePath, atime, atime);
-
+    // tslint:disable-next-line: curly
+    if (resource['recognition'] && resource['recognition']['__cdata'] && fileName) {
+      const hashIndex = resource['recognition']['__cdata'].match(/[a-f0-9]{32}/);
+      resourceHash[hashIndex as any] = fileName;
+    } else {
+      resourceHash['any'] = fileName;
     }
+    const accessTime = utils.getTimeStampMoment(resource);
+    fs.writeFileSync(absFilePath, data, 'base64');
+    const atime = accessTime.valueOf() / 1000;
+    fs.utimesSync(absFilePath, atime, atime);
+
+
 
     return resourceHash;
 };

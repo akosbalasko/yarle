@@ -52,3 +52,110 @@ describe('SetFileDates', () => {
     });
 
    });
+
+describe('extensions', () => {
+    it('no resource-attributes', () => {
+        const resource = {};
+        const extension = utils.getExtension(resource);
+        assert.equal(extension, 'dat');
+    });
+    it('no mime, no filename', () => {
+        const resource = {
+            'resource-attributes': {
+            },
+        };
+        const extension = utils.getExtension(resource);
+        assert.equal(extension, 'dat');
+    });
+    it('no mime, no filename extension - DAT', () => {
+        const resource = {
+            'resource-attributes': {
+                'file-name': 'fileName',
+            },
+        };
+        const extension = utils.getExtension(resource);
+        assert.equal(extension, 'dat');
+    });
+    it('no mime, filename has extension - JPG', () => {
+        const resource = {
+            'resource-attributes': {
+                'file-name': 'fileName.jpg',
+            },
+        };
+        const extension = utils.getExtension(resource);
+        assert.equal(extension, 'jpg');
+    });
+    it('Mime, filename has no extension - PNG', () => {
+        const resource = {
+            mime: 'image/png',
+            'resource-attributes': {
+                'file-name': 'fileName',
+            },
+        };
+        const extension = utils.getExtension(resource);
+        assert.equal(extension, 'png');
+    });
+    it('Mime, filename has extension, mime has greater precendence - PNG', () => {
+        const resource = {
+            mime: 'image/png',
+            'resource-attributes': {
+                'file-name': 'fileName.jpg',
+            },
+        };
+        const extension = utils.getExtension(resource);
+        assert.equal(extension, 'png');
+    });
+    it('Mime, filename has extension, mime cannot be parsed - PNG', () => {
+        const resource = {
+            mime: 'image-png',
+            'resource-attributes': {
+                'file-name': 'fileName.jpg',
+            },
+        };
+        const extension = utils.getExtension(resource);
+        assert.equal(extension, 'jpg');
+    });
+});
+
+describe('timestamps', () => {
+    it('timestamp returned', () => {
+        const timestamp = '19700101T000000Z';
+        const resource = {
+                'resource-attributes': {
+                    timestamp,
+                },
+        };
+        const accessMoment = utils.getTimeStampMoment(resource);
+        assert.equal(accessMoment.isSame(moment(timestamp)), true);
+    });
+    it('no stored timstamp, return now', () => {
+        const resource = {
+            'resource-attributes': {
+            },
+        };
+        const accessMoment = utils.getTimeStampMoment(resource);
+        assert.equal(accessMoment.isSame(moment()), true);
+    });
+});
+
+describe('filename', () => {
+    it('filename returned', () => {
+        const resource = {
+            mime: 'image/png',
+            'resource-attributes': {
+                'file-name': 'fileName.jpg',
+            },
+        };
+        const fileName = utils.getResourceFileName('./test/data', resource);
+        assert.equal(fileName, 'fileName.png');
+    });
+    it('filename returned, file already exists, no extension', () => {
+        const resource = {
+            'resource-attributes': {
+                'file-name': 'simpleFile',
+            },
+        };
+        const fileName = utils.getResourceFileName('./test/data', resource);
+        assert.equal(fileName, 'simpleFile.1.dat');
+    });
+});

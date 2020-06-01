@@ -337,4 +337,23 @@ describe('dropTheRope ', () => {
             fs.existsSync(`${__dirname}/../out/complexNotes/test-pdfAttachment/_resources/pdfattachment.resources/sample.pdf`), true);
 
     });
+    it.skip('Enex file with PDF attachment', () => {
+        const options: YarleOptions = {
+            enexFile: './test/data/SS Wireless for Chaz [Order number WH10115813].enex',
+            outputDir: 'out',
+            isMetadataNeeded: true,
+            plainTextNotesOnly: false,
+
+        };
+        yarle.dropTheRope(options);
+        assert.equal(
+            fs.existsSync(`${__dirname}/../out/complexNotes/test-pdfAttachment/pdfattachment.md`), true);
+        assert.equal(
+            fs.existsSync(`${__dirname}/../out/complexNotes/test-pdfAttachment/_resources/pdfattachment.resources/sample.pdf`), true);
+
+    });
+
+    
+
+
 });
