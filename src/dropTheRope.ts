@@ -20,7 +20,10 @@ export const run = () => {
         skipTags: argv['skip-tags'] || false ,
     };
     if (options.enexFile.endsWith('.enex')) {
+        console.log(`Converting notes in file: ${options.enexFile}`);
         yarle.dropTheRope(options);
+        console.log(`Conversion finished.`);
+
     } else {
         const enexDir = options.enexFile;
         const enexFiles = fs
@@ -30,7 +33,10 @@ export const run = () => {
             });
         for (const enexFile of enexFiles) {
             options.enexFile = `${enexDir}/${enexFile}`;
+            console.log(`Converting notes in file: ${enexFile}`);
             yarle.dropTheRope(options);
+            console.log(`Conversion finished.`);
+
         }
     }
     process.exit();

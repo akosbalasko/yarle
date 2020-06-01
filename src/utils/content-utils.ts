@@ -2,7 +2,6 @@ import { EOL } from 'os';
 import * as moment from 'moment';
 import * as fs from 'fs';
 
-import { getFileIndex } from './filename-utils';
 import { yarleOptions } from './../yarle';
 
 const TAG_SECTION_SEPARATOR = '---';
@@ -20,7 +19,7 @@ export const getMetadata = (note: any): string => {
 
 };
 
-export const getTitle = (dstPath: string, note: any): string => {
+export const getTitle = (note: any): string => {
   return note['title']
         ? `# ${note['title']}${EOL}`
         : '';
@@ -48,8 +47,8 @@ export const logTags = (note: any): string => {
 
   if (!yarleOptions.skipTags && note['tag']) {
     const tagArray = Array.isArray(note['tag']) ? note['tag'] : [note['tag']];
-    const tags = tagArray.map((tag: string) => {
-      const cleanTag = tag.replace(/ /g, '-');
+    const tags = tagArray.map((tag: any) => {
+      const cleanTag = tag.toString().replace(/ /g, '-');
 
       return cleanTag.startsWith('#') ? cleanTag : `#${cleanTag}`;
     });

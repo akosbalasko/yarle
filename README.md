@@ -60,29 +60,34 @@ Those markdown notes that contains external resources such pictures or files, ar
 
 ## Release notes
 
-## Version 2.6.5
+### Version 2.6.6
+
+ - Logging improved
+ - Bug around tag extraction fixed
+
+### Version 2.6.5
 
  - Bugfix: handling internal resource files (with no filenames) correctly 
   
-## Version 2.6.4
+### Version 2.6.4
 
  - Small bugfixes 
 
-## Version 2.6.1
+### Version 2.6.1
 
  - Attached images are converted as standard Markdown images instead of as wikistyle-links. 
 
-## Version 2.6.0
+### Version 2.6.0
 
  - Highlights supported
  - Typescript building bugfix
 
-## Version 2.5.0
+### Version 2.5.0
 
  - Generating links in wiki-style links is supported by default, its command line argument is removed.
  - Evernote's internal links among the notes are supported in the case if the **note title** and **its created reference** is the same text.  
 
-## Version 2.4.1
+### Version 2.4.1
 
 As a hotfix notes within resources (e.g. web clips) are skipped to be referenced from the generated Markdown files. 
 
