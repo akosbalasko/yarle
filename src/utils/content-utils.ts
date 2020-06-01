@@ -69,3 +69,10 @@ export const setFileDates = (path: string, note: any): void => {
   const mtime = modificationTime.valueOf() / 1000;
   fs.utimesSync(path, mtime, mtime);
 };
+
+export const getTimeStampMoment = (resource: any): any => {
+  return (resource['resource-attributes'] && resource['resource-attributes']['timestamp']) ?
+  moment(resource['resource-attributes']['timestamp']) :
+  moment();
+
+};

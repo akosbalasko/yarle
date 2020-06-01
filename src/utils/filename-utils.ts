@@ -15,6 +15,24 @@ export const getFileIndex = (dstPath: string, fileNamePrefix: string): number | 
   return index;
 
 };
+export const getResourceFileName = (workDir: string, resource: any) => {
+  const UNKNOWNFILENAME = 'unknown_filename';
+
+  const extension = getExtension(resource);
+  let fileName = UNKNOWNFILENAME;
+
+  if (resource['resource-attributes'] && resource['resource-attributes']['file-name']) {
+    const fileNamePrefix = resource['resource-attributes']['file-name'].substr(0, 50);
+
+    fileName = fileNamePrefix.split('.')[0];
+
+  }
+
+  const index = getFileIndex(workDir, fileName);
+  const fileNameWithIndex = index > 0 ? `${fileName}.${index}` : fileName;
+
+  return `${fileNameWithIndex}.${extension}`;
+};
 
 export const getFilePrefix = (note: any): string => {
   return (note['title'] ? `${note['title'].toString()}` : 'Untitled')
@@ -26,6 +44,32 @@ export const getFilePrefix = (note: any): string => {
 
 export const getNoteFileName = (dstPath: string, note: any): string => {
   return `${getNoteName(dstPath, note)}.md`;
+};
+export const getExtensionFromResourceFileName = (resource: any): string => {
+  if (!(resource['resource-attributes'] &&
+      resource['resource-attributes']['file-name'])) {
+      return undefined;
+  }
+  const splitFileName = resource['resource-attributes']['file-name'].split('.');
+
+  return splitFileName.length > 1 ? splitFileName[splitFileName.length - 1] : undefined;
+
+};
+export const getExtensionFromMime = (resource: any): string => {
+  const mime = resource['mime'];
+  if (!mime) {
+    return undefined;
+  }
+  const splitMime = mime.split('/');
+
+  return splitMime.length > 1 ?
+    splitMime[1] : undefined;
+};
+
+export const getExtension = (resource: any): string => {
+  const UNKNOWNEXTENSION = 'dat';
+
+  return getExtensionFromMime(resource) || getExtensionFromResourceFileName(resource) || UNKNOWNEXTENSION;
 };
 
 export const getZettelKastelId = (note: any, dstPath: string): string => {

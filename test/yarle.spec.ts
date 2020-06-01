@@ -337,4 +337,5 @@ describe('dropTheRope ', () => {
             fs.existsSync(`${__dirname}/../out/complexNotes/test-pdfAttachment/_resources/pdfattachment.resources/sample.pdf`), true);
 
     });
+
 });
