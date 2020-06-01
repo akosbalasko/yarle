@@ -60,6 +60,10 @@ Those markdown notes that contains external resources such pictures or files, ar
 
 ## Release notes
 
+## Version 2.6.5
+
+ - Bugfix: handling internal resource files (with no filenames) correctly 
+  
 ## Version 2.6.4
 
  - Small bugfixes 
