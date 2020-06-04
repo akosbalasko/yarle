@@ -5,17 +5,17 @@ import { wikiStyleLinksRule } from './turndown-rules/wikistyle-links-rule';
 import { taskItemsRule } from './turndown-rules/task-items-rule';
 import { spanRule } from './turndown-rules/span';
 
-export const getTurndownService = (): TurndownService => {
+export const getTurndownService = () => {
     /* istanbul ignore next */
     const turndownService = new TurndownService({
         br: '',
-        blankReplacement: (content, node: any) => {
+        blankReplacement: (content: any, node: any) => {
         return node.isBlock ? '\n\n' : '';
         },
-        keepReplacement: (content, node: any) => {
+        keepReplacement: (content: any, node: any) => {
         return node.isBlock ? `\n${node.outerHTML}\n` : node.outerHTML;
         },
-        defaultReplacement: (content, node: any) => {
+        defaultReplacement: (content: any, node: any) => {
         return node.isBlock ? `\n${content}\n` : content;
         },
     });

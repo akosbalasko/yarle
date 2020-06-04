@@ -4,6 +4,7 @@ import * as moment from 'moment';
 import { yarleOptions } from '../yarle';
 
 const FILENAME_LENGTH = 50;
+const FILENAME_DELIMITER = '_';
 
 export const getFileIndex = (dstPath: string, fileNamePrefix: string): number | string => {
 
@@ -35,12 +36,14 @@ export const getResourceFileName = (workDir: string, resource: any) => {
 };
 
 export const getFilePrefix = (note: any): string => {
-  return (note['title'] ? `${note['title'].toString()}` : 'Untitled')
-  .substring(0, FILENAME_LENGTH)
-  .replace(/[\\/!.;+:_\?]+/g, ' ')
-  .toLowerCase();
+  const cutName = (note['title'] ? `${note['title'].toString()}` : 'Untitled').substring(0, FILENAME_LENGTH);
+
+  return makeFilePrefixOsCompatible(cutName).toLowerCase();
 
   };
+export const makeFilePrefixOsCompatible = (name: string): string => {
+  return name.replace(/(\!|\.|\;|\:|\<|\>|\"|\\|\/|\||\*|\?)/g, FILENAME_DELIMITER);
+};
 
 export const getNoteFileName = (dstPath: string, note: any): string => {
   return `${getNoteName(dstPath, note)}.md`;
@@ -56,7 +59,7 @@ export const getExtensionFromResourceFileName = (resource: any): string => {
 
 };
 export const getExtensionFromMime = (resource: any): string => {
-  const mime = resource['mime'];
+  const mime = resource.mime;
   if (!mime) {
     return undefined;
   }

@@ -3,7 +3,7 @@ import { Rule } from 'turndown';
 import { filterByNodeName } from './filter-by-nodename';
 import { getAttributeProxy } from './get-attribute-proxy';
 
-export const wikiStyleLinksRule: Rule = {
+export const wikiStyleLinksRule = {
     filter: filterByNodeName('A'),
     replacement: (content: any, node: any) => {
         const nodeProxy = getAttributeProxy(node);
