@@ -23,7 +23,6 @@
   "dependencies": {
     "@ronomon/utimes": "2.3.0",
     "@types/fs-extra": "8.1.0",
-    "@types/leakage": "^0.4.0",
     "chai": "4.2.0",
     "execSync": "1.0.2",
     "fast-xml-parser": "3.12.5",
