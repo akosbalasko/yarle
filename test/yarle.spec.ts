@@ -5,116 +5,116 @@ import * as utils from './../src/utils';
 import * as yarle from './../src/yarle';
 import { YarleOptions } from './../src/YarleOptions';
 
-describe('dropTheRope ', () => {
+describe('dropTheRope ', async () => {
 
-    afterEach(() => {
+    afterEach(async () => {
          utils.clearSimpleNotesDistDir();
          utils.clearComplexNotesDistDir();
 
     });
 
-    it('Empty enex file - throw eoent', () => {
+    it.skip('Empty enex file - throw eoent', async () => {
         let errorHappened = false;
         const options: YarleOptions = {
             enexFile: './test/data/do_not_exists.enex',
         };
         try {
-            yarle.dropTheRope(options);
+            await yarle.dropTheRope(options);
         } catch (e) {
             errorHappened = true;
         }
         assert.equal(true, errorHappened);
     });
 
-    it('Enex file with note containing text only', () => {
+    it('Enex file with note containing text only', async () => {
         const options: YarleOptions = {
             enexFile: './test/data/test-justText.enex',
             outputDir: 'out',
             isMetadataNeeded: true,
         };
-        yarle.dropTheRope(options);
+        await yarle.dropTheRope(options);
         assert.equal(fs.existsSync(`${__dirname}/../out/simpleNotes/test-justText/test -note with text only.md`), true);
         assert.equal(fs.readFileSync(`${__dirname}/../out/simpleNotes/test-justText/test -note with text only.md`, 'utf8'),
                      fs.readFileSync(`${__dirname}/data/test-justText.md`, 'utf8'));
 
     });
 
-    it('Note with tags', () => {
+    it('Note with tags', async () => {
         const options: YarleOptions = {
             enexFile: './test/data/test-noteWithTags.enex',
             outputDir: 'out',
             isMetadataNeeded: true,
         };
-        yarle.dropTheRope(options);
+        await yarle.dropTheRope(options);
         assert.equal(fs.existsSync(`${__dirname}/../out/simpleNotes/test-noteWithTags/test -note with text only.md`), true);
         assert.equal(fs.readFileSync(`${__dirname}/../out/simpleNotes/test-noteWithTags/test -note with text only.md`, 'utf8'),
                      fs.readFileSync(`${__dirname}/data/test-noteWithTags.md`, 'utf8'));
 
     });
 
-    it('Note with zettelkastel id', () => {
+    it('Note with zettelkastel id', async () => {
         const options: YarleOptions = {
             enexFile: './test/data/test-noteWithZettelKasten.enex',
             outputDir: 'out',
             isMetadataNeeded: true,
             isZettelkastenNeeded: true,
         };
-        yarle.dropTheRope(options);
+        await yarle.dropTheRope(options);
         assert.equal(fs.existsSync(`${__dirname}/../out/simpleNotes/test-noteWithZettelKasten/201810061043 test -note with text only.md`), true);
         assert.equal(fs.readFileSync(`${__dirname}/../out/simpleNotes/test-noteWithZettelKasten/201810061043 test -note with text only.md`, 'utf8'),
                      fs.readFileSync(`${__dirname}/data/test-noteWithZettelKasten.md`, 'utf8'));
 
     });
 
-    it.skip('Note with zettelkastel id - no title', () => {
+    it.skip('Note with zettelkastel id - no title', async () => {
         const options: YarleOptions = {
             enexFile: './test/data/test-noteWithZettelKasten-notitle.enex',
             outputDir: 'out',
             isMetadataNeeded: true,
             isZettelkastenNeeded: true,
         };
-        yarle.dropTheRope(options);
+        await yarle.dropTheRope(options);
         assert.equal(fs.existsSync(`${__dirname}/../out/simpleNotes/test-noteWithZettelKasten-notitle/201810061043.md`), true);
         assert.equal(fs.readFileSync(`${__dirname}/../out/simpleNotes/test-noteWithZettelKasten-notitle/201810061043.md`, 'utf8'),
                      fs.readFileSync(`${__dirname}/data/test-noteWithZettelKasten-notitle.md`, 'utf8'));
 
     });
 
-    it('Note without metadata', () => {
+    it('Note without metadata', async () => {
         const options: YarleOptions = {
             enexFile: './test/data/test-noteWithoutMetadata.enex',
             outputDir: 'out',
             isMetadataNeeded: false,
             isZettelkastenNeeded: false,
         };
-        yarle.dropTheRope(options);
+        await yarle.dropTheRope(options);
         assert.equal(fs.existsSync(`${__dirname}/../out/simpleNotes/test-noteWithoutMetadata/test -note without metadata.md`), true);
         assert.equal(fs.readFileSync(`${__dirname}/../out/simpleNotes/test-noteWithoutMetadata/test -note without metadata.md`, 'utf8'),
                      fs.readFileSync(`${__dirname}/data/test-noteWithoutMetadata.md`, 'utf8'));
 
     });
 
-    it('Note with latlong', () => {
+    it('Note with latlong', async () => {
         const options: YarleOptions = {
             enexFile: './test/data/test-noteWithLatLong.enex',
             outputDir: 'out',
             isMetadataNeeded: true,
         };
-        yarle.dropTheRope(options);
+        await yarle.dropTheRope(options);
         assert.equal(fs.existsSync(`${__dirname}/../out/simpleNotes/test-noteWithLatLong/test.md`), true);
         assert.equal(fs.readFileSync(`${__dirname}/../out/simpleNotes/test-noteWithLatLong/test.md`, 'utf8'),
                      fs.readFileSync(`${__dirname}/data/test-noteWithLatLong.md`, 'utf8'));
 
     });
 
-    it('Enex file with note containing a picture', () => {
+    it('Enex file with note containing a picture', async () => {
         const options: YarleOptions = {
             enexFile: './test/data/test-withPicture.enex',
             outputDir: 'out',
             isMetadataNeeded: true,
 
         };
-        yarle.dropTheRope(options);
+        await yarle.dropTheRope(options);
         assert.equal(fs.existsSync(`${__dirname}/../out/complexNotes/test-withPicture/test - note with picture.md`), true);
         assert.equal(fs.existsSync(`${__dirname}/../out/complexNotes/test-withPicture/_resources/test_-_note_with_picture.resources`), true);
 
@@ -123,14 +123,14 @@ describe('dropTheRope ', () => {
 
     });
 
-    it('Enex file with note containing text and picture', () => {
+    it('Enex file with note containing text and picture', async () => {
         const options: YarleOptions = {
             enexFile: './test/data/test-textwithImage.enex',
             outputDir: 'out',
             isMetadataNeeded: true,
 
         };
-        yarle.dropTheRope(options);
+        await yarle.dropTheRope(options);
         assert.equal(fs.existsSync(`${__dirname}/../out/complexNotes/test-textWithImage/untitled.md`), true);
         assert.equal(fs.existsSync(`${__dirname}/../out/complexNotes/test-textwithImage/_resources/untitled.resources`), true);
 
@@ -140,14 +140,14 @@ describe('dropTheRope ', () => {
     });
 
 
-    it('Enex file with multiple notes', () => {
+    it('Enex file with multiple notes', async () => {
         const options: YarleOptions = {
             enexFile: './test/data/test-twoNotes.enex',
             outputDir: 'out',
             isMetadataNeeded: true,
 
         };
-        yarle.dropTheRope(options);
+        await yarle.dropTheRope(options);
         assert.equal(fs.existsSync(`${__dirname}/../out/complexNotes/test-twoNotes/test - note with picture.md`), true);
         assert.equal(fs.existsSync(`${__dirname}/../out/complexNotes/test-twoNotes/_resources/test_-_note_with_picture.resources`), true);
 
@@ -160,14 +160,14 @@ describe('dropTheRope ', () => {
 
     });
 
-    it('Enex file with note containing more pictures', () => {
+    it('Enex file with note containing more pictures', async () => {
         const options: YarleOptions = {
             enexFile: './test/data/test-threePictures.enex',
             outputDir: 'out',
             isMetadataNeeded: true,
 
         };
-        yarle.dropTheRope(options);
+        await yarle.dropTheRope(options);
         assert.equal(fs.existsSync(`${__dirname}/../out/complexNotes/test-threePictures/test - note with more pictures.md`), true);
         assert.equal(fs.existsSync(`${__dirname}/../out/complexNotes/test-threePictures/_resources/test_-_note_with_more_pictures.resources`), true);
 
@@ -176,7 +176,7 @@ describe('dropTheRope ', () => {
 
     });
 
-    it('Enex file plaintextonly - skipping note that has resource in it', () => {
+    it('Enex file plaintextonly - skipping note that has resource in it', async () => {
         const options: YarleOptions = {
             enexFile: './test/data/test-threePictures.enex',
             outputDir: 'out',
@@ -184,11 +184,11 @@ describe('dropTheRope ', () => {
             plainTextNotesOnly: true,
 
         };
-        yarle.dropTheRope(options);
+        await yarle.dropTheRope(options);
         assert.equal(fs.existsSync(`${__dirname}/../out/complexNotestest-threePictures//test - note with more pictures.md`), false);
 
     });
-    it('Enex file skip Location', () => {
+    it('Enex file skip Location', async () => {
         const options: YarleOptions = {
             enexFile: './test/data/test-skipLocation.enex',
             outputDir: 'out',
@@ -196,12 +196,12 @@ describe('dropTheRope ', () => {
             skipLocation: true,
 
         };
-        yarle.dropTheRope(options);
+        await yarle.dropTheRope(options);
         assert.equal(fs.existsSync(`${__dirname}/../out/simpleNotes/test-skipLocation/SkipLocation.md`), true);
         assert.equal(fs.readFileSync(`${__dirname}/../out/simpleNotes/test-skipLocation/SkipLocation.md`, 'utf8'),
         fs.readFileSync(`${__dirname}/data/test-SkipLocation.md`, 'utf8'));
     });
-    it('Enex file with two notes with same names', () => {
+    it('Enex file with two notes with same names', async () => {
         const options: YarleOptions = {
             enexFile: './test/data/test-twoNotesWithSameName.enex',
             outputDir: 'out',
@@ -210,7 +210,7 @@ describe('dropTheRope ', () => {
             skipLocation: false,
 
         };
-        yarle.dropTheRope(options);
+        await yarle.dropTheRope(options);
         assert.equal(fs.existsSync(`${__dirname}/../out/simpleNotes/test-twoNotesWithSameName/untitled.md`), true);
 
         assert.equal(fs.readFileSync(`${__dirname}/../out/simpleNotes/test-twoNotesWithSameName/untitled.md`, 'utf8'),
@@ -221,7 +221,7 @@ describe('dropTheRope ', () => {
                     fs.readFileSync(`${__dirname}/data/test-twoNotesWithSameName.1.md`, 'utf8'));
     });
 
-    it('Enex file with table', () => {
+    it('Enex file with table', async () => {
         const options: YarleOptions = {
             enexFile: './test/data/test-table.enex',
             outputDir: 'out',
@@ -229,7 +229,7 @@ describe('dropTheRope ', () => {
             plainTextNotesOnly: false,
 
         };
-        yarle.dropTheRope(options);
+        await yarle.dropTheRope(options);
         assert.equal(fs.existsSync(`${__dirname}/../out/simpleNotes/test-table/table.md`), true);
 
         assert.equal(fs.readFileSync(`${__dirname}/../out/simpleNotes/test-table/table.md`, 'utf8'),
@@ -237,7 +237,7 @@ describe('dropTheRope ', () => {
 
     });
 
-    it('Enex file with specialItems', () => {
+    it('Enex file with specialItems', async () => {
         const options: YarleOptions = {
             enexFile: './test/data/test-specialItems.enex',
             outputDir: 'out',
@@ -245,7 +245,7 @@ describe('dropTheRope ', () => {
             plainTextNotesOnly: false,
 
         };
-        yarle.dropTheRope(options);
+        await yarle.dropTheRope(options);
         assert.equal(fs.existsSync(`${__dirname}/../out/simpleNotes/test-specialItems/special items.md`), true);
 
         assert.equal(fs.readFileSync(`${__dirname}/../out/simpleNotes/test-specialItems/special items.md`, 'utf8'),
@@ -253,7 +253,7 @@ describe('dropTheRope ', () => {
 
     });
 
-    it('Enex file with links ', () => {
+    it('Enex file with links ', async () => {
         const options: YarleOptions = {
             enexFile: './test/data/test-externalLink.enex',
             outputDir: 'out',
@@ -261,7 +261,7 @@ describe('dropTheRope ', () => {
             plainTextNotesOnly: false,
 
         };
-        yarle.dropTheRope(options);
+        await yarle.dropTheRope(options);
         assert.equal(fs.existsSync(`${__dirname}/../out/simpleNotes/test-externalLink/External Link.md`), true);
 
         assert.equal(fs.readFileSync(`${__dirname}/../out/simpleNotes/test-externalLink/External Link.md`, 'utf8'),
@@ -269,7 +269,7 @@ describe('dropTheRope ', () => {
 
     });
 
-    it('Enex file with links with resources', () => {
+    it('Enex file with links with resources', async () => {
         const options: YarleOptions = {
             enexFile: './test/data/test-externalLinkWithPicture.enex',
             outputDir: 'out',
@@ -277,7 +277,7 @@ describe('dropTheRope ', () => {
             plainTextNotesOnly: false,
 
         };
-        yarle.dropTheRope(options);
+        await yarle.dropTheRope(options);
         assert.equal(fs.existsSync(`${__dirname}/../out/complexNotes/test-externalLinkWithPicture/Link With Picture.md`), true);
 
         assert.equal(fs.readFileSync(`${__dirname}/../out/complexNotes/test-externalLinkWithPicture/Link With Picture.md`, 'utf8'),
@@ -285,7 +285,7 @@ describe('dropTheRope ', () => {
 
     });
 
-    it('Enex file with internal links ', () => {
+    it('Enex file with internal links ', async () => {
         const options: YarleOptions = {
             enexFile: './test/data/test-links.enex',
             outputDir: 'out',
@@ -293,7 +293,7 @@ describe('dropTheRope ', () => {
             plainTextNotesOnly: false,
 
         };
-        yarle.dropTheRope(options);
+        await yarle.dropTheRope(options);
         assert.equal(fs.existsSync(`${__dirname}/../out/simpleNotes/test-links/notea.md`), true);
 
         assert.equal(fs.readFileSync(`${__dirname}/../out/simpleNotes/test-links/notea.md`, 'utf8'),
@@ -306,7 +306,7 @@ describe('dropTheRope ', () => {
 
     });
 
-    it('Enex file with highlighted text', () => {
+    it('Enex file with highlighted text', async () => {
         const options: YarleOptions = {
             enexFile: './test/data/test-highlights.enex',
             outputDir: 'out',
@@ -314,7 +314,7 @@ describe('dropTheRope ', () => {
             plainTextNotesOnly: false,
 
         };
-        yarle.dropTheRope(options);
+        await yarle.dropTheRope(options);
         assert.equal(fs.existsSync(`${__dirname}/../out/simpleNotes/test-highlights/highlights.md`), true);
 
         assert.equal(fs.readFileSync(`${__dirname}/../out/simpleNotes/test-highlights/highlights.md`, 'utf8'),
@@ -322,7 +322,7 @@ describe('dropTheRope ', () => {
 
     });
 
-    it('Enex file with PDF attachment', () => {
+    it('Enex file with PDF attachment', async () => {
         const options: YarleOptions = {
             enexFile: './test/data/test-pdfAttachment.enex',
             outputDir: 'out',
@@ -330,7 +330,7 @@ describe('dropTheRope ', () => {
             plainTextNotesOnly: false,
 
         };
-        yarle.dropTheRope(options);
+        await yarle.dropTheRope(options);
         assert.equal(
             fs.existsSync(`${__dirname}/../out/complexNotes/test-pdfAttachment/pdfattachment.md`), true);
         assert.equal(
@@ -338,4 +338,15 @@ describe('dropTheRope ', () => {
 
     });
 
+    it.skip('Leakage tests', async () => {
+
+        const options: YarleOptions = {
+        enexFile: './test/data/341.enex',
+        outputDir: '341-out',
+        isMetadataNeeded: true,
+        plainTextNotesOnly: false,
+        };
+        await yarle.dropTheRope(options);
+        console.log('conversion finished');
+    });
 });

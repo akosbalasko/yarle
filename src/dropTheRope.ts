@@ -5,7 +5,7 @@ import * as fs from 'fs';
 import * as yarle from './yarle';
 import { YarleOptions } from './YarleOptions';
 
-export const run = () => {
+export const run = async () => {
     const argv = minimist(process.argv.slice(2));
 
     const options: YarleOptions = {
@@ -21,8 +21,7 @@ export const run = () => {
     };
     if (options.enexFile.endsWith('.enex')) {
         console.log(`Converting notes in file: ${options.enexFile}`);
-        yarle.dropTheRope(options);
-        console.log(`Conversion finished.`);
+        await yarle.dropTheRope(options);
 
     } else {
         const enexDir = options.enexFile;
@@ -34,8 +33,7 @@ export const run = () => {
         for (const enexFile of enexFiles) {
             options.enexFile = `${enexDir}/${enexFile}`;
             console.log(`Converting notes in file: ${enexFile}`);
-            yarle.dropTheRope(options);
-            console.log(`Conversion finished.`);
+            await yarle.dropTheRope(options);
 
         }
     }

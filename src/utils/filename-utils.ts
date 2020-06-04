@@ -56,7 +56,7 @@ export const getExtensionFromResourceFileName = (resource: any): string => {
 
 };
 export const getExtensionFromMime = (resource: any): string => {
-  const mime = resource['mime'];
+  const mime = resource.mime;
   if (!mime) {
     return undefined;
   }

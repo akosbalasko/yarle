@@ -8,12 +8,13 @@ import { yarleOptions } from './yarle';
 export const processResources = (note: any, content: string): string => {
     let resourceHashes: any = {};
     let updatedContent = cloneDeep(content);
+
     const relativeResourceWorkDir = `${utils.getResourceDir(utils.paths.complexMdPath, note)}.resources`;
     const absoluteResourceWorkDir = `${utils.paths.resourcePath}/${relativeResourceWorkDir}`;
 
     utils.clearResourceDir(note);
-    if (Array.isArray(note['resource'])) {
-      for (const resource of note['resource']) {
+    if (Array.isArray(note.resource)) {
+      for (const resource of note.resource) {
         resourceHashes = {
           ...resourceHashes,
           ...processResource(absoluteResourceWorkDir, resource)};
@@ -22,7 +23,7 @@ export const processResources = (note: any, content: string): string => {
       utils.clearResourceDir(note);
       resourceHashes = {
         ...resourceHashes,
-        ...processResource(absoluteResourceWorkDir, note['resource'])};
+        ...processResource(absoluteResourceWorkDir, note.resource)};
     }
 
     for (const hash of Object.keys(resourceHashes)) {
@@ -56,14 +57,14 @@ const addMediaReference = (content: string, resourceHashes: any, hash: any, rela
 
 const processResource = (workDir: string, resource: any): any => {
     const resourceHash: any = {};
-    const data = resource['data'];
+    const data = resource.data.$text;
 
     const fileName = utils.getResourceFileName(workDir, resource);
     const absFilePath = `${workDir}/${fileName}`;
 
     // tslint:disable-next-line: curly
-    if (resource['recognition'] && resource['recognition']['__cdata'] && fileName) {
-      const hashIndex = resource['recognition']['__cdata'].match(/[a-f0-9]{32}/);
+    if (resource.recognition && fileName) {
+      const hashIndex = resource.recognition.match(/[a-f0-9]{32}/);
       resourceHash[hashIndex as any] = fileName;
     } else {
       resourceHash['any'] = fileName;
@@ -72,8 +73,6 @@ const processResource = (workDir: string, resource: any): any => {
     fs.writeFileSync(absFilePath, data, 'base64');
     const atime = accessTime.valueOf() / 1000;
     fs.utimesSync(absFilePath, atime, atime);
-
-
 
     return resourceHash;
 };

@@ -5,7 +5,7 @@ import { filterByNodeName } from './filter-by-nodename';
 import { getAttributeProxy } from './get-attribute-proxy';
 const EVERNOTE_HIGHLIGHT = '-evernote-highlight:true;';
 
-export const spanRule: Rule = {
+export const spanRule = {
     filter: filterByNodeName('SPAN'),
     replacement: (content: any, node: any) => {
         const nodeProxy = getAttributeProxy(node);
