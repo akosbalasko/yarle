@@ -338,15 +338,4 @@ describe('dropTheRope ', async () => {
 
     });
 
-    it.skip('Leakage tests', async () => {
-
-        const options: YarleOptions = {
-        enexFile: './test/data/341.enex',
-        outputDir: '341-out',
-        isMetadataNeeded: true,
-        plainTextNotesOnly: false,
-        };
-        await yarle.dropTheRope(options);
-        console.log('conversion finished');
-    });
 });
