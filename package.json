@@ -15,7 +15,7 @@
     "build": "tsc --project ./src/tsconfig.json",
     "coverage": "nyc mocha",
     "lint": "tslint --project ./src/tsconfig.json",
-    "start": "node --max-old-space-size=128 --expose-gc ./dist/dropTheRope.js",
+    "start": "node --max-old-space-size=1024 ./dist/dropTheRope.js",
     "test": "nyc --reporter=html --reporter=text mocha",
     "postinstall": "cd ./node_modules/turndown; npm i; npm run build"
   },
