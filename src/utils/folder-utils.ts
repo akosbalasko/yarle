@@ -9,9 +9,8 @@ import { getNoteFileName, getNoteName } from './filename-utils';
 export const paths: Path = {};
 
 export const getResourceDir = (dstPath: string, note: any): string => {
-  const noteFileName = getNoteName(dstPath, note);
+  return getNoteName(dstPath, note).replace(/\s/g, '_');
 
-  return noteFileName.replace(/ /g, '_');
 };
 
 const getFilePath = (dstPath: string, note: any): string => {

@@ -8,9 +8,6 @@ import { convertHtml2Md } from './convert-html-to-md';
 export const processNode = (note: any): void => {
     const title = getTitle(note);
   
-    // heapdump.writeSnapshot(`./${Date.now()}.heapsnapshot`);
-    // global.gc();
-    // console.log('Manual gc', process.memoryUsage());
     console.log(`Converting note ${title}...`);
     try {
       let data = '';
