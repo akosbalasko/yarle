@@ -60,6 +60,11 @@ Those markdown notes that contains external resources such pictures or files, ar
 
 ## Release notes
 
+### Version 2.7.0
+
+ - Huge performance improvement, works with enex files that contain 2k+ notes
+ - Bugfix: generates OS-friendly file and folder names 
+
 ### Version 2.6.6
 
  - Logging improved
