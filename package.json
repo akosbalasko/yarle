@@ -1,6 +1,6 @@
 {
   "name": "yarle-evernote-to-md",
-  "version": "2.7.0",
+  "version": "2.7.1",
   "description": "Yet Another Rope Ladder from Evernote",
   "keywords": [
     "evernote",
@@ -17,7 +17,7 @@
     "lint": "tslint --project ./src/tsconfig.json",
     "start": "node --max-old-space-size=1024 ./dist/dropTheRope.js",
     "test": "nyc --reporter=html --reporter=text mocha",
-    "postinstall": "cd ./node_modules/turndown; npm i; npm run build"
+    "postinstall": "node build.js"
   },
   "author": "Akos Balasko",
   "dependencies": {
