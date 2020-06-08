@@ -4,6 +4,7 @@ import { gfm } from 'joplin-turndown-plugin-gfm';
 import { wikiStyleLinksRule } from './turndown-rules/wikistyle-links-rule';
 import { taskItemsRule } from './turndown-rules/task-items-rule';
 import { spanRule } from './turndown-rules/span';
+import { imagesRule } from './turndown-rules/images-rule';
 
 export const getTurndownService = () => {
     /* istanbul ignore next */
@@ -22,6 +23,7 @@ export const getTurndownService = () => {
 
     turndownService.addRule('evernote task items', taskItemsRule);
     turndownService.addRule('wikistyle links', wikiStyleLinksRule);
+    turndownService.addRule('images', imagesRule);
     turndownService.addRule('span', spanRule);
     turndownService.use(gfm);
 

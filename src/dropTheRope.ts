@@ -18,6 +18,7 @@ export const run = async () => {
         skipCreationTime: argv['skip-creation-time'] || false ,
         skipUpdateTime: argv['skip-update-time'] || false ,
         skipTags: argv['skip-tags'] || false ,
+        obsidianStyle: argv['obsidian-style'] || false,
     };
     if (options.enexFile.endsWith('.enex')) {
         console.log(`Converting notes in file: ${options.enexFile}`);

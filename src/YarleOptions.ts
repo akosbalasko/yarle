@@ -8,4 +8,5 @@ export interface YarleOptions {
     skipCreationTime?: boolean;
     skipUpdateTime?: boolean;
     skipTags?: boolean;
+    obsidianStyle?: boolean;
 }
