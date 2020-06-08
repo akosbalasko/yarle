@@ -4,7 +4,7 @@ import * as fs from 'fs';
 
 import * as yarle from './yarle';
 import { YarleOptions } from './YarleOptions';
-import { OutputFormat } from 'output-format';
+import { OutputFormat } from './output-format';
 
 export const run = async () => {
     const argv = minimist(process.argv.slice(2));
@@ -19,7 +19,7 @@ export const run = async () => {
         skipCreationTime: argv['skip-creation-time'] || false ,
         skipUpdateTime: argv['skip-update-time'] || false ,
         skipTags: argv['skip-tags'] || false ,
-        outputFormat: argv['output-format'] || OutputFormat.StandardMD,
+        outputFormat: argv['outputFormat'] || OutputFormat.StandardMD,
     };
     if (options.enexFile.endsWith('.enex')) {
         console.log(`Converting notes in file: ${options.enexFile}`);
