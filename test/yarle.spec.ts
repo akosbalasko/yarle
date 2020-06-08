@@ -1,6 +1,8 @@
 import * as assert from 'assert';
 import * as fs from 'fs';
 
+import { OutputFormat } from '../src/output-format';
+
 import * as utils from './../src/utils';
 import * as yarle from './../src/yarle';
 import { YarleOptions } from './../src/YarleOptions';
@@ -327,7 +329,7 @@ describe('dropTheRope ', async () => {
             outputDir: 'out',
             isMetadataNeeded: true,
             plainTextNotesOnly: false,
-            obsidianStyle: true,
+            outputFormat: OutputFormat.ObsidianMD,
 
         };
         await yarle.dropTheRope(options);
@@ -358,7 +360,7 @@ describe('dropTheRope ', async () => {
             enexFile: './test/data/test-twoNotes.enex',
             outputDir: 'out',
             isMetadataNeeded: true,
-            obsidianStyle: true,
+            outputFormat: OutputFormat.ObsidianMD,
 
         };
         await yarle.dropTheRope(options);
