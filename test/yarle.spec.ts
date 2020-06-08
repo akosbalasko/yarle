@@ -1,6 +1,8 @@
 import * as assert from 'assert';
 import * as fs from 'fs';
 
+import { OutputFormat } from '../src/output-format';
+
 import * as utils from './../src/utils';
 import * as yarle from './../src/yarle';
 import { YarleOptions } from './../src/YarleOptions';
@@ -321,7 +323,22 @@ describe('dropTheRope ', async () => {
                      fs.readFileSync(`${__dirname}/data/test-highlights.md`, 'utf8'));
 
     });
+    it('Enex file with highlighted text - Obsidian-style', async () => {
+        const options: YarleOptions = {
+            enexFile: './test/data/test-highlights.enex',
+            outputDir: 'out',
+            isMetadataNeeded: true,
+            plainTextNotesOnly: false,
+            outputFormat: OutputFormat.ObsidianMD,
 
+        };
+        await yarle.dropTheRope(options);
+        assert.equal(fs.existsSync(`${__dirname}/../out/simpleNotes/test-highlights/highlights.md`), true);
+
+        assert.equal(fs.readFileSync(`${__dirname}/../out/simpleNotes/test-highlights/highlights.md`, 'utf8'),
+                     fs.readFileSync(`${__dirname}/data/test-highlightsObsidian.md`, 'utf8'));
+
+    });
     it('Enex file with PDF attachment', async () => {
         const options: YarleOptions = {
             enexFile: './test/data/test-pdfAttachment.enex',
@@ -335,6 +352,27 @@ describe('dropTheRope ', async () => {
             fs.existsSync(`${__dirname}/../out/complexNotes/test-pdfAttachment/pdfattachment.md`), true);
         assert.equal(
             fs.existsSync(`${__dirname}/../out/complexNotes/test-pdfAttachment/_resources/pdfattachment.resources/sample.pdf`), true);
+
+    });
+
+    it('Enex file obsidian style', async () => {
+        const options: YarleOptions = {
+            enexFile: './test/data/test-twoNotes.enex',
+            outputDir: 'out',
+            isMetadataNeeded: true,
+            outputFormat: OutputFormat.ObsidianMD,
+
+        };
+        await yarle.dropTheRope(options);
+        assert.equal(fs.existsSync(`${__dirname}/../out/complexNotes/test-twoNotes/test - note with picture.md`), true);
+        assert.equal(fs.existsSync(`${__dirname}/../out/complexNotes/test-twoNotes/_resources/test_-_note_with_picture.resources`), true);
+
+        assert.equal(fs.readFileSync(`${__dirname}/../out/complexNotes/test-twoNotes/test - note with picture.md`, 'utf8'),
+                     fs.readFileSync(`${__dirname}/data/test-obsidianLink.md`, 'utf8'));
+        assert.equal(fs.existsSync(`${__dirname}/../out/simpleNotes/test-twoNotes/test -note with text only.md`), true);
+
+        assert.equal(fs.readFileSync(`${__dirname}/../out/simpleNotes/test-twoNotes/test -note with text only.md`, 'utf8'),
+                    fs.readFileSync(`${__dirname}/data/test-twoNotes-text.md`, 'utf8'));
 
     });
 

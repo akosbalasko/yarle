@@ -39,11 +39,12 @@ Those markdown notes that contains external resources such pictures or files, ar
  - ```--skip-creation-time```, does not include creation time into metadata section
  - ```--skip-update-time```, does not include update time into metadata section
  - ```--skip-tags``` , does not include tags into metadata section
+ - ```--outputFormat```, generates internal file links and highlights in Obsidian-style: highlights are going to be bounded by `==` instead of \` characters, file links are going to be as follows: `![[file-name]]` instead of `![file-name](file-name)`. Possible values: `ObsidianMD` to get Obsidian-style notes, `StandardMD` or skip it completely, if you prefere Standard Markdown format. 
        
 
 ### Using cmd: 
 ```shell
-  npm run start -- --enexSource=GeneralNotes.enex --outputDir=./out --include-metadata --zettelkasten --plaintext-notes-only
+  npm run start -- --enexSource=GeneralNotes.enex --outputDir=./out --include-metadata --zettelkasten --plaintext-notes-only --outputFormat=ObsidianMD
 ```
 
 ### In program: 
@@ -59,6 +60,10 @@ Those markdown notes that contains external resources such pictures or files, ar
 ```
 
 ## Release notes
+
+### Version 2.8.0
+
+- New command-line argument introduced : `--outputFormat`.  Its optional, one possible value is `ObsidianMD` that configures Yarle to generate internal file links and highlights in Obsidian-style. 
 
 ### Version 2.7.0
 

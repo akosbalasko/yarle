@@ -1,3 +1,5 @@
+import { OutputFormat } from './output-format';
+
 export interface YarleOptions {
     enexFile?: string;
     outputDir?: string;
@@ -8,4 +10,5 @@ export interface YarleOptions {
     skipCreationTime?: boolean;
     skipUpdateTime?: boolean;
     skipTags?: boolean;
+    outputFormat?: OutputFormat;
 }
