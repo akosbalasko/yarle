@@ -29,7 +29,7 @@
     "fs-extra": "4.0.2",
     "he": "1.2.0",
     "joplin-turndown-plugin-gfm": "1.0.12",
-    "lodash": "4.17.15",
+    "lodash": "4.17.19",
     "minimist": "1.2.5",
     "moment": "2.22.2",
     "proxyquire": "2.1.3",
