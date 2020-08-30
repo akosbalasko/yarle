@@ -1,8 +1,7 @@
-
 import * as fs from 'fs';
 import * as parser from 'fast-xml-parser';
 import * as XmlStream from 'xml-stream';
-import * as flow from 'xml-flow';
+import * as flow from 'xml-flow';
 
 import { xmlParserOptions } from './xml-parser.options';
 import * as utils from './utils';
@@ -28,21 +27,21 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
   const xmlStream = flow(stream);
 
   return new Promise((resolve, reject) => {
-
     xmlStream.on('tag:note', (note: any) => {
       processNode(note);
       ++noteNumber;
       console.log(`Notes converted: ${noteNumber}`);
     });
-    xmlStream.on('end', () => {
+    xmlStream.on('end', () => {
       console.log('Conversion finished');
       return resolve();
-
     });
-    xmlStream.on('error', () => {
+    xmlStream.on('error', () => {
       return reject();
     });
-   /* xml.preserve('en-export', true);
+    stream.on('error', reject); // enoent errors happen on the file stream not the xml stream
+
+    /* xml.preserve('en-export', true);
     xml.collect('note');
     xml.on('endElement: note', (item: any) => {
       let np = new NodeProcessor();
