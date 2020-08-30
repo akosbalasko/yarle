@@ -102,7 +102,7 @@ describe('dropTheRope ', async () => {
     );
   });
 
-  it.skip('Note with zettelkastel id - no title', async () => {
+  it('Note with zettelkastel id - no title', async () => {
     const options: YarleOptions = {
       enexFile: './test/data/test-noteWithZettelKasten-notitle.enex',
       outputDir: 'out',
@@ -112,13 +112,13 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-noteWithZettelKasten-notitle/201810061043.md`
+        `${__dirname}/../out/simpleNotes/test-noteWithZettelKasten-notitle/201810060943.md`
       ),
       true
     );
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-noteWithZettelKasten-notitle/201810061043.md`,
+        `${__dirname}/../out/simpleNotes/test-noteWithZettelKasten-notitle/201810060943.md`,
         'utf8'
       ),
       fs.readFileSync(
