@@ -66,6 +66,6 @@
     "mocha": "5.2.0",
     "nyc": "13.0.1",
     "sinon": "9.0.2",
-    "timezone-mock": "^1.1.1"
+    "timezone-mock": "1.1.1"
   }
 }
