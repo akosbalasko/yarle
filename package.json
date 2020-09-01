@@ -17,6 +17,7 @@
     "lint": "tslint --project ./src/tsconfig.json",
     "start": "node --max-old-space-size=1024 ./dist/dropTheRope.js",
     "test": "nyc --reporter=html --reporter=text mocha",
+    "test-watch": "mocha --watch",
     "postinstall": "node build.js"
   },
   "author": "Akos Balasko",
@@ -64,6 +65,7 @@
     "@types/sinon": "9.0.1",
     "mocha": "5.2.0",
     "nyc": "13.0.1",
-    "sinon": "9.0.2"
+    "sinon": "9.0.2",
+    "timezone-mock": "^1.1.1"
   }
 }
