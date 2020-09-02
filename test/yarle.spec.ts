@@ -228,7 +228,7 @@ describe('dropTheRope ', async () => {
 
   it('Enex file with note containing text and picture', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-textwithImage.enex',
+      enexFile: './test/data/test-textWithImage.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
     };
@@ -241,7 +241,7 @@ describe('dropTheRope ', async () => {
     );
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/complexNotes/test-textwithImage/_resources/untitled.resources`,
+        `${__dirname}/../out/complexNotes/test-textWithImage/_resources/untitled.resources`,
       ),
       true,
     );
@@ -352,16 +352,16 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-skipLocation/SkipLocation.md`,
+        `${__dirname}/../out/simpleNotes/test-skipLocation/skiplocation.md`,
       ),
       true,
     );
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-skipLocation/SkipLocation.md`,
+        `${__dirname}/../out/simpleNotes/test-skipLocation/skiplocation.md`,
         'utf8',
       ),
-      fs.readFileSync(`${__dirname}/data/test-SkipLocation.md`, 'utf8'),
+      fs.readFileSync(`${__dirname}/data/test-skipLocation.md`, 'utf8'),
     );
   });
   it('Enex file with two notes with same names', async () => {
@@ -462,14 +462,14 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-externalLink/External Link.md`,
+        `${__dirname}/../out/simpleNotes/test-externalLink/external link.md`,
       ),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-externalLink/External Link.md`,
+        `${__dirname}/../out/simpleNotes/test-externalLink/external link.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-externalLink.md`, 'utf8'),
@@ -486,14 +486,14 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/complexNotes/test-externalLinkWithPicture/Link With Picture.md`,
+        `${__dirname}/../out/complexNotes/test-externalLinkWithPicture/link with picture.md`,
       ),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/complexNotes/test-externalLinkWithPicture/Link With Picture.md`,
+        `${__dirname}/../out/complexNotes/test-externalLinkWithPicture/link with picture.md`,
         'utf8',
       ),
       fs.readFileSync(
