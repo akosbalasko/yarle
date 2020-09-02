@@ -1,6 +1,5 @@
 
-
-![logo](screens/yarle-logo.png)
+![logo](screens/yarle-logo-yg.png)
 
 # yarle: Yet Another Rope Ladder from Evernote
 
