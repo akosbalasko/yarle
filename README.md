@@ -64,11 +64,12 @@ Those markdown notes that contains external resources such pictures or files, ar
 
 ### Version 2.9.0
 
-- NodeJs version limitation resolved. 
+- NodeJs version limitation resolved.
 - Feature requested in [Issue#39](https://github.com/akosbalasko/yarle/issues/39) implemented: the conversion returns the number of the failed notes if any.
 - Logo added to readme.
 - Previously if unit tests were executed in timezone differs from Western Europe, they were failed. It's fixed now.
 - Bug reported in [Issue#39](https://github.com/akosbalasko/yarle/issues/39) fixed.
+- Action added to test Yarle in different Node versions.
 
 Special thanks to [Rodrigo Vieira](https://github.com/rodbv) for the contribution!  
 
