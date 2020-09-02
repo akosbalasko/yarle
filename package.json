@@ -22,7 +22,6 @@
   },
   "author": "Akos Balasko",
   "dependencies": {
-    "@ronomon/utimes": "2.3.0",
     "@types/fs-extra": "8.1.0",
     "chai": "4.2.0",
     "execSync": "1.0.2",
