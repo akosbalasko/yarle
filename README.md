@@ -1,4 +1,4 @@
-
+![All Tests](https://github.com/rodbv/yarle/workflows/All%20Tests/badge.svg?branch=master)
 
 # yarle: Yet Another Rope Ladder from Evernote
 
