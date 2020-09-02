@@ -19,11 +19,12 @@ A tool that converts enex note(s) into Markdown format in order to let you escap
 
 ## Installation
 
- - [install Node.js](https://nodejs.org/en/download/).
+ 0. [Install Node.js](https://nodejs.org/en/download/).
   
- - clone or download this repo
- - npm i
- - npm run build
+ 1. Clone or download this repo.
+ 2. Open a terminal and navigate to the root folder of the repo.
+ 3. Type `npm i`, it installs the dependencies.
+ 4. Type `npm run build` to build the package.
  
 ## Usage:
 
