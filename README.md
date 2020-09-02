@@ -1,4 +1,5 @@
 
+![logo](screens/yarle-logo.png)
 
 # yarle: Yet Another Rope Ladder from Evernote
 
@@ -18,11 +19,12 @@ A tool that converts enex note(s) into Markdown format in order to let you escap
 
 ## Installation
 
- - [install Node.js](https://nodejs.org/en/download/). Please use Node 10.18.1 because of 3rd party dependencies rebuild problems. 
+ 0. [Install Node.js](https://nodejs.org/en/download/).
   
- - clone or download this repo
- - npm i
- - npm run build
+ 1. Clone or download this repo.
+ 2. Open a terminal and navigate to the root folder of the repo.
+ 3. Type `npm i`, it installs the dependencies.
+ 4. Type `npm run build` to build the package.
  
 ## Usage:
 
@@ -60,6 +62,17 @@ Those markdown notes that contains external resources such pictures or files, ar
 ```
 
 ## Release notes
+
+### Version 2.9.0
+
+- NodeJs version limitation resolved.
+- Feature requested in [Issue#39](https://github.com/akosbalasko/yarle/issues/39) implemented: the conversion returns the number of the failed notes if any.
+- Logo added to readme.
+- Previously if unit tests were executed in timezone differs from Western Europe, they were failed. It's fixed now.
+- Bug reported in [Issue#39](https://github.com/akosbalasko/yarle/issues/39) fixed.
+- Action added to test Yarle in different Node versions.
+
+Special thanks to [Rodrigo Vieira](https://github.com/rodbv) for the contribution!  
 
 ### Version 2.8.0
 
