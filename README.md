@@ -70,7 +70,7 @@ Those markdown notes that contains external resources such pictures or files, ar
 - Previously if unit tests were executed in timezone differs from Western Europe, they were failed. It's fixed now.
 - Bug reported in [Issue#39](https://github.com/akosbalasko/yarle/issues/39) fixed.
 
-Special thanks to @rodbv for the contribution!  
+Special thanks to [Rodrigo Vieira](https://github.com/rodbv) for the contribution!  
 
 ### Version 2.8.0
 
