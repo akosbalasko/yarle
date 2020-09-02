@@ -1,5 +1,5 @@
 {
-    "check-coverage": true,
+    "check-coverage": false,
     "per-file": true,
     "lines": 90,
     "statements": 90,
