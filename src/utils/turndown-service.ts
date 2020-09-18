@@ -26,6 +26,6 @@ export const getTurndownService = () => {
     turndownService.addRule('images', imagesRule);
     turndownService.addRule('span', spanRule);
     turndownService.use(gfm);
-
+    
     return turndownService;
 };

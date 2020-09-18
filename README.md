@@ -63,6 +63,10 @@ Those markdown notes that contains external resources such pictures or files, ar
 
 ## Release notes
 
+### Version 2.9.1
+
+- Enclosing brackets around links are removed to avoid causing troubles in MD file (fixes: [Issue#50](https://github.com/akosbalasko/yarle/issues/50)) 
+
 ### Version 2.9.0
 
 - NodeJs version limitation resolved.
