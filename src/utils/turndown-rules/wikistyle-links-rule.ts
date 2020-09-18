@@ -5,6 +5,9 @@ import { yarleOptions } from './../../yarle';
 import { filterByNodeName } from './filter-by-nodename';
 import { getAttributeProxy } from './get-attribute-proxy';
 
+export const removeBrackets = (str: string): string => {
+    return str.replace(/\[|\]/g,'');
+}
 export const wikiStyleLinksRule = {
     filter: filterByNodeName('A'),
     replacement: (content: any, node: any) => {
@@ -13,10 +16,10 @@ export const wikiStyleLinksRule = {
             return (
                 (!nodeProxy.href.value.startsWith('http') && !nodeProxy.href.value.startsWith('www')) ||
                 nodeProxy.href.value.startsWith('evernote://')) ?
-                `[[${node.innerHTML}]]` :
+                `[[${removeBrackets(node.innerHTML)}]]` :
                 (yarleOptions.outputFormat === OutputFormat.ObsidianMD) ?
-                `![[${node.innerHTML}]]` :
-                `[${node.innerHTML}](${nodeProxy.href.value})`;
+                `![[${removeBrackets(node.innerHTML)}]]` :
+                `[${removeBrackets(node.innerHTML)}](${nodeProxy.href.value})`;
         }
     },
 };
