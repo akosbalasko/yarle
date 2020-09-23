@@ -25,6 +25,8 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
   const xml = new XmlStream(stream);
   let noteNumber = 0;
   let failed = 0;
+  let totalNotes = 0;
+
   const xmlStream = flow(stream);
 
   return new Promise((resolve, reject) => {
@@ -34,7 +36,9 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
 
       return reject();
     };
-
+    xmlStream.on('tag:en-export', (enExport: any) => {
+      totalNotes = Array.isArray(enExport.note) ? enExport.note.length : 1;
+    });
     xmlStream.on('tag:note', (note: any) => {
       processNode(note);
       ++noteNumber;
@@ -43,7 +47,9 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
     xmlStream.on('end', () => {
       const success = noteNumber - failed;
       console.log(
-        `Conversion finished: ${success} succeeded, ${failed} failed`,
+        `Conversion finished: ${success} succeeded, ${
+          totalNotes - success
+        } failed.`
       );
 
       return resolve();
