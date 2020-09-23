@@ -35,6 +35,49 @@ describe('dropTheRope ', async () => {
     assert.equal(true, errorHappened);
   });
 
+  it.skip('Enex file with note huge cell', async () => {
+    const options: YarleOptions = {
+      enexFile: './test/data/backgroundGenes.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/simpleNotes/test-justText/test -note with text only.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/simpleNotes/test-justText/test -note with text only.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-justText.md`, 'utf8'),
+    );
+  });
+  it('Enex file with note WithHyperlinkRefs', async () => {
+    const options: YarleOptions = {
+      enexFile: './test/data/test-bracketlinks.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/simpleNotes/test-bracketlinks/test - bracketlinks.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/simpleNotes/test-bracketlinks/test - bracketlinks.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-bracketlinks.md`, 'utf8'),
+    );
+  });
+  
   it('Enex file with note containing text only', async () => {
     const options: YarleOptions = {
       enexFile: './test/data/test-justText.enex',
