@@ -77,7 +77,7 @@ describe('dropTheRope ', async () => {
       fs.readFileSync(`${__dirname}/data/test-bracketlinks.md`, 'utf8'),
     );
   });
-  
+
   it('Enex file with note containing text only', async () => {
     const options: YarleOptions = {
       enexFile: './test/data/test-justText.enex',
@@ -693,4 +693,30 @@ describe('dropTheRope ', async () => {
       fs.readFileSync(`${__dirname}/data/test-twoNotes-text.md`, 'utf8'),
     );
   });
+
+  it('Enex file - no span style', async () => {
+    const options: YarleOptions = {
+      enexFile: './test/data/test-nospanstyle.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      plainTextNotesOnly: false,
+      outputFormat: OutputFormat.ObsidianMD,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/simpleNotes/test-nospanstyle/test-nospanstyle.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/simpleNotes/test-nospanstyle/test-nospanstyle.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-nospanstyle.md`, 'utf8'),
+    );
+  });
+
 });

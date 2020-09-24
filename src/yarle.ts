@@ -1,3 +1,4 @@
+// tslint:disable:no-console
 import * as fs from 'fs';
 import * as parser from 'fast-xml-parser';
 import * as XmlStream from 'xml-stream';
@@ -49,7 +50,7 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
       console.log(
         `Conversion finished: ${success} succeeded, ${
           totalNotes - success
-        } failed.`
+        } failed.`,
       );
 
       return resolve();
@@ -63,7 +64,7 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
       let np = new NodeProcessor();
       np.processNode(item);
       np = undefined;
-      
+
      console.log('note');
     });*/
   });
@@ -72,23 +73,8 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
 export const dropTheRope = async (options: YarleOptions): Promise<void> => {
   setOptions(options);
   utils.setPaths();
-  /* const content = fs.readFileSync(options.enexFile, 'utf8');
-  const notebook = parser.parse(content, xmlParserOptions);
-  const notes = notebook['en-export'];*/
+
   return parseStream(options);
-  /*
-    const notes = notebook['en-export'];
-    // utils.clearResourceDistDir();
-  
-    if (notes) {
-      if (Array.isArray(notes['note'])) {
-        for (const [index, note] of notes['note'].entries()) {
-          if (!(yarleOptions.plainTextNotesOnly && note.resource)) {
-            processNode(note);
-          }
-        }
-      } else if (!(yarleOptions.plainTextNotesOnly && notes['note'] as any).resource) {
-          processNode(notes['note']);
-      }
-    }*/
+
 };
+// tslint:enable:no-console
