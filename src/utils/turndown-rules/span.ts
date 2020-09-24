@@ -18,5 +18,7 @@ export const spanRule = {
                 `${HIGHLIGHT_SEPARATOR}${content}${HIGHLIGHT_SEPARATOR}` :
                 content;
         }
+
+        return content;
     },
 };

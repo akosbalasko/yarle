@@ -1,4 +1,6 @@
 /* istanbul ignore file */
+// tslint:disable:no-console
+
 import * as minimist from 'minimist';
 import * as fs from 'fs';
 
@@ -42,3 +44,4 @@ export const run = async () => {
     process.exit();
 };
 run();
+// tslint:enable:no-console
