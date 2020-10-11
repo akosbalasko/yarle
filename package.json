@@ -29,6 +29,7 @@
     "fs-extra": "4.0.2",
     "he": "1.2.0",
     "joplin-turndown-plugin-gfm": "1.0.12",
+    "jsdom": "^16.4.0",
     "lodash": "4.17.19",
     "minimist": "1.2.5",
     "moment": "2.22.2",
@@ -44,8 +45,8 @@
     "xml-stream": "^0.4.5"
   },
   "engines": {
-    "node": "10.18.1",
-    "npm": "5.6.0"
+    "node": ">=10.18.1",
+    "npm": ">=5.6.0"
   },
   "repository": {
     "type": "git",
@@ -55,6 +56,7 @@
   "license": "(MIT OR Apache-2.0)",
   "devDependencies": {
     "@types/he": "1.1.1",
+    "@types/jsdom": "^16.2.4",
     "@types/lodash": "^4.14.151",
     "@types/minimist": "1.2.0",
     "@types/mocha": "7.0.2",
