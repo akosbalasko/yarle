@@ -1,10 +1,7 @@
 // tslint:disable:no-console
 import * as fs from 'fs';
-import * as parser from 'fast-xml-parser';
 import * as XmlStream from 'xml-stream';
-import * as flow from 'xml-flow';
 
-import { xmlParserOptions } from './xml-parser.options';
 import * as utils from './utils';
 import { YarleOptions } from './YarleOptions';
 import { processNode } from './process-node';
@@ -28,8 +25,6 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
   let failed = 0;
   let totalNotes = 0;
 
-  const xmlStream = flow(stream);
-
   return new Promise((resolve, reject) => {
     const logAndReject = (error: Error) => {
       console.log(`Could not convert ${options.enexFile}:\n${error.message}`);
@@ -37,15 +32,21 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
 
       return reject();
     };
-    xmlStream.on('tag:en-export', (enExport: any) => {
+  
+    xml.collect('tag');
+    xml.collect('resource');
+    xml.on('startElement: en-export', (enExport: any) => {
       totalNotes = Array.isArray(enExport.note) ? enExport.note.length : 1;
     });
-    xmlStream.on('tag:note', (note: any) => {
+
+    xml.on('endElement: note', (note: any) => {
+      
       processNode(note);
       ++noteNumber;
       console.log(`Notes processed: ${noteNumber}`);
     });
-    xmlStream.on('end', () => {
+
+    xml.on('end', () => {
       const success = noteNumber - failed;
       console.log(
         `Conversion finished: ${success} succeeded, ${
@@ -55,18 +56,8 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
 
       return resolve();
     });
-    xmlStream.on('error', logAndReject);
+    xml.on('error', logAndReject);
     stream.on('error', logAndReject);
-
-    /* xml.preserve('en-export', true);
-    xml.collect('note');
-    xml.on('endElement: note', (item: any) => {
-      let np = new NodeProcessor();
-      np.processNode(item);
-      np = undefined;
-
-     console.log('note');
-    });*/
   });
 };
 

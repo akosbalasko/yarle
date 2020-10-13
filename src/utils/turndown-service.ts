@@ -6,7 +6,6 @@ import { taskItemsRule } from './turndown-rules/task-items-rule';
 import { spanRule } from './turndown-rules/span';
 import { imagesRule } from './turndown-rules/images-rule';
 
-export const getTurndownService = () => {
     /* istanbul ignore next */
     const turndownService = new TurndownService({
         br: '',
@@ -26,6 +25,8 @@ export const getTurndownService = () => {
     turndownService.addRule('images', imagesRule);
     turndownService.addRule('span', spanRule);
     turndownService.use(gfm);
+
+export const getTurndownService = () => {
 
     return turndownService;
 };

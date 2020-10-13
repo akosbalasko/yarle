@@ -17,8 +17,7 @@
     "lint": "tslint --project ./src/tsconfig.json",
     "start": "node --max-old-space-size=1024 ./dist/dropTheRope.js",
     "test": "nyc --reporter=html --reporter=text mocha",
-    "test-watch": "mocha --watch",
-    "postinstall": "node build.js"
+    "test-watch": "mocha --watch"
   },
   "author": "Akos Balasko",
   "dependencies": {
@@ -38,10 +37,9 @@
     "tslint": "5.19.0",
     "tslint-config-prettier": "1.13.0",
     "tslint-microsoft-contrib": "6.2.0",
-    "turndown": "https://github.com/akosbalasko/turndown/tarball/master",
+    "turndown": "7.0.0",
     "typescript": "3.8.3",
-    "xml-flow": "^1.0.4",
-    "xml-stream": "^0.4.5"
+    "xml-stream": "0.4.5"
   },
   "engines": {
     "node": "10.18.1",
