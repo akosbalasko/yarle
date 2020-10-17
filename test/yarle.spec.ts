@@ -761,4 +761,25 @@ describe('dropTheRope ', async () => {
       fs.readFileSync(`${__dirname}/data/test-sublists-valid.md`, 'utf8'),
     );
   });
+  it('Note with sublists (multiple)', async () => {
+    const options: YarleOptions = {
+      enexFile: './test/data/test-sublists-multiple.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/simpleNotes/test-sublists-multiple/test - sublists - multiple.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/simpleNotes/test-sublists-multiple/test - sublists - multiple.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-sublists-multiple.md`, 'utf8'),
+    );
+  });
 });
