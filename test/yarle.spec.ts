@@ -761,4 +761,155 @@ describe('dropTheRope ', async () => {
       fs.readFileSync(`${__dirname}/data/test-sublists-valid.md`, 'utf8'),
     );
   });
+
+  it('Webclip - more picture with the same name (different index)', async () => {
+    const options: YarleOptions = {
+      enexFile: './test/data/Evernote_abc.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      plainTextNotesOnly: false,
+      outputFormat: OutputFormat.ObsidianMD,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/simpleNotes/test-nospanstyle/test-nospanstyle.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/simpleNotes/test-nospanstyle/test-nospanstyle.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-nospanstyle.md`, 'utf8'),
+    );
+  });
+
+
+  it.only('Webclip - article', async () => {
+    const options: YarleOptions = {
+      enexFile: './test/data/test-webclip_article.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      plainTextNotesOnly: false,
+      outputFormat: OutputFormat.ObsidianMD,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/complexNotes/test-webclip_article/yarle.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/complexNotes/test-webclip_article/yarle.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-webclip_article.md`, 'utf8'),
+    );
+  });
+
+  it.skip('Webclip - fullpage', async () => {
+    const options: YarleOptions = {
+      enexFile: './test/data/webclip_fullpage.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      plainTextNotesOnly: false,
+      outputFormat: OutputFormat.ObsidianMD,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/simpleNotes/test-nospanstyle/test-nospanstyle.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/simpleNotes/test-nospanstyle/test-nospanstyle.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-nospanstyle.md`, 'utf8'),
+    );
+  });
+
+  it.only('Webclip - simplified article', async () => {
+    const options: YarleOptions = {
+      enexFile: './test/data/test-webclip_simplifiedarticle.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      plainTextNotesOnly: false,
+      outputFormat: OutputFormat.ObsidianMD,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/simpleNotes/test-webclip_simplifiedarticle/yarle.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/simpleNotes/test-webclip_simplifiedarticle/yarle.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-webclip_simplifiedarticle.md`, 'utf8'),
+    );
+  });
+
+  it('Webclip - bookmark', async () => {
+    const options: YarleOptions = {
+      enexFile: './test/data/test-webclip_bookmark.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      plainTextNotesOnly: false,
+      outputFormat: OutputFormat.ObsidianMD,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/complexNotes/test-webclip_bookmark/yarle.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/complexNotes/test-webclip_bookmark/yarle.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-webclip_bookmark.md`, 'utf8'),
+    );
+  });
+
+  it('Webclip - screenshot', async () => {
+    const options: YarleOptions = {
+      enexFile: './test/data/test-webclip_screenshot.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      plainTextNotesOnly: false,
+      outputFormat: OutputFormat.ObsidianMD,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/complexNotes/webclip_screenshot/yarle.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/complexNotes/webclip_screenshot/yarle.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-webclip_screenshot.md`, 'utf8'),
+    );
+  });
 });

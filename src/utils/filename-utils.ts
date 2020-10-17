@@ -2,6 +2,7 @@ import * as fs from 'fs';
 import * as moment from 'moment';
 
 import { yarleOptions } from '../yarle';
+import { ResourceFileProperties } from './../models/ResourceFileProperties';
 
 const FILENAME_LENGTH = 50;
 const FILENAME_DELIMITER = '_';
@@ -16,7 +17,7 @@ export const getFileIndex = (dstPath: string, fileNamePrefix: string): number | 
   return index;
 
 };
-export const getResourceFileName = (workDir: string, resource: any) => {
+export const getResourceFileProperties = (workDir: string, resource: any): ResourceFileProperties => {
   const UNKNOWNFILENAME = 'unknown_filename';
 
   const extension = getExtension(resource);
@@ -32,7 +33,11 @@ export const getResourceFileName = (workDir: string, resource: any) => {
   const index = getFileIndex(workDir, fileName);
   const fileNameWithIndex = index > 0 ? `${fileName}.${index}` : fileName;
 
-  return `${fileNameWithIndex}.${extension}`;
+  return {
+    fileName: `${fileNameWithIndex}.${extension}`,
+    extension,
+    index,
+  };
 };
 
 export const getFilePrefix = (note: any): string => {

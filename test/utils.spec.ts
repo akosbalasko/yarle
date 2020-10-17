@@ -146,8 +146,8 @@ describe('filename', () => {
                 'file-name': 'fileName.jpg',
             },
         };
-        const fileName = utils.getResourceFileName('./test/data', resource);
-        assert.equal(fileName, 'fileName.png');
+        const fileProps = utils.getResourceFileProperties('./test/data', resource);
+        assert.equal(fileProps.fileName, 'fileName.png');
     });
     it('filename returned, file already exists, no extension', () => {
         const resource = {
@@ -155,7 +155,7 @@ describe('filename', () => {
                 'file-name': 'simpleFile',
             },
         };
-        const fileName = utils.getResourceFileName('./test/data', resource);
-        assert.equal(fileName, 'simpleFile.1.dat');
+        const fileProps = utils.getResourceFileProperties('./test/data', resource);
+        assert.equal(fileProps.fileName, 'simpleFile.1.dat');
     });
 });
