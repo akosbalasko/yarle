@@ -761,4 +761,27 @@ describe('dropTheRope ', async () => {
       fs.readFileSync(`${__dirname}/data/test-sublists-valid.md`, 'utf8'),
     );
   });
+  it('Enex file urlEncode whitespace', async () => {
+    const options: YarleOptions = {
+      enexFile: './test/data/test-urlencode.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.UrlEncodeMD,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/complexNotes/test-urlencode/test - note with picture (filename with spaces).md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/complexNotes/test-urlencode/test - note with picture (filename with spaces).md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-urlencode.md`, 'utf8'),
+    );
+  });
 });
