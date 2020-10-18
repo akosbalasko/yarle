@@ -719,4 +719,67 @@ describe('dropTheRope ', async () => {
     );
   });
 
+  it('Note with sublists', async () => {
+    const options: YarleOptions = {
+      enexFile: './test/data/test-sublists.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/simpleNotes/test-sublists/test - sublists.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/simpleNotes/test-sublists/test - sublists.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-sublists.md`, 'utf8'),
+    );
+  });
+  it('Note with sublists (valid html)', async () => {
+    const options: YarleOptions = {
+      enexFile: './test/data/test-sublists-valid.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/simpleNotes/test-sublists-valid/test - sublists - valid.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/simpleNotes/test-sublists-valid/test - sublists - valid.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-sublists-valid.md`, 'utf8'),
+    );
+  });
+  it('Note with sublists (multiple)', async () => {
+    const options: YarleOptions = {
+      enexFile: './test/data/test-sublists-multiple.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/simpleNotes/test-sublists-multiple/test - sublists - multiple.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/simpleNotes/test-sublists-multiple/test - sublists - multiple.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-sublists-multiple.md`, 'utf8'),
+    );
+  });
 });

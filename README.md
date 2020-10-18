@@ -19,7 +19,7 @@ A tool that converts enex note(s) into Markdown format in order to let you escap
 
 ## Installation
 
- 0. [Install Node.js](https://nodejs.org/en/download/).
+ 0. Required [Install Node.js](https://nodejs.org/en/download/) version 10.22.1 or higher.
   
  1. Clone or download this repo.
  2. Open a terminal and navigate to the root folder of the repo.
