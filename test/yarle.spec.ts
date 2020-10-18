@@ -761,32 +761,28 @@ describe('dropTheRope ', async () => {
       fs.readFileSync(`${__dirname}/data/test-sublists-valid.md`, 'utf8'),
     );
   });
-
-  it.skip('Webclip - more picture with the same name (different index)', async () => {
+  
+  it('Note with sublists (multiple)', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/Evernote_abc.enex',
+      enexFile: './test/data/test-sublists-multiple.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
-      plainTextNotesOnly: false,
-      outputFormat: OutputFormat.ObsidianMD,
     };
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-nospanstyle/test-nospanstyle.md`,
+        `${__dirname}/../out/simpleNotes/test-sublists-multiple/test - sublists - multiple.md`,
       ),
       true,
     );
-
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-nospanstyle/test-nospanstyle.md`,
+        `${__dirname}/../out/simpleNotes/test-sublists-multiple/test - sublists - multiple.md`,
         'utf8',
       ),
-      fs.readFileSync(`${__dirname}/data/test-nospanstyle.md`, 'utf8'),
+      fs.readFileSync(`${__dirname}/data/test-sublists-multiple.md`, 'utf8'),
     );
   });
-
 
   it('Webclip - article', async () => {
     const options: YarleOptions = {
