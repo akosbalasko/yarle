@@ -29,7 +29,7 @@
     "fs-extra": "4.0.2",
     "he": "1.2.0",
     "joplin-turndown-plugin-gfm": "1.0.12",
-    "jsdom": "^16.4.0",
+    "jsdom": "16.4.0",
     "lodash": "4.17.19",
     "minimist": "1.2.5",
     "moment": "2.22.2",
@@ -54,8 +54,8 @@
   "license": "(MIT OR Apache-2.0)",
   "devDependencies": {
     "@types/he": "1.1.1",
-    "@types/jsdom": "^16.2.4",
-    "@types/lodash": "^4.14.151",
+    "@types/jsdom": "16.2.4",
+    "@types/lodash": "4.14.151",
     "@types/minimist": "1.2.0",
     "@types/mocha": "7.0.2",
     "@types/node": "14.0.1",
@@ -63,7 +63,7 @@
     "@types/showdown": "1.9.3",
     "@types/sinon": "9.0.1",
     "mocha": "5.2.0",
-    "nodemon": "^2.0.5",
+    "nodemon": "2.0.5",
     "nyc": "13.0.1",
     "sinon": "9.0.2",
     "timezone-mock": "1.1.1"
