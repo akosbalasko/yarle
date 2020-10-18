@@ -19,10 +19,20 @@ const fixSublists = (node: HTMLElement) => {
       }
     });
 
+    // The contents of every EN list item are wrapped by a div element. `<li><div>foo</div></li>`
+    // We need to remove this `<div>`, since it's a block element and will lead to unwanted whitespace otherwise
+    const liElements: Array<HTMLElement> = Array.from(node.getElementsByTagName('li'));
+    liElements.forEach(liNode => {
+      const listNodeDiv = liNode.firstElementChild;
+      if (listNodeDiv && listNodeDiv.tagName === 'DIV') {
+        listNodeDiv.replaceWith(listNodeDiv.innerHTML);
+      }
+    });
+
     return node;
 };
 
-export const convertHtml2Md = (content: string) => {
+export const convertHtml2Md = (content: string) => {
     const contentNode = new JSDOM(`<x-turndown id="turndown-root">${content}</x-turndown>`).window.document.getElementById('turndown-root');
     const contentInMd = getTurndownService().turndown(fixSublists(contentNode));
 
