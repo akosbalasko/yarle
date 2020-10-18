@@ -762,7 +762,7 @@ describe('dropTheRope ', async () => {
     );
   });
 
-  it('Webclip - more picture with the same name (different index)', async () => {
+  it.skip('Webclip - more picture with the same name (different index)', async () => {
     const options: YarleOptions = {
       enexFile: './test/data/Evernote_abc.enex',
       outputDir: 'out',
@@ -788,7 +788,7 @@ describe('dropTheRope ', async () => {
   });
 
 
-  it.only('Webclip - article', async () => {
+  it('Webclip - article', async () => {
     const options: YarleOptions = {
       enexFile: './test/data/test-webclip_article.enex',
       outputDir: 'out',
@@ -799,46 +799,21 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/complexNotes/test-webclip_article/yarle.md`,
+        `${__dirname}/../out/simpleNotes/test-webclip_article/yarle evernote.md`,
       ),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/complexNotes/test-webclip_article/yarle.md`,
+        `${__dirname}/../out/simpleNotes/test-webclip_article/yarle evernote.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-webclip_article.md`, 'utf8'),
     );
   });
 
-  it.skip('Webclip - fullpage', async () => {
-    const options: YarleOptions = {
-      enexFile: './test/data/webclip_fullpage.enex',
-      outputDir: 'out',
-      isMetadataNeeded: true,
-      plainTextNotesOnly: false,
-      outputFormat: OutputFormat.ObsidianMD,
-    };
-    await yarle.dropTheRope(options);
-    assert.equal(
-      fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-nospanstyle/test-nospanstyle.md`,
-      ),
-      true,
-    );
-
-    assert.equal(
-      fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-nospanstyle/test-nospanstyle.md`,
-        'utf8',
-      ),
-      fs.readFileSync(`${__dirname}/data/test-nospanstyle.md`, 'utf8'),
-    );
-  });
-
-  it.only('Webclip - simplified article', async () => {
+  it('Webclip - simplified article', async () => {
     const options: YarleOptions = {
       enexFile: './test/data/test-webclip_simplifiedarticle.enex',
       outputDir: 'out',
@@ -849,14 +824,14 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-webclip_simplifiedarticle/yarle.md`,
+        `${__dirname}/../out/simpleNotes/test-webclip_simplifiedarticle/yarle evernote.md`,
       ),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-webclip_simplifiedarticle/yarle.md`,
+        `${__dirname}/../out/simpleNotes/test-webclip_simplifiedarticle/yarle evernote.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-webclip_simplifiedarticle.md`, 'utf8'),
@@ -899,14 +874,14 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/complexNotes/webclip_screenshot/yarle.md`,
+        `${__dirname}/../out/complexNotes/test-webclip_screenshot/yarle.md`,
       ),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/complexNotes/webclip_screenshot/yarle.md`,
+        `${__dirname}/../out/complexNotes/test-webclip_screenshot/yarle.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-webclip_screenshot.md`, 'utf8'),

@@ -1,170 +1,57 @@
-# yarle
-yarle: Yet Another Rope Ladder from Evernote
-============================================
+# yarle evernote
+yarle evernote
+==============
 
-A tool that converts enex note(s) into Markdown format in order to let you escape from Evernote universe with all your belongings.
+### [yarle-evernote-to-md: Docs, Tutorials, Reviews | Openbase](https://openbase.io/js/yarle-evernote-to-md)
 
-Features:
----------
+Sep 24, 2020 — _yarle_\-_evernote_\-to-md documentation, tutorials, reviews, alternatives, versions, dependencies, community, and more.
+Rating: 4.3 · ‎63 votes
+You've visited this page 5 times. Last visit: 10/9/20
 
-*   Works with enex files that contain single or multiple notes also.
-*   Works with notes that contain pictures too.
-*   Puts `title`, `creation time`, `update time`, `tags`, and `latlong` meta-information into md as metadata.
-*   Updates md files' access and modification timestamps according to the notes' update time.
-*   Organizes all attachments into a \_resources subfolder (to keep the notes' folder as simple as possible).
+### [yarle-evernote-to-md - npm](https://www.npmjs.com/package/yarle-evernote-to-md)
 
-Restrictions:
--------------
+Miss any of our Open RFC calls?Watch the recordings here! » _yarle_\-_evernote_\-to-md. 2.9.2 • Public • Published 17 days ago. Readme · ExploreBETA · 20 ...
+You've visited this page 2 times. Last visit: 6/17/20
 
-*   Notes of Web Clips are not supported (yet).
+### [akosbalasko/yarle: Yet Another Rope Ladder from ... - GitHub](https://github.com/akosbalasko/yarle)
 
-Installation
-------------
+Yet Another Rope Ladder from _Evernote_. Contribute to akosbalasko/_yarle_ development by creating an account on GitHub.
+You've visited this page many times. Last visit: 8/4/20
 
-1.  Required ![[Install Node.js]] version 10.22.1 or higher.
-    
-2.  Clone or download this repo.
-    
-3.  Open a terminal and navigate to the root folder of the repo.
-    
-4.  Type `npm i`, it installs the dependencies.
-    
-5.  Type `npm run build` to build the package.
-    
+### [yarle-evernote-to-md - npm package | Snyk](https://snyk.io/advisor/npm-package/yarle-evernote-to-md)
 
-Usage:
-------
+Learn more about _yarle_\-_evernote_\-to-md: package health score, popularity, security, maintenance, versions and more.
 
-Those markdown notes that contains external resources such pictures or files, are stored in `/<outputDir>/complexNotes` subfolder, the simple plain-text ones go to `/<outputDir>/simpleNotes` folder.
+### [YARLE: Evernote to Markdown file exporter - Zettelkasten Forum](https://forum.zettelkasten.de/discussion/1155/yarle-evernote-to-markdown-file-exporter)
 
-Options:
---------
+Found this just now: _yarle_: Yet Another Rope Ladder from _Evernote_ (love the name ) https://github.com/akosbalasko/_yarle_.
+May 28, 2020 · 4 posts · ‎2 authors
+You've visited this page 5 times. Last visit: 10/13/20
 
-*   `--enexSource=<your-enex-file> or the folder of your enex files` , specifies the exported Evernote notebook(s)
-*   `--outputDir=<relative_output_dir>` , this is the main output dir in where the extracted markdown files are going to be created
-*   `--include-metadata` , if it's set, then every markdown file will be extended by metadata (tags, time of creation, time of last update, lat-lon coordinates)
-*   `--zettelkasten` , puts Zettelkasten Id (based on time of creation) at the beginning of the file name
-*   `--plaintext-notes-only` , skips those notes, which has attachment, or picture in it.
-*   `--skip-latlng`, does not include location into metadata section
-*   `--skip-creation-time`, does not include creation time into metadata section
-*   `--skip-update-time`, does not include update time into metadata section
-*   `--skip-tags` , does not include tags into metadata section
-*   `--outputFormat`, generates internal file links and highlights in Obsidian-style: highlights are going to be bounded by `==` instead of \` characters, file links are going to be as follows: `![[file-name]]` instead of `![file-name](file-name)`. Possible values: `ObsidianMD` to get Obsidian-style notes, `StandardMD` or skip it completely, if you prefere Standard Markdown format.
+### [Software & Gadgets — Zettelkasten Forum](https://forum.zettelkasten.de/categories/tools)
 
-### Using cmd:
+_Evernote_ Version 10 And A Note On My Macros · matti 70 views 3 comments 0 points Most recent by matti October 8. garethrees. CLI Seinfeld Calendar for your ...
+You've visited this page many times. Last visit: 9/13/20
 
-  npm run start -- --enexSource=GeneralNotes.enex --outputDir=./out --include-metadata --zettelkasten --plaintext-notes-only --outputFormat=ObsidianMD
+### [Converting evernote to obsidian - Obsidian Forum](https://forum.obsidian.md/t/converting-evernote-to-obsidian/1715)
 
-### In program:
+Jun 12, 2020 — Yet Another Rope Ladder from _Evernote_. Contribute to akosbalasko/_yarle_ development by creating an account on GitHub. 1 Like.
+You've visited this page 4 times. Last visit: 10/13/20
 
- const options: YarleOptions = {
-        enexFile: 'enexFile',
-        outputDir: 'outputDir',
-        isZettelkastenNeeded: true,
-        isMetadataNeeded: false ,
-    };
- yarle.dropTheRope(options);
+### [Import from Evernote - Plugins ideas - Obsidian Forum](https://forum.obsidian.md/t/import-from-evernote/108)
 
-Release notes
--------------
+May 20, 2020 — I downloaded the _yarle_ package for mac os, found and installed the js node version, read the _yarle_ readme, but from there it was not clear to me ...
 
-### Version 2.9.2
+### [Moving from Evernote? Here is a tool to get your data with you ...](https://www.reddit.com/r/Evernote/comments/gnako5/moving_from_evernote_here_is_a_tool_to_get_your/)
 
-### Version 2.9.1
+When I fed up with _Evernote's_ slow improvements, pricing and leaks, I started ... if you walk in the same shoes, give it a try: https://github.com/akosbalasko/_yarle_.
+You've visited this page 4 times. Last visit: 9/2/20
 
-*   Enclosing brackets around links are removed to avoid causing troubles in MD file (fixes: ![[Issue#50]])
+### [Evernote | npm.io](https://npm.io/search/keyword:evernote)
 
-### Version 2.9.0
+sharer.js, passport-evernote-auth, passport-evernote, share-buttons, _yarle_\-_evernote_\-to-md, enml2html, dir-to-evernote, eslint-config-evernote, enex-du.
 
-*   NodeJs version limitation resolved.
-*   Feature requested in ![[Issue#39]] implemented: the conversion returns the number of the failed notes if any.
-*   Logo added to readme.
-*   Previously if unit tests were executed in timezone differs from Western Europe, they were failed. It's fixed now.
-*   Bug reported in ![[Issue#39]] fixed.
-*   Action added to test Yarle in different Node versions.
-
-Special thanks to ![[Rodrigo Vieira]] for the contribution!
-
-### Version 2.8.0
-
-*   New command-line argument introduced : `--outputFormat`. Its optional, one possible value is `ObsidianMD` that configures Yarle to generate internal file links and highlights in Obsidian-style.
-
-### Version 2.7.0
-
-*   Huge performance improvement, works with enex files that contain 2k+ notes
-*   Bugfix: generates OS-friendly file and folder names
-
-### Version 2.6.6
-
-*   Logging improved
-*   Bug around tag extraction fixed
-
-### Version 2.6.5
-
-*   Bugfix: handling internal resource files (with no filenames) correctly
-
-### Version 2.6.4
-
-*   Small bugfixes
-
-### Version 2.6.1
-
-*   Attached images are converted as standard Markdown images instead of as wikistyle-links.
-
-### Version 2.6.0
-
-*   Highlights supported
-*   Typescript building bugfix
-
-### Version 2.5.0
-
-*   Generating links in wiki-style links is supported by default, its command line argument is removed.
-*   Evernote's internal links among the notes are supported in the case if the **note title** and **its created reference** is the same text.
-
-### Version 2.4.1
-
-As a hotfix notes within resources (e.g. web clips) are skipped to be referenced from the generated Markdown files.
-
-### Version 2.4.0
-
-*   Folders can be added as input, in this case all the enex files within this folder will be transformed
-*   Zettelkasten IDs are unique, if multiple notes has been created in the same minute, then they will be indexed by numbers starting from 1 (except the first, it has no index)
-
-### Version 2.3.2
-
-*   Bugfix: untitled notes' title is removed from the generated filename if Zettelkasten is required.
-*   Bugfix: tags are moved to the top and # added as prefix for each if it's missing.
-
-### Version 2.3.0
-
-*   Skipping parts of metadata in configurable via options
-
-### Version 2.2.0
-
-*   Links are generated in wiki-style links (\[\[link\]\]) if `--wikistyle-media-links` option is set
-*   Bugfix: Notes with single resources are exported fine
-*   Codebase refactored
-
-### Version 2.1.1
-
-*   Conversion of tables, lists, numbered lists and checkboxes are supported.
-
-### Version 2.0.4
-
-*   plaintext-notes-only command line argument added, that enables you to skip converting notes with any resources, pictures, pdf, etc.
-
-### Version 2.0.1:
-
-*   The whole tool is reimplemented in Typescript
-*   ZettelKasten ID is an option for filename generation (format is |(pipe) <title>.md or .md if there is no title)
-
-### version 1.2.0, fixes and improvements:
-
-*   File name conventions changed (whitespaces are generated instead of underscores)
-*   Metadata is moved at the end of the text and transformed as code snippet (looks better in Ulysses)
-*   Fix on HTML to MD conversion (turndown package is configured better to do not add multiple newline characters )
-
-    Created at: 2020-10-17T16:07:12+01:00
-    Updated at: 2020-10-17T16:07:12+01:00
+    Created at: 2020-10-18T08:24:57+01:00
+    Updated at: 2020-10-18T08:24:57+01:00
 
 

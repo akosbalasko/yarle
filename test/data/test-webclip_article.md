@@ -1,175 +1,120 @@
-# yarle
-![[<img alt="yarle-logo.png" src="./_resources/yarle.resources/yarle-logo.png">]]
+# yarle evernote
+Search Results
+==============
 
-![[<img style="box-sizing:border-box;display:inline-block;fill:currentcolor;overflow:hidden;color:rgb(36, 41, 46);visibility:hidden;vertical-align:middle;" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' class='octicon octicon-link js-evernote-checked' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true' data-evernote-id='86'%3e%3cpath fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z' data-evernote-id='1396' class='js-evernote-checked'%3e%3c/path%3e%3c/svg%3e">]]yarle: Yet Another Rope Ladder from Evernote
-==============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+Web results
+-----------
 
-A tool that converts enex note(s) into Markdown format in order to let you escape from Evernote universe with all your belongings.
+### [yarle-evernote-to-md: Docs, Tutorials, Reviews | Openbase](https://openbase.io/js/yarle-evernote-to-md)
 
-![[<img style="box-sizing:border-box;display:inline-block;fill:currentcolor;overflow:hidden;color:rgb(36, 41, 46);visibility:hidden;vertical-align:middle;" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' class='octicon octicon-link js-evernote-checked' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true' data-evernote-id='87'%3e%3cpath fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z' data-evernote-id='1399' class='js-evernote-checked'%3e%3c/path%3e%3c/svg%3e">]]Features:
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+openbase.io › yarle-evernote-to-md
 
-*   Works with enex files that contain single or multiple notes also.
-*   Works with notes that contain pictures too.
-*   Puts `title`, `creation time`, `update time`, `tags`, and `latlong` meta-information into md as metadata.
-*   Updates md files' access and modification timestamps according to the notes' update time.
-*   Organizes all attachments into a \_resources subfolder (to keep the notes' folder as simple as possible).
+[](https://www.google.com/search?sxsrf=ALeKk03bpXQ9mBvZPr4siq9b90rD9F_scA%3A1603005812287&ei=dO2LX9qUEcX1qwGn5brgBQ&q=yarle+evernote&oq=yarle+evernote&gs_lcp=CgZwc3ktYWIQAzIECCMQJzoHCCMQsAMQJzoHCAAQsAMQQzoHCC4QsAMQQzoJCAAQsAMQBxAeOgcIABCwAxAKOgUIABDJAzoCCAA6BAgAEAo6BAguEAo6BwguEMkDEA06BggAEA0QCjoGCAAQDRAeOggIABANEAoQHjoICAAQDRAFEB46CAgAEBYQChAeOgUIIRCgAToHCAAQyQMQDToECAAQDVDdEViJKmD_MGgDcAB4AYAB7gSIAf0RkgEJMC45LjEuNS0xmAEAoAEBqgEHZ3dzLXdpesgBCsABAQ&sclient=psy-ab&ved=0ahUKEwjano6Azr3sAhXF-ioKHaeyDlwQ4dUDCA0&uact=5#)
 
-![[<img style="box-sizing:border-box;display:inline-block;fill:currentcolor;overflow:hidden;color:rgb(36, 41, 46);visibility:hidden;vertical-align:middle;" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' class='octicon octicon-link js-evernote-checked' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true' data-evernote-id='88'%3e%3cpath fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z' data-evernote-id='1407' class='js-evernote-checked'%3e%3c/path%3e%3c/svg%3e">]]Restrictions:
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1.  [Cached](https://webcache.googleusercontent.com/search?q=cache:_Y2LEbikyhcJ:https://openbase.io/js/yarle-evernote-to-md+&cd=1&hl=en&ct=clnk&gl=hu)
 
-*   Notes of Web Clips are not supported (yet).
+Sep 24, 2020 — _yarle_\-_evernote_\-to-md documentation, tutorials, reviews, alternatives, versions, dependencies, community, and more.
+Rating: 4.3 · ‎63 votes
+You've visited this page 5 times. Last visit: 10/9/20
 
-![[<img style="box-sizing:border-box;display:inline-block;fill:currentcolor;overflow:hidden;color:rgb(36, 41, 46);visibility:hidden;vertical-align:middle;" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' class='octicon octicon-link js-evernote-checked' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true' data-evernote-id='89'%3e%3cpath fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z' data-evernote-id='1411' class='js-evernote-checked'%3e%3c/path%3e%3c/svg%3e">]]Installation
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+### [yarle-evernote-to-md - npm](https://www.npmjs.com/package/yarle-evernote-to-md)
 
-0.  Required ![[Install Node.js]] version 10.22.1 or higher.
-    
-1.  Clone or download this repo.
-    
-2.  Open a terminal and navigate to the root folder of the repo.
-    
-3.  Type `npm i`, it installs the dependencies.
-    
-4.  Type `npm run build` to build the package.
-    
+www.npmjs.com › package › yarle-evernote-to-md
 
-![[<img style="box-sizing:border-box;display:inline-block;fill:currentcolor;overflow:hidden;color:rgb(36, 41, 46);visibility:hidden;vertical-align:middle;" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' class='octicon octicon-link js-evernote-checked' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true' data-evernote-id='90'%3e%3cpath fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z' data-evernote-id='1424' class='js-evernote-checked'%3e%3c/path%3e%3c/svg%3e">]]Usage:
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[](https://www.google.com/search?sxsrf=ALeKk03bpXQ9mBvZPr4siq9b90rD9F_scA%3A1603005812287&ei=dO2LX9qUEcX1qwGn5brgBQ&q=yarle+evernote&oq=yarle+evernote&gs_lcp=CgZwc3ktYWIQAzIECCMQJzoHCCMQsAMQJzoHCAAQsAMQQzoHCC4QsAMQQzoJCAAQsAMQBxAeOgcIABCwAxAKOgUIABDJAzoCCAA6BAgAEAo6BAguEAo6BwguEMkDEA06BggAEA0QCjoGCAAQDRAeOggIABANEAoQHjoICAAQDRAFEB46CAgAEBYQChAeOgUIIRCgAToHCAAQyQMQDToECAAQDVDdEViJKmD_MGgDcAB4AYAB7gSIAf0RkgEJMC45LjEuNS0xmAEAoAEBqgEHZ3dzLXdpesgBCsABAQ&sclient=psy-ab&ved=0ahUKEwjano6Azr3sAhXF-ioKHaeyDlwQ4dUDCA0&uact=5#)
 
-Those markdown notes that contains external resources such pictures or files, are stored in `/<outputDir>/complexNotes` subfolder, the simple plain-text ones go to `/<outputDir>/simpleNotes` folder.
+1.  [Cached](https://webcache.googleusercontent.com/search?q=cache:W3FuhhGnyxEJ:https://www.npmjs.com/package/yarle-evernote-to-md+&cd=2&hl=en&ct=clnk&gl=hu)
 
-![[<img style="box-sizing:border-box;display:inline-block;fill:currentcolor;overflow:hidden;color:rgb(36, 41, 46);visibility:hidden;vertical-align:middle;" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' class='octicon octicon-link js-evernote-checked' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true' data-evernote-id='91'%3e%3cpath fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z' data-evernote-id='1427' class='js-evernote-checked'%3e%3c/path%3e%3c/svg%3e">]]Options:
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Miss any of our Open RFC calls?Watch the recordings here! » _yarle_\-_evernote_\-to-md. 2.9.2 • Public • Published 17 days ago. Readme · ExploreBETA · 20 ...
+You've visited this page 2 times. Last visit: 6/17/20
 
-*   `--enexSource=<your-enex-file> or the folder of your enex files` , specifies the exported Evernote notebook(s)
-*   `--outputDir=<relative_output_dir>` , this is the main output dir in where the extracted markdown files are going to be created
-*   `--include-metadata` , if it's set, then every markdown file will be extended by metadata (tags, time of creation, time of last update, lat-lon coordinates)
-*   `--zettelkasten` , puts Zettelkasten Id (based on time of creation) at the beginning of the file name
-*   `--plaintext-notes-only` , skips those notes, which has attachment, or picture in it.
-*   `--skip-latlng`, does not include location into metadata section
-*   `--skip-creation-time`, does not include creation time into metadata section
-*   `--skip-update-time`, does not include update time into metadata section
-*   `--skip-tags` , does not include tags into metadata section
-*   `--outputFormat`, generates internal file links and highlights in Obsidian-style: highlights are going to be bounded by `==` instead of \` characters, file links are going to be as follows: `![[file-name]]` instead of `![file-name](file-name)`. Possible values: `ObsidianMD` to get Obsidian-style notes, `StandardMD` or skip it completely, if you prefere Standard Markdown format.
+### [akosbalasko/yarle: Yet Another Rope Ladder from ... - GitHub](https://github.com/akosbalasko/yarle)
 
-### ![[<img style="box-sizing:border-box;display:inline-block;fill:currentcolor;overflow:hidden;color:rgb(36, 41, 46);visibility:hidden;vertical-align:middle;" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' class='octicon octicon-link js-evernote-checked' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true' data-evernote-id='92'%3e%3cpath fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z' data-evernote-id='1440' class='js-evernote-checked'%3e%3c/path%3e%3c/svg%3e">]]Using cmd:
+github.com › akosbalasko › yarle
 
-  npm run start -- --enexSource=GeneralNotes.enex --outputDir=./out --include-metadata --zettelkasten --plaintext-notes-only --outputFormat=ObsidianMD
+[](https://www.google.com/search?sxsrf=ALeKk03bpXQ9mBvZPr4siq9b90rD9F_scA%3A1603005812287&ei=dO2LX9qUEcX1qwGn5brgBQ&q=yarle+evernote&oq=yarle+evernote&gs_lcp=CgZwc3ktYWIQAzIECCMQJzoHCCMQsAMQJzoHCAAQsAMQQzoHCC4QsAMQQzoJCAAQsAMQBxAeOgcIABCwAxAKOgUIABDJAzoCCAA6BAgAEAo6BAguEAo6BwguEMkDEA06BggAEA0QCjoGCAAQDRAeOggIABANEAoQHjoICAAQDRAFEB46CAgAEBYQChAeOgUIIRCgAToHCAAQyQMQDToECAAQDVDdEViJKmD_MGgDcAB4AYAB7gSIAf0RkgEJMC45LjEuNS0xmAEAoAEBqgEHZ3dzLXdpesgBCsABAQ&sclient=psy-ab&ved=0ahUKEwjano6Azr3sAhXF-ioKHaeyDlwQ4dUDCA0&uact=5#)
 
-### ![[<img style="box-sizing:border-box;display:inline-block;fill:currentcolor;overflow:hidden;color:rgb(36, 41, 46);visibility:hidden;vertical-align:middle;" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' class='octicon octicon-link js-evernote-checked' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true' data-evernote-id='93'%3e%3cpath fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z' data-evernote-id='1443' class='js-evernote-checked'%3e%3c/path%3e%3c/svg%3e">]]In program:
+1.  [Cached](https://webcache.googleusercontent.com/search?q=cache:SJLPXzOBxyYJ:https://github.com/akosbalasko/yarle+&cd=3&hl=en&ct=clnk&gl=hu)
 
- const options: YarleOptions \= {
-        enexFile: 'enexFile',
-        outputDir: 'outputDir',
-        isZettelkastenNeeded: true,
-        isMetadataNeeded: false ,
-    };
- yarle.dropTheRope(options);
+Yet Another Rope Ladder from _Evernote_. Contribute to akosbalasko/_yarle_ development by creating an account on GitHub.
+You've visited this page many times. Last visit: 8/4/20
 
-![[<img style="box-sizing:border-box;display:inline-block;fill:currentcolor;overflow:hidden;color:rgb(36, 41, 46);visibility:hidden;vertical-align:middle;" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' class='octicon octicon-link js-evernote-checked' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true' data-evernote-id='94'%3e%3cpath fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z' data-evernote-id='1472' class='js-evernote-checked'%3e%3c/path%3e%3c/svg%3e">]]Release notes
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+### [yarle-evernote-to-md - npm package | Snyk](https://snyk.io/advisor/npm-package/yarle-evernote-to-md)
 
-### ![[<img style="box-sizing:border-box;display:inline-block;fill:currentcolor;overflow:hidden;color:rgb(36, 41, 46);visibility:hidden;vertical-align:middle;" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' class='octicon octicon-link js-evernote-checked' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true' data-evernote-id='95'%3e%3cpath fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z' data-evernote-id='1474' class='js-evernote-checked'%3e%3c/path%3e%3c/svg%3e">]]Version 2.9.2
+snyk.io › advisor › npm-package › yarle-evernote-to-md
 
-*   ![[Issue#49]] fixed
-*   ![[Issue#53]] fixed
+[](https://www.google.com/search?sxsrf=ALeKk03bpXQ9mBvZPr4siq9b90rD9F_scA%3A1603005812287&ei=dO2LX9qUEcX1qwGn5brgBQ&q=yarle+evernote&oq=yarle+evernote&gs_lcp=CgZwc3ktYWIQAzIECCMQJzoHCCMQsAMQJzoHCAAQsAMQQzoHCC4QsAMQQzoJCAAQsAMQBxAeOgcIABCwAxAKOgUIABDJAzoCCAA6BAgAEAo6BAguEAo6BwguEMkDEA06BggAEA0QCjoGCAAQDRAeOggIABANEAoQHjoICAAQDRAFEB46CAgAEBYQChAeOgUIIRCgAToHCAAQyQMQDToECAAQDVDdEViJKmD_MGgDcAB4AYAB7gSIAf0RkgEJMC45LjEuNS0xmAEAoAEBqgEHZ3dzLXdpesgBCsABAQ&sclient=psy-ab&ved=0ahUKEwjano6Azr3sAhXF-ioKHaeyDlwQ4dUDCA0&uact=5#)
 
-### ![[<img style="box-sizing:border-box;display:inline-block;fill:currentcolor;overflow:hidden;color:rgb(36, 41, 46);visibility:hidden;vertical-align:middle;" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' class='octicon octicon-link js-evernote-checked' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true' data-evernote-id='96'%3e%3cpath fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z' data-evernote-id='1479' class='js-evernote-checked'%3e%3c/path%3e%3c/svg%3e">]]Version 2.9.1
+1.  [Cached](https://webcache.googleusercontent.com/search?q=cache:mTw_3gguxigJ:https://snyk.io/advisor/npm-package/yarle-evernote-to-md+&cd=4&hl=en&ct=clnk&gl=hu)
 
-*   Enclosing brackets around links are removed to avoid causing troubles in MD file (fixes: ![[Issue#50]])
+Learn more about _yarle_\-_evernote_\-to-md: package health score, popularity, security, maintenance, versions and more.
 
-### ![[<img style="box-sizing:border-box;display:inline-block;fill:currentcolor;overflow:hidden;color:rgb(36, 41, 46);visibility:hidden;vertical-align:middle;" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' class='octicon octicon-link js-evernote-checked' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true' data-evernote-id='97'%3e%3cpath fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z' data-evernote-id='1483' class='js-evernote-checked'%3e%3c/path%3e%3c/svg%3e">]]Version 2.9.0
+### [YARLE: Evernote to Markdown file exporter - Zettelkasten Forum](https://forum.zettelkasten.de/discussion/1155/yarle-evernote-to-markdown-file-exporter)
 
-*   NodeJs version limitation resolved.
-*   Feature requested in ![[Issue#39]] implemented: the conversion returns the number of the failed notes if any.
-*   Logo added to readme.
-*   Previously if unit tests were executed in timezone differs from Western Europe, they were failed. It's fixed now.
-*   Bug reported in ![[Issue#39]] fixed.
-*   Action added to test Yarle in different Node versions.
+forum.zettelkasten.de › discussion › yarle-evernote-to-...
 
-Special thanks to ![[Rodrigo Vieira]] for the contribution!
+[](https://www.google.com/search?sxsrf=ALeKk03bpXQ9mBvZPr4siq9b90rD9F_scA%3A1603005812287&ei=dO2LX9qUEcX1qwGn5brgBQ&q=yarle+evernote&oq=yarle+evernote&gs_lcp=CgZwc3ktYWIQAzIECCMQJzoHCCMQsAMQJzoHCAAQsAMQQzoHCC4QsAMQQzoJCAAQsAMQBxAeOgcIABCwAxAKOgUIABDJAzoCCAA6BAgAEAo6BAguEAo6BwguEMkDEA06BggAEA0QCjoGCAAQDRAeOggIABANEAoQHjoICAAQDRAFEB46CAgAEBYQChAeOgUIIRCgAToHCAAQyQMQDToECAAQDVDdEViJKmD_MGgDcAB4AYAB7gSIAf0RkgEJMC45LjEuNS0xmAEAoAEBqgEHZ3dzLXdpesgBCsABAQ&sclient=psy-ab&ved=0ahUKEwjano6Azr3sAhXF-ioKHaeyDlwQ4dUDCA0&uact=5#)
 
-### ![[<img style="box-sizing:border-box;display:inline-block;fill:currentcolor;overflow:hidden;color:rgb(36, 41, 46);visibility:hidden;vertical-align:middle;" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' class='octicon octicon-link js-evernote-checked' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true' data-evernote-id='98'%3e%3cpath fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z' data-evernote-id='1493' class='js-evernote-checked'%3e%3c/path%3e%3c/svg%3e">]]Version 2.8.0
+1.  [Cached](https://webcache.googleusercontent.com/search?q=cache:NTCISr6DDWkJ:https://forum.zettelkasten.de/discussion/1155/yarle-evernote-to-markdown-file-exporter+&cd=5&hl=en&ct=clnk&gl=hu)
 
-*   New command-line argument introduced : `--outputFormat`. Its optional, one possible value is `ObsidianMD` that configures Yarle to generate internal file links and highlights in Obsidian-style.
+Found this just now: _yarle_: Yet Another Rope Ladder from _Evernote_ (love the name ) https://github.com/akosbalasko/_yarle_.
+May 28, 2020 · 4 posts · ‎2 authors
+You've visited this page 5 times. Last visit: 10/13/20
 
-### ![[<img style="box-sizing:border-box;display:inline-block;fill:currentcolor;overflow:hidden;color:rgb(36, 41, 46);visibility:hidden;vertical-align:middle;" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' class='octicon octicon-link js-evernote-checked' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true' data-evernote-id='99'%3e%3cpath fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z' data-evernote-id='1497' class='js-evernote-checked'%3e%3c/path%3e%3c/svg%3e">]]Version 2.7.0
+### [Software & Gadgets — Zettelkasten Forum](https://forum.zettelkasten.de/categories/tools)
 
-*   Huge performance improvement, works with enex files that contain 2k+ notes
-*   Bugfix: generates OS-friendly file and folder names
+forum.zettelkasten.de › categories › tools
 
-### ![[<img style="box-sizing:border-box;display:inline-block;fill:currentcolor;overflow:hidden;color:rgb(36, 41, 46);visibility:hidden;vertical-align:middle;" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' class='octicon octicon-link js-evernote-checked' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true' data-evernote-id='100'%3e%3cpath fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z' data-evernote-id='1502' class='js-evernote-checked'%3e%3c/path%3e%3c/svg%3e">]]Version 2.6.6
+[](https://www.google.com/search?sxsrf=ALeKk03bpXQ9mBvZPr4siq9b90rD9F_scA%3A1603005812287&ei=dO2LX9qUEcX1qwGn5brgBQ&q=yarle+evernote&oq=yarle+evernote&gs_lcp=CgZwc3ktYWIQAzIECCMQJzoHCCMQsAMQJzoHCAAQsAMQQzoHCC4QsAMQQzoJCAAQsAMQBxAeOgcIABCwAxAKOgUIABDJAzoCCAA6BAgAEAo6BAguEAo6BwguEMkDEA06BggAEA0QCjoGCAAQDRAeOggIABANEAoQHjoICAAQDRAFEB46CAgAEBYQChAeOgUIIRCgAToHCAAQyQMQDToECAAQDVDdEViJKmD_MGgDcAB4AYAB7gSIAf0RkgEJMC45LjEuNS0xmAEAoAEBqgEHZ3dzLXdpesgBCsABAQ&sclient=psy-ab&ved=0ahUKEwjano6Azr3sAhXF-ioKHaeyDlwQ4dUDCA0&uact=5#)
 
-*   Logging improved
-*   Bug around tag extraction fixed
+1.  [Cached](https://webcache.googleusercontent.com/search?q=cache:XjzUp0BCYCEJ:https://forum.zettelkasten.de/categories/tools+&cd=6&hl=en&ct=clnk&gl=hu)
 
-### ![[<img style="box-sizing:border-box;display:inline-block;fill:currentcolor;overflow:hidden;color:rgb(36, 41, 46);visibility:hidden;vertical-align:middle;" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' class='octicon octicon-link js-evernote-checked' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true' data-evernote-id='101'%3e%3cpath fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z' data-evernote-id='1507' class='js-evernote-checked'%3e%3c/path%3e%3c/svg%3e">]]Version 2.6.5
+_Evernote_ Version 10 And A Note On My Macros · matti 70 views 3 comments 0 points Most recent by matti October 8. garethrees. CLI Seinfeld Calendar for your ...
+You've visited this page many times. Last visit: 9/13/20
 
-*   Bugfix: handling internal resource files (with no filenames) correctly
+### [Converting evernote to obsidian - Obsidian Forum](https://forum.obsidian.md/t/converting-evernote-to-obsidian/1715)
 
-### ![[<img style="box-sizing:border-box;display:inline-block;fill:currentcolor;overflow:hidden;color:rgb(36, 41, 46);visibility:hidden;vertical-align:middle;" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' class='octicon octicon-link js-evernote-checked' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true' data-evernote-id='102'%3e%3cpath fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z' data-evernote-id='1511' class='js-evernote-checked'%3e%3c/path%3e%3c/svg%3e">]]Version 2.6.4
+forum.obsidian.md › converting-evernote-to-obsidian
 
-*   Small bugfixes
+[](https://www.google.com/search?sxsrf=ALeKk03bpXQ9mBvZPr4siq9b90rD9F_scA%3A1603005812287&ei=dO2LX9qUEcX1qwGn5brgBQ&q=yarle+evernote&oq=yarle+evernote&gs_lcp=CgZwc3ktYWIQAzIECCMQJzoHCCMQsAMQJzoHCAAQsAMQQzoHCC4QsAMQQzoJCAAQsAMQBxAeOgcIABCwAxAKOgUIABDJAzoCCAA6BAgAEAo6BAguEAo6BwguEMkDEA06BggAEA0QCjoGCAAQDRAeOggIABANEAoQHjoICAAQDRAFEB46CAgAEBYQChAeOgUIIRCgAToHCAAQyQMQDToECAAQDVDdEViJKmD_MGgDcAB4AYAB7gSIAf0RkgEJMC45LjEuNS0xmAEAoAEBqgEHZ3dzLXdpesgBCsABAQ&sclient=psy-ab&ved=0ahUKEwjano6Azr3sAhXF-ioKHaeyDlwQ4dUDCA0&uact=5#)
 
-### ![[<img style="box-sizing:border-box;display:inline-block;fill:currentcolor;overflow:hidden;color:rgb(36, 41, 46);visibility:hidden;vertical-align:middle;" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' class='octicon octicon-link js-evernote-checked' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true' data-evernote-id='103'%3e%3cpath fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z' data-evernote-id='1515' class='js-evernote-checked'%3e%3c/path%3e%3c/svg%3e">]]Version 2.6.1
+1.  [Cached](https://webcache.googleusercontent.com/search?q=cache:I4kYf5ULLoYJ:https://forum.obsidian.md/t/converting-evernote-to-obsidian/1715+&cd=7&hl=en&ct=clnk&gl=hu)
 
-*   Attached images are converted as standard Markdown images instead of as wikistyle-links.
+Jun 12, 2020 — Yet Another Rope Ladder from _Evernote_. Contribute to akosbalasko/_yarle_ development by creating an account on GitHub. 1 Like.
+You've visited this page 4 times. Last visit: 10/13/20
 
-### ![[<img style="box-sizing:border-box;display:inline-block;fill:currentcolor;overflow:hidden;color:rgb(36, 41, 46);visibility:hidden;vertical-align:middle;" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' class='octicon octicon-link js-evernote-checked' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true' data-evernote-id='104'%3e%3cpath fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z' data-evernote-id='1519' class='js-evernote-checked'%3e%3c/path%3e%3c/svg%3e">]]Version 2.6.0
+### [Import from Evernote - Plugins ideas - Obsidian Forum](https://forum.obsidian.md/t/import-from-evernote/108)
 
-*   Highlights supported
-*   Typescript building bugfix
+forum.obsidian.md › import-from-evernote
 
-### ![[<img style="box-sizing:border-box;display:inline-block;fill:currentcolor;overflow:hidden;color:rgb(36, 41, 46);visibility:hidden;vertical-align:middle;" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' class='octicon octicon-link js-evernote-checked' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true' data-evernote-id='105'%3e%3cpath fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z' data-evernote-id='1524' class='js-evernote-checked'%3e%3c/path%3e%3c/svg%3e">]]Version 2.5.0
+[](https://www.google.com/search?sxsrf=ALeKk03bpXQ9mBvZPr4siq9b90rD9F_scA%3A1603005812287&ei=dO2LX9qUEcX1qwGn5brgBQ&q=yarle+evernote&oq=yarle+evernote&gs_lcp=CgZwc3ktYWIQAzIECCMQJzoHCCMQsAMQJzoHCAAQsAMQQzoHCC4QsAMQQzoJCAAQsAMQBxAeOgcIABCwAxAKOgUIABDJAzoCCAA6BAgAEAo6BAguEAo6BwguEMkDEA06BggAEA0QCjoGCAAQDRAeOggIABANEAoQHjoICAAQDRAFEB46CAgAEBYQChAeOgUIIRCgAToHCAAQyQMQDToECAAQDVDdEViJKmD_MGgDcAB4AYAB7gSIAf0RkgEJMC45LjEuNS0xmAEAoAEBqgEHZ3dzLXdpesgBCsABAQ&sclient=psy-ab&ved=0ahUKEwjano6Azr3sAhXF-ioKHaeyDlwQ4dUDCA0&uact=5#)
 
-*   Generating links in wiki-style links is supported by default, its command line argument is removed.
-*   Evernote's internal links among the notes are supported in the case if the **note title** and **its created reference** is the same text.
+1.  [Cached](https://webcache.googleusercontent.com/search?q=cache:3i74TS7qI0EJ:https://forum.obsidian.md/t/import-from-evernote/108+&cd=8&hl=en&ct=clnk&gl=hu)
 
-### ![[<img style="box-sizing:border-box;display:inline-block;fill:currentcolor;overflow:hidden;color:rgb(36, 41, 46);visibility:hidden;vertical-align:middle;" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' class='octicon octicon-link js-evernote-checked' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true' data-evernote-id='106'%3e%3cpath fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z' data-evernote-id='1529' class='js-evernote-checked'%3e%3c/path%3e%3c/svg%3e">]]Version 2.4.1
+May 20, 2020 — I downloaded the _yarle_ package for mac os, found and installed the js node version, read the _yarle_ readme, but from there it was not clear to me ...
 
-As a hotfix notes within resources (e.g. web clips) are skipped to be referenced from the generated Markdown files.
+### [Moving from Evernote? Here is a tool to get your data with you ...](https://www.reddit.com/r/Evernote/comments/gnako5/moving_from_evernote_here_is_a_tool_to_get_your/)
 
-### ![[<img style="box-sizing:border-box;display:inline-block;fill:currentcolor;overflow:hidden;color:rgb(36, 41, 46);visibility:hidden;vertical-align:middle;" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' class='octicon octicon-link js-evernote-checked' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true' data-evernote-id='107'%3e%3cpath fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z' data-evernote-id='1532' class='js-evernote-checked'%3e%3c/path%3e%3c/svg%3e">]]Version 2.4.0
+www.reddit.com › Evernote › comments › gnako5 › m...
 
-*   Folders can be added as input, in this case all the enex files within this folder will be transformed
-*   Zettelkasten IDs are unique, if multiple notes has been created in the same minute, then they will be indexed by numbers starting from 1 (except the first, it has no index)
+[](https://www.google.com/search?sxsrf=ALeKk03bpXQ9mBvZPr4siq9b90rD9F_scA%3A1603005812287&ei=dO2LX9qUEcX1qwGn5brgBQ&q=yarle+evernote&oq=yarle+evernote&gs_lcp=CgZwc3ktYWIQAzIECCMQJzoHCCMQsAMQJzoHCAAQsAMQQzoHCC4QsAMQQzoJCAAQsAMQBxAeOgcIABCwAxAKOgUIABDJAzoCCAA6BAgAEAo6BAguEAo6BwguEMkDEA06BggAEA0QCjoGCAAQDRAeOggIABANEAoQHjoICAAQDRAFEB46CAgAEBYQChAeOgUIIRCgAToHCAAQyQMQDToECAAQDVDdEViJKmD_MGgDcAB4AYAB7gSIAf0RkgEJMC45LjEuNS0xmAEAoAEBqgEHZ3dzLXdpesgBCsABAQ&sclient=psy-ab&ved=0ahUKEwjano6Azr3sAhXF-ioKHaeyDlwQ4dUDCA0&uact=5#)
 
-### ![[<img style="box-sizing:border-box;display:inline-block;fill:currentcolor;overflow:hidden;color:rgb(36, 41, 46);visibility:hidden;vertical-align:middle;" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' class='octicon octicon-link js-evernote-checked' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true' data-evernote-id='108'%3e%3cpath fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z' data-evernote-id='1537' class='js-evernote-checked'%3e%3c/path%3e%3c/svg%3e">]]Version 2.3.2
+1.  [Cached](https://webcache.googleusercontent.com/search?q=cache:LYx4h15UecUJ:https://www.reddit.com/r/Evernote/comments/gnako5/moving_from_evernote_here_is_a_tool_to_get_your/+&cd=9&hl=en&ct=clnk&gl=hu)
 
-*   Bugfix: untitled notes' title is removed from the generated filename if Zettelkasten is required.
-*   Bugfix: tags are moved to the top and # added as prefix for each if it's missing.
+When I fed up with _Evernote's_ slow improvements, pricing and leaks, I started ... if you walk in the same shoes, give it a try: https://github.com/akosbalasko/_yarle_.
+You've visited this page 4 times. Last visit: 9/2/20
 
-### ![[<img style="box-sizing:border-box;display:inline-block;fill:currentcolor;overflow:hidden;color:rgb(36, 41, 46);visibility:hidden;vertical-align:middle;" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' class='octicon octicon-link js-evernote-checked' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true' data-evernote-id='109'%3e%3cpath fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z' data-evernote-id='1542' class='js-evernote-checked'%3e%3c/path%3e%3c/svg%3e">]]Version 2.3.0
+### [Evernote | npm.io](https://npm.io/search/keyword:evernote)
 
-*   Skipping parts of metadata in configurable via options
+npm.io › search › keyword:evernote
 
-### ![[<img style="box-sizing:border-box;display:inline-block;fill:currentcolor;overflow:hidden;color:rgb(36, 41, 46);visibility:hidden;vertical-align:middle;" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' class='octicon octicon-link js-evernote-checked' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true' data-evernote-id='110'%3e%3cpath fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z' data-evernote-id='1546' class='js-evernote-checked'%3e%3c/path%3e%3c/svg%3e">]]Version 2.2.0
+[](https://www.google.com/search?sxsrf=ALeKk03bpXQ9mBvZPr4siq9b90rD9F_scA%3A1603005812287&ei=dO2LX9qUEcX1qwGn5brgBQ&q=yarle+evernote&oq=yarle+evernote&gs_lcp=CgZwc3ktYWIQAzIECCMQJzoHCCMQsAMQJzoHCAAQsAMQQzoHCC4QsAMQQzoJCAAQsAMQBxAeOgcIABCwAxAKOgUIABDJAzoCCAA6BAgAEAo6BAguEAo6BwguEMkDEA06BggAEA0QCjoGCAAQDRAeOggIABANEAoQHjoICAAQDRAFEB46CAgAEBYQChAeOgUIIRCgAToHCAAQyQMQDToECAAQDVDdEViJKmD_MGgDcAB4AYAB7gSIAf0RkgEJMC45LjEuNS0xmAEAoAEBqgEHZ3dzLXdpesgBCsABAQ&sclient=psy-ab&ved=0ahUKEwjano6Azr3sAhXF-ioKHaeyDlwQ4dUDCA0&uact=5#)
 
-*   Links are generated in wiki-style links (\[\[link\]\]) if `--wikistyle-media-links` option is set
-*   Bugfix: Notes with single resources are exported fine
-*   Codebase refactored
+1.  [Cached](https://webcache.googleusercontent.com/search?q=cache:0SjIVL3k9GoJ:https://npm.io/search/keyword:evernote+&cd=10&hl=en&ct=clnk&gl=hu)
 
-### ![[<img style="box-sizing:border-box;display:inline-block;fill:currentcolor;overflow:hidden;color:rgb(36, 41, 46);visibility:hidden;vertical-align:middle;" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' class='octicon octicon-link js-evernote-checked' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true' data-evernote-id='111'%3e%3cpath fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z' data-evernote-id='1552' class='js-evernote-checked'%3e%3c/path%3e%3c/svg%3e">]]Version 2.1.1
+sharer.js, passport-evernote-auth, passport-evernote, share-buttons, _yarle_\-_evernote_\-to-md, enml2html, dir-to-evernote, eslint-config-evernote, enex-du.
 
-*   Conversion of tables, lists, numbered lists and checkboxes are supported.
-
-### ![[<img style="box-sizing:border-box;display:inline-block;fill:currentcolor;overflow:hidden;color:rgb(36, 41, 46);visibility:hidden;vertical-align:middle;" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' class='octicon octicon-link js-evernote-checked' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true' data-evernote-id='112'%3e%3cpath fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z' data-evernote-id='1556' class='js-evernote-checked'%3e%3c/path%3e%3c/svg%3e">]]Version 2.0.4
-
-*   plaintext-notes-only command line argument added, that enables you to skip converting notes with any resources, pictures, pdf, etc.
-
-### ![[<img style="box-sizing:border-box;display:inline-block;fill:currentcolor;overflow:hidden;color:rgb(36, 41, 46);visibility:hidden;vertical-align:middle;" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' class='octicon octicon-link js-evernote-checked' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true' data-evernote-id='113'%3e%3cpath fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z' data-evernote-id='1560' class='js-evernote-checked'%3e%3c/path%3e%3c/svg%3e">]]Version 2.0.1:
-
-*   The whole tool is reimplemented in Typescript
-*   ZettelKasten ID is an option for filename generation (format is |(pipe) <title>.md or .md if there is no title)
-
-### ![[<img style="box-sizing:border-box;display:inline-block;fill:currentcolor;overflow:hidden;color:rgb(36, 41, 46);visibility:hidden;vertical-align:middle;" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' class='octicon octicon-link js-evernote-checked' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true' data-evernote-id='114'%3e%3cpath fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z' data-evernote-id='1565' class='js-evernote-checked'%3e%3c/path%3e%3c/svg%3e">]]version 1.2.0, fixes and improvements:
-
-*   File name conventions changed (whitespaces are generated instead of underscores)
-*   Metadata is moved at the end of the text and transformed as code snippet (looks better in Ulysses)
-*   Fix on HTML to MD conversion (turndown package is configured better to do not add multiple newline characters )
-
-    Created at: 2020-10-17T16:06:45+01:00
-    Updated at: 2020-10-17T16:06:45+01:00
+    Created at: 2020-10-18T08:25:40+01:00
+    Updated at: 2020-10-18T08:25:40+01:00
 
 
