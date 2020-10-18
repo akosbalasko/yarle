@@ -16,7 +16,11 @@ export const imagesRule = {
     if (yarleOptions.outputFormat === OutputFormat.ObsidianMD) {
       return `![[${nodeProxy.src.value}]]`;
     }
+
     const srcSpl = nodeProxy.src.value.split('/');
+    if (yarleOptions.outputFormat === OutputFormat.UrlEncodeMD) {
+      return `![${srcSpl[srcSpl.length - 1]}](${encodeURI(nodeProxy.src.value)})`;
+    }
 
     return `![${srcSpl[srcSpl.length - 1]}](${nodeProxy.src.value})`;
   },
