@@ -761,6 +761,7 @@ describe('dropTheRope ', async () => {
       fs.readFileSync(`${__dirname}/data/test-sublists-valid.md`, 'utf8'),
     );
   });
+  
   it('Note with sublists (multiple)', async () => {
     const options: YarleOptions = {
       enexFile: './test/data/test-sublists-multiple.enex',
@@ -780,6 +781,106 @@ describe('dropTheRope ', async () => {
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-sublists-multiple.md`, 'utf8'),
+    );
+  });
+
+  it('Webclip - article', async () => {
+    const options: YarleOptions = {
+      enexFile: './test/data/test-webclip_article.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      plainTextNotesOnly: false,
+      outputFormat: OutputFormat.ObsidianMD,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/simpleNotes/test-webclip_article/yarle evernote.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/simpleNotes/test-webclip_article/yarle evernote.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-webclip_article.md`, 'utf8'),
+    );
+  });
+
+  it('Webclip - simplified article', async () => {
+    const options: YarleOptions = {
+      enexFile: './test/data/test-webclip_simplifiedarticle.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      plainTextNotesOnly: false,
+      outputFormat: OutputFormat.ObsidianMD,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/simpleNotes/test-webclip_simplifiedarticle/yarle evernote.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/simpleNotes/test-webclip_simplifiedarticle/yarle evernote.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-webclip_simplifiedarticle.md`, 'utf8'),
+    );
+  });
+
+  it('Webclip - bookmark', async () => {
+    const options: YarleOptions = {
+      enexFile: './test/data/test-webclip_bookmark.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      plainTextNotesOnly: false,
+      outputFormat: OutputFormat.ObsidianMD,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/complexNotes/test-webclip_bookmark/yarle.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/complexNotes/test-webclip_bookmark/yarle.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-webclip_bookmark.md`, 'utf8'),
+    );
+  });
+
+  it('Webclip - screenshot', async () => {
+    const options: YarleOptions = {
+      enexFile: './test/data/test-webclip_screenshot.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      plainTextNotesOnly: false,
+      outputFormat: OutputFormat.ObsidianMD,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/complexNotes/test-webclip_screenshot/yarle.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/complexNotes/test-webclip_screenshot/yarle.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-webclip_screenshot.md`, 'utf8'),
     );
   });
 });

@@ -19,12 +19,11 @@ import { imagesRule } from './turndown-rules/images-rule';
         return node.isBlock ? `\n${content}\n` : content;
         },
     });
-
+    turndownService.use(gfm);
+    turndownService.addRule('span', spanRule);
     turndownService.addRule('evernote task items', taskItemsRule);
     turndownService.addRule('wikistyle links', wikiStyleLinksRule);
     turndownService.addRule('images', imagesRule);
-    turndownService.addRule('span', spanRule);
-    turndownService.use(gfm);
 
 export const getTurndownService = () => {
 
