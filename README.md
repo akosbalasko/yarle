@@ -63,6 +63,19 @@ Those markdown notes that contains external resources such pictures or files, ar
 
 ## Release notes
 
+### Version 2.11.0
+
+- Features: 
+   1. Webclipped notes, namely articles, simplified articles, bookmarks, screenshots scraped by Evernote's web clipper are converted
+   2. UrlEncodeMD introduced as possible value of 'outputFormat' property, it makes image links be url-encoded in markdown notes
+   3. Links in headers supported
+
+- Fixes: 
+   1. [Memory leak issue](https://github.com/akosbalasko/yarle/issues/55)
+   2. [List items indented correctly](https://github.com/akosbalasko/yarle/issues/60) 
+   3. [Bug of multiple links point to the same resource fixed](https://github.com/akosbalasko/yarle/issues/56)
+ 
+
 ### Version 2.9.2 
 
 - [Issue#49](https://github.com/akosbalasko/yarle/issues/49) fixed
