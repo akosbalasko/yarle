@@ -34,6 +34,9 @@ const fixSublists = (node: HTMLElement) => {
 
 export const convertHtml2Md = (content: string) => {
     const contentNode = new JSDOM(`<x-turndown id="turndown-root">${content}</x-turndown>`).window.document.getElementById('turndown-root');
+    
     let contentInMd = getTurndownService().turndown(fixSublists(contentNode));
+    console.log('contentInMd', JSON.stringify(contentInMd, null, 2));
+    
     return contentInMd && contentInMd !== 'undefined' ? contentInMd : '';
 };
