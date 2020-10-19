@@ -100,7 +100,7 @@ describe('dropTheRope ', async () => {
     );
   });
 
-  it('Note with code block', async() => {
+  it('Note with code block', async () => {
     const options: YarleOptions = {
       enexFile: './test/data/test-noteWithCodeBlock.enex',
       outputDir: 'out',
@@ -784,7 +784,7 @@ describe('dropTheRope ', async () => {
       fs.readFileSync(`${__dirname}/data/test-sublists-valid.md`, 'utf8'),
     );
   });
- it('Enex file urlEncode whitespace', async () => {
+  it('Enex file urlEncode whitespace', async () => {
     const options: YarleOptions = {
       enexFile: './test/data/test-urlencode.enex',
       outputDir: 'out',

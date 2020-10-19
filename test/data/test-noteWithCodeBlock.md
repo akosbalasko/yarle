@@ -7,6 +7,7 @@ Some text before the code block
 
 print('Hello, world!')
 
+
 ```
 
 Some code after the code block 1
