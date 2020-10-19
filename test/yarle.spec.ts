@@ -18,8 +18,8 @@ describe('dropTheRope ', async () => {
   });
 
   afterEach(async () => {
-    utils.clearSimpleNotesDistDir();
-    utils.clearComplexNotesDistDir();
+    // utils.clearSimpleNotesDistDir();
+    // utils.clearComplexNotesDistDir();
   });
 
   it('Empty enex file - throw eoent', async () => {
@@ -98,6 +98,15 @@ describe('dropTheRope ', async () => {
       ),
       fs.readFileSync(`${__dirname}/data/test-justText.md`, 'utf8'),
     );
+  });
+
+  it.only('Note with code block', async() => {
+    const options: YarleOptions = {
+      enexFile: './test/data/test-noteWithCodeBlock.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+    };
+    await yarle.dropTheRope(options);
   });
 
   it('Note with tags', async () => {
