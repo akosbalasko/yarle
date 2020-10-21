@@ -7,7 +7,7 @@ import { convertHtml2Md } from './convert-html-to-md';
 
 export const processNode = (note: any): void => {
     const title = getTitle(note);
-  
+    // tslint:disable-next-line: no-console
     console.log(`Converting note ${title}...`);
     try {
       let data = '';
@@ -33,8 +33,9 @@ export const processNode = (note: any): void => {
       }
       writeMdFile(absFilePath, data, note);
     } catch (e) {
+      // tslint:disable-next-line: no-console
       console.log(`Failed to convert note: ${title}`, e);
     }
+    // tslint:disable-next-line: no-console
     console.log(`Note ${title} converted successfully.`);
-  
     };

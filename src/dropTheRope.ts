@@ -20,6 +20,7 @@ export const run = async () => {
         skipLocation: argv['skip-latlng'] || false ,
         skipCreationTime: argv['skip-creation-time'] || false ,
         skipUpdateTime: argv['skip-update-time'] || false ,
+        skipWebClips: argv['skip-web-clips'] || false ,
         skipTags: argv['skip-tags'] || false ,
         outputFormat: argv['outputFormat'] || OutputFormat.StandardMD,
     };
