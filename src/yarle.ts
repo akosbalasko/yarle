@@ -40,7 +40,6 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
     });
 
     xml.on('endElement: note', (note: any) => {
-      
       processNode(note);
       ++noteNumber;
       console.log(`Notes processed: ${noteNumber}`);

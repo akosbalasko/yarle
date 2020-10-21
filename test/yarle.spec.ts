@@ -100,6 +100,29 @@ describe('dropTheRope ', async () => {
     );
   });
 
+  it('Note with code block', async () => {
+    const options: YarleOptions = {
+      enexFile: './test/data/test-noteWithCodeBlock.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+    };
+    await yarle.dropTheRope(options);
+
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/simpleNotes/test-noteWithCodeBlock/note with code block.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/simpleNotes/test-noteWithCodeBlock/note with code block.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-noteWithCodeBlock.md`, 'utf8'),
+    );
+  });
+
   it('Note with tags', async () => {
     const options: YarleOptions = {
       enexFile: './test/data/test-noteWithTags.enex',
@@ -761,7 +784,7 @@ describe('dropTheRope ', async () => {
       fs.readFileSync(`${__dirname}/data/test-sublists-valid.md`, 'utf8'),
     );
   });
- it('Enex file urlEncode whitespace', async () => {
+  it('Enex file urlEncode whitespace', async () => {
     const options: YarleOptions = {
       enexFile: './test/data/test-urlencode.enex',
       outputDir: 'out',

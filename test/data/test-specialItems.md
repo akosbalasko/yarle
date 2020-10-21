@@ -8,7 +8,10 @@
 - [ ] Checkbox1
 - [x] CheckedCheckbox2
 
-Inline Code
+```
+
+Inline Code 
+```
 
     Created at: 2020-05-18T08:55:40+01:00
     Updated at: 2020-05-18T08:56:49+01:00

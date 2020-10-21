@@ -5,6 +5,7 @@ import { wikiStyleLinksRule } from './turndown-rules/wikistyle-links-rule';
 import { taskItemsRule } from './turndown-rules/task-items-rule';
 import { spanRule } from './turndown-rules/span';
 import { imagesRule } from './turndown-rules/images-rule';
+import { codeBlockRule } from './turndown-rules/code-block-rule';
 
     /* istanbul ignore next */
     const turndownService = new TurndownService({
@@ -24,6 +25,7 @@ import { imagesRule } from './turndown-rules/images-rule';
     turndownService.addRule('evernote task items', taskItemsRule);
     turndownService.addRule('wikistyle links', wikiStyleLinksRule);
     turndownService.addRule('images', imagesRule);
+    turndownService.addRule('codeblocks', codeBlockRule);
 
 export const getTurndownService = () => {
 
