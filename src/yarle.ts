@@ -23,7 +23,6 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
   const xml = new XmlStream(stream);
   let noteNumber = 0;
   let failed = 0;
-  let totalNotes = 0;
 
   return new Promise((resolve, reject) => {
     const logAndReject = (error: Error) => {
@@ -32,12 +31,9 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
 
       return reject();
     };
-  
+
     xml.collect('tag');
     xml.collect('resource');
-    xml.on('startElement: en-export', (enExport: any) => {
-      totalNotes = Array.isArray(enExport.note) ? enExport.note.length : 1;
-    });
 
     xml.on('endElement: note', (note: any) => {
       processNode(note);
@@ -49,7 +45,7 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
       const success = noteNumber - failed;
       console.log(
         `Conversion finished: ${success} succeeded, ${
-          totalNotes - success
+          noteNumber - success
         } failed.`,
       );
 

@@ -7,7 +7,7 @@ import { convertHtml2Md } from './convert-html-to-md';
 
 export const processNode = (note: any): void => {
     const title = getTitle(note);
-  
+
     console.log(`Converting note ${title}...`);
     try {
       let data = '';
