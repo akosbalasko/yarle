@@ -34,7 +34,8 @@ export const wikiStyleLinksRule = {
             }
             
             if (nodeProxy.href.value.startsWith('http') || 
-                nodeProxy.href.value.startsWith('www')){
+                nodeProxy.href.value.startsWith('www') ||
+                nodeProxy.href.value.startsWith('file')) {
                     
                     return `${tokenToBeRestructured['mdKeyword']}[${tokenToBeRestructured['text']}](${nodeProxy.href.value})`
                 }

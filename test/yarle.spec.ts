@@ -542,6 +542,30 @@ describe('dropTheRope ', async () => {
     );
   });
 
+  it('Enex file with file links ', async () => {
+    const options: YarleOptions = {
+      enexFile: './test/data/test-externalFileLink.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      plainTextNotesOnly: false,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/simpleNotes/test-externalFileLink/external file link.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/simpleNotes/test-externalFileLink/external file link.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-externalFileLink.md`, 'utf8'),
+    );
+  });
+
   it('Enex file with links with resources', async () => {
     const options: YarleOptions = {
       enexFile: './test/data/test-externalLinkWithPicture.enex',
