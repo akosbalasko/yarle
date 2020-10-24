@@ -22,6 +22,7 @@ export const run = async () => {
         skipUpdateTime: argv['skip-update-time'] || false ,
         skipTags: argv['skip-tags'] || false ,
         outputFormat: argv['outputFormat'] || OutputFormat.StandardMD,
+        templateFile: argv['template'],
     };
     if (options.enexFile.endsWith('.enex')) {
         console.log(`Converting notes in file: ${options.enexFile}`);

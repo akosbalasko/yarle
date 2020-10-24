@@ -321,6 +321,28 @@ describe('dropTheRope ', async () => {
     );
   });
 
+  it('Applying simple template', async () => {
+    const options: YarleOptions = {
+      enexFile: './test/data/test-noteWithTags.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/simpleNotes/test-noteWithTags/test -note with text only.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/simpleNotes/test-noteWithTags/test -note with text only.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-noteWithTags.md`, 'utf8'),
+    );
+  });
+
   it('Enex file with multiple notes', async () => {
     const options: YarleOptions = {
       enexFile: './test/data/test-twoNotes.enex',
@@ -790,22 +812,22 @@ describe('dropTheRope ', async () => {
       outputDir: 'out',
       isMetadataNeeded: true,
       outputFormat: OutputFormat.UrlEncodeMD,
-      };
+    };
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
         `${__dirname}/../out/complexNotes/test-urlencode/test - note with picture (filename with spaces).md`,
-         ),
+      ),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-           `${__dirname}/../out/complexNotes/test-urlencode/test - note with picture (filename with spaces).md`,
+        `${__dirname}/../out/complexNotes/test-urlencode/test - note with picture (filename with spaces).md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-urlencode.md`, 'utf8'),
-      );
+    );
   });
   it('Note with sublists (multiple)', async () => {
     const options: YarleOptions = {
@@ -875,7 +897,10 @@ describe('dropTheRope ', async () => {
         `${__dirname}/../out/simpleNotes/test-webclip_simplifiedarticle/yarle evernote.md`,
         'utf8',
       ),
-      fs.readFileSync(`${__dirname}/data/test-webclip_simplifiedarticle.md`, 'utf8'),
+      fs.readFileSync(
+        `${__dirname}/data/test-webclip_simplifiedarticle.md`,
+        'utf8',
+      ),
     );
   });
 

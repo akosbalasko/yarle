@@ -1,40 +1,66 @@
-
-import { getComplexFilePath, getMetadata, getNoteContent, getSimpleFilePath, getTitle, isComplex, logTags } from './utils';
+import {
+  getComplexFilePath,
+  getMetadata,
+  getNoteContent,
+  getSimpleFilePath,
+  getTitle,
+  isComplex,
+  logTags,
+} from './utils';
 import { yarleOptions } from './yarle';
 import { writeMdFile } from './utils/file-utils';
 import { processResources } from './process-resources';
 import { convertHtml2Md } from './convert-html-to-md';
 
+interface NoteData {
+  title?: string;
+  tags?: string;
+  content?: string;
+  metadata?: string;
+}
+
+const TITLE_PLACEHOLDER = '{% title %}';
+const TAGS_PLACEHOLDER = '{% tags %}';
+const CONTENT_PLACEHOLDER = '{% content %}';
+const METADATA_PLACEHOLDER = '{% metadata %}';
+
+const defaultTemplate = `${TITLE_PLACEHOLDER}${TAGS_PLACEHOLDER}${CONTENT_PLACEHOLDER}${METADATA_PLACEHOLDER}`;
+
 export const processNode = (note: any): void => {
-    const title = getTitle(note);
-  
-    console.log(`Converting note ${title}...`);
-    try {
-      let data = '';
-      let content = getNoteContent(note);
-      const absFilePath = isComplex(note) ?
-        getComplexFilePath(note) :
-        getSimpleFilePath(note);
+  const title = getTitle(note);
+  const noteData: NoteData = { title };
 
-      data += title;
-      if (yarleOptions.isMetadataNeeded) {
-        data += logTags(note);
-      }
-      if (isComplex(note)) {
-        content = processResources(note, content);
-      }
+  console.log(`Converting note ${title}...`);
 
-      const markdown = convertHtml2Md(content);
+  try {
+    let content = getNoteContent(note);
 
-      data += markdown;
-      if (yarleOptions.isMetadataNeeded) {
-        const metadata = getMetadata(note);
-        data += metadata;
-      }
-      writeMdFile(absFilePath, data, note);
-    } catch (e) {
-      console.log(`Failed to convert note: ${title}`, e);
+    noteData.tags = yarleOptions.isMetadataNeeded ? logTags(note) : '';
+
+    if (isComplex(note)) {
+      content = processResources(note, content);
     }
-    console.log(`Note ${title} converted successfully.`);
-  
-    };
+
+    noteData.content = convertHtml2Md(content);
+
+    noteData.metadata = yarleOptions.isMetadataNeeded ? getMetadata(note) : '';
+
+    const data = applyTemplate(noteData, defaultTemplate);
+
+    const absFilePath = isComplex(note)
+      ? getComplexFilePath(note)
+      : getSimpleFilePath(note);
+
+    writeMdFile(absFilePath, data, note);
+  } catch (e) {
+    console.log(`Failed to convert note: ${title}`, e);
+  }
+  console.log(`Note ${title} converted successfully.`);
+};
+
+const applyTemplate = (noteData: NoteData, template: string) =>
+  template
+    .replace(TITLE_PLACEHOLDER, noteData.title || '')
+    .replace(TAGS_PLACEHOLDER, noteData.tags || '')
+    .replace(CONTENT_PLACEHOLDER, noteData.content || '')
+    .replace(METADATA_PLACEHOLDER, noteData.metadata || '');
