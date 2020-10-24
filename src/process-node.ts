@@ -1,5 +1,5 @@
 
-import { getComplexFilePath, getMetadata, getNoteContent, getSimpleFilePath, getTitle, isComplex, logTags } from './utils';
+import { getMetadata, getNoteContent, getTitle, isComplex, logTags, getMdFilePath } from './utils';
 import { yarleOptions } from './yarle';
 import { writeMdFile } from './utils/file-utils';
 import { processResources } from './process-resources';
@@ -12,9 +12,7 @@ export const processNode = (note: any): void => {
     try {
       let data = '';
       let content = getNoteContent(note);
-      const absFilePath = isComplex(note) ?
-        getComplexFilePath(note) :
-        getSimpleFilePath(note);
+      const absFilePath = getMdFilePath(note);
 
       data += title;
       if (yarleOptions.isMetadataNeeded) {

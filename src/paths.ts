@@ -1,5 +1,4 @@
 export interface Path {
-    simpleMdPath?: string;
-    complexMdPath?: string;
+    mdPath?: string;
     resourcePath?: string;
 }

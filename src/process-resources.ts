@@ -8,7 +8,7 @@ export const processResources = (note: any, content: string): string => {
     let resourceHashes: any = {};
     let updatedContent = cloneDeep(content);
 
-    const relativeResourceWorkDir = `${utils.getResourceDir(utils.paths.complexMdPath, note)}.resources`;
+    const relativeResourceWorkDir = `${utils.getResourceDir(utils.paths.mdPath, note)}.resources`;
     const absoluteResourceWorkDir = `${utils.paths.resourcePath}/${relativeResourceWorkDir}`;
 
     utils.clearResourceDir(note);
