@@ -31,6 +31,8 @@ const LOCATION_PLACEHOLDER = '{location}';
 const START_LOCATION_BLOCK = '{location-block}';
 const END_LOCATION_BLOCK = '{end-location-block}';
 
+const MATCH_ALL = '(.|\n|\r\n)*';
+
 export const applyTemplate = (
   noteData: NoteData,
   yarleOptions: YarleOptions,
@@ -48,10 +50,11 @@ export const applyTemplate = (
       .replace(END_TITLE_BLOCK, '');
   } else {
     result = result.replace(
-      new RegExp(`${START_TITLE_BLOCK}(.*)${END_TITLE_BLOCK}`, 'g'),
+      new RegExp(`${START_TITLE_BLOCK}${MATCH_ALL}${END_TITLE_BLOCK}`, 'g'),
       '',
     );
   }
+
   if (!yarleOptions.skipTags && noteData.tags) {
     result = result
       .replace(TAGS_PLACEHOLDER, noteData.tags)
@@ -59,7 +62,7 @@ export const applyTemplate = (
       .replace(END_TAGS_BLOCK, '');
   } else {
     result = result.replace(
-      new RegExp(`${START_TAGS_BLOCK}(.*)${END_TAGS_BLOCK}`, 'g'),
+      new RegExp(`${START_TAGS_BLOCK}${MATCH_ALL}${END_TAGS_BLOCK}`, 'g'),
       '',
     );
   }
@@ -70,7 +73,7 @@ export const applyTemplate = (
       .replace(END_CONTENT_BLOCK, '');
   } else {
     result = result.replace(
-      new RegExp(`${START_CONTENT_BLOCK}(.*)${END_CONTENT_BLOCK}`, 'g'),
+      new RegExp(`${START_CONTENT_BLOCK}${MATCH_ALL}${END_CONTENT_BLOCK}`, 'g'),
       '',
     );
   }
@@ -83,7 +86,10 @@ export const applyTemplate = (
         .replace(END_CREATED_AT_BLOCK, '');
     } else {
       result = result.replace(
-        new RegExp(`${START_CREATED_AT_BLOCK}(.*)${END_CREATED_AT_BLOCK}`, 'g'),
+        new RegExp(
+          `${START_CREATED_AT_BLOCK}${MATCH_ALL}${END_CREATED_AT_BLOCK}`,
+          'g',
+        ),
         '',
       );
     }
@@ -94,7 +100,10 @@ export const applyTemplate = (
         .replace(END_UPDATED_AT_BLOCK, '');
     } else {
       result = result.replace(
-        new RegExp(`${START_UPDATED_AT_BLOCK}(.*)${END_UPDATED_AT_BLOCK}`, 'g'),
+        new RegExp(
+          `${START_UPDATED_AT_BLOCK}${MATCH_ALL}${END_UPDATED_AT_BLOCK}`,
+          'g',
+        ),
         '',
       );
     }
@@ -105,7 +114,10 @@ export const applyTemplate = (
         .replace(END_LOCATION_BLOCK, '');
     } else {
       result = result.replace(
-        new RegExp(`${START_LOCATION_BLOCK}(.*)${END_LOCATION_BLOCK}`, 'g'),
+        new RegExp(
+          `${START_LOCATION_BLOCK}${MATCH_ALL}${END_LOCATION_BLOCK}`,
+          'g',
+        ),
         '',
       );
     }
@@ -114,7 +126,10 @@ export const applyTemplate = (
       .replace(END_METADATA_BLOCK, '');
   } else {
     result = result.replace(
-      new RegExp(`${START_METADATA_BLOCK}(.*)${END_METADATA_BLOCK}`, 'g'),
+      new RegExp(
+        `${START_METADATA_BLOCK}${MATCH_ALL}${END_METADATA_BLOCK}`,
+        'g',
+      ),
       '',
     );
   }
