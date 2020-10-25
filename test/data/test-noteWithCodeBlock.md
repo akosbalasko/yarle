@@ -1,4 +1,6 @@
 # Note with code block
+
+
 Some text before the code block
 
 ```
@@ -31,6 +33,7 @@ fn main() {
     }
 }
 ```
+
 
     Created at: 2020-10-19T20:42:41+01:00
     Updated at: 2020-10-19T22:01:41+01:00

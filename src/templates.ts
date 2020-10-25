@@ -108,6 +108,8 @@ export const applyTemplate = (
       );
     }
     if (!yarleOptions.skipLocation && noteData.location) {
+      console.log('location =>', noteData.location);
+
       result = result
         .replace(LOCATION_PLACEHOLDER, noteData.location)
         .replace(START_LOCATION_BLOCK, '')

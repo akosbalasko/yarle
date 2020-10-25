@@ -18,8 +18,8 @@ describe('dropTheRope ', async () => {
   });
 
   afterEach(async () => {
-    // utils.clearSimpleNotesDistDir();
-    // utils.clearComplexNotesDistDir();
+    utils.clearSimpleNotesDistDir();
+    utils.clearComplexNotesDistDir();
   });
 
   it('Empty enex file - throw eoent', async () => {
@@ -123,7 +123,7 @@ describe('dropTheRope ', async () => {
     );
   });
 
-  it.only('Note with tags', async () => {
+  it('Note with tags', async () => {
     const options: YarleOptions = {
       enexFile: './test/data/test-noteWithTags.enex',
       outputDir: 'out',
@@ -239,7 +239,7 @@ describe('dropTheRope ', async () => {
     );
   });
 
-  it('Enex file with note containing a picture', async () => {
+  it.only('Enex file with note containing a picture', async () => {
     const options: YarleOptions = {
       enexFile: './test/data/test-withPicture.enex',
       outputDir: 'out',
@@ -321,7 +321,7 @@ describe('dropTheRope ', async () => {
     );
   });
 
-  it.only('Applying simple template', async () => {
+  it('Applying simple template', async () => {
     const options: YarleOptions = {
       enexFile: './test/data/test-noteWithTags.enex',
       outputDir: 'out',
