@@ -11,4 +11,5 @@ export interface YarleOptions {
     skipUpdateTime?: boolean;
     skipTags?: boolean;
     outputFormat?: OutputFormat;
+    useEnexFileAsDir?: boolean;
 }

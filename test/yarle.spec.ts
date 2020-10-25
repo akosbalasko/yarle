@@ -6,6 +6,7 @@ import { OutputFormat } from '../src/output-format';
 
 import * as utils from './../src/utils';
 import * as yarle from './../src/yarle';
+import * as dropTheRopeRunner from './../src/dropTheRopeRunner';
 import { YarleOptions } from './../src/YarleOptions';
 
 describe('dropTheRope ', async () => {
@@ -926,6 +927,31 @@ describe('dropTheRope ', async () => {
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-webclip_screenshot.md`, 'utf8'),
+    );
+  });
+
+
+  it.only('Folder of enex files', async () => {
+    const options = [
+      '--enexSource=./test/data/TestDirNotes',
+      '--outputDir=out',
+      '--isMetadataNeeded=true',
+      '--plainTextNotesOnly=false',
+      `--outputFormat=${OutputFormat.ObsidianMD}`,
+      '--useEnexFileAsDir=false',
+    ];
+    await dropTheRopeRunner.run(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/simpleNotes/examplenoteinsamedir.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/simpleNotes/examplenoteinsamedir.1.md`,
+      ),
+      true,
     );
   });
 });
