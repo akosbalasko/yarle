@@ -1,3 +1,4 @@
+import { applyTemplate } from './templates';
 import {
   getComplexFilePath,
   getMetadata,
@@ -12,25 +13,19 @@ import { writeMdFile } from './utils/file-utils';
 import { processResources } from './process-resources';
 import { convertHtml2Md } from './convert-html-to-md';
 
-interface NoteData {
+export interface NoteData {
   title?: string;
   tags?: string;
   content?: string;
-  metadata?: string;
+  createdAt?: string;
+  updatedAt?: string;
+  location?: string;
 }
 
-const TITLE_PLACEHOLDER = '{% title %}';
-const TAGS_PLACEHOLDER = '{% tags %}';
-const CONTENT_PLACEHOLDER = '{% content %}';
-const METADATA_PLACEHOLDER = '{% metadata %}';
-
-const defaultTemplate = `${TITLE_PLACEHOLDER}${TAGS_PLACEHOLDER}${CONTENT_PLACEHOLDER}${METADATA_PLACEHOLDER}`;
-
 export const processNode = (note: any): void => {
-  const title = getTitle(note);
-  const noteData: NoteData = { title };
+  const noteData: NoteData = { title: note.title };
 
-  console.log(`Converting note ${title}...`);
+  console.log(`Converting note ${noteData.title}...`);
 
   try {
     let content = getNoteContent(note);
@@ -43,24 +38,23 @@ export const processNode = (note: any): void => {
 
     noteData.content = convertHtml2Md(content);
 
-    noteData.metadata = yarleOptions.isMetadataNeeded ? getMetadata(note) : '';
+    const { createdAt, updatedAt, location } = getMetadata(note);
 
-    const data = applyTemplate(noteData, defaultTemplate);
+    noteData.createdAt = createdAt;
+    noteData.updatedAt = updatedAt;
+    noteData.location = location;
+
+    const data = applyTemplate(noteData, yarleOptions);
 
     const absFilePath = isComplex(note)
       ? getComplexFilePath(note)
       : getSimpleFilePath(note);
 
+    console.log('data =>\n', JSON.stringify(data), '\n***');
+
     writeMdFile(absFilePath, data, note);
   } catch (e) {
-    console.log(`Failed to convert note: ${title}`, e);
+    console.log(`Failed to convert note: ${noteData.title}`, e);
   }
-  console.log(`Note ${title} converted successfully.`);
+  console.log(`Note ${noteData.title} converted successfully.`);
 };
-
-const applyTemplate = (noteData: NoteData, template: string) =>
-  template
-    .replace(TITLE_PLACEHOLDER, noteData.title || '')
-    .replace(TAGS_PLACEHOLDER, noteData.tags || '')
-    .replace(CONTENT_PLACEHOLDER, noteData.content || '')
-    .replace(METADATA_PLACEHOLDER, noteData.metadata || '');

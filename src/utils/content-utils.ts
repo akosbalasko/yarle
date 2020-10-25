@@ -4,39 +4,45 @@ import * as fs from 'fs';
 
 import { yarleOptions } from './../yarle';
 
-const TAG_SECTION_SEPARATOR = '---';
+export interface Metadata {
+  createdAt?: string;
+  updatedAt?: string;
+  location?: string;
+}
 
-export const getMetadata = (note: any): string => {
+export const getMetadata = (note: any): Metadata => {
   if (!yarleOptions.isMetadataNeeded) {
-    return '';
+    return { createdAt: '', updatedAt: '', location: '' };
   }
 
-  return `${logSeparator()}${logCreationTime(note)}${logUpdateTime(
-    note
-  )}${logLatLong(note)}${logSeparator()}`;
+  return {
+    createdAt: getCreationTime(note),
+    updatedAt: getUpdateTime(note),
+    location: getLatLong(note),
+  };
 };
 
 export const getTitle = (note: any): string => {
-  return note.title ? `# ${note.title}${EOL}` : '';
+  return note.title ? `# ${note.title}` : '';
 };
 
-export const logCreationTime = (note: any): string => {
+export const getCreationTime = (note: any): string => {
   return !yarleOptions.skipCreationTime && note.created
-    ? `    Created at: ${moment(note.created).format()}${EOL}`
+    ? moment(note.created).format()
     : '';
 };
 
-export const logUpdateTime = (note: any): string => {
+export const getUpdateTime = (note: any): string => {
   return !yarleOptions.skipUpdateTime && note.updated
-    ? `    Updated at: ${moment(note.updated).format()}${EOL}`
+    ? moment(note.updated).format()
     : '';
 };
 
-export const logLatLong = (note: any): string => {
+export const getLatLong = (note: any): string => {
   return !yarleOptions.skipLocation &&
     note['note-attributes'] &&
     note['note-attributes'].longitude
-    ? `    Where: ${note['note-attributes'].longitude},${note['note-attributes'].latitude}${EOL}`
+    ? `${note['note-attributes'].longitude},${note['note-attributes'].latitude}$`
     : '';
 };
 
@@ -49,16 +55,10 @@ export const logTags = (note: any): string => {
       return cleanTag.startsWith('#') ? cleanTag : `#${cleanTag}`;
     });
 
-    return `${EOL}${TAG_SECTION_SEPARATOR}${EOL}Tag(s): ${tags.join(
-      ' '
-    )}${EOL}${EOL}${TAG_SECTION_SEPARATOR}${EOL}${EOL}`;
+    return tags.join(' ');
   }
 
   return '';
-};
-
-export const logSeparator = (): string => {
-  return `${EOL}${EOL}`;
 };
 
 export const setFileDates = (path: string, note: any): void => {
