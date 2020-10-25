@@ -931,14 +931,14 @@ describe('dropTheRope ', async () => {
   });
 
 
-  it.only('Folder of enex files', async () => {
+  it('Folder of enex files', async () => {
     const options = [
       '--enexSource=./test/data/TestDirNotes',
       '--outputDir=out',
       '--isMetadataNeeded=true',
       '--plainTextNotesOnly=false',
       `--outputFormat=${OutputFormat.ObsidianMD}`,
-      '--useEnexFileAsDir=false',
+      '--skipEnexFileNameFromOutputPath=true',
     ];
     await dropTheRopeRunner.run(options);
     assert.equal(

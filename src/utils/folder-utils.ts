@@ -61,7 +61,7 @@ export const setPaths = (): void => {
   paths.simpleMdPath = `${process.cwd()}/${yarleOptions.outputDir}/simpleNotes`
   paths.complexMdPath = `${process.cwd()}/${yarleOptions.outputDir}/complexNotes`;
   paths.resourcePath = `${process.cwd()}/${yarleOptions.outputDir}/complexNotes/_resources`;
-  if (yarleOptions.useEnexFileAsDir) {
+  if (!yarleOptions.skipEnexFileNameFromOutputPath) {
     paths.simpleMdPath = `${paths.simpleMdPath}/${enexFile}`;
     paths.complexMdPath = `${paths.complexMdPath}/${enexFile}`;
     paths.resourcePath = `${process.cwd()}/${yarleOptions.outputDir}/complexNotes/${enexFile}/_resources`;
