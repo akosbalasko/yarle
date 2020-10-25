@@ -9,6 +9,7 @@ export interface YarleOptions {
     skipLocation?: boolean;
     skipCreationTime?: boolean;
     skipUpdateTime?: boolean;
+    skipWebClips?: boolean;
     skipTags?: boolean;
     outputFormat?: OutputFormat;
 }
