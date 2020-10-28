@@ -1,7 +1,0 @@
-# {% title %}
-
-{% text %}
-
----
-
-{% metadata %}
