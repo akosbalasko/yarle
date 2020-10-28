@@ -56,7 +56,7 @@ describe('dropTheRope ', async () => {
       fs.readFileSync(`${__dirname}/data/test-justText.md`, 'utf8'),
     );
   });
-  it('Enex file with note WithHyperlinkRefs', async () => {
+  it.only('Enex file with note WithHyperlinkRefs', async () => {
     const options: YarleOptions = {
       enexFile: './test/data/test-bracketlinks.enex',
       outputDir: 'out',
