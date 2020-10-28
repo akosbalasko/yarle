@@ -956,4 +956,32 @@ describe('dropTheRope ', async () => {
       fs.readFileSync(`${__dirname}/data/test - templates.md`, 'utf8'),
     );
   });
+
+  it('only renders content with a template with just the content block', async () => {
+    const options: YarleOptions = {
+      enexFile: './test/data/test-template 2.enex',
+      outputDir: 'out',
+      templateFile: './test/data/bare_template.templ',
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.ObsidianMD,
+    };
+    await yarle.dropTheRope(options);
+    assert.strictEqual(
+      fs.existsSync(
+        `${__dirname}/../out/simpleNotes/test-template 2/test - templates just content.md`,
+      ),
+      true,
+    );
+
+    assert.strictEqual(
+      fs.readFileSync(
+        `${__dirname}/../out/simpleNotes/test-template 2/test - templates just content.md`,
+        'utf8',
+      ),
+      fs.readFileSync(
+        `${__dirname}/data/test - templates just content.md`,
+        'utf8',
+      ),
+    );
+  });
 });
