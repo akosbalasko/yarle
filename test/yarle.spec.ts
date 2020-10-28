@@ -18,8 +18,8 @@ describe('dropTheRope ', async () => {
   });
 
   afterEach(async () => {
-    // utils.clearSimpleNotesDistDir();
-    // utils.clearComplexNotesDistDir();
+    utils.clearSimpleNotesDistDir();
+    utils.clearComplexNotesDistDir();
   });
 
   it('Empty enex file - throw eoent', async () => {
@@ -56,7 +56,7 @@ describe('dropTheRope ', async () => {
       fs.readFileSync(`${__dirname}/data/test-justText.md`, 'utf8'),
     );
   });
-  it.only('Enex file with note WithHyperlinkRefs', async () => {
+  it('Enex file with note WithHyperlinkRefs', async () => {
     const options: YarleOptions = {
       enexFile: './test/data/test-bracketlinks.enex',
       outputDir: 'out',
