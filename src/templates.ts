@@ -43,40 +43,32 @@ export const applyTemplate = (
     result = fs.readFileSync(yarleOptions.templateFile, 'utf-8');
   }
 
-  if (noteData.title) {
-    result = result
-      .replace(TITLE_PLACEHOLDER, noteData.title)
-      .replace(START_TITLE_BLOCK, '')
-      .replace(END_TITLE_BLOCK, '');
-  } else {
-    result = result.replace(
-      new RegExp(`${START_TITLE_BLOCK}${MATCH_ALL}${END_TITLE_BLOCK}`, 'g'),
-      '',
-    );
-  }
+  result = applyTemplateOnBlock({
+    template: result,
+    check: () => noteData.title,
+    startBlockPlaceholder: START_TITLE_BLOCK,
+    endBlockPlaceholder: END_TITLE_BLOCK,
+    valuePlaceholder: TITLE_PLACEHOLDER,
+    value: noteData.title,
+  });
 
-  if (!yarleOptions.skipTags && noteData.tags) {
-    result = result
-      .replace(TAGS_PLACEHOLDER, noteData.tags)
-      .replace(START_TAGS_BLOCK, '')
-      .replace(END_TAGS_BLOCK, '');
-  } else {
-    result = result.replace(
-      new RegExp(`${START_TAGS_BLOCK}${MATCH_ALL}${END_TAGS_BLOCK}`, 'g'),
-      '',
-    );
-  }
-  if (noteData.content) {
-    result = result
-      .replace(CONTENT_PLACEHOLDER, noteData.content)
-      .replace(START_CONTENT_BLOCK, '')
-      .replace(END_CONTENT_BLOCK, '');
-  } else {
-    result = result.replace(
-      new RegExp(`${START_CONTENT_BLOCK}${MATCH_ALL}${END_CONTENT_BLOCK}`, 'g'),
-      '',
-    );
-  }
+  result = applyTemplateOnBlock({
+    template: result,
+    check: () => !yarleOptions.skipTags,
+    startBlockPlaceholder: START_TAGS_BLOCK,
+    endBlockPlaceholder: END_TAGS_BLOCK,
+    valuePlaceholder: TAGS_PLACEHOLDER,
+    value: noteData.tags,
+  });
+
+  result = applyTemplateOnBlock({
+    template: result,
+    check: () => noteData.content,
+    startBlockPlaceholder: START_CONTENT_BLOCK,
+    endBlockPlaceholder: END_CONTENT_BLOCK,
+    valuePlaceholder: CONTENT_PLACEHOLDER,
+    value: noteData.content,
+  });
 
   if (yarleOptions.isMetadataNeeded) {
     if (!yarleOptions.skipCreationTime && noteData.createdAt) {
@@ -108,8 +100,6 @@ export const applyTemplate = (
       );
     }
     if (!yarleOptions.skipLocation && noteData.location) {
-      console.log('location =>', noteData.location);
-
       result = result
         .replace(LOCATION_PLACEHOLDER, noteData.location)
         .replace(START_LOCATION_BLOCK, '')
@@ -138,3 +128,34 @@ export const applyTemplate = (
 
   return result;
 };
+
+function applyTemplateOnBlock({
+  template,
+  check,
+  startBlockPlaceholder,
+  endBlockPlaceholder,
+  valuePlaceholder,
+  value,
+}: {
+  template: string;
+  check: Function;
+  startBlockPlaceholder: string;
+  endBlockPlaceholder: string;
+  valuePlaceholder: string;
+  value: string;
+}): string {
+  if (value && check()) {
+    return template
+      .replace(startBlockPlaceholder, '')
+      .replace(endBlockPlaceholder, '')
+      .replace(valuePlaceholder, value);
+  }
+
+  return template.replace(
+    new RegExp(
+      `${startBlockPlaceholder}${MATCH_ALL}${endBlockPlaceholder}`,
+      'g',
+    ),
+    '',
+  );
+}
