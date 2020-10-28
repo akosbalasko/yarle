@@ -18,8 +18,8 @@ describe('dropTheRope ', async () => {
   });
 
   afterEach(async () => {
-    utils.clearSimpleNotesDistDir();
-    utils.clearComplexNotesDistDir();
+    // utils.clearSimpleNotesDistDir();
+    // utils.clearComplexNotesDistDir();
   });
 
   it('Empty enex file - throw eoent', async () => {
@@ -239,7 +239,7 @@ describe('dropTheRope ', async () => {
     );
   });
 
-  it.only('Enex file with note containing a picture', async () => {
+  it('Enex file with note containing a picture', async () => {
     const options: YarleOptions = {
       enexFile: './test/data/test-withPicture.enex',
       outputDir: 'out',
@@ -318,28 +318,6 @@ describe('dropTheRope ', async () => {
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-textWithImage.md`, 'utf8'),
-    );
-  });
-
-  it('Applying simple template', async () => {
-    const options: YarleOptions = {
-      enexFile: './test/data/test-noteWithTags.enex',
-      outputDir: 'out',
-      isMetadataNeeded: true,
-    };
-    await yarle.dropTheRope(options);
-    assert.equal(
-      fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-noteWithTags/test -note with text only.md`,
-      ),
-      true,
-    );
-    assert.equal(
-      fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-noteWithTags/test -note with text only.md`,
-        'utf8',
-      ),
-      fs.readFileSync(`${__dirname}/data/test-noteWithTags.md`, 'utf8'),
     );
   });
 
