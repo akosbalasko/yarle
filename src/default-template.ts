@@ -5,9 +5,7 @@ Tag(s): {tags}
 
 ---
 {end-tags-block}
-
 {content-block}{content}{end-content-block}
-
 {metadata-block}
 {created-at-block}    Created at: {created-at}{end-created-at-block}
 {updated-at-block}    Updated at: {updated-at}{end-updated-at-block}
