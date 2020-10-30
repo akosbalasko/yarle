@@ -24,6 +24,7 @@ export const run = async () => {
         skipWebClips: argv['skip-web-clips'] || false ,
         skipTags: argv['skip-tags'] || false ,
         outputFormat: argv['outputFormat'] || OutputFormat.StandardMD,
+        templateFile: argv['template'],
     };
     if (options.enexFile.endsWith('.enex')) {
         console.log(`Converting notes in file: ${options.enexFile}`);
