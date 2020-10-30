@@ -25,7 +25,8 @@ const fixSublists = (node: HTMLElement) => {
     liElements.forEach(liNode => {
       const listNodeDiv = liNode.firstElementChild;
       if (listNodeDiv && listNodeDiv.tagName === 'DIV') {
-        listNodeDiv.replaceWith(listNodeDiv.innerHTML);
+        const childElementsArr = Array.from(listNodeDiv.childNodes);
+        listNodeDiv.replaceWith(...childElementsArr);
       }
     });
 
