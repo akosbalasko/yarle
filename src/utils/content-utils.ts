@@ -39,6 +39,10 @@ export const logLatLong = (note: any): string => {
           : '';
 };
 
+export const logNotebookName = (notebookName: string): string => {
+  return `Notebook: [[${notebookName}]]${EOL}`
+}
+
 export const logTags = (note: any): string => {
 
   if (!yarleOptions.skipTags && note.tag) {
@@ -49,15 +53,23 @@ export const logTags = (note: any): string => {
       return cleanTag.startsWith('#') ? cleanTag : `#${cleanTag}`;
     });
 
-    return `${EOL}${TAG_SECTION_SEPARATOR}${EOL}Tag(s): ${tags.join(' ')}${EOL}${EOL}${TAG_SECTION_SEPARATOR}${EOL}${EOL}`;
+    return `Tag(s): ${tags.join(' ')}${EOL}`;
   }
 
   return '';
 };
 
+export const logSingleSeparator = (): string => {
+  return `${EOL}`;
+};
+
 export const logSeparator = (): string => {
   return `${EOL}${EOL}`;
 };
+
+export const logSectionSeparator = (): string => {
+  return `${EOL}${TAG_SECTION_SEPARATOR}${EOL}`;
+}
 
 export const setFileDates = (path: string, note: any): void => {
   const modificationTime = moment(note.updated);

@@ -1,11 +1,11 @@
 
-import { getComplexFilePath, getMetadata, getNoteContent, getSimpleFilePath, getTitle, isComplex, logTags } from './utils';
+import { getComplexFilePath, getMetadata, getNoteContent, getSimpleFilePath, getTitle, isComplex, logNotebookName, logTags, logSingleSeparator, logSectionSeparator } from './utils';
 import { yarleOptions } from './yarle';
 import { writeMdFile } from './utils/file-utils';
 import { processResources } from './process-resources';
 import { convertHtml2Md } from './convert-html-to-md';
 
-export const processNode = (note: any): void => {
+export const processNode = (note: any, notebookName: string): void => {
     const title = getTitle(note);
     // tslint:disable-next-line: no-console
     console.log(`Converting note ${title}...`);
@@ -15,10 +15,19 @@ export const processNode = (note: any): void => {
       const absFilePath = isComplex(note) ?
         getComplexFilePath(note) :
         getSimpleFilePath(note);
-
+        
+      const logTopMetadataSection = yarleOptions.isMetadataNeeded && 
+        (yarleOptions.isNotebookNameNeeded || (!yarleOptions.skipTags && note.tag))
+        
       data += title;
-      if (yarleOptions.isMetadataNeeded) {
+      if (logTopMetadataSection) {
+        data += logSectionSeparator();
+        if (yarleOptions.isNotebookNameNeeded) {
+          data += logNotebookName(notebookName);
+        }
         data += logTags(note);
+        data += logSectionSeparator();
+        data += logSingleSeparator();
       }
       if (isComplex(note)) {
         content = processResources(note, content);

@@ -1,9 +1,10 @@
 import { OutputFormat } from './output-format';
 
-export interface YarleOptions {
+export interface YarleOptions {
     enexFile?: string;
     outputDir?: string;
     isMetadataNeeded?: boolean;
+    isNotebookNameNeeded?: boolean;
     isZettelkastenNeeded?: boolean;
     plainTextNotesOnly?: boolean;
     skipLocation?: boolean;

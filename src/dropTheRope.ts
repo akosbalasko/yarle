@@ -17,6 +17,7 @@ export const run = async () => {
         outputDir: argv['outputDir'],
         isZettelkastenNeeded: argv['zettelkasten'] || false,
         isMetadataNeeded: argv['include-metadata'] || false ,
+        isNotebookNameNeeded: argv['include-notebook-name'] || false ,
         plainTextNotesOnly: argv['plaintext-notes-only'] || false ,
         skipLocation: argv['skip-latlng'] || false ,
         skipCreationTime: argv['skip-creation-time'] || false ,

@@ -35,6 +35,7 @@ Those markdown notes that contains external resources such pictures or files, ar
  - ```--enexSource=<your-enex-file> or the folder of your enex files``` , specifies the exported Evernote notebook(s)
  - ```--outputDir=<relative_output_dir>``` , this is the main output dir in where the extracted markdown files are going to be created
  - ```--include-metadata``` , if it's set, then every markdown file will be extended by metadata (tags, time of creation, time of last update, lat-lon coordinates) 
+ - ```--include-notebook-name```, if set, every markdown file will include the .enex file name in the metadata section. This is useful if you export each notebook as a separate enex file and wish to have them organized in ObsidianMD (or similar). Requires '--include-metadata' to be set.
  - ```--zettelkasten``` , puts Zettelkasten Id (based on time of creation) at the beginning of the file name
  - ```--plaintext-notes-only``` , skips those notes, which has attachment, or picture in it.
  - ```--skip-latlng```, does not include location into metadata section
