@@ -3,24 +3,21 @@ import * as moment from 'moment';
 import * as fs from 'fs';
 
 import { yarleOptions } from './../yarle';
+import { MetaData } from './../models/MetaData';
+import { NoteData } from './../models';
 
-export interface Metadata {
-  createdAt?: string;
-  updatedAt?: string;
-  location?: string;
-}
 
-export const getMetadata = (note: any): Metadata => {
-  if (!yarleOptions.isMetadataNeeded) {
-    return { createdAt: '', updatedAt: '', location: '' };
-  }
-
-  return {
-    createdAt: getCreationTime(note),
-    updatedAt: getUpdateTime(note),
-    location: getLatLong(note),
+export const getMetadata = (note: any): MetaData => {
+  
+  return yarleOptions.isMetadataNeeded
+    ? {
+        createdAt: getCreationTime(note),
+        updatedAt: getUpdateTime(note),
+        location: getLatLong(note),
+      }
+    : {
+      }
   };
-};
 
 export const getTitle = (note: any): string => {
   return note.title ? `# ${note.title}` : '';
@@ -45,7 +42,10 @@ export const getLatLong = (note: any): string => {
     ? `${note['note-attributes'].longitude},${note['note-attributes'].latitude}`
     : '';
 };
+export const getTags = (note: any): NoteData => {
+  return yarleOptions.isMetadataNeeded ? {tags: logTags(note)} : {};
 
+}
 export const logTags = (note: any): string => {
   if (!yarleOptions.skipTags && note.tag) {
     const tagArray = Array.isArray(note.tag) ? note.tag : [note.tag];

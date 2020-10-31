@@ -4,45 +4,30 @@ import {
   getMetadata,
   getNoteContent,
   getSimpleFilePath,
-  getTitle,
+  getTags,
   isComplex,
-  logTags,
 } from './utils';
 import { yarleOptions } from './yarle';
 import { writeMdFile } from './utils/file-utils';
 import { processResources } from './process-resources';
 import { convertHtml2Md } from './convert-html-to-md';
-
-export interface NoteData {
-  title?: string;
-  tags?: string;
-  content?: string;
-  createdAt?: string;
-  updatedAt?: string;
-  location?: string;
-}
+import { NoteData } from './models/NoteData';
 
 export const processNode = (note: any): void => {
-  const noteData: NoteData = { title: note.title };
+  let noteData: NoteData = { title: note.title };
 
   console.log(`Converting note ${noteData.title}...`);
 
   try {
     let content = getNoteContent(note);
 
-    noteData.tags = yarleOptions.isMetadataNeeded ? logTags(note) : '';
-
     if (isComplex(note)) {
       content = processResources(note, content);
     }
 
-    noteData.content = convertHtml2Md(content);
-
-    const { createdAt, updatedAt, location } = getMetadata(note);
-
-    noteData.createdAt = createdAt;
-    noteData.updatedAt = updatedAt;
-    noteData.location = location;
+    noteData = {...noteData, ...convertHtml2Md(content)};
+    noteData = {...noteData, ...getMetadata(note)};
+    noteData = {...noteData, ...getTags(note)};
 
     const data = applyTemplate(noteData, yarleOptions);
 

@@ -2,7 +2,7 @@ import * as fs from 'fs';
 
 import { defaultTemplate } from './default-template';
 import { YarleOptions } from './YarleOptions';
-import { NoteData } from './process-node';
+import { NoteData } from './models/NoteData';
 
 const TITLE_PLACEHOLDER = '{title}';
 const START_TITLE_BLOCK = '{title-block}';
