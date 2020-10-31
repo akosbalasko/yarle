@@ -6,6 +6,7 @@ import { OutputFormat } from '../src/output-format';
 
 import * as utils from './../src/utils';
 import * as yarle from './../src/yarle';
+import * as dropTheRopeRunner from './../src/dropTheRopeRunner';
 import { YarleOptions } from './../src/YarleOptions';
 
 describe('dropTheRope ', async () => {
@@ -955,6 +956,30 @@ describe('dropTheRope ', async () => {
     );
   });
 
+  it('Folder of enex files', async () => {
+    const options = [
+      '--enexSource=./test/data/TestDirNotes',
+      '--outputDir=out',
+      '--isMetadataNeeded=true',
+      '--plainTextNotesOnly=false',
+      `--outputFormat=${OutputFormat.ObsidianMD}`,
+      '--skipEnexFileNameFromOutputPath=true',
+    ];
+    await dropTheRopeRunner.run(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/examplenoteinsamedir.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/examplenoteinsamedir.1.md`,
+      ),
+      true,
+    );
+  });
+
   it('applies template passed as parameter', async () => {
     const options: YarleOptions = {
       enexFile: './test/data/test-template.enex',
@@ -962,6 +987,8 @@ describe('dropTheRope ', async () => {
       templateFile: './test/data/template_tags_bottom.templ',
       isMetadataNeeded: true,
       outputFormat: OutputFormat.ObsidianMD,
+      skipEnexFileNameFromOutputPath: false,
+
     };
     await yarle.dropTheRope(options);
     assert.equal(
@@ -987,6 +1014,8 @@ describe('dropTheRope ', async () => {
       templateFile: './test/data/bare_template.templ',
       isMetadataNeeded: true,
       outputFormat: OutputFormat.ObsidianMD,
+      skipEnexFileNameFromOutputPath: false,
+
     };
     await yarle.dropTheRope(options);
     assert.equal(

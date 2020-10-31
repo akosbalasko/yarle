@@ -13,4 +13,5 @@ export interface YarleOptions {
     skipWebClips?: boolean;
     skipTags?: boolean;
     outputFormat?: OutputFormat;
+    skipEnexFileNameFromOutputPath?: boolean;
 }
