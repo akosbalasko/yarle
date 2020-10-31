@@ -19,8 +19,7 @@ describe('dropTheRope ', async () => {
   });
 
   afterEach(async () => {
-    utils.clearSimpleNotesDistDir();
-    utils.clearComplexNotesDistDir();
+    utils.clearMdNotesDistDir();
   });
 
   it('Empty enex file - throw eoent', async () => {
@@ -45,13 +44,13 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-justText/test -note with text only.md`,
+        `${__dirname}/../out/notes/test-justText/test -note with text only.md`,
       ),
       true,
     );
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-justText/test -note with text only.md`,
+        `${__dirname}/../out/notes/test-justText/test -note with text only.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-justText.md`, 'utf8'),
@@ -66,13 +65,13 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-bracketlinks/test - bracketlinks.md`,
+        `${__dirname}/../out/notes/test-bracketlinks/test - bracketlinks.md`,
       ),
       true,
     );
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-bracketlinks/test - bracketlinks.md`,
+        `${__dirname}/../out/notes/test-bracketlinks/test - bracketlinks.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-bracketlinks.md`, 'utf8'),
@@ -88,13 +87,13 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-justText/test -note with text only.md`,
+        `${__dirname}/../out/notes/test-justText/test -note with text only.md`,
       ),
       true,
     );
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-justText/test -note with text only.md`,
+        `${__dirname}/../out/notes/test-justText/test -note with text only.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-justText.md`, 'utf8'),
@@ -111,13 +110,13 @@ describe('dropTheRope ', async () => {
 
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-noteWithCodeBlock/note with code block.md`,
+        `${__dirname}/../out/notes/test-noteWithCodeBlock/note with code block.md`,
       ),
       true,
     );
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-noteWithCodeBlock/note with code block.md`,
+        `${__dirname}/../out/notes/test-noteWithCodeBlock/note with code block.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-noteWithCodeBlock.md`, 'utf8'),
@@ -133,13 +132,13 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-noteWithTags/test -note with text only.md`,
+        `${__dirname}/../out/notes/test-noteWithTags/test -note with text only.md`,
       ),
       true,
     );
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-noteWithTags/test -note with text only.md`,
+        `${__dirname}/../out/notes/test-noteWithTags/test -note with text only.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-noteWithTags.md`, 'utf8'),
@@ -156,13 +155,13 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-noteWithZettelKasten/201810060943 test -note with text only.md`,
+        `${__dirname}/../out/notes/test-noteWithZettelKasten/201810060943 test -note with text only.md`,
       ),
       true,
     );
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-noteWithZettelKasten/201810060943 test -note with text only.md`,
+        `${__dirname}/../out/notes/test-noteWithZettelKasten/201810060943 test -note with text only.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-noteWithZettelKasten.md`, 'utf8'),
@@ -179,13 +178,13 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-noteWithZettelKasten-notitle/201810060943.md`,
+        `${__dirname}/../out/notes/test-noteWithZettelKasten-notitle/201810060943.md`,
       ),
       true,
     );
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-noteWithZettelKasten-notitle/201810060943.md`,
+        `${__dirname}/../out/notes/test-noteWithZettelKasten-notitle/201810060943.md`,
         'utf8',
       ),
       fs.readFileSync(
@@ -205,13 +204,13 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-noteWithoutMetadata/test -note without metadata.md`,
+        `${__dirname}/../out/notes/test-noteWithoutMetadata/test -note without metadata.md`,
       ),
       true,
     );
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-noteWithoutMetadata/test -note without metadata.md`,
+        `${__dirname}/../out/notes/test-noteWithoutMetadata/test -note without metadata.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-noteWithoutMetadata.md`, 'utf8'),
@@ -227,13 +226,13 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-noteWithLatLong/test.md`,
+        `${__dirname}/../out/notes/test-noteWithLatLong/test.md`,
       ),
       true,
     );
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-noteWithLatLong/test.md`,
+        `${__dirname}/../out/notes/test-noteWithLatLong/test.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-noteWithLatLong.md`, 'utf8'),
@@ -249,20 +248,20 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/complexNotes/test-withPicture/test - note with picture.md`,
+        `${__dirname}/../out/notes/test-withPicture/test - note with picture.md`,
       ),
       true,
     );
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/complexNotes/test-withPicture/_resources/test_-_note_with_picture.resources`,
+        `${__dirname}/../out/notes/test-withPicture/_resources/test_-_note_with_picture.resources`,
       ),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/complexNotes/test-withPicture/test - note with picture.md`,
+        `${__dirname}/../out/notes/test-withPicture/test - note with picture.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-withPicture.md`, 'utf8'),
@@ -280,13 +279,13 @@ describe('dropTheRope ', async () => {
 
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/complexNotes/test-imageWithoutSrc/test-imagewithoutsrc.md`,
+        `${__dirname}/../out/notes/test-imageWithoutSrc/test-imagewithoutsrc.md`,
       ),
       true,
     );
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/complexNotes/test-imageWithoutSrc/test-imagewithoutsrc.md`,
+        `${__dirname}/../out/notes/test-imageWithoutSrc/test-imagewithoutsrc.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-imageWithoutSrc.md`, 'utf8'),
@@ -302,20 +301,20 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/complexNotes/test-textWithImage/untitled.md`,
+        `${__dirname}/../out/notes/test-textWithImage/untitled.md`,
       ),
       true,
     );
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/complexNotes/test-textWithImage/_resources/untitled.resources`,
+        `${__dirname}/../out/notes/test-textWithImage/_resources/untitled.resources`,
       ),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/complexNotes//test-textWithImage/untitled.md`,
+        `${__dirname}/../out/notes//test-textWithImage/untitled.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-textWithImage.md`, 'utf8'),
@@ -331,34 +330,34 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/complexNotes/test-twoNotes/test - note with picture.md`,
+        `${__dirname}/../out/notes/test-twoNotes/test - note with picture.md`,
       ),
       true,
     );
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/complexNotes/test-twoNotes/_resources/test_-_note_with_picture.resources`,
+        `${__dirname}/../out/notes/test-twoNotes/_resources/test_-_note_with_picture.resources`,
       ),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/complexNotes/test-twoNotes/test - note with picture.md`,
+        `${__dirname}/../out/notes/test-twoNotes/test - note with picture.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-twoNotes-pic.md`, 'utf8'),
     );
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-twoNotes/test -note with text only.md`,
+        `${__dirname}/../out/notes/test-twoNotes/test -note with text only.md`,
       ),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-twoNotes/test -note with text only.md`,
+        `${__dirname}/../out/notes/test-twoNotes/test -note with text only.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-twoNotes-text.md`, 'utf8'),
@@ -374,20 +373,20 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/complexNotes/test-threePictures/test - note with more pictures.md`,
+        `${__dirname}/../out/notes/test-threePictures/test - note with more pictures.md`,
       ),
       true,
     );
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/complexNotes/test-threePictures/_resources/test_-_note_with_more_pictures.resources`,
+        `${__dirname}/../out/notes/test-threePictures/_resources/test_-_note_with_more_pictures.resources`,
       ),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/complexNotes/test-threePictures/test - note with more pictures.md`,
+        `${__dirname}/../out/notes/test-threePictures/test - note with more pictures.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-threePictures.md`, 'utf8'),
@@ -404,7 +403,7 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/complexNotestest-threePictures//test - note with more pictures.md`,
+        `${__dirname}/../out/notestest-threePictures//test - note with more pictures.md`,
       ),
       false,
     );
@@ -419,13 +418,13 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-skipLocation/skiplocation.md`,
+        `${__dirname}/../out/notes/test-skipLocation/skiplocation.md`,
       ),
       true,
     );
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-skipLocation/skiplocation.md`,
+        `${__dirname}/../out/notes/test-skipLocation/skiplocation.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-skipLocation.md`, 'utf8'),
@@ -442,14 +441,14 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-twoNotesWithSameName/untitled.md`,
+        `${__dirname}/../out/notes/test-twoNotesWithSameName/untitled.md`,
       ),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-twoNotesWithSameName/untitled.md`,
+        `${__dirname}/../out/notes/test-twoNotesWithSameName/untitled.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-twoNotesWithSameName.md`, 'utf8'),
@@ -457,13 +456,13 @@ describe('dropTheRope ', async () => {
 
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-twoNotesWithSameName/untitled.1.md`,
+        `${__dirname}/../out/notes/test-twoNotesWithSameName/untitled.1.md`,
       ),
       true,
     );
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-twoNotesWithSameName/untitled.1.md`,
+        `${__dirname}/../out/notes/test-twoNotesWithSameName/untitled.1.md`,
         'utf8',
       ),
       fs.readFileSync(
@@ -482,13 +481,13 @@ describe('dropTheRope ', async () => {
     };
     await yarle.dropTheRope(options);
     assert.equal(
-      fs.existsSync(`${__dirname}/../out/simpleNotes/test-table/table.md`),
+      fs.existsSync(`${__dirname}/../out/notes/test-table/table.md`),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-table/table.md`,
+        `${__dirname}/../out/notes/test-table/table.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-table.md`, 'utf8'),
@@ -505,14 +504,14 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-specialItems/special items.md`,
+        `${__dirname}/../out/notes/test-specialItems/special items.md`,
       ),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-specialItems/special items.md`,
+        `${__dirname}/../out/notes/test-specialItems/special items.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-specialItems.md`, 'utf8'),
@@ -529,17 +528,41 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-externalLink/external link.md`,
+        `${__dirname}/../out/notes/test-externalLink/external link.md`,
       ),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-externalLink/external link.md`,
+        `${__dirname}/../out/notes/test-externalLink/external link.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-externalLink.md`, 'utf8'),
+    );
+  });
+
+  it('Enex file with file links ', async () => {
+    const options: YarleOptions = {
+      enexFile: './test/data/test-externalFileLink.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      plainTextNotesOnly: false,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-externalFileLink/external file link.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/notes/test-externalFileLink/external file link.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-externalFileLink.md`, 'utf8'),
     );
   });
 
@@ -553,14 +576,14 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/complexNotes/test-externalLinkWithPicture/link with picture.md`,
+        `${__dirname}/../out/notes/test-externalLinkWithPicture/link with picture.md`,
       ),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/complexNotes/test-externalLinkWithPicture/link with picture.md`,
+        `${__dirname}/../out/notes/test-externalLinkWithPicture/link with picture.md`,
         'utf8',
       ),
       fs.readFileSync(
@@ -579,26 +602,26 @@ describe('dropTheRope ', async () => {
     };
     await yarle.dropTheRope(options);
     assert.equal(
-      fs.existsSync(`${__dirname}/../out/simpleNotes/test-links/notea.md`),
+      fs.existsSync(`${__dirname}/../out/notes/test-links/notea.md`),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-links/notea.md`,
+        `${__dirname}/../out/notes/test-links/notea.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-linksNoteA.md`, 'utf8'),
     );
 
     assert.equal(
-      fs.existsSync(`${__dirname}/../out/simpleNotes/test-links/noteb.md`),
+      fs.existsSync(`${__dirname}/../out/notes/test-links/noteb.md`),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-links/noteb.md`,
+        `${__dirname}/../out/notes/test-links/noteb.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-linksNoteB.md`, 'utf8'),
@@ -615,14 +638,14 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-highlights/highlights.md`,
+        `${__dirname}/../out/notes/test-highlights/highlights.md`,
       ),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-highlights/highlights.md`,
+        `${__dirname}/../out/notes/test-highlights/highlights.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-highlights.md`, 'utf8'),
@@ -639,14 +662,14 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-highlights/highlights.md`,
+        `${__dirname}/../out/notes/test-highlights/highlights.md`,
       ),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-highlights/highlights.md`,
+        `${__dirname}/../out/notes/test-highlights/highlights.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-highlightsObsidian.md`, 'utf8'),
@@ -662,13 +685,13 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/complexNotes/test-pdfAttachment/pdfattachment.md`,
+        `${__dirname}/../out/notes/test-pdfAttachment/pdfattachment.md`,
       ),
       true,
     );
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/complexNotes/test-pdfAttachment/_resources/pdfattachment.resources/sample.pdf`,
+        `${__dirname}/../out/notes/test-pdfAttachment/_resources/pdfattachment.resources/sample.pdf`,
       ),
       true,
     );
@@ -684,34 +707,34 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/complexNotes/test-twoNotes/test - note with picture.md`,
+        `${__dirname}/../out/notes/test-twoNotes/test - note with picture.md`,
       ),
       true,
     );
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/complexNotes/test-twoNotes/_resources/test_-_note_with_picture.resources`,
+        `${__dirname}/../out/notes/test-twoNotes/_resources/test_-_note_with_picture.resources`,
       ),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/complexNotes/test-twoNotes/test - note with picture.md`,
+        `${__dirname}/../out/notes/test-twoNotes/test - note with picture.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-obsidianLink.md`, 'utf8'),
     );
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-twoNotes/test -note with text only.md`,
+        `${__dirname}/../out/notes/test-twoNotes/test -note with text only.md`,
       ),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-twoNotes/test -note with text only.md`,
+        `${__dirname}/../out/notes/test-twoNotes/test -note with text only.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-twoNotes-text.md`, 'utf8'),
@@ -729,14 +752,14 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-nospanstyle/test-nospanstyle.md`,
+        `${__dirname}/../out/notes/test-nospanstyle/test-nospanstyle.md`,
       ),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-nospanstyle/test-nospanstyle.md`,
+        `${__dirname}/../out/notes/test-nospanstyle/test-nospanstyle.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-nospanstyle.md`, 'utf8'),
@@ -752,13 +775,13 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-sublists/test - sublists.md`,
+        `${__dirname}/../out/notes/test-sublists/test - sublists.md`,
       ),
       true,
     );
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-sublists/test - sublists.md`,
+        `${__dirname}/../out/notes/test-sublists/test - sublists.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-sublists.md`, 'utf8'),
@@ -773,13 +796,13 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-sublists-valid/test - sublists - valid.md`,
+        `${__dirname}/../out/notes/test-sublists-valid/test - sublists - valid.md`,
       ),
       true,
     );
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-sublists-valid/test - sublists - valid.md`,
+        `${__dirname}/../out/notes/test-sublists-valid/test - sublists - valid.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-sublists-valid.md`, 'utf8'),
@@ -791,22 +814,22 @@ describe('dropTheRope ', async () => {
       outputDir: 'out',
       isMetadataNeeded: true,
       outputFormat: OutputFormat.UrlEncodeMD,
-      };
+    };
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/complexNotes/test-urlencode/test - note with picture (filename with spaces).md`,
+        `${__dirname}/../out/notes/test-urlencode/test - note with picture (filename with spaces).md`,
          ),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-           `${__dirname}/../out/complexNotes/test-urlencode/test - note with picture (filename with spaces).md`,
+           `${__dirname}/../out/notes/test-urlencode/test - note with picture (filename with spaces).md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-urlencode.md`, 'utf8'),
-      );
+    );
   });
   it('Note with sublists (multiple)', async () => {
     const options: YarleOptions = {
@@ -817,13 +840,13 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-sublists-multiple/test - sublists - multiple.md`,
+        `${__dirname}/../out/notes/test-sublists-multiple/test - sublists - multiple.md`,
       ),
       true,
     );
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-sublists-multiple/test - sublists - multiple.md`,
+        `${__dirname}/../out/notes/test-sublists-multiple/test - sublists - multiple.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-sublists-multiple.md`, 'utf8'),
@@ -841,14 +864,14 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-webclip_article/yarle evernote.md`,
+        `${__dirname}/../out/notes/test-webclip_article/yarle evernote.md`,
       ),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-webclip_article/yarle evernote.md`,
+        `${__dirname}/../out/notes/test-webclip_article/yarle evernote.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-webclip_article.md`, 'utf8'),
@@ -866,17 +889,20 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-webclip_simplifiedarticle/yarle evernote.md`,
+        `${__dirname}/../out/notes/test-webclip_simplifiedarticle/yarle evernote.md`,
       ),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-webclip_simplifiedarticle/yarle evernote.md`,
+        `${__dirname}/../out/notes/test-webclip_simplifiedarticle/yarle evernote.md`,
         'utf8',
       ),
-      fs.readFileSync(`${__dirname}/data/test-webclip_simplifiedarticle.md`, 'utf8'),
+      fs.readFileSync(
+        `${__dirname}/data/test-webclip_simplifiedarticle.md`,
+        'utf8',
+      ),
     );
   });
 
@@ -891,14 +917,14 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/complexNotes/test-webclip_bookmark/yarle.md`,
+        `${__dirname}/../out/notes/test-webclip_bookmark/yarle.md`,
       ),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/complexNotes/test-webclip_bookmark/yarle.md`,
+        `${__dirname}/../out/notes/test-webclip_bookmark/yarle.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-webclip_bookmark.md`, 'utf8'),
@@ -916,20 +942,19 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/complexNotes/test-webclip_screenshot/yarle.md`,
+        `${__dirname}/../out/notes/test-webclip_screenshot/yarle.md`,
       ),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/complexNotes/test-webclip_screenshot/yarle.md`,
+        `${__dirname}/../out/notes/test-webclip_screenshot/yarle.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-webclip_screenshot.md`, 'utf8'),
     );
   });
-
 
   it('Folder of enex files', async () => {
     const options = [
@@ -943,15 +968,72 @@ describe('dropTheRope ', async () => {
     await dropTheRopeRunner.run(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/examplenoteinsamedir.md`,
+        `${__dirname}/../out/notes/examplenoteinsamedir.md`,
       ),
       true,
     );
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/examplenoteinsamedir.1.md`,
+        `${__dirname}/../out/notes/examplenoteinsamedir.1.md`,
       ),
       true,
+    );
+  });
+
+  it('applies template passed as parameter', async () => {
+    const options: YarleOptions = {
+      enexFile: './test/data/test-template.enex',
+      outputDir: 'out',
+      templateFile: './test/data/template_tags_bottom.templ',
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.ObsidianMD,
+      skipEnexFileNameFromOutputPath: false,
+
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-template/test - templates.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/notes/test-template/test - templates.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test - templates.md`, 'utf8'),
+    );
+  });
+
+  it('only renders content with a template with just the content block', async () => {
+    const options: YarleOptions = {
+      enexFile: './test/data/test-template 2.enex',
+      outputDir: 'out',
+      templateFile: './test/data/bare_template.templ',
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.ObsidianMD,
+      skipEnexFileNameFromOutputPath: false,
+
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-template 2/test - templates just content.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/notes/test-template 2/test - templates just content.md`,
+        'utf8',
+      ),
+      fs.readFileSync(
+        `${__dirname}/data/test - templates just content.md`,
+        'utf8',
+      ),
     );
   });
 });

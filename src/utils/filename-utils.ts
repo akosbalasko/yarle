@@ -2,6 +2,7 @@ import * as fs from 'fs';
 import * as moment from 'moment';
 
 import { yarleOptions } from '../yarle';
+
 import { ResourceFileProperties } from './../models/ResourceFileProperties';
 
 const FILENAME_LENGTH = 50;

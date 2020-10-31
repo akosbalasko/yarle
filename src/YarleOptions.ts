@@ -2,6 +2,7 @@ import { OutputFormat } from './output-format';
 
 export interface YarleOptions {
     enexFile?: string;
+    templateFile?: string;
     outputDir?: string;
     isMetadataNeeded?: boolean;
     isZettelkastenNeeded?: boolean;
@@ -9,6 +10,7 @@ export interface YarleOptions {
     skipLocation?: boolean;
     skipCreationTime?: boolean;
     skipUpdateTime?: boolean;
+    skipWebClips?: boolean;
     skipTags?: boolean;
     outputFormat?: OutputFormat;
     skipEnexFileNameFromOutputPath?: boolean;

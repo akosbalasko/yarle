@@ -10,13 +10,20 @@
     "markdown",
     "enex to md"
   ],
-  "main": "./dropTheRope.js",
+  "main": "./dist/dropTheRope.js",
+  "bin": {
+    "yarle": "./dist/dropTheRope.js"
+  },
+  "files": [
+    "./dist/"
+  ],
   "scripts": {
     "build": "tsc --project ./src/tsconfig.json",
     "build:watch": "nodemon --watch src/ --exec \"npm run build\" -e ts",
     "coverage": "nyc mocha",
     "lint": "tslint --project ./src/tsconfig.json",
     "start": "node --max-old-space-size=1024 ./dist/dropTheRope.js",
+    "debug": "node --inspect --max-old-space-size=1024 ./dist/dropTheRope.js",
     "test": "nyc --reporter=html --reporter=text mocha",
     "test-watch": "mocha --watch"
   },
@@ -56,9 +63,9 @@
   "license": "(MIT OR Apache-2.0)",
   "devDependencies": {
     "@types/he": "1.1.1",
-    "@types/marked": "1.1.0",
     "@types/jsdom": "16.2.4",
     "@types/lodash": "4.14.151",
+    "@types/marked": "1.1.0",
     "@types/minimist": "1.2.0",
     "@types/mocha": "7.0.2",
     "@types/node": "14.0.1",
