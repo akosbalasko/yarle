@@ -1,9 +1,8 @@
 import { applyTemplate } from './templates';
 import {
-  getComplexFilePath,
   getMetadata,
   getNoteContent,
-  getSimpleFilePath,
+  getMdFilePath,
   getTags,
   isComplex,
 } from './utils';
@@ -31,9 +30,7 @@ export const processNode = (note: any): void => {
 
     const data = applyTemplate(noteData, yarleOptions);
 
-    const absFilePath = isComplex(note)
-      ? getComplexFilePath(note)
-      : getSimpleFilePath(note);
+    const absFilePath = getMdFilePath(note);
 
     console.log('data =>\n', JSON.stringify(data), '\n***');
 
