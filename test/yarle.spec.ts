@@ -942,14 +942,14 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-template/test - templates.md`,
+        `${__dirname}/../out/notes/test-template/test - templates.md`,
       ),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-template/test - templates.md`,
+        `${__dirname}/../out/notes/test-template/test - templates.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test - templates.md`, 'utf8'),
@@ -967,14 +967,14 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-template 2/test - templates just content.md`,
+        `${__dirname}/../out/notes/test-template 2/test - templates just content.md`,
       ),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-template 2/test - templates just content.md`,
+        `${__dirname}/../out/notes/test-template 2/test - templates just content.md`,
         'utf8',
       ),
       fs.readFileSync(
