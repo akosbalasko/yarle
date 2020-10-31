@@ -20,8 +20,10 @@ export const run = async (argvSettings?: any) => {
         skipLocation: argv['skip-latlng'] || false ,
         skipCreationTime: argv['skip-creation-time'] || false ,
         skipUpdateTime: argv['skip-update-time'] || false ,
+        skipWebClips: argv['skip-web-clips'] || false ,
         skipTags: argv['skip-tags'] || false ,
         outputFormat: argv['outputFormat'] || OutputFormat.StandardMD,
+        templateFile: argv['template'],
         skipEnexFileNameFromOutputPath: argv['skipEnexFileNameFromOutputPath'] || false,
     };
     if (options.enexFile.endsWith('.enex')) {
