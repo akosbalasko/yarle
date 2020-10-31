@@ -33,11 +33,12 @@ export const wikiStyleLinksRule = {
                 tokenToBeRestructured = tokens[0];
                 tokenToBeRestructured['mdKeyword'] = `${'#'.repeat(tokens[0]['depth'])} `;
             }
-
-            if (nodeProxy.href.value.startsWith('http') ||
-                nodeProxy.href.value.startsWith('www')) {
-
-                    return `${tokenToBeRestructured['mdKeyword']}[${tokenToBeRestructured['text']}](${nodeProxy.href.value})`;
+            
+            if (nodeProxy.href.value.startsWith('http') || 
+                nodeProxy.href.value.startsWith('www') ||
+                nodeProxy.href.value.startsWith('file')) {
+                    
+                    return `${tokenToBeRestructured['mdKeyword']}[${tokenToBeRestructured['text']}](${nodeProxy.href.value})`
                 }
             if (nodeProxy.href.value.startsWith('evernote://')) {
                 return  `${tokenToBeRestructured['mdKeyword']}[[${tokenToBeRestructured['text']}]]`;
