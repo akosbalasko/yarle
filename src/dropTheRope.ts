@@ -1,3 +1,4 @@
+#!/usr/bin/env node --max-old-space-size=1024
 /* istanbul ignore file */
 // tslint:disable:no-console
 
@@ -8,20 +9,22 @@ import * as yarle from './yarle';
 import { YarleOptions } from './YarleOptions';
 import { OutputFormat } from './output-format';
 
-export const run = async () => {
+export const run = async () => {
     const argv = minimist(process.argv.slice(2));
 
     const options: YarleOptions = {
         enexFile: argv['enexSource'],
         outputDir: argv['outputDir'],
-        isZettelkastenNeeded: argv['zettelkasten'] || false,
+        isZettelkastenNeeded: argv['zettelkasten'] || false,
         isMetadataNeeded: argv['include-metadata'] || false ,
         plainTextNotesOnly: argv['plaintext-notes-only'] || false ,
         skipLocation: argv['skip-latlng'] || false ,
         skipCreationTime: argv['skip-creation-time'] || false ,
         skipUpdateTime: argv['skip-update-time'] || false ,
+        skipWebClips: argv['skip-web-clips'] || false ,
         skipTags: argv['skip-tags'] || false ,
         outputFormat: argv['outputFormat'] || OutputFormat.StandardMD,
+        templateFile: argv['template'],
     };
     if (options.enexFile.endsWith('.enex')) {
         console.log(`Converting notes in file: ${options.enexFile}`);
@@ -31,7 +34,7 @@ export const run = async () => {
         const enexDir = options.enexFile;
         const enexFiles = fs
             .readdirSync(options.enexFile)
-            .filter(file => {
+            .filter(file => {
                 return file.match(/.*\.enex/ig);
             });
         for (const enexFile of enexFiles) {

@@ -18,14 +18,9 @@ const getFilePath = (dstPath: string, note: any): string => {
   return `${dstPath}/${getNoteFileName(dstPath, note)}`;
 };
 
-export const getSimpleFilePath = (note: any): string => {
+export const getMdFilePath = (note: any): string => {
 
-  return getFilePath(paths.simpleMdPath, note);
-};
-
-export const getComplexFilePath = (note: any): string => {
-
-  return getFilePath(paths.complexMdPath, note);
+  return getFilePath(paths.mdPath, note);
 };
 
 const clearDistDir = (dstPath: string): void => {
@@ -37,7 +32,7 @@ const clearDistDir = (dstPath: string): void => {
 
 export const clearResourceDir = (note: any): void => {
 
-  const relativeWorkDir = `${getResourceDir(paths.complexMdPath, note)}.resources`;
+  const relativeWorkDir = `${getResourceDir(paths.mdPath, note)}.resources`;
   const absoluteWorkDir = `${paths.resourcePath}/${relativeWorkDir}`;
 
   clearDistDir(absoluteWorkDir);
@@ -46,24 +41,18 @@ export const clearResourceDir = (note: any): void => {
 export const clearResourceDistDir = (): void => {
   clearDistDir(paths.resourcePath);
 };
-export const clearSimpleNotesDistDir = (): void => {
-  clearDistDir(paths.simpleMdPath);
-};
-
-export const clearComplexNotesDistDir = (): void => {
-  clearDistDir(paths.complexMdPath);
+export const clearMdNotesDistDir = (): void => {
+  clearDistDir(paths.mdPath);
 };
 
 export const setPaths = (): void => {
 
   const enexFolder = yarleOptions.enexFile.split('/');
   const enexFile = (enexFolder.length >= 1 ?  enexFolder[enexFolder.length - 1] : enexFolder[0]).split('.')[0];
-  paths.simpleMdPath = `${process.cwd()}/${yarleOptions.outputDir}/simpleNotes/${enexFile}`;
-  paths.complexMdPath = `${process.cwd()}/${yarleOptions.outputDir}/complexNotes/${enexFile}`;
-  paths.resourcePath = `${process.cwd()}/${yarleOptions.outputDir}/complexNotes/${enexFile}/_resources`;
+  paths.mdPath = `${process.cwd()}/${yarleOptions.outputDir}/notes/${enexFile}`;
+  paths.resourcePath = `${process.cwd()}/${yarleOptions.outputDir}/notes/${enexFile}/_resources`;
 
-  fsExtra.mkdirsSync(paths.simpleMdPath);
-  fsExtra.mkdirsSync(paths.complexMdPath);
+  fsExtra.mkdirsSync(paths.mdPath);
   fsExtra.mkdirsSync(paths.resourcePath);
   // clearDistDir(paths.simpleMdPath);
   // clearDistDir(paths.complexMdPath);

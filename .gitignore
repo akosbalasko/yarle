@@ -3,6 +3,7 @@
 coverage
 node_modules
 dist
+in
 out
 .DS_Store
 .wakatime-project

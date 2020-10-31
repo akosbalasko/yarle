@@ -5,6 +5,7 @@ import * as XmlStream from 'xml-stream';
 import * as utils from './utils';
 import { YarleOptions } from './YarleOptions';
 import { processNode } from './process-node';
+import { isWebClip } from './utils/note-utils';
 
 export let yarleOptions: YarleOptions = {
   enexFile: 'notebook.enex',
@@ -12,6 +13,7 @@ export let yarleOptions: YarleOptions = {
   isMetadataNeeded: false,
   isZettelkastenNeeded: false,
   plainTextNotesOnly: false,
+  skipWebClips: false,
 };
 
 const setOptions = (options: YarleOptions): void => {
@@ -23,7 +25,7 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
   const xml = new XmlStream(stream);
   let noteNumber = 0;
   let failed = 0;
-  let totalNotes = 0;
+  let skipped = 0;
 
   return new Promise((resolve, reject) => {
     const logAndReject = (error: Error) => {
@@ -32,25 +34,26 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
 
       return reject();
     };
-  
+
     xml.collect('tag');
     xml.collect('resource');
-    xml.on('startElement: en-export', (enExport: any) => {
-      totalNotes = Array.isArray(enExport.note) ? enExport.note.length : 1;
-    });
 
     xml.on('endElement: note', (note: any) => {
-      processNode(note);
-      ++noteNumber;
-      console.log(`Notes processed: ${noteNumber}`);
+      if (options.skipWebClips && isWebClip(note)) {
+          ++skipped;
+          console.log(`Notes skipped: ${skipped}`);
+      } else {
+        processNode(note);
+        ++noteNumber;
+        console.log(`Notes processed: ${noteNumber}`);
+      }
     });
 
     xml.on('end', () => {
       const success = noteNumber - failed;
+      const totalNotes = noteNumber + skipped;
       console.log(
-        `Conversion finished: ${success} succeeded, ${
-          totalNotes - success
-        } failed.`,
+        `Conversion finished: ${success} succeeded, ${skipped} skipped, ${failed} failed. Total notes: ${totalNotes}`,
       );
 
       return resolve();
