@@ -1,4 +1,5 @@
 # Note with code block
+
 Some text before the code block
 
 ```

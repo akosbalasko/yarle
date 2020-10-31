@@ -789,7 +789,7 @@ describe('dropTheRope ', async () => {
       outputDir: 'out',
       isMetadataNeeded: true,
       outputFormat: OutputFormat.UrlEncodeMD,
-      };
+    };
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
@@ -804,7 +804,7 @@ describe('dropTheRope ', async () => {
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-urlencode.md`, 'utf8'),
-      );
+    );
   });
   it('Note with sublists (multiple)', async () => {
     const options: YarleOptions = {
@@ -874,7 +874,10 @@ describe('dropTheRope ', async () => {
         `${__dirname}/../out/notes/test-webclip_simplifiedarticle/yarle evernote.md`,
         'utf8',
       ),
-      fs.readFileSync(`${__dirname}/data/test-webclip_simplifiedarticle.md`, 'utf8'),
+      fs.readFileSync(
+        `${__dirname}/data/test-webclip_simplifiedarticle.md`,
+        'utf8',
+      ),
     );
   });
 
@@ -925,6 +928,59 @@ describe('dropTheRope ', async () => {
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-webclip_screenshot.md`, 'utf8'),
+    );
+  });
+
+  it('applies template passed as parameter', async () => {
+    const options: YarleOptions = {
+      enexFile: './test/data/test-template.enex',
+      outputDir: 'out',
+      templateFile: './test/data/template_tags_bottom.templ',
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.ObsidianMD,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/simpleNotes/test-template/test - templates.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/simpleNotes/test-template/test - templates.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test - templates.md`, 'utf8'),
+    );
+  });
+
+  it('only renders content with a template with just the content block', async () => {
+    const options: YarleOptions = {
+      enexFile: './test/data/test-template 2.enex',
+      outputDir: 'out',
+      templateFile: './test/data/bare_template.templ',
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.ObsidianMD,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/simpleNotes/test-template 2/test - templates just content.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/simpleNotes/test-template 2/test - templates just content.md`,
+        'utf8',
+      ),
+      fs.readFileSync(
+        `${__dirname}/data/test - templates just content.md`,
+        'utf8',
+      ),
     );
   });
 });

@@ -1,6 +1,7 @@
 import { JSDOM } from 'jsdom';
 
 import { getTurndownService } from './utils/turndown-service';
+import { NoteData } from './models/NoteData';
 
 const fixSublists = (node: HTMLElement) => {
     const ulElements: Array<HTMLElement> = Array.from(node.getElementsByTagName('ul'));
@@ -25,17 +26,17 @@ const fixSublists = (node: HTMLElement) => {
     liElements.forEach(liNode => {
       const listNodeDiv = liNode.firstElementChild;
       if (listNodeDiv && listNodeDiv.tagName === 'DIV') {
-        listNodeDiv.replaceWith(listNodeDiv.innerHTML);
+        const childElementsArr = Array.from(listNodeDiv.childNodes);
+        listNodeDiv.replaceWith(...childElementsArr);
       }
     });
 
     return node;
 };
 
-export const convertHtml2Md = (content: string) => {
+export const convertHtml2Md = (content: string): NoteData => {
     const contentNode = new JSDOM(`<x-turndown id="turndown-root">${content}</x-turndown>`).window.document.getElementById('turndown-root');
-    
-    let contentInMd = getTurndownService().turndown(fixSublists(contentNode));
-    
-    return contentInMd && contentInMd !== 'undefined' ? contentInMd : '';
+    const contentInMd = getTurndownService().turndown(fixSublists(contentNode));
+
+    return contentInMd && contentInMd !== 'undefined' ? { content: contentInMd } : {content: ''};
 };
