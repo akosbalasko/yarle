@@ -551,14 +551,14 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-externalFileLink/external file link.md`,
+        `${__dirname}/../out/notes/test-externalFileLink/external file link.md`,
       ),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-externalFileLink/external file link.md`,
+        `${__dirname}/../out/notes/test-externalFileLink/external file link.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-externalFileLink.md`, 'utf8'),
