@@ -3,7 +3,6 @@
 Some text before the code block
 
 ```
-
 \# This program prints Hello, world in Python
 
 print('Hello, world!')
@@ -16,7 +15,6 @@ Some code after the code block 1
 One more longer code block
 
 ```
-
 // some Rust code...
 fn main() {
     for n in 1..=100 {
