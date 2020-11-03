@@ -19,6 +19,10 @@ export const codeBlockRule = {
             return `${markdownBlock}${content}${markdownBlock}`;
         }
 
+        if (node.parentElement && isCodeBlock(node.parentElement) && node.parentElement.firstElementChild === node) {
+            return `${content}`;
+        }
+
         if (node.parentElement && isCodeBlock(node.parentElement)) {
             return `\n${content}`;
         }

@@ -10,7 +10,6 @@
 - [x] CheckedCheckbox2
 
 ```
-
 Inline Code 
 ```
 
