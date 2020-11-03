@@ -1,4 +1,4 @@
-import * as fs from 'fs';
+import fs from 'fs';
 
 import { defaultTemplate } from './default-template';
 import { YarleOptions } from './YarleOptions';

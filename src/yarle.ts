@@ -1,6 +1,6 @@
 // tslint:disable:no-console
-import * as fs from 'fs';
-import * as XmlStream from 'xml-stream';
+import fs from 'fs';
+import XmlStream from 'xml-stream';
 
 import * as utils from './utils';
 import { YarleOptions } from './YarleOptions';

@@ -1,12 +1,16 @@
-import * as fs from 'fs';
-import * as moment from 'moment';
+import fs from 'fs';
+import Moment from 'moment';
+import sanitize from 'sanitize-filename';
 
 import { yarleOptions } from '../yarle';
 
 import { ResourceFileProperties } from './../models/ResourceFileProperties';
 
-const FILENAME_LENGTH = 50;
 const FILENAME_DELIMITER = '_';
+
+export const normalizeTitle = (title: string) => {
+  return sanitize(title, {replacement: FILENAME_DELIMITER}).toLowerCase();
+};
 
 export const getFileIndex = (dstPath: string, fileNamePrefix: string): number | string => {
 
@@ -42,13 +46,7 @@ export const getResourceFileProperties = (workDir: string, resource: any): Resou
 };
 
 export const getFilePrefix = (note: any): string => {
-  const cutName = (note['title'] ? `${note['title'].toString()}` : 'Untitled').substring(0, FILENAME_LENGTH);
-
-  return makeFilePrefixOsCompatible(cutName).toLowerCase();
-
-  };
-export const makeFilePrefixOsCompatible = (name: string): string => {
-  return name.replace(/(\!|\.|\;|\:|\<|\>|\"|\\|\/|\||\*|\?)/g, FILENAME_DELIMITER);
+  return normalizeTitle(note['title'] ? `${note['title'].toString()}` : 'Untitled');
 };
 
 export const getNoteFileName = (dstPath: string, note: any): string => {
@@ -82,7 +80,7 @@ export const getExtension = (resource: any): string => {
 };
 
 export const getZettelKastelId = (note: any, dstPath: string): string => {
-  return moment(note['created']).format('YYYYMMDDhhmm');
+  return Moment(note['created']).format('YYYYMMDDhhmm');
 
 };
 
@@ -98,7 +96,7 @@ export const getNoteName = (dstPath: string, note: any): string => {
       `${zettelPrefix}.${nextIndex}` :
       zettelPrefix;
 
-    noteName += getFilePrefix(note).toLowerCase() !== 'untitled' ? `${separator}${getFilePrefix(note)}` : '';
+    noteName += getFilePrefix(note) !== 'untitled' ? `${separator}${getFilePrefix(note)}` : '';
   } else {
     const fileNamePrefix = getFilePrefix(note);
     const nextIndex = getFileIndex(dstPath, fileNamePrefix);

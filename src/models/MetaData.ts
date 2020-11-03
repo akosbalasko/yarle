@@ -3,4 +3,3 @@ export interface MetaData {
     updatedAt?: string;
     location?: string;
   }
-  

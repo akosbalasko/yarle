@@ -1,6 +1,6 @@
-import * as assert from 'assert';
-import * as fs from 'fs';
-import * as mockTimezone from 'timezone-mock';
+import assert from 'assert';
+import fs from 'fs';
+import mockTimezone from 'timezone-mock';
 
 import { OutputFormat } from '../src/output-format';
 

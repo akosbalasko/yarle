@@ -1,4 +1,4 @@
-import * as he from 'he';
+import he from 'he';
 import { X2jOptionsOptional } from 'fast-xml-parser';
 
 /* istanbul ignore next */
