@@ -26,23 +26,19 @@ A tool that converts enex note(s) into Markdown format in order to let you escap
  3. Type `npm i`, it installs the dependencies.
  4. Type `npm run build` to build the package.
  
-## Usage:
-
-Those markdown notes that contains external resources such pictures or files, are stored in `/<outputDir>/complexNotes` subfolder, the simple plain-text ones go to `/<outputDir>/simpleNotes` folder.
-
 ## Options:
 
  - ```--enexSource=<your-enex-file> or the folder of your enex files``` , specifies the exported Evernote notebook(s)
- - ```--outputDir=<relative_output_dir>``` , this is the main output dir in where the extracted markdown files are going to be created
- - ```--include-metadata``` , if it's set, then every markdown file will be extended by metadata (tags, time of creation, time of last update, lat-lon coordinates) 
- - ```--include-notebook-name```, if set, every markdown file will include the .enex file name in the metadata section. This is useful if you export each notebook as a separate enex file and wish to have them organized in ObsidianMD (or similar). Requires '--include-metadata' to be set.
+ - ```--outputDir=<relative_output_dir>``` , this is the main output dir where the extracted markdown files are going to be created
+ - ```--include-metadata``` , if it's set, then every Markdown file will be supplemented with metadata (tags, time of creation, time of last update, lat-lon coordinates) 
+ - ```--include-notebook-name```, if set, every Markdown file will include the .enex file name in the metadata section. This is useful if you export each notebook as a separate enex file and wish to have them organized in ObsidianMD (or similar). Requires '--include-metadata' to be set.
  - ```--zettelkasten``` , puts Zettelkasten Id (based on time of creation) at the beginning of the file name
- - ```--plaintext-notes-only``` , skips those notes, which has attachment, or picture in it.
- - ```--skip-latlng```, does not include location into metadata section
- - ```--skip-creation-time```, does not include creation time into metadata section
- - ```--skip-update-time```, does not include update time into metadata section
- - ```--skip-tags``` , does not include tags into metadata section
- - ```--outputFormat```, generates internal file links and highlights in Obsidian-style: highlights are going to be bounded by `==` instead of \` characters, file links are going to be as follows: `![[file-name]]` instead of `![file-name](file-name)`. Possible values: `ObsidianMD` to get Obsidian-style notes, `StandardMD` or skip it completely, if you prefere Standard Markdown format. 
+ - ```--plaintext-notes-only``` , skips any notes with attachments (e.g. notes containing pictures)
+ - ```--skip-latlng```, does not include location in metadata section
+ - ```--skip-creation-time```, does not include creation time in metadata section
+ - ```--skip-update-time```, does not include update time in metadata section
+ - ```--skip-tags``` , does not include tags in metadata section
+ - ```--outputFormat```, generates internal file links and highlights in Obsidian-style: highlights are going to be bounded by `==` instead of \` characters, file links are going to be as follows: `![[file-name]]` instead of `![file-name](file-name)`. Possible values: `ObsidianMD` to get Obsidian-style notes, `StandardMD` or skip it completely, if you prefer Standard Markdown format. 
        
 
 ### Using cmd: 
