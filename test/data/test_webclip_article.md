@@ -172,4 +172,3 @@ As a hotfix notes within resources (e.g. web clips) are skipped to be referenced
     Created at: 2020-10-17T16:06:45+01:00
     Updated at: 2020-10-17T16:06:45+01:00
 
-

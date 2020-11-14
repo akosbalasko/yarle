@@ -85,7 +85,7 @@ export const applyTemplate = (
     } else {
       result = result.replace(
         new RegExp(
-          `${START_CREATED_AT_BLOCK}${MATCH_ALL}${END_CREATED_AT_BLOCK}`,
+          `${START_CREATED_AT_BLOCK}${MATCH_ALL}${END_CREATED_AT_BLOCK}${EOL}`,
           'g',
         ),
         '',
@@ -99,7 +99,7 @@ export const applyTemplate = (
     } else {
       result = result.replace(
         new RegExp(
-          `${START_UPDATED_AT_BLOCK}${MATCH_ALL}${END_UPDATED_AT_BLOCK}`,
+          `${START_UPDATED_AT_BLOCK}${MATCH_ALL}${END_UPDATED_AT_BLOCK}${EOL}`,
           'g',
         ),
         '',
@@ -113,7 +113,7 @@ export const applyTemplate = (
     } else {
       result = result.replace(
         new RegExp(
-          `${START_LOCATION_BLOCK}${MATCH_ALL}${END_LOCATION_BLOCK}`,
+          `${START_LOCATION_BLOCK}${MATCH_ALL}${END_LOCATION_BLOCK}${EOL}`,
           'g',
         ),
         '',
@@ -139,7 +139,7 @@ export const applyTemplate = (
   } else {
     result = result.replace(
       new RegExp(
-        `${START_METADATA_BLOCK}${MATCH_ALL}${END_METADATA_BLOCK}`,
+        `${START_METADATA_BLOCK}${MATCH_ALL}${END_METADATA_BLOCK}${EOL}`,
         'g',
       ),
       '',
