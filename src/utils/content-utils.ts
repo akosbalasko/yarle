@@ -5,13 +5,14 @@ import { yarleOptions } from './../yarle';
 import { MetaData } from './../models/MetaData';
 import { NoteData } from './../models';
 
-export const getMetadata = (note: any): MetaData => {
+export const getMetadata = (note: any, notebookName: string): MetaData => {
 
   return yarleOptions.isMetadataNeeded
     ? {
         createdAt: getCreationTime(note),
         updatedAt: getUpdateTime(note),
         location: getLatLong(note),
+        notebookName,
       }
     : {
       };
@@ -32,7 +33,6 @@ export const getUpdateTime = (note: any): string => {
     ? Moment(note.updated).format()
     : '';
 };
-
 export const getLatLong = (note: any): string => {
   return !yarleOptions.skipLocation &&
     note['note-attributes'] &&
@@ -44,6 +44,7 @@ export const getTags = (note: any): NoteData => {
   return yarleOptions.isMetadataNeeded ? {tags: logTags(note)} : {};
 
 };
+
 export const logTags = (note: any): string => {
   if (!yarleOptions.skipTags && note.tag) {
     const tagArray = Array.isArray(note.tag) ? note.tag : [note.tag];

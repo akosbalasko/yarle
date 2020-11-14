@@ -1,6 +1,7 @@
-import fs from 'fs';
-import Moment from 'moment';
 import sanitize from 'sanitize-filename';
+import * as fs from 'fs';
+import * as moment from 'moment';
+import * as path from 'path';
 
 import { yarleOptions } from '../yarle';
 
@@ -80,7 +81,7 @@ export const getExtension = (resource: any): string => {
 };
 
 export const getZettelKastelId = (note: any, dstPath: string): string => {
-  return Moment(note['created']).format('YYYYMMDDhhmm');
+  return moment(note['created']).format('YYYYMMDDhhmm');
 
 };
 
@@ -107,3 +108,8 @@ export const getNoteName = (dstPath: string, note: any): string => {
   return noteName;
 
 };
+
+export const getNotebookName = (enexFile: string): string => {
+  const notebookName = path.basename(enexFile, ".enex");
+  return notebookName;
+}
