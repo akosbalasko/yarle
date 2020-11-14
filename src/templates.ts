@@ -3,6 +3,7 @@ import fs from 'fs';
 import { defaultTemplate } from './default-template';
 import { YarleOptions } from './YarleOptions';
 import { NoteData } from './models/NoteData';
+import { EOL } from 'os';
 
 const TITLE_PLACEHOLDER = '{title}';
 const START_TITLE_BLOCK = '{title-block}';
@@ -120,13 +121,13 @@ export const applyTemplate = (
     }
     if (yarleOptions.isNotebookNameNeeded && noteData.notebookName) {
       result = result
-        .replace(NOTEBOOK_PLACEHOLDER, noteData.location)
+        .replace(NOTEBOOK_PLACEHOLDER, noteData.notebookName)
         .replace(START_NOTEBOOK_BLOCK, '')
         .replace(END_NOTEBOOK_BLOCK, '');
     } else {
       result = result.replace(
         new RegExp(
-          `${START_NOTEBOOK_BLOCK}${MATCH_ALL}${END_NOTEBOOK_BLOCK}`,
+          `${START_NOTEBOOK_BLOCK}${MATCH_ALL}${END_NOTEBOOK_BLOCK}${EOL}`,
           'g',
         ),
         '',

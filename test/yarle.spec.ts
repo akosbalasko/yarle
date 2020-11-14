@@ -155,13 +155,13 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-noteWithNotebookName/test -note with text only.md`,
+        `${__dirname}/../out/notes/test-noteWithNotebookName/test -note with text only.md`,
       ),
       true,
     );
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-noteWithNotebookName/test -note with text only.md`,
+        `${__dirname}/../out/notes/test-noteWithNotebookName/test -note with text only.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-noteWithNotebookName.md`, 'utf8'),
@@ -178,13 +178,13 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/simpleNotes/test-noteWithNotebookNameAndTags/test -note with text only.md`,
+        `${__dirname}/../out/notes/test-noteWithNotebookNameAndTags/test -note with text only.md`,
       ),
       true,
     );
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/simpleNotes/test-noteWithNotebookNameAndTags/test -note with text only.md`,
+        `${__dirname}/../out/notes/test-noteWithNotebookNameAndTags/test -note with text only.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-noteWithNotebookNameAndTags.md`, 'utf8'),

@@ -1,6 +1,6 @@
 import sanitize from 'sanitize-filename';
 import * as fs from 'fs';
-import * as moment from 'moment';
+import Moment from 'moment';
 import * as path from 'path';
 
 import { yarleOptions } from '../yarle';
@@ -81,7 +81,7 @@ export const getExtension = (resource: any): string => {
 };
 
 export const getZettelKastelId = (note: any, dstPath: string): string => {
-  return moment(note['created']).format('YYYYMMDDhhmm');
+  return Moment(note['created']).format('YYYYMMDDhhmm');
 
 };
 
