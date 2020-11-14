@@ -1,7 +1,7 @@
-import * as  assert from 'assert';
-import * as fs from 'fs';
-import * as parser from 'fast-xml-parser';
-import * as moment from 'moment';
+import assert from 'assert';
+import fs from 'fs';
+import parser from 'fast-xml-parser';
+import moment from 'moment';
 
 import * as utils from './../src/utils';
 import * as  options from './../src/xml-parser.options';

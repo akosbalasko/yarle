@@ -1,14 +1,12 @@
-import { EOL } from 'os';
-import * as moment from 'moment';
-import * as fs from 'fs';
+import Moment from 'moment';
+import fs from 'fs';
 
 import { yarleOptions } from './../yarle';
 import { MetaData } from './../models/MetaData';
 import { NoteData } from './../models';
 
-
 export const getMetadata = (note: any): MetaData => {
-  
+
   return yarleOptions.isMetadataNeeded
     ? {
         createdAt: getCreationTime(note),
@@ -16,7 +14,7 @@ export const getMetadata = (note: any): MetaData => {
         location: getLatLong(note),
       }
     : {
-      }
+      };
   };
 
 export const getTitle = (note: any): string => {
@@ -25,13 +23,13 @@ export const getTitle = (note: any): string => {
 
 export const getCreationTime = (note: any): string => {
   return !yarleOptions.skipCreationTime && note.created
-    ? moment(note.created).format()
+    ? Moment(note.created).format()
     : '';
 };
 
 export const getUpdateTime = (note: any): string => {
   return !yarleOptions.skipUpdateTime && note.updated
-    ? moment(note.updated).format()
+    ? Moment(note.updated).format()
     : '';
 };
 
@@ -45,7 +43,7 @@ export const getLatLong = (note: any): string => {
 export const getTags = (note: any): NoteData => {
   return yarleOptions.isMetadataNeeded ? {tags: logTags(note)} : {};
 
-}
+};
 export const logTags = (note: any): string => {
   if (!yarleOptions.skipTags && note.tag) {
     const tagArray = Array.isArray(note.tag) ? note.tag : [note.tag];
@@ -62,7 +60,7 @@ export const logTags = (note: any): string => {
 };
 
 export const setFileDates = (path: string, note: any): void => {
-  const modificationTime = moment(note.updated);
+  const modificationTime = Moment(note.updated);
   const mtime = modificationTime.valueOf() / 1000;
   fs.utimesSync(path, mtime, mtime);
 };
@@ -70,6 +68,6 @@ export const setFileDates = (path: string, note: any): void => {
 export const getTimeStampMoment = (resource: any): any => {
   return resource['resource-attributes'] &&
     resource['resource-attributes']['timestamp']
-    ? moment(resource['resource-attributes']['timestamp'])
-    : moment();
+    ? Moment(resource['resource-attributes']['timestamp'])
+    : Moment();
 };

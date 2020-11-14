@@ -1,8 +1,8 @@
 /* istanbul ignore file */
 // tslint:disable:no-console
 
-import * as minimist from 'minimist';
-import * as fs from 'fs';
+import minimist from 'minimist';
+import fs from 'fs';
 
 import * as yarle from './yarle';
 import { YarleOptions } from './YarleOptions';

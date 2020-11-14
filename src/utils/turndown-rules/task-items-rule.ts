@@ -1,5 +1,3 @@
-import { Rule } from 'turndown';
-
 import { filterByNodeName } from './filter-by-nodename';
 import { getAttributeProxy } from './get-attribute-proxy';
 

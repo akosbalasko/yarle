@@ -1,5 +1,5 @@
-import * as fsExtra from 'fs-extra';
-import * as fs from 'fs';
+import fsExtra from 'fs-extra';
+import fs from 'fs';
 
 import { Path } from '../paths';
 import { yarleOptions } from '../yarle';
@@ -49,9 +49,9 @@ export const setPaths = (): void => {
 
   const enexFolder = yarleOptions.enexFile.split('/');
   const enexFile = (enexFolder.length >= 1 ?  enexFolder[enexFolder.length - 1] : enexFolder[0]).split('.')[0];
-  
+
   paths.mdPath = `${process.cwd()}/${yarleOptions.outputDir}/notes/`;
-  paths.resourcePath = `${process.cwd()}/${yarleOptions.outputDir}/notes/_resources`
+  paths.resourcePath = `${process.cwd()}/${yarleOptions.outputDir}/notes/_resources`;
   if (!yarleOptions.skipEnexFileNameFromOutputPath) {
     paths.mdPath = `${paths.mdPath}${enexFile}`;
     paths.resourcePath = `${process.cwd()}/${yarleOptions.outputDir}/notes/${enexFile}/_resources`;

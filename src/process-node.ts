@@ -1,8 +1,8 @@
 import { applyTemplate } from './templates';
 import {
+  getMdFilePath,
   getMetadata,
   getNoteContent,
-  getMdFilePath,
   getTags,
   isComplex,
 } from './utils';
@@ -15,6 +15,7 @@ import { NoteData } from './models/NoteData';
 export const processNode = (note: any): void => {
   let noteData: NoteData = { title: note.title };
 
+  // tslint:disable-next-line:no-console
   console.log(`Converting note ${noteData.title}...`);
 
   try {
@@ -32,11 +33,14 @@ export const processNode = (note: any): void => {
 
     const absFilePath = getMdFilePath(note);
 
+    // tslint:disable-next-line:no-console
     console.log('data =>\n', JSON.stringify(data), '\n***');
 
     writeMdFile(absFilePath, data, note);
   } catch (e) {
+    // tslint:disable-next-line:no-console
     console.log(`Failed to convert note: ${noteData.title}`, e);
   }
+  // tslint:disable-next-line:no-console
   console.log(`Note ${noteData.title} converted successfully.`);
 };

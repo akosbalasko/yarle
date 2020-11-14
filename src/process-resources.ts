@@ -1,8 +1,9 @@
 import { cloneDeep } from 'lodash';
-import * as fs from 'fs';
+import fs from 'fs';
+import md5File from 'md5-file';
+
 import { ResourceHashItem } from './models/ResourceHash';
 import * as utils from './utils';
-import * as md5File from 'md5-file';
 
 export const processResources = (note: any, content: string): string => {
     let resourceHashes: any = {};
@@ -36,7 +37,7 @@ const addMediaReference = (content: string, resourceHashes: any, hash: any, rela
 
   const src = `./_resources/${relativeResourceWorkDir}/${resourceHashes[hash].fileName.replace(/ /g, '\ ')}`;
   let updatedContent = cloneDeep(content);
-  const replace =`<en-media ([^>]*)hash="${hash}".([^>]*)>`;
+  const replace = `<en-media ([^>]*)hash="${hash}".([^>]*)>`;
   const re = new RegExp(replace, 'g');
   const matchedElements = content.match(re);
   updatedContent = (matchedElements && matchedElements.length > 0 &&
@@ -50,7 +51,7 @@ const addMediaReference = (content: string, resourceHashes: any, hash: any, rela
 };
 
 const processResource = (workDir: string, resource: any): any => {
-    const resourceHash:any = {};
+    const resourceHash: any = {};
     const data = resource.data.$text;
 
     const resourceFileProps = utils.getResourceFileProperties(workDir, resource);
@@ -71,6 +72,6 @@ const processResource = (workDir: string, resource: any): any => {
       const md5Hash = md5File.sync(absFilePath);
       resourceHash[md5Hash] = {fileName, alreadyUsed: false} as ResourceHashItem;
     }
-    
+
     return resourceHash;
 };

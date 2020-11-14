@@ -6,4 +6,3 @@ export interface NoteData {
     updatedAt?: string;
     location?: string;
   }
-  
