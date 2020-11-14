@@ -10,5 +10,6 @@ Tag(s): {tags}
 {created-at-block}    Created at: {created-at}{end-created-at-block}
 {updated-at-block}    Updated at: {updated-at}{end-updated-at-block}
 {location-block}    Where: {location}{end-location-block}
+{notebook-block}    Notebook: {notebook}{end-notebook-block}
 {end-metadata-block}
 `;

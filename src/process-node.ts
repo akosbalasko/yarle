@@ -12,7 +12,7 @@ import { processResources } from './process-resources';
 import { convertHtml2Md } from './convert-html-to-md';
 import { NoteData } from './models/NoteData';
 
-export const processNode = (note: any): void => {
+export const processNode = (note: any, notebookName: string): void => {
   let noteData: NoteData = { title: note.title };
 
   // tslint:disable-next-line:no-console
@@ -26,7 +26,7 @@ export const processNode = (note: any): void => {
     }
 
     noteData = {...noteData, ...convertHtml2Md(content)};
-    noteData = {...noteData, ...getMetadata(note)};
+    noteData = {...noteData, ...getMetadata(note, notebookName)};
     noteData = {...noteData, ...getTags(note)};
 
     const data = applyTemplate(noteData, yarleOptions);

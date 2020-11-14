@@ -3,6 +3,7 @@ import fs from 'fs';
 import { defaultTemplate } from './default-template';
 import { YarleOptions } from './YarleOptions';
 import { NoteData } from './models/NoteData';
+import { EOL } from 'os';
 
 const TITLE_PLACEHOLDER = '{title}';
 const START_TITLE_BLOCK = '{title-block}';
@@ -30,6 +31,11 @@ const END_UPDATED_AT_BLOCK = '{end-updated-at-block}';
 const LOCATION_PLACEHOLDER = '{location}';
 const START_LOCATION_BLOCK = '{location-block}';
 const END_LOCATION_BLOCK = '{end-location-block}';
+
+const NOTEBOOK_PLACEHOLDER = '{notebook}';
+const START_NOTEBOOK_BLOCK = '{notebook-block}';
+const END_NOTEBOOK_BLOCK = '{end-notebook-block}';
+
 
 const MATCH_ALL = '(.|\n|\r\n)*';
 
@@ -79,7 +85,7 @@ export const applyTemplate = (
     } else {
       result = result.replace(
         new RegExp(
-          `${START_CREATED_AT_BLOCK}${MATCH_ALL}${END_CREATED_AT_BLOCK}`,
+          `${START_CREATED_AT_BLOCK}${MATCH_ALL}${END_CREATED_AT_BLOCK}${EOL}`,
           'g',
         ),
         '',
@@ -93,7 +99,7 @@ export const applyTemplate = (
     } else {
       result = result.replace(
         new RegExp(
-          `${START_UPDATED_AT_BLOCK}${MATCH_ALL}${END_UPDATED_AT_BLOCK}`,
+          `${START_UPDATED_AT_BLOCK}${MATCH_ALL}${END_UPDATED_AT_BLOCK}${EOL}`,
           'g',
         ),
         '',
@@ -107,7 +113,21 @@ export const applyTemplate = (
     } else {
       result = result.replace(
         new RegExp(
-          `${START_LOCATION_BLOCK}${MATCH_ALL}${END_LOCATION_BLOCK}`,
+          `${START_LOCATION_BLOCK}${MATCH_ALL}${END_LOCATION_BLOCK}${EOL}`,
+          'g',
+        ),
+        '',
+      );
+    }
+    if (yarleOptions.isNotebookNameNeeded && noteData.notebookName) {
+      result = result
+        .replace(NOTEBOOK_PLACEHOLDER, noteData.notebookName)
+        .replace(START_NOTEBOOK_BLOCK, '')
+        .replace(END_NOTEBOOK_BLOCK, '');
+    } else {
+      result = result.replace(
+        new RegExp(
+          `${START_NOTEBOOK_BLOCK}${MATCH_ALL}${END_NOTEBOOK_BLOCK}${EOL}`,
           'g',
         ),
         '',
@@ -119,7 +139,7 @@ export const applyTemplate = (
   } else {
     result = result.replace(
       new RegExp(
-        `${START_METADATA_BLOCK}${MATCH_ALL}${END_METADATA_BLOCK}`,
+        `${START_METADATA_BLOCK}${MATCH_ALL}${END_METADATA_BLOCK}${EOL}`,
         'g',
       ),
       '',

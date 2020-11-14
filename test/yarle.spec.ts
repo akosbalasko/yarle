@@ -144,6 +144,52 @@ describe('dropTheRope ', async () => {
       fs.readFileSync(`${__dirname}/data/test-noteWithTags.md`, 'utf8'),
     );
   });
+  
+  it('Note with notebook name', async () => {
+    const options: YarleOptions = {
+      enexFile: './test/data/test-noteWithNotebookName.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      isNotebookNameNeeded: true,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-noteWithNotebookName/test -note with text only.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/notes/test-noteWithNotebookName/test -note with text only.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-noteWithNotebookName.md`, 'utf8'),
+    );
+  });
+  
+  it('Note with notebook name and tags', async () => {
+    const options: YarleOptions = {
+      enexFile: './test/data/test-noteWithNotebookNameAndTags.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      isNotebookNameNeeded: true,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-noteWithNotebookNameAndTags/test -note with text only.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/notes/test-noteWithNotebookNameAndTags/test -note with text only.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-noteWithNotebookNameAndTags.md`, 'utf8'),
+    );
+  });
 
   it('Note with zettelkastel id', async () => {
     const options: YarleOptions = {

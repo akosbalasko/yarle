@@ -7,17 +7,20 @@ import { YarleOptions } from './YarleOptions';
 import { processNode } from './process-node';
 import { isWebClip } from './utils/note-utils';
 
-export let yarleOptions: YarleOptions = {
+export const defaultYarleOptions: YarleOptions = {
   enexFile: 'notebook.enex',
   outputDir: './mdNotes',
   isMetadataNeeded: false,
+  isNotebookNameNeeded: false,
   isZettelkastenNeeded: false,
   plainTextNotesOnly: false,
   skipWebClips: false,
 };
 
+export let yarleOptions: YarleOptions = { ...defaultYarleOptions };
+
 const setOptions = (options: YarleOptions): void => {
-  yarleOptions = { ...yarleOptions, ...options };
+  yarleOptions = { ...defaultYarleOptions, ...options };
 };
 
 export const parseStream = async (options: YarleOptions): Promise<void> => {
@@ -26,6 +29,8 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
   let noteNumber = 0;
   let failed = 0;
   let skipped = 0;
+  
+  const notebookName = utils.getNotebookName(options.enexFile);
 
   return new Promise((resolve, reject) => {
     const logAndReject = (error: Error) => {
@@ -43,7 +48,7 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
           ++skipped;
           console.log(`Notes skipped: ${skipped}`);
       } else {
-        processNode(note);
+        processNode(note, notebookName);
         ++noteNumber;
         console.log(`Notes processed: ${noteNumber}`);
       }
