@@ -31,6 +31,11 @@ const LOCATION_PLACEHOLDER = '{location}';
 const START_LOCATION_BLOCK = '{location-block}';
 const END_LOCATION_BLOCK = '{end-location-block}';
 
+const NOTEBOOK_PLACEHOLDER = '{notebook}';
+const START_NOTEBOOK_BLOCK = '{notebook-block}';
+const END_NOTEBOOK_BLOCK = '{end-notebook-block}';
+
+
 const MATCH_ALL = '(.|\n|\r\n)*';
 
 export const applyTemplate = (
@@ -108,6 +113,20 @@ export const applyTemplate = (
       result = result.replace(
         new RegExp(
           `${START_LOCATION_BLOCK}${MATCH_ALL}${END_LOCATION_BLOCK}`,
+          'g',
+        ),
+        '',
+      );
+    }
+    if (yarleOptions.isNotebookNameNeeded && noteData.notebookName) {
+      result = result
+        .replace(NOTEBOOK_PLACEHOLDER, noteData.location)
+        .replace(START_NOTEBOOK_BLOCK, '')
+        .replace(END_NOTEBOOK_BLOCK, '');
+    } else {
+      result = result.replace(
+        new RegExp(
+          `${START_NOTEBOOK_BLOCK}${MATCH_ALL}${END_NOTEBOOK_BLOCK}`,
           'g',
         ),
         '',
