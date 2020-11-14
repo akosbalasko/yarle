@@ -5,19 +5,22 @@ import * as fs from 'fs';
 
 import * as yarle from './yarle';
 import { YarleOptions } from './YarleOptions';
+import minimist = require('minimist');
 
 export const run = async (opts?: YarleOptions) => {
-
-    const options: YarleOptions = {...require('./config.json'),...opts};
+    const argv = minimist([...process.argv.slice(2)]);
+    const configFilePath = argv['configFile'];
+    console.log(`${__dirname}${configFilePath}`);
+    const options: YarleOptions = {...require(`${__dirname}${configFilePath}`),...opts};
 
     if (options.enexSource.endsWith('.enex')) {
         console.log(`Converting notes in file: ${options.enexSource}`);
         await yarle.dropTheRope(options);
 
     } else {
-        const enexDir = options.enexSource;
+        const enexDir = `${__dirname}${options.enexSource}`;
         const enexFiles = fs
-            .readdirSync(options.enexSource)
+            .readdirSync(`${__dirname}${options.enexSource}`)
             .filter((file:any) => {
                 return file.match(/.*\.enex/ig);
             });

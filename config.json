@@ -1,7 +1,7 @@
 {
-    "enexSource": "",
+    "enexSource": "/../test/data",
     "templateFile": "",
-    "outputDir": "",
+    "outputDir": "out",
     "isMetadataNeeded": false,
     "isNotebookNameNeeded": false,
     "isZettelkastenNeeded": false,
