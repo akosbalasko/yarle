@@ -1,0 +1,16 @@
+{
+    "enexSource": "",
+    "templateFile": "",
+    "outputDir": "",
+    "isMetadataNeeded": false,
+    "isNotebookNameNeeded": false,
+    "isZettelkastenNeeded": false,
+    "plainTextNotesOnly": false,
+    "skipLocation": false,
+    "skipCreationTime": false,
+    "skipUpdateTime": false,
+    "skipWebClips": false,
+    "skipTags": false,
+    "outputFormat": "StandardMD",
+    "skipEnexFileNameFromOutputPath": false
+}

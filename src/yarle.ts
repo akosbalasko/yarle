@@ -8,7 +8,7 @@ import { processNode } from './process-node';
 import { isWebClip } from './utils/note-utils';
 
 export const defaultYarleOptions: YarleOptions = {
-  enexFile: 'notebook.enex',
+  enexSource: 'notebook.enex',
   outputDir: './mdNotes',
   isMetadataNeeded: false,
   isNotebookNameNeeded: false,
@@ -24,17 +24,17 @@ const setOptions = (options: YarleOptions): void => {
 };
 
 export const parseStream = async (options: YarleOptions): Promise<void> => {
-  const stream = fs.createReadStream(options.enexFile);
+  const stream = fs.createReadStream(options.enexSource);
   const xml = new XmlStream(stream);
   let noteNumber = 0;
   let failed = 0;
   let skipped = 0;
   
-  const notebookName = utils.getNotebookName(options.enexFile);
+  const notebookName = utils.getNotebookName(options.enexSource);
 
   return new Promise((resolve, reject) => {
     const logAndReject = (error: Error) => {
-      console.log(`Could not convert ${options.enexFile}:\n${error.message}`);
+      console.log(`Could not convert ${options.enexSource}:\n${error.message}`);
       ++failed;
 
       return reject();

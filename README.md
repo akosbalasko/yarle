@@ -50,7 +50,7 @@ A tool that converts enex note(s) into Markdown format in order to let you escap
 
 ```javascript
  const options: YarleOptions = {
-        enexFile: 'enexFile',
+        enexSource: 'enexFile',
         outputDir: 'outputDir',
         isZettelkastenNeeded: true,
         isMetadataNeeded: false ,
