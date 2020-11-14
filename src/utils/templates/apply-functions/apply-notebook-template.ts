@@ -1,9 +1,7 @@
 import { NoteData } from '../../../models/NoteData';
-import * as P from './../placeholders';
+import * as P from './../placeholders/notebook-placeholders';
+import { applyConditionalTemplate } from './apply-conditional-template';
 
 export const applyNotebookTemplate = (noteData: NoteData, text: string): string => {
-    return text
-        .replace(P.NOTEBOOK_PLACEHOLDER, noteData.notebookName)
-        .replace(P.START_NOTEBOOK_BLOCK, '')
-        .replace(P.END_NOTEBOOK_BLOCK, '');
+    return applyConditionalTemplate(text, P, noteData.notebookName);
 }

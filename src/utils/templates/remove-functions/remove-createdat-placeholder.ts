@@ -1,14 +1,8 @@
 import { EOL } from 'os';
 
-import * as T from '../placeholders';
-import * as M from '../match-all';
+import * as T from '../placeholders/createdat-placeholders';
+import { removePlaceholder } from './remove-placeholder';
 
 export const removeCreatedAtPlaceholder = (text: string): string => {
-    return text.replace(
-        new RegExp(
-          `${T.START_CREATED_AT_BLOCK}${M.MATCH_ALL}${T.END_CREATED_AT_BLOCK}${EOL}`,
-          'g',
-        ),
-        '',
-      );
+  return removePlaceholder(text, T);
 }

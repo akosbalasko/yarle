@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import * as T from './placeholders';
+import * as T from './placeholders/metadata-placeholders';
 import { defaultTemplate } from './default-template';
 import { YarleOptions } from '../../YarleOptions';
 import { NoteData } from '../../models/NoteData';
@@ -51,8 +51,8 @@ export const applyTemplate = (noteData: NoteData, yarleOptions: YarleOptions) =>
       : removeNotebookPlaceholder(result);
     
     result = result
-      .replace(T.START_METADATA_BLOCK, '')
-      .replace(T.END_METADATA_BLOCK, '');
+      .replace(T.START_BLOCK, '')
+      .replace(T.END_BLOCK, '');
   } else {
     result = removeMetadataBlockPlaceholder(result);
   }
