@@ -1,4 +1,4 @@
-import { applyTemplate } from './templates';
+import { applyTemplate } from './utils/templates/templates';
 import {
   getMdFilePath,
   getMetadata,
