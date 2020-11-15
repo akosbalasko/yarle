@@ -12,7 +12,7 @@ A tool that converts enex note(s) into Markdown format in order to let you escap
 - Puts `title`, `creation time`, `update time`, `tags`, and `latlong` meta-information into md as metadata.
 - Updates md files' access and modification timestamps according to the notes' update time.
 - Organizes all attachments into a _resources subfolder (to keep the notes' folder as simple as possible).
-- Creates Markdown files matching to user-defined templates
+- Creates Markdown files matching to user-defined templates, see Templates introduced. See [How to use templates with YARLE](Templates.md) for details.
 
 ## Prerequisite
 
