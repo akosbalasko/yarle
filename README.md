@@ -91,7 +91,7 @@ in terminal in the root folder.
 - Changelog:
    1. Templates introduced. See section [How to use templates with YARLE](Templates.md)
    2. Configuration is read from file instead of command line arguments, see [Configuration](#Configuration) for details.
-   3. Easier usage, yarle as a command, see `Usage` for details.
+   3. Easier usage, yarle as a command, see [Usage](#Usage) for details.
    5. Name of notebook is added as configuratble metadata option to be embedded into the note
    6. Inclusion of web-clips is a configurable option 
 
