@@ -20,7 +20,7 @@ import {
   removeMetadataBlockPlaceholder } from './remove-functions';
 
 export const applyTemplate = (noteData: NoteData, yarleOptions: YarleOptions) => {
-  let result = `${defaultTemplate}`;
+  let result = defaultTemplate;
   if (yarleOptions.templateFile) {
     // todo: handle file not exists error
     result = fs.readFileSync(`${process.env.YARLEROOTDIR}${yarleOptions.templateFile}`, 'utf-8');

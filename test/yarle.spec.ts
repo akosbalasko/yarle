@@ -12,10 +12,14 @@ import { YarleOptions } from './../src/YarleOptions';
 describe('dropTheRope ', async () => {
   before(() => {
     mockTimezone.register('Europe/London');
+    process.env.YARLEROOTDIR = `${__dirname}/../`;
+
   });
 
   after(() => {
     mockTimezone.unregister();
+    delete process.env.YARLEROOTDIR;
+
   });
 
   afterEach(async () => {
@@ -1005,7 +1009,7 @@ describe('dropTheRope ', async () => {
   it('Folder of enex files', async () => {
      
     const options:YarleOptions = {
-      enexSource: './test/data/TestDirNotes',
+      enexSource: '/../test/data/TestDirNotes',
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
