@@ -66,7 +66,7 @@ The following configurational properties are available:
 ## Usage 
 
 ### Using cmd:
-Just type 
+After setting up your config file, and optionally your template file, just type 
 ```javascript
 yarle
 ```
@@ -89,9 +89,9 @@ in terminal in the root folder.
 ### Version 3.0.0
 
 - Changelog:
-   1. Templates introduced. See section [How to use templates with YARLE](templates.md)
-   2. Configuration is read from file instead of command line arguments, see [[Configuration]] for details.
-   3. Easier usage, yarle as a command, see [[Usage]] for details.
+   1. Templates introduced. See section [How to use templates with YARLE](Templates.md)
+   2. Configuration is read from file instead of command line arguments, see [Configuration](#Configuration) for details.
+   3. Easier usage, yarle as a command, see `Usage` for details.
    5. Name of notebook is added as configuratble metadata option to be embedded into the note
    6. Inclusion of web-clips is a configurable option 
 
