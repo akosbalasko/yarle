@@ -21,7 +21,7 @@ Tag(s): {tags}
 {end-metadata-block}
 ```
 
-To provide a template to YARLE just pass it as a parameter, e.g `--template ../path/to/template.md`. You can use any file name/extension you want.
+To provide a template to YARLE just pass it as a parameter in `config.json`, e.g `templateFile: '/../path/to/template.md'`. You can use any file name/extension you want.
 
 A template has two basic elements, a "block" tag which encloses the type of content it will produce, and also the formatting you want around it (e.g. `#` for a header, or `---` for a separator), and the content tag itself such as `{tags}` and `{content}`. Every content tag must have its block surrounding it.
 
@@ -32,5 +32,9 @@ If you suppress any of the blocks, it will be skipped altogether, for example if
 
 {content-block}{content}{end-content-block}
 ```
+
+
+As a good base, your can edit sampleTemplate.tmpl, and refer to it in the config file's template file parameter. 
+
 
 Have fun! 😃
