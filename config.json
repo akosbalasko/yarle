@@ -1,6 +1,6 @@
 {
-    "enexSource": "/../test/data",
-    "templateFile": "",
+    "enexSource": "/../test/data/test-template.enex",
+    "templateFile": "/sampleTemplate.tmpl",
     "outputDir": "out",
     "isMetadataNeeded": false,
     "isNotebookNameNeeded": false,

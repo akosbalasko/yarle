@@ -8,9 +8,10 @@ import { YarleOptions } from './YarleOptions';
 
 export const run = async (opts?: YarleOptions) => {
     const options: YarleOptions = {...require(`${__dirname}/../config.json`),...opts};
-
+    process.env.YARLEROOTDIR = `${__dirname}/../`;
     if (options.enexSource.endsWith('.enex')) {
         console.log(`Converting notes in file: ${options.enexSource}`);
+        options.enexSource = `${__dirname}${options.enexSource}`;
         await yarle.dropTheRope(options);
 
     } else {

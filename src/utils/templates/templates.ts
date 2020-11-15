@@ -23,7 +23,7 @@ export const applyTemplate = (noteData: NoteData, yarleOptions: YarleOptions) =>
   let result = `${defaultTemplate}`;
   if (yarleOptions.templateFile) {
     // todo: handle file not exists error
-    result = fs.readFileSync(yarleOptions.templateFile, 'utf-8');
+    result = fs.readFileSync(`${process.env.YARLEROOTDIR}${yarleOptions.templateFile}`, 'utf-8');
   }
 
   result = applyTitleTemplate(noteData, result, () => noteData.title);
