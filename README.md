@@ -14,6 +14,10 @@ A tool that converts enex note(s) into Markdown format in order to let you escap
 - Organizes all attachments into a _resources subfolder (to keep the notes' folder as simple as possible).
 - Creates Markdown files matching to user-defined templates
 
+## Prerequisite
+
+On Windows before installing the dependencies by `npm i`, you have to install Microsoft's build tools by typing `npm install --global windows-build-tools`. It is required because of node-gyp, more details and troubleshoot is here: [node-gyp install page](https://www.npmjs.com/package/node-gyp)
+
 ## Installation
 
  0. Required [Install Node.js](https://nodejs.org/en/download/) version 10.22.1 or higher.
