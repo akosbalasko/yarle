@@ -12,10 +12,7 @@ A tool that converts enex note(s) into Markdown format in order to let you escap
 - Puts `title`, `creation time`, `update time`, `tags`, and `latlong` meta-information into md as metadata.
 - Updates md files' access and modification timestamps according to the notes' update time.
 - Organizes all attachments into a _resources subfolder (to keep the notes' folder as simple as possible).
-
-## Restrictions: 
-
-- Notes of Web Clips are not supported (yet).
+- Creates Markdown files matching to user-defined templates
 
 ## Installation
 
@@ -25,32 +22,61 @@ A tool that converts enex note(s) into Markdown format in order to let you escap
  2. Open a terminal and navigate to the root folder of the repo.
  3. Type `npm i`, it installs the dependencies.
  4. Type `npm run build` to build the package.
+ 5. Type `npm link`
  
-## Options:
+## Configuration:
 
- - ```--enexSource=<your-enex-file> or the folder of your enex files``` , specifies the exported Evernote notebook(s)
- - ```--outputDir=<relative_output_dir>``` , this is the main output dir where the extracted markdown files are going to be created
- - ```--include-metadata``` , if it's set, then every Markdown file will be supplemented with metadata (tags, time of creation, time of last update, lat-lon coordinates) 
- - ```--include-notebook-name```, if set, every Markdown file will include the .enex file name in the metadata section. This is useful if you export each notebook as a separate enex file and wish to have them organized in ObsidianMD (or similar). Requires '--include-metadata' to be set.
- - ```--zettelkasten``` , puts Zettelkasten Id (based on time of creation) at the beginning of the file name
- - ```--plaintext-notes-only``` , skips any notes with attachments (e.g. notes containing pictures)
- - ```--skip-latlng```, does not include location in metadata section
- - ```--skip-creation-time```, does not include creation time in metadata section
- - ```--skip-update-time```, does not include update time in metadata section
- - ```--skip-tags``` , does not include tags in metadata section
- - ```--outputFormat```, generates internal file links and highlights in Obsidian-style: highlights are going to be bounded by `==` instead of \` characters, file links are going to be as follows: `![[file-name]]` instead of `![file-name](file-name)`. Possible values: `ObsidianMD` to get Obsidian-style notes, `StandardMD` or skip it completely, if you prefer Standard Markdown format. 
-       
+To configure Yarle, you must edit `config.json` in the root folder. By default it looks like this:
 
-### Using cmd: 
-```shell
-  npm run start -- --enexSource=GeneralNotes.enex --outputDir=./out --include-metadata --zettelkasten --plaintext-notes-only --outputFormat=ObsidianMD
 ```
+{
+    "enexSource": "/../test/data/test-template.enex",
+    "templateFile": "/sampleTemplate.tmpl",
+    "outputDir": "out",
+    "isMetadataNeeded": false,
+    "isNotebookNameNeeded": false,
+    "isZettelkastenNeeded": false,
+    "plainTextNotesOnly": false,
+    "skipLocation": false,
+    "skipCreationTime": false,
+    "skipUpdateTime": false,
+    "skipWebClips": false,
+    "skipTags": false,
+    "outputFormat": "StandardMD",
+    "skipEnexFileNameFromOutputPath": false
+}
+```
+The following configurational properties are available: 
+|
+|Property Name| Property value | Meaning |
+|-------------|----------------|---------|
+|```enexSource```| your enex file or the folder of your enex files | specifies the exported Evernote notebook(s) relatively to the dist folder, starting with a folder-separator (/ in Linux or Mac, \\ in Windows)|
+|```templateFile``` | path to your custom template file relatively to the root folder of Yarle | if its not specified, a [default template](https://github.com/akosbalasko/yarle/blob/master/src/utils/templates/default-template.ts) will be used
+|```outputDir``` | relative path to your output dir | this is the main output dir where the extracted markdown files and the external resources, images, pdf-s are going to be created|
+|```include-metadata```| true or false | if it's set to true, then every Markdown file will be supplemented with metadata (tags, time of creation, time of last update, lat-lon coordinates) |
+|```include-notebook-name```|  true or false | if set, every Markdown file will include the .enex file name in the metadata section. This is useful if you export each notebook as a separate enex file and wish to have them organized in ObsidianMD (or similar). Requires '--include-metadata' to be set.|
+|```zettelkasten``` |  true or false | puts Zettelkasten Id (based on time of creation) at the beginning of the file name|
+|```plaintext-notes-only``` |  true or false | skips any notes with attachments (e.g. notes containing pictures)|
+|```skip-latlng```|  true or false | does not include location in metadata section|
+|```skip-creation-time```|  true or false | does not include creation time in metadata section|
+|```skip-update-time```|  true or false | does not include update time in metadata section|
+|```skip-tags```|  true or false | does not include tags in metadata section|
+|```outputFormat```|  true or false | generates internal file links and highlights in Obsidian-style: highlights are going to be bounded by `==` instead of \` characters, file links are going to be as follows: `![[file-name]]` instead of `![file-name](file-name)`. Possible values: `ObsidianMD` to get Obsidian-style notes, `StandardMD` or skip it completely, if you prefer Standard Markdown format.|
+       
+## Usage 
+
+### Using cmd:
+Just type 
+```javascript
+yarle
+```
+in terminal in the root folder.
 
 ### In program: 
 
 ```javascript
  const options: YarleOptions = {
-        enexFile: 'enexFile',
+        enexSource: 'enexFile',
         outputDir: 'outputDir',
         isZettelkastenNeeded: true,
         isMetadataNeeded: false ,
@@ -59,6 +85,20 @@ A tool that converts enex note(s) into Markdown format in order to let you escap
 ```
 
 ## Release notes
+
+### Version 3.0.0
+
+- Changelog:
+   1. Templates introduced. See section [How to use templates with YARLE](templates.md)
+   2. Configuration is read from file instead of command line arguments, see [[Configuration]] for details.
+   3. Easier usage, yarle as a command, see [[Usage]] for details.
+   5. Name of notebook is added as configuratble metadata option to be embedded into the note
+   6. Inclusion of web-clips is a configurable option 
+
+- No more broken:
+   1.  Mayor set of fixes around internal links, check [this umbrella-issue](https://github.com/akosbalasko/yarle/issues/92) about the changes.
+   2. Codeblock issue
+
 
 ### Version 2.11.0
 

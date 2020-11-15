@@ -1,45 +1,28 @@
 /* istanbul ignore file */
 // tslint:disable:no-console
 
-import minimist from 'minimist';
-import fs from 'fs';
+import * as fs from 'fs';
 
 import * as yarle from './yarle';
 import { YarleOptions } from './YarleOptions';
-import { OutputFormat } from './output-format';
 
-export const run = async (argvSettings?: any) => {
-    const argv = minimist([...argvSettings, ...process.argv.slice(2)]);
-
-    const options: YarleOptions = {
-        enexFile: argv['enexSource'],
-        outputDir: argv['outputDir'],
-        isZettelkastenNeeded: argv['zettelkasten'] || false,
-        isMetadataNeeded: argv['include-metadata'] || false ,
-        isNotebookNameNeeded: argv['include-notebook-name'] || false ,
-        plainTextNotesOnly: argv['plaintext-notes-only'] || false ,
-        skipLocation: argv['skip-latlng'] || false ,
-        skipCreationTime: argv['skip-creation-time'] || false ,
-        skipUpdateTime: argv['skip-update-time'] || false ,
-        skipWebClips: argv['skip-web-clips'] || false ,
-        skipTags: argv['skip-tags'] || false ,
-        outputFormat: argv['outputFormat'] || OutputFormat.StandardMD,
-        templateFile: argv['template'],
-        skipEnexFileNameFromOutputPath: argv['skipEnexFileNameFromOutputPath'] || false,
-    };
-    if (options.enexFile.endsWith('.enex')) {
-        console.log(`Converting notes in file: ${options.enexFile}`);
+export const run = async (opts?: YarleOptions) => {
+    const options: YarleOptions = {...require(`${__dirname}/../config.json`),...opts};
+    process.env.YARLEROOTDIR = `${__dirname}/../`;
+    if (options.enexSource.endsWith('.enex')) {
+        console.log(`Converting notes in file: ${options.enexSource}`);
+        options.enexSource = `${__dirname}${options.enexSource}`;
         await yarle.dropTheRope(options);
 
     } else {
-        const enexDir = options.enexFile;
+        const enexDir = `${__dirname}${options.enexSource}`;
         const enexFiles = fs
-            .readdirSync(options.enexFile)
-            .filter(file => {
+            .readdirSync(`${__dirname}${options.enexSource}`)
+            .filter((file:any) => {
                 return file.match(/.*\.enex/ig);
             });
         for (const enexFile of enexFiles) {
-            options.enexFile = `${enexDir}/${enexFile}`;
+            options.enexSource = `${enexDir}/${enexFile}`;
             console.log(`Converting notes in file: ${enexFile}`);
             await yarle.dropTheRope(options);
 

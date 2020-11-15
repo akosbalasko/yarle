@@ -1,7 +1,7 @@
 import { OutputFormat } from './output-format';
 
 export interface YarleOptions {
-    enexFile?: string;
+    enexSource?: string;
     templateFile?: string;
     outputDir?: string;
     isMetadataNeeded?: boolean;

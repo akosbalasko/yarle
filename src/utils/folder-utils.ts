@@ -47,7 +47,7 @@ export const clearMdNotesDistDir = (): void => {
 
 export const setPaths = (): void => {
 
-  const enexFolder = yarleOptions.enexFile.split('/');
+  const enexFolder = yarleOptions.enexSource.split('/');
   const enexFile = (enexFolder.length >= 1 ?  enexFolder[enexFolder.length - 1] : enexFolder[0]).split('.')[0];
 
   paths.mdPath = `${process.cwd()}/${yarleOptions.outputDir}/notes/`;

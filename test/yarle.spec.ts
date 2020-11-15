@@ -12,10 +12,14 @@ import { YarleOptions } from './../src/YarleOptions';
 describe('dropTheRope ', async () => {
   before(() => {
     mockTimezone.register('Europe/London');
+    process.env.YARLEROOTDIR = `${__dirname}/../`;
+
   });
 
   after(() => {
     mockTimezone.unregister();
+    delete process.env.YARLEROOTDIR;
+
   });
 
   afterEach(async () => {
@@ -25,7 +29,7 @@ describe('dropTheRope ', async () => {
   it('Empty enex file - throw eoent', async () => {
     let errorHappened = false;
     const options: YarleOptions = {
-      enexFile: './test/data/do_not_exists.enex',
+      enexSource: './test/data/do_not_exists.enex',
     };
     try {
       await yarle.dropTheRope(options);
@@ -37,7 +41,7 @@ describe('dropTheRope ', async () => {
 
   it.skip('Enex file with note huge cell', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/backgroundGenes.enex',
+      enexSource: './test/data/backgroundGenes.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
     };
@@ -58,7 +62,7 @@ describe('dropTheRope ', async () => {
   });
   it('Enex file with note WithHyperlinkRefs', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-bracketlinks.enex',
+      enexSource: './test/data/test-bracketlinks.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
     };
@@ -80,7 +84,7 @@ describe('dropTheRope ', async () => {
 
   it('Enex file with note containing text only', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-justText.enex',
+      enexSource: './test/data/test-justText.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
     };
@@ -102,7 +106,7 @@ describe('dropTheRope ', async () => {
 
   it('Note with code block', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-noteWithCodeBlock.enex',
+      enexSource: './test/data/test-noteWithCodeBlock.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
     };
@@ -125,7 +129,7 @@ describe('dropTheRope ', async () => {
 
   it('Note with tags', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-noteWithTags.enex',
+      enexSource: './test/data/test-noteWithTags.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
     };
@@ -147,7 +151,7 @@ describe('dropTheRope ', async () => {
   
   it('Note with notebook name', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-noteWithNotebookName.enex',
+      enexSource: './test/data/test-noteWithNotebookName.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
       isNotebookNameNeeded: true,
@@ -170,7 +174,7 @@ describe('dropTheRope ', async () => {
   
   it('Note with notebook name and tags', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-noteWithNotebookNameAndTags.enex',
+      enexSource: './test/data/test-noteWithNotebookNameAndTags.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
       isNotebookNameNeeded: true,
@@ -193,7 +197,7 @@ describe('dropTheRope ', async () => {
 
   it('Note with zettelkastel id', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-noteWithZettelKasten.enex',
+      enexSource: './test/data/test-noteWithZettelKasten.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
       isZettelkastenNeeded: true,
@@ -216,7 +220,7 @@ describe('dropTheRope ', async () => {
 
   it('Note with zettelkastel id - no title', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-noteWithZettelKasten-notitle.enex',
+      enexSource: './test/data/test-noteWithZettelKasten-notitle.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
       isZettelkastenNeeded: true,
@@ -242,7 +246,7 @@ describe('dropTheRope ', async () => {
 
   it('Note without metadata', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-noteWithoutMetadata.enex',
+      enexSource: './test/data/test-noteWithoutMetadata.enex',
       outputDir: 'out',
       isMetadataNeeded: false,
       isZettelkastenNeeded: false,
@@ -265,7 +269,7 @@ describe('dropTheRope ', async () => {
 
   it('Note with latlong', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-noteWithLatLong.enex',
+      enexSource: './test/data/test-noteWithLatLong.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
     };
@@ -287,7 +291,7 @@ describe('dropTheRope ', async () => {
 
   it('Enex file with note containing a picture', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-withPicture.enex',
+      enexSource: './test/data/test-withPicture.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
     };
@@ -316,7 +320,7 @@ describe('dropTheRope ', async () => {
 
   it('Skips images without src attribute', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-imageWithoutSrc.enex',
+      enexSource: './test/data/test-imageWithoutSrc.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
     };
@@ -340,7 +344,7 @@ describe('dropTheRope ', async () => {
 
   it('Enex file with note containing text and picture', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-textWithImage.enex',
+      enexSource: './test/data/test-textWithImage.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
     };
@@ -369,7 +373,7 @@ describe('dropTheRope ', async () => {
 
   it('Enex file with multiple notes', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-twoNotes.enex',
+      enexSource: './test/data/test-twoNotes.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
     };
@@ -412,7 +416,7 @@ describe('dropTheRope ', async () => {
 
   it('Enex file with note containing more pictures', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-threePictures.enex',
+      enexSource: './test/data/test-threePictures.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
     };
@@ -441,7 +445,7 @@ describe('dropTheRope ', async () => {
 
   it('Enex file plaintextonly - skipping note that has resource in it', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-threePictures.enex',
+      enexSource: './test/data/test-threePictures.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: true,
@@ -456,7 +460,7 @@ describe('dropTheRope ', async () => {
   });
   it('Enex file skip Location', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-skipLocation.enex',
+      enexSource: './test/data/test-skipLocation.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
       skipLocation: true,
@@ -478,7 +482,7 @@ describe('dropTheRope ', async () => {
   });
   it('Enex file with two notes with same names', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-twoNotesWithSameName.enex',
+      enexSource: './test/data/test-twoNotesWithSameName.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -520,7 +524,7 @@ describe('dropTheRope ', async () => {
 
   it('Enex file with table', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-table.enex',
+      enexSource: './test/data/test-table.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -542,7 +546,7 @@ describe('dropTheRope ', async () => {
 
   it('Enex file with specialItems', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-specialItems.enex',
+      enexSource: './test/data/test-specialItems.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -566,7 +570,7 @@ describe('dropTheRope ', async () => {
 
   it('Enex file with links ', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-externalLink.enex',
+      enexSource: './test/data/test-externalLink.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -590,7 +594,7 @@ describe('dropTheRope ', async () => {
 
   it('Enex file with file links ', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-externalFileLink.enex',
+      enexSource: './test/data/test-externalFileLink.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -614,7 +618,7 @@ describe('dropTheRope ', async () => {
 
   it('Enex file with links with resources', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-externalLinkWithPicture.enex',
+      enexSource: './test/data/test-externalLinkWithPicture.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -641,7 +645,7 @@ describe('dropTheRope ', async () => {
 
   it('Enex file with internal links ', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-links.enex',
+      enexSource: './test/data/test-links.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -676,7 +680,7 @@ describe('dropTheRope ', async () => {
 
   it('Enex file with highlighted text', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-highlights.enex',
+      enexSource: './test/data/test-highlights.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -699,7 +703,7 @@ describe('dropTheRope ', async () => {
   });
   it('Enex file with highlighted text - Obsidian-style', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-highlights.enex',
+      enexSource: './test/data/test-highlights.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -723,7 +727,7 @@ describe('dropTheRope ', async () => {
   });
   it('Enex file with PDF attachment', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-pdfAttachment.enex',
+      enexSource: './test/data/test-pdfAttachment.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -745,7 +749,7 @@ describe('dropTheRope ', async () => {
 
   it('Enex file obsidian style', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-twoNotes.enex',
+      enexSource: './test/data/test-twoNotes.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
       outputFormat: OutputFormat.ObsidianMD,
@@ -789,7 +793,7 @@ describe('dropTheRope ', async () => {
 
   it('Enex file - no span style', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-nospanstyle.enex',
+      enexSource: './test/data/test-nospanstyle.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -814,7 +818,7 @@ describe('dropTheRope ', async () => {
 
   it('Note with sublists', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-sublists.enex',
+      enexSource: './test/data/test-sublists.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
     };
@@ -835,7 +839,7 @@ describe('dropTheRope ', async () => {
   });
   it('Note with sublists (valid html)', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-sublists-valid.enex',
+      enexSource: './test/data/test-sublists-valid.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
     };
@@ -856,7 +860,7 @@ describe('dropTheRope ', async () => {
   });
   it('Enex file urlEncode whitespace', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-urlencode.enex',
+      enexSource: './test/data/test-urlencode.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
       outputFormat: OutputFormat.UrlEncodeMD,
@@ -879,7 +883,7 @@ describe('dropTheRope ', async () => {
   });
   it('Note with sublists (multiple)', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-sublists-multiple.enex',
+      enexSource: './test/data/test-sublists-multiple.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
     };
@@ -901,7 +905,7 @@ describe('dropTheRope ', async () => {
 
   it('Webclip - article', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-webclip_article.enex',
+      enexSource: './test/data/test-webclip_article.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -926,7 +930,7 @@ describe('dropTheRope ', async () => {
 
   it('Webclip - simplified article', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-webclip_simplifiedarticle.enex',
+      enexSource: './test/data/test-webclip_simplifiedarticle.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -954,7 +958,7 @@ describe('dropTheRope ', async () => {
 
   it('Webclip - bookmark', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-webclip_bookmark.enex',
+      enexSource: './test/data/test-webclip_bookmark.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -979,7 +983,7 @@ describe('dropTheRope ', async () => {
 
   it('Webclip - screenshot', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-webclip_screenshot.enex',
+      enexSource: './test/data/test-webclip_screenshot.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -1003,14 +1007,16 @@ describe('dropTheRope ', async () => {
   });
 
   it('Folder of enex files', async () => {
-    const options = [
-      '--enexSource=./test/data/TestDirNotes',
-      '--outputDir=out',
-      '--isMetadataNeeded=true',
-      '--plainTextNotesOnly=false',
-      `--outputFormat=${OutputFormat.ObsidianMD}`,
-      '--skipEnexFileNameFromOutputPath=true',
-    ];
+     
+    const options:YarleOptions = {
+      enexSource: '/../test/data/TestDirNotes',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      plainTextNotesOnly: false,
+      outputFormat: OutputFormat.ObsidianMD,
+      skipEnexFileNameFromOutputPath: true
+    }
+   
     await dropTheRopeRunner.run(options);
     assert.equal(
       fs.existsSync(
@@ -1028,7 +1034,7 @@ describe('dropTheRope ', async () => {
 
   it('applies template passed as parameter', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-template.enex',
+      enexSource: './test/data/test-template.enex',
       outputDir: 'out',
       templateFile: './test/data/template_tags_bottom.templ',
       isMetadataNeeded: true,
@@ -1055,7 +1061,7 @@ describe('dropTheRope ', async () => {
 
   it('only renders content with a template with just the content block', async () => {
     const options: YarleOptions = {
-      enexFile: './test/data/test-template 2.enex',
+      enexSource: './test/data/test-template 2.enex',
       outputDir: 'out',
       templateFile: './test/data/bare_template.templ',
       isMetadataNeeded: true,

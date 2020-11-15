@@ -4,5 +4,5 @@
 
 import * as dropTheRopeRunner from './dropTheRopeRunner';
 
-dropTheRopeRunner.run([]);
+dropTheRopeRunner.run({});
 // tslint:enable:no-console
