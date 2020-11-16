@@ -1,0 +1,16 @@
+{
+    "enexSource": "/../test/data/test-template-2.enex",
+    "templateFile": "/sampleTemplate.tmpl",
+    "outputDir": "out",
+    "isMetadataNeeded": false,
+    "isNotebookNameNeeded": false,
+    "isZettelkastenNeeded": false,
+    "plainTextNotesOnly": false,
+    "skipLocation": false,
+    "skipCreationTime": false,
+    "skipUpdateTime": false,
+    "skipWebClips": false,
+    "skipTags": false,
+    "outputFormat": "StandardMD",
+    "skipEnexFileNameFromOutputPath": false
+}
