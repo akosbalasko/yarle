@@ -49,7 +49,7 @@
     "tslint-microsoft-contrib": "6.2.0",
     "turndown": "7.0.0",
     "typescript": "3.8.3",
-    "xml-stream": "0.4.5"
+    "xml-flow": "1.0.4"
   },
   "engines": {
     "node": ">=10.18.1",
