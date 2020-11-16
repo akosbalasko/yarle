@@ -24,7 +24,7 @@ A tool that converts enex note(s) into Markdown format in order to let you escap
   ```bash
    npm i -g  yarle-evernote-to-md
   ```
-Or, if you can use yarle without install anything (See npx command in [Usage](#Usage)).
+Or you can use yarle without install anything (See npx command in [Usage](#Usage)).
 
 ## Configuration:
 
