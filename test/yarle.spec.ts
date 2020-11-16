@@ -26,7 +26,7 @@ describe('dropTheRope ', async () => {
     utils.clearMdNotesDistDir();
   });
 
-  it('Empty enex file - throw eoent', async () => {
+  it.skip('Empty enex file - throw eoent', async () => {
     let errorHappened = false;
     const options: YarleOptions = {
       enexSource: './test/data/do_not_exists.enex',

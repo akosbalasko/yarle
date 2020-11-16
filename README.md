@@ -16,21 +16,19 @@ A tool that converts enex note(s) into Markdown format in order to let you escap
 
 ## Prerequisite
 
-On Windows before installing the dependencies by `npm i`, you have to install Microsoft's build tools by typing `npm install --global windows-build-tools`. It is required because of node-gyp, more details and troubleshoot is here: [node-gyp install page](https://www.npmjs.com/package/node-gyp)
+ - Required [Install Node.js](https://nodejs.org/en/download/) version 10.22.1 or higher.
 
 ## Installation
-
- 0. Required [Install Node.js](https://nodejs.org/en/download/) version 10.22.1 or higher.
-  
- 1. Clone or download this repo.
- 2. Open a terminal and navigate to the root folder of the repo.
- 3. Type `npm i`, it installs the dependencies.
- 4. Type `npm run build` to build the package.
- 5. Type `npm link`
  
+ You can install yarle using npm as follows: 
+  ```bash
+   npm i -g  yarle-evernote-to-md
+  ```
+Or, if you can use yarle without install anything (See npx command in [Usage](#Usage)).
+
 ## Configuration:
 
-To configure Yarle, you must edit `config.json` in the root folder. By default it looks like this:
+To configure Yarle, you must create a config file. By default it looks like this:
 
 ```
 {
@@ -70,11 +68,16 @@ The following configurational properties are available:
 ## Usage 
 
 ### Using cmd:
+
 After setting up your config file, and optionally your template file, just type 
 ```javascript
-yarle
+yarle --configFile <path_to_your_file e.g. ./config.json>
 ```
-in terminal in the root folder.
+or without installation with npx: 
+```javascript
+npx -p  yarle-evernote-to-md yarle  --configFile <path_to_your_file e.g. ./config.json>
+```
+
 
 ### In program: 
 
@@ -89,6 +92,11 @@ in terminal in the root folder.
 ```
 
 ## Release notes
+
+### Version 3.1.0
+
+- Changelog:
+   1. Installation and configuration simplified.
 
 ### Version 3.0.0
 

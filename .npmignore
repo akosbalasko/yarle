@@ -1,0 +1,6 @@
+coverage
+.github
+.nyc_output
+.vscode
+.wakatime-project
+.nycrc

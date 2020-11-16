@@ -1,6 +1,6 @@
 {
   "name": "yarle-evernote-to-md",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Yet Another Rope Ladder from Evernote",
   "keywords": [
     "evernote",
@@ -14,9 +14,6 @@
   "bin": {
     "yarle": "./dist/dropTheRope.js"
   },
-  "files": [
-    "./dist/"
-  ],
   "scripts": {
     "build": "tsc --project ./src/tsconfig.json",
     "build:watch": "nodemon --watch src/ --exec \"npm run build\" -e ts",
@@ -49,7 +46,7 @@
     "tslint-microsoft-contrib": "6.2.0",
     "turndown": "7.0.0",
     "typescript": "3.8.3",
-    "xml-stream": "0.4.5"
+    "xml-flow": "1.0.4"
   },
   "engines": {
     "node": ">=10.18.1",
