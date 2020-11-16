@@ -14,9 +14,6 @@
   "bin": {
     "yarle": "./dist/dropTheRope.js"
   },
-  "files": [
-    "./dist/"
-  ],
   "scripts": {
     "build": "tsc --project ./src/tsconfig.json",
     "build:watch": "nodemon --watch src/ --exec \"npm run build\" -e ts",
