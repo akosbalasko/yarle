@@ -14,13 +14,13 @@ export const run = async (opts?: YarleOptions) => {
     process.env.YARLEROOTDIR = `${__dirname}/../`;
     if (options.enexSource.endsWith('.enex')) {
         console.log(`Converting notes in file: ${options.enexSource}`);
-        options.enexSource = `${__dirname}${options.enexSource}`;
+        options.enexSource = `${process.cwd()}${options.enexSource}`;
         await yarle.dropTheRope(options);
 
     } else {
-        const enexDir = `${__dirname}${options.enexSource}`;
+        const enexDir = `${process.cwd()}${options.enexSource}`;
         const enexFiles = fs
-            .readdirSync(`${__dirname}${options.enexSource}`)
+            .readdirSync(`${process.cwd()}${options.enexSource}`)
             .filter((file:any) => {
                 return file.match(/.*\.enex/ig);
             });
