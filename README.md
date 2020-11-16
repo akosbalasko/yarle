@@ -71,11 +71,11 @@ The following configurational properties are available:
 
 After setting up your config file, and optionally your template file, just type 
 ```javascript
-yarle --configPath <path_to_your_file e.g. ./config.json>
+yarle --configFile <path_to_your_file e.g. ./config.json>
 ```
 or without installation with npx: 
 ```javascript
-npx -p  yarle-evernote-to-md yarle  --configPath <path_to_your_file e.g. ./config.json>
+npx -p  yarle-evernote-to-md yarle  --configFile <path_to_your_file e.g. ./config.json>
 ```
 
 

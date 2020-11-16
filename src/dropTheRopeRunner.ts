@@ -8,9 +8,9 @@ import { YarleOptions } from './YarleOptions';
 
 export const run = async (opts?: YarleOptions) => {
     var argv = require('minimist')(process.argv.slice(2));
-    let configPath = argv['configPath'] ? `${process.cwd()}/${argv['configPath']}`:`${__dirname}/../config.json`;
-    console.log(`Loading config from ${configPath}`);
-    const options: YarleOptions = {...require(configPath),...opts};
+    let configFile = argv['configFile'] ? `${process.cwd()}/${argv['configFile']}`:`${__dirname}/../config.json`;
+    console.log(`Loading config from ${configFile}`);
+    const options: YarleOptions = {...require(configFile),...opts};
     process.env.YARLEROOTDIR = `${__dirname}/../`;
     if (options.enexSource.endsWith('.enex')) {
         console.log(`Converting notes in file: ${options.enexSource}`);
