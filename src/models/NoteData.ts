@@ -4,6 +4,7 @@ export interface NoteData {
     content?: string;
     createdAt?: string;
     updatedAt?: string;
+    sourceUrl?: string;
     location?: string;
     notebookName?: string;
   }
