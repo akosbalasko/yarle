@@ -82,7 +82,7 @@ describe('dropTheRope ', async () => {
     );
   });
 
-  it.only('Enex file with note containing text only', async () => {
+  it('Enex file with note containing text only', async () => {
     const options: YarleOptions = {
       enexSource: './test/data/test-justText.enex',
       outputDir: 'out',
@@ -1055,6 +1055,38 @@ describe('dropTheRope ', async () => {
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test - templates.md`, 'utf8'),
+    );
+  });
+
+  it('applies template passed as parameter - skip metadata if it doesn\'t exists', async () => {
+    const options: YarleOptions = {
+      enexSource: './test/data/test-template-nometa.enex',
+      outputDir: 'out',
+      templateFile: './test/data/template_tags_bottom.templ',
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.ObsidianMD,
+      skipEnexFileNameFromOutputPath: false,
+      skipLocation: false,
+      skipSourceUrl: false,
+      skipCreationTime: false,
+      skipUpdateTime: false,
+      skipTags: false,
+
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-template-nometa/test - templates.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/notes/test-template-nometa/test - templates.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test - templates-nometa.md`, 'utf8'),
     );
   });
 
