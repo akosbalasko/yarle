@@ -82,7 +82,7 @@ describe('dropTheRope ', async () => {
     );
   });
 
-  it.only('Enex file with note containing text only', async () => {
+  it('Enex file with note containing text only', async () => {
     const options: YarleOptions = {
       enexSource: './test/data/test-justText.enex',
       outputDir: 'out',
@@ -1008,7 +1008,7 @@ describe('dropTheRope ', async () => {
 
   it('Folder of enex files', async () => {
     const options: YarleOptions = {
-      enexSource: '/test/data/TestDirNotes',
+      enexSource: `${process.cwd()}/test/data/TestDirNotes`,
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
