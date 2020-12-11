@@ -114,13 +114,13 @@ describe('dropTheRope ', async () => {
 
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/notes/test-noteWithCodeBlock/note with code block.md`,
+        `${__dirname}/../out/notes/test-noteWithCodeBlock/Note with code block.md`,
       ),
       true,
     );
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/notes/test-noteWithCodeBlock/note with code block.md`,
+        `${__dirname}/../out/notes/test-noteWithCodeBlock/Note with code block.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-noteWithCodeBlock.md`, 'utf8'),
