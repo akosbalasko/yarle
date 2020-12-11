@@ -82,7 +82,7 @@ describe('dropTheRope ', async () => {
     );
   });
 
-  it('Enex file with note containing text only', async () => {
+  it.only('Enex file with note containing text only', async () => {
     const options: YarleOptions = {
       enexSource: './test/data/test-justText.enex',
       outputDir: 'out',
@@ -91,13 +91,13 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/notes/test-justText/test -note with text only.md`,
+        `${__dirname}/../out/notes/test-justText/TEST -note with text only.md`,
       ),
       true,
     );
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/notes/test-justText/test -note with text only.md`,
+        `${__dirname}/../out/notes/test-justText/TEST -note with text only.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-justText.md`, 'utf8'),
