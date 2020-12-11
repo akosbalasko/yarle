@@ -1,4 +1,4 @@
-# TEST -note with text only
+# test -note with text only
 
 This is the content
 

@@ -1,4 +1,4 @@
-# TEST - templates
+# test - templates
 ---
 
 This is the content
