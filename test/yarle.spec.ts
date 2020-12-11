@@ -741,7 +741,7 @@ describe('dropTheRope ', async () => {
     );
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/notes/test-pdfAttachment/_resources/pdfattachment.resources/sample.pdf`,
+        `${__dirname}/../out/notes/test-pdfAttachment/_resources/pdfAttachment.resources/sample.pdf`,
       ),
       true,
     );
