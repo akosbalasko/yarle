@@ -468,13 +468,13 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/notes/test-skipLocation/skiplocation.md`,
+        `${__dirname}/../out/notes/test-skipLocation/SkipLocation.md`,
       ),
       true,
     );
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/notes/test-skipLocation/skiplocation.md`,
+        `${__dirname}/../out/notes/test-skipLocation/SkipLocation.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-skipLocation.md`, 'utf8'),
