@@ -1019,13 +1019,13 @@ describe('dropTheRope ', async () => {
     await dropTheRopeRunner.run(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/notes/examplenoteinsamedir.md`,
+        `${__dirname}/../out/notes/ExampleNoteInSameDir.md`,
       ),
       true,
     );
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/notes/examplenoteinsamedir.1.md`,
+        `${__dirname}/../out/notes/ExampleNoteInSameDir.1.md`,
       ),
       true,
     );
