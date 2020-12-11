@@ -1076,14 +1076,14 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/notes/test-template-nometa/test - templates.md`,
+        `${__dirname}/../out/notes/test-template-nometa/TEST - templates.md`,
       ),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/notes/test-template-nometa/test - templates.md`,
+        `${__dirname}/../out/notes/test-template-nometa/TEST - templates.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test - templates-nometa.md`, 'utf8'),
