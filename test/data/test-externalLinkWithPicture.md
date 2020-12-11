@@ -1,6 +1,6 @@
 # Link With Picture
 
-![squirrel1.jpeg](./_resources/link_with_picture.resources/squirrel1.jpeg)
+![squirrel1.jpeg](./_resources/Link_With_Picture.resources/squirrel1.jpeg)
 
 [https://444.hu/](https://444.hu/)
 

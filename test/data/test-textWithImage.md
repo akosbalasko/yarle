@@ -2,7 +2,7 @@
 
 Plain content of the text
 
-Image starts![pic.jpeg](./_resources/untitled.resources/pic.jpeg)
+Image starts![pic.jpeg](./_resources/Untitled.resources/pic.jpeg)
 
 Image ends
 
