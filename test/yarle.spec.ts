@@ -1007,16 +1007,15 @@ describe('dropTheRope ', async () => {
   });
 
   it('Folder of enex files', async () => {
-     
-    const options:YarleOptions = {
+    const options: YarleOptions = {
       enexSource: '/test/data/TestDirNotes',
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
       outputFormat: OutputFormat.ObsidianMD,
       skipEnexFileNameFromOutputPath: true
-    }
-   
+    };
+
     await dropTheRopeRunner.run(options);
     assert.equal(
       fs.existsSync(
@@ -1080,6 +1079,32 @@ describe('dropTheRope ', async () => {
     assert.equal(
       fs.readFileSync(
         `${__dirname}/../out/notes/test-template 2/test - templates just content.md`,
+        'utf8',
+      ),
+      fs.readFileSync(
+        `${__dirname}/data/test - templates just content.md`,
+        'utf8',
+      ),
+    );
+  });
+
+  it('case sensitive filenames', async () => {
+    const options: YarleOptions = {
+      enexSource: './test/data/test-case-sensitive.enex',
+      outputDir: 'out',
+      templateFile: './test/data/bare_template.templ',
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.ObsidianMD,
+      skipEnexFileNameFromOutputPath: false,
+
+    };
+    await yarle.dropTheRope(options);
+    const dirList = fs.readdirSync(`${__dirname}/../out/notes/test-case-sensitive/`);
+    assert.equal(dirList.includes('TEST - templates just content.md'), true);
+    
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/notes/test-case-sensitive/TEST - templates just content.md`,
         'utf8',
       ),
       fs.readFileSync(

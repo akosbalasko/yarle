@@ -10,7 +10,7 @@ import { ResourceFileProperties } from './../models/ResourceFileProperties';
 const FILENAME_DELIMITER = '_';
 
 export const normalizeTitle = (title: string) => {
-  return sanitize(title, {replacement: FILENAME_DELIMITER}).toLowerCase();
+  return sanitize(title, {replacement: FILENAME_DELIMITER});
 };
 
 export const getFileIndex = (dstPath: string, fileNamePrefix: string): number | string => {
@@ -97,7 +97,7 @@ export const getNoteName = (dstPath: string, note: any): string => {
       `${zettelPrefix}.${nextIndex}` :
       zettelPrefix;
 
-    noteName += getFilePrefix(note) !== 'untitled' ? `${separator}${getFilePrefix(note)}` : '';
+    noteName += getFilePrefix(note) !== 'Untitled' ? `${separator}${getFilePrefix(note)}` : '';
   } else {
     const fileNamePrefix = getFilePrefix(note);
     const nextIndex = getFileIndex(dstPath, fileNamePrefix);
