@@ -491,14 +491,14 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/notes/test-twoNotesWithSameName/untitled.md`,
+        `${__dirname}/../out/notes/test-twoNotesWithSameName/Untitled.md`,
       ),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/notes/test-twoNotesWithSameName/untitled.md`,
+        `${__dirname}/../out/notes/test-twoNotesWithSameName/Untitled.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-twoNotesWithSameName.md`, 'utf8'),
@@ -506,13 +506,13 @@ describe('dropTheRope ', async () => {
 
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/notes/test-twoNotesWithSameName/untitled.1.md`,
+        `${__dirname}/../out/notes/test-twoNotesWithSameName/Untitled.1.md`,
       ),
       true,
     );
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/notes/test-twoNotesWithSameName/untitled.1.md`,
+        `${__dirname}/../out/notes/test-twoNotesWithSameName/Untitled.1.md`,
         'utf8',
       ),
       fs.readFileSync(
