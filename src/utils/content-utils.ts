@@ -26,20 +26,20 @@ export const getTitle = (note: any): string => {
 export const getCreationTime = (note: any): string => {
   return !yarleOptions.skipCreationTime && note.created
     ? Moment(note.created).format()
-    : '';
+    : undefined;
 };
 
 export const getUpdateTime = (note: any): string => {
   return !yarleOptions.skipUpdateTime && note.updated
     ? Moment(note.updated).format()
-    : '';
+    : undefined;
 };
 
 export const getSourceUrl = (note: any): string => {
   return !yarleOptions.skipSourceUrl &&
     note['note-attributes']
     ? note['note-attributes']['source-url']
-    : '';
+    : undefined;
 };
 
 export const getLatLong = (note: any): string => {
@@ -47,10 +47,10 @@ export const getLatLong = (note: any): string => {
     note['note-attributes'] &&
     note['note-attributes'].longitude
     ? `${note['note-attributes'].longitude},${note['note-attributes'].latitude}`
-    : '';
+    : undefined;
 };
 export const getTags = (note: any): NoteData => {
-  return yarleOptions.isMetadataNeeded ? {tags: logTags(note)} : {};
+  return yarleOptions.isMetadataNeeded ? {tags: logTags(note)} : undefined;
 
 };
 
@@ -66,7 +66,7 @@ export const logTags = (note: any): string => {
     return tags.join(' ');
   }
 
-  return '';
+  return undefined;
 };
 
 export const setFileDates = (path: string, note: any): void => {

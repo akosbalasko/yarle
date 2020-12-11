@@ -1058,6 +1058,38 @@ describe('dropTheRope ', async () => {
     );
   });
 
+  it('applies template passed as parameter - skip metadata if it doesn\'t exists', async () => {
+    const options: YarleOptions = {
+      enexSource: './test/data/test-template-nometa.enex',
+      outputDir: 'out',
+      templateFile: './test/data/template_tags_bottom.templ',
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.ObsidianMD,
+      skipEnexFileNameFromOutputPath: false,
+      skipLocation: false,
+      skipSourceUrl: false,
+      skipCreationTime: false,
+      skipUpdateTime: false,
+      skipTags: false,
+
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-template-nometa/TEST - templates.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/notes/test-template-nometa/TEST - templates.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test - templates-nometa.md`, 'utf8'),
+    );
+  });
+
   it('only renders content with a template with just the content block', async () => {
     const options: YarleOptions = {
       enexSource: './test/data/test-template 2.enex',
