@@ -329,13 +329,13 @@ describe('dropTheRope ', async () => {
 
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/notes/test-imageWithoutSrc/test-imagewithoutsrc.md`,
+        `${__dirname}/../out/notes/test-imageWithoutSrc/test-imageWithoutSrc.md`,
       ),
       true,
     );
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/notes/test-imageWithoutSrc/test-imagewithoutsrc.md`,
+        `${__dirname}/../out/notes/test-imageWithoutSrc/test-imageWithoutSrc.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-imageWithoutSrc.md`, 'utf8'),
@@ -351,20 +351,20 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/notes/test-textWithImage/untitled.md`,
+        `${__dirname}/../out/notes/test-textWithImage/Untitled.md`,
       ),
       true,
     );
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/notes/test-textWithImage/_resources/untitled.resources`,
+        `${__dirname}/../out/notes/test-textWithImage/_resources/Untitled.resources`,
       ),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/notes//test-textWithImage/untitled.md`,
+        `${__dirname}/../out/notes//test-textWithImage/Untitled.md`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-textWithImage.md`, 'utf8'),
