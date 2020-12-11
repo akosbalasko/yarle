@@ -11,12 +11,13 @@ export const getMetadata = (note: any, notebookName: string): MetaData => {
     ? {
         createdAt: getCreationTime(note),
         updatedAt: getUpdateTime(note),
+        sourceUrl: getSourceUrl(note),
         location: getLatLong(note),
         notebookName,
       }
     : {
       };
-  };
+};
 
 export const getTitle = (note: any): string => {
   return note.title ? `# ${note.title}` : '';
@@ -33,6 +34,14 @@ export const getUpdateTime = (note: any): string => {
     ? Moment(note.updated).format()
     : '';
 };
+
+export const getSourceUrl = (note: any): string => {
+  return !yarleOptions.skipSourceUrl &&
+    note['note-attributes']
+    ? note['note-attributes']['source-url']
+    : '';
+};
+
 export const getLatLong = (note: any): string => {
   return !yarleOptions.skipLocation &&
     note['note-attributes'] &&

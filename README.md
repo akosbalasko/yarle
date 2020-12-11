@@ -42,6 +42,7 @@ To configure Yarle, you must create a config file. By default it looks like this
     "skipLocation": false,
     "skipCreationTime": false,
     "skipUpdateTime": false,
+    "skipSourceUrl": false,
     "skipWebClips": false,
     "skipTags": false,
     "outputFormat": "StandardMD",
@@ -62,6 +63,7 @@ The following configurational properties are available:
 |```skip-latlng```|  true or false | does not include location in metadata section|
 |```skip-creation-time```|  true or false | does not include creation time in metadata section|
 |```skip-update-time```|  true or false | does not include update time in metadata section|
+|```skip-source-url```|  true or false | does not include the source url in metadata section|
 |```skip-tags```|  true or false | does not include tags in metadata section|
 |```outputFormat```|  true or false | generates internal file links and highlights in Obsidian-style: highlights are going to be bounded by `==` instead of \` characters, file links are going to be as follows: `![[file-name]]` instead of `![file-name](file-name)`. Possible values: `ObsidianMD` to get Obsidian-style notes, `StandardMD` or skip it completely, if you prefer Standard Markdown format.|
        

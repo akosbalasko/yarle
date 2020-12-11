@@ -9,6 +9,7 @@
     "skipLocation": false,
     "skipCreationTime": false,
     "skipUpdateTime": false,
+    "skipSourceUrl": false,
     "skipWebClips": false,
     "skipTags": false,
     "outputFormat": "StandardMD",
