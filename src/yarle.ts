@@ -14,6 +14,7 @@ export const defaultYarleOptions: YarleOptions = {
   isZettelkastenNeeded: false,
   plainTextNotesOnly: false,
   skipWebClips: false,
+  useHashTags: true,
 };
 
 export let yarleOptions: YarleOptions = { ...defaultYarleOptions };

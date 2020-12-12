@@ -12,6 +12,7 @@
     "skipSourceUrl": false,
     "skipWebClips": false,
     "skipTags": false,
+    "useHashTags": true,
     "outputFormat": "StandardMD",
     "skipEnexFileNameFromOutputPath": false
 }
