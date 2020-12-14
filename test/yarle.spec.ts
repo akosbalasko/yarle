@@ -1071,7 +1071,7 @@ describe('dropTheRope ', async () => {
       skipCreationTime: false,
       skipUpdateTime: false,
       skipTags: false,
-
+      useHashTags: true,
     };
     await yarle.dropTheRope(options);
     assert.equal(

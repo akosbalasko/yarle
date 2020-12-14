@@ -58,9 +58,9 @@ export const logTags = (note: any): string => {
   if (!yarleOptions.skipTags && note.tag) {
     const tagArray = Array.isArray(note.tag) ? note.tag : [note.tag];
     const tags = tagArray.map((tag: any) => {
-      const cleanTag = tag.toString().replace(/ /g, '-');
+      const cleanTag = tag.toString().replace(/^#/, '').replace(/ /g, '-');
 
-      return cleanTag.startsWith('#') ? cleanTag : `#${cleanTag}`;
+      return yarleOptions.useHashTags ? `#${cleanTag}` : cleanTag;
     });
 
     return tags.join(' ');

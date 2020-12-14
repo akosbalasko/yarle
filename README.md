@@ -45,6 +45,7 @@ To configure Yarle, you must create a config file. By default it looks like this
     "skipSourceUrl": false,
     "skipWebClips": false,
     "skipTags": false,
+    "useHashTags": true,
     "outputFormat": "StandardMD",
     "skipEnexFileNameFromOutputPath": false
 }
@@ -65,6 +66,7 @@ The following configurational properties are available:
 |```skipUpdateTime```|  true or false | does not include update time in metadata section|
 |```skipSourceUrl```|  true or false | does not include the source url in metadata section|
 |```skipTags```|  true or false | does not include tags in metadata section|
+|```useHashTags```|  true or false | whether to add the pound sign in front of tags|
 |```outputFormat```|  true or false | generates internal file links and highlights in Obsidian-style: highlights are going to be bounded by `==` instead of \` characters, file links are going to be as follows: `![[file-name]]` instead of `![file-name](file-name)`. Possible values: `ObsidianMD` to get Obsidian-style notes, `StandardMD` or skip it completely, if you prefer Standard Markdown format.|
        
 ## Usage 
