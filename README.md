@@ -56,15 +56,15 @@ The following configurational properties are available:
 |```enexSource```| your enex file or the folder of your enex files | specifies the exported Evernote notebook(s) relatively to the dist folder, starting with a folder-separator (/ in Linux or Mac, \\ in Windows)|
 |```templateFile``` | path to your custom template file relatively to the root folder of Yarle | if its not specified, a [default template](https://github.com/akosbalasko/yarle/blob/master/src/utils/templates/default-template.ts) will be used
 |```outputDir``` | relative path to your output dir | this is the main output dir where the extracted markdown files and the external resources, images, pdf-s are going to be created|
-|```include-metadata```| true or false | if it's set to true, then every Markdown file will be supplemented with metadata (tags, time of creation, time of last update, lat-lon coordinates) |
-|```include-notebook-name```|  true or false | if set, every Markdown file will include the .enex file name in the metadata section. This is useful if you export each notebook as a separate enex file and wish to have them organized in ObsidianMD (or similar). Requires '--include-metadata' to be set.|
-|```zettelkasten``` |  true or false | puts Zettelkasten Id (based on time of creation) at the beginning of the file name|
-|```plaintext-notes-only``` |  true or false | skips any notes with attachments (e.g. notes containing pictures)|
-|```skip-latlng```|  true or false | does not include location in metadata section|
-|```skip-creation-time```|  true or false | does not include creation time in metadata section|
-|```skip-update-time```|  true or false | does not include update time in metadata section|
-|```skip-source-url```|  true or false | does not include the source url in metadata section|
-|```skip-tags```|  true or false | does not include tags in metadata section|
+|```isMetadataNeeded```| true or false | if it's set to true, then every Markdown file will be supplemented with metadata (tags, time of creation, time of last update, lat-lon coordinates) |
+|```isNotebookNameNeeded```|  true or false | if set, every Markdown file will include the .enex file name in the metadata section. This is useful if you export each notebook as a separate enex file and wish to have them organized in ObsidianMD (or similar). Requires '--include-metadata' to be set.|
+|```isZettelkastenNeeded``` |  true or false | puts Zettelkasten Id (based on time of creation) at the beginning of the file name|
+|```plaintextNotesOnly``` |  true or false | skips any notes with attachments (e.g. notes containing pictures)|
+|```skipLocation```|  true or false | does not include location in metadata section|
+|```skipCreationTime```|  true or false | does not include creation time in metadata section|
+|```skipUpdateTime```|  true or false | does not include update time in metadata section|
+|```skipSourceUrl```|  true or false | does not include the source url in metadata section|
+|```skipTags```|  true or false | does not include tags in metadata section|
 |```outputFormat```|  true or false | generates internal file links and highlights in Obsidian-style: highlights are going to be bounded by `==` instead of \` characters, file links are going to be as follows: `![[file-name]]` instead of `![file-name](file-name)`. Possible values: `ObsidianMD` to get Obsidian-style notes, `StandardMD` or skip it completely, if you prefer Standard Markdown format.|
        
 ## Usage 
