@@ -18,6 +18,13 @@ A tool that converts enex note(s) into Markdown format in order to let you escap
 
  - Required [Install Node.js](https://nodejs.org/en/download/) version 10.22.1 or higher.
 
+## No install execution 
+Just open a terminal, specify config options in a config file (options detailed in [Configuration](#Configuration) and type
+
+```javascript
+npx -p  yarle-evernote-to-md yarle  --configFile <path_to_your_file e.g. ./config.json>
+```
+
 ## Installation
  
  You can install yarle using npm as follows: 
@@ -69,20 +76,6 @@ The following configurational properties are available:
 |```useHashTags```|  true or false | whether to add the pound sign in front of tags|
 |```outputFormat```|  true or false | generates internal file links and highlights in Obsidian-style: highlights are going to be bounded by `==` instead of \` characters, file links are going to be as follows: `![[file-name]]` instead of `![file-name](file-name)`. Possible values: `ObsidianMD` to get Obsidian-style notes, `StandardMD` or skip it completely, if you prefer Standard Markdown format.|
        
-## Usage 
-
-### Using cmd:
-
-After setting up your config file, and optionally your template file, just type 
-```javascript
-yarle --configFile <path_to_your_file e.g. ./config.json>
-```
-or without installation with npx: 
-```javascript
-npx -p  yarle-evernote-to-md yarle  --configFile <path_to_your_file e.g. ./config.json>
-```
-
-
 ### In program: 
 
 ```javascript
@@ -96,6 +89,15 @@ npx -p  yarle-evernote-to-md yarle  --configFile <path_to_your_file e.g. ./confi
 ```
 
 ## Release notes
+
+### Version 3.2.1
+
+- Changelog: 
+   1. Code blocks are converted to Markdown fenced code blocks
+   2. skipEnexFileNameFromOutputPath as config option introduced
+   3. source url converted as metadata (see config options)
+   4. Case sensitive fileNames
+   5. Some bugfixes 
 
 ### Version 3.1.0
 
