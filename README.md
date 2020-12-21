@@ -18,20 +18,12 @@ A tool that converts enex note(s) into Markdown format in order to let you escap
 
  - Required [Install Node.js](https://nodejs.org/en/download/) version 10.22.1 or higher.
 
-## No install execution 
+## No-install execution 
 Just open a terminal, specify config options in a config file (options detailed in [Configuration](#Configuration) and type
 
 ```javascript
 npx -p  yarle-evernote-to-md yarle  --configFile <path_to_your_file e.g. ./config.json>
 ```
-
-## Installation
- 
- You can install yarle using npm as follows: 
-  ```bash
-   npm i -g  yarle-evernote-to-md
-  ```
-Or you can use yarle without install anything (See npx command in [Usage](#Usage)).
 
 ## Configuration:
 
