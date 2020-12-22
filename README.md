@@ -82,6 +82,10 @@ The following configurational properties are available:
 
 ## Release notes
 
+### Version 3.2.3
+- Changelog: 
+   1. Template's path must be specified as absolute path in the config file
+
 ### Version 3.2.1
 
 - Changelog: 
