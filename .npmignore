@@ -4,3 +4,4 @@ coverage
 .vscode
 .wakatime-project
 .nycrc
+.local-pack

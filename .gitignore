@@ -7,3 +7,4 @@ in
 out
 .DS_Store
 .wakatime-project
+.local-pack
