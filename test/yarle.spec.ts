@@ -12,13 +12,11 @@ import { YarleOptions } from './../src/YarleOptions';
 describe('dropTheRope ', async () => {
   before(() => {
     mockTimezone.register('Europe/London');
-    process.env.YARLEROOTDIR = `${__dirname}/../`;
 
   });
 
   after(() => {
     mockTimezone.unregister();
-    delete process.env.YARLEROOTDIR;
 
   });
 
@@ -1013,7 +1011,8 @@ describe('dropTheRope ', async () => {
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
       outputFormat: OutputFormat.ObsidianMD,
-      skipEnexFileNameFromOutputPath: true
+      skipEnexFileNameFromOutputPath: true,
+      templateFile: undefined,
     };
 
     await dropTheRopeRunner.run(options);

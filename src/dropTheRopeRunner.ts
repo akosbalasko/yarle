@@ -11,7 +11,6 @@ export const run = async (opts?: YarleOptions) => {
     let configFile = argv['configFile'] ? `${process.cwd()}/${argv['configFile']}`:`${__dirname}/../config.json`;
     console.log(`Loading config from ${configFile}`);
     const options: YarleOptions = {...require(configFile),...opts};
-    process.env.YARLEROOTDIR = `${__dirname}/../`;
     if (options.enexSource.endsWith('.enex')) {
         console.log(`Converting notes in file: ${options.enexSource}`);
         await yarle.dropTheRope(options);
