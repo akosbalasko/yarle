@@ -89,10 +89,12 @@ export const logTags = (note: any): string => {
 };
 
 export const setFileDates = (path: string, note: any): void => {
-  const btime = Moment(note.created).valueOf();
+  // set all time stamps (should work everywhere)
   const mtime = Moment(note.updated).valueOf();
-  const atime = mtime;
-  utimes(path, {btime, mtime, atime});
+  utimes(path, mtime);
+  // set birth time (silently ignored where unsupported)
+  const btime = Moment(note.created).valueOf();
+  utimes(path, {btime});
 };
 
 export const getTimeStampMoment = (resource: any): any => {
