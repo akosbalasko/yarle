@@ -29,14 +29,14 @@ describe('SetFileDates', () => {
 
     });
 
-    it('throw enoent in case of missing file', () => {
+    it('does not throw in case of missing file', () => {
         let errorHappened = false;
         try {
             utils.setFileDates('./test/data/do_not_exists.enex', notes['note']);
         } catch (e) {
             errorHappened = true;
         }
-        assert.equal(true, errorHappened);
+        assert.ok(!errorHappened);
 
     });
     it('set to now if no updated field in note',  () => {
