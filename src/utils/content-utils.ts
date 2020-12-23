@@ -1,5 +1,5 @@
 import Moment from 'moment';
-import fs from 'fs';
+import { utimes } from 'utimes';
 
 import { yarleOptions } from './../yarle';
 import { MetaData } from './../models/MetaData';
@@ -70,9 +70,10 @@ export const logTags = (note: any): string => {
 };
 
 export const setFileDates = (path: string, note: any): void => {
-  const modificationTime = Moment(note.updated);
-  const mtime = modificationTime.valueOf() / 1000;
-  fs.utimesSync(path, mtime, mtime);
+  const btime = Moment(note.created).valueOf();
+  const mtime = Moment(note.updated).valueOf();
+  const atime = mtime;
+  utimes(path, {btime, mtime, atime});
 };
 
 export const getTimeStampMoment = (resource: any): any => {
