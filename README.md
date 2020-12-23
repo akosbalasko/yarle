@@ -22,7 +22,7 @@ A tool that converts enex note(s) into Markdown format in order to let you escap
 Just open a terminal, specify config options in a config file (options detailed in [Configuration](#Configuration)) and type the following: 
 
 ```javascript
-npx -p  yarle-evernote-to-md yarle  --configFile <path_to_your_file e.g. ./config.json>
+npx -p yarle-evernote-to-md@latest yarle --configFile <path_to_your_file e.g. ./config.json>
 ```
 
 ## Configuration:
