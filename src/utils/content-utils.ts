@@ -1,4 +1,5 @@
 import Moment from 'moment';
+import { utimesSync } from 'fs'
 import { utimes } from 'utimes';
 
 import { yarleOptions } from './../yarle';
@@ -89,12 +90,14 @@ export const logTags = (note: any): string => {
 };
 
 export const setFileDates = (path: string, note: any): void => {
-  // set all time stamps (should work everywhere)
-  const mtime = Moment(note.updated).valueOf();
-  utimes(path, mtime);
-  // set birth time (silently ignored where unsupported)
-  const btime = Moment(note.created).valueOf();
-  utimes(path, {btime});
+  const updated = Moment(note.updated).valueOf();
+  const mtime = updated / 1000;
+  utimesSync(path, mtime, mtime);
+  // also set creation time where supported
+  const created = Moment(note.created).valueOf();
+  if (created && created !== updated) {
+    utimes(path, {btime: created});
+  }
 };
 
 export const getTimeStampMoment = (resource: any): any => {
