@@ -4,6 +4,7 @@ import fs from 'fs';
 import { yarleOptions } from './../yarle';
 import { MetaData } from './../models/MetaData';
 import { NoteData } from './../models';
+import { getHtmlFileLink } from './folder-utils';
 
 export const getMetadata = (note: any, notebookName: string): MetaData => {
 
@@ -13,6 +14,7 @@ export const getMetadata = (note: any, notebookName: string): MetaData => {
         updatedAt: getUpdateTime(note),
         sourceUrl: getSourceUrl(note),
         location: getLatLong(note),
+        linkToOriginal: getLinkToOriginal(note),
         notebookName,
       }
     : {
@@ -40,6 +42,11 @@ export const getSourceUrl = (note: any): string => {
     note['note-attributes']
     ? note['note-attributes']['source-url']
     : undefined;
+};
+
+export const getLinkToOriginal = (note: any): string => {
+  return yarleOptions.keepOriginalHtml ?
+    getHtmlFileLink(note) : undefined;
 };
 
 export const getLatLong = (note: any): string => {

@@ -6,5 +6,6 @@ export interface NoteData {
     updatedAt?: string;
     sourceUrl?: string;
     location?: string;
+    linkToOriginal?: string;
     notebookName?: string;
   }
