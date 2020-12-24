@@ -1144,4 +1144,35 @@ describe('dropTheRope ', async () => {
       ),
     );
   });
+
+  it('keep Markdown characters - noop escape function in turndown', async () => {
+    const options: YarleOptions = {
+      enexSource: './test/data/test-markdown-en.enex',
+      outputDir: 'out',
+      templateFile: './test/data/bare_template.templ',
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.ObsidianMD,
+      skipEnexFileNameFromOutputPath: false,
+      keepMDCharactersOfENNotes: true,
+
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-markdown-en/test-markdown-en.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/notes/test-markdown-en/test-markdown-en.md`,
+        'utf8',
+      ),
+      fs.readFileSync(
+        `${__dirname}/data/test-markdown-en.md`,
+        'utf8',
+      ),
+    );
+  });
 });

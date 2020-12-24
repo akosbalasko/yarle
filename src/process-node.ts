@@ -25,7 +25,7 @@ export const processNode = (note: any, notebookName: string): void => {
       content = processResources(note, content);
     }
 
-    noteData = {...noteData, ...convertHtml2Md(content)};
+    noteData = {...noteData, ...convertHtml2Md(yarleOptions, content)};
     noteData = {...noteData, ...getMetadata(note, notebookName)};
     noteData = {...noteData, ...getTags(note)};
 

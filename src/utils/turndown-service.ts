@@ -6,6 +6,7 @@ import { taskItemsRule } from './turndown-rules/task-items-rule';
 import { spanRule } from './turndown-rules/span';
 import { imagesRule } from './turndown-rules/images-rule';
 import { codeBlockRule } from './turndown-rules/code-block-rule';
+import { YarleOptions } from './../YarleOptions';
 
 /* istanbul ignore next */
 const turndownService = new TurndownService({
@@ -27,7 +28,10 @@ turndownService.addRule('wikistyle links', wikiStyleLinksRule);
 turndownService.addRule('images', imagesRule);
 turndownService.addRule('codeblocks', codeBlockRule);
 
-export const getTurndownService = () => {
 
+export const getTurndownService = (yarleOptions: YarleOptions) => {
+    if (yarleOptions.keepMDCharactersOfENNotes){
+        turndownService.escape = ((str: string) => str);
+    }
     return turndownService;
 };
