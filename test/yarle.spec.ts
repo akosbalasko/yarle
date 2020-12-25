@@ -315,7 +315,50 @@ describe('dropTheRope ', async () => {
       fs.readFileSync(`${__dirname}/data/test-withPicture.md`, 'utf8'),
     );
   });
+  it('should keep Html content', async () => {
+    const options: YarleOptions = {
+      enexSource: './test/data/test-withPicture.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      keepOriginalHtml: true
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-withPicture/test - note with picture.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-withPicture/_resources/test - note with picture.html`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-withPicture/_resources/test_-_note_with_picture.resources`,
+      ),
+      true,
+    );
 
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/notes/test-withPicture/test - note with picture.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-withPicture.md`, 'utf8'),
+    );
+
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/notes/test-withPicture/_resources/test - note with picture.html`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-note-with-picture.html`, 'utf8'),
+    );
+    
+  });
   it('Skips images without src attribute', async () => {
     const options: YarleOptions = {
       enexSource: './test/data/test-imageWithoutSrc.enex',

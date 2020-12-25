@@ -5,4 +5,5 @@ export * from './apply-createdat-template';
 export * from './apply-updatedat-template';
 export * from './apply-sourceurl-template';
 export * from './apply-location-template';
+export * from './apply-original-template';
 export * from './apply-notebook-template';

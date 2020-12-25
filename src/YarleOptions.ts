@@ -4,6 +4,7 @@ export interface YarleOptions {
     enexSource?: string;
     templateFile?: string;
     outputDir?: string;
+    keepOriginalHtml?: boolean;
     isMetadataNeeded?: boolean;
     isNotebookNameNeeded?: boolean;
     isZettelkastenNeeded?: boolean;
