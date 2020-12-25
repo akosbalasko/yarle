@@ -499,6 +499,29 @@ describe('dropTheRope ', async () => {
       false,
     );
   });
+  it(' Pure external url', async () => {
+    const options: YarleOptions = {
+      enexSource: './test/data/test-pure-external-url.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      skipLocation: true,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-pure-external-url/pure-external-url.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/notes/test-pure-external-url/pure-external-url.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-pure-external-url.md`, 'utf8'),
+    );
+  });
+
   it('Enex file skip Location', async () => {
     const options: YarleOptions = {
       enexSource: './test/data/test-skipLocation.enex',
@@ -521,6 +544,7 @@ describe('dropTheRope ', async () => {
       fs.readFileSync(`${__dirname}/data/test-skipLocation.md`, 'utf8'),
     );
   });
+  
   it('Enex file with two notes with same names', async () => {
     const options: YarleOptions = {
       enexSource: './test/data/test-twoNotesWithSameName.enex',
@@ -630,6 +654,30 @@ describe('dropTheRope ', async () => {
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-externalLink.md`, 'utf8'),
+    );
+  });
+
+  it('Enex file with links, pure link (no text) ', async () => {
+    const options: YarleOptions = {
+      enexSource: './test/data/test-externalLink-notext.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      plainTextNotesOnly: false,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-externalLink-notext/External Link.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/notes/test-externalLink-notext/External Link.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-externalLink-notext.md`, 'utf8'),
     );
   });
 
