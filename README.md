@@ -87,6 +87,15 @@ The following configurational properties are available:
 
 ## Release notes
 
+## Version 3.4.0
+- Changelog:
+   1. Pure urls (no text, or same as the url) are converted to \<url\>
+   2. Note is stored in HTML format as well (see `keepOriginalHtml` option) 
+   3. monospace blocks can be recognized as codeblocks (see `monospaceIsCodeBlock` option) 
+   4. MD characters are not escaped from now (see `keepMDCharactersOfENNotes` option)
+   5. Creation time set correctly
+   6. A bug fixed with self-closing anchor tags (#140)
+
 ### Version 3.2.3
 - Changelog:
    1. Template's path must be specified as absolute path in the config file
