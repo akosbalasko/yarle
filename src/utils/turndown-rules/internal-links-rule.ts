@@ -33,7 +33,7 @@ export const wikiStyleLinksRule = {
             if (nodeProxy.href.value.startsWith('http') ||
                 nodeProxy.href.value.startsWith('www') ||
                 nodeProxy.href.value.startsWith('file')) {
-                    return (isNil(token['text']) || token['text'] === nodeProxy.href.value)
+                    return (!token['text'] || token['text'] === nodeProxy.href.value)
                         ? `<${nodeProxy.href.value}>`
                         : `${token['mdKeyword']}[${token['text']}](${nodeProxy.href.value})`;
                 }
