@@ -18,4 +18,5 @@ export interface YarleOptions {
     outputFormat?: OutputFormat;
     skipEnexFileNameFromOutputPath?: boolean;
     keepMDCharactersOfENNotes?: boolean;
+    monospaceIsCodeBlock?: boolean;
 }
