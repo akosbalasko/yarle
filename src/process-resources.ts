@@ -5,9 +5,9 @@ import md5File from 'md5-file';
 import { ResourceHashItem } from './models/ResourceHash';
 import * as utils from './utils';
 
-export const processResources = (note: any, content: string): string => {
+export const processResources = (note: any): string => {
     let resourceHashes: any = {};
-    let updatedContent = cloneDeep(content);
+    let updatedContent = cloneDeep(note.content);
 
     const relativeResourceWorkDir = `${utils.getResourceDir(utils.paths.mdPath, note)}.resources`;
     const absoluteResourceWorkDir = `${utils.paths.resourcePath}/${relativeResourceWorkDir}`;
@@ -43,7 +43,7 @@ const addMediaReference = (content: string, resourceHashes: any, hash: any, rela
   updatedContent = (matchedElements && matchedElements.length > 0 &&
     matchedElements[0].split('type=').length > 1 &&
     matchedElements[0].split('type=')[1].startsWith('"image')) ?
-    content.replace(re, `<img alt="${resourceHashes[hash].fileName}" src="${src}">`) :
+    content.replace(re, `<img src="${src}" alt="${resourceHashes[hash].fileName}">`) :
     content.replace(re, `<a href="${src}">${resourceHashes[hash].fileName}</a>`);
 
   return updatedContent;

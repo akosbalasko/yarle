@@ -2,7 +2,7 @@ import * as fs from 'fs';
 
 import { setFileDates } from './content-utils';
 
-export const writeMdFile = (absFilePath: string, data: any, note: any): void => {
+export const writeFile = (absFilePath: string, data: any, note: any): void => {
     try {
       fs.writeFileSync(absFilePath, data);
       setFileDates(absFilePath, note);
@@ -12,4 +12,3 @@ export const writeMdFile = (absFilePath: string, data: any, note: any): void => 
       throw e;
     }
   };
-
