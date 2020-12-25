@@ -23,7 +23,7 @@ export const wikiStyleLinksRule = {
             /*if (nodeProxy.href.value.startsWith('evernote://'))
                 return `[[${removeBrackets(node.innerHTML)}]]`
             else*/
-            const internalTurndownedContent = getTurndownService().turndown(removeBrackets(node.innerHTML));
+            const internalTurndownedContent = getTurndownService(yarleOptions).turndown(removeBrackets(node.innerHTML));
             const lexer = new marked.Lexer({});
             const tokens = lexer.lex(internalTurndownedContent) as any;
             let token: any = {

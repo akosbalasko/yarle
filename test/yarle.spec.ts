@@ -1144,4 +1144,35 @@ describe('dropTheRope ', async () => {
       ),
     );
   });
+
+  it('monospace code blocks', async () => {
+    const options: YarleOptions = {
+      enexSource: './test/data/test-monospace-codeblocks.enex',
+      outputDir: 'out',
+      templateFile: './test/data/bare_template.templ',
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.ObsidianMD,
+      skipEnexFileNameFromOutputPath: false,
+      monospaceIsCodeBlock: true,
+
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-monospace-codeblocks/test-monospace-codeblocks.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/notes/test-monospace-codeblocks/test-monospace-codeblocks.md`,
+        'utf8',
+      ),
+      fs.readFileSync(
+        `${__dirname}/data/test-monospace-codeblocks.md`,
+        'utf8',
+      ),
+    );
+  });
 });
