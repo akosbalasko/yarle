@@ -5,9 +5,9 @@ import md5File from 'md5-file';
 import { ResourceHashItem } from './models/ResourceHash';
 import * as utils from './utils';
 
-export const processResources = (note: any, content: string): string => {
+export const processResources = (note: any): string => {
     let resourceHashes: any = {};
-    let updatedContent = cloneDeep(content);
+    let updatedContent = cloneDeep(note.content);
 
     const relativeResourceWorkDir = `${utils.getResourceDir(utils.paths.mdPath, note)}.resources`;
     const absoluteResourceWorkDir = `${utils.paths.resourcePath}/${relativeResourceWorkDir}`;
