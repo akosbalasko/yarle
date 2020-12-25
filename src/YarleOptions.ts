@@ -17,4 +17,5 @@ export interface YarleOptions {
     useHashTags?: boolean;
     outputFormat?: OutputFormat;
     skipEnexFileNameFromOutputPath?: boolean;
+    monospaceIsCodeBlock?: boolean;
 }

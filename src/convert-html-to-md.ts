@@ -2,6 +2,7 @@ import { JSDOM } from 'jsdom';
 
 import { getTurndownService } from './utils/turndown-service';
 import { NoteData } from './models/NoteData';
+import { yarleOptions } from './yarle';
 
 const fixSublists = (node: HTMLElement) => {
     const ulElements: Array<HTMLElement> = Array.from(node.getElementsByTagName('ul'));
@@ -36,7 +37,7 @@ const fixSublists = (node: HTMLElement) => {
 
 export const convertHtml2Md = (content: string): NoteData => {
     const contentNode = new JSDOM(`<x-turndown id="turndown-root">${content}</x-turndown>`).window.document.getElementById('turndown-root');
-    const contentInMd = getTurndownService().turndown(fixSublists(contentNode));
+    const contentInMd = getTurndownService(yarleOptions).turndown(fixSublists(contentNode));
 
     return contentInMd && contentInMd !== 'undefined' ? { content: contentInMd } : {content: ''};
 };
