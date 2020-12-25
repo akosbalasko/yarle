@@ -36,7 +36,10 @@ const fixSublists = (node: HTMLElement) => {
 };
 
 export const convertHtml2Md = ({ htmlContent }: NoteData): NoteData => {
-    const contentNode = new JSDOM(`<x-turndown id="turndown-root">${htmlContent}</x-turndown>`).window.document.getElementById('turndown-root');
+    const content = htmlContent.replace(/<!DOCTYPE en-note [^>]*>/, '<!DOCTYPE html>')
+      .replace(/(<a [^>]*)\/>/, '$1></a>');
+    const contentNode = new JSDOM(content).window.document
+      .getElementsByTagName('en-note').item(0) as any as HTMLElement;
     const contentInMd = getTurndownService(yarleOptions).turndown(fixSublists(contentNode));
 
     return contentInMd && contentInMd !== 'undefined' ? { content: contentInMd } : {content: ''};
