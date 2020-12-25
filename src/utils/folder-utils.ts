@@ -10,17 +10,24 @@ export const paths: Path = {};
 
 export const getResourceDir = (dstPath: string, note: any): string => {
   return getNoteName(dstPath, note).replace(/\s/g, '_');
-
 };
 
 const getFilePath = (dstPath: string, note: any): string => {
-
   return `${dstPath}/${getNoteFileName(dstPath, note)}`;
 };
 
 export const getMdFilePath = (note: any): string => {
-
   return getFilePath(paths.mdPath, note);
+};
+
+export const getHtmlFilePath = (note: any): string => {
+  return getFilePath(paths.resourcePath, note).replace(/\.md$/, '.html');
+};
+
+export const getHtmlFileLink = (note: any): string => {
+  const path = getHtmlFilePath(note);
+
+  return `.${path.slice(paths.resourcePath.lastIndexOf('/'))}`;
 };
 
 const clearDistDir = (dstPath: string): void => {

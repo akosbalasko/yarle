@@ -4,22 +4,25 @@ import { defaultTemplate } from './default-template';
 import { YarleOptions } from '../../YarleOptions';
 import { NoteData } from '../../models/NoteData';
 import {
-  applyTitleTemplate,
-  applyTagsTemplate,
   applyContentTemplate,
   applyCreatedAtTemplate,
-  applyUpdatedAtTemplate,
-  applySourceUrlTemplate,
+  applyLinkToOriginalTemplate,
   applyLocationTemplate,
-  applyNotebookTemplate } from './apply-functions';
+  applyNotebookTemplate,
+  applySourceUrlTemplate,
+  applyTagsTemplate,
+  applyTitleTemplate,
+  applyUpdatedAtTemplate,
+  } from './apply-functions';
 
 import {
-  removeUpdatedAtPlaceholder,
   removeCreatedAtPlaceholder,
-  removeSourceUrlPlaceholder,
   removeLocationPlaceholder,
+  removeMetadataBlockPlaceholder,
   removeNotebookPlaceholder,
-  removeMetadataBlockPlaceholder } from './remove-functions';
+  removeSourceUrlPlaceholder,
+  removeUpdatedAtPlaceholder,
+ } from './remove-functions';
 
 export const applyTemplate = (noteData: NoteData, yarleOptions: YarleOptions) => {
   let result = defaultTemplate;
@@ -31,6 +34,7 @@ export const applyTemplate = (noteData: NoteData, yarleOptions: YarleOptions) =>
   result = applyTitleTemplate(noteData, result, () => noteData.title);
   result = applyTagsTemplate(noteData, result, () => !yarleOptions.skipTags);
   result = applyContentTemplate(noteData, result, () => noteData.content);
+  result = applyLinkToOriginalTemplate(noteData, result);
 
   if (yarleOptions.isMetadataNeeded) {
 

@@ -9,6 +9,7 @@ import { isWebClip } from './utils/note-utils';
 export const defaultYarleOptions: YarleOptions = {
   enexSource: 'notebook.enex',
   outputDir: './mdNotes',
+  keepOriginalHtml: false,
   isMetadataNeeded: false,
   isNotebookNameNeeded: false,
   isZettelkastenNeeded: false,

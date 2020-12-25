@@ -43,7 +43,7 @@ const addMediaReference = (content: string, resourceHashes: any, hash: any, rela
   updatedContent = (matchedElements && matchedElements.length > 0 &&
     matchedElements[0].split('type=').length > 1 &&
     matchedElements[0].split('type=')[1].startsWith('"image')) ?
-    content.replace(re, `<img alt="${resourceHashes[hash].fileName}" src="${src}">`) :
+    content.replace(re, `<img src="${src}" alt="${resourceHashes[hash].fileName}">`) :
     content.replace(re, `<a href="${src}">${resourceHashes[hash].fileName}</a>`);
 
   return updatedContent;
