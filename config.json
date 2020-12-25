@@ -2,6 +2,7 @@
     "enexSource": "/test/data/test-template.enex",
     "templateFile": "/sampleTemplate.tmpl",
     "outputDir": "out",
+    "keepOriginalHtml": false,
     "isMetadataNeeded": false,
     "isNotebookNameNeeded": false,
     "isZettelkastenNeeded": false,

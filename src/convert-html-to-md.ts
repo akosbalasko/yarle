@@ -35,8 +35,8 @@ const fixSublists = (node: HTMLElement) => {
     return node;
 };
 
-export const convertHtml2Md = (content: string): NoteData => {
-    const contentNode = new JSDOM(`<x-turndown id="turndown-root">${content}</x-turndown>`).window.document.getElementById('turndown-root');
+export const convertHtml2Md = ({ htmlContent }: NoteData): NoteData => {
+    const contentNode = new JSDOM(`<x-turndown id="turndown-root">${htmlContent}</x-turndown>`).window.document.getElementById('turndown-root');
     const contentInMd = getTurndownService(yarleOptions).turndown(fixSublists(contentNode));
 
     return contentInMd && contentInMd !== 'undefined' ? { content: contentInMd } : {content: ''};
