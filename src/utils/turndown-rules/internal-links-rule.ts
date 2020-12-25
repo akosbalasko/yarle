@@ -7,6 +7,7 @@ import { getTurndownService } from '../turndown-service';
 
 import { filterByNodeName } from './filter-by-nodename';
 import { getAttributeProxy } from './get-attribute-proxy';
+import { isNil } from 'lodash';
 
 export const removeBrackets = (str: string): string => {
     return str.replace(/\[|\]/g, '');
@@ -16,13 +17,7 @@ export const wikiStyleLinksRule = {
     replacement: (content: any, node: any) => {
         const nodeProxy = getAttributeProxy(node);
         if (nodeProxy.href) {
-            /*internalLink [[]]
-            realLink []()
-            anchor [[a#v|c]]
-            */
-            /*if (nodeProxy.href.value.startsWith('evernote://'))
-                return `[[${removeBrackets(node.innerHTML)}]]`
-            else*/
+
             const internalTurndownedContent = getTurndownService(yarleOptions).turndown(removeBrackets(node.innerHTML));
             const lexer = new marked.Lexer({});
             const tokens = lexer.lex(internalTurndownedContent) as any;
@@ -38,8 +33,9 @@ export const wikiStyleLinksRule = {
             if (nodeProxy.href.value.startsWith('http') ||
                 nodeProxy.href.value.startsWith('www') ||
                 nodeProxy.href.value.startsWith('file')) {
-
-                    return `${token['mdKeyword']}[${token['text']}](${nodeProxy.href.value})`;
+                    return (isNil(token['text']) || token['text'] === nodeProxy.href.value)
+                        ? `<${nodeProxy.href.value}>`
+                        : `${token['mdKeyword']}[${token['text']}](${nodeProxy.href.value})`;
                 }
             if (nodeProxy.href.value.startsWith('evernote://')) {
                 const fileName = normalizeTitle(token['text']);
