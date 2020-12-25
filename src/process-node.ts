@@ -30,8 +30,8 @@ export const processNode = (note: any, notebookName: string): void => {
     if (isComplex(note)) {
       noteData.htmlContent = processResources(note);
     }
-    
-    noteData = {...noteData, ...convertHtml2Md(noteData)};
+
+    noteData = {...noteData, ...convertHtml2Md(yarleOptions, noteData)};
     noteData = {...noteData, ...getMetadata(note, notebookName)};
     noteData = {...noteData, ...getTags(note)};
 

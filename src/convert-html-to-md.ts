@@ -2,7 +2,7 @@ import { JSDOM } from 'jsdom';
 
 import { getTurndownService } from './utils/turndown-service';
 import { NoteData } from './models/NoteData';
-import { yarleOptions } from './yarle';
+import { YarleOptions } from './YarleOptions';
 
 const fixSublists = (node: HTMLElement) => {
     const ulElements: Array<HTMLElement> = Array.from(node.getElementsByTagName('ul'));
@@ -35,7 +35,7 @@ const fixSublists = (node: HTMLElement) => {
     return node;
 };
 
-export const convertHtml2Md = ({ htmlContent }: NoteData): NoteData => {
+export const convertHtml2Md = (yarleOptions: YarleOptions, { htmlContent }: NoteData): NoteData => {
     const content = htmlContent.replace(/<!DOCTYPE en-note [^>]*>/, '<!DOCTYPE html>')
       .replace(/(<a [^>]*)\/>/, '$1></a>');
     const contentNode = new JSDOM(content).window.document
