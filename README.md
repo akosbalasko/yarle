@@ -87,6 +87,10 @@ The following configurational properties are available:
 
 ## Release notes
 
+## Version 3.4.1
+- Changelog: 
+   1. Minor fix around highlight recognition
+
 ## Version 3.4.0
 - Changelog:
    1. Pure urls (no text, or same as the url) are converted to \<url\>
