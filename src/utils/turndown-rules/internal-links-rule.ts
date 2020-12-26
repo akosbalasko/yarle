@@ -7,16 +7,15 @@ import { getTurndownService } from '../turndown-service';
 
 import { filterByNodeName } from './filter-by-nodename';
 import { getAttributeProxy } from './get-attribute-proxy';
-import { isNil } from 'lodash';
 
 export const removeBrackets = (str: string): string => {
     return str.replace(/\[|\]/g, '');
 };
+
 export const wikiStyleLinksRule = {
     filter: filterByNodeName('A'),
     replacement: (content: any, node: any) => {
         const nodeProxy = getAttributeProxy(node);
-        
 
         if (!nodeProxy.href) {
             return '';
@@ -33,43 +32,38 @@ export const wikiStyleLinksRule = {
             token = tokens[0];
             token['mdKeyword'] = `${'#'.repeat(tokens[0]['depth'])} `;
         }
-
-        if (nodeProxy.href.value.startsWith('http') ||
-            nodeProxy.href.value.startsWith('www') ||
-            nodeProxy.href.value.startsWith('file')) {
-                return (!token['text'] || token['text'] === nodeProxy.href.value)
-                    ? `<${nodeProxy.href.value}>`
-                    : `${token['mdKeyword']}[${token['text']}](${nodeProxy.href.value})`;
-            }
-        if (nodeProxy.href.value.startsWith('evernote://')) {
+        const value = nodeProxy.href.value;
+        if (value.match(/^(https?:|www\.|file:|ftp:|mailto:)/)) {
+            return (!token['text'] || token['text'] === value)
+                ? `<${value}>`
+                : `${token['mdKeyword']}[${token['text']}](${value})`;
+        }
+        if (value.startsWith('evernote://')) {
             const fileName = normalizeTitle(token['text']);
             const displayName = token['text'];
             if (yarleOptions.outputFormat === OutputFormat.ObsidianMD) {
                 return `${token['mdKeyword']}[[${fileName}|${displayName}]]`;
             }
 
-        if (yarleOptions.outputFormat === OutputFormat.UrlEncodeMD) {
-            return  `${token['mdKeyword']}[${displayName}](${encodeURI(fileName)})`;
+            if (yarleOptions.outputFormat === OutputFormat.UrlEncodeMD) {
+                return  `${token['mdKeyword']}[${displayName}](${encodeURI(fileName)})`;
+            }
+
+            return  `${token['mdKeyword']}[${displayName}](${fileName})`;
+
         }
 
-        return  `${token['mdKeyword']}[${displayName}](${fileName})`;
+        return (yarleOptions.outputFormat === OutputFormat.ObsidianMD)
+        ? `${token['mdKeyword']}[[${value} | ${token['text']}]]`
+        : `${token['mdKeyword']}[[${value}]]`;
+        // todo embed
 
-    }
-
-    return (yarleOptions.outputFormat === OutputFormat.ObsidianMD)
-    ? `${token['mdKeyword']}[[${nodeProxy.href.value} | ${token['text']}]]`
-    : `${token['mdKeyword']}[[${nodeProxy.href.value}]]`;
-    // todo embed
-
-    /*return (
-        (!nodeProxy.href.value.startsWith('http') &&
-            !nodeProxy.href.value.startsWith('www')) ||
-            nodeProxy.href.value.startsWith('evernote://')
-        )
-        ? `[[${removeBrackets(node.innerHTML)}]]`
-        : (yarleOptions.outputFormat === OutputFormat.ObsidianMD)
-            ? `![[${removeBrackets(node.innerHTML)}]]`
-            : `[${removeBrackets(node.innerHTML)}](${nodeProxy.href.value})`;
-    */
+        /*return (
+            !value.match(/^(https?:|www\.|file:|ftp:|mailto:)/)
+            ? `[[${removeBrackets(node.innerHTML)}]]`
+            : (yarleOptions.outputFormat === OutputFormat.ObsidianMD)
+                ? `![[${removeBrackets(node.innerHTML)}]]`
+                : `[${removeBrackets(node.innerHTML)}](${value})`;
+        */
     },
 };
