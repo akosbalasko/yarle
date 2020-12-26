@@ -14,7 +14,7 @@ export const spanRule = {
         if (nodeProxy.style) {
             const nodeValue: string = nodeProxy.style.value;
 
-            return nodeValue.endsWith(EVERNOTE_HIGHLIGHT) ?
+            return nodeValue.includes(EVERNOTE_HIGHLIGHT) ?
                 `${HIGHLIGHT_SEPARATOR}${content}${HIGHLIGHT_SEPARATOR}` :
                 content;
         }
