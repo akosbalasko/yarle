@@ -81,7 +81,7 @@ export const getExtension = (resource: any): string => {
 };
 
 export const getZettelKastelId = (note: any, dstPath: string): string => {
-  return Moment(note['created']).format('YYYYMMDDhhmm');
+  return Moment(note['created']).format('YYYYMMDDHHmm');
 
 };
 
