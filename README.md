@@ -87,6 +87,13 @@ The following configurational properties are available:
 
 ## Release notes
 
+## Version 3.4.2
+- Changelog: 
+   1. Zettelkasten ID is generated in 24h format
+   2. html encoded pure url comparison
+   3. Use double-bracket notation only for local images
+   4. Do not consider mailto: and ftp:// links as internal
+
 ## Version 3.4.1
 - Changelog: 
    1. Minor fix around highlight recognition
