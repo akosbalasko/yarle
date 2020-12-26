@@ -1,5 +1,5 @@
 import marked, { Token } from 'marked';
-
+import * as _ from 'lodash';
 import { normalizeTitle } from '../filename-utils';
 import { OutputFormat } from '../../output-format';
 import { yarleOptions } from '../../yarle';
@@ -34,7 +34,7 @@ export const wikiStyleLinksRule = {
         }
         const value = nodeProxy.href.value;
         if (value.match(/^(https?:|www\.|file:|ftp:|mailto:)/)) {
-            return (!token['text'] || token['text'] === value)
+            return (!token['text'] || _.unescape(token['text']) === _.unescape(value))
                 ? `<${value}>`
                 : `${token['mdKeyword']}[${token['text']}](${value})`;
         }

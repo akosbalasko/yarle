@@ -887,6 +887,7 @@ describe('dropTheRope ', async () => {
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
       outputFormat: OutputFormat.ObsidianMD,
+      keepMDCharactersOfENNotes: false,
     };
     await yarle.dropTheRope(options);
     assert.equal(
@@ -1296,6 +1297,31 @@ describe('dropTheRope ', async () => {
         `${__dirname}/data/test-markdown-en.md`,
         'utf8',
       ),
+    );
+  });
+
+
+  it(' Pure external url with unescapeable characters', async () => {
+    const options: YarleOptions = {
+      enexSource: './test/data/test-externalLink-escape.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      skipLocation: true,
+      keepMDCharactersOfENNotes: true,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-externalLink-escape/External Link.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/notes/test-externalLink-escape/External Link.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-externalLink-escape.md`, 'utf8'),
     );
   });
 });
