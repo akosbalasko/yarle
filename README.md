@@ -87,6 +87,11 @@ The following configurational properties are available:
 
 ## Release notes
 
+## Version 3.4.3
+- Changelog:
+   1. Fix: replace all image locations in HTML note
+   2. Fix: issue when there is only one note-attribute
+
 ## Version 3.4.2
 - Changelog: 
    1. Zettelkasten ID is generated in 24h format
