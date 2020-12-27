@@ -43,12 +43,12 @@ describe('SetFileDates', () => {
             notes['note']['updated'] = undefined;
             utils.setFileDates('./test/data/test-justText.enex', notes['note']);
             const fStat = fs.statSync('./test/data/test-justText.enex');
-            const atime = moment(fStat.atime).format();
-            const mtime = moment(fStat.mtime).format();
-            const referTime = moment();
-            assert.equal(atime, referTime.format());
-            assert.equal(mtime, referTime.format());
-
+            const atime = moment(fStat.atime);
+            const mtime = moment(fStat.mtime);
+            const referTimeLo = moment().subtract(3, 's');
+            const referTimeHi = moment().add(3, 's');
+            assert.ok(atime.isBetween(referTimeLo, referTimeHi));
+            assert.ok(mtime.isBetween(referTimeLo, referTimeHi));
     });
 
    });
@@ -126,7 +126,7 @@ describe('timestamps', () => {
                 },
         };
         const accessMoment = utils.getTimeStampMoment(resource);
-        assert.equal(accessMoment.isSame(moment(timestamp)), true);
+        assert.ok(accessMoment.isSame(moment(timestamp)));
     });
     it('no stored timstamp, return now', () => {
         const resource = {
@@ -134,7 +134,9 @@ describe('timestamps', () => {
             },
         };
         const accessMoment = utils.getTimeStampMoment(resource);
-        assert.equal(accessMoment.isSame(moment()), true);
+        const referTimeLo = moment().subtract(3, 's');
+        const referTimeHi = moment().add(3, 's');
+        assert.ok(accessMoment.isBetween(referTimeLo, referTimeHi));
     });
 });
 
