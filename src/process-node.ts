@@ -1,12 +1,10 @@
 import { applyTemplate } from './utils/templates/templates';
 import {
-  getHtmlFilePath,
-  getMdFilePath,
   getMetadata,
-  saveHtmlFile,
-  saveMdFile,
   getTags,
   isComplex,
+  saveHtmlFile,
+  saveMdFile,
 } from './utils';
 import { yarleOptions } from './yarle';
 import { processResources } from './process-resources';
@@ -26,7 +24,6 @@ export const processNode = (note: any, notebookName: string): void => {
   console.log(`Converting note ${noteData.title}...`);
 
   try {
-    
     if (isComplex(note)) {
       noteData.htmlContent = processResources(note);
     }
