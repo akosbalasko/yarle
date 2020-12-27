@@ -146,7 +146,7 @@ describe('dropTheRope ', async () => {
       fs.readFileSync(`${__dirname}/data/test-noteWithTags.md`, 'utf8'),
     );
   });
-  
+
   it('Note with notebook name', async () => {
     const options: YarleOptions = {
       enexSource: './test/data/test-noteWithNotebookName.enex',
@@ -169,7 +169,7 @@ describe('dropTheRope ', async () => {
       fs.readFileSync(`${__dirname}/data/test-noteWithNotebookName.md`, 'utf8'),
     );
   });
-  
+
   it('Note with notebook name and tags', async () => {
     const options: YarleOptions = {
       enexSource: './test/data/test-noteWithNotebookNameAndTags.enex',
@@ -287,6 +287,29 @@ describe('dropTheRope ', async () => {
     );
   });
 
+
+  it('Note with only source-url', async () => {
+    const options: YarleOptions = {
+      enexSource: './test/data/test-noteWithSourceUrl.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-noteWithSourceUrl/Test.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/notes/test-noteWithSourceUrl/Test.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-noteWithSourceUrl.md`, 'utf8'),
+    );
+  });
+
   it('Enex file with note containing a picture', async () => {
     const options: YarleOptions = {
       enexSource: './test/data/test-withPicture.enex',
@@ -357,7 +380,7 @@ describe('dropTheRope ', async () => {
       ),
       fs.readFileSync(`${__dirname}/data/test-note-with-picture.html`, 'utf8'),
     );
-    
+
   });
   it('Skips images without src attribute', async () => {
     const options: YarleOptions = {
@@ -544,7 +567,7 @@ describe('dropTheRope ', async () => {
       fs.readFileSync(`${__dirname}/data/test-skipLocation.md`, 'utf8'),
     );
   });
-  
+
   it('Enex file with two notes with same names', async () => {
     const options: YarleOptions = {
       enexSource: './test/data/test-twoNotesWithSameName.enex',
@@ -1224,7 +1247,7 @@ describe('dropTheRope ', async () => {
     await yarle.dropTheRope(options);
     const dirList = fs.readdirSync(`${__dirname}/../out/notes/test-case-sensitive/`);
     assert.equal(dirList.includes('TEST - templates just content.md'), true);
-    
+
     assert.equal(
       fs.readFileSync(
         `${__dirname}/../out/notes/test-case-sensitive/TEST - templates just content.md`,

@@ -31,34 +31,42 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
   let noteNumber = 0;
   let failed = 0;
   let skipped = 0;
-  
+
   const notebookName = utils.getNotebookName(options.enexSource);
 
   return new Promise((resolve, reject) => {
-    
+
     const logAndReject = (error: Error) => {
       console.log(`Could not convert ${options.enexSource}:\n${error.message}`);
       ++failed;
 
       return reject();
     };
-    if (!fs.existsSync(options.enexSource))
+    if (!fs.existsSync(options.enexSource)) {
       return logAndReject({name: 'NoSuchFileOrDirectory', message: 'source Enex file does not exists'});
-    
+    }
+
     const xml = flow(stream);
 
-    //xml.collect('tag');
-    //xml.collect('resource');
+    let noteAttributes: any = null;
+    xml.on('tag:note-attributes', (na: any) => {
+      noteAttributes = na;
+    });
 
     xml.on('tag:note', (note: any) => {
       if (options.skipWebClips && isWebClip(note)) {
           ++skipped;
           console.log(`Notes skipped: ${skipped}`);
       } else {
+        if (noteAttributes) {
+          // make sure single attributes are not collapsed
+          note['note-attributes'] = noteAttributes;
+        }
         processNode(note, notebookName);
         ++noteNumber;
         console.log(`Notes processed: ${noteNumber}`);
       }
+      noteAttributes = null;
     });
 
     xml.on('end', () => {
