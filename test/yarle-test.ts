@@ -1,14 +1,10 @@
 import { YarleOptions } from "../src/YarleOptions";
+import { YarleTestModifierOptions } from './yarle-test-modifier-options';
 
 export interface YarleTest {
   options: YarleOptions;
-  specialTest?: YarleTestFeature;
+  testModifier?: YarleTestModifierOptions;
   expectedOutputPath?: string;
   testOutputPath: string; 
   name: string;
-}
-
-export enum YarleTestFeature {
-    skip = 'skip',
-    only = 'only',
 }

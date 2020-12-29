@@ -1,4 +1,4 @@
-import { YarleTest, YarleTestFeature } from "./yarle-test";
+import { YarleTest } from './yarle-test';
 import { OutputFormat } from "../src/output-format";
 
 export const yarleTests: Array<YarleTest> = [

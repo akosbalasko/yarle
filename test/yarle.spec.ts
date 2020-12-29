@@ -6,7 +6,8 @@ import * as utils from './../src/utils';
 import * as yarle from './../src/yarle';
 
 import { yarleTests } from './yarle-tests';
-import { YarleTest, YarleTestFeature } from './yarle-test';
+import { YarleTest } from './yarle-test';
+import { YarleTestModifierOptions } from './yarle-test-modifier-options';
 
 describe('Yarle simple cases', async () => {
   before(() => {
@@ -26,9 +27,9 @@ describe('Yarle simple cases', async () => {
   const tests: Array<YarleTest> = yarleTests;
   for (const yarleTest of tests) {
     const conditionalTest =
-      (yarleTest.specialTest === YarleTestFeature.skip)
+      (yarleTest.testModifier === YarleTestModifierOptions.skip)
         ? it.skip
-        : (yarleTest.specialTest === YarleTestFeature.only)
+        : (yarleTest.testModifier === YarleTestModifierOptions.only)
           ? it.only
           : it;
 
