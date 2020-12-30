@@ -1,4 +1,5 @@
 import { OutputFormat } from './output-format';
+import { TagSeparatorReplaceOptions } from 'models';
 
 export interface YarleOptions {
     enexSource?: string;
@@ -20,4 +21,5 @@ export interface YarleOptions {
     skipEnexFileNameFromOutputPath?: boolean;
     keepMDCharactersOfENNotes?: boolean;
     monospaceIsCodeBlock?: boolean;
+    nestedTags?: TagSeparatorReplaceOptions;
 }

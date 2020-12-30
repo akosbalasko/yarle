@@ -16,6 +16,11 @@ export const defaultYarleOptions: YarleOptions = {
   plainTextNotesOnly: false,
   skipWebClips: false,
   useHashTags: true,
+  nestedTags: {
+    separatorInEN: '_',
+    replaceSeparatorWith: '/',
+    replaceSpaceWith: '-'
+  }
 };
 
 export let yarleOptions: YarleOptions = { ...defaultYarleOptions };

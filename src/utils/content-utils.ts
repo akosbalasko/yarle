@@ -4,7 +4,7 @@ import { utimes } from 'utimes';
 
 import { yarleOptions } from './../yarle';
 import { MetaData } from './../models/MetaData';
-import { NoteData } from './../models';
+import { NoteData, TagSeparatorReplaceOptions } from './../models';
 import { getHtmlFileLink } from './folder-utils';
 
 export const getMetadata = (note: any, notebookName: string): MetaData => {
@@ -65,10 +65,22 @@ export const getTags = (note: any): NoteData => {
 export const logTags = (note: any): string => {
   if (!yarleOptions.skipTags && note.tag) {
     const tagArray = Array.isArray(note.tag) ? note.tag : [note.tag];
-    const tags = tagArray.map((tag: any) => {
-      const cleanTag = tag.toString().replace(/^#/, '').replace(/ /g, '-');
+    const tagOptions = yarleOptions.nestedTags;
 
-      return yarleOptions.useHashTags ? `#${cleanTag}` : cleanTag;
+    const tags = tagArray.map((tag: any) => {
+      let cleanTag = tag
+        .toString()
+        .replace(/^#/, '');
+      if (tagOptions){
+        
+        cleanTag = cleanTag.replace(new RegExp(tagOptions.separatorInEN, 'g'), tagOptions.replaceSeparatorWith);
+      }
+
+      const replaceSpaceWith = (tagOptions && tagOptions.replaceSpaceWith) || '-';
+      
+      cleanTag = cleanTag.replace(/ /g, replaceSpaceWith)
+      
+      return `${yarleOptions.useHashTags ? '#': ''}${cleanTag}`;
     });
 
     return tags.join(' ');
