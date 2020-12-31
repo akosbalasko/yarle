@@ -1,5 +1,6 @@
 import { YarleTest } from './yarle-test';
 import { OutputFormat } from "../src/output-format";
+import { YarleTestModifierOptions } from './yarle-test-modifier-options';
 
 export const yarleTests: Array<YarleTest> = [
   {
@@ -66,7 +67,56 @@ export const yarleTests: Array<YarleTest> = [
     expectedOutputPath: '/data/test-noteWithTags.md',
   },
 
+  {
+    name: 'Note with nested tags',
+    options: {
+      enexSource: './test/data/test-noteWithNestedTags.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      nestedTags: {
+        separatorInEN: '_',
+        replaceSeparatorWith: '/'
+      },
+      useHashTags: true
+    },
+    testOutputPath: 'notes/test-noteWithNestedTags/test -note with text only.md',
 
+    expectedOutputPath: '/data/test-noteWithNestedTags.md',
+  },
+  {
+    name: 'Note with nested tags containing spaces',
+    options: {
+      enexSource: './test/data/test-noteWithNestedTagsAndSpaces.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      nestedTags: {
+        separatorInEN: '_',
+        replaceSeparatorWith: '/'
+      },
+      useHashTags: true
+    },
+    testOutputPath: 'notes/test-noteWithNestedTagsAndSpaces/test -note with text only.md',
+
+    expectedOutputPath: '/data/test-noteWithNestedTagsAndSpaces.md',
+  },
+
+  {
+    name: 'Note with nested tags containing spaces and a specific character to be replaced to',
+    options: {
+      enexSource: './test/data/test-noteWithNestedTagsAndSpacesCustom.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      nestedTags: {
+        separatorInEN: '_',
+        replaceSeparatorWith: '/',
+        replaceSpaceWith: '->'
+      },
+      useHashTags: true
+    },
+    testOutputPath: 'notes/test-noteWithNestedTagsAndSpacesCustom/test -note with text only.md',
+
+    expectedOutputPath: '/data/test-noteWithNestedTagsAndSpacesCustom.md',
+  },
   {
     name: 'Note with notebook name',
     options: {
