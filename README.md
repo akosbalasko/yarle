@@ -1,8 +1,6 @@
 
 ![logo](screens/yarle-logo.png)
 
-# yarle: Yet Another Rope Ladder from Evernote
-
 ## Features:
 
 ### :bulb: Yarle can convert notes containing:
