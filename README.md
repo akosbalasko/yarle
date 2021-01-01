@@ -3,7 +3,7 @@
 
 ## Features:
 
-### :bulb: Yarle can convert notes containing:
+### Yarle can convert notes containing:
 - :memo: Text
 - :link: External links
 - :link: Internal links among Evernote notes
@@ -16,12 +16,12 @@
 - :notebook: single enex file (one notebook exported from Evernote)
 - :books: or a folder of enex files supported (several notebooks exported and placed into the same folder locally)
 
-### :hammer: Highly customizable: 
+### Highly customizable: 
 
-- Metadata support: Puts `title`, `creation time`, `update time`, `tags`, and `latlong` `source` meta-information into md as metadata.
+- :bulb: Metadata support: Puts `title`, `creation time`, `update time`, `tags`, and `latlong` `source` meta-information into md as metadata.
 - :rocket: Creates Markdown files matching to user-defined templates, see Templates introduced. See [How to use templates with YARLE](Templates.md) for details.
-- Updates md files' creation, access, and modification timestamps according to the notes' original create/update/modification time.
-- Organizes all attachments into a _resources subfolder (to keep the notes' folder as simple as possible).
+- :hammer: Updates md files' creation, access, and modification timestamps according to the notes' original create/update/modification time.
+- :hammer: Organizes all attachments into a _resources subfolder (to keep the notes' folder as simple as possible).
 
 ## Prerequisite
 
