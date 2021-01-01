@@ -1,6 +1,8 @@
 
 ![logo](screens/yarle-logo.png)
 
+Yarle is the ultimate converter of Evernote notes to Markdown.
+
 ## Features:
 
 ### Yarle can convert:
