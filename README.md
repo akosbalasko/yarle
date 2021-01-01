@@ -3,8 +3,8 @@
 
 ## Features:
 
-### Yarle can convert notes containing:
-- :memo: Text
+### Yarle can convert:
+- :memo: Any text
 - :link: External links
 - :link: Internal links among Evernote notes
 - :computer: Codeblocks
