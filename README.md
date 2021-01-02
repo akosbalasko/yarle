@@ -58,7 +58,7 @@ To configure Yarle, you must create a config file. By default it looks like this
     "skipTags": false,
     "useHashTags": true,
     "outputFormat": "StandardMD",
-    "skipEnexFileNameFromOutputPath": false
+    "skipEnexFileNameFromOutputPath": false,
     "monospaceIsCodeBlock": false,
     "keepMDCharactersOfENNotes": false,
     "nestedTags": {
