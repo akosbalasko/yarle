@@ -51,70 +51,79 @@
       </div>
 
       <div class="content">
-        <div id="home" class="page-container pure-u-1-2 active">
+        <div id="home" class="page-container active">
           Please follow the steps at the left handside.
 
         </div>
-        <div id="step1" class="page-container pure-u-1-2" style="display: none;">
+        <div id="step1" class="page-container" style="display: none;">
           <h3>Step 1: Select your ENEX location (the parent folder): </h3>
           <button class="pure-button pure-button-primary" id='selectEnexFolder'> Select Enex folder</button>
 
-          Current File: <input type=text class="pure-input-1-2" readonly="" id='enexSource'></input>
+          Current File: <input type=text class="pure-input-1-2" readonly="" id='enexSource' size=50></input>
 
           <textarea id='currentEnexFiles' class="pure-input-1-2" rows="30" cols="50"></textarea>
 
         </div>
-        <div id="step2" class="page-container pure-u-1-2" style="display: none;">
+        <div id="step2" class="page-container" style="display: none;">
           <h3>Step 2: Configuration:</h3>
           <form class="pure-form pure-form-aligned">
             <fieldset>
+              <div class="pure-control-group">
+
+                <label for="outputFormat" class="pure-input-1-2">Replace space with</label>
+                <select name="outputFormat" id="outputFormat">
+                  <option value="obsidianMd">ObsidianMD</option>
+                  <option value="saab">Saab</option>
+                </select>
+
+              </div>
               <div class="pure-controls">
                 <label for="keepOriginalHtml" class="pure-checkbox">
                   <input type="checkbox" id='keepOriginalHtml'> Keep the original Html</input>
                 </label>
               </div>
               <div class="pure-controls">
-
-                <label for="isNotebookNameNeeded" class="pure-checkbox">
-                  <input type="checkbox" id='isNotebookNameNeeded'> Is Notebook Name Needed</input>
+                <label for="addWebClips" class="pure-checkbox">
+                  <input type="checkbox" id='addWebClips'> Convert webclips</input>
                 </label>
+              </div>
 
+              <div class="pure-controls">
+                <label for="isZettelkastenNeeded" class="pure-checkbox">
+                  <input type="checkbox" id='isZettelkastenNeeded'> Is Zettelkasten Needed</input>
+                </label>
               </div>
               <div class="pure-controls">
-              <label for="isZettelkastenNeeded" class="pure-checkbox">
-                <input type="checkbox" id='isZettelkastenNeeded'> Is Zettelkasten Needed</input>
-              </label>
-            </div>
+                <label for="plainTextNotesOnly" class="pure-checkbox">
+                  <input type="checkbox" id='plainTextNotesOnly'> Convert plain text notes only</input>
+                </label>
+              </div>
               <div class="pure-controls">
-              <label for="plainTextNotesOnly" class="pure-checkbox">
-                <input type="checkbox" id='plainTextNotesOnly'> Convert plain text notes only</input>
-              </label>
-            </div>
+                <label for="useHashTags" class="pure-checkbox">
+                  <input type="checkbox" id='useHashTags'> Add # to tag</input>
+                </label>
+              </div>
               <div class="pure-controls">
-              <label for="useHashTags" class="pure-checkbox">
-                <input type="checkbox" id='useHashTags'> Add # to tag</input>
-              </label>
-            </div>
+                <label for="skipEnexFileNameFromOutputPath" class="pure-checkbox">
+                  <input type="checkbox" id='skipEnexFileNameFromOutputPath'> Skip enex filename from output
+                  path</input>
+                </label>
+              </div>
               <div class="pure-controls">
-              <label for="skipEnexFileNameFromOutputPath" class="pure-checkbox">
-                <input type="checkbox" id='skipEnexFileNameFromOutputPath'> Skip enex filename from output path</input>
-              </label>
-            </div>
+                <label for="monospaceIsCodeBlock" class="pure-checkbox">
+                  <input type="checkbox" id='monospaceIsCodeBlock'> Monospace Is used as Code block</input>
+                </label>
+              </div>
               <div class="pure-controls">
-              <label for="monospaceIsCodeBlock" class="pure-checkbox">
-                <input type="checkbox" id='monospaceIsCodeBlock'> Monospace Is used as Code block</input>
-              </label>
-            </div>
+                <label for="keepMDCharactersOfENNotes" class="pure-checkbox">
+                  <input type="checkbox" id='keepMDCharactersOfENNotes'> Keep Markdown characters Of EN Notes</input>
+                </label>
+              </div>
               <div class="pure-controls">
-              <label for="keepMDCharactersOfENNotes" class="pure-checkbox">
-                <input type="checkbox" id='keepMDCharactersOfENNotes'> Keep Markdown characters Of EN Notes</input>
-              </label>
-            </div>
-              <div class="pure-controls">
-              <label for="nestedTags" class="pure-checkbox">
-                <input type="checkbox" id='nestedTags'> Generate nested tags</input>
-              </label>
-            </div>
+                <label for="nestedTags" class="pure-checkbox">
+                  <input type="checkbox" id='nestedTags'> Generate nested tags</input>
+                </label>
+              </div>
               <div class="pure-control-group">
 
                 <label for="separatorInEN" class="pure-input-1-2">Separator of nested tags in EN</label>
@@ -133,154 +142,84 @@
                 <input type="text" id='replaceSpaceWith'></input>
 
               </div>
-              <div class="pure-control-group">
 
-                <label for="outputFormat" class="pure-input-1-2">Replace space with</label>
-                <select name="outputFormat" id="outputFormat">
-                  <option value="obsidianMd">ObsidianMD</option>
-                  <option value="saab">Saab</option>
-                </select>
+            </fieldset>
+          </form>
+        </div>
 
+        <div id="step3" class="page-container" style="display: none;">
+          <h3>Step 3: Set up your template:</h3>
+          <div class="pure-g">
+            <div class="pure-u-1-2">
+              <textarea id='templateArea' rows="30" cols="50"></textarea>
+            </div>
+            <div class="pure-u-1-2">
+              <form class="pure-form pure-form-aligned">
+                <fieldset>
+                  <div class="pure-controls">
+                    <label for="addLocation" class="pure-checkbox">
+                      <input type="checkbox" id='addLocation'> Add location</input>
+                    </label>
+                  </div>
+                    <div class="pure-controls">
+                      <label for="addCreationTime" class="pure-checkbox">
+                        <input type="checkbox" id='addCreationTime'> Add creation time</input>
+                      </label>
+                    </div>
+                    <div class="pure-controls">
+                      <label for="addUpdateTime" class="pure-checkbox">
+                        <input type="checkbox" id='addUpdateTime'> Add update time</input>
+                      </label>
+                    </div>
+                    <div class="pure-controls">
+                      <label for="addSourceUrl" class="pure-checkbox">
+                        <input type="checkbox" id='addSourceUrl'> Add source url</input>
+                      </label>
+                    </div>
+                    <div class="pure-controls">
+    
+                      <label for="isNotebookNameNeeded" class="pure-checkbox">
+                        <input type="checkbox" id='isNotebookNameNeeded'> Add Notebook Name</input>
+                      </label>
+      
+                    </div>
+                    <div class="pure-controls">
+                      <label for="addTags" class="pure-checkbox">
+                        <input type="checkbox" id='monosaddTagspaceIsCodeBlock'> Add tags</input>
+                      </label>
+                    </div>
+                              
+                </fieldset>
+              </form>
+            </div>
+          </div>
+          
+
+
+
+        </div>
+        <div id="step4" class="page-container" style="display: none;">
+          <h3>Step 4: Select your Output folder: </h3>
+          <form class="pure-form pure-form-stacked">
+            <fieldset>
+              <button class="pure-button pure-button-primary" id='selectOutputFolder'> Select output folder</button>
+              <div class="pure-controls">
+                <label for="outputDirectory">Current Output folder: </label>
+                <input type=text class="pure-input-1-2" readonly="" id='outputDirectory' size=80></input>
+                </label>
               </div>
             </fieldset>
           </form>
-          <table>
-            <tbody>
-              <tr>
-                <td>Keep the original Html:</td>
-                <td><input type="checkbox" id='keepOriginalHtml'></input>
-                <td>
-              </tr>
-              <tr>
-                <td>Is Notebook Name Needed:</td>
-                <td><input type="checkbox" id='isNotebookNameNeeded'></input>
-                <td>
-              </tr>
-              <tr>
-                <td>Is Zettelkasten Needed:</td>
-                <td><input type="checkbox" id='isZettelkastenNeeded'></input>
-                <td>
-              </tr>
-              <tr>
-                <td>Convert plain text notes only:</td>
-                <td><input type="checkbox" id='plainTextNotesOnly'></input>
-                <td>
-              </tr>
-              <tr>
-                <td>Add Hashmark to tags:</td>
-                <td><input type="checkbox" id='useHashTags'></input>
-                <td>
-              </tr>
-              <tr>
-                <td>Output Format:</td>
-                <td>
-                  <select name="outputFormat" id="outputFormat">
-                    <option value="obsidianMd">ObsidianMD</option>
-                    <option value="saab">Saab</option>
-                  </select>
-                <td>
-              </tr>
-              <tr>
-                <td>Skip enex filename from output path:</td>
-                <td><input type="checkbox" id='skipEnexFileNameFromOutputPath'></input>
-                <td>
-              </tr>
-              <tr>
-                <td>Monospace Is used as Code block:</td>
-                <td><input type="checkbox" id='monospaceIsCodeBlock'></input>
-                <td>
-              </tr>
-              <tr>
-                <td>Keep Markdown characters Of EN Notes:</td>
-                <td><input type="checkbox" id='keepMDCharactersOfENNotes'></input>
-                <td>
-              </tr>
-              <tr>
-                <td>Generate nested tags? </td>
-                <td><input type="checkbox" id='nestedTags'></input>
-                <td>
-              </tr>
-              <tr>
-                <td>Separator of nested tags in EN:</td>
-                <td><input size=3 type="text" id='separatorInEN'></input>
-                <td>
-              </tr>
-              <tr>
-                <td>Replace separator with:</td>
-                <td><input size=3 type="text" id='replaceSeparatorWith'></input>
-                <td>
-              </tr>
-              <tr>
-                <td>Replace space with:</td>
-                <td><input size=3 type="text" id='replaceSpaceWith'></input>
-                <td>
-              </tr>
-            </tbody>
-          </table>
-
-
         </div>
-
-        <div id="step3" class="page-container pure-u-1-2" style="display: none;">
-          <h3>Step 3: Set up your template:</h3>
-
-          <table>
-            <tbody>
-              <!--<tr><td></td><td>isMetadataNeeded:</td><td><input type="checkbox" id='isMetadataNeeded'></input><td></td></tr>-->
-              <tr>
-                <td rowspan="10" width="70%"><textarea id='templateArea' rows="30" cols="50"></textarea></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td>Add location:</td>
-                <td><input type="checkbox" id='skipLocation'></input>
-                <td>
-              </tr>
-              <tr>
-                <td></td>
-                <td>Add creation time:</td>
-                <td><input type="checkbox" id='skipCreationTime'></input>
-                <td>
-              </tr>
-              <tr>
-                <td></td>
-                <td>Add update time:</td>
-                <td><input type="checkbox" id='skipUpdateTime'></input>
-                <td>
-              </tr>
-              <tr>
-                <td></td>
-                <td>Add source url:</td>
-                <td><input type="checkbox" id='skipSourceUrl'></input>
-                <td>
-              </tr>
-              <tr>
-                <td></td>
-                <td>Add web clips:</td>
-                <td><input type="checkbox" id='skipWebClips'></input>
-                <td>
-              </tr>
-              <tr>
-                <td></td>
-                <td>Add tags:</td>
-                <td><input type="checkbox" id='skipTags'></input>
-                <td>
-              </tr>
-            </tbody>
-          </table>
-
-
-
-        </div>
-        <div id="step4" class="page-container pure-u-1-2" style="display: none;">
-          <h3>Step 4: Select your Output folder: </h3>
-          <button class="pure-button pure-button-primary" id='selectOutputFolder'> Select output folder</button>
-
-        </div>
-        <div id="step5" class="page-container pure-u-1-2" style="display: none;">
+        <div id="step5" class="page-container" style="display: none;">
           <h3>Step 5: Convert:</h3>
-          <input class="pure-button pure-button-primary" type="submit" id="startConversion" onclick="startConversion()"
-            value="Convert!"></input>
+          <form class="pure-form pure-form-stacked">
+            <fieldset>
+              <input class="pure-button pure-button-primary" type="submit" id="startConversion" value="Convert!"></input>
+              <label for="logArea" >Logs: </label>
+              <textarea id='logArea' class="pure-input-1-2" rows="30" cols="80"></textarea>
+            </fieldset>
+          </form>
         </div>
       </div>
     </div>
@@ -291,6 +230,7 @@
   <script type="text/javascript">
     const { ipcRenderer } = require("electron");
     const { cloneDeep } = require('lodash');
+    const fs = require('fs');
 
     const enexFolderClick = document.getElementById('selectEnexFolder');
 
@@ -299,7 +239,7 @@
     });
 
     document.getElementById('startConversion').addEventListener('click', function () {
-      ipcRenderer.send('startConversion');
+      startLogWatcher();
     })
     const outputFolderClick = document.getElementById('selectOutputFolder');
 
@@ -331,8 +271,11 @@
       document.getElementById('enexSource').value = store;
     });
 
+    ipcRenderer.on('outputDirectorySelected', (event, store) => {
+      document.getElementById('outputDirectory').value = store;
+    })
+
     ipcRenderer.on('storedSettingsLoaded', (event, store) => {
-      console.log(store);
       for (const storeItemName of Object.keys(store)) {
         const entry = document.getElementById(storeItemName);
         if (entry.type === 'checkbox') {
@@ -364,6 +307,32 @@
       // Show the current tab, and add an "active" class to the link that opened the tab
       document.getElementById(TabName).style.display = "block";
       evt.currentTarget.className += " active";
+    }
+
+    function startLogWatcher() {
+      var chokidar = require("chokidar");
+      const conversionFile = `${__dirname}/../../conversion.log`;
+      console.log('watching: ' + conversionFile);
+      var watcher = chokidar.watch(conversionFile, {
+        ignored: /[\/\\]\./,
+        persistent: true,
+        usePolling: true
+      });
+
+      function onWatcherReady() {
+        console.info('From here can you check for real changes, the initial scan has been completed.');
+        ipcRenderer.send('startConversion');
+
+      }
+
+      // Declare the listeners of the watcher
+      watcher
+        .on('change', function (path) {
+
+          document.getElementById('logArea').innerHTML = fs.readFileSync(path, 'UTF-8')
+        })
+        .on('ready', onWatcherReady)
+
     }
   </script>
 

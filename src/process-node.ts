@@ -11,6 +11,7 @@ import { processResources } from './process-resources';
 import { convertHtml2Md } from './convert-html-to-md';
 import { convert2Html } from './convert-to-html';
 import { NoteData } from './models/NoteData';
+import { logger } from './utils/logger';
 
 export const processNode = (note: any, notebookName: string): void => {
   let noteData: NoteData = { 
@@ -21,7 +22,7 @@ export const processNode = (note: any, notebookName: string): void => {
   };
 
   // tslint:disable-next-line:no-console
-  console.log(`Converting note ${noteData.title}...`);
+  logger.info(`Converting note ${noteData.title}...`);
 
   try {
     if (isComplex(note)) {
@@ -34,7 +35,7 @@ export const processNode = (note: any, notebookName: string): void => {
 
     const data = applyTemplate(noteData, yarleOptions);
     // tslint:disable-next-line:no-console
-    console.log('data =>\n', JSON.stringify(data), '\n***');
+    logger.info('data =>\n', JSON.stringify(data), '\n***');
 
     saveMdFile(data, note);
 
@@ -45,8 +46,8 @@ export const processNode = (note: any, notebookName: string): void => {
 
   } catch (e) {
     // tslint:disable-next-line:no-console
-    console.log(`Failed to convert note: ${noteData.title}`, e);
+    logger.info(`Failed to convert note: ${noteData.title}`, e);
   }
   // tslint:disable-next-line:no-console
-  console.log(`Note ${noteData.title} converted successfully.`);
+  logger.info(`Note ${noteData.title} converted successfully.`);
 };

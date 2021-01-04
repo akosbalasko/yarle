@@ -1,6 +1,7 @@
 import * as fs from 'fs';
 
 import { setFileDates } from './content-utils';
+import { logger } from './../utils/logger';
 
 export const writeFile = (absFilePath: string, data: any, note: any): void => {
     try {
@@ -8,7 +9,7 @@ export const writeFile = (absFilePath: string, data: any, note: any): void => {
       setFileDates(absFilePath, note);
     } catch (e) {
       // tslint:disable-next-line: no-console
-      console.log('Cannot write file ', e);
+      logger.error('Cannot write file ', e);
       throw e;
     }
   };

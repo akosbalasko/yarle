@@ -5,6 +5,7 @@ import * as utils from './utils';
 import { YarleOptions } from './YarleOptions';
 import { processNode } from './process-node';
 import { isWebClip } from './utils/note-utils';
+import { logger } from './utils/logger';
 
 export const defaultYarleOptions: YarleOptions = {
   enexSource: 'notebook.enex',
@@ -42,7 +43,7 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
   return new Promise((resolve, reject) => {
 
     const logAndReject = (error: Error) => {
-      console.log(`Could not convert ${options.enexSource}:\n${error.message}`);
+      logger.info(`Could not convert ${options.enexSource}:\n${error.message}`);
       ++failed;
 
       return reject();
@@ -61,7 +62,7 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
     xml.on('tag:note', (note: any) => {
       if (options.skipWebClips && isWebClip(note)) {
           ++skipped;
-          console.log(`Notes skipped: ${skipped}`);
+          logger.info(`Notes skipped: ${skipped}`);
       } else {
         if (noteAttributes) {
           // make sure single attributes are not collapsed
@@ -69,7 +70,7 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
         }
         processNode(note, notebookName);
         ++noteNumber;
-        console.log(`Notes processed: ${noteNumber}`);
+        logger.info(`Notes processed: ${noteNumber}`);
       }
       noteAttributes = null;
     });
@@ -77,7 +78,7 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
     xml.on('end', () => {
       const success = noteNumber - failed;
       const totalNotes = noteNumber + skipped;
-      console.log(
+      logger.info(
         `Conversion finished: ${success} succeeded, ${skipped} skipped, ${failed} failed. Total notes: ${totalNotes}`,
       );
 

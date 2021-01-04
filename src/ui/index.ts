@@ -5,13 +5,14 @@ const path = require("path");
 import { store } from './store';
 import * as yarle from './../yarle';
 
-import { generateHtmlContent } from 'utils';
 import { mapSettingsToYarleOptions } from './settingsMapper';
+import { logger } from './../utils/logger';
+
 let mainWindow: any;
 
 function createWindow () {
   mainWindow = new BrowserWindow({
-    width: 1024,
+    width: 1296,
     height: 768,
     webPreferences: {
       nodeIntegration: true
@@ -63,22 +64,22 @@ ipcMain.on('openEnexSource', () => {
         { name: 'Enex files', extensions: ['enex'] },
       ]
     }).then((result: any) => {
-      console.log(result.canceled)
-      console.log(result.filePaths)
+      logger.info(result.canceled)
+      logger.info(result.filePaths)
        // fileNames is an array that contains all the selected
       if(result.filePaths === undefined){
-        console.log("No file selected");
+        logger.info("No file selected");
         return;
     }
     const filePath = result.filePaths[0];
-    console.log('path: ' + filePath);
+    logger.info('path: ' + filePath);
     store.set('enexSource', filePath);
     //const currentEnexFiles = fs.readdirSync(filePath).filter(fileName => fileName.match(/enex$/g)).join('\n');
-    console.log('enex files: ' + filePath);
+    logger.info('enex files: ' + filePath);
     mainWindow.webContents.send('currentEnexFiles', filePath);
     mainWindow.webContents.send('enexSource', filePath);
     }).catch((err: any) => {
-      console.log(err)
+      logger.info(err)
     })
  })
 
@@ -89,25 +90,26 @@ ipcMain.on('selectOutputFolder', () => {
     { 
       properties: ['openDirectory'],
     }).then((result: any) => {
-      console.log(result.canceled)
-      console.log(result.filePaths)
+      logger.info(result.canceled)
+      logger.info(result.filePaths)
        // fileNames is an array that contains all the selected
       if(result.filePaths === undefined){
-        console.log("No file selected");
+        logger.info("No file selected");
         return;
     }
     const outputPath = result.filePaths[0];
     store.set('outputDir', outputPath);
+    mainWindow.webContents.send('outputDirectorySelected', outputPath);
     }).catch((err: any) => {
-      console.log(err)
+      logger.info(err)
     })
  
 })
 
 ipcMain.on('configurationUpdated', (event: any, data: any) => {
-  console.log("this is the firstname from the form ->", data)
+  logger.info("this is the firstname from the form ->", data)
   store.set(data.id, data.value);
-  console.log(store.get(data.id));
+  logger.info(store.get(data.id));
 
 });
 
