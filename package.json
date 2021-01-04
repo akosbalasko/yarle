@@ -1,6 +1,6 @@
 {
   "name": "yarle-evernote-to-md",
-  "version": "3.5.0",
+  "version": "3.5.1",
   "description": "Yet Another Rope Ladder from Evernote",
   "keywords": [
     "evernote",
@@ -38,7 +38,6 @@
     "marked": "1.2.0",
     "md5-file": "5.0.0",
     "moment": "2.22.2",
-    "utimes": "4.0.2",
     "proxyquire": "2.1.3",
     "sanitize-filename": "^1.6.3",
     "ts-node": "8.5.4",
