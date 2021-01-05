@@ -6,7 +6,7 @@ Transaction Management & Scope
 Other challenges lie in transaction management. Centralised (monolithic) applications, with more localised interactions, can better leverage database transaction scope; i.e. one transaction manages a series of database interactions, and still support relatively simple rollback and commit facilities.
 Microservices, are more isolated, and often use different database technologies. Thus, transaction scope is isolated to the microservice-level; transactions are not shared. This leads to data consistency, and rollback challenges. Another practice must be used to orchestrate transactions. See Figure 10.
 
-![0*RuK5Uc39KyMAOkxr.jpeg](./_resources/test-imageWithoutSrc.resources/0*RuK5Uc39KyMAOkxr.jpeg)
+![0*RuK5Uc39KyMAOkxr.jpg](./_resources/test-imageWithoutSrc.resources/0*RuK5Uc39KyMAOkxr.jpg)
 
 Figure 10 — transactional scope; monolith vs microservices
 
@@ -26,7 +26,7 @@ Performance
 
 Because each microservice interaction is independent (including their transactions), any significant collaboration (i.e. a workflow involving many parties), can create performance challenges. Specifically, this relates to latency (the time it takes from the initiation of an action, to receiving a response). See Figure 11.
 
-![0*1o3tk4QQCG15z1iT.jpeg](./_resources/test-imageWithoutSrc.resources/0*1o3tk4QQCG15z1iT.jpeg)
+![0*1o3tk4QQCG15z1iT.jpg](./_resources/test-imageWithoutSrc.resources/0*1o3tk4QQCG15z1iT.jpg)
 
 Figure 11 — performance (latency) with microservices
 
@@ -34,7 +34,7 @@ No science was harmed in the making of this diagram! It’s merely meant to demo
 The scenario represents a distributed (e.g. microservices) system. The workflow interacts with four different domains (1, 2, 3, and 4) to complete a job. The useful functional value (white, numbered boxes) may be of a relatively short duration, whilst the red bar represents the varying latency costs of network negotiation/transfer/marshalling to talk with the next microservice. The orange bar represents the overall time cost so far. There’s quite a bit of red involved in these distributed interactions.
 In Figure 12 we have a centralised representation.
 
-![0*x2glWzxpcQ0qselE.jpeg](./_resources/test-imageWithoutSrc.resources/0*x2glWzxpcQ0qselE.jpeg)
+![0*x2glWzxpcQ0qselE.jpg](./_resources/test-imageWithoutSrc.resources/0*x2glWzxpcQ0qselE.jpg)
 
 Figure 12 — monolith latency
 

@@ -55,7 +55,9 @@ export const wikiStyleLinksRule = {
 
         return (yarleOptions.outputFormat === OutputFormat.ObsidianMD)
         ? `${token['mdKeyword']}[[${value} | ${token['text']}]]`
-        : `${token['mdKeyword']}[[${value}]]`;
+        : (yarleOptions.outputFormat === OutputFormat.StandardMD)
+            ? `${token['mdKeyword']}[${token['text']}](${value})`
+            : `${token['mdKeyword']}[[${value}]]`;
         // todo embed
 
         /*return (
