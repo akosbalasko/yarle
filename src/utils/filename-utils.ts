@@ -2,6 +2,7 @@ import sanitize from 'sanitize-filename';
 import * as fs from 'fs';
 import Moment from 'moment';
 import * as path from 'path';
+import * as mime from 'mime-types';
 
 import { yarleOptions } from '../yarle';
 
@@ -64,20 +65,17 @@ export const getExtensionFromResourceFileName = (resource: any): string => {
 
 };
 export const getExtensionFromMime = (resource: any): string => {
-  const mime = resource.mime;
-  if (!mime) {
+  const mimeType = resource.mime;
+  if (!mimeType) {
     return undefined;
   }
-  const splitMime = mime.split('/');
-
-  return splitMime.length > 1 ?
-    splitMime[1] : undefined;
+  return mime.extension(mimeType)
 };
 
 export const getExtension = (resource: any): string => {
   const UNKNOWNEXTENSION = 'dat';
 
-  return getExtensionFromMime(resource) || getExtensionFromResourceFileName(resource) || UNKNOWNEXTENSION;
+  return getExtensionFromResourceFileName(resource) || getExtensionFromMime(resource) || UNKNOWNEXTENSION;
 };
 
 export const getZettelKastelId = (note: any, dstPath: string): string => {
