@@ -36,6 +36,7 @@
     "lodash": "4.17.19",
     "marked": "1.2.0",
     "md5-file": "5.0.0",
+    "mime-types": "2.1.28",
     "moment": "2.22.2",
     "utimes": "4.0.3",
     "proxyquire": "2.1.3",

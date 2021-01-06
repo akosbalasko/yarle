@@ -313,6 +313,27 @@ describe('Yarle special cases', async () => {
     );
   });
 
+  it('Enex file with attachment - extension comes from mime', async () => {
+    const options: YarleOptions = {
+      enexSource: './test/data/test-scriptAttachment.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      plainTextNotesOnly: false,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-scriptAttachment/scriptAttachment.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-scriptAttachment/_resources/scriptAttachment.resources/sample.scpt`,
+      ),
+      true,
+    );
+  });
   it('Enex file obsidian style', async () => {
     const options: YarleOptions = {
       enexSource: './test/data/test-twoNotes.enex',
