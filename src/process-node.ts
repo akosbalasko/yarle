@@ -13,6 +13,8 @@ import { convert2Html } from './convert-to-html';
 import { NoteData } from './models/NoteData';
 
 export const processNode = (note: any, notebookName: string): void => {
+  if (Array.isArray(note.content))
+    note.content = note.content.join('');
   let noteData: NoteData = { 
     title: note.title,
     content: note.content,
