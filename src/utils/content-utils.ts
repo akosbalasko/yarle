@@ -28,13 +28,13 @@ export const getTitle = (note: any): string => {
 
 export const getCreationTime = (note: any): string => {
   return !yarleOptions.skipCreationTime && note.created
-    ? Moment(note.created).format()
-    : undefined;
+  ? Moment(note.created).format(yarleOptions.dateFormat)
+  : undefined;
 };
 
 export const getUpdateTime = (note: any): string => {
   return !yarleOptions.skipUpdateTime && note.updated
-    ? Moment(note.updated).format()
+    ? Moment(note.updated).format(yarleOptions.dateFormat)
     : undefined;
 };
 

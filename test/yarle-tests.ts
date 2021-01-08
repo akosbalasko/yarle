@@ -524,7 +524,6 @@ export const yarleTests: Array<YarleTest> = [
       skipEnexFileNameFromOutputPath: false,
     },
     testOutputPath: 'notes/test-template/test - templates.md',
-
     expectedOutputPath: '/data/test - templates.md',
   },
 
@@ -622,4 +621,17 @@ export const yarleTests: Array<YarleTest> = [
     expectedOutputPath: '/data/test-externalLink-escape.md',
   },
 
+  {
+    name: ' Custom date format',
+    options: {
+      enexSource: './test/data/test-justTextButCustomDate.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      skipLocation: true,
+      keepMDCharactersOfENNotes: true,
+      dateFormat: 'YYYY MMMM DD',
+    },
+    testOutputPath: 'notes/test-justTextButCustomDate/test -note with text only.md',
+    expectedOutputPath: '/data/test-justTextButCustomDate.md',
+  },
 ]
