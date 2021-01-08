@@ -4,3 +4,4 @@ export * from './remove-sourceurl-placeholder';
 export * from './remove-notebook-placeholder';
 export * from './remove-metadataBlock-placeholder';
 export * from './remove-location-placeholder';
+export * from './remove-link-to-original-placeholder';

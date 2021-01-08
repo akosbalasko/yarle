@@ -2,7 +2,7 @@ import assert from 'assert';
 import fs from 'fs';
 import mockTimezone from 'timezone-mock';
 
-import { OutputFormat } from '../src/output-format';
+import { OutputFormat } from './../src/output-format';
 
 import * as utils from './../src/utils';
 import * as yarle from './../src/yarle';
@@ -68,7 +68,7 @@ describe('Yarle special cases', async () => {
   });
   it('should keep Html content', async () => {
     const options: YarleOptions = {
-      enexSource: './test/data/test-withPicture.enex',
+      enexSource: './test/data/test-withPicture-keep-html.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
       keepOriginalHtml: true
@@ -76,34 +76,34 @@ describe('Yarle special cases', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/notes/test-withPicture/test - note with picture.md`,
+        `${__dirname}/../out/notes/test-withPicture-keep-html/test - note with picture.md`,
       ),
       true,
     );
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/notes/test-withPicture/_resources/test - note with picture.html`,
+        `${__dirname}/../out/notes/test-withPicture-keep-html/_resources/test - note with picture.html`,
       ),
       true,
     );
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/notes/test-withPicture/_resources/test_-_note_with_picture.resources`,
+        `${__dirname}/../out/notes/test-withPicture-keep-html/_resources/test_-_note_with_picture.resources`,
       ),
       true,
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/notes/test-withPicture/test - note with picture.md`,
+        `${__dirname}/../out/notes/test-withPicture-keep-html/test - note with picture.md`,
         'utf8',
       ),
-      fs.readFileSync(`${__dirname}/data/test-withPicture.md`, 'utf8'),
+      fs.readFileSync(`${__dirname}/data/test-withPicture-keep-html.md`, 'utf8'),
     );
 
     assert.equal(
       fs.readFileSync(
-        `${__dirname}/../out/notes/test-withPicture/_resources/test - note with picture.html`,
+        `${__dirname}/../out/notes/test-withPicture-keep-html/_resources/test - note with picture.html`,
         'utf8',
       ),
       fs.readFileSync(`${__dirname}/data/test-note-with-picture.html`, 'utf8'),
@@ -429,4 +429,5 @@ describe('Yarle special cases', async () => {
       ),
     );
   });
+
 });
