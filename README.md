@@ -22,7 +22,7 @@ Yarle is the ultimate converter of Evernote notes to Markdown.
 
 
 - :rocket: Creates Markdown files matching to user-defined templates, see Templates introduced. See [How to use templates with YARLE](Templates.md) for details.
-- :bulb: Metadata support: Puts `title`, `creation time`, `update time`, `tags`, and `latlong` `source`, `notebook`, `link to original html` meta-information into md as metadata. (To specify them, please set up a custom template)
+- :bulb: Metadata support: Puts `title`, `creation time`, `update time`, `tags`, and `latlong` `source`, `notebook`, `link to original html` meta-information into md as metadata. (To set them, please set up a custom template)
 - :hammer: Updates md files' creation, access, and modification timestamps according to the notes' original create/update/modification time.
 - :hammer: Organizes all attachments into a _resources subfolder (to keep the notes' folder as simple as possible).
 
@@ -47,16 +47,9 @@ To configure Yarle, you must create a config file. By default it looks like this
     "templateFile": "/absolute-path-of-your-template-dir/sampleTemplate.tmpl",
     "outputDir": "out",
     "keepOriginalHtml": false,
-    "isMetadataNeeded": false,
-    "isNotebookNameNeeded": false,
     "isZettelkastenNeeded": false,
     "plainTextNotesOnly": false,
-    "skipLocation": false,
-    "skipCreationTime": false,
-    "skipUpdateTime": false,
-    "skipSourceUrl": false,
     "skipWebClips": false,
-    "skipTags": false,
     "useHashTags": true,
     "outputFormat": "StandardMD",
     "skipEnexFileNameFromOutputPath": false,
