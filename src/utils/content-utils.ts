@@ -54,7 +54,7 @@ export const getLatLong = (note: any): string => {
   return !yarleOptions.skipLocation &&
     note['note-attributes'] &&
     note['note-attributes'].longitude
-    ? `${note['note-attributes'].longitude},${note['note-attributes'].latitude}`
+    ? `${note['note-attributes'].latitude},${note['note-attributes'].longitude}`
     : undefined;
 };
 export const getTags = (note: any): NoteData => {
