@@ -20,8 +20,9 @@ Yarle is the ultimate converter of Evernote notes to Markdown.
 
 ### Highly customizable: 
 
-- :bulb: Metadata support: Puts `title`, `creation time`, `update time`, `tags`, and `latlong` `source` meta-information into md as metadata.
+
 - :rocket: Creates Markdown files matching to user-defined templates, see Templates introduced. See [How to use templates with YARLE](Templates.md) for details.
+- :bulb: Metadata support: Puts `title`, `creation time`, `update time`, `tags`, and `latlong` `source`, `notebook`, `link to original html` meta-information into md as metadata. (To specify them, please set up a custom template)
 - :hammer: Updates md files' creation, access, and modification timestamps according to the notes' original create/update/modification time.
 - :hammer: Organizes all attachments into a _resources subfolder (to keep the notes' folder as simple as possible).
 
@@ -76,15 +77,8 @@ The following configurational properties are available:
 |```templateFile``` | absolute path of your custom template file | if its not specified, a [default template](https://github.com/akosbalasko/yarle/blob/master/src/utils/templates/default-template.ts) will be used
 |```outputDir``` | relative path to your output dir | this is the main output dir where the extracted markdown files and the external resources, images, pdf-s are going to be created|
 |```keepOriginalHtml```| true or false | if set to true, then an additional HTML page that is an exact copy of the original note will be created in the `_resources` folder|
-|```isMetadataNeeded```| true or false | if it's set to true, then every Markdown file will be supplemented with metadata (tags, time of creation, time of last update, lat-lon coordinates) |
-|```isNotebookNameNeeded```|  true or false | if set, every Markdown file will include the .enex file name in the metadata section. This is useful if you export each notebook as a separate enex file and wish to have them organized in ObsidianMD (or similar). Requires '--include-metadata' to be set.|
 |```isZettelkastenNeeded``` |  true or false | puts Zettelkasten Id (based on time of creation) at the beginning of the file name|
 |```plaintextNotesOnly``` |  true or false | skips any notes with attachments (e.g. notes containing pictures)|
-|```skipLocation```|  true or false | does not include location in metadata section|
-|```skipCreationTime```|  true or false | does not include creation time in metadata section|
-|```skipUpdateTime```|  true or false | does not include update time in metadata section|
-|```skipSourceUrl```|  true or false | does not include the source url in metadata section|
-|```skipTags```|  true or false | does not include tags in metadata section|
 |```useHashTags```|  true or false | whether to add the pound sign in front of tags|
 |```outputFormat```|  true or false | generates internal file links and highlights in Obsidian-style: highlights are going to be bounded by `==` instead of \` characters, file links are going to be as follows: `![[file-name]]` instead of `![file-name](file-name)`. Possible values: `ObsidianMD` to get Obsidian-style notes, `StandardMD` or skip it completely, if you prefer Standard Markdown format.|
 |```monospaceIsCodeBlock```| true or false | if it's true then all deepest elements with monospace font style is recognized as Codeblocks|    
@@ -92,5 +86,7 @@ The following configurational properties are available:
 |```keepMDCharactersOfENNotes```| true or false | set it true, if you used Markdown format in your EN notes|
 | ``` nestedTags``` | it's a complex property contains the following subitems: "separatorInEN", "replaceSeparatorWith" and  "replaceSpaceWith" | separatorInEN stores the tag separator used in Evernote, replaceSeparatorWith is the string to what separatorInEN should be replaced to, and replaceSpaceWith is the string to what the space character should be replaced to in the tags. For example using the default settings a tag ```tag1_sub tag of tag1``` is going to be converted to ```tag1/sub-tag-of-tag1``` 
        
+
+Metadata settings can be set via the template.
 
 ## [Release notes](https://github.com/akosbalasko/yarle/wiki/Release-notes)

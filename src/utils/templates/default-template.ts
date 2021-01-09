@@ -9,8 +9,9 @@ Tag(s): {tags}
 {metadata-block}
 {created-at-block}    Created at: {created-at}{end-created-at-block}
 {updated-at-block}    Updated at: {updated-at}{end-updated-at-block}
-{location-block}    Where: {location}{end-location-block}
 {source-url-block}    Source URL: {source-url}{end-source-url-block}
 {notebook-block}    Notebook: {notebook}{end-notebook-block}
+{link-to-original-block}    Link to original content: {link-to-original}{end-link-to-original-block}
+{location-block}    Where: {location}{end-location-block}
 {end-metadata-block}
 `;
