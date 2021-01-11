@@ -1,6 +1,6 @@
 {
   "name": "yarle-evernote-to-md",
-  "version": "3.7.0",
+  "version": "3.8.0",
   "description": "Yet Another Rope Ladder from Evernote",
   "keywords": [
     "evernote",
@@ -30,7 +30,6 @@
   "dependencies": {
     "@types/fs-extra": "8.1.0",
     "chai": "4.2.0",
-    "dateformat": "^4.4.1",
     "fast-xml-parser": "3.12.5",
     "fs-extra": "4.0.2",
     "he": "1.2.0",

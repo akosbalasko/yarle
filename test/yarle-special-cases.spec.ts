@@ -67,11 +67,11 @@ describe('Yarle special cases', async () => {
     );
   });
   it('should keep Html content', async () => {
+
     const options: YarleOptions = {
       enexSource: './test/data/test-withPicture-keep-html.enex',
+      templateFile: './test/data/keephtml-template.tmpl',
       outputDir: 'out',
-      isMetadataNeeded: true,
-      keepOriginalHtml: true
     };
     await yarle.dropTheRope(options);
     assert.equal(

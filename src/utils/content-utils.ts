@@ -9,16 +9,13 @@ import { getHtmlFileLink } from './folder-utils';
 
 export const getMetadata = (note: any, notebookName: string): MetaData => {
 
-  return yarleOptions.isMetadataNeeded
-    ? {
+  return {
         createdAt: getCreationTime(note),
         updatedAt: getUpdateTime(note),
         sourceUrl: getSourceUrl(note),
         location: getLatLong(note),
         linkToOriginal: getLinkToOriginal(note),
         notebookName,
-      }
-    : {
       };
 };
 
@@ -58,7 +55,7 @@ export const getLatLong = (note: any): string => {
     : undefined;
 };
 export const getTags = (note: any): NoteData => {
-  return yarleOptions.isMetadataNeeded ? {tags: logTags(note)} : undefined;
+  return {tags: logTags(note)};
 
 };
 
