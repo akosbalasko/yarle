@@ -46,7 +46,6 @@ To configure Yarle, you must create a config file. By default it looks like this
     "enexSource": "/absolute-path-of-your-enex-dir/test-template.enex",
     "templateFile": "/absolute-path-of-your-template-dir/sampleTemplate.tmpl",
     "outputDir": "out",
-    "keepOriginalHtml": false,
     "isZettelkastenNeeded": false,
     "plainTextNotesOnly": false,
     "skipWebClips": false,
@@ -69,7 +68,6 @@ The following configurational properties are available:
 |```enexSource```| your enex file or the folder of your enex files | specifies the exported Evernote notebook(s) as an absolute path|
 |```templateFile``` | absolute path of your custom template file | if its not specified, a [default template](https://github.com/akosbalasko/yarle/blob/master/src/utils/templates/default-template.ts) will be used
 |```outputDir``` | relative path to your output dir | this is the main output dir where the extracted markdown files and the external resources, images, pdf-s are going to be created|
-|```keepOriginalHtml```| true or false | if set to true, then an additional HTML page that is an exact copy of the original note will be created in the `_resources` folder|
 |```isZettelkastenNeeded``` |  true or false | puts Zettelkasten Id (based on time of creation) at the beginning of the file name|
 |```plaintextNotesOnly``` |  true or false | skips any notes with attachments (e.g. notes containing pictures)|
 |```useHashTags```|  true or false | whether to add the pound sign in front of tags|
