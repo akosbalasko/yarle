@@ -16,10 +16,9 @@ export const applyTemplateOnBlock = ({
       .replace(new RegExp(`${valuePlaceholder}`,'g'), value);
       
   }
-
+const reg = `${startBlockPlaceholder}([\\d\\D])(?:.|\n)*?(?=${endBlockPlaceholder})${endBlockPlaceholder}`;
   return template.replace(
-    new RegExp(
-      `${startBlockPlaceholder}([\\D\\d]).*?(?=${endBlockPlaceholder})${endBlockPlaceholder}`,
+    new RegExp(reg,
       'g',
     ),
     '',
