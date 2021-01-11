@@ -18,7 +18,7 @@ If you suppress any of the blocks, it will be skipped altogether, for example if
 The possible blocks are the followings:
 
 | Name | Placeholder | Description | 
-------------------------------------
+|------|-------------|-------------|
 | Title | {title-block}{title}{end-title-block} | Adds title|
 | Tags | {tags-block}{tags}{end-tags-block} | Tags block|
 | Content | {content-block}{content}{end-content-block} | The actual content of the note|
