@@ -30,7 +30,6 @@
   "dependencies": {
     "@types/fs-extra": "8.1.0",
     "chai": "4.2.0",
-    "dateformat": "^4.4.1",
     "fast-xml-parser": "3.12.5",
     "fs-extra": "4.0.2",
     "he": "1.2.0",
