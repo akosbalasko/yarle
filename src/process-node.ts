@@ -13,6 +13,11 @@ import { convert2Html } from './convert-to-html';
 import { NoteData } from './models/NoteData';
 
 export const processNode = (note: any, notebookName: string): void => {
+
+  let dateStarted: Date = new Date();  
+  console.log("\n");
+  console.log("Started conversion: " + dateStarted);
+
   if (Array.isArray(note.content))
     note.content = note.content.join('');
   let noteData: NoteData = { 
@@ -23,7 +28,7 @@ export const processNode = (note: any, notebookName: string): void => {
   };
 
   // tslint:disable-next-line:no-console
-  console.log(`Converting note ${noteData.title}...`);
+  console.log(`Converting note "${noteData.title}"...`);
 
   try {
     if (isComplex(note)) {
@@ -50,5 +55,10 @@ export const processNode = (note: any, notebookName: string): void => {
     console.log(`Failed to convert note: ${noteData.title}`, e);
   }
   // tslint:disable-next-line:no-console
-  console.log(`Note ${noteData.title} converted successfully.`);
+  let dateFinished: Date = new Date();  
+  let conversionDuration = (dateFinished.getTime()- dateStarted.getTime())/1000; //in seconds.
+  console.log("Finished conversion: " + dateFinished);  
+  console.log(`Note "${noteData.title}" converted successfully in ${conversionDuration} seconds.`);
+  
+
 };
