@@ -7,6 +7,7 @@ Yarle is the ultimate converter of Evernote notes to Markdown.
 
 ### Yarle can convert:
 - :memo: Any text
+- :memo: All metadata: original creation time, last modification time, tags, GPS location, notebook name, source URL 
 - :link: External links
 - :link: Internal links among Evernote notes
 - :computer: Codeblocks
