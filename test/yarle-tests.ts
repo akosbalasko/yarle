@@ -121,9 +121,8 @@ export const yarleTests: Array<YarleTest> = [
     name: 'Note with notebook name',
     options: {
       enexSource: './test/data/test-noteWithNotebookName.enex',
+      templateFile: './test/data/notebook-template.tmpl',
       outputDir: 'out',
-      isMetadataNeeded: true,
-      isNotebookNameNeeded: true,
     },
     testOutputPath: 'notes/test-noteWithNotebookName/test -note with text only.md',
     expectedOutputPath: '/data/test-noteWithNotebookName.md',
@@ -134,9 +133,8 @@ export const yarleTests: Array<YarleTest> = [
     name: 'Note with notebook name and tags',
     options: {
       enexSource: './test/data/test-noteWithNotebookNameAndTags.enex',
+      templateFile: './test/data/notebook-template.tmpl',
       outputDir: 'out',
-      isMetadataNeeded: true,
-      isNotebookNameNeeded: true,
     },
     testOutputPath: 'notes/test-noteWithNotebookNameAndTags/test -note with text only.md',
     expectedOutputPath: '/data/test-noteWithNotebookNameAndTags.md',
@@ -176,6 +174,7 @@ export const yarleTests: Array<YarleTest> = [
     name: 'Note without metadata',
     options: {
       enexSource: './test/data/test-noteWithoutMetadata.enex',
+      templateFile: './test/data/nometadata-template.tmpl',
       outputDir: 'out',
       isMetadataNeeded: false,
       isZettelkastenNeeded: false,
@@ -255,6 +254,7 @@ export const yarleTests: Array<YarleTest> = [
     name: 'Enex file skip Location',
     options: {
       enexSource: './test/data/test-skipLocation.enex',
+      templateFile: './test/data/nolocation-template.tmpl',
       outputDir: 'out',
       isMetadataNeeded: true,
       skipLocation: true,
@@ -524,7 +524,6 @@ export const yarleTests: Array<YarleTest> = [
       skipEnexFileNameFromOutputPath: false,
     },
     testOutputPath: 'notes/test-template/test - templates.md',
-
     expectedOutputPath: '/data/test - templates.md',
   },
 
@@ -605,9 +604,6 @@ export const yarleTests: Array<YarleTest> = [
     expectedOutputPath: '/data/test-markdown-en.md',
 
   },
-
-
-
   {
     name: ' Pure external url with unescapeable characters',
     options: {
@@ -622,4 +618,33 @@ export const yarleTests: Array<YarleTest> = [
     expectedOutputPath: '/data/test-externalLink-escape.md',
   },
 
+  {
+    name: ' Custom date format',
+    options: {
+      enexSource: './test/data/test-justTextButCustomDate.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      skipLocation: true,
+      keepMDCharactersOfENNotes: true,
+      dateFormat: 'YYYY MMMM DD',
+    },
+    testOutputPath: 'notes/test-justTextButCustomDate/test -note with text only.md',
+    expectedOutputPath: '/data/test-justTextButCustomDate.md',
+  },
+  {
+    name: 'multiple metadata content',
+    options: {
+      enexSource: './test/data/test-noteWithTags.enex',
+      outputDir: 'out',
+      templateFile: './test/data/multimeta-template.tmpl',
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.ObsidianMD,
+      skipEnexFileNameFromOutputPath: false,
+      keepMDCharactersOfENNotes: true,
+
+    },
+    testOutputPath: 'notes/test-noteWithTags/test -note with text only.md',
+    expectedOutputPath: '/data/test-noteWithTags-multi.md',
+
+  },
 ]

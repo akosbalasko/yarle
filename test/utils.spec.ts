@@ -95,7 +95,7 @@ describe('extensions', () => {
         const extension = utils.getExtension(resource);
         assert.equal(extension, 'png');
     });
-    it('Mime, filename has extension, mime has greater precendence - PNG', () => {
+    it('Mime, filename has extension, extension has greater precendence - JPG', () => {
         const resource = {
             mime: 'image/png',
             'resource-attributes': {
@@ -103,7 +103,7 @@ describe('extensions', () => {
             },
         };
         const extension = utils.getExtension(resource);
-        assert.equal(extension, 'png');
+        assert.equal(extension, 'jpg');
     });
     it('Mime, filename has extension, mime cannot be parsed - PNG', () => {
         const resource = {
@@ -149,7 +149,7 @@ describe('filename', () => {
             },
         };
         const fileProps = utils.getResourceFileProperties('./test/data', resource);
-        assert.equal(fileProps.fileName, 'fileName.png');
+        assert.equal(fileProps.fileName, 'fileName.jpg');
     });
     it('filename returned, file already exists, no extension', () => {
         const resource = {

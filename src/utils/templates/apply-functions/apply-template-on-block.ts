@@ -11,14 +11,14 @@ export const applyTemplateOnBlock = ({
 }: TemplateBlockSettings): string => {
   if (value && check()) {
     return template
-      .replace(startBlockPlaceholder, '')
-      .replace(endBlockPlaceholder, '')
-      .replace(valuePlaceholder, value);
+      .replace(new RegExp(`${startBlockPlaceholder}`,'g'), '')
+      .replace(new RegExp(`${endBlockPlaceholder}`,'g'), '')
+      .replace(new RegExp(`${valuePlaceholder}`,'g'), value);
+      
   }
-
+const reg = `${startBlockPlaceholder}([\\d\\D])(?:.|\n)*?(?=${endBlockPlaceholder})${endBlockPlaceholder}`;
   return template.replace(
-    new RegExp(
-      `${startBlockPlaceholder}${M.MATCH_ALL}${endBlockPlaceholder}`,
+    new RegExp(reg,
       'g',
     ),
     '',

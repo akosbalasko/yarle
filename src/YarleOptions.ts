@@ -4,6 +4,7 @@ import { TagSeparatorReplaceOptions } from 'models';
 export interface YarleOptions {
     enexSource?: string;
     templateFile?: string;
+    currentTemplate?: string;
     outputDir?: string;
     keepOriginalHtml?: boolean;
     isMetadataNeeded?: boolean;
@@ -21,5 +22,6 @@ export interface YarleOptions {
     skipEnexFileNameFromOutputPath?: boolean;
     keepMDCharactersOfENNotes?: boolean;
     monospaceIsCodeBlock?: boolean;
+    dateFormat?: string;
     nestedTags?: TagSeparatorReplaceOptions;
 }

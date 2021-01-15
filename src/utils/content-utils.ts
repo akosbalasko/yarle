@@ -9,16 +9,13 @@ import { getHtmlFileLink } from './folder-utils';
 
 export const getMetadata = (note: any, notebookName: string): MetaData => {
 
-  return yarleOptions.isMetadataNeeded
-    ? {
+  return {
         createdAt: getCreationTime(note),
         updatedAt: getUpdateTime(note),
         sourceUrl: getSourceUrl(note),
         location: getLatLong(note),
         linkToOriginal: getLinkToOriginal(note),
         notebookName,
-      }
-    : {
       };
 };
 
@@ -28,13 +25,13 @@ export const getTitle = (note: any): string => {
 
 export const getCreationTime = (note: any): string => {
   return !yarleOptions.skipCreationTime && note.created
-    ? Moment(note.created).format()
-    : undefined;
+  ? Moment(note.created).format(yarleOptions.dateFormat)
+  : undefined;
 };
 
 export const getUpdateTime = (note: any): string => {
   return !yarleOptions.skipUpdateTime && note.updated
-    ? Moment(note.updated).format()
+    ? Moment(note.updated).format(yarleOptions.dateFormat)
     : undefined;
 };
 
@@ -54,11 +51,11 @@ export const getLatLong = (note: any): string => {
   return !yarleOptions.skipLocation &&
     note['note-attributes'] &&
     note['note-attributes'].longitude
-    ? `${note['note-attributes'].longitude},${note['note-attributes'].latitude}`
+    ? `${note['note-attributes'].latitude},${note['note-attributes'].longitude}`
     : undefined;
 };
 export const getTags = (note: any): NoteData => {
-  return yarleOptions.isMetadataNeeded ? {tags: logTags(note)} : undefined;
+  return {tags: logTags(note)};
 
 };
 

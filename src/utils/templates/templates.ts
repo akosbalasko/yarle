@@ -1,6 +1,7 @@
 import * as fs from 'fs';
 import * as T from './placeholders/metadata-placeholders';
-import { defaultTemplate } from './default-template';
+import * as M from './match-all';
+
 import { YarleOptions } from '../../YarleOptions';
 import { NoteData } from '../../models/NoteData';
 import {
@@ -17,6 +18,7 @@ import {
 
 import {
   removeCreatedAtPlaceholder,
+  removeLinkToOriginalTemplate,
   removeLocationPlaceholder,
   removeMetadataBlockPlaceholder,
   removeNotebookPlaceholder,
@@ -24,19 +26,19 @@ import {
   removeUpdatedAtPlaceholder,
  } from './remove-functions';
 
+import { cloneDeep } from 'lodash';
+
 export const applyTemplate = (noteData: NoteData, yarleOptions: YarleOptions) => {
-  let result = defaultTemplate;
-  if (yarleOptions.templateFile) {
-    // todo: handle file not exists error
-    result = fs.readFileSync(yarleOptions.templateFile, 'utf-8');
-  }
+  
+  let result = cloneDeep(yarleOptions.currentTemplate);
 
   result = applyTitleTemplate(noteData, result, () => noteData.title);
   result = applyTagsTemplate(noteData, result, () => !yarleOptions.skipTags);
   result = applyContentTemplate(noteData, result, () => noteData.content);
-  result = applyLinkToOriginalTemplate(noteData, result);
 
-  if (yarleOptions.isMetadataNeeded) {
+    result = (yarleOptions.keepOriginalHtml && noteData.linkToOriginal)
+      ? applyLinkToOriginalTemplate(noteData, result)
+      : removeLinkToOriginalTemplate(result);
 
     result = (!yarleOptions.skipCreationTime && noteData.createdAt)
       ? applyCreatedAtTemplate(noteData, result)
@@ -58,12 +60,8 @@ export const applyTemplate = (noteData: NoteData, yarleOptions: YarleOptions) =>
       ? applyNotebookTemplate(noteData, result)
       : removeNotebookPlaceholder(result);
 
-    result = result
-      .replace(T.START_BLOCK, '')
+    result = result.replace(T.START_BLOCK, '')
       .replace(T.END_BLOCK, '');
-  } else {
-    result = removeMetadataBlockPlaceholder(result);
-  }
 
   return result;
 };

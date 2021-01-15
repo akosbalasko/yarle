@@ -6,6 +6,8 @@ import { YarleOptions } from './YarleOptions';
 import { processNode } from './process-node';
 import { isWebClip } from './utils/note-utils';
 import { logger } from './utils/logger';
+import { hasCreationTimeInTemplate, hasLocationInTemplate, hasSourceURLInTemplate, hasTagsInTemplate, hasUpdateTimeInTemplate, hasNotebookInTemplate, hasLinkToOriginalInTemplate } from './utils/templates/checker-functions';
+import { defaultTemplate } from './utils/templates/default-template';
 
 export const defaultYarleOptions: YarleOptions = {
   enexSource: 'notebook.enex',
@@ -28,6 +30,23 @@ export let yarleOptions: YarleOptions = { ...defaultYarleOptions };
 
 const setOptions = (options: YarleOptions): void => {
   yarleOptions = { ...defaultYarleOptions, ...options };
+  let template = defaultTemplate;
+
+  if (yarleOptions.templateFile) {
+    template = fs.readFileSync(yarleOptions.templateFile, 'utf-8');
+  }
+  /*if (yarleOptions.templateFile) {*/
+  // todo: handle file not exists error
+  yarleOptions.skipCreationTime = !hasCreationTimeInTemplate(template);
+  yarleOptions.skipLocation = !hasLocationInTemplate(template);
+  yarleOptions.skipSourceUrl = !hasSourceURLInTemplate(template);
+  yarleOptions.skipTags = !hasTagsInTemplate(template);
+  yarleOptions.skipUpdateTime = !hasUpdateTimeInTemplate(template);
+  yarleOptions.isNotebookNameNeeded = hasNotebookInTemplate(template);
+  yarleOptions.keepOriginalHtml = hasLinkToOriginalInTemplate(template);
+
+  yarleOptions.currentTemplate = template;
+  /*}*/
 };
 
 export const parseStream = async (options: YarleOptions): Promise<void> => {
@@ -49,7 +68,7 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
       return reject();
     };
     if (!fs.existsSync(options.enexSource)) {
-      return logAndReject({name: 'NoSuchFileOrDirectory', message: 'source Enex file does not exists'});
+      return logAndReject({ name: 'NoSuchFileOrDirectory', message: 'source Enex file does not exists' });
     }
 
     const xml = flow(stream);
@@ -61,8 +80,8 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
 
     xml.on('tag:note', (note: any) => {
       if (options.skipWebClips && isWebClip(note)) {
-          ++skipped;
-          logger.info(`Notes skipped: ${skipped}`);
+        ++skipped;
+        console.log(`Notes skipped: ${skipped}`);
       } else {
         if (noteAttributes) {
           // make sure single attributes are not collapsed
@@ -70,7 +89,7 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
         }
         processNode(note, notebookName);
         ++noteNumber;
-        logger.info(`Notes processed: ${noteNumber}`);
+        console.log(`Notes processed: ${noteNumber}\n\n`);
       }
       noteAttributes = null;
     });
@@ -78,7 +97,8 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
     xml.on('end', () => {
       const success = noteNumber - failed;
       const totalNotes = noteNumber + skipped;
-      logger.info(
+      console.log("==========================");
+      console.log(
         `Conversion finished: ${success} succeeded, ${skipped} skipped, ${failed} failed. Total notes: ${totalNotes}`,
       );
 
