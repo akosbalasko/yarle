@@ -1,6 +1,6 @@
 import { YarleOptions } from "./../YarleOptions";
 import { store } from './store';
-import { OutputFormat } from "output-format";
+import { OutputFormat } from "./../output-format";
 
 export const mapSettingsToYarleOptions = (): YarleOptions => {
     return {

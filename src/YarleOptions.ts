@@ -1,5 +1,5 @@
 import { OutputFormat } from './output-format';
-import { TagSeparatorReplaceOptions } from 'models';
+import { TagSeparatorReplaceOptions } from './models';
 
 export interface YarleOptions {
     enexSource?: string;
