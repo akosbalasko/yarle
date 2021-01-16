@@ -44,12 +44,12 @@ const addMediaReference = (content: string, resourceHashes: any, hash: any, rela
   const mediaType = matchedElements && matchedElements.length > 0 && matchedElements[0].split('type=');
   if (mediaType && mediaType.length > 1 && mediaType[1].startsWith('"image')) {
     const width = matchedElements[0].match(/width="(\w+)"/);
-    const widthParam = width ? `width="${width[1]}"` : '';
+    const widthParam = width ? ` width="${width[1]}"` : '';
 
     const height = matchedElements[0].match(/height="(\w+)"/);
-    const heightParam = height ? `height="${height[1]}"` : '';
+    const heightParam = height ? ` height="${height[1]}"` : '';
 
-    updatedContent = content.replace(re, `<img src="${src}" ${widthParam} ${heightParam} alt="${resourceHashes[hash].fileName}">`);
+    updatedContent = content.replace(re, `<img src="${src}"${widthParam}${heightParam} alt="${resourceHashes[hash].fileName}">`);
   } else {
     updatedContent = content.replace(re, `<a href="${src}">${resourceHashes[hash].fileName}</a>`);
   }
