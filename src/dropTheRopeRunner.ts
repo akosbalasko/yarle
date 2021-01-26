@@ -2,13 +2,18 @@
 // tslint:disable:no-console
 
 import * as fs from 'fs';
+import * as path from 'path';
 
 import * as yarle from './yarle';
 import { YarleOptions } from './YarleOptions';
 
 export const run = async (opts?: YarleOptions) => {
     var argv = require('minimist')(process.argv.slice(2));
-    let configFile = argv['configFile'] ? `${process.cwd()}/${argv['configFile']}`:`${__dirname}/../config.json`;
+    let configFile = argv['configFile']
+        ? path.isAbsolute(argv['configFile'])
+            ? argv['configFile']
+            : `${process.cwd()}/${argv['configFile']}`
+        :`${__dirname}/../config.json`;
     console.log(`Loading config from ${configFile}`);
     const options: YarleOptions = {...require(configFile),...opts};
     if (options.enexSource.endsWith('.enex')) {
