@@ -278,6 +278,7 @@
     ipcRenderer.on('storedSettingsLoaded', (event, store) => {
       for (const storeItemName of Object.keys(store)) {
         const entry = document.getElementById(storeItemName);
+        console.log(`checking store: ${storeItemName}`)
         if (entry.type === 'checkbox') {
           entry.checked = store[storeItemName] === true;
         } else {

@@ -81,7 +81,7 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
     xml.on('tag:note', (note: any) => {
       if (options.skipWebClips && isWebClip(note)) {
         ++skipped;
-        console.log(`Notes skipped: ${skipped}`);
+        logger.info(`Notes skipped: ${skipped}`);
       } else {
         if (noteAttributes) {
           // make sure single attributes are not collapsed
@@ -89,7 +89,7 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
         }
         processNode(note, notebookName);
         ++noteNumber;
-        console.log(`Notes processed: ${noteNumber}\n\n`);
+        logger.info(`Notes processed: ${noteNumber}\n\n`);
       }
       noteAttributes = null;
     });
@@ -97,8 +97,8 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
     xml.on('end', () => {
       const success = noteNumber - failed;
       const totalNotes = noteNumber + skipped;
-      console.log("==========================");
-      console.log(
+      logger.info("==========================");
+      logger.info(
         `Conversion finished: ${success} succeeded, ${skipped} skipped, ${failed} failed. Total notes: ${totalNotes}`,
       );
 

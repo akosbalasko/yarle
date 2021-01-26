@@ -59,10 +59,8 @@ ipcMain.on('openEnexSource', () => {
   var { dialog } = require('electron');
   dialog.showOpenDialog(
     { 
-      properties: ['openFile'],
-      filters: [
-        { name: 'Enex files', extensions: ['enex'] },
-      ]
+      properties: ['openDirectory'],
+      
     }).then((result: any) => {
       logger.info(result.canceled)
       logger.info(result.filePaths)

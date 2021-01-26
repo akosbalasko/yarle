@@ -12,7 +12,7 @@
   ],
   "main": "dist/ui/index.js",
   "bin": {
-    "yarle": "./dist/dropTheRope.js"
+    "yarle": "./execute.js"
   },
   "scripts": {
     "clean": "rm -f -r ./out && rm -f -r ./dist && rm -r -f ./node_modules",
@@ -26,7 +26,7 @@
     "test-watch": "mocha --watch",
     "package": "electron-forge package",
     "make": "electron-forge make",
-    "start": "tsc && electron-forge start",
+    "start": "tsc  --project ./src/tsconfig.json && electron-forge start",
     "publish": "electron-forge publish",
     "css-build": "node-sass --omit-source-map-url ./src/ui/sass/purecss.scss ./src/ui/css/purecss.css",
     "css-watch": "npm run css-build -- --watch",
@@ -38,7 +38,6 @@
     "chokidar": "^3.4.3",
     "electron-squirrel-startup": "^1.0.0",
     "electron-store": "^6.0.1",
-    "execSync": "1.0.2",
     "fast-xml-parser": "3.12.5",
     "fs-extra": "4.0.2",
     "he": "1.2.0",
@@ -77,7 +76,6 @@
     "@electron-forge/maker-rpm": "^6.0.0-beta.54",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
     "@electron-forge/maker-zip": "^6.0.0-beta.54",
-    "execSync": "1.0.2",
     "@types/he": "1.1.1",
     "@types/jsdom": "16.2.4",
     "@types/lodash": "4.14.151",

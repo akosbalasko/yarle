@@ -16,8 +16,8 @@ import { logger } from './utils/logger';
 export const processNode = (note: any, notebookName: string): void => {
 
   let dateStarted: Date = new Date();  
-  console.log("\n");
-  console.log("Started conversion: " + dateStarted);
+  logger.info("\n");
+  logger.info("Started conversion: " + dateStarted);
 
   if (Array.isArray(note.content))
     note.content = note.content.join('');
@@ -29,7 +29,7 @@ export const processNode = (note: any, notebookName: string): void => {
   };
 
   // tslint:disable-next-line:no-console
-  console.log(`Converting note "${noteData.title}"...`);
+  logger.info(`Converting note "${noteData.title}"...`);
 
   try {
     if (isComplex(note)) {
@@ -58,8 +58,8 @@ export const processNode = (note: any, notebookName: string): void => {
   // tslint:disable-next-line:no-console
   let dateFinished: Date = new Date();  
   let conversionDuration = (dateFinished.getTime()- dateStarted.getTime())/1000; //in seconds.
-  console.log("Finished conversion: " + dateFinished);  
-  console.log(`Note "${noteData.title}" converted successfully in ${conversionDuration} seconds.`);
+  logger.info("Finished conversion: " + dateFinished);  
+  logger.info(`Note "${noteData.title}" converted successfully in ${conversionDuration} seconds.`);
   
 
 };
