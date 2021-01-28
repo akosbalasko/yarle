@@ -40,14 +40,21 @@ const addMediaReference = (content: string, resourceHashes: any, hash: any, rela
   const replace = `<en-media ([^>]*)hash="${hash}".([^>]*)>`;
   const re = new RegExp(replace, 'g');
   const matchedElements = content.match(re);
-  updatedContent = (matchedElements && matchedElements.length > 0 &&
-    matchedElements[0].split('type=').length > 1 &&
-    matchedElements[0].split('type=')[1].startsWith('"image')) ?
-    content.replace(re, `<img src="${src}" alt="${resourceHashes[hash].fileName}">`) :
-    content.replace(re, `<a href="${src}">${resourceHashes[hash].fileName}</a>`);
+
+  const mediaType = matchedElements && matchedElements.length > 0 && matchedElements[0].split('type=');
+  if (mediaType && mediaType.length > 1 && mediaType[1].startsWith('"image')) {
+    const width = matchedElements[0].match(/width="(\w+)"/);
+    const widthParam = width ? ` width="${width[1]}"` : '';
+
+    const height = matchedElements[0].match(/height="(\w+)"/);
+    const heightParam = height ? ` height="${height[1]}"` : '';
+
+    updatedContent = content.replace(re, `<img src="${src}"${widthParam}${heightParam} alt="${resourceHashes[hash].fileName}">`);
+  } else {
+    updatedContent = content.replace(re, `<a href="${src}">${resourceHashes[hash].fileName}</a>`);
+  }
 
   return updatedContent;
-
 };
 
 const processResource = (workDir: string, resource: any): any => {
