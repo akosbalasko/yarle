@@ -14,8 +14,13 @@ export const imagesRule = {
     }
     const value = nodeProxy.src.value;
 
-    if (yarleOptions.outputFormat === OutputFormat.ObsidianMD &&
-        !value.match(/^[a-z]+:/)) {
+    const useObsidianMD = yarleOptions.outputFormat === OutputFormat.ObsidianMD;
+
+    if (useObsidianMD && yarleOptions.keepObsidianImageSize) {
+      return `![|${node.width}x${node.height}](${value})`;
+    }
+
+    if (useObsidianMD && !value.match(/^[a-z]+:/)) {
       return `![[${value}]]`;
     }
 
