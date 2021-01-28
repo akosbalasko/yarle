@@ -9,8 +9,8 @@ export const processResources = (note: any): string => {
     let resourceHashes: any = {};
     let updatedContent = cloneDeep(note.content);
 
-    const relativeResourceWorkDir = `${utils.getResourceDir(utils.paths.mdPath, note)}.resources`;
-    const absoluteResourceWorkDir = `${utils.paths.resourcePath}/${relativeResourceWorkDir}`;
+    const relativeResourceWorkDir = utils.getRelativeResourceDir(note);
+    const absoluteResourceWorkDir = utils.getAbsoluteResourceDir(note);
 
     utils.clearResourceDir(note);
     if (Array.isArray(note.resource)) {
@@ -20,7 +20,6 @@ export const processResources = (note: any): string => {
           ...processResource(absoluteResourceWorkDir, resource)};
       }
     } else {
-      utils.clearResourceDir(note);
       resourceHashes = {
         ...resourceHashes,
         ...processResource(absoluteResourceWorkDir, note.resource)};
@@ -33,9 +32,9 @@ export const processResources = (note: any): string => {
     return updatedContent;
   };
 
-const addMediaReference = (content: string, resourceHashes: any, hash: any, relativeResourceWorkDir: string): string => {
+const addMediaReference = (content: string, resourceHashes: any, hash: any, workDir: string): string => {
+  const src = `${workDir}/${resourceHashes[hash].fileName.replace(/ /g, '\ ')}`;
 
-  const src = `./_resources/${relativeResourceWorkDir}/${resourceHashes[hash].fileName.replace(/ /g, '\ ')}`;
   let updatedContent = cloneDeep(content);
   const replace = `<en-media ([^>]*)hash="${hash}".([^>]*)>`;
   const re = new RegExp(replace, 'g');
@@ -71,7 +70,6 @@ const processResource = (workDir: string, resource: any): any => {
     const atime = accessTime.valueOf() / 1000;
     fs.utimesSync(absFilePath, atime, atime);
 
-    // tslint:disable-next-line: curly
     if (resource.recognition && fileName) {
       const hashIndex = resource.recognition.match(/[a-f0-9]{32}/);
       resourceHash[hashIndex as any] = {fileName, alreadyUsed: false} as ResourceHashItem;
