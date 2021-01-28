@@ -139,7 +139,34 @@ describe('Yarle special cases', async () => {
       fs.readFileSync(`${__dirname}/data/test-textWithImage.md`, 'utf8'),
     );
   });
+  it('Absolute paths', async () => {
+    const options: YarleOptions = {
+      enexSource: './test/data/test-textWithImage.enex',
+      outputDir: '/tmp/out',
+      isMetadataNeeded: true,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `/tmp/out/notes/test-textWithImage/Untitled.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.existsSync(
+        `/tmp/out/notes/test-textWithImage/_resources/Untitled.resources`,
+      ),
+      true,
+    );
 
+    assert.equal(
+      fs.readFileSync(
+        `/tmp/out/notes//test-textWithImage/Untitled.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-textWithImage.md`, 'utf8'),
+    );
+  });
   it('Enex file with multiple notes', async () => {
     const options: YarleOptions = {
       enexSource: './test/data/test-twoNotes.enex',

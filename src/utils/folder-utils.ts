@@ -1,6 +1,6 @@
 import fsExtra from 'fs-extra';
 import fs from 'fs';
-
+import * as path from 'path';
 import { Path } from '../paths';
 import { yarleOptions } from '../yarle';
 
@@ -72,13 +72,16 @@ export const clearMdNotesDistDir = (): void => {
 
 export const setPaths = (): void => {
   const enexFolder = yarleOptions.enexSource.split('/');
-  const enexFile = (enexFolder.length >= 1 ? enexFolder[enexFolder.length - 1] : enexFolder[0]).split('.')[0];
+  const enexFile = (enexFolder.length >= 1 ?  enexFolder[enexFolder.length - 1] : enexFolder[0]).split('.')[0];
+  const outputDir = path.isAbsolute(yarleOptions.outputDir)
+    ? yarleOptions.outputDir
+    : `${process.cwd()}/${yarleOptions.outputDir}`;
 
-  paths.mdPath = `${process.cwd()}/${yarleOptions.outputDir}/notes/`;
-  paths.resourcePath = `${process.cwd()}/${yarleOptions.outputDir}/notes/_resources`;
+  paths.mdPath = `${outputDir}/notes/`;
+  paths.resourcePath = `${outputDir}/notes/_resources`;
   if (!yarleOptions.skipEnexFileNameFromOutputPath) {
     paths.mdPath = `${paths.mdPath}${enexFile}`;
-    paths.resourcePath = `${process.cwd()}/${yarleOptions.outputDir}/notes/${enexFile}/_resources`;
+    paths.resourcePath = `${outputDir}/notes/${enexFile}/_resources`;
   }
   fsExtra.mkdirsSync(paths.mdPath);
   fsExtra.mkdirsSync(paths.resourcePath);
