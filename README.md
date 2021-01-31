@@ -7,7 +7,7 @@ Yarle is the ultimate converter of Evernote notes to Markdown.
 
 ### Yarle can convert:
 - :memo: Any text
-- :memo: All metadata: original creation time, last modification time, tags, GPS location, notebook name, source URL 
+- :memo: All metadata: original creation time, last modification time, tags, GPS location, notebook name, source URL
 - :link: External links
 - :link: Internal links among Evernote notes
 - :computer: Codeblocks
@@ -15,11 +15,11 @@ Yarle is the ultimate converter of Evernote notes to Markdown.
 - :paperclip: Attachments
 - :page_facing_up: Webclips
 
-### Works with: 
+### Works with:
 - :notebook: single enex file (one notebook exported from Evernote)
 - :books: or a folder of enex files supported (several notebooks exported and placed into the same folder locally)
 
-### Highly customizable: 
+### Highly customizable:
 
 
 - :rocket: Creates Markdown files matching to user-defined templates, see Templates introduced. See [How to use templates with YARLE](Templates.md) for details.
@@ -73,7 +73,7 @@ The following configurational properties are available:
 |```isZettelkastenNeeded``` |  true or false | puts Zettelkasten Id (based on time of creation) at the beginning of the file name|
 |```plaintextNotesOnly``` |  true or false | skips any notes with attachments (e.g. notes containing pictures)|
 |```useHashTags```|  true or false | whether to add the pound sign in front of tags|
-|```outputFormat```|  true or false | generates internal file links and highlights in Obsidian-style: highlights are going to be bounded by `==` instead of \` characters, file links are going to be as follows: `![[file-name]]` instead of `![file-name](file-name)`. Possible values: `ObsidianMD` to get Obsidian-style notes, `StandardMD` or skip it completely, if you prefer Standard Markdown format.|
+|```outputFormat```|  `ObsidianMD` or `StandardMD` | generates internal file links and highlights in Obsidian-style: highlights are going to be bounded by `==` instead of \` characters, file links are going to be as follows: `![[file-name]]` instead of `![file-name](file-name)`. Possible values: `ObsidianMD` to get Obsidian-style notes, `StandardMD` or skip it completely, if you prefer Standard Markdown format.|
 |```haveEnexLevelResources```|  true or false | stores note resources on global _resources folder per enex export if enabled |
 |```monospaceIsCodeBlock```| true or false | if it's true then all deepest elements with monospace font style is recognized as Codeblocks|
 | ```dateFormat``` | string | ISO 8601 specification of the expected date format (e.g. YYYY-MM-DD)
