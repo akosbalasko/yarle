@@ -14,12 +14,17 @@ export const imagesRule = {
     }
     const value = nodeProxy.src.value;
 
-    const useObsidianMD = yarleOptions.outputFormat === OutputFormat.ObsidianMD;
+    // while this isn't really a standard, it is common enough
+    if (yarleOptions.keepImageSize === OutputFormat.StandardMD) {
+      const widthParam = node.width || '';
+      const heightParam = node.height || '';
 
-    if (useObsidianMD && yarleOptions.keepObsidianImageSize) {
+      return `![](${value} =${widthParam}x${heightParam})`;
+    } else if (yarleOptions.keepImageSize === OutputFormat.ObsidianMD) {
       return `![|${node.width}x${node.height}](${value})`;
     }
 
+    const useObsidianMD = yarleOptions.outputFormat === OutputFormat.ObsidianMD;
     if (useObsidianMD && !value.match(/^[a-z]+:/)) {
       return `![[${value}]]`;
     }

@@ -25,5 +25,5 @@ export interface YarleOptions {
     monospaceIsCodeBlock?: boolean;
     dateFormat?: string;
     nestedTags?: TagSeparatorReplaceOptions;
-    keepObsidianImageSize?: boolean;
+    keepImageSize?: OutputFormat;
 }
