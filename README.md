@@ -52,6 +52,7 @@ To configure Yarle, you must create a config file. By default it looks like this
     "skipWebClips": false,
     "useHashTags": true,
     "outputFormat": "StandardMD",
+    "urlEncodeFileNamesAndLinks": false,
     "skipEnexFileNameFromOutputPath": false,
     "haveEnexLevelResources": false,
     "monospaceIsCodeBlock": false,
