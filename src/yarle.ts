@@ -7,6 +7,7 @@ import { processNode } from './process-node';
 import { isWebClip } from './utils/note-utils';
 import { hasCreationTimeInTemplate, hasLocationInTemplate, hasSourceURLInTemplate, hasTagsInTemplate, hasUpdateTimeInTemplate, hasNotebookInTemplate, hasLinkToOriginalInTemplate } from './utils/templates/checker-functions';
 import { defaultTemplate } from './utils/templates/default-template';
+import { OutputFormat } from 'output-format';
 
 export const defaultYarleOptions: YarleOptions = {
   enexSource: 'notebook.enex',
@@ -22,7 +23,9 @@ export const defaultYarleOptions: YarleOptions = {
     separatorInEN: '_',
     replaceSeparatorWith: '/',
     replaceSpaceWith: '-'
-  }
+  },
+  outputFormat: OutputFormat.StandardMD,
+  urlEncodeFileNamesAndLinks: false,
 };
 
 export let yarleOptions: YarleOptions = { ...defaultYarleOptions };

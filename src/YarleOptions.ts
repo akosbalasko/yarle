@@ -22,6 +22,7 @@ export interface YarleOptions {
     skipEnexFileNameFromOutputPath?: boolean;
     haveEnexLevelResources?: boolean;
     keepMDCharactersOfENNotes?: boolean;
+    urlEncodeFileNamesAndLinks?: boolean;
     monospaceIsCodeBlock?: boolean;
     dateFormat?: string;
     nestedTags?: TagSeparatorReplaceOptions;

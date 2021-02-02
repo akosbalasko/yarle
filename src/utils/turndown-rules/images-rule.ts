@@ -13,27 +13,26 @@ export const imagesRule = {
       return '';
     }
     const value = nodeProxy.src.value;
+    const realValue = yarleOptions.urlEncodeFileNamesAndLinks ? encodeURI(value) : value;
 
     // while this isn't really a standard, it is common enough
     if (yarleOptions.keepImageSize === OutputFormat.StandardMD) {
       const widthParam = node.width || '';
       const heightParam = node.height || '';
-
-      return `![](${value} =${widthParam}x${heightParam})`;
+      
+      return `![](${realValue} =${widthParam}x${heightParam})`;
     } else if (yarleOptions.keepImageSize === OutputFormat.ObsidianMD) {
-      return `![|${node.width}x${node.height}](${value})`;
+      return `![|${node.width}x${node.height}](${realValue})`;
     }
 
     const useObsidianMD = yarleOptions.outputFormat === OutputFormat.ObsidianMD;
     if (useObsidianMD && !value.match(/^[a-z]+:/)) {
-      return `![[${value}]]`;
+      return `![[${realValue}]]`;
     }
 
     const srcSpl = nodeProxy.src.value.split('/');
-    if (yarleOptions.outputFormat === OutputFormat.UrlEncodeMD) {
-      return `![${srcSpl[srcSpl.length - 1]}](${encodeURI(value)})`;
-    }
 
-    return `![${srcSpl[srcSpl.length - 1]}](${value})`;
+
+    return `![${srcSpl[srcSpl.length - 1]}](${realValue})`;
   },
 };

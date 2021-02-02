@@ -428,7 +428,7 @@ export const yarleTests: Array<YarleTest> = [
       enexSource: './test/data/test-urlencode.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
-      outputFormat: OutputFormat.UrlEncodeMD,
+      urlEncodeFileNamesAndLinks: true,
     },
     testOutputPath: 'notes/test-urlencode/test - note with picture (filename with spaces).md',
 
