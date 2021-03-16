@@ -647,4 +647,22 @@ export const yarleTests: Array<YarleTest> = [
     expectedOutputPath: '/data/test-noteWithTags-multi.md',
 
   },
+
+  {
+    name: 'hanging enex',
+    options: {
+      enexSource: './test/data/huge-html.enex',
+      outputDir: 'out',
+      templateFile: './test/data/multimeta-template.tmpl',
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.ObsidianMD,
+      skipEnexFileNameFromOutputPath: false,
+      keepMDCharactersOfENNotes: true,
+
+    },
+    testOutputPath: 'notes/huge-html/Untitled Note.md',
+    expectedOutputPath: '/data/test-hugeHtml.md',
+
+
+  },
 ]
