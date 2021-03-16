@@ -41,7 +41,7 @@ export const convertHtml2Md = (yarleOptions: YarleOptions, { htmlContent }: Note
       .replace(/<div[^\/\<]*\/>/g, '');
     const contentNode = new JSDOM(content).window.document
       .getElementsByTagName('en-note').item(0) as any as HTMLElement;
-    const contentInMd = getTurndownService(yarleOptions).turndown(fixSublists(contentNode));
-
+    let contentInMd = getTurndownService(yarleOptions).turndown(fixSublists(contentNode));
+    contentInMd = contentInMd.replace(/\n<YARLE_NEWLINE_PLACEHOLDER>/g,'');
     return contentInMd && contentInMd !== 'undefined' ? { content: contentInMd } : {content: ''};
 };
