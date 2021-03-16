@@ -651,7 +651,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'hanging enex',
     options: {
-      enexSource: './test/data/Dying for Christianity millions at risk amid rise in persecution across the globe  World news  The Guardian.enex',
+      enexSource: './test/data/huge-html.enex',
       outputDir: 'out',
       templateFile: './test/data/multimeta-template.tmpl',
       isMetadataNeeded: true,
@@ -660,9 +660,8 @@ export const yarleTests: Array<YarleTest> = [
       keepMDCharactersOfENNotes: true,
 
     },
-    testOutputPath: 'notes/test-hanging/Dying for Christianity millions at risk amid rise in persecution across the globe  World news  The Guardian.md',
-    expectedOutputPath: '/data/test-noteWithTags-multi.md',
-    testModifier: YarleTestModifierOptions.skip,
+    testOutputPath: 'notes/huge-html/Untitled Note.md',
+    expectedOutputPath: '/data/test-hugeHtml.md',
 
 
   },
