@@ -1,4 +1,5 @@
 import { JSDOM } from 'jsdom';
+const {EOL} = require('os');
 
 import { getTurndownService } from './utils/turndown-service';
 import { NoteData } from './models/NoteData';
@@ -42,6 +43,7 @@ export const convertHtml2Md = (yarleOptions: YarleOptions, { htmlContent }: Note
     const contentNode = new JSDOM(content).window.document
       .getElementsByTagName('en-note').item(0) as any as HTMLElement;
     let contentInMd = getTurndownService(yarleOptions).turndown(fixSublists(contentNode));
-    contentInMd = contentInMd.replace(/\n<YARLE_NEWLINE_PLACEHOLDER>/g,'');
+    const newLinePlaceholder = new RegExp(`${EOL}?<YARLE_NEWLINE_PLACEHOLDER>`, 'g');
+    contentInMd = contentInMd.replace(newLinePlaceholder,'');
     return contentInMd && contentInMd !== 'undefined' ? { content: contentInMd } : {content: ''};
 };
