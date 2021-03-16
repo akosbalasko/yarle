@@ -15,5 +15,6 @@
     "skipTags": false,
     "useHashTags": true,
     "outputFormat": "StandardMD",
-    "skipEnexFileNameFromOutputPath": false
+    "skipEnexFileNameFromOutputPath": false,
+    "keepOriginalAmountOfNewlines": false
 }
