@@ -647,7 +647,6 @@ export const yarleTests: Array<YarleTest> = [
     expectedOutputPath: '/data/test-noteWithTags-multi.md',
 
   },
-
   {
     name: 'multiple metadata content',
     options: {
@@ -664,6 +663,22 @@ export const yarleTests: Array<YarleTest> = [
     testOutputPath: 'notes/test-justText/test -note with text only.md',
     expectedOutputPath: '/data/test-indend-newlines.md',
     testModifier: YarleTestModifierOptions.skip
+  },
+  {
+    name: 'hanging enex',
+    options: {
+      enexSource: './test/data/huge-html.enex',
+      outputDir: 'out',
+      templateFile: './test/data/multimeta-template.tmpl',
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.ObsidianMD,
+      skipEnexFileNameFromOutputPath: false,
+      keepMDCharactersOfENNotes: true,
+
+    },
+    testOutputPath: 'notes/huge-html/Untitled Note.md',
+    expectedOutputPath: '/data/test-hugeHtml.md',
+
 
   },
 ]

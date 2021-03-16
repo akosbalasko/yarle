@@ -24,20 +24,21 @@ const fixSublists = (node: HTMLElement) => {
     // The contents of every EN list item are wrapped by a div element. `<li><div>foo</div></li>`
     // We need to remove this `<div>`, since it's a block element and will lead to unwanted whitespace otherwise
     const liElements: Array<HTMLElement> = Array.from(node.getElementsByTagName('li'));
-    liElements.forEach(liNode => {
+    for (const liNode of liElements) {
       const listNodeDiv = liNode.firstElementChild;
       if (listNodeDiv && listNodeDiv.tagName === 'DIV') {
         const childElementsArr = Array.from(listNodeDiv.childNodes);
         listNodeDiv.replaceWith(...childElementsArr);
       }
-    });
+    };
 
     return node;
 };
 
 export const convertHtml2Md = (yarleOptions: YarleOptions, { htmlContent }: NoteData): NoteData => {
     const content = htmlContent.replace(/<!DOCTYPE en-note [^>]*>/, '<!DOCTYPE html>')
-      .replace(/(<a [^>]*)\/>/, '$1></a>');
+      .replace(/(<a [^>]*)\/>/, '$1></a>')
+      .replace(/<div[^\/\<]*\/>/g, '');
     const contentNode = new JSDOM(content).window.document
       .getElementsByTagName('en-note').item(0) as any as HTMLElement;
     let contentInMd = getTurndownService(yarleOptions).turndown(fixSublists(contentNode));
