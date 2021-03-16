@@ -27,4 +27,5 @@ export interface YarleOptions {
     dateFormat?: string;
     nestedTags?: TagSeparatorReplaceOptions;
     keepImageSize?: OutputFormat;
+    keepOriginalAmountOfNewlines?: boolean;
 }

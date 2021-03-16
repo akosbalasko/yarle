@@ -2,7 +2,7 @@ import TurndownService from 'turndown';
 import { gfm } from 'joplin-turndown-plugin-gfm';
 import { YarleOptions } from './../YarleOptions';
 
-import { monospaceCodeBlockRule, codeBlockRule, imagesRule, spanRule, taskItemsRule, wikiStyleLinksRule } from './turndown-rules';
+import { monospaceCodeBlockRule, newLineRule, codeBlockRule, imagesRule, spanRule, taskItemsRule, wikiStyleLinksRule } from './turndown-rules';
 
 /* istanbul ignore next */
 const turndownService = new TurndownService({
@@ -34,5 +34,7 @@ export const getTurndownService = (yarleOptions: YarleOptions) => {
     else
         turndownService.addRule('codeblocks', codeBlockRule);
 
+    if (yarleOptions.keepOriginalAmountOfNewlines)
+        turndownService.addRule('newline', newLineRule);
     return turndownService;
 };
