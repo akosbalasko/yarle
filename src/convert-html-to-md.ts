@@ -43,7 +43,7 @@ export const convertHtml2Md = (yarleOptions: YarleOptions, { htmlContent }: Note
     const contentNode = new JSDOM(content).window.document
       .getElementsByTagName('en-note').item(0) as any as HTMLElement;
     let contentInMd = getTurndownService(yarleOptions).turndown(fixSublists(contentNode));
-    const newLinePlaceholder = new RegExp(`${EOL}?<YARLE_NEWLINE_PLACEHOLDER>`, 'g');
+    const newLinePlaceholder = new RegExp('<YARLE_NEWLINE_PLACEHOLDER>', 'g');
     contentInMd = contentInMd.replace(newLinePlaceholder,'');
     return contentInMd && contentInMd !== 'undefined' ? { content: contentInMd } : {content: ''};
 };

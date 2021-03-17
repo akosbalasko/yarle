@@ -660,9 +660,8 @@ export const yarleTests: Array<YarleTest> = [
       keepOriginalAmountOfNewlines: true,
 
     },
-    testOutputPath: 'notes/test-justText/test -note with text only.md',
-    expectedOutputPath: '/data/test-indend-newlines.md',
-    testModifier: YarleTestModifierOptions.skip
+    testOutputPath: 'notes/test-intend-newlines/test -note with text only.md',
+    expectedOutputPath: '/data/test-intend-newlines.md',
   },
   {
     name: 'hanging enex',
