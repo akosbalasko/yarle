@@ -37,7 +37,7 @@ export const wikiStyleLinksRule = {
 
         if (value.match(/^(https?:|www\.|file:|ftp:|mailto:)/)) {
             return (!token['text'] || _.unescape(token['text']) === _.unescape(value))
-                ? `<${value}>`
+                ? yarleOptions.generateNakedUrls ? value : `<${value}>`
                 : `${token['mdKeyword']}[${token['text']}](${value})`;
         }
         if (value.startsWith('evernote://')) {
