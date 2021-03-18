@@ -1,6 +1,6 @@
 {
   "name": "yarle-evernote-to-md",
-  "version": "3.12.4",
+  "version": "3.12.2",
   "description": "Yet Another Rope Ladder from Evernote",
   "keywords": [
     "evernote",
@@ -10,9 +10,9 @@
     "markdown",
     "enex to md"
   ],
-  "main": "./dropTheRope.sh",
+  "main": "./dist/dropTheRope.js",
   "bin": {
-    "yarle": "./dropTheRope.sh"
+    "yarle": "./dist/dropTheRope.js"
   },
   "scripts": {
     "clean": "rm -f -r ./out && rm -f -r ./dist && rm -r -f ./node_modules",
