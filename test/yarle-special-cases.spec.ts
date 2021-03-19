@@ -318,6 +318,42 @@ describe('Yarle special cases', async () => {
     );
   });
 
+  it('Enex file with internal links with extension', async () => {
+    const options: YarleOptions = {
+      enexSource: './test/data/test-links-withExtension.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      plainTextNotesOnly: false,
+      addExtensionToInternalLinks: true,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(`${__dirname}/../out/notes/test-links-withExtension/NoteA.md`),
+      true,
+    );
+
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/notes/test-links-withExtension/NoteA.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-linksNoteA-withExtension.md`, 'utf8'),
+    );
+
+    assert.equal(
+      fs.existsSync(`${__dirname}/../out/notes/test-links-withExtension/NoteB.md`),
+      true,
+    );
+
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/notes/test-links-withExtension/NoteB.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-linksNoteB-withExtension.md`, 'utf8'),
+    );
+  });
+
   it('Enex file with PDF attachment', async () => {
     const options: YarleOptions = {
       enexSource: './test/data/test-pdfAttachment.enex',
