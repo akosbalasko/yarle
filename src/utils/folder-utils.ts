@@ -5,16 +5,21 @@ import { Path } from '../paths';
 import { yarleOptions } from '../yarle';
 
 import { getNoteFileName, getNoteName } from './filename-utils';
+import { NoteData } from 'models';
 
 export const paths: Path = {};
 
-export const getResourceDir = (dstPath: string, note: any): string => {
-  return getNoteName(dstPath, note).replace(/\s/g, '_');
+export const getResourceDir = (note: any): string => {
+  return getNoteName(paths.mdPath, note).replace(/\s/g, '_');
 };
 
 const getFilePath = (dstPath: string, note: any): string => {
   return `${dstPath}/${getNoteFileName(dstPath, note)}`;
 };
+
+export const getNoteNameByMdPath = (note: any): string => {
+  return getNoteName(paths.mdPath, note);
+}
 
 export const getMdFilePath = (note: any): string => {
   return getFilePath(paths.mdPath, note);
@@ -38,11 +43,11 @@ const clearDistDir = (dstPath: string): void => {
 };
 
 export const getRelativeResourceDir = (note: any): string => {
-  return yarleOptions.haveEnexLevelResources ? './_resources' : `./_resources/${getResourceDir(paths.mdPath, note)}.resources`;
+  return yarleOptions.haveEnexLevelResources ? './_resources' : `./_resources/${getResourceDir(note)}.resources`;
 };
 
 export const getAbsoluteResourceDir = (note: any): string => {
-  return yarleOptions.haveEnexLevelResources ? paths.resourcePath : `${paths.resourcePath}/${getResourceDir(paths.mdPath, note)}.resources`;
+  return yarleOptions.haveEnexLevelResources ? paths.resourcePath : `${paths.resourcePath}/${getResourceDir(note)}.resources`;
 };
 
 const resourceDirClears = new Map<string, number>();
