@@ -24,19 +24,23 @@ export const getFileIndex = (dstPath: string, fileNamePrefix: string): number | 
   return index;
 
 };
-export const getResourceFileProperties = (workDir: string, resource: any): ResourceFileProperties => {
+export const getResourceFileProperties = (noteName: string, workDir: string, resource: any): ResourceFileProperties => {
   const UNKNOWNFILENAME = 'unknown_filename';
 
   const extension = getExtension(resource);
   let fileName = UNKNOWNFILENAME;
 
-  if (resource['resource-attributes'] && resource['resource-attributes']['file-name']) {
-    const fileNamePrefix = resource['resource-attributes']['file-name'].substr(0, 50);
-
-    fileName = fileNamePrefix.split('.')[0];
-
+  if (yarleOptions.useNoteNameAsAttachmentName){
+    fileName = noteName;
   }
+  else{
+    if (resource['resource-attributes'] && resource['resource-attributes']['file-name']) {
+      const fileNamePrefix = resource['resource-attributes']['file-name'].substr(0, 50);
 
+      fileName = fileNamePrefix.split('.')[0];
+
+    }
+  }
   const index = getFileIndex(workDir, fileName);
   const fileNameWithIndex = index > 0 ? `${fileName}.${index}` : fileName;
 

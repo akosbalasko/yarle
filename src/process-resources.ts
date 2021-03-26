@@ -11,18 +11,18 @@ export const processResources = (note: any): string => {
 
     const relativeResourceWorkDir = utils.getRelativeResourceDir(note);
     const absoluteResourceWorkDir = utils.getAbsoluteResourceDir(note);
-
+    const noteName = utils.getNoteNameByMdPath(note);
     utils.clearResourceDir(note);
     if (Array.isArray(note.resource)) {
       for (const resource of note.resource) {
         resourceHashes = {
           ...resourceHashes,
-          ...processResource(absoluteResourceWorkDir, resource)};
+          ...processResource(noteName, absoluteResourceWorkDir, resource)};
       }
     } else {
       resourceHashes = {
         ...resourceHashes,
-        ...processResource(absoluteResourceWorkDir, note.resource)};
+        ...processResource(noteName, absoluteResourceWorkDir, note.resource)};
     }
 
     for (const hash of Object.keys(resourceHashes)) {
@@ -56,11 +56,11 @@ const addMediaReference = (content: string, resourceHashes: any, hash: any, work
   return updatedContent;
 };
 
-const processResource = (workDir: string, resource: any): any => {
+const processResource = (noteName: string, workDir: string, resource: any): any => {
     const resourceHash: any = {};
     const data = resource.data.$text;
 
-    const resourceFileProps = utils.getResourceFileProperties(workDir, resource);
+    const resourceFileProps = utils.getResourceFileProperties(noteName, workDir, resource);
     const fileName = resourceFileProps.fileName;
     const absFilePath = `${workDir}/${fileName}`;
 
