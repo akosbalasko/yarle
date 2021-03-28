@@ -15,7 +15,7 @@
     "yarle": "./dist/dropTheRope.js"
   },
   "scripts": {
-    "clean": "npm i -g rimraf && npm -g config set user root && rimraf ./out && rimraf ./dist && rimraf ./node_modules",
+    "clean": "npm i -g rimraf && npm -g config set user root && rimraf ./out && rimraf ./dist && rimraf \"node_modules/!(rimraf|.bin)\"",
     "build": "npm run clean && npm i  && tsc --project ./src/tsconfig.json",
     "build:watch": "nodemon --watch src/ --exec \"npm run build\" -e ts",
     "coverage": "nyc mocha",
