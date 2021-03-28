@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: [ubuntu-latest, windows-latest]
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
@@ -26,3 +26,4 @@ jobs:
       - run: npm install
       - run: npm run build --if-present
       - run: npm test
+
