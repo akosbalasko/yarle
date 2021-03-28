@@ -339,7 +339,35 @@ describe('Yarle special cases', async () => {
       true,
     );
   });
-
+  it('Enex file with PDF attachment - ObsidianMD format', async () => {
+    const options: YarleOptions = {
+      enexSource: './test/data/test-pdfAttachment-ObsidianMD.enex',
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      plainTextNotesOnly: false,
+      outputFormat: OutputFormat.ObsidianMD,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-pdfAttachment-ObsidianMD/pdfAttachment.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.readFileSync(
+        `${__dirname}/../out/notes/test-pdfAttachment-ObsidianMD/pdfAttachment.md`,
+        'utf8',
+      ),
+      fs.readFileSync(`${__dirname}/data/test-pdfAttachment-ObsidianMD.md`, 'utf8'),
+    );
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-pdfAttachment-ObsidianMD/_resources/pdfAttachment.resources/sample.pdf`,
+      ),
+      true,
+    );
+  });
   it('Enex file with attachment - extension comes from mime', async () => {
     const options: YarleOptions = {
       enexSource: './test/data/test-scriptAttachment.enex',
