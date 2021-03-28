@@ -1,7 +1,8 @@
 import { filterByNodeName } from './filter-by-nodename';
 import { getAttributeProxy } from './get-attribute-proxy';
+import { EOL } from 'os';
 
-const markdownBlock = '\n```\n';
+const markdownBlock = EOL+'```'+EOL;
 
 const codeBlockFlag = '-en-codeblock:true';
 const reMonospaceFont =
@@ -58,8 +59,8 @@ export const monospaceCodeBlockRule = {
             const next = node.nextSibling;
             const nextIsBlock = next && next.tagName === node.tagName && isCodeBlock(next);
             if (previousIsBlock || nextIsBlock) {
-                content = previousIsBlock ? `\n${content}` : `${markdownBlock}${content}`;
-                content = nextIsBlock ? `${content}\n` : `${content}${markdownBlock}`;
+                content = previousIsBlock ? `${EOL}${content}` : `${markdownBlock}${content}`;
+                content = nextIsBlock ? `${content}${EOL}` : `${content}${markdownBlock}`;
 
                 return content;
             }
@@ -72,9 +73,9 @@ export const monospaceCodeBlockRule = {
         }
 
         if (node.parentElement && isCodeBlock(node.parentElement)) {
-            return `\n${content}`;
+            return `${EOL}${content}`;
         }
 
-        return node.isBlock ? `\n${content}\n` : content;
+        return node.isBlock ? `${EOL}${content}${EOL}` : content;
     },
 };

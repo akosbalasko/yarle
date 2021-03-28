@@ -8,6 +8,7 @@ import { isWebClip } from './utils/note-utils';
 import { hasCreationTimeInTemplate, hasLocationInTemplate, hasSourceURLInTemplate, hasTagsInTemplate, hasUpdateTimeInTemplate, hasNotebookInTemplate, hasLinkToOriginalInTemplate } from './utils/templates/checker-functions';
 import { defaultTemplate } from './utils/templates/default-template';
 import { OutputFormat } from './output-format';
+import { EOL } from 'os';
 
 export const defaultYarleOptions: YarleOptions = {
   enexSource: 'notebook.enex',
@@ -64,7 +65,7 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
   return new Promise((resolve, reject) => {
 
     const logAndReject = (error: Error) => {
-      console.log(`Could not convert ${options.enexSource}:\n${error.message}`);
+      console.log(`Could not convert ${options.enexSource}:${EOL}${error.message}`);
       ++failed;
 
       return reject();
@@ -91,7 +92,7 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
         }
         processNode(note, notebookName);
         ++noteNumber;
-        console.log(`Notes processed: ${noteNumber}\n\n`);
+        console.log(`Notes processed: ${noteNumber}${EOL}${EOL}`);
       }
       noteAttributes = null;
     });

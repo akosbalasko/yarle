@@ -1,5 +1,6 @@
 import { TemplateBlockSettings } from "./../template-settings";
 import * as M from './../match-all';
+import { EOL } from 'os';
 
 export const applyTemplateOnBlock = ({
   template,
@@ -16,7 +17,7 @@ export const applyTemplateOnBlock = ({
       .replace(new RegExp(`${valuePlaceholder}`,'g'), value);
       
   }
-const reg = `${startBlockPlaceholder}([\\d\\D])(?:.|\n)*?(?=${endBlockPlaceholder})${endBlockPlaceholder}`;
+const reg = `${startBlockPlaceholder}([\\d\\D])(?:.|${EOL})*?(?=${endBlockPlaceholder})${endBlockPlaceholder}`;
   return template.replace(
     new RegExp(reg,
       'g',
