@@ -24,6 +24,7 @@ export const wikiStyleLinksRule = {
         const internalTurndownedContent = getTurndownService(yarleOptions).turndown(removeBrackets(node.innerHTML));
         const lexer = new marked.Lexer({});
         const tokens = lexer.lex(internalTurndownedContent) as any;
+        const extension = yarleOptions.addExtensionToInternalLinks ? '.md' : '';
         let token: any = {
             mdKeyword: '',
             text: internalTurndownedContent,
@@ -50,10 +51,10 @@ export const wikiStyleLinksRule = {
             const realFileName = yarleOptions.urlEncodeFileNamesAndLinks ? encodeURI(fileName) : fileName;
 
             if (yarleOptions.outputFormat === OutputFormat.ObsidianMD) {
-                return `${token['mdKeyword']}[[${realFileName}|${displayName}]]`;
+                return `${token['mdKeyword']}[[${realFileName}${extension}|${displayName}]]`;
             }
 
-            return  `${token['mdKeyword']}[${displayName}](${fileName})`;
+            return  `${token['mdKeyword']}[${displayName}](${fileName}${extension})`;
 
         }
 
