@@ -59,7 +59,7 @@ ipcMain.on('openEnexSource', () => {
   var { dialog } = require('electron');
   dialog.showOpenDialog(
     { 
-      properties: ['openDirectory'],
+      properties: ['openFile'],
       
     }).then((result: any) => {
       logger.info(result.canceled)

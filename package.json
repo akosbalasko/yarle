@@ -20,7 +20,6 @@
     "build:watch": "nodemon --watch src/ --exec \"npm run build\" -e ts",
     "coverage": "nyc mocha",
     "lint": "tslint --project ./src/tsconfig.json",
-    "start-gui": "electron .",
     "debug": "node --inspect --max-old-space-size=1024 ./dist/dropTheRope.js",
     "test": "nyc --reporter=html --reporter=text mocha",
     "test-watch": "mocha --watch",
