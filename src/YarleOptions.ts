@@ -20,8 +20,12 @@ export interface YarleOptions {
     useHashTags?: boolean;
     outputFormat?: OutputFormat;
     skipEnexFileNameFromOutputPath?: boolean;
+    haveEnexLevelResources?: boolean;
     keepMDCharactersOfENNotes?: boolean;
+    urlEncodeFileNamesAndLinks?: boolean;
     monospaceIsCodeBlock?: boolean;
     dateFormat?: string;
     nestedTags?: TagSeparatorReplaceOptions;
+    keepImageSize?: OutputFormat;
+    keepOriginalAmountOfNewlines?: boolean;
 }

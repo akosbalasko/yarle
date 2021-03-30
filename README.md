@@ -1,13 +1,20 @@
 
 ![logo](screens/yarle-logo.png)
 
+![Last Commit](https://img.shields.io/github/last-commit/akosbalasko/yarle?style=for-the-badge)  
+![Version](https://img.shields.io/badge/version-3.13.1-blue?style=for-the-badge)
+[![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen?style=for-the-badge)](https://github.com/akosbalasko/yarle#readme)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green?style=for-the-badge)](https://github.com/akosbalasko/yarle/graphs/commit-activity)
+[![License: MIT](https://img.shields.io/github/license/akosbalasko/yarle?style=for-the-badge)](https://github.com/akosbalasko/yarle/blob/master/LICENSE)
+
+
 Yarle is the ultimate converter of Evernote notes to Markdown.
 
 ## Features:
 
 ### Yarle can convert:
 - :memo: Any text
-- :memo: All metadata: original creation time, last modification time, tags, GPS location, notebook name, source URL 
+- :memo: All metadata: original creation time, last modification time, tags, GPS location, notebook name, source URL
 - :link: External links
 - :link: Internal links among Evernote notes
 - :computer: Codeblocks
@@ -15,11 +22,11 @@ Yarle is the ultimate converter of Evernote notes to Markdown.
 - :paperclip: Attachments
 - :page_facing_up: Webclips
 
-### Works with: 
+### Works with:
 - :notebook: single enex file (one notebook exported from Evernote)
 - :books: or a folder of enex files supported (several notebooks exported and placed into the same folder locally)
 
-### Highly customizable: 
+### Highly customizable:
 
 
 - :rocket: Creates Markdown files matching to user-defined templates, see Templates introduced. See [How to use templates with YARLE](Templates.md) for details.
@@ -46,15 +53,19 @@ To configure Yarle, you must create a config file. By default it looks like this
 {
     "enexSource": "/absolute-path-of-your-enex-dir/test-template.enex",
     "templateFile": "/absolute-path-of-your-template-dir/sampleTemplate.tmpl",
-    "outputDir": "out",
+    "outputDir": "/path-of-your-desired-output-folder",
     "isZettelkastenNeeded": false,
     "plainTextNotesOnly": false,
     "skipWebClips": false,
     "useHashTags": true,
     "outputFormat": "StandardMD",
+    "urlEncodeFileNamesAndLinks": false,
     "skipEnexFileNameFromOutputPath": false,
+    "haveEnexLevelResources": false,
     "monospaceIsCodeBlock": false,
     "keepMDCharactersOfENNotes": false,
+    "keepOriginalAmountOfNewlines": false,
+
     "nestedTags": {
       "separatorInEN": "_",
       "replaceSeparatorWith": "/",
@@ -67,18 +78,19 @@ The following configurational properties are available:
 |Property Name| Property value | Meaning |
 |-------------|----------------|---------|
 |```enexSource```| your enex file or the folder of your enex files | specifies the exported Evernote notebook(s) as an absolute path|
-|```templateFile``` | absolute path of your custom template file | if its not specified, a [default template](https://github.com/akosbalasko/yarle/blob/master/src/utils/templates/default-template.ts) will be used
-|```outputDir``` | relative path to your output dir | this is the main output dir where the extracted markdown files and the external resources, images, pdf-s are going to be created|
+|```templateFile``` | path of your custom template file | if its not specified, a [default template](https://github.com/akosbalasko/yarle/blob/master/src/utils/templates/default-template.ts) will be used
+|```outputDir``` | path to your output dir (absolute or relative) | this is the main output dir where the extracted markdown files and the external resources, images, pdf-s are going to be created|
 |```isZettelkastenNeeded``` |  true or false | puts Zettelkasten Id (based on time of creation) at the beginning of the file name|
 |```plaintextNotesOnly``` |  true or false | skips any notes with attachments (e.g. notes containing pictures)|
 |```useHashTags```|  true or false | whether to add the pound sign in front of tags|
-|```outputFormat```|  true or false | generates internal file links and highlights in Obsidian-style: highlights are going to be bounded by `==` instead of \` characters, file links are going to be as follows: `![[file-name]]` instead of `![file-name](file-name)`. Possible values: `ObsidianMD` to get Obsidian-style notes, `StandardMD` or skip it completely, if you prefer Standard Markdown format.|
-|```monospaceIsCodeBlock```| true or false | if it's true then all deepest elements with monospace font style is recognized as Codeblocks|    
-| ```dateFormat``` | string | ISO 8601 specification of the expected date format (e.g. YYYY-MM-DD)   
+|```outputFormat```|  ObsidianMD or StandardMD | generates internal file links and highlights in Obsidian-style: highlights are going to be bounded by `==` instead of \` characters, file links are going to be as follows: `![[file-name]]` instead of `![file-name](file-name)`. Possible values: `ObsidianMD` to get Obsidian-style notes, `StandardMD` or skip it completely, if you prefer Standard Markdown format.|
+|```haveEnexLevelResources```|  true or false | stores note resources on global _resources folder per enex export if enabled |
+|```monospaceIsCodeBlock```| true or false | if it's true then all deepest elements with monospace font style is recognized as Codeblocks|
+| ```dateFormat``` | string | ISO 8601 specification of the expected date format (e.g. YYYY-MM-DD)
 |```keepMDCharactersOfENNotes```| true or false | set it true, if you used Markdown format in your EN notes|
-| ``` nestedTags``` | it's a complex property contains the following subitems: "separatorInEN", "replaceSeparatorWith" and  "replaceSpaceWith" | separatorInEN stores the tag separator used in Evernote, replaceSeparatorWith is the string to what separatorInEN should be replaced to, and replaceSpaceWith is the string to what the space character should be replaced to in the tags. For example using the default settings a tag ```tag1_sub tag of tag1``` is going to be converted to ```tag1/sub-tag-of-tag1``` 
-       
+| ```nestedTags``` | it's a complex property contains the following subitems: "separatorInEN", "replaceSeparatorWith" and  "replaceSpaceWith" | separatorInEN stores the tag separator used in Evernote, replaceSeparatorWith is the string to what separatorInEN should be replaced to, and replaceSpaceWith is the string to what the space character should be replaced to in the tags. For example using the default settings a tag ```tag1_sub tag of tag1``` is going to be converted to ```tag1/sub-tag-of-tag1```
+| ```keepImageSize``` | `ObsidianMD` or `StandardMD` | preserve an image's width and height in the chosen format when specified
+| ```urlEncodeFileNamesAndLinks``` | true or false | URL-encodes linked file names and internal EN links . e.g "linked file.jpg" will be converted to "linked%20file.jpg" 
+| ```keepOriginalAmountOfNewlines``` | true or false | keep the original amount of newlines, default is false, when the multiple newlines are collapsed to one. 
 
 Metadata settings can be set via the template.
-
-## [Release notes](https://github.com/akosbalasko/yarle/wiki/Release-notes)

@@ -33,20 +33,24 @@ export const wikiStyleLinksRule = {
             token['mdKeyword'] = `${'#'.repeat(tokens[0]['depth'])} `;
         }
         const value = nodeProxy.href.value;
+        const type = nodeProxy.type ? nodeProxy.type.value : undefined ;
+        const realValue = yarleOptions.urlEncodeFileNamesAndLinks ? encodeURI(value) : value;
+
+        if (type === 'file'){
+            return yarleOptions.outputFormat === OutputFormat.ObsidianMD
+                ? `![[${realValue}]]`
+                : getShortLinkIfPossible(token, value);
+        }
         if (value.match(/^(https?:|www\.|file:|ftp:|mailto:)/)) {
-            return (!token['text'] || _.unescape(token['text']) === _.unescape(value))
-                ? `<${value}>`
-                : `${token['mdKeyword']}[${token['text']}](${value})`;
+            return getShortLinkIfPossible(token, value);
         }
         if (value.startsWith('evernote://')) {
             const fileName = normalizeTitle(token['text']);
             const displayName = token['text'];
-            if (yarleOptions.outputFormat === OutputFormat.ObsidianMD) {
-                return `${token['mdKeyword']}[[${fileName}|${displayName}]]`;
-            }
+            const realFileName = yarleOptions.urlEncodeFileNamesAndLinks ? encodeURI(fileName) : fileName;
 
-            if (yarleOptions.outputFormat === OutputFormat.UrlEncodeMD) {
-                return  `${token['mdKeyword']}[${displayName}](${encodeURI(fileName)})`;
+            if (yarleOptions.outputFormat === OutputFormat.ObsidianMD) {
+                return `${token['mdKeyword']}[[${realFileName}|${displayName}]]`;
             }
 
             return  `${token['mdKeyword']}[${displayName}](${fileName})`;
@@ -54,18 +58,15 @@ export const wikiStyleLinksRule = {
         }
 
         return (yarleOptions.outputFormat === OutputFormat.ObsidianMD)
-        ? `${token['mdKeyword']}[[${value} | ${token['text']}]]`
+        ? `${token['mdKeyword']}[[${realValue} | ${token['text']}]]`
         : (yarleOptions.outputFormat === OutputFormat.StandardMD)
-            ? `${token['mdKeyword']}[${token['text']}](${value})`
-            : `${token['mdKeyword']}[[${value}]]`;
-        // todo embed
-
-        /*return (
-            !value.match(/^(https?:|www\.|file:|ftp:|mailto:)/)
-            ? `[[${removeBrackets(node.innerHTML)}]]`
-            : (yarleOptions.outputFormat === OutputFormat.ObsidianMD)
-                ? `![[${removeBrackets(node.innerHTML)}]]`
-                : `[${removeBrackets(node.innerHTML)}](${value})`;
-        */
+            ? `${token['mdKeyword']}[${token['text']}](${realValue})`
+            : `${token['mdKeyword']}[[${realValue}]]`;
     },
 };
+
+export const getShortLinkIfPossible = (token: any, value: string): string => {
+    return (!token['text'] || _.unescape(token['text']) === _.unescape(value))
+                ? `<${value}>`
+                : `${token['mdKeyword']}[${token['text']}](${value})`;
+}

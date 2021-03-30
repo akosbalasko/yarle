@@ -428,7 +428,7 @@ export const yarleTests: Array<YarleTest> = [
       enexSource: './test/data/test-urlencode.enex',
       outputDir: 'out',
       isMetadataNeeded: true,
-      outputFormat: OutputFormat.UrlEncodeMD,
+      urlEncodeFileNamesAndLinks: true,
     },
     testOutputPath: 'notes/test-urlencode/test - note with picture (filename with spaces).md',
 
@@ -645,6 +645,39 @@ export const yarleTests: Array<YarleTest> = [
     },
     testOutputPath: 'notes/test-noteWithTags/test -note with text only.md',
     expectedOutputPath: '/data/test-noteWithTags-multi.md',
+
+  },
+  {
+    name: 'multiple metadata content',
+    options: {
+      enexSource: './test/data/test-intend-newlines.enex',
+      outputDir: 'out',
+      templateFile: './test/data/multimeta-template.tmpl',
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.ObsidianMD,
+      skipEnexFileNameFromOutputPath: false,
+      keepMDCharactersOfENNotes: true,
+      keepOriginalAmountOfNewlines: true,
+
+    },
+    testOutputPath: 'notes/test-intend-newlines/test -note with text only.md',
+    expectedOutputPath: '/data/test-intend-newlines.md',
+  },
+  {
+    name: 'hanging enex',
+    options: {
+      enexSource: './test/data/huge-html.enex',
+      outputDir: 'out',
+      templateFile: './test/data/multimeta-template.tmpl',
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.ObsidianMD,
+      skipEnexFileNameFromOutputPath: false,
+      keepMDCharactersOfENNotes: true,
+
+    },
+    testOutputPath: 'notes/huge-html/Untitled Note.md',
+    expectedOutputPath: '/data/test-hugeHtml.md',
+
 
   },
 ]

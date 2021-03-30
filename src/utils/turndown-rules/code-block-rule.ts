@@ -10,11 +10,22 @@ const isCodeBlock = (node: any)  => {
     return nodeProxy.style && nodeProxy.style.value.indexOf(codeBlockFlag) >= 0;
 };
 
+const getIntendNumber = (node: any): number => {
+    const nodeProxy = getAttributeProxy(node);
+    const paddingAttr = 'padding-left:';
+    let intendNumber = 0;
+    if (nodeProxy.style && nodeProxy.style.value.indexOf(paddingAttr) >= 0){
+        intendNumber = Math.floor(nodeProxy.style.value.split(paddingAttr)[1].split('px')[0] / 20);
+    }
+    return intendNumber;
+}
+
 export const codeBlockRule = {
     filter: filterByNodeName('DIV'),
     replacement: (content: string, node: any) => {
         const nodeProxy = getAttributeProxy(node);
-
+        const intend = getIntendNumber(node);
+        content = `${'\t'.repeat(intend)}${content}`; 
         if (isCodeBlock(node)) {
             return `${markdownBlock}${content}${markdownBlock}`;
         }
@@ -26,6 +37,13 @@ export const codeBlockRule = {
         if (node.parentElement && isCodeBlock(node.parentElement)) {
             return `\n${content}`;
         }
+        const childHtml = node.innerHTML;
+        /*return node.isBlock 
+            ? childHtml !== '<br>'
+                ? `\n${content}\n`
+                : `${content}`
+            : `${content}`;
+        */
 
         return node.isBlock ? `\n${content}\n` : content;
     },

@@ -9,8 +9,8 @@ export const processResources = (note: any): string => {
     let resourceHashes: any = {};
     let updatedContent = cloneDeep(note.content);
 
-    const relativeResourceWorkDir = `${utils.getResourceDir(utils.paths.mdPath, note)}.resources`;
-    const absoluteResourceWorkDir = `${utils.paths.resourcePath}/${relativeResourceWorkDir}`;
+    const relativeResourceWorkDir = utils.getRelativeResourceDir(note);
+    const absoluteResourceWorkDir = utils.getAbsoluteResourceDir(note);
 
     utils.clearResourceDir(note);
     if (Array.isArray(note.resource)) {
@@ -20,7 +20,6 @@ export const processResources = (note: any): string => {
           ...processResource(absoluteResourceWorkDir, resource)};
       }
     } else {
-      utils.clearResourceDir(note);
       resourceHashes = {
         ...resourceHashes,
         ...processResource(absoluteResourceWorkDir, note.resource)};
@@ -33,21 +32,28 @@ export const processResources = (note: any): string => {
     return updatedContent;
   };
 
-const addMediaReference = (content: string, resourceHashes: any, hash: any, relativeResourceWorkDir: string): string => {
+const addMediaReference = (content: string, resourceHashes: any, hash: any, workDir: string): string => {
+  const src = `${workDir}/${resourceHashes[hash].fileName.replace(/ /g, '\ ')}`;
 
-  const src = `./_resources/${relativeResourceWorkDir}/${resourceHashes[hash].fileName.replace(/ /g, '\ ')}`;
   let updatedContent = cloneDeep(content);
   const replace = `<en-media ([^>]*)hash="${hash}".([^>]*)>`;
   const re = new RegExp(replace, 'g');
   const matchedElements = content.match(re);
-  updatedContent = (matchedElements && matchedElements.length > 0 &&
-    matchedElements[0].split('type=').length > 1 &&
-    matchedElements[0].split('type=')[1].startsWith('"image')) ?
-    content.replace(re, `<img src="${src}" alt="${resourceHashes[hash].fileName}">`) :
-    content.replace(re, `<a href="${src}">${resourceHashes[hash].fileName}</a>`);
+
+  const mediaType = matchedElements && matchedElements.length > 0 && matchedElements[0].split('type=');
+  if (mediaType && mediaType.length > 1 && mediaType[1].startsWith('"image')) {
+    const width = matchedElements[0].match(/width="(\w+)"/);
+    const widthParam = width ? ` width="${width[1]}"` : '';
+
+    const height = matchedElements[0].match(/height="(\w+)"/);
+    const heightParam = height ? ` height="${height[1]}"` : '';
+
+    updatedContent = content.replace(re, `<img src="${src}"${widthParam}${heightParam} alt="${resourceHashes[hash].fileName}">`);
+  } else {
+    updatedContent = content.replace(re, `<a href="${src}" type="file">${resourceHashes[hash].fileName}</a>`);
+  }
 
   return updatedContent;
-
 };
 
 const processResource = (workDir: string, resource: any): any => {
@@ -64,7 +70,6 @@ const processResource = (workDir: string, resource: any): any => {
     const atime = accessTime.valueOf() / 1000;
     fs.utimesSync(absFilePath, atime, atime);
 
-    // tslint:disable-next-line: curly
     if (resource.recognition && fileName) {
       const hashIndex = resource.recognition.match(/[a-f0-9]{32}/);
       resourceHash[hashIndex as any] = {fileName, alreadyUsed: false} as ResourceHashItem;
