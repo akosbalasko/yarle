@@ -1,4 +1,6 @@
 import { applyTemplate } from './utils/templates/templates';
+import { EOL } from 'os';
+
 import {
   getMetadata,
   getTags,
@@ -15,7 +17,7 @@ import { NoteData } from './models/NoteData';
 export const processNode = (note: any, notebookName: string): void => {
 
   let dateStarted: Date = new Date();  
-  console.log("\n");
+  console.log(EOL);
   console.log("Started conversion: " + dateStarted);
 
   if (Array.isArray(note.content))
@@ -41,7 +43,7 @@ export const processNode = (note: any, notebookName: string): void => {
 
     const data = applyTemplate(noteData, yarleOptions);
     // tslint:disable-next-line:no-console
-    console.log('data =>\n', JSON.stringify(data), '\n***');
+    console.log(`data => ${EOL}`, JSON.stringify(data), `${EOL}***`);
 
     saveMdFile(data, note);
 

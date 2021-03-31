@@ -1,6 +1,7 @@
 import TurndownService from 'turndown';
 import { gfm } from 'joplin-turndown-plugin-gfm';
 import { YarleOptions } from './../YarleOptions';
+import { EOL } from 'os';
 
 import { monospaceCodeBlockRule, newLineRule, codeBlockRule, imagesRule, spanRule, taskItemsRule, wikiStyleLinksRule } from './turndown-rules';
 
@@ -8,13 +9,13 @@ import { monospaceCodeBlockRule, newLineRule, codeBlockRule, imagesRule, spanRul
 const turndownService = new TurndownService({
         br: '',
         blankReplacement: (content: any, node: any) => {
-        return node.isBlock ? '\n\n' : '';
+        return node.isBlock ? `${EOL}${EOL}` : '';
         },
         keepReplacement: (content: any, node: any) => {
-        return node.isBlock ? `\n${node.outerHTML}\n` : node.outerHTML;
+        return node.isBlock ? `${EOL}${node.outerHTML}${EOL}` : node.outerHTML;
         },
         defaultReplacement: (content: any, node: any) => {
-        return node.isBlock ? `\n${content}\n` : content;
+        return node.isBlock ? `${EOL}${content}${EOL}` : content;
         },
     });
 turndownService.use(gfm);

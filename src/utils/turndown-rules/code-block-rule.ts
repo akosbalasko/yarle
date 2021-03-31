@@ -1,7 +1,8 @@
 import { filterByNodeName } from './filter-by-nodename';
 import { getAttributeProxy } from './get-attribute-proxy';
+import { EOL } from 'os';
 
-const markdownBlock = '\n```\n';
+const markdownBlock = EOL +'```'+EOL;
 
 const isCodeBlock = (node: any)  => {
     const nodeProxy = getAttributeProxy(node);
@@ -35,16 +36,16 @@ export const codeBlockRule = {
         }
 
         if (node.parentElement && isCodeBlock(node.parentElement)) {
-            return `\n${content}`;
+            return `${EOL}${content}`;
         }
         const childHtml = node.innerHTML;
         /*return node.isBlock 
             ? childHtml !== '<br>'
-                ? `\n${content}\n`
+                ? `${EOL}${content}${EOL}`
                 : `${content}`
             : `${content}`;
         */
 
-        return node.isBlock ? `\n${content}\n` : content;
+        return node.isBlock ? `${EOL}${content}${EOL}` : content;
     },
 };

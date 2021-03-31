@@ -1,6 +1,7 @@
 import { yarleOptions } from './yarle';
 import { NoteData } from './models/NoteData';
 import { generateHtmlContent } from './utils';
+import { EOL } from 'os';
 
 const fontFamily = 'Arial,"Helvetica Neue",Helvetica,sans-serif';
 const fontSize = '12pt';
@@ -32,7 +33,7 @@ export const convert2Html = (noteData: NoteData): void => {
     ['Source', url],
     ['Tags', tags],
   ].filter(r => r[1])
-    .reduce((p, c) => `${p}\n<tr><th>${c[0]}:</th><td>${c[1]}</td></tr>`, '');
+    .reduce((p, c) => `${p}${EOL}<tr><th>${c[0]}:</th><td>${c[1]}</td></tr>`, '');
 
   noteData.htmlContent = generateHtmlContent({title: noteData.title, content: noteData.htmlContent, fontFamily, fontSize, metaTable: trs});
   }
