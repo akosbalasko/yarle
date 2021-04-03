@@ -34,7 +34,7 @@
     "package-mac": "electron-packager . --overwrite --asar --platform=darwin --arch=x64 --icon=./src/ui/assets/icons/mac/icon.icns --prune=true --out=release-builds --darwinDarkModeSupport=true",
     "package-win": "electron-packager . electron-tutorial-app --overwrite --asar --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Electron Tutorial App\"",
     "package-linux": "electron-packager . electron-tutorial-app --overwrite --asar --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=true --out=release-builds",
-    "create-installer-mac": "electron-installer-dmg ./release-builds/Electron\\ tutorial\\ app-darwin-x64/Electron\\ tutorial\\ app.app electron-tutorial-app --out=release-builds --overwrite --icon=assets/icons/mac/icon.icns",
+    "create-installer-mac": "electron-installer-dmg ./out/yarle-evernote-to-md-darwin-x64/yarle-evernote-to-md.app yarle-evernote-to-md --out=release-builds --overwrite --icon=./src/ui/assets/icons/mac/icon.icns",
     "create-installer-win": "node installers/windows/createinstaller.js",
     "create-debian-installer": "electron-installer-debian --src release-builds/electron-tutorial-app-linux-x64/ --arch amd64 --config debian.json"
   },
@@ -58,6 +58,7 @@
     "turndown": "7.0.0",
     "utimes": "4.0.3",
     "winston": "^3.3.3",
+    "electron-store": "^6.0.1",
     "xml-flow": "1.0.4"
   },
   "engines": {
@@ -73,7 +74,6 @@
   "devDependencies": {
     "copyfiles": "^2.4.1",
     "electron-squirrel-startup": "^1.0.0",
-    "electron-store": "^6.0.1",
     "ts-node": "8.5.4",
     "tslint": "5.19.0",
     "tslint-config-prettier": "1.13.0",
