@@ -2,7 +2,7 @@
 ![logo](screens/yarle-logo.png)
 
 ![Last Commit](https://img.shields.io/github/last-commit/akosbalasko/yarle?style=for-the-badge)  
-![Version](https://img.shields.io/badge/version-3.13.1-blue?style=for-the-badge)
+![Version](https://img.shields.io/badge/version-3.14.0-blue?style=for-the-badge)
 [![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen?style=for-the-badge)](https://github.com/akosbalasko/yarle#readme)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green?style=for-the-badge)](https://github.com/akosbalasko/yarle/graphs/commit-activity)
 [![License: MIT](https://img.shields.io/github/license/akosbalasko/yarle?style=for-the-badge)](https://github.com/akosbalasko/yarle/blob/master/LICENSE)
@@ -65,7 +65,7 @@ To configure Yarle, you must create a config file. By default it looks like this
     "monospaceIsCodeBlock": false,
     "keepMDCharactersOfENNotes": false,
     "keepOriginalAmountOfNewlines": false,
-
+    "addExtensionToInternalLinks": true,
     "nestedTags": {
       "separatorInEN": "_",
       "replaceSeparatorWith": "/",
@@ -92,5 +92,6 @@ The following configurational properties are available:
 | ```keepImageSize``` | `ObsidianMD` or `StandardMD` | preserve an image's width and height in the chosen format when specified
 | ```urlEncodeFileNamesAndLinks``` | true or false | URL-encodes linked file names and internal EN links . e.g "linked file.jpg" will be converted to "linked%20file.jpg" 
 | ```keepOriginalAmountOfNewlines``` | true or false | keep the original amount of newlines, default is false, when the multiple newlines are collapsed to one. 
+| ```addExtensionToInternalLinks``` | true or false | adds '.md' extensions at the end of internal file links, to make them recognizable by DevonThink and other tools 
 
 Metadata settings can be set via the template.
