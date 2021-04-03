@@ -1,343 +1,187 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
+	<head>
+		<title>Yarle</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="assets/css/eta-app.css" />
+    <link rel="import" href="sections/enex.html">
+    <link rel="import" href="sections/welcome.html">
+    <link rel="import" href="sections/config.html">
+	<link rel="import" href="sections/template.html">
+	<link rel="import" href="sections/output.html">
+	<link rel="import" href="sections/convert.html">
+	</head>
+	<body>
 
-  <link rel="stylesheet" href="css/purecss.css">
-  <link rel="stylesheet" href="css/menu.css">
-  <link rel="stylesheet" href="css/page.css">
+		<!-- Sidebar -->
+			<section id="sidebar">
+				<div class="inner">
+					<nav>
+						<ul>
+							<li><a id="welcome-menu" data-section="welcome" href="#">Welcome</a></li>
+							<li><a id="enex-menu" data-section="enex" href="#">Step 1: Select your Enex file</a></li>
+							<li><a id="config-menu" data-section="config" href="#">Step 2: Configuration</a></li>
+							<li><a id="template-menu" data-section="template" href="#">Step 3: Set up your Template</a></li>
+							<li><a id="output-menu" data-section="output" href="#">Step 4: Pick your output location</a></li>
+							<li><a id="convert-menu" data-section="convert" href="#">Step 5: Convert</a></li>
 
+						</ul>
+					</nav>
+					<div class="version-info">
+						Tested with Electron v5.0.8
+					</div>
+					<div class="version-info">
+						(Currently running Electron v<script>document.write(process.versions.electron)</script>)
+					</div>
+				</div>
+			</section>
 
-</head>
+		<!-- Wrapper -->
+			<div id="wrapper">
+			</div>
 
-<body>
+		<!-- Footer -->
+			<footer id="footer" class="wrapper style1-alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
 
+		<!-- Scripts -->
+      <script>window.$ = window.jQuery = require('./assets/js/jquery.min.js');</script>
+			<script>window.i18n = new(require('./translations/i18n'));</script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+      <script>
+        require('./assets/js/menu')
+				require('./assets/js/translations')
+				require('./assets/js/ipc')
+				require('./assets/js/dialog')
+	  </script>
+	  
+	  <script type="text/javascript">
+		/* const { ipcRenderer } = require("electron");
+		const { cloneDeep } = require('lodash');
+		const fs = require('fs');
+		
+		
+		const enexFolderClick = document.getElementById('selectEnexFolder');
+	
+		enexFolderClick.addEventListener('click', function () {
+		  ipcRenderer.send('openEnexSource');
+		});
+	
+		document.getElementById('startConversion').addEventListener('click', function () {
+		  startLogWatcher();
+		})
+		const outputFolderClick = document.getElementById('selectOutputFolder');
+	
+		outputFolderClick.addEventListener('click', function () {
+		  ipcRenderer.send('selectOutputFolder');
+		});
+	
+		const inputs = document.querySelectorAll('input');
+		for (const input of inputs) {
+		  input.addEventListener('input', updateValue);
+		}
+	
+		function updateValue(e) {
+		  ipcRenderer.send('configurationUpdated',
+			{
+			  id: e.target.id,
+			  value: e.target.type === 'text' ? e.target.value : e.target.checked
+			});
+		}
+		ipcRenderer.on('defaultTemplateLoaded', (event, store) => {
+		  document.getElementById('templateArea').innerHTML = store;
+		});
+	
+		ipcRenderer.on('currentEnexFiles', (event, store) => {
+		  document.getElementById('currentEnexFiles').innerHTML = store;
+		});
+	
+		ipcRenderer.on('enexSource', (event, store) => {
+		  document.getElementById('enexSource').value = store;
+		});
+	
+		ipcRenderer.on('outputDirectorySelected', (event, store) => {
+		  document.getElementById('outputDirectory').value = store;
+		})
+		
+		ipcRenderer.on('defaultTemplateLoaded', (event, store) => {
+			document.getElementById('templateArea').innerHTML = store;
+			});
+		
+		ipcRenderer.on('storedSettingsLoaded', (event, store) => {
+		  for (const storeItemName of Object.keys(store)) {
+			const entry = document.getElementById(storeItemName);
+			console.log(`checking store: ${storeItemName}`)
+			if (entry.type === 'checkbox') {
+			  entry.checked = store[storeItemName] === true;
+			} else {
+			  entry.value = store[storeItemName];
+			}
+		  }
+		})
+	
+	
+	
+		function openTab(evt, TabName) {
+		  // Declare all variables
+		  var i, tabcontent, tablinks;
+	
+		  // Get all elements with class="tabcontent" and hide them
+		  tabcontent = document.getElementsByClassName("page-container");
+		  for (i = 0; i < tabcontent.length; i++) {
+			tabcontent[i].style.display = "none";
+		  }
+	
+		  // Get all elements with class="tablinks" and remove the class "active"
+		  // Show the current tab, and add an "active" class to the link that opened the tab
+		  document.getElementById(TabName).style.display = "block";
+		  evt.currentTarget.className += " active";
+		}
+	
+		function startLogWatcher() {
+		  var chokidar = require("chokidar");
+		  const conversionFile = `${__dirname}/../../conversion.log`;
+		  console.log('watching: ' + conversionFile);
+		  var watcher = chokidar.watch(conversionFile, {
+			ignored: /[\/\\]\./,
+			persistent: true,
+			usePolling: true
+		  });
+	
+		  function onWatcherReady() {
+			console.info('From here can you check for real changes, the initial scan has been completed.');
+			ipcRenderer.send('startConversion');
+	
+		  }
+	
+		  // Declare the listeners of the watcher
+		  watcher
+			.on('change', function (path) {
+	
+			  document.getElementById('logArea').innerHTML = fs.readFileSync(path, 'UTF-8')
+			})
+			.on('ready', onWatcherReady)
+	
+		}
+		*/
+	  </script>
 
-  <div id="layout">
-    <!-- Menu toggle -->
-    <a href="#menu" id="menuLink" class="menu-link">
-      <!-- Hamburger icon -->
-      <span></span>
-    </a>
-
-    <div id="menu">
-      <div class="pure-menu">
-        <a class="pure-menu-heading" href="#home" onclick="openTab(event, 'home')">Yarle</a>
-
-        <ul class="pure-menu-list">
-          <li class="pure-menu-item"><a href="#step1" class="pure-menu-link" onclick="openTab(event, 'step1')">Step 1:
-              Select your ENEX location (a folder)</a></li>
-          <li class="pure-menu-item"><a href="#step2" class="pure-menu-link" onclick="openTab(event, 'step2')">Step 2:
-              Configuration</a></li>
-          <li class="pure-menu-item"><a href="#step3" class="pure-menu-link" onclick="openTab(event, 'step3')">Step 3:
-              Set up your template</a></li>
-          <li class="pure-menu-item"><a href="#step4" class="pure-menu-link" onclick="openTab(event, 'step4')">Step 4:
-              Select your Output folder</a></li>
-          <li class="pure-menu-item"><a href="#step5" class="pure-menu-link" onclick="openTab(event, 'step5')">Step 5:
-              Convert</a></li>
-
-
-          <li class="pure-menu-item"><a href="#" class="pure-menu-link">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div id="page">
-      <div class="header">
-        <h1>YARLE</h1>
-        <h2>the ultimate Evernote note converter to Markdown</h2>
-      </div>
-
-      <div class="content">
-        <div id="home" class="page-container active">
-          Please follow the steps at the left handside.
-
-        </div>
-        <div id="step1" class="page-container" style="display: none;">
-          <h3>Step 1: Select your ENEX location (the parent folder): </h3>
-          <button class="pure-button pure-button-primary" id='selectEnexFolder'> Select Enex folder</button>
-
-          Current File: <input type=text class="pure-input-1-2" readonly="" id='enexSource' size=50></input>
-
-          <textarea id='currentEnexFiles' class="pure-input-1-2" rows="30" cols="50"></textarea>
-
-        </div>
-        <div id="step2" class="page-container" style="display: none;">
-          <h3>Step 2: Configuration:</h3>
-          <form class="pure-form pure-form-aligned">
-            <fieldset>
-              <div class="pure-control-group">
-
-                <label for="outputFormat" class="pure-input-1-2">Replace space with</label>
-                <select name="outputFormat" id="outputFormat">
-                  <option value="obsidianMd">ObsidianMD</option>
-                  <option value="saab">Saab</option>
-                </select>
-
-              </div>
-              <div class="pure-controls">
-                <label for="keepOriginalHtml" class="pure-checkbox">
-                  <input type="checkbox" id='keepOriginalHtml'> Keep the original Html</input>
-                </label>
-              </div>
-              <div class="pure-controls">
-                <label for="addWebClips" class="pure-checkbox">
-                  <input type="checkbox" id='addWebClips'> Convert webclips</input>
-                </label>
-              </div>
-
-              <div class="pure-controls">
-                <label for="isZettelkastenNeeded" class="pure-checkbox">
-                  <input type="checkbox" id='isZettelkastenNeeded'> Is Zettelkasten Needed</input>
-                </label>
-              </div>
-              <div class="pure-controls">
-                <label for="plainTextNotesOnly" class="pure-checkbox">
-                  <input type="checkbox" id='plainTextNotesOnly'> Convert plain text notes only</input>
-                </label>
-              </div>
-              <div class="pure-controls">
-                <label for="useHashTags" class="pure-checkbox">
-                  <input type="checkbox" id='useHashTags'> Add # to tag</input>
-                </label>
-              </div>
-              <div class="pure-controls">
-                <label for="skipEnexFileNameFromOutputPath" class="pure-checkbox">
-                  <input type="checkbox" id='skipEnexFileNameFromOutputPath'> Skip enex filename from output
-                  path</input>
-                </label>
-              </div>
-              <div class="pure-controls">
-                <label for="monospaceIsCodeBlock" class="pure-checkbox">
-                  <input type="checkbox" id='monospaceIsCodeBlock'> Monospace Is used as Code block</input>
-                </label>
-              </div>
-              <div class="pure-controls">
-                <label for="keepMDCharactersOfENNotes" class="pure-checkbox">
-                  <input type="checkbox" id='keepMDCharactersOfENNotes'> Keep Markdown characters Of EN Notes</input>
-                </label>
-              </div>
-              <div class="pure-controls">
-                <label for="nestedTags" class="pure-checkbox">
-                  <input type="checkbox" id='nestedTags'> Generate nested tags</input>
-                </label>
-              </div>
-              <div class="pure-control-group">
-
-                <label for="separatorInEN" class="pure-input-1-2">Separator of nested tags in EN</label>
-                <input type="text" id='separatorInEN'></input>
-
-              </div>
-              <div class="pure-control-group">
-
-                <label for="replaceSeparatorWith" class="pure-input-1-2">Replace separator with</label>
-                <input type="text" id='replaceSeparatorWith'></input>
-
-              </div>
-              <div class="pure-control-group">
-
-                <label for="replaceSpaceWith" class="pure-input-1-2">Replace space with</label>
-                <input type="text" id='replaceSpaceWith'></input>
-
-              </div>
-
-            </fieldset>
-          </form>
-        </div>
-
-        <div id="step3" class="page-container" style="display: none;">
-          <h3>Step 3: Set up your template:</h3>
-          <div class="pure-g">
-            <div class="pure-u-1-2">
-              <textarea id='templateArea' rows="30" cols="50"></textarea>
-            </div>
-            <div class="pure-u-1-2">
-              <form class="pure-form pure-form-aligned">
-                <fieldset>
-                  <div class="pure-controls">
-                    <label for="addLocation" class="pure-checkbox">
-                      <input type="checkbox" id='addLocation'> Add location</input>
-                    </label>
-                  </div>
-                    <div class="pure-controls">
-                      <label for="addCreationTime" class="pure-checkbox">
-                        <input type="checkbox" id='addCreationTime'> Add creation time</input>
-                      </label>
-                    </div>
-                    <div class="pure-controls">
-                      <label for="addUpdateTime" class="pure-checkbox">
-                        <input type="checkbox" id='addUpdateTime'> Add update time</input>
-                      </label>
-                    </div>
-                    <div class="pure-controls">
-                      <label for="addSourceUrl" class="pure-checkbox">
-                        <input type="checkbox" id='addSourceUrl'> Add source url</input>
-                      </label>
-                    </div>
-                    <div class="pure-controls">
-    
-                      <label for="isNotebookNameNeeded" class="pure-checkbox">
-                        <input type="checkbox" id='isNotebookNameNeeded'> Add Notebook Name</input>
-                      </label>
-      
-                    </div>
-                    <div class="pure-controls">
-                      <label for="addTags" class="pure-checkbox">
-                        <input type="checkbox" id='monosaddTagspaceIsCodeBlock'> Add tags</input>
-                      </label>
-                    </div>
-                              
-                </fieldset>
-              </form>
-            </div>
-          </div>
-          
-
-
-
-        </div>
-        <div id="step4" class="page-container" style="display: none;">
-          <h3>Step 4: Select your Output folder: </h3>
-          <form class="pure-form pure-form-stacked">
-            <fieldset>
-              <button class="pure-button pure-button-primary" id='selectOutputFolder'> Select output folder</button>
-              <div class="pure-controls">
-                <label for="outputDirectory">Current Output folder: </label>
-                <input type=text class="pure-input-1-2" readonly="" id='outputDirectory' size=80></input>
-                </label>
-              </div>
-            </fieldset>
-          </form>
-        </div>
-        <div id="step5" class="page-container" style="display: none;">
-          <h3>Step 5: Convert:</h3>
-          <form class="pure-form pure-form-stacked">
-            <fieldset>
-              <input class="pure-button pure-button-primary" type="submit" id="startConversion" value="Convert!"></input>
-              <label for="logArea" >Logs: </label>
-              <textarea id='logArea' class="pure-input-1-2" rows="30" cols="80"></textarea>
-            </fieldset>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-  <script type="text/javascript">
-    const { ipcRenderer } = require("electron");
-    const { cloneDeep } = require('lodash');
-    const fs = require('fs');
-
-    const enexFolderClick = document.getElementById('selectEnexFolder');
-
-    enexFolderClick.addEventListener('click', function () {
-      ipcRenderer.send('openEnexSource');
-    });
-
-    document.getElementById('startConversion').addEventListener('click', function () {
-      startLogWatcher();
-    })
-    const outputFolderClick = document.getElementById('selectOutputFolder');
-
-    outputFolderClick.addEventListener('click', function () {
-      ipcRenderer.send('selectOutputFolder');
-    });
-
-    const inputs = document.querySelectorAll('input');
-    for (const input of inputs) {
-      input.addEventListener('input', updateValue);
-    }
-
-    function updateValue(e) {
-      ipcRenderer.send('configurationUpdated',
-        {
-          id: e.target.id,
-          value: e.target.type === 'text' ? e.target.value : e.target.checked
-        });
-    }
-    ipcRenderer.on('defaultTemplateLoaded', (event, store) => {
-      document.getElementById('templateArea').innerHTML = store;
-    });
-
-    ipcRenderer.on('currentEnexFiles', (event, store) => {
-      document.getElementById('currentEnexFiles').innerHTML = store;
-    });
-
-    ipcRenderer.on('enexSource', (event, store) => {
-      document.getElementById('enexSource').value = store;
-    });
-
-    ipcRenderer.on('outputDirectorySelected', (event, store) => {
-      document.getElementById('outputDirectory').value = store;
-    })
-
-    ipcRenderer.on('storedSettingsLoaded', (event, store) => {
-      for (const storeItemName of Object.keys(store)) {
-        const entry = document.getElementById(storeItemName);
-        console.log(`checking store: ${storeItemName}`)
-        if (entry.type === 'checkbox') {
-          entry.checked = store[storeItemName] === true;
-        } else {
-          entry.value = store[storeItemName];
-        }
-      }
-    })
-
-
-
-    function openTab(evt, TabName) {
-      // Declare all variables
-      var i, tabcontent, tablinks;
-
-      // Get all elements with class="tabcontent" and hide them
-      tabcontent = document.getElementsByClassName("page-container");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-
-      // Get all elements with class="tablinks" and remove the class "active"
-      /*tablinks = document.getElementsByClassName("pure-menu-item");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }*/
-
-      // Show the current tab, and add an "active" class to the link that opened the tab
-      document.getElementById(TabName).style.display = "block";
-      evt.currentTarget.className += " active";
-    }
-
-    function startLogWatcher() {
-      var chokidar = require("chokidar");
-      const conversionFile = `${__dirname}/../../conversion.log`;
-      console.log('watching: ' + conversionFile);
-      var watcher = chokidar.watch(conversionFile, {
-        ignored: /[\/\\]\./,
-        persistent: true,
-        usePolling: true
-      });
-
-      function onWatcherReady() {
-        console.info('From here can you check for real changes, the initial scan has been completed.');
-        ipcRenderer.send('startConversion');
-
-      }
-
-      // Declare the listeners of the watcher
-      watcher
-        .on('change', function (path) {
-
-          document.getElementById('logArea').innerHTML = fs.readFileSync(path, 'UTF-8')
-        })
-        .on('ready', onWatcherReady)
-
-    }
-  </script>
-
-</body>
-
-
+	</body>
 </html>

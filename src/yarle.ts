@@ -33,7 +33,7 @@ export let yarleOptions: YarleOptions = { ...defaultYarleOptions };
 
 const setOptions = (options: YarleOptions): void => {
   yarleOptions = { ...defaultYarleOptions, ...options };
-  let template = defaultTemplate;
+  let template = yarleOptions.currentTemplate ? yarleOptions.currentTemplate : defaultTemplate;
 
   if (yarleOptions.templateFile) {
     template = fs.readFileSync(yarleOptions.templateFile, 'utf-8');

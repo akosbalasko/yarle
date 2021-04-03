@@ -7,7 +7,7 @@ const schema: any = {
 		default: true
 	},
     enexSource: {type: 'string'},
-    // templateFile: {type: 'string'},
+    templateFile: {type: 'string'},
     outputDir: {type: 'string'},
     // isMetadataNeeded: { type: 'boolean', default: false },
     isNotebookNameNeeded: { type: 'boolean', default: false },

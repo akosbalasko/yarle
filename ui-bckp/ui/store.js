@@ -1,14 +1,15 @@
-import  Store = require('electron-store');
-import { OutputFormat } from './../output-format';
-
-const schema: any = {
-	keepOriginalHtml: {
-		type: 'boolean',
-		default: true
-	},
-    enexSource: {type: 'string'},
-    // templateFile: {type: 'string'},
-    outputDir: {type: 'string'},
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const Store = require("electron-store");
+const output_format_1 = require("./../output-format");
+const schema = {
+    keepOriginalHtml: {
+        type: 'boolean',
+        default: true
+    },
+    enexSource: { type: 'string' },
+    templateFile: { type: 'string' },
+    outputDir: { type: 'string' },
     // isMetadataNeeded: { type: 'boolean', default: false },
     isNotebookNameNeeded: { type: 'boolean', default: false },
     isZettelkastenNeeded: { type: 'boolean', default: false },
@@ -20,11 +21,10 @@ const schema: any = {
     addWebClips: { type: 'boolean', default: false },
     addTags: { type: 'boolean', default: false },
     useHashTags: { type: 'boolean', default: false },
-    outputFormat: {type: 'string', default: OutputFormat.ObsidianMD},
+    outputFormat: { type: 'string', default: output_format_1.OutputFormat.ObsidianMD },
     skipEnexFileNameFromOutputPath: { type: 'boolean', default: false },
     keepMDCharactersOfENNotes: { type: 'boolean', default: false },
     monospaceIsCodeBlock: { type: 'boolean', default: false },
 };
-
-export const store = new Store({schema});
-
+exports.store = new Store({ schema });
+//# sourceMappingURL=store.js.map

@@ -1,0 +1,123 @@
+<template class="section-template">
+  <section id="config" class="wrapper style2 spotlights">
+    <h2>General</h2>
+    <section>
+      <div class="content">
+        <div class="inner">
+          
+          <div class="split style1">
+          
+          <section>
+            <div class="field">
+              <label for="outputFormat2" class="pure-input-1-2">Output format</label>
+                  <select name="outputFormat2" id="outputFormat2">
+                    <option value="obsidianMd">ObsidianMD</option>
+                    <option value="saab">Saab</option>
+                  </select>
+            </div>
+            <div class="field half first">
+            <input type="checkbox" value="false" id='keepOriginalHtml' value="false">
+                  <label for="keepOriginalHtml" class="pure-checkbox">
+                    Keep the original Html
+                  </label>
+              
+            </div>
+            <div class="field half">
+
+              <input type="checkbox" value="false" id='addWebClips'> 
+                <label for="addWebClips" class="pure-checkbox">
+                  Convert webclips
+                </label>
+            
+            </div>
+            <div class="field first half">
+              <input type="checkbox" value="false" id='isZettelkastenNeeded'> 
+              <label for="isZettelkastenNeeded" class="pure-checkbox">
+                Is Zettelkasten Needed
+              </label>
+            </div>
+            <div class="field half">
+
+              <input type="checkbox" value="false" id='plainTextNotesOnly'> 
+              <label for="plainTextNotesOnly" class="pure-checkbox">
+                Convert plain text notes only
+              </label>
+            
+          </div>
+          <div class="field">
+
+              <input type="checkbox" value="false" id='skipEnexFileNameFromOutputPath'>
+              <label for="skipEnexFileNameFromOutputPath" class="pure-checkbox">
+                Skip enex filename from output
+                path
+              </label>
+            
+          </div>
+      </section>
+      
+      <section>
+        Help and hints
+      </section>
+          </div>
+          <div class=" split style1">
+            <section>
+              <h2>Notes</h2>
+              <div class="field half first">
+                <label for="replaceSeparatorWith" class="pure-input-1-2">Replace separator with</label>
+                <input type="text" id='replaceSeparatorWith' name='replaceSeparatorWith' size="10"/>
+              </div>
+              <div class="field half">
+
+                <label for="replaceSpaceWith" class="pure-input-1-2">Replace space with</label>
+
+                <input type="text" id='replaceSpaceWith' width="20px">
+              </div>
+              <div class="field">
+                <input type="checkbox" value="false" id='monospaceIsCodeBlock'>
+                <label for="monospaceIsCodeBlock" class="pure-checkbox">
+                  Monospace Is used as Code block
+                </label>
+                
+              </div>
+              <div class="field">
+                <input type="checkbox" value="false" id='keepMDCharactersOfENNotes'> 
+                <label for="keepMDCharactersOfENNotes" class="pure-checkbox">
+                  Keep Markdown characters Of EN Notes
+                </label>
+              </div>
+            </section>
+            <section> Help and hints </section>
+          </div>
+          <div class="split style1">
+            <section>
+              <h2>Tags</h2>
+                <div class="field">
+                  <input type="checkbox" value="false" id='useHashTags'> 
+                  <label for="useHashTags" class="pure-checkbox">
+                    Add # to tag
+                  </label>
+                </div>
+              
+                <div class="field">
+                  <input type="checkbox" value="false" id='nestedTags'> 
+                  <label for="nestedTags" class="pure-checkbox">
+                    Generate nested tags
+                  </label>
+                </div>
+
+                <div class="field half">
+                  <label for="separatorInEN"> Separator of nested tags in EN</label>
+                  <input type="text" name="separatorInEN" id="separatorInEN" >
+
+                </div>
+            </section>
+            <section> Help and hints </section>
+            </div>
+      
+      </div>
+    </div>
+    </section>
+    
+  </section>
+  </template>
+  
