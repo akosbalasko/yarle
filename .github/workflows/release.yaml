@@ -15,7 +15,7 @@ jobs:
     - name: install dependencies
       run: npm install
     - name: compile
-      run: npm run make
+      run: npm run compile
     - name: publish
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -31,7 +31,7 @@ jobs:
     - name: install dependencies
       run: npm install
     - name: compile
-      run: npm run make
+      run: npm run compile
     - name: publish
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -47,7 +47,7 @@ jobs:
     - name: install dependencies
       run: npm install
     - name: compile
-      run: npm run make
+      run: npm run compile
     - name: publish
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
