@@ -14,12 +14,12 @@ function getInstallerConfig () {
   const outPath = path.join(rootPath, 'release-builds')
 
   return Promise.resolve({
-    appDirectory: path.join(outPath, 'Electron-tutorial-app-win32-ia32/'),
-    authors: 'Christian Engvall',
+    appDirectory: path.join(outPath, 'yarle-evernote-to-md-win32-ia32/'),
+    authors: 'Akos Balasko',
     noMsi: true,
     outputDirectory: path.join(outPath, 'windows-installer'),
-    exe: 'electron-tutorial-app.exe',
-    setupExe: 'ElectronTutorialAppInstaller.exe',
+    exe: 'yarle-evernote-to-md.exe',
+    setupExe: 'YarleInstaller.exe',
     setupIcon: path.join(rootPath, 'assets', 'icons', 'win', 'icon.ico')
   })
 }

@@ -1,6 +1,6 @@
 {
   "name": "yarle-evernote-to-md",
-  "version": "3.14.0",
+  "version": "4.0.0",
   "description": "Yet Another Rope Ladder from Evernote",
   "keywords": [
     "evernote",
@@ -32,8 +32,8 @@
     "css-watch": "npm run css-build -- --watch",
     "publish-npm": "npm run build && npm publish",
     "package-mac": "electron-packager . --overwrite --asar --platform=darwin --arch=x64 --icon=./src/ui/assets/icons/mac/icon.icns --prune=true --out=release-builds --darwinDarkModeSupport=true",
-    "package-win": "electron-packager . electron-tutorial-app --overwrite --asar --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Electron Tutorial App\"",
-    "package-linux": "electron-packager . electron-tutorial-app --overwrite --asar --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=true --out=release-builds",
+    "package-win": "electron-packager . electron-tutorial-app --overwrite --asar --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Yarle\"",
+    "package-linux": "electron-packager . electron-tutorial-app --overwrite --asar --platform=linux --arch=x64 --icon=assets/icons/png/512x512.png --prune=true --out=release-builds",
     "create-installer-mac": "electron-installer-dmg ./out/yarle-evernote-to-md-darwin-x64/yarle-evernote-to-md.app yarle-evernote-to-md --out=release-builds --overwrite --icon=./src/ui/assets/icons/mac/icon.icns",
     "create-installer-win": "node installers/windows/createinstaller.js",
     "create-debian-installer": "electron-installer-debian --src release-builds/electron-tutorial-app-linux-x64/ --arch amd64 --config debian.json"
@@ -139,6 +139,17 @@
         {
           "name": "@electron-forge/maker-rpm",
           "config": {}
+        }
+      ],
+      "publishers": [
+        {
+          "name": "@electron-forge/publisher-github",
+          "config": {
+            "repository": {
+              "owner": "akosbalasko",
+              "name": "yarle"
+            }
+          }
         }
       ]
     }
