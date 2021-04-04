@@ -3,7 +3,7 @@ const fs = require('fs');
 
 function startLogWatcher() {
   var chokidar = require("chokidar");
-  const conversionFile = `${__dirname}/../../../../conversion.log`;
+  const conversionFile = `${__dirname}/../../../../dist/utils/conversion.log`;
   console.log('watching: ' + conversionFile);
   var watcher = chokidar.watch(conversionFile, {
   ignored: /[\/\\]\./,

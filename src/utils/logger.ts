@@ -1,4 +1,5 @@
 import { createLogger, format, transports } from 'winston';
+import path from 'path';
 
 export const logger = createLogger({
   level: 'info',
@@ -8,7 +9,7 @@ export const logger = createLogger({
     // - Write to all logs with level `info` and below to `quick-start-combined.log`.
     // - Write all logs error (and below) to `quick-start-error.log`.
     //
-    new transports.File({ filename: 'error.log', level: 'error' }),
-    new transports.File({ filename: 'conversion.log', options: { flags: 'w' }})
+    new transports.File({ filename: path.join(__dirname, 'error.log'), level: 'error' }),
+    new transports.File({ filename: path.join(__dirname,'/conversion.log'), options: { flags: 'w' }})
   ]
 });
