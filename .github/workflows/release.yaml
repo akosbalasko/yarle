@@ -14,7 +14,7 @@ jobs:
         node-version: 14
     - name: install dependencies
       run: npm install
-    -name: compile
+    - name: compile
       run: npm run make
     - name: publish
       env:
@@ -30,7 +30,7 @@ jobs:
         node-version: 14
     - name: install dependencies
       run: npm install
-    -name: compile
+    - name: compile
       run: npm run make
     - name: publish
       env:
@@ -46,7 +46,7 @@ jobs:
         node-version: 14
     - name: install dependencies
       run: npm install
-    -name: compile
+    - name: compile
       run: npm run make
     - name: publish
       env:
