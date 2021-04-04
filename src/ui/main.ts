@@ -9,7 +9,6 @@ import * as yarle from '../yarle';
 import { mapSettingsToYarleOptions } from './settingsMapper';
 import { logger } from '../utils/logger';
 
-
 //handle setupevents as quickly as possible
 const setupEvents = require('./installers/setupEvents')
 /*if (setupEvents.handleSquirrelEvent()) {
@@ -94,7 +93,7 @@ function createWindow () {
     })
   );
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  //mainWindow.webContents.openDevTools()
 
   mainWindow.on('closed', function () {
     mainWindow = null

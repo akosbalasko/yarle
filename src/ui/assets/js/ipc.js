@@ -1,6 +1,6 @@
 const {ipcRenderer} = require('electron')
 const fs = require('fs');
-	
+
 function startLogWatcher() {
   var chokidar = require("chokidar");
   const conversionFile = `${__dirname}/../../../../conversion.log`;
@@ -80,5 +80,7 @@ function(n) {
     n(function() {
         ipc.messaging.init();
     })
+
+    
 
 }(jQuery);
