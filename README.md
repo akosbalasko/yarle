@@ -2,7 +2,7 @@
 ![logo](screens/yarle-logo.png)
 
 ![Last Commit](https://img.shields.io/github/last-commit/akosbalasko/yarle?style=for-the-badge)  
-![Version](https://img.shields.io/badge/version-3.14.0-blue?style=for-the-badge)
+![Version](https://img.shields.io/badge/version-4.0.0-blue?style=for-the-badge)
 [![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen?style=for-the-badge)](https://github.com/akosbalasko/yarle#readme)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green?style=for-the-badge)](https://github.com/akosbalasko/yarle/graphs/commit-activity)
 [![License: MIT](https://img.shields.io/github/license/akosbalasko/yarle?style=for-the-badge)](https://github.com/akosbalasko/yarle/blob/master/LICENSE)
@@ -33,6 +33,18 @@ Yarle is the ultimate converter of Evernote notes to Markdown.
 - :bulb: Metadata support: Puts `title`, `creation time`, `update time`, `tags`, and `latlong` `source`, `notebook`, `link to original html` meta-information into md as metadata. (To set them, please set up a custom template)
 - :hammer: Updates md files' creation, access, and modification timestamps according to the notes' original create/update/modification time.
 - :hammer: Organizes all attachments into a _resources subfolder (to keep the notes' folder as simple as possible).
+
+## Binaries: 
+
+[Windows](https://github.com/akosbalasko/yarle/releases/download/v4.0.0/yarle-evernote-to-md-darwin-x64-4.0.0.zip)
+
+[Linux](https://github.com/akosbalasko/yarle/releases/download/v4.0.0/yarle-evernote-to-md-4.0.0-1.x86_64.rpm)
+
+[Debian](https://github.com/akosbalasko/yarle/releases/download/v4.0.0/yarle-evernote-to-md_4.0.0_amd64.deb)
+
+[Mac](https://github.com/akosbalasko/yarle/releases/download/v4.0.0/yarle-evernote-to-md-darwin-x64-4.0.0.zip)
+
+## For versions below 4.0.0: 
 
 ## Prerequisite
 
