@@ -5,7 +5,7 @@ import * as utils from './utils';
 import { YarleOptions } from './YarleOptions';
 import { processNode } from './process-node';
 import { isWebClip } from './utils/note-utils';
-import { logger } from './utils/logger';
+import { loggerInfo } from './utils/loggerInfo';
 import { hasCreationTimeInTemplate, hasLocationInTemplate, hasSourceURLInTemplate, hasTagsInTemplate, hasUpdateTimeInTemplate, hasNotebookInTemplate, hasLinkToOriginalInTemplate } from './utils/templates/checker-functions';
 import { defaultTemplate } from './utils/templates/default-template';
 import { OutputFormat } from './output-format';
@@ -65,7 +65,7 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
   return new Promise((resolve, reject) => {
 
     const logAndReject = (error: Error) => {
-      logger.info(`Could not convert ${options.enexSource}:\n${error.message}`);
+      loggerInfo(`Could not convert ${options.enexSource}:\n${error.message}`);
       ++failed;
 
       return reject();
@@ -84,7 +84,7 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
     xml.on('tag:note', (note: any) => {
       if (options.skipWebClips && isWebClip(note)) {
         ++skipped;
-        logger.info(`Notes skipped: ${skipped}`);
+        loggerInfo(`Notes skipped: ${skipped}`);
       } else {
         if (noteAttributes) {
           // make sure single attributes are not collapsed
@@ -92,7 +92,7 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
         }
         processNode(note, notebookName);
         ++noteNumber;
-        logger.info(`Notes processed: ${noteNumber}\n\n`);
+        loggerInfo(`Notes processed: ${noteNumber}\n\n`);
       }
       noteAttributes = null;
     });
@@ -100,8 +100,8 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
     xml.on('end', () => {
       const success = noteNumber - failed;
       const totalNotes = noteNumber + skipped;
-      logger.info("==========================");
-      logger.info(
+      loggerInfo("==========================");
+      loggerInfo(
         `Conversion finished: ${success} succeeded, ${skipped} skipped, ${failed} failed. Total notes: ${totalNotes}`,
       );
 

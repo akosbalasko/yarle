@@ -7,7 +7,7 @@ import { store } from './store';
 import * as yarle from '../yarle';
 
 import { mapSettingsToYarleOptions } from './settingsMapper';
-import { logger } from '../utils/logger';
+import { loggerInfo } from '../utils/loggerInfo';
 
 //handle setupevents as quickly as possible
 const setupEvents = require('./installers/setupEvents')
@@ -164,22 +164,19 @@ ipcMain.on('openEnexSource', () => {
       properties: ['openFile'],
       
     }).then((result: any) => {
-      logger.info(result.canceled)
-      logger.info(result.filePaths)
        // fileNames is an array that contains all the selected
       if(result.filePaths === undefined){
-        logger.info("No file selected");
+        loggerInfo("No file selected");
         return;
     }
     const filePath = result.filePaths[0];
-    logger.info('path: ' + filePath);
+    loggerInfo('path: ' + filePath);
     store.set('enexSource', filePath);
     //const currentEnexFiles = fs.readdirSync(filePath).filter(fileName => fileName.match(/enex$/g)).join('\n');
-    logger.info('enex files: ' + filePath);
     mainWindow.webContents.send('currentEnexFiles', filePath);
     mainWindow.webContents.send('enexSource', filePath);
     }).catch((err: any) => {
-      logger.info(err)
+      loggerInfo(err)
     })
  })
 
@@ -190,11 +187,9 @@ ipcMain.on('selectOutputFolder', () => {
     { 
       properties: ['openDirectory'],
     }).then((result: any) => {
-      logger.info(result.canceled)
-      logger.info(result.filePaths)
        // fileNames is an array that contains all the selected
       if(result.filePaths === undefined){
-        logger.info("No file selected");
+        loggerInfo("No file selected");
         return;
     }
     const outputPath = result.filePaths[0];
@@ -202,17 +197,16 @@ ipcMain.on('selectOutputFolder', () => {
     console.log('outputDir:' + outputPath);
     mainWindow.webContents.send('outputDirectorySelected', outputPath);
     }).catch((err: any) => {
-      logger.info(err)
+      loggerInfo(err)
     })
  
 })
 
 ipcMain.on('configurationUpdated', (event: any, data: any) => {
-  logger.info("this is the firstname from the form ->", data)
 
   console.log("this is the firstname from the form ->", data)
   store.set(data.id, data.value);
-  logger.info(store.get(data.id));
+  loggerInfo(`config: ${JSON.stringify(store.get(data.id))}`);
 
 });
 
@@ -225,5 +219,5 @@ ipcMain.on('startConversion', async(event: any, data: any) => {
 ipcMain.on('saveTemplate', async(event: any, data: any) => {
   store.set(data.id, data.value);
   console.log(`Template : ${data.value}`);
-  logger.info(store.get(data.id));
+  loggerInfo(`template and config: ${JSON.stringify(store.get(data.id))}`);
 })

@@ -6,7 +6,7 @@ import { store } from './store';
 import * as yarle from './../yarle';
 
 import { mapSettingsToYarleOptions } from './settingsMapper';
-import { logger } from './../utils/logger';
+import { loggerInfo } from './../utils/loggerInfo';
 
 let mainWindow: any;
 
@@ -62,22 +62,21 @@ ipcMain.on('openEnexSource', () => {
       properties: ['openFile'],
       
     }).then((result: any) => {
-      logger.info(result.canceled)
-      logger.info(result.filePaths)
+      //loggerInfo(result.canceled)
+      //loggerInfo(result.filePaths)
        // fileNames is an array that contains all the selected
       if(result.filePaths === undefined){
-        logger.info("No file selected");
+        loggerInfo("No file selected");
         return;
     }
     const filePath = result.filePaths[0];
-    logger.info('path: ' + filePath);
+    loggerInfo('enex path: ' + filePath);
     store.set('enexSource', filePath);
     //const currentEnexFiles = fs.readdirSync(filePath).filter(fileName => fileName.match(/enex$/g)).join('\n');
-    logger.info('enex files: ' + filePath);
     mainWindow.webContents.send('currentEnexFiles', filePath);
     mainWindow.webContents.send('enexSource', filePath);
     }).catch((err: any) => {
-      logger.info(err)
+      loggerInfo(err)
     })
  })
 
@@ -88,26 +87,26 @@ ipcMain.on('selectOutputFolder', () => {
     { 
       properties: ['openDirectory'],
     }).then((result: any) => {
-      logger.info(result.canceled)
-      logger.info(result.filePaths)
+      loggerInfo(result.canceled)
+      loggerInfo(result.filePaths)
        // fileNames is an array that contains all the selected
       if(result.filePaths === undefined){
-        logger.info("No file selected");
+        loggerInfo("No file selected");
         return;
     }
     const outputPath = result.filePaths[0];
     store.set('outputDir', outputPath);
     mainWindow.webContents.send('outputDirectorySelected', outputPath);
     }).catch((err: any) => {
-      logger.info(err)
+      loggerInfo(err)
     })
  
 })
 
 ipcMain.on('configurationUpdated', (event: any, data: any) => {
-  logger.info("this is the firstname from the form ->", data)
+  loggerInfo(`this is the firstname from the form -> ${JSON.stringify(data)}`);
   store.set(data.id, data.value);
-  logger.info(store.get(data.id));
+  loggerInfo(JSON.stringify(store.get(data.id)));
 
 });
 
