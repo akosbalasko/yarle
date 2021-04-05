@@ -1,8 +1,30 @@
 const {ipcRenderer} = require('electron')
-const { LOGFILE } = require('./../../../utils/loggerInfo');
 const fs = require('fs');
+const path = require('path');
+
+const getAppDataPath = () => {
+  switch (process.platform) {
+    case "darwin": {
+      return path.join(process.env.HOME, "Library", "Application Support", "yarle-evernote-to-md");
+    }
+    case "win32": {
+      return path.join(process.env.APPDATA, "yarle-evernote-to-md");
+    }
+    case "linux": {
+      return path.join(process.env.HOME, ".yarle-evernote-to-md");
+    }
+    default: {
+      console.log("Unsupported platform!");
+      process.exit(1);
+    }
+  }
+}
+
+
 
 function startLogWatcher() {
+  const LOGFILE =  path.join(getAppDataPath(),'/conversion.log');
+
   var chokidar = require("chokidar");
   console.log('watching: ' + LOGFILE);
   var watcher = chokidar.watch(LOGFILE, {

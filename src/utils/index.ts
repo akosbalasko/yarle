@@ -5,3 +5,4 @@ export * from './note-utils';
 export * from './templates';
 export * from './save-html-file';
 export * from './save-md-file';
+export * from './loggerInfo';
