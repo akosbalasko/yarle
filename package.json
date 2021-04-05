@@ -1,6 +1,6 @@
 {
   "name": "yarle-evernote-to-md",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Yet Another Rope Ladder from Evernote",
   "keywords": [
     "evernote",
@@ -12,7 +12,7 @@
   ],
   "main": "dist/ui/main.js",
   "bin": {
-    "yarle": "./execute.js"
+    "yarle": "./dist/dropTheRope.js"
   },
   "scripts": {
     "clean": "rimraf ./out && rimraf ./dist && rimraf \"node_modules/!(rimraf|.bin)\"",
@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "@types/fs-extra": "8.1.0",
+    "@electron-forge/cli": "^6.0.0-beta.54",
     "chai": "4.2.0",
     "chokidar": "^3.4.3",
     "fast-xml-parser": "3.12.5",
@@ -72,7 +73,6 @@
   "homepage": "https://github.com/akosbalasko/yarle",
   "license": "(MIT OR Apache-2.0)",
   "devDependencies": {
-    "@electron-forge/cli": "^6.0.0-beta.54",
     "@electron-forge/maker-deb": "^6.0.0-beta.54",
     "@electron-forge/maker-rpm": "^6.0.0-beta.54",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.54",

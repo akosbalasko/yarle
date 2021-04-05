@@ -25,7 +25,9 @@ console.log(`logfilepath: ${LOGFILE}`);
 
 
 export const loggerInfo = (message: string) => {
-    
+    if (!fs.existsSync(LOGFILE)){
+        fs.writeFileSync(LOGFILE,'');
+    }
     fs.appendFileSync(LOGFILE, `${message}${EOL}`);
 }
 
