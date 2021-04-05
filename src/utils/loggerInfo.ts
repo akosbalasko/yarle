@@ -20,8 +20,10 @@ const getAppDataPath = () => {
     }
   }
 
-const LOGFILE =  path.join(getAppDataPath(),'/conversion.log');
+export const LOGFILE =  path.join(getAppDataPath(),'/conversion.log');
 console.log(`logfilepath: ${LOGFILE}`);
+
+
 export const loggerInfo = (message: string) => {
     
     fs.appendFileSync(LOGFILE, `${message}${EOL}`);

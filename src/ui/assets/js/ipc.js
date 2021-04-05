@@ -1,11 +1,11 @@
 const {ipcRenderer} = require('electron')
+const { LOGFILE } = require('./../../../utils/loggerInfo');
 const fs = require('fs');
 
 function startLogWatcher() {
   var chokidar = require("chokidar");
-  const conversionFile = `${__dirname}/../../../../dist/utils/conversion.log`;
-  console.log('watching: ' + conversionFile);
-  var watcher = chokidar.watch(conversionFile, {
+  console.log('watching: ' + LOGFILE);
+  var watcher = chokidar.watch(LOGFILE, {
   ignored: /[\/\\]\./,
   persistent: true,
   usePolling: true
