@@ -26,6 +26,7 @@ console.log(`logfilepath: ${LOGFILE}`);
 
 export const loggerInfo = (message: string) => {
     if (!fs.existsSync(LOGFILE)){
+        fs.mkdirSync(getAppDataPath(), { recursive: true });
         fs.writeFileSync(LOGFILE,'');
     }
     fs.appendFileSync(LOGFILE, `${message}${EOL}`);
