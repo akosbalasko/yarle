@@ -5,7 +5,7 @@ const {EOL} = require('os');
 const getAppDataPath = () => {
     switch (process.platform) {
       case "darwin": {
-        return path.join(process.env.HOME, "Library", "Application Support", "yarle-evernote-to-md);
+        return path.join(process.env.HOME, "Library", "Application Support", "yarle-evernote-to-md");
       }
       case "win32": {
         return path.join(process.env.APPDATA, "yarle-evernote-to-md");
