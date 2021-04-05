@@ -7,8 +7,10 @@ import * as path from 'path';
 import * as yarle from './yarle';
 import { YarleOptions } from './YarleOptions';
 import { loggerInfo } from './utils/loggerInfo';
+import { clearLogFile } from './utils/clearLogFile';
 
 export const run = async (opts?: YarleOptions) => {
+    clearLogFile();
     var argv = require('minimist')(process.argv.slice(2));
     let configFile = argv['configFile']
         ? path.isAbsolute(argv['configFile'])
