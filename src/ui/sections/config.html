@@ -1,0 +1,226 @@
+<template class="section-template">
+  <section id="config" class="wrapper style2 spotlights">
+    <section>
+      <div class="content">
+        <div class="inner">
+          <h2>Step 2: Configuration</h2>
+
+          <div class="split style1">
+
+          <section style="padding-left:64px; display: block;">
+            <h2>General</h2>
+
+            <div class="field">
+              <label for="outputFormat2" class="pure-input-1-2">Output format
+                     </label>
+                  <select name="outputFormat2" id="outputFormat2">
+                    <option value="obsidianMd">ObsidianMD</option>
+                    <option value="saab">StandardMD</option>
+                  </select>
+                  <br><div style='font-size: 12px;'><i>(
+                    Generates internal file links and highlights in Obsidian-style: highlights are going to be bounded by `==` instead of \` characters, file links are going to be as follows: `![[file-name]]` instead of `![file-name](file-name))</i></div>
+                  
+            </div>
+            <div class="field half">
+            <input type="checkbox" value="false" id='keepOriginalHtml' value="false">
+                  <label for="keepOriginalHtml" class="pure-checkbox">
+                    Keep the original Html
+                    <br><div style='font-size: 12px;'><i>(
+                    Converts the notes to HTML format also.)</i></div>
+                  </label>
+              
+            </div>
+            <div class="field half">
+
+              <input type="checkbox" value="false" id='addWebClips'> 
+                <label for="addWebClips" class="pure-checkbox">
+                  Convert webclips
+                  <br><div style='font-size: 12px;'><i>(Convert webclips too)</i></div>
+                </label>
+            
+            </div>
+            <div class="field half">
+              <input type="checkbox" value="false" id='isZettelkastenNeeded'> 
+              <label for="isZettelkastenNeeded" class="pure-checkbox">
+                Zettelkasten-prefix needed.
+                  <br><div style='font-size: 12px;'><i>((It puts Zettelkasten Id (based on time of creation) at the beginning of the file name.))</i></div>
+              </label>
+            </div>
+
+            <div class="field half">
+              
+              <label for="dateFormat" >
+                Date format:
+              </label>
+              <input type="text" value="" id='dateFormat'> 
+              <br><div style='font-size: 12px;'><i>(
+                ISO 8601 specification of the expected date format (e.g. YYYY-MM-DD))</i></div>
+
+          </div>
+
+          <div class="field half">
+            <input type="checkbox" value="false" id='haveEnexLevelResources'> 
+            <label for="haveEnexLevelResources" class="pure-checkbox">
+              Store attachments in one folder only
+              <br><div style='font-size: 12px;'><i>(
+                Stores note resources on global _resources folder per enex export if enabled.)</i></div>
+            </label>
+          </div>
+
+          <div class="field half">
+            <label for="keepImageSize" class="pure-checkbox">
+              Keep Image size
+              
+            </label>
+              <select name="keepImageSize" id="keepImageSize">
+                <option value="ObsidianMD">Yes</option>
+                <option value="StandardMD">No</option>
+              </select>
+              <br><div style='font-size: 12px;'><i>(
+                Preserves the images' width and height in the chosen format.)</i></div>
+        </div>
+
+        <div class="field half">
+          <input type="checkbox" value="false" id='urlEncodeFileNamesAndLinks'> 
+          <label for="urlEncodeFileNamesAndLinks" class="pure-checkbox">
+            Perform URL Encoding on FileNames And Links
+            <br><div style='font-size: 12px;'><i>(
+              URL-encodes linked file names and internal EN links . e.g "linked file.jpg" will be converted to "linked%20file.jpg" )</i></div>
+          </label>
+        </div>
+
+
+        <div class="field half">
+          <input type="checkbox" value="false" id='keepOriginalAmountOfNewlines'> 
+          <label for="keepOriginalAmountOfNewlines" class="pure-checkbox">
+            Keep original amount of newlines
+            <br><div style='font-size: 12px;'><i>(
+              keep the original amount of newlines, default is false, when the multiple newlines are collapsed to one.)</i></div>
+          </label>
+      </div>
+
+      <div class="field half">
+        <input type="checkbox" value="false" id='addExtensionToInternalLinks'> 
+        <label for="addExtensionToInternalLinks" class="pure-checkbox">
+          Add 'md' extension of internal links
+          <br><div style='font-size: 12px;'><i>(
+            adds '.md' extensions at the end of internal file links, to make them recognizable by DevonThink and other tools )</i></div>
+        </label>
+      </div>
+      <div class="field half">
+        <input type="checkbox" value="false" id='plainTextNotesOnly'> 
+        <label for="plainTextNotesOnly" class="pure-checkbox">
+          Convert plain text notes only
+          <br><div style='font-size: 12px;'><i>(
+            Skips any notes with attachments (e.g. notes containing pictures).)</i></div>
+        </label>
+    </div>
+
+          <div class="field">
+
+              <input type="checkbox" value="false" id='skipEnexFileNameFromOutputPath'>
+              <label for="skipEnexFileNameFromOutputPath" class="pure-checkbox">
+                Skip enex filename from output path
+              </label>
+            
+          </div>
+      </section>
+      
+      <section style="display: block;width: 20%;">
+        <!--<h3> Options </h3>
+        
+        <code>isZettelkastenNeeded</code>: puts Zettelkasten Id (based on time of creation) at the beginning of the file name.<br><i><b>Possible values</b></i>:   true or false. 
+        <br><br>
+
+
+        <code>plaintextNotesOnly</code>: skips any notes with attachments (e.g. notes containing pictures).<br><i><b>Possible values</b></i>:   true or false. 
+        <br><br>
+        <code>useHashTags</code>: whether to add the pound sign in front of tags.<br><i><b>Possible values</b></i>:   true or false. 
+        <br><br><code>outputFormat</code>: generates internal file links and highlights in Obsidian-style: highlights are going to be bounded by `==` instead of \` characters, file links are going to be as follows: `![[file-name]]` instead of `![file-name](file-name)`. Possible values: `ObsidianMD` to get Obsidian-style notes, `StandardMD` or skip it completely, if you prefer Standard Markdown format.<br><i><b>Possible values</b></i>:   ObsidianMD or StandardMD. 
+        <br><br><code>haveEnexLevelResources</code>: stores note resources on global _resources folder per enex export if enabled.<br><i><b>Possible values</b></i>:   true or false. 
+        <br><br><code>monospaceIsCodeBlock</code>: if it's true then all deepest elements with monospace font style is recognized as Codeblocks.<br><i><b>Possible values</b></i>:  true or false. 
+        <br><br><code>dateFormat</code>: ISO 8601 specification of the expected date format (e.g. YYYY-MM-DD) <br><i><b>Possible values</b></i>:  string. 
+        <br><br><code>keepMDCharactersOfENNotes</code>:  set it true, if you used Markdown format in your EN notes.<br><i><b>Possible values</b></i>:  true or false.
+        <br><br><code>nestedTags</code>: it's a complex property contains the following subitems: "separatorInEN", "replaceSeparatorWith" and  "replaceSpaceWith" . separatorInEN stores the tag separator used in Evernote, replaceSeparatorWith is the string to what separatorInEN should be replaced to, and replaceSpaceWith is the string to what the space character should be replaced to in the tags. For example using the default settings a tag ```tag1_sub tag of tag1``` is going to be converted to ```tag1/sub-tag-of-tag1```
+        <br><br><code>keepImageSize</code>:  preserve an image's width and height in the chosen format when specified. <br><i><b>Possible values</b></i>:  `ObsidianMD` or `StandardMD`.
+        <br><br><code>urlEncodeFileNamesAndLinks</code>: URL-encodes linked file names and internal EN links . e.g "linked file.jpg" will be converted to "linked%20file.jpg" <br><i><b>Possible values</b></i>:  true or false. 
+        <br><br><code>keepOriginalAmountOfNewlines</code>: keep the original amount of newlines, default is false, when the multiple newlines are collapsed to one. <br><i><b>Possible values</b></i>:  true or false. 
+        <br><br><code>addExtensionToInternalLinks</code>: adds '.md' extensions at the end of internal file links, to make them recognizable by DevonThink and other tools  <br><i><b>Possible values</b></i>:  true or false. 
+        
+      -->
+      </section>
+          </div>
+          <div class=" split style1">
+            <section>
+              <h2>Notes</h2>
+              
+              <div class="field">
+                <input type="checkbox" value="false" id='monospaceIsCodeBlock'>
+                <label for="monospaceIsCodeBlock" class="pure-checkbox">
+                  Monospace Is used as Code block
+                  <br><div style='font-size: 12px;'><i>(
+                    if it's true then all deepest elements with monospace font style is recognized as Codeblocks.)</i></div>
+                </label>
+                
+              </div>
+              <div class="field">
+                <input type="checkbox" value="false" id='keepMDCharactersOfENNotes'> 
+                <label for="keepMDCharactersOfENNotes" class="pure-checkbox">
+                  Keep Markdown characters Of EN Notes
+                  <br><div style='font-size: 12px;'><i>(
+                    Set it true, if you used Markdown format in your EN notes.)</i></div>
+                </label>
+              </div>
+            </section>
+            <section>
+               </section>
+          </div>
+          <div class="split style1">
+            <section>
+              <h2>Tags</h2>
+                <div class="field">
+                  <input type="checkbox" value="false" id='useHashTags'> 
+                  <label for="useHashTags" class="pure-checkbox">
+                    Add # to tag
+                    <br><div style='font-size: 12px;'><i>(
+                      Appends the pound sign at the beginning of the tags.)</i></div>
+                  </label>
+                </div>
+              
+                <div class="field">
+                  <input type="checkbox" value="false" id='nestedTags'> 
+                  <label for="nestedTags" class="pure-checkbox">
+                    Generate nested tags
+                    <br><div style='font-size: 12px;'><i>(
+                      It's a complex property contains the following subitems: "separatorInEN", "replaceSeparatorWith" and  "replaceSpaceWith" . separatorInEN stores the tag separator used in Evernote, replaceSeparatorWith is the string to what separatorInEN should be replaced to, and replaceSpaceWith is the string to what the space character should be replaced to in the tags. For example using the default settings a tag ```tag1_sub tag of tag1``` is going to be converted to ```tag1/sub-tag-of-tag1```)</i></div>
+                  </label>
+                </div>
+
+                <div class="field half">
+                  <label for="separatorInEN"> Separator of nested tags in EN
+                  </label>
+                  <input type="text" name="separatorInEN" id="separatorInEN" >
+
+                </div>
+                <div class="field half first">
+                  <label for="replaceSeparatorWith" class="pure-input-1-2">Replace separator with</label>
+                  <input type="text" id='replaceSeparatorWith' name='replaceSeparatorWith' size="10"/>
+                </div>
+                <div class="field half">
+  
+                  <label for="replaceSpaceWith" class="pure-input-1-2">Replace space with
+                    </label>
+  
+                  <input type="text" id='replaceSpaceWith' width="20px">
+                </div>
+            </section>
+            <section></section>
+            </div>
+      
+      </div>
+    </div>
+    </section>
+    
+  </section>
+  </template>
+  

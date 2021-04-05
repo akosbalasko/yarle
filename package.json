@@ -1,6 +1,6 @@
 {
   "name": "yarle-evernote-to-md",
-  "version": "3.14.0",
+  "version": "4.0.0",
   "description": "Yet Another Rope Ladder from Evernote",
   "keywords": [
     "evernote",
@@ -10,26 +10,38 @@
     "markdown",
     "enex to md"
   ],
-  "main": "./dist/dropTheRope.js",
+  "main": "dist/ui/main.js",
   "bin": {
-    "yarle": "./dist/dropTheRope.js"
+    "yarle": "./execute.js"
   },
   "scripts": {
-    "clean": "npm i -g rimraf && npm -g config set user root && rimraf ./out && rimraf ./dist && rimraf \"node_modules/!(rimraf|.bin)\"",
-    "build": "npm run clean && npm i  && tsc --project ./src/tsconfig.json",
+    "clean": "rimraf ./out && rimraf ./dist && rimraf \"node_modules/!(rimraf|.bin)\"",
+    "build": "npm i  && tsc --project ./src/tsconfig.json",
     "build:watch": "nodemon --watch src/ --exec \"npm run build\" -e ts",
     "coverage": "nyc mocha",
     "lint": "tslint --project ./src/tsconfig.json",
-    "start": "node --max-old-space-size=1024 ./dist/dropTheRope.js",
     "debug": "node --inspect --max-old-space-size=1024 ./dist/dropTheRope.js",
     "test": "nyc --reporter=html --reporter=text mocha",
     "test-watch": "mocha --watch",
-    "publish": "npm run build && npm publish"
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "compile": "npm run build && copyfiles -u 1 \"src/ui/**/*\" dist",
+    "start": "tsc  --project ./src/tsconfig.json && electron-forge start",
+    "publish": "electron-forge publish",
+    "css-build": "node-sass --omit-source-map-url ./src/ui/sass/purecss.scss ./src/ui/css/purecss.css",
+    "css-watch": "npm run css-build -- --watch",
+    "publish-npm": "npm run build && npm publish",
+    "package-mac": "electron-packager . --overwrite --asar --platform=darwin --arch=x64 --icon=./src/ui/assets/icons/mac/icon.icns --prune=true --out=release-builds --darwinDarkModeSupport=true",
+    "package-win": "electron-packager . electron-tutorial-app --overwrite --asar --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Yarle\"",
+    "package-linux": "electron-packager . electron-tutorial-app --overwrite --asar --platform=linux --arch=x64 --icon=assets/icons/png/512x512.png --prune=true --out=release-builds",
+    "create-installer-mac": "electron-installer-dmg ./out/yarle-evernote-to-md-darwin-x64/yarle-evernote-to-md.app yarle-evernote-to-md --out=release-builds --overwrite --icon=./src/ui/assets/icons/mac/icon.icns",
+    "create-installer-win": "node installers/windows/createinstaller.js",
+    "create-debian-installer": "electron-installer-debian --src release-builds/electron-tutorial-app-linux-x64/ --arch amd64 --config debian.json"
   },
-  "author": "Akos Balasko",
   "dependencies": {
     "@types/fs-extra": "8.1.0",
     "chai": "4.2.0",
+    "chokidar": "^3.4.3",
     "fast-xml-parser": "3.12.5",
     "fs-extra": "4.0.2",
     "he": "1.2.0",
@@ -43,13 +55,10 @@
     "proxyquire": "2.1.3",
     "rimraf": "^3.0.2",
     "sanitize-filename": "^1.6.3",
-    "ts-node": "8.5.4",
-    "tslint": "5.19.0",
-    "tslint-config-prettier": "1.13.0",
-    "tslint-microsoft-contrib": "6.2.0",
     "turndown": "7.0.0",
-    "typescript": "3.8.3",
     "utimes": "4.0.3",
+    "winston": "^3.3.3",
+    "electron-store": "^6.0.1",
     "xml-flow": "1.0.4"
   },
   "engines": {
@@ -63,7 +72,12 @@
   "homepage": "https://github.com/akosbalasko/yarle",
   "license": "(MIT OR Apache-2.0)",
   "devDependencies": {
-    "execSync": "1.0.2",
+    "@electron-forge/cli": "^6.0.0-beta.54",
+    "@electron-forge/maker-deb": "^6.0.0-beta.54",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.54",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
+    "@electron-forge/maker-zip": "^6.0.0-beta.54",
+    "@electron-forge/publisher-github": "^6.0.0-beta.52",
     "@types/he": "1.1.1",
     "@types/jsdom": "16.2.4",
     "@types/lodash": "4.14.151",
@@ -73,10 +87,72 @@
     "@types/proxyquire": "1.3.28",
     "@types/showdown": "1.9.3",
     "@types/sinon": "9.0.1",
+    "@typescript-eslint/eslint-plugin": "^2.34.0",
+    "@typescript-eslint/parser": "^2.34.0",
+    "bulma": "^0.9.1",
+    "copyfiles": "^2.4.1",
+    "electron": "6.0.0",
+    "electron-installer-dmg": "^3.0.0",
+    "electron-packager": "^12.2.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-winstaller": "^2.7.0",
+    "eslint": "^7.16.0",
+    "eslint-plugin-import": "^2.22.1",
     "mocha": "5.2.0",
+    "node-sass": "^5.0.0",
     "nodemon": "2.0.5",
     "nyc": "13.0.1",
+    "purecss-sass": "^2.0.3",
     "sinon": "9.0.2",
-    "timezone-mock": "1.1.1"
+    "timezone-mock": "1.1.1",
+    "ts-node": "8.5.4",
+    "tslint": "5.19.0",
+    "tslint-config-prettier": "1.13.0",
+    "tslint-microsoft-contrib": "6.2.0",
+    "typescript": "^4.1.3"
+  },
+  "author": {
+    "name": "Akos Balasko",
+    "email": "akos0215@gmail.com"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "icon": "./src/ui/assets/icons/mac/icon.icns"
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "yarle"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ],
+      "publishers": [
+        {
+          "name": "@electron-forge/publisher-github",
+          "config": {
+            "repository": {
+              "owner": "akosbalasko",
+              "name": "yarle"
+            }
+          }
+        }
+      ]
+    }
   }
 }

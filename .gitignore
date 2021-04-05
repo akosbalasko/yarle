@@ -9,3 +9,9 @@ out
 .wakatime-project
 .local-pack
 __debug
+
+./src/gui/.DS_STORE
+./src/gui/.sass-cache
+release-builds
+conversion.log
+error.log

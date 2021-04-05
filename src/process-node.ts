@@ -11,12 +11,13 @@ import { processResources } from './process-resources';
 import { convertHtml2Md } from './convert-html-to-md';
 import { convert2Html } from './convert-to-html';
 import { NoteData } from './models/NoteData';
+import { loggerInfo } from './utils/loggerInfo';
 
 export const processNode = (note: any, notebookName: string): void => {
 
   let dateStarted: Date = new Date();  
-  console.log("\n");
-  console.log("Started conversion: " + dateStarted);
+  loggerInfo("\n");
+  loggerInfo("Started conversion: " + dateStarted);
 
   if (Array.isArray(note.content))
     note.content = note.content.join('');
@@ -28,7 +29,7 @@ export const processNode = (note: any, notebookName: string): void => {
   };
 
   // tslint:disable-next-line:no-console
-  console.log(`Converting note "${noteData.title}"...`);
+  loggerInfo(`Converting note "${noteData.title}"...`);
 
   try {
     if (isComplex(note)) {
@@ -41,7 +42,7 @@ export const processNode = (note: any, notebookName: string): void => {
 
     const data = applyTemplate(noteData, yarleOptions);
     // tslint:disable-next-line:no-console
-    console.log('data =>\n', JSON.stringify(data), '\n***');
+    // loggerInfo(`data =>\n ${JSON.stringify(data)} \n***`);
 
     saveMdFile(data, note);
 
@@ -52,13 +53,13 @@ export const processNode = (note: any, notebookName: string): void => {
 
   } catch (e) {
     // tslint:disable-next-line:no-console
-    console.log(`Failed to convert note: ${noteData.title}`, e);
+    loggerInfo(`Failed to convert note: ${noteData.title}, ${JSON.stringify(e)}`);
   }
   // tslint:disable-next-line:no-console
   let dateFinished: Date = new Date();  
   let conversionDuration = (dateFinished.getTime()- dateStarted.getTime())/1000; //in seconds.
-  console.log("Finished conversion: " + dateFinished);  
-  console.log(`Note "${noteData.title}" converted successfully in ${conversionDuration} seconds.`);
+  loggerInfo("Finished conversion: " + dateFinished);  
+  loggerInfo(`Note "${noteData.title}" converted successfully in ${conversionDuration} seconds.`);
   
 
 };

@@ -5,6 +5,7 @@ import * as utils from './utils';
 import { YarleOptions } from './YarleOptions';
 import { processNode } from './process-node';
 import { isWebClip } from './utils/note-utils';
+import { loggerInfo } from './utils/loggerInfo';
 import { hasCreationTimeInTemplate, hasLocationInTemplate, hasSourceURLInTemplate, hasTagsInTemplate, hasUpdateTimeInTemplate, hasNotebookInTemplate, hasLinkToOriginalInTemplate } from './utils/templates/checker-functions';
 import { defaultTemplate } from './utils/templates/default-template';
 import { OutputFormat } from './output-format';
@@ -32,7 +33,7 @@ export let yarleOptions: YarleOptions = { ...defaultYarleOptions };
 
 const setOptions = (options: YarleOptions): void => {
   yarleOptions = { ...defaultYarleOptions, ...options };
-  let template = defaultTemplate;
+  let template = yarleOptions.currentTemplate ? yarleOptions.currentTemplate : defaultTemplate;
 
   if (yarleOptions.templateFile) {
     template = fs.readFileSync(yarleOptions.templateFile, 'utf-8');
@@ -64,7 +65,7 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
   return new Promise((resolve, reject) => {
 
     const logAndReject = (error: Error) => {
-      console.log(`Could not convert ${options.enexSource}:\n${error.message}`);
+      loggerInfo(`Could not convert ${options.enexSource}:\n${error.message}`);
       ++failed;
 
       return reject();
@@ -83,7 +84,7 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
     xml.on('tag:note', (note: any) => {
       if (options.skipWebClips && isWebClip(note)) {
         ++skipped;
-        console.log(`Notes skipped: ${skipped}`);
+        loggerInfo(`Notes skipped: ${skipped}`);
       } else {
         if (noteAttributes) {
           // make sure single attributes are not collapsed
@@ -91,7 +92,7 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
         }
         processNode(note, notebookName);
         ++noteNumber;
-        console.log(`Notes processed: ${noteNumber}\n\n`);
+        loggerInfo(`Notes processed: ${noteNumber}\n\n`);
       }
       noteAttributes = null;
     });
@@ -99,8 +100,8 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
     xml.on('end', () => {
       const success = noteNumber - failed;
       const totalNotes = noteNumber + skipped;
-      console.log("==========================");
-      console.log(
+      loggerInfo("==========================");
+      loggerInfo(
         `Conversion finished: ${success} succeeded, ${skipped} skipped, ${failed} failed. Total notes: ${totalNotes}`,
       );
 
