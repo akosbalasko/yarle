@@ -42,7 +42,7 @@ export const processNode = (note: any, notebookName: string): void => {
 
     const data = applyTemplate(noteData, yarleOptions);
     // tslint:disable-next-line:no-console
-    loggerInfo(`data =>\n ${JSON.stringify(data)} \n***`);
+    // loggerInfo(`data =>\n ${JSON.stringify(data)} \n***`);
 
     saveMdFile(data, note);
 
