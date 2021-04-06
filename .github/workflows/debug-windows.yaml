@@ -19,6 +19,6 @@ jobs:
     - name: start
       run: npm run debug
     - name: check-log
-      run: cat C:\Users\runneradmin\AppData\Roaming\yarle-evernote-to-md\conversion.log
+      run: type C:\Users\runneradmin\AppData\Roaming\yarle-evernote-to-md\conversion.log
     - name: check-dir
-      run: ls -la ./out
+      run: ls ./out
