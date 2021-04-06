@@ -50,10 +50,7 @@ Yarle is the ultimate converter of Evernote notes to Markdown.
 
 Download the desktop app for your platform, and follow the instructions there.
 
-
-## Instructions for legacy versions (below 4.0.0): 
-
-## Prerequisite
+## Prerequisite for legacy versions (below 4.0.0):
 
  - Required [Install Node.js](https://nodejs.org/en/download/) version 10.22.1 or higher.
 
