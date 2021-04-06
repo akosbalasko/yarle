@@ -35,7 +35,6 @@ function startLogWatcher() {
 
   function onWatcherReady() {
     console.info('From here can you check for real changes, the initial scan has been completed.');
-    ipcRenderer.send('startConversion');
 
   }
 
@@ -87,6 +86,8 @@ function(n) {
       
         $('#startConversion').click(function () {
           startLogWatcher();
+          ipcRenderer.send('startConversion');
+
         });
 
         $('#saveTemplate').click(function () {
