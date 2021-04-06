@@ -28,7 +28,7 @@
     "make": "electron-forge make",
     "compile": "npm run build && copyfiles -u 1 \"src/ui/**/*\" dist",
     "start": "tsc  --project ./src/tsconfig.json && electron-forge start --enable-logging",
-    "publish-electron": "electron-forge publish",
+    "publish": "electron-forge publish",
     "css-build": "node-sass --omit-source-map-url ./src/ui/sass/purecss.scss ./src/ui/css/purecss.css",
     "css-watch": "npm run css-build -- --watch",
     "publish-npm": "npm run build && npm publish",
