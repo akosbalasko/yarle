@@ -53,7 +53,7 @@ const setOptions = (options: YarleOptions): void => {
 };
 
 export const parseStream = async (options: YarleOptions): Promise<void> => {
-
+  loggerInfo(`getting stream from ${options.enexSource}`);
   const stream = fs.createReadStream(options.enexSource);
   // const xml = new XmlStream(stream);
   let noteNumber = 0;
@@ -113,7 +113,9 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
 };
 
 export const dropTheRope = async (options: YarleOptions): Promise<void> => {
+  loggerInfo('dropTheRope started...');
   setOptions(options);
+  loggerInfo('options set...');
   utils.setPaths();
 
   return parseStream(options);
