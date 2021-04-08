@@ -38,11 +38,11 @@ Yarle is the ultimate converter of Evernote notes to Markdown.
 
 [Windows](https://github.com/akosbalasko/yarle/releases/download/v4.0.3/yarle-evernote-to-md-4.0.3.Setup.exe)
 
-[Linux](https://github.com/akosbalasko/yarle/releases/download/v4.0.0/yarle-evernote-to-md-4.0.3-1.x86_64.rpm)
+[Linux](https://github.com/akosbalasko/yarle/releases/download/v4.0.3/yarle-evernote-to-md-4.0.3-1.x86_64.rpm)
 
-[Debian](https://github.com/akosbalasko/yarle/releases/download/v4.0.0/yarle-evernote-to-md_4.0.3_amd64.deb)
+[Debian](https://github.com/akosbalasko/yarle/releases/download/v4.0.3/yarle-evernote-to-md_4.0.3_amd64.deb)
 
-[Mac](https://github.com/akosbalasko/yarle/releases/download/v4.0.0/yarle-evernote-to-md-darwin-x64-4.0.3.zip)
+[Mac](https://github.com/akosbalasko/yarle/releases/download/v4.0.3/yarle-evernote-to-md-darwin-x64-4.0.3.zip)
 
 
 
