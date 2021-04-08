@@ -22,5 +22,6 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
         keepMDCharactersOfENNotes: store.get('keepMDCharactersOfENNotes') as boolean,
         monospaceIsCodeBlock: store.get('monospaceIsCodeBlock') as boolean,
         keepOriginalHtml: store.get('keepOriginalHtml') as boolean,
+        currentTemplate: store.get('currentTemplate') as string
     }
 }

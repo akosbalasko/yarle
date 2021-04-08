@@ -33,11 +33,13 @@ export let yarleOptions: YarleOptions = { ...defaultYarleOptions };
 
 const setOptions = (options: YarleOptions): void => {
   yarleOptions = { ...defaultYarleOptions, ...options };
-  let template = yarleOptions.currentTemplate ? yarleOptions.currentTemplate : defaultTemplate;
 
-  if (yarleOptions.templateFile) {
-    template = fs.readFileSync(yarleOptions.templateFile, 'utf-8');
-  }
+
+  let template = (yarleOptions.templateFile)  ?  fs.readFileSync(yarleOptions.templateFile, 'utf-8'): defaultTemplate;
+  template = yarleOptions.currentTemplate ? yarleOptions.currentTemplate : template;
+
+  loggerInfo(`current template is: ${template}`);
+
   /*if (yarleOptions.templateFile) {*/
   // todo: handle file not exists error
   yarleOptions.skipCreationTime = !hasCreationTimeInTemplate(template);
@@ -49,6 +51,8 @@ const setOptions = (options: YarleOptions): void => {
   yarleOptions.keepOriginalHtml = hasLinkToOriginalInTemplate(template);
 
   yarleOptions.currentTemplate = template;
+
+  loggerInfo(`current template is 2 : ${template}`);
   /*}*/
 };
 
@@ -113,9 +117,7 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
 };
 
 export const dropTheRope = async (options: YarleOptions): Promise<void> => {
-  loggerInfo('dropTheRope started...');
   setOptions(options);
-  loggerInfo('options set...');
   utils.setPaths();
 
   return parseStream(options);
