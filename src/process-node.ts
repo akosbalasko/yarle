@@ -17,7 +17,7 @@ export const processNode = (note: any, notebookName: string): void => {
 
   let dateStarted: Date = new Date();  
   loggerInfo("\n");
-  loggerInfo("Started conversion: " + dateStarted);
+  loggerInfo("Started conversion at " + dateStarted);
 
   if (Array.isArray(note.content))
     note.content = note.content.join('');

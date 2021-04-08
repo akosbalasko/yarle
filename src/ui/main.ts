@@ -50,7 +50,7 @@ function createWindow () {
   mainWindow.loadURL(`file://${__dirname}/index.html`)
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
 
 
   // Show the mainwindow when it is loaded and ready to show
@@ -81,9 +81,6 @@ function createWindow () {
   })
 
   secondWindow.loadURL(`file://${__dirname}/windows/ipcwindow.html`)
-
-  require('./menu/mainmenu')
-
 
   mainWindow.loadURL(
     url.format({
@@ -219,5 +216,4 @@ ipcMain.on('startConversion', async(event: any, data: any) => {
 ipcMain.on('saveTemplate', async(event: any, data: any) => {
   store.set(data.id, data.value);
   console.log(`Template : ${data.value}`);
-  loggerInfo(`template and config: ${JSON.stringify(store.get(data.id))}`);
 })

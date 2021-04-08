@@ -53,7 +53,7 @@ const setOptions = (options: YarleOptions): void => {
 };
 
 export const parseStream = async (options: YarleOptions): Promise<void> => {
-  loggerInfo(`getting stream from ${options.enexSource}`);
+  // loggerInfo(`Getting stream from ${options.enexSource}`);
   const stream = fs.createReadStream(options.enexSource);
   // const xml = new XmlStream(stream);
   let noteNumber = 0;
