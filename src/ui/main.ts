@@ -40,7 +40,7 @@ function createWindow () {
     minHeight: 800,
     backgroundColor: '#312450',
     show: false,
-    icon: path.join(__dirname, 'assets/icons/png/64x64.png'),
+    icon: path.join(__dirname, 'assets/icons/png/192x192.png'),
     webPreferences: {
       nodeIntegration: true
     }
@@ -81,9 +81,6 @@ function createWindow () {
   })
 
   secondWindow.loadURL(`file://${__dirname}/windows/ipcwindow.html`)
-
-  require('./menu/mainmenu')
-
 
   mainWindow.loadURL(
     url.format({
@@ -219,5 +216,4 @@ ipcMain.on('startConversion', async(event: any, data: any) => {
 ipcMain.on('saveTemplate', async(event: any, data: any) => {
   store.set(data.id, data.value);
   console.log(`Template : ${data.value}`);
-  loggerInfo(`template and config: ${JSON.stringify(store.get(data.id))}`);
 })

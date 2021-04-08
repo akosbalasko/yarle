@@ -5,6 +5,8 @@ import { Path } from '../paths';
 import { yarleOptions } from '../yarle';
 
 import { getNoteFileName, getNoteName } from './filename-utils';
+import { loggerInfo } from './loggerInfo';
+import { logger } from './logger';
 
 export const paths: Path = {};
 
@@ -38,11 +40,11 @@ const clearDistDir = (dstPath: string): void => {
 };
 
 export const getRelativeResourceDir = (note: any): string => {
-  return yarleOptions.haveEnexLevelResources ? './_resources' : `./_resources/${getResourceDir(paths.mdPath, note)}.resources`;
+  return yarleOptions.haveEnexLevelResources ? `.${path.sep}_resources` : `.${path.sep}_resources${path.sep}${getResourceDir(paths.mdPath, note)}.resources`;
 };
 
 export const getAbsoluteResourceDir = (note: any): string => {
-  return yarleOptions.haveEnexLevelResources ? paths.resourcePath : `${paths.resourcePath}/${getResourceDir(paths.mdPath, note)}.resources`;
+  return yarleOptions.haveEnexLevelResources ? paths.resourcePath : `${paths.resourcePath}${path.sep}${getResourceDir(paths.mdPath, note)}.resources`;
 };
 
 const resourceDirClears = new Map<string, number>();
@@ -71,20 +73,22 @@ export const clearMdNotesDistDir = (): void => {
 };
 
 export const setPaths = (): void => {
-  const enexFolder = yarleOptions.enexSource.split('/');
+  loggerInfo('setting paths');
+  const enexFolder = yarleOptions.enexSource.split(path.sep);
   const enexFile = (enexFolder.length >= 1 ?  enexFolder[enexFolder.length - 1] : enexFolder[0]).split('.')[0];
   const outputDir = path.isAbsolute(yarleOptions.outputDir)
     ? yarleOptions.outputDir
-    : `${process.cwd()}/${yarleOptions.outputDir}`;
+    : `${process.cwd()}${path.sep}${yarleOptions.outputDir}`;
 
-  paths.mdPath = `${outputDir}/notes/`;
-  paths.resourcePath = `${outputDir}/notes/_resources`;
+  paths.mdPath = `${outputDir}${path.sep}notes${path.sep}`;
+  paths.resourcePath = `${outputDir}${path.sep}notes${path.sep}_resources`;
   if (!yarleOptions.skipEnexFileNameFromOutputPath) {
     paths.mdPath = `${paths.mdPath}${enexFile}`;
-    paths.resourcePath = `${outputDir}/notes/${enexFile}/_resources`;
+    paths.resourcePath = `${outputDir}${path.sep}notes${path.sep}${enexFile}${path.sep}_resources`;
   }
   fsExtra.mkdirsSync(paths.mdPath);
   fsExtra.mkdirsSync(paths.resourcePath);
+  logger.info(`path ${paths.mdPath} created`);
   // clearDistDir(paths.simpleMdPath);
   // clearDistDir(paths.complexMdPath);
 };

@@ -1,6 +1,6 @@
 {
-    "enexSource": "/test/data/test-template.enex",
-    "templateFile": "/sampleTemplate.tmpl",
+    "enexSource": "./test/data/test-template.enex",
+    "templateFile": "./sampleTemplate.tmpl",
     "outputDir": "out",
     "keepOriginalHtml": false,
     "isMetadataNeeded": false,

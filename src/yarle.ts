@@ -33,11 +33,11 @@ export let yarleOptions: YarleOptions = { ...defaultYarleOptions };
 
 const setOptions = (options: YarleOptions): void => {
   yarleOptions = { ...defaultYarleOptions, ...options };
-  let template = yarleOptions.currentTemplate ? yarleOptions.currentTemplate : defaultTemplate;
 
-  if (yarleOptions.templateFile) {
-    template = fs.readFileSync(yarleOptions.templateFile, 'utf-8');
-  }
+
+  let template = (yarleOptions.templateFile)  ?  fs.readFileSync(yarleOptions.templateFile, 'utf-8'): defaultTemplate;
+  template = yarleOptions.currentTemplate ? yarleOptions.currentTemplate : template;
+
   /*if (yarleOptions.templateFile) {*/
   // todo: handle file not exists error
   yarleOptions.skipCreationTime = !hasCreationTimeInTemplate(template);
@@ -49,11 +49,13 @@ const setOptions = (options: YarleOptions): void => {
   yarleOptions.keepOriginalHtml = hasLinkToOriginalInTemplate(template);
 
   yarleOptions.currentTemplate = template;
+
+  loggerInfo(`Current template is: ${template}`);
   /*}*/
 };
 
 export const parseStream = async (options: YarleOptions): Promise<void> => {
-
+  // loggerInfo(`Getting stream from ${options.enexSource}`);
   const stream = fs.createReadStream(options.enexSource);
   // const xml = new XmlStream(stream);
   let noteNumber = 0;
