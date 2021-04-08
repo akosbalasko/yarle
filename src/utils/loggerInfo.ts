@@ -20,7 +20,7 @@ const getAppDataPath = () => {
     }
   }
 
-export const LOGFILE =  path.join(getAppDataPath(),'/conversion.log');
+export const LOGFILE =  path.join(getAppDataPath(),'conversion.log');
 console.log(`logfilepath: ${LOGFILE}`);
 
 

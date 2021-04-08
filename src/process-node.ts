@@ -17,7 +17,7 @@ export const processNode = (note: any, notebookName: string): void => {
 
   let dateStarted: Date = new Date();  
   loggerInfo("\n");
-  loggerInfo("Started conversion at " + dateStarted);
+  loggerInfo("Conversion started at " + dateStarted);
 
   if (Array.isArray(note.content))
     note.content = note.content.join('');
@@ -58,7 +58,7 @@ export const processNode = (note: any, notebookName: string): void => {
   // tslint:disable-next-line:no-console
   let dateFinished: Date = new Date();  
   let conversionDuration = (dateFinished.getTime()- dateStarted.getTime())/1000; //in seconds.
-  loggerInfo("Finished conversion: " + dateFinished);  
+  loggerInfo("Conversion finished at " + dateFinished);  
   loggerInfo(`Note "${noteData.title}" converted successfully in ${conversionDuration} seconds.`);
   
 
