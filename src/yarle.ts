@@ -38,8 +38,6 @@ const setOptions = (options: YarleOptions): void => {
   let template = (yarleOptions.templateFile)  ?  fs.readFileSync(yarleOptions.templateFile, 'utf-8'): defaultTemplate;
   template = yarleOptions.currentTemplate ? yarleOptions.currentTemplate : template;
 
-  loggerInfo(`current template is: ${template}`);
-
   /*if (yarleOptions.templateFile) {*/
   // todo: handle file not exists error
   yarleOptions.skipCreationTime = !hasCreationTimeInTemplate(template);
@@ -52,7 +50,7 @@ const setOptions = (options: YarleOptions): void => {
 
   yarleOptions.currentTemplate = template;
 
-  loggerInfo(`current template is 2 : ${template}`);
+  loggerInfo(`Current template is: ${template}`);
   /*}*/
 };
 
