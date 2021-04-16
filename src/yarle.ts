@@ -50,7 +50,7 @@ const setOptions = (options: YarleOptions): void => {
 
   yarleOptions.currentTemplate = template;
 
-  loggerInfo(`Current template is: ${template}`);
+  // loggerInfo(`Current config is: ${JSON.stringify(yarleOptions)}`);
   /*}*/
 };
 
