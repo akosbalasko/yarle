@@ -201,7 +201,7 @@ ipcMain.on('selectOutputFolder', () => {
 
 ipcMain.on('configurationUpdated', (event: any, data: any) => {
 
-  console.log("this is the firstname from the form ->", data)
+  // console.log("this is the firstname from the form ->", data)
   store.set(data.id, data.value);
   loggerInfo(`config: ${JSON.stringify(store.get(data.id))}`);
 

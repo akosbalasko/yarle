@@ -1,6 +1,6 @@
 {
   "name": "yarle-evernote-to-md",
-  "version": "4.0.5",
+  "version": "4.0.6",
   "description": "Yet Another Rope Ladder from Evernote",
   "keywords": [
     "evernote",
@@ -31,7 +31,7 @@
     "publish": "electron-forge publish",
     "css-build": "node-sass --omit-source-map-url ./src/ui/sass/purecss.scss ./src/ui/css/purecss.css",
     "css-watch": "npm run css-build -- --watch",
-    "publish-npm": "npm run build && npm publish",
+    "publish-npm": "npm run compile && npm publish",
     "package-mac": "electron-packager . --overwrite --asar --platform=darwin --arch=x64 --icon=./src/ui/assets/icons/mac/icon.icns --prune=true --out=release-builds --darwinDarkModeSupport=true",
     "package-win": "electron-packager . electron-tutorial-app --overwrite --asar --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Yarle\"",
     "package-linux": "electron-packager . electron-tutorial-app --overwrite --asar --platform=linux --arch=x64 --icon=assets/icons/png/512x512.png --prune=true --out=release-builds",
