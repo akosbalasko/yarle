@@ -23,7 +23,7 @@ const getAppDataPath = () => {
 
 
 function startLogWatcher() {
-  const LOGFILE =  path.join(getAppDataPath(),'/conversion.log');
+  const LOGFILE =  path.join(getAppDataPath(),'conversion.log');
 
   var chokidar = require("chokidar");
   console.log('watching: ' + LOGFILE);

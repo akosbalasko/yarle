@@ -1,8 +1,10 @@
 name: Release
 on:
-    pull_request:
-        branches: [master]
-
+  push:
+    branches:
+      - "!*"
+    tags:
+      - "*"
 jobs:
 
   publish_on_linux:
