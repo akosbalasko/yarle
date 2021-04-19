@@ -110,6 +110,7 @@ ipcMain.on('configurationUpdated', (event: any, data: any) => {
 
 ipcMain.on('startConversion', async(event: any, data: any) => {
   const settings = mapSettingsToYarleOptions();
+  loggerInfo(`config to be applied: ${settings}`);
   await yarle.dropTheRope(settings);
 
 });
