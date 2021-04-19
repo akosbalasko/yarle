@@ -22,6 +22,15 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
         keepMDCharactersOfENNotes: store.get('keepMDCharactersOfENNotes') as boolean,
         monospaceIsCodeBlock: store.get('monospaceIsCodeBlock') as boolean,
         keepOriginalHtml: store.get('keepOriginalHtml') as boolean,
-        currentTemplate: store.get('currentTemplate') as string
+        currentTemplate: store.get('currentTemplate') as string,
+        nestedTags: {
+            separatorInEN: store.get('separatorInEN') as string,
+            replaceSeparatorWith: store.get('replaceSeparatorWith') as string,
+            replaceSpaceWith: store.get('replaceSpaceWith') as string,
+        },
+        dateFormat: store.get('dateFormat') as string,
+        keepImageSize: store.get('keepImageSize') as OutputFormat,
+        keepOriginalAmountOfNewlines: store.get('keepOriginalAmountOfNewlines') as boolean,
+        addExtensionToInternalLinks: store.get('addExtensionToInternalLinks') as boolean,
     }
 }
