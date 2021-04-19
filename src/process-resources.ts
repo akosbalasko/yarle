@@ -1,6 +1,7 @@
 import { cloneDeep } from 'lodash';
 import fs from 'fs';
 import md5File from 'md5-file';
+import * as path from 'path';
 
 import { ResourceHashItem } from './models/ResourceHash';
 import * as utils from './utils';
@@ -33,7 +34,7 @@ export const processResources = (note: any): string => {
   };
 
 const addMediaReference = (content: string, resourceHashes: any, hash: any, workDir: string): string => {
-  const src = `${workDir}/${resourceHashes[hash].fileName.replace(/ /g, '\ ')}`;
+  const src = `${workDir}${path.sep}${resourceHashes[hash].fileName.replace(/ /g, '\ ')}`;
 
   let updatedContent = cloneDeep(content);
   const replace = `<en-media ([^>]*)hash="${hash}".([^>]*)>`;

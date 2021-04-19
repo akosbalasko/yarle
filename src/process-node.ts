@@ -12,11 +12,12 @@ import { convertHtml2Md } from './convert-html-to-md';
 import { convert2Html } from './convert-to-html';
 import { NoteData } from './models/NoteData';
 import { loggerInfo } from './utils/loggerInfo';
+import { EOL } from 'os';
 
 export const processNode = (note: any, notebookName: string): void => {
 
   let dateStarted: Date = new Date();  
-  loggerInfo("\n");
+  loggerInfo(EOL);
   loggerInfo("Conversion started at " + dateStarted);
 
   if (Array.isArray(note.content))

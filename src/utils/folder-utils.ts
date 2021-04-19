@@ -27,9 +27,9 @@ export const getHtmlFilePath = (note: any): string => {
 };
 
 export const getHtmlFileLink = (note: any): string => {
-  const path = getHtmlFilePath(note);
+  const filePath = getHtmlFilePath(note);
 
-  return `.${path.slice(paths.resourcePath.lastIndexOf('/'))}`;
+  return `.${filePath.slice(paths.resourcePath.lastIndexOf(path.sep))}`;
 };
 
 const clearDistDir = (dstPath: string): void => {
