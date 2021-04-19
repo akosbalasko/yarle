@@ -3,7 +3,7 @@
 ![logo](screens/yarle-logo.png)
 
 ![Last Commit](https://img.shields.io/github/last-commit/akosbalasko/yarle?style=for-the-badge)  
-![Version](https://img.shields.io/badge/version-4.0.5-blue?style=for-the-badge)
+![Version](https://img.shields.io/badge/version-4.0.6-blue?style=for-the-badge)
 [![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen?style=for-the-badge)](https://github.com/akosbalasko/yarle#readme)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green?style=for-the-badge)](https://github.com/akosbalasko/yarle/graphs/commit-activity)
 [![License: MIT](https://img.shields.io/github/license/akosbalasko/yarle?style=for-the-badge)](https://github.com/akosbalasko/yarle/blob/master/LICENSE)
@@ -38,13 +38,13 @@ Yarle is the ultimate converter of Evernote notes to Markdown.
 
 ## Binaries: 
 
-[Windows](https://github.com/akosbalasko/yarle/releases/download/v4.0.5/yarle-evernote-to-md-4.0.5.Setup.exe)
+[Windows](https://github.com/akosbalasko/yarle/releases/download/v4.0.6/yarle-evernote-to-md-4.0.6.Setup.exe)
 
-[Linux](https://github.com/akosbalasko/yarle/releases/download/v4.0.5/yarle-evernote-to-md-4.0.5-1.x86_64.rpm)
+[Linux](https://github.com/akosbalasko/yarle/releases/download/v4.0.6/yarle-evernote-to-md-4.0.6-1.x86_64.rpm)
 
-[Debian](https://github.com/akosbalasko/yarle/releases/download/v4.0.5/yarle-evernote-to-md_4.0.5_amd64.deb)
+[Debian](https://github.com/akosbalasko/yarle/releases/download/v4.0.6/yarle-evernote-to-md_4.0.6_amd64.deb)
 
-[Mac](https://github.com/akosbalasko/yarle/releases/download/v4.0.5/yarle-evernote-to-md-darwin-x64-4.0.5.zip)
+[Mac](https://github.com/akosbalasko/yarle/releases/download/v4.0.6/yarle-evernote-to-md-darwin-x64-4.0.6.zip)
 
 
 
