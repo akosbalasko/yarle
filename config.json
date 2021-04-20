@@ -14,7 +14,8 @@
     "skipWebClips": false,
     "skipTags": false,
     "useHashTags": true,
-    "outputFormat": "StandardMD",
+    "outputFormat": "ObsidianMD",
     "skipEnexFileNameFromOutputPath": false,
-    "keepOriginalAmountOfNewlines": false
+    "keepOriginalAmountOfNewlines": false,
+    "pathSeparator": "/"
 }
