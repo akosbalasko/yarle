@@ -12,7 +12,7 @@ export const processResources = (note: any): string => {
     let resourceHashes: any = {};
     let updatedContent = cloneDeep(note.content);
 
-    const relativeResourceWorkDir = utils.getRelativeResourceDir(note);
+    const relativeResourceWorkDir = utils.getRelativeResourceDir(note).replace(path.sep,yarleOptions.pathSeparator);
     const absoluteResourceWorkDir = utils.getAbsoluteResourceDir(note);
 
     utils.clearResourceDir(note);
@@ -65,7 +65,7 @@ const processResource = (workDir: string, resource: any): any => {
 
     const resourceFileProps = utils.getResourceFileProperties(workDir, resource);
     const fileName = resourceFileProps.fileName;
-    const absFilePath = `${workDir}/${fileName}`;
+    const absFilePath = `${workDir}${path.sep}${fileName}`;
 
     const accessTime = utils.getTimeStampMoment(resource);
     fs.writeFileSync(absFilePath, data, 'base64');
