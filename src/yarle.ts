@@ -27,6 +27,7 @@ export const defaultYarleOptions: YarleOptions = {
   },
   outputFormat: OutputFormat.StandardMD,
   urlEncodeFileNamesAndLinks: false,
+  pathSeparator: '/'
 };
 
 export let yarleOptions: YarleOptions = { ...defaultYarleOptions };
@@ -34,6 +35,13 @@ export let yarleOptions: YarleOptions = { ...defaultYarleOptions };
 const setOptions = (options: YarleOptions): void => {
   yarleOptions = { ...defaultYarleOptions, ...options };
 
+  if (options.nestedTags){
+    yarleOptions.nestedTags = {
+      separatorInEN: options.nestedTags.separatorInEN || defaultYarleOptions.nestedTags.separatorInEN,
+      replaceSpaceWith: options.nestedTags.replaceSpaceWith || defaultYarleOptions.nestedTags.replaceSpaceWith,
+      replaceSeparatorWith: options.nestedTags.replaceSeparatorWith || defaultYarleOptions.nestedTags.replaceSeparatorWith
+    }
+  };
 
   let template = (yarleOptions.templateFile)  ?  fs.readFileSync(yarleOptions.templateFile, 'utf-8'): defaultTemplate;
   template = yarleOptions.currentTemplate ? yarleOptions.currentTemplate : template;

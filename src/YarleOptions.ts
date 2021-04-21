@@ -29,4 +29,5 @@ export interface YarleOptions {
     keepImageSize?: OutputFormat;
     keepOriginalAmountOfNewlines?: boolean;
     addExtensionToInternalLinks?: boolean;
+    pathSeparator?: string;
 }

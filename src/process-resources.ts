@@ -6,6 +6,8 @@ import * as path from 'path';
 import { ResourceHashItem } from './models/ResourceHash';
 import * as utils from './utils';
 
+import { yarleOptions } from './yarle';
+
 export const processResources = (note: any): string => {
     let resourceHashes: any = {};
     let updatedContent = cloneDeep(note.content);
@@ -34,7 +36,7 @@ export const processResources = (note: any): string => {
   };
 
 const addMediaReference = (content: string, resourceHashes: any, hash: any, workDir: string): string => {
-  const src = `${workDir}${path.sep}${resourceHashes[hash].fileName.replace(/ /g, '\ ')}`;
+  const src = `${workDir}${yarleOptions.pathSeparator}${resourceHashes[hash].fileName.replace(/ /g, '\ ')}`;
 
   let updatedContent = cloneDeep(content);
   const replace = `<en-media ([^>]*)hash="${hash}".([^>]*)>`;
