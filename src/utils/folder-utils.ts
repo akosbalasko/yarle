@@ -29,7 +29,7 @@ export const getHtmlFilePath = (note: any): string => {
 export const getHtmlFileLink = (note: any): string => {
   const filePath = getHtmlFilePath(note);
 
-  return `.${filePath.slice(paths.resourcePath.lastIndexOf(yarleOptions.pathSeparator))}`;
+  return `.${filePath.slice(paths.resourcePath.lastIndexOf(path.sep))}`;
 };
 
 const clearDistDir = (dstPath: string): void => {
@@ -40,11 +40,11 @@ const clearDistDir = (dstPath: string): void => {
 };
 
 export const getRelativeResourceDir = (note: any): string => {
-  return yarleOptions.haveEnexLevelResources ? `.${yarleOptions.pathSeparator}_resources` : `.${yarleOptions.pathSeparator}_resources${yarleOptions.pathSeparator}${getResourceDir(paths.mdPath, note)}.resources`;
+  return yarleOptions.haveEnexLevelResources ? `.${path.sep}_resources` : `.${path.sep}_resources${path.sep}${getResourceDir(paths.mdPath, note)}.resources`;
 };
 
 export const getAbsoluteResourceDir = (note: any): string => {
-  return yarleOptions.haveEnexLevelResources ? paths.resourcePath : `${paths.resourcePath}${yarleOptions.pathSeparator}${getResourceDir(paths.mdPath, note)}.resources`;
+  return yarleOptions.haveEnexLevelResources ? paths.resourcePath : `${paths.resourcePath}${path.sep}${getResourceDir(paths.mdPath, note)}.resources`;
 };
 
 const resourceDirClears = new Map<string, number>();
@@ -74,17 +74,17 @@ export const clearMdNotesDistDir = (): void => {
 
 export const setPaths = (): void => {
   loggerInfo('setting paths');
-  const enexFolder = yarleOptions.enexSource.split(yarleOptions.pathSeparator);
+  const enexFolder = yarleOptions.enexSource.split(path.sep);
   const enexFile = (enexFolder.length >= 1 ?  enexFolder[enexFolder.length - 1] : enexFolder[0]).split('.')[0];
   const outputDir = path.isAbsolute(yarleOptions.outputDir)
     ? yarleOptions.outputDir
-    : `${process.cwd()}${yarleOptions.pathSeparator}${yarleOptions.outputDir}`;
+    : `${process.cwd()}${path.sep}${yarleOptions.outputDir}`;
 
-  paths.mdPath = `${outputDir}${yarleOptions.pathSeparator}notes${yarleOptions.pathSeparator}`;
-  paths.resourcePath = `${outputDir}${yarleOptions.pathSeparator}notes${yarleOptions.pathSeparator}_resources`;
+  paths.mdPath = `${outputDir}${path.sep}notes${path.sep}`;
+  paths.resourcePath = `${outputDir}${path.sep}notes${path.sep}_resources`;
   if (!yarleOptions.skipEnexFileNameFromOutputPath) {
     paths.mdPath = `${paths.mdPath}${enexFile}`;
-    paths.resourcePath = `${outputDir}${yarleOptions.pathSeparator}notes${yarleOptions.pathSeparator}${enexFile}${yarleOptions.pathSeparator}_resources`;
+    paths.resourcePath = `${outputDir}${path.sep}notes${path.sep}${enexFile}${path.sep}_resources`;
   }
   fsExtra.mkdirsSync(paths.mdPath);
   fsExtra.mkdirsSync(paths.resourcePath);
