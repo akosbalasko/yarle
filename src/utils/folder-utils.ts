@@ -75,6 +75,7 @@ export const clearMdNotesDistDir = (): void => {
 export const setPaths = (): void => {
   loggerInfo('setting paths');
   const enexFolder = yarleOptions.enexSource.split(path.sep);
+  loggerInfo(`enex folder split: ${JSON.stringify(enexFolder)}`);
   const enexFile = (enexFolder.length >= 1 ?  enexFolder[enexFolder.length - 1] : enexFolder[0]).split('.')[0];
   const outputDir = path.isAbsolute(yarleOptions.outputDir)
     ? yarleOptions.outputDir
@@ -88,7 +89,7 @@ export const setPaths = (): void => {
   }
   fsExtra.mkdirsSync(paths.mdPath);
   fsExtra.mkdirsSync(paths.resourcePath);
-  logger.info(`path ${paths.mdPath} created`);
+  loggerInfo(`path ${paths.mdPath} created`);
   // clearDistDir(paths.simpleMdPath);
   // clearDistDir(paths.complexMdPath);
 };
