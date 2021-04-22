@@ -63,7 +63,7 @@ describe('Yarle special cases', async () => {
       fs.readFileSync(
         `${__dirname}/../out/notes/test-withPicture/test - note with picture.md`,
         'utf8',
-      ).replace(/\r\n/g,'\n'),
+      ).replace(/\\r\\n/g,'\n'),
       fs.readFileSync(`${__dirname}/data/test-withPicture.md`, 'utf8'),
     );
   });
