@@ -3,7 +3,7 @@ import fs from 'fs';
 import mockTimezone from 'timezone-mock';
 
 import { OutputFormat } from './../src/output-format';
-
+import * as path from 'path';
 import * as utils from './../src/utils';
 import * as yarle from './../src/yarle';
 import * as dropTheRopeRunner from './../src/dropTheRopeRunner';
@@ -45,7 +45,7 @@ describe('Yarle special cases', async () => {
       isMetadataNeeded: true,
     };
     await yarle.dropTheRope(options);
-    console.log(`conversion log: ${fs.readFileSync(`${__dirname}/../conversion.log`)}`);
+    console.log(`conversion log: ${fs.readFileSync(`${__dirname}${path.sep}..${path.sep}conversion.log`)}`);
     assert.equal(
       fs.existsSync(
         `${__dirname}/../out/notes/test-withPicture/test - note with picture.md`,
