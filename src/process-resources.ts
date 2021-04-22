@@ -13,7 +13,7 @@ export const processResources = (note: any): string => {
     let updatedContent = cloneDeep(note.content);
 
     const relativeResourceWorkDir = utils.getRelativeResourceDir(note).replace(path.sep,yarleOptions.pathSeparator);
-    const absoluteResourceWorkDir = utils.getAbsoluteResourceDir(note);
+    const absoluteResourceWorkDir = utils.getAbsoluteResourceDir(note).replace(path.sep,yarleOptions.pathSeparator);
 
     utils.clearResourceDir(note);
     if (Array.isArray(note.resource)) {
