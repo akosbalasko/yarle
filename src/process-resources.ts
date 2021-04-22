@@ -12,9 +12,9 @@ import { loggerInfo } from './utils';
 export const processResources = (note: any): string => {
     let resourceHashes: any = {};
     let updatedContent = cloneDeep(note.content);
-
-    const relativeResourceWorkDir = utils.getRelativeResourceDir(note).replace(path.sep,yarleOptions.pathSeparator);
-    const absoluteResourceWorkDir = utils.getAbsoluteResourceDir(note).replace(path.sep,yarleOptions.pathSeparator);
+    const pathSepRegExp = new RegExp(path.sep,'g');
+    const relativeResourceWorkDir = utils.getRelativeResourceDir(note).replace(pathSepRegExp,yarleOptions.pathSeparator);
+    const absoluteResourceWorkDir = utils.getAbsoluteResourceDir(note).replace(pathSepRegExp,yarleOptions.pathSeparator);
 
     utils.clearResourceDir(note);
     if (Array.isArray(note.resource)) {
