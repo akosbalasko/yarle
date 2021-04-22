@@ -94,7 +94,7 @@ export const yarleTests: Array<YarleTest> = [
       isMetadataNeeded: true,
       nestedTags: {
         separatorInEN: '_',
-        replaceSeparatorWith: '${path.sep}'
+        replaceSeparatorWith: '/'
       },
       useHashTags: true
     },
