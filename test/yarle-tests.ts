@@ -2,8 +2,8 @@ import { YarleTest } from '.${path.sep}yarle-test';
 import { OutputFormat } from "..${path.sep}src${path.sep}output-format";
 import * as path from 'path';
 
-const testDataFolder = `${path.sep}test${path.sep}data${path.sep}`;
-
+const dataFolder = `${path.sep}data${path.sep}`;
+const testDataFolder = `${path.sep}test${dataFolder}`;
 
 export const yarleTests: Array<YarleTest> = [
   {
@@ -14,7 +14,7 @@ export const yarleTests: Array<YarleTest> = [
       isMetadataNeeded: true,
     },
     testOutputPath: `notes${path.sep}test-justText${path.sep}test -note with text only.md`,
-    expectedOutputPath: `${path.sep}data${path.sep}test-justText.md`,
+    expectedOutputPath: `${dataFolder}test-justText.md`,
   },
 
   {
@@ -25,7 +25,7 @@ export const yarleTests: Array<YarleTest> = [
       isMetadataNeeded: true,
     },
     testOutputPath: `notes${path.sep}test-bracketlinks${path.sep}test - bracketlinks.md`,
-    expectedOutputPath: `${path.sep}data${path.sep}test-bracketlinks.md`,
+    expectedOutputPath: `${dataFolder}test-bracketlinks.md`,
   },
 
 
@@ -39,7 +39,7 @@ export const yarleTests: Array<YarleTest> = [
     testOutputPath: `notes${path.sep}test-justText${path.sep}test -note with text only.md`,
 
 
-    expectedOutputPath: `${path.sep}data${path.sep}test-justText.md`,
+    expectedOutputPath: `${dataFolder}test-justText.md`,
   },
 
 
@@ -54,7 +54,7 @@ export const yarleTests: Array<YarleTest> = [
     testOutputPath: `notes${path.sep}test-noteWithCodeBlock${path.sep}Note with code block.md`,
 
 
-    expectedOutputPath: `${path.sep}data${path.sep}test-noteWithCodeBlock.md`,
+    expectedOutputPath: `${dataFolder}test-noteWithCodeBlock.md`,
   },
 
 
@@ -67,7 +67,7 @@ export const yarleTests: Array<YarleTest> = [
     },
     testOutputPath: `notes${path.sep}test-noteWithTags${path.sep}test -note with text only.md`,
 
-    expectedOutputPath: `${path.sep}data${path.sep}test-noteWithTags.md`,
+    expectedOutputPath: `${dataFolder}test-noteWithTags.md`,
   },
 
   {
@@ -84,7 +84,7 @@ export const yarleTests: Array<YarleTest> = [
     },
     testOutputPath: `notes${path.sep}test-noteWithNestedTags${path.sep}test -note with text only.md`,
 
-    expectedOutputPath: `${path.sep}data${path.sep}test-noteWithNestedTags.md`,
+    expectedOutputPath: `${dataFolder}test-noteWithNestedTags.md`,
   },
   {
     name: 'Note with nested tags containing spaces',
@@ -100,7 +100,7 @@ export const yarleTests: Array<YarleTest> = [
     },
     testOutputPath: `notes${path.sep}test-noteWithNestedTagsAndSpaces${path.sep}test -note with text only.md`,
 
-    expectedOutputPath: `${path.sep}data${path.sep}test-noteWithNestedTagsAndSpaces.md`,
+    expectedOutputPath: `${dataFolder}test-noteWithNestedTagsAndSpaces.md`,
   },
 
   {
@@ -118,7 +118,7 @@ export const yarleTests: Array<YarleTest> = [
     },
     testOutputPath: `notes${path.sep}test-noteWithNestedTagsAndSpacesCustom${path.sep}test -note with text only.md`,
 
-    expectedOutputPath: `${path.sep}data${path.sep}test-noteWithNestedTagsAndSpacesCustom.md`,
+    expectedOutputPath: `${dataFolder}test-noteWithNestedTagsAndSpacesCustom.md`,
   },
   {
     name: 'Note with notebook name',
@@ -128,7 +128,7 @@ export const yarleTests: Array<YarleTest> = [
       outputDir: 'out',
     },
     testOutputPath: `notes${path.sep}test-noteWithNotebookName${path.sep}test -note with text only.md`,
-    expectedOutputPath: `${path.sep}data${path.sep}test-noteWithNotebookName.md`,
+    expectedOutputPath: `${dataFolder}test-noteWithNotebookName.md`,
   },
 
 
@@ -140,7 +140,7 @@ export const yarleTests: Array<YarleTest> = [
       outputDir: 'out',
     },
     testOutputPath: `notes${path.sep}test-noteWithNotebookNameAndTags${path.sep}test -note with text only.md`,
-    expectedOutputPath: `${path.sep}data${path.sep}test-noteWithNotebookNameAndTags.md`,
+    expectedOutputPath: `${dataFolder}test-noteWithNotebookNameAndTags.md`,
   },
 
 
@@ -155,7 +155,7 @@ export const yarleTests: Array<YarleTest> = [
     testOutputPath: `notes${path.sep}test-noteWithZettelKasten${path.sep}201810060943 test -note with text only.md`,
 
 
-    expectedOutputPath: `${path.sep}data${path.sep}test-noteWithZettelKasten.md`,
+    expectedOutputPath: `${dataFolder}test-noteWithZettelKasten.md`,
   },
 
 
@@ -168,7 +168,7 @@ export const yarleTests: Array<YarleTest> = [
       isZettelkastenNeeded: true,
     },
     testOutputPath: `notes${path.sep}test-noteWithZettelKasten-notitle${path.sep}201810060943.md`,
-    expectedOutputPath: `${path.sep}data${path.sep}test-noteWithZettelKasten-notitle.md`,
+    expectedOutputPath: `${dataFolder}test-noteWithZettelKasten-notitle.md`,
 
   },
 
@@ -183,7 +183,7 @@ export const yarleTests: Array<YarleTest> = [
       isZettelkastenNeeded: false,
     },
     testOutputPath: `notes${path.sep}test-noteWithoutMetadata${path.sep}test -note without metadata.md`,
-    expectedOutputPath: `${path.sep}data${path.sep}test-noteWithoutMetadata.md`,
+    expectedOutputPath: `${dataFolder}test-noteWithoutMetadata.md`,
   },
 
 
@@ -197,7 +197,7 @@ export const yarleTests: Array<YarleTest> = [
     testOutputPath: `notes${path.sep}test-noteWithLatLong${path.sep}Test.md`,
 
 
-    expectedOutputPath: `${path.sep}data${path.sep}test-noteWithLatLong.md`,
+    expectedOutputPath: `${dataFolder}test-noteWithLatLong.md`,
   },
 
 
@@ -212,7 +212,7 @@ export const yarleTests: Array<YarleTest> = [
     testOutputPath: `notes${path.sep}test-noteWithSourceUrl${path.sep}Test.md`,
 
 
-    expectedOutputPath: `${path.sep}data${path.sep}test-noteWithSourceUrl.md`,
+    expectedOutputPath: `${dataFolder}test-noteWithSourceUrl.md`,
   },
 
   {
@@ -224,7 +224,7 @@ export const yarleTests: Array<YarleTest> = [
     },
     testOutputPath: `notes${path.sep}test-imageWithoutSrc${path.sep}test-imageWithoutSrc.md`,
 
-    expectedOutputPath: `${path.sep}data${path.sep}test-imageWithoutSrc.md`,
+    expectedOutputPath: `${dataFolder}test-imageWithoutSrc.md`,
   },
 
   {
@@ -249,7 +249,7 @@ export const yarleTests: Array<YarleTest> = [
     },
     testOutputPath: `notes${path.sep}test-pure-external-url${path.sep}pure-external-url.md`,
 
-    expectedOutputPath: `${path.sep}data${path.sep}test-pure-external-url.md`,
+    expectedOutputPath: `${dataFolder}test-pure-external-url.md`,
   },
 
 
@@ -264,7 +264,7 @@ export const yarleTests: Array<YarleTest> = [
     },
     testOutputPath: `notes${path.sep}test-skipLocation${path.sep}SkipLocation.md`,
 
-    expectedOutputPath: `${path.sep}data${path.sep}test-skipLocation.md`,
+    expectedOutputPath: `${dataFolder}test-skipLocation.md`,
   },
 
 
@@ -278,7 +278,7 @@ export const yarleTests: Array<YarleTest> = [
       plainTextNotesOnly: false,
     },
     testOutputPath: `notes${path.sep}test-table${path.sep}table.md`,
-    expectedOutputPath: `${path.sep}data${path.sep}test-table.md`,
+    expectedOutputPath: `${dataFolder}test-table.md`,
   },
 
 
@@ -292,7 +292,7 @@ export const yarleTests: Array<YarleTest> = [
     },
     testOutputPath: `notes${path.sep}test-specialItems${path.sep}special items.md`,
 
-    expectedOutputPath: `${path.sep}data${path.sep}test-specialItems.md`,
+    expectedOutputPath: `${dataFolder}test-specialItems.md`,
   },
 
 
@@ -305,7 +305,7 @@ export const yarleTests: Array<YarleTest> = [
       plainTextNotesOnly: false,
     },
     testOutputPath: `notes${path.sep}test-externalLink${path.sep}External Link.md`,
-    expectedOutputPath: `${path.sep}data${path.sep}test-externalLink.md`,
+    expectedOutputPath: `${dataFolder}test-externalLink.md`,
   },
 
 
@@ -319,7 +319,7 @@ export const yarleTests: Array<YarleTest> = [
     },
     testOutputPath: `notes${path.sep}test-externalLink-notext${path.sep}External Link.md`,
 
-    expectedOutputPath: `${path.sep}data${path.sep}test-externalLink-notext.md`,
+    expectedOutputPath: `${dataFolder}test-externalLink-notext.md`,
   },
 
 
@@ -333,7 +333,7 @@ export const yarleTests: Array<YarleTest> = [
     },
     testOutputPath: `notes${path.sep}test-externalFileLink${path.sep}External File Link.md`,
 
-    expectedOutputPath: `${path.sep}data${path.sep}test-externalFileLink.md`,
+    expectedOutputPath: `${dataFolder}test-externalFileLink.md`,
   },
 
 
@@ -347,7 +347,7 @@ export const yarleTests: Array<YarleTest> = [
     },
     testOutputPath: `notes${path.sep}test-externalLinkWithPicture${path.sep}Link With Picture.md`,
 
-    expectedOutputPath: `${path.sep}data${path.sep}test-externalLinkWithPicture.md`,
+    expectedOutputPath: `${dataFolder}test-externalLinkWithPicture.md`,
 
   },
 
@@ -364,7 +364,7 @@ export const yarleTests: Array<YarleTest> = [
     },
     testOutputPath: `notes${path.sep}test-highlights${path.sep}Highlights.md`,
 
-    expectedOutputPath: `${path.sep}data${path.sep}test-highlights.md`,
+    expectedOutputPath: `${dataFolder}test-highlights.md`,
   },
 
   {
@@ -379,7 +379,7 @@ export const yarleTests: Array<YarleTest> = [
 
     testOutputPath: `notes${path.sep}test-highlights${path.sep}Highlights.md`,
 
-    expectedOutputPath: `${path.sep}data${path.sep}test-highlightsObsidian.md`,
+    expectedOutputPath: `${dataFolder}test-highlightsObsidian.md`,
   },
 
 
@@ -397,7 +397,7 @@ export const yarleTests: Array<YarleTest> = [
 
     testOutputPath: `notes${path.sep}test-nospanstyle${path.sep}test-nospanstyle.md`,
 
-    expectedOutputPath: `${path.sep}data${path.sep}test-nospanstyle.md`,
+    expectedOutputPath: `${dataFolder}test-nospanstyle.md`,
   },
 
 
@@ -410,7 +410,7 @@ export const yarleTests: Array<YarleTest> = [
     },
     testOutputPath: `notes${path.sep}test-sublists${path.sep}test - sublists.md`,
 
-    expectedOutputPath: `${path.sep}data${path.sep}test-sublists.md`,
+    expectedOutputPath: `${dataFolder}test-sublists.md`,
   },
 
   {
@@ -422,7 +422,7 @@ export const yarleTests: Array<YarleTest> = [
     },
     testOutputPath: `notes${path.sep}test-sublists-valid${path.sep}test - sublists - valid.md`,
 
-    expectedOutputPath: `${path.sep}data${path.sep}test-sublists-valid.md`,
+    expectedOutputPath: `${dataFolder}test-sublists-valid.md`,
   },
 
   {
@@ -435,7 +435,7 @@ export const yarleTests: Array<YarleTest> = [
     },
     testOutputPath: `notes${path.sep}test-urlencode${path.sep}test - note with picture (filename with spaces).md`,
 
-    expectedOutputPath: `${path.sep}data${path.sep}test-urlencode.md`,
+    expectedOutputPath: `${dataFolder}test-urlencode.md`,
   },
 
   {
@@ -447,7 +447,7 @@ export const yarleTests: Array<YarleTest> = [
     },
     testOutputPath: `notes${path.sep}test-sublists-multiple${path.sep}test - sublists - multiple.md`,
 
-    expectedOutputPath: `${path.sep}data${path.sep}test-sublists-multiple.md`,
+    expectedOutputPath: `${dataFolder}test-sublists-multiple.md`,
   },
 
 
@@ -462,7 +462,7 @@ export const yarleTests: Array<YarleTest> = [
     },
     testOutputPath: `notes${path.sep}test-webclip_article${path.sep}yarle evernote.md`,
 
-    expectedOutputPath: `${path.sep}data${path.sep}test-webclip_article.md`,
+    expectedOutputPath: `${dataFolder}test-webclip_article.md`,
   },
 
 
@@ -476,7 +476,7 @@ export const yarleTests: Array<YarleTest> = [
       outputFormat: OutputFormat.ObsidianMD,
     },
     testOutputPath: `notes${path.sep}test-webclip_simplifiedarticle${path.sep}yarle evernote.md`,
-    expectedOutputPath: `${path.sep}data${path.sep}test-webclip_simplifiedarticle.md`,
+    expectedOutputPath: `${dataFolder}test-webclip_simplifiedarticle.md`,
 
   },
 
@@ -494,7 +494,7 @@ export const yarleTests: Array<YarleTest> = [
 
     testOutputPath: `notes${path.sep}test-webclip_bookmark${path.sep}Yarle.md`,
 
-    expectedOutputPath: `${path.sep}data${path.sep}test-webclip_bookmark.md`,
+    expectedOutputPath: `${dataFolder}test-webclip_bookmark.md`,
   },
 
 
@@ -511,7 +511,7 @@ export const yarleTests: Array<YarleTest> = [
 
     testOutputPath: `notes${path.sep}test-webclip_screenshot${path.sep}Yarle.md`,
 
-    expectedOutputPath: `${path.sep}data${path.sep}test-webclip_screenshot.md`,
+    expectedOutputPath: `${dataFolder}test-webclip_screenshot.md`,
   },
 
 
@@ -527,7 +527,7 @@ export const yarleTests: Array<YarleTest> = [
       skipEnexFileNameFromOutputPath: false,
     },
     testOutputPath: `notes${path.sep}test-template${path.sep}test - templates.md`,
-    expectedOutputPath: `${path.sep}data${path.sep}test - templates.md`,
+    expectedOutputPath: `${dataFolder}test - templates.md`,
   },
 
 
@@ -549,7 +549,7 @@ export const yarleTests: Array<YarleTest> = [
     },
     testOutputPath: `notes${path.sep}test-template-nometa${path.sep}TEST - templates.md`,
 
-    expectedOutputPath: `${path.sep}data${path.sep}test - templates-nometa.md`,
+    expectedOutputPath: `${dataFolder}test - templates-nometa.md`,
   },
 
 
@@ -565,7 +565,7 @@ export const yarleTests: Array<YarleTest> = [
 
     },
     testOutputPath: `notes${path.sep}test-template 2${path.sep}test - templates just content.md`,
-    expectedOutputPath: `${path.sep}data${path.sep}test - templates just content.md`,
+    expectedOutputPath: `${dataFolder}test - templates just content.md`,
 
   },
 
@@ -585,7 +585,7 @@ export const yarleTests: Array<YarleTest> = [
     },
 
     testOutputPath: `notes${path.sep}test-monospace-codeblocks${path.sep}test-monospace-codeblocks.md`,
-    expectedOutputPath: `${path.sep}data${path.sep}test-monospace-codeblocks.md`,
+    expectedOutputPath: `${dataFolder}test-monospace-codeblocks.md`,
 
   },
 
@@ -604,7 +604,7 @@ export const yarleTests: Array<YarleTest> = [
 
     },
     testOutputPath: `notes${path.sep}test-markdown-en${path.sep}test-markdown-en.md`,
-    expectedOutputPath: `${path.sep}data${path.sep}test-markdown-en.md`,
+    expectedOutputPath: `${dataFolder}test-markdown-en.md`,
 
   },
   {
@@ -618,7 +618,7 @@ export const yarleTests: Array<YarleTest> = [
     },
     testOutputPath: `notes${path.sep}test-externalLink-escape${path.sep}External Link.md`,
 
-    expectedOutputPath: `${path.sep}data${path.sep}test-externalLink-escape.md`,
+    expectedOutputPath: `${dataFolder}test-externalLink-escape.md`,
   },
 
   {
@@ -632,7 +632,7 @@ export const yarleTests: Array<YarleTest> = [
       dateFormat: 'YYYY MMMM DD',
     },
     testOutputPath: `notes${path.sep}test-justTextButCustomDate${path.sep}test -note with text only.md`,
-    expectedOutputPath: `${path.sep}data${path.sep}test-justTextButCustomDate.md`,
+    expectedOutputPath: `${dataFolder}test-justTextButCustomDate.md`,
   },
   {
     name: 'multiple metadata content',
@@ -647,7 +647,7 @@ export const yarleTests: Array<YarleTest> = [
 
     },
     testOutputPath: `notes${path.sep}test-noteWithTags${path.sep}test -note with text only.md`,
-    expectedOutputPath: `${path.sep}data${path.sep}test-noteWithTags-multi.md`,
+    expectedOutputPath: `${dataFolder}test-noteWithTags-multi.md`,
 
   },
   {
@@ -664,7 +664,7 @@ export const yarleTests: Array<YarleTest> = [
 
     },
     testOutputPath: `notes${path.sep}test-intend-newlines${path.sep}test -note with text only.md`,
-    expectedOutputPath: `${path.sep}data${path.sep}test-intend-newlines.md`,
+    expectedOutputPath: `${dataFolder}test-intend-newlines.md`,
   },
   {
     name: 'hanging enex',
@@ -679,7 +679,7 @@ export const yarleTests: Array<YarleTest> = [
 
     },
     testOutputPath: `notes${path.sep}huge-html${path.sep}Untitled Note.md`,
-    expectedOutputPath: `${path.sep}data${path.sep}test-hugeHtml.md`,
+    expectedOutputPath: `${dataFolder}test-hugeHtml.md`,
 
 
   },
