@@ -8,7 +8,6 @@ import * as utils from './utils';
 
 import { yarleOptions } from './yarle';
 import { loggerInfo } from './utils';
-import { logger } from 'utils/logger';
 
 export const processResources = (note: any): string => {
     let resourceHashes: any = {};
