@@ -70,7 +70,7 @@ describe('Yarle special cases', async () => {
       fs.readFileSync(`${__dirname}/data/test-withPicture.md`, 'utf8'),
     );
   });
-  it('should keep Html content', async () => {
+  it.skip('should keep Html content', async () => {
 
     const options: YarleOptions = {
       enexSource: `${testDataFolder}test-withPicture-keep-html.enex`,
