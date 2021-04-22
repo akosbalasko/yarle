@@ -1,5 +1,5 @@
-import { YarleTest } from '.${path.sep}yarle-test';
-import { OutputFormat } from "..${path.sep}src${path.sep}output-format";
+import { YarleTest } from './yarle-test';
+import { OutputFormat } from "../src/output-format";
 import * as path from 'path';
 
 const dataFolder = `${path.sep}data${path.sep}`;
