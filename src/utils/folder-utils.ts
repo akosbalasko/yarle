@@ -83,6 +83,7 @@ export const setPaths = (): void => {
 
   paths.mdPath = `${outputDir}${path.sep}notes${path.sep}`;
   paths.resourcePath = `${outputDir}${path.sep}notes${path.sep}_resources`;
+  loggerInfo(`Skip enex filename from output? ${yarleOptions.skipEnexFileNameFromOutputPath}`);
   if (!yarleOptions.skipEnexFileNameFromOutputPath) {
     paths.mdPath = `${paths.mdPath}${enexFile}`;
     paths.resourcePath = `${outputDir}${path.sep}notes${path.sep}${enexFile}${path.sep}_resources`;
