@@ -15,7 +15,7 @@ export const getResourceDir = (dstPath: string, note: any): string => {
 };
 
 const getFilePath = (dstPath: string, note: any): string => {
-  return `${dstPath}/${getNoteFileName(dstPath, note)}`;
+  return `${dstPath}${path.sep}${getNoteFileName(dstPath, note)}`;
 };
 
 export const getMdFilePath = (note: any): string => {
