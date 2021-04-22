@@ -1,5 +1,6 @@
 import assert from 'assert';
 import fs from 'fs';
+import eol from 'eol'
 import mockTimezone from 'timezone-mock';
 import * as path from 'path';
 import { OutputFormat } from './../src/output-format';
@@ -60,10 +61,10 @@ describe('Yarle special cases', async () => {
     );
 
     assert.equal(
-      fs.readFileSync(
+      eol.auto(fs.readFileSync(
         `${__dirname}/../out/notes/test-withPicture/test - note with picture.md`,
         'utf8',
-      ).replace(/\\r\\n/g,'\n'),
+      )),
       fs.readFileSync(`${__dirname}/data/test-withPicture.md`, 'utf8'),
     );
   });

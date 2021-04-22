@@ -99,6 +99,7 @@
     "electron-packager": "^12.2.0",
     "electron-squirrel-startup": "^1.0.0",
     "electron-winstaller": "^2.7.0",
+    "eol": "^0.9.1",
     "eslint": "^7.16.0",
     "eslint-plugin-import": "^2.22.1",
     "mocha": "5.2.0",
