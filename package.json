@@ -18,7 +18,7 @@
     "clean-by-rimraf": "rimraf ./out && rimraf ./dist && rimraf \"node_modules/!(rimraf|.bin)\"",
     "clean": "rm -f -r ./out && rm -f -r ./dist && rm -r -f ./node_modules",
     "build": "npm i  && tsc --project ./src/tsconfig.json",
-    "build-windows": "npm i && tsc --project .\\src\tsconfig.json",
+    "build-windows": "npm i && tsc --project .\\src",
     "build:watch": "nodemon --watch src/ --exec \"npm run build\" -e ts",
     "coverage": "nyc mocha",
     "lint": "tslint --project ./src/tsconfig.json",
