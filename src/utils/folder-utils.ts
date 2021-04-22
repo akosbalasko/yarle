@@ -77,6 +77,8 @@ export const setPaths = (): void => {
   const enexFolder = yarleOptions.enexSource.split(path.sep);
   loggerInfo(`enex folder split: ${JSON.stringify(enexFolder)}`);
   const enexFile = (enexFolder.length >= 1 ?  enexFolder[enexFolder.length - 1] : enexFolder[0]).split('.')[0];
+  loggerInfo(`enex file: ${enexFile}`);
+
   const outputDir = path.isAbsolute(yarleOptions.outputDir)
     ? yarleOptions.outputDir
     : `${process.cwd()}${path.sep}${yarleOptions.outputDir}`;
@@ -86,6 +88,8 @@ export const setPaths = (): void => {
   loggerInfo(`Skip enex filename from output? ${yarleOptions.skipEnexFileNameFromOutputPath}`);
   if (!yarleOptions.skipEnexFileNameFromOutputPath) {
     paths.mdPath = `${paths.mdPath}${enexFile}`;
+    loggerInfo(`mdPath: ${paths.mdPath}`);
+
     paths.resourcePath = `${outputDir}${path.sep}notes${path.sep}${enexFile}${path.sep}_resources`;
   }
   fsExtra.mkdirsSync(paths.mdPath);
