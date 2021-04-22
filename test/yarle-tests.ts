@@ -1,171 +1,174 @@
-import { YarleTest } from './yarle-test';
-import { OutputFormat } from "../src/output-format";
-import { YarleTestModifierOptions } from './yarle-test-modifier-options';
+import { YarleTest } from '.${path.sep}yarle-test';
+import { OutputFormat } from "..${path.sep}src${path.sep}output-format";
+import * as path from 'path';
+
+const testDataFolder = `${path.sep}test${path.sep}data${path.sep}`;
+
 
 export const yarleTests: Array<YarleTest> = [
   {
     name: 'Enex file with note containing text only',
     options: {
-      enexSource: `${__dirname}/../test/data/test-justText.enex`,
+      enexSource: `${__dirname}${path.sep}..${path.sep}${testDataFolder}test-justText.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
     },
-    testOutputPath: 'notes/test-justText/test -note with text only.md',
-    expectedOutputPath: '/data/test-justText.md',
+    testOutputPath: `notes${path.sep}test-justText${path.sep}test -note with text only.md`,
+    expectedOutputPath: `${path.sep}data${path.sep}test-justText.md`,
   },
 
   {
     name: 'Enex file with note WithHyperlinkRefs',
     options: {
-      enexSource: './test/data/test-bracketlinks.enex',
+      enexSource: `.${testDataFolder}test-bracketlinks.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
     },
-    testOutputPath: 'notes/test-bracketlinks/test - bracketlinks.md',
-    expectedOutputPath: '/data/test-bracketlinks.md',
+    testOutputPath: `notes${path.sep}test-bracketlinks${path.sep}test - bracketlinks.md`,
+    expectedOutputPath: `${path.sep}data${path.sep}test-bracketlinks.md`,
   },
 
 
   {
     name: 'Enex file with note containing text only',
     options: {
-      enexSource: './test/data/test-justText.enex',
+      enexSource: `.${testDataFolder}test-justText.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
     },
-    testOutputPath: 'notes/test-justText/test -note with text only.md',
+    testOutputPath: `notes${path.sep}test-justText${path.sep}test -note with text only.md`,
 
 
-    expectedOutputPath: '/data/test-justText.md',
+    expectedOutputPath: `${path.sep}data${path.sep}test-justText.md`,
   },
 
 
   {
     name: 'Note with code block',
     options: {
-      enexSource: './test/data/test-noteWithCodeBlock.enex',
+      enexSource: `.${testDataFolder}test-noteWithCodeBlock.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
     },
 
-    testOutputPath: 'notes/test-noteWithCodeBlock/Note with code block.md',
+    testOutputPath: `notes${path.sep}test-noteWithCodeBlock${path.sep}Note with code block.md`,
 
 
-    expectedOutputPath: '/data/test-noteWithCodeBlock.md',
+    expectedOutputPath: `${path.sep}data${path.sep}test-noteWithCodeBlock.md`,
   },
 
 
   {
     name: 'Note with tags',
     options: {
-      enexSource: './test/data/test-noteWithTags.enex',
+      enexSource: `.${testDataFolder}test-noteWithTags.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
     },
-    testOutputPath: 'notes/test-noteWithTags/test -note with text only.md',
+    testOutputPath: `notes${path.sep}test-noteWithTags${path.sep}test -note with text only.md`,
 
-    expectedOutputPath: '/data/test-noteWithTags.md',
+    expectedOutputPath: `${path.sep}data${path.sep}test-noteWithTags.md`,
   },
 
   {
     name: 'Note with nested tags',
     options: {
-      enexSource: './test/data/test-noteWithNestedTags.enex',
+      enexSource: `.${testDataFolder}test-noteWithNestedTags.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
       nestedTags: {
         separatorInEN: '_',
-        replaceSeparatorWith: '/'
+        replaceSeparatorWith: '${path.sep}'
       },
       useHashTags: true
     },
-    testOutputPath: 'notes/test-noteWithNestedTags/test -note with text only.md',
+    testOutputPath: `notes${path.sep}test-noteWithNestedTags${path.sep}test -note with text only.md`,
 
-    expectedOutputPath: '/data/test-noteWithNestedTags.md',
+    expectedOutputPath: `${path.sep}data${path.sep}test-noteWithNestedTags.md`,
   },
   {
     name: 'Note with nested tags containing spaces',
     options: {
-      enexSource: './test/data/test-noteWithNestedTagsAndSpaces.enex',
+      enexSource: `.${testDataFolder}test-noteWithNestedTagsAndSpaces.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
       nestedTags: {
         separatorInEN: '_',
-        replaceSeparatorWith: '/'
+        replaceSeparatorWith: '${path.sep}'
       },
       useHashTags: true
     },
-    testOutputPath: 'notes/test-noteWithNestedTagsAndSpaces/test -note with text only.md',
+    testOutputPath: `notes${path.sep}test-noteWithNestedTagsAndSpaces${path.sep}test -note with text only.md`,
 
-    expectedOutputPath: '/data/test-noteWithNestedTagsAndSpaces.md',
+    expectedOutputPath: `${path.sep}data${path.sep}test-noteWithNestedTagsAndSpaces.md`,
   },
 
   {
     name: 'Note with nested tags containing spaces and a specific character to be replaced to',
     options: {
-      enexSource: './test/data/test-noteWithNestedTagsAndSpacesCustom.enex',
+      enexSource: `.${testDataFolder}test-noteWithNestedTagsAndSpacesCustom.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
       nestedTags: {
         separatorInEN: '_',
-        replaceSeparatorWith: '/',
+        replaceSeparatorWith: '${path.sep}',
         replaceSpaceWith: '->'
       },
       useHashTags: true
     },
-    testOutputPath: 'notes/test-noteWithNestedTagsAndSpacesCustom/test -note with text only.md',
+    testOutputPath: `notes${path.sep}test-noteWithNestedTagsAndSpacesCustom${path.sep}test -note with text only.md`,
 
-    expectedOutputPath: '/data/test-noteWithNestedTagsAndSpacesCustom.md',
+    expectedOutputPath: `${path.sep}data${path.sep}test-noteWithNestedTagsAndSpacesCustom.md`,
   },
   {
     name: 'Note with notebook name',
     options: {
-      enexSource: './test/data/test-noteWithNotebookName.enex',
-      templateFile: './test/data/notebook-template.tmpl',
+      enexSource: `.${testDataFolder}test-noteWithNotebookName.enex`,
+      templateFile: '.${testDataFolder}notebook-template.tmpl',
       outputDir: 'out',
     },
-    testOutputPath: 'notes/test-noteWithNotebookName/test -note with text only.md',
-    expectedOutputPath: '/data/test-noteWithNotebookName.md',
+    testOutputPath: `notes${path.sep}test-noteWithNotebookName${path.sep}test -note with text only.md`,
+    expectedOutputPath: `${path.sep}data${path.sep}test-noteWithNotebookName.md`,
   },
 
 
   {
     name: 'Note with notebook name and tags',
     options: {
-      enexSource: './test/data/test-noteWithNotebookNameAndTags.enex',
-      templateFile: './test/data/notebook-template.tmpl',
+      enexSource: `.${testDataFolder}test-noteWithNotebookNameAndTags.enex`,
+      templateFile: '.${testDataFolder}notebook-template.tmpl',
       outputDir: 'out',
     },
-    testOutputPath: 'notes/test-noteWithNotebookNameAndTags/test -note with text only.md',
-    expectedOutputPath: '/data/test-noteWithNotebookNameAndTags.md',
+    testOutputPath: `notes${path.sep}test-noteWithNotebookNameAndTags${path.sep}test -note with text only.md`,
+    expectedOutputPath: `${path.sep}data${path.sep}test-noteWithNotebookNameAndTags.md`,
   },
 
 
   {
     name: 'Note with zettelkastel id',
     options: {
-      enexSource: './test/data/test-noteWithZettelKasten.enex',
+      enexSource: `.${testDataFolder}test-noteWithZettelKasten.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
       isZettelkastenNeeded: true,
     },
-    testOutputPath: 'notes/test-noteWithZettelKasten/201810060943 test -note with text only.md',
+    testOutputPath: `notes${path.sep}test-noteWithZettelKasten${path.sep}201810060943 test -note with text only.md`,
 
 
-    expectedOutputPath: '/data/test-noteWithZettelKasten.md',
+    expectedOutputPath: `${path.sep}data${path.sep}test-noteWithZettelKasten.md`,
   },
 
 
   {
     name: 'Note with zettelkastel id - no title',
     options: {
-      enexSource: './test/data/test-noteWithZettelKasten-notitle.enex',
+      enexSource: `.${testDataFolder}test-noteWithZettelKasten-notitle.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
       isZettelkastenNeeded: true,
     },
-    testOutputPath: 'notes/test-noteWithZettelKasten-notitle/201810060943.md',
-    expectedOutputPath: '/data/test-noteWithZettelKasten-notitle.md',
+    testOutputPath: `notes${path.sep}test-noteWithZettelKasten-notitle${path.sep}201810060943.md`,
+    expectedOutputPath: `${path.sep}data${path.sep}test-noteWithZettelKasten-notitle.md`,
 
   },
 
@@ -173,28 +176,28 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Note without metadata',
     options: {
-      enexSource: './test/data/test-noteWithoutMetadata.enex',
-      templateFile: './test/data/nometadata-template.tmpl',
+      enexSource: `.${testDataFolder}test-noteWithoutMetadata.enex`,
+      templateFile: '.${testDataFolder}nometadata-template.tmpl',
       outputDir: 'out',
       isMetadataNeeded: false,
       isZettelkastenNeeded: false,
     },
-    testOutputPath: 'notes/test-noteWithoutMetadata/test -note without metadata.md',
-    expectedOutputPath: '/data/test-noteWithoutMetadata.md',
+    testOutputPath: `notes${path.sep}test-noteWithoutMetadata${path.sep}test -note without metadata.md`,
+    expectedOutputPath: `${path.sep}data${path.sep}test-noteWithoutMetadata.md`,
   },
 
 
   {
     name: 'Note with latlong',
     options: {
-      enexSource: './test/data/test-noteWithLatLong.enex',
+      enexSource: `.${testDataFolder}test-noteWithLatLong.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
     },
-    testOutputPath: 'notes/test-noteWithLatLong/Test.md',
+    testOutputPath: `notes${path.sep}test-noteWithLatLong${path.sep}Test.md`,
 
 
-    expectedOutputPath: '/data/test-noteWithLatLong.md',
+    expectedOutputPath: `${path.sep}data${path.sep}test-noteWithLatLong.md`,
   },
 
 
@@ -202,66 +205,66 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Note with only source-url',
     options: {
-      enexSource: './test/data/test-noteWithSourceUrl.enex',
+      enexSource: `.${testDataFolder}test-noteWithSourceUrl.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
     },
-    testOutputPath: 'notes/test-noteWithSourceUrl/Test.md',
+    testOutputPath: `notes${path.sep}test-noteWithSourceUrl${path.sep}Test.md`,
 
 
-    expectedOutputPath: '/data/test-noteWithSourceUrl.md',
+    expectedOutputPath: `${path.sep}data${path.sep}test-noteWithSourceUrl.md`,
   },
 
   {
     name: 'Skips images without src attribute',
     options: {
-      enexSource: './test/data/test-imageWithoutSrc.enex',
+      enexSource: `.${testDataFolder}test-imageWithoutSrc.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
     },
-    testOutputPath: 'notes/test-imageWithoutSrc/test-imageWithoutSrc.md',
+    testOutputPath: `notes${path.sep}test-imageWithoutSrc${path.sep}test-imageWithoutSrc.md`,
 
-    expectedOutputPath: '/data/test-imageWithoutSrc.md',
+    expectedOutputPath: `${path.sep}data${path.sep}test-imageWithoutSrc.md`,
   },
 
   {
     name: 'Enex file plaintextonly - skipping note that has resource in it',
     options: {
-      enexSource: './test/data/test-threePictures.enex',
+      enexSource: `.${testDataFolder}test-threePictures.enex`,
 
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: true,
     },
-    testOutputPath: 'notes/test-threePictures/test - note with more pictures.md',
+    testOutputPath: `notes${path.sep}test-threePictures${path.sep}test - note with more pictures.md`,
   },
 
   {
     name: ' Pure external url',
     options: {
-      enexSource: './test/data/test-pure-external-url.enex',
+      enexSource: `.${testDataFolder}test-pure-external-url.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
       skipLocation: true,
     },
-    testOutputPath: 'notes/test-pure-external-url/pure-external-url.md',
+    testOutputPath: `notes${path.sep}test-pure-external-url${path.sep}pure-external-url.md`,
 
-    expectedOutputPath: '/data/test-pure-external-url.md',
+    expectedOutputPath: `${path.sep}data${path.sep}test-pure-external-url.md`,
   },
 
 
   {
     name: 'Enex file skip Location',
     options: {
-      enexSource: './test/data/test-skipLocation.enex',
-      templateFile: './test/data/nolocation-template.tmpl',
+      enexSource: `.${testDataFolder}test-skipLocation.enex`,
+      templateFile: '.${testDataFolder}nolocation-template.tmpl',
       outputDir: 'out',
       isMetadataNeeded: true,
       skipLocation: true,
     },
-    testOutputPath: 'notes/test-skipLocation/SkipLocation.md',
+    testOutputPath: `notes${path.sep}test-skipLocation${path.sep}SkipLocation.md`,
 
-    expectedOutputPath: '/data/test-skipLocation.md',
+    expectedOutputPath: `${path.sep}data${path.sep}test-skipLocation.md`,
   },
 
 
@@ -269,82 +272,82 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Enex file with table',
     options: {
-      enexSource: './test/data/test-table.enex',
+      enexSource: `.${testDataFolder}test-table.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
     },
-    testOutputPath: 'notes/test-table/table.md',
-    expectedOutputPath: '/data/test-table.md',
+    testOutputPath: `notes${path.sep}test-table${path.sep}table.md`,
+    expectedOutputPath: `${path.sep}data${path.sep}test-table.md`,
   },
 
 
   {
     name: 'Enex file with specialItems',
     options: {
-      enexSource: './test/data/test-specialItems.enex',
+      enexSource: `.${testDataFolder}test-specialItems.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
     },
-    testOutputPath: 'notes/test-specialItems/special items.md',
+    testOutputPath: `notes${path.sep}test-specialItems${path.sep}special items.md`,
 
-    expectedOutputPath: '/data/test-specialItems.md',
+    expectedOutputPath: `${path.sep}data${path.sep}test-specialItems.md`,
   },
 
 
   {
     name: 'Enex file with links ',
     options: {
-      enexSource: './test/data/test-externalLink.enex',
+      enexSource: `.${testDataFolder}test-externalLink.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
     },
-    testOutputPath: 'notes/test-externalLink/External Link.md',
-    expectedOutputPath: '/data/test-externalLink.md',
+    testOutputPath: `notes${path.sep}test-externalLink${path.sep}External Link.md`,
+    expectedOutputPath: `${path.sep}data${path.sep}test-externalLink.md`,
   },
 
 
   {
     name: 'Enex file with links, pure link (no text) ',
     options: {
-      enexSource: './test/data/test-externalLink-notext.enex',
+      enexSource: `.${testDataFolder}test-externalLink-notext.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
     },
-    testOutputPath: 'notes/test-externalLink-notext/External Link.md',
+    testOutputPath: `notes${path.sep}test-externalLink-notext${path.sep}External Link.md`,
 
-    expectedOutputPath: '/data/test-externalLink-notext.md',
+    expectedOutputPath: `${path.sep}data${path.sep}test-externalLink-notext.md`,
   },
 
 
   {
     name: 'Enex file with file links ',
     options: {
-      enexSource: './test/data/test-externalFileLink.enex',
+      enexSource: `.${testDataFolder}test-externalFileLink.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
     },
-    testOutputPath: 'notes/test-externalFileLink/External File Link.md',
+    testOutputPath: `notes${path.sep}test-externalFileLink${path.sep}External File Link.md`,
 
-    expectedOutputPath: '/data/test-externalFileLink.md',
+    expectedOutputPath: `${path.sep}data${path.sep}test-externalFileLink.md`,
   },
 
 
   {
     name: 'Enex file with links with resources',
     options: {
-      enexSource: './test/data/test-externalLinkWithPicture.enex',
+      enexSource: `.${testDataFolder}test-externalLinkWithPicture.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
     },
-    testOutputPath: 'notes/test-externalLinkWithPicture/Link With Picture.md',
+    testOutputPath: `notes${path.sep}test-externalLinkWithPicture${path.sep}Link With Picture.md`,
 
-    expectedOutputPath: '/data/test-externalLinkWithPicture.md',
+    expectedOutputPath: `${path.sep}data${path.sep}test-externalLinkWithPicture.md`,
 
   },
 
@@ -354,36 +357,36 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Enex file with highlighted text',
     options: {
-      enexSource: './test/data/test-highlights.enex',
+      enexSource: `.${testDataFolder}test-highlights.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
     },
-    testOutputPath: 'notes/test-highlights/Highlights.md',
+    testOutputPath: `notes${path.sep}test-highlights${path.sep}Highlights.md`,
 
-    expectedOutputPath: '/data/test-highlights.md',
+    expectedOutputPath: `${path.sep}data${path.sep}test-highlights.md`,
   },
 
   {
     name: 'Enex file with highlighted text - Obsidian-style',
     options: {
-      enexSource: './test/data/test-highlights.enex',
+      enexSource: `.${testDataFolder}test-highlights.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
       outputFormat: OutputFormat.ObsidianMD,
     },
 
-    testOutputPath: 'notes/test-highlights/Highlights.md',
+    testOutputPath: `notes${path.sep}test-highlights${path.sep}Highlights.md`,
 
-    expectedOutputPath: '/data/test-highlightsObsidian.md',
+    expectedOutputPath: `${path.sep}data${path.sep}test-highlightsObsidian.md`,
   },
 
 
   {
     name: 'Enex file - no span style',
     options: {
-      enexSource: './test/data/test-nospanstyle.enex',
+      enexSource: `.${testDataFolder}test-nospanstyle.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -392,88 +395,88 @@ export const yarleTests: Array<YarleTest> = [
     }
     ,
 
-    testOutputPath: 'notes/test-nospanstyle/test-nospanstyle.md',
+    testOutputPath: `notes${path.sep}test-nospanstyle${path.sep}test-nospanstyle.md`,
 
-    expectedOutputPath: '/data/test-nospanstyle.md',
+    expectedOutputPath: `${path.sep}data${path.sep}test-nospanstyle.md`,
   },
 
 
   {
     name: 'Note with sublists',
     options: {
-      enexSource: './test/data/test-sublists.enex',
+      enexSource: `.${testDataFolder}test-sublists.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
     },
-    testOutputPath: 'notes/test-sublists/test - sublists.md',
+    testOutputPath: `notes${path.sep}test-sublists${path.sep}test - sublists.md`,
 
-    expectedOutputPath: '/data/test-sublists.md',
+    expectedOutputPath: `${path.sep}data${path.sep}test-sublists.md`,
   },
 
   {
     name: 'Note with sublists (valid html)',
     options: {
-      enexSource: './test/data/test-sublists-valid.enex',
+      enexSource: `.${testDataFolder}test-sublists-valid.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
     },
-    testOutputPath: 'notes/test-sublists-valid/test - sublists - valid.md',
+    testOutputPath: `notes${path.sep}test-sublists-valid${path.sep}test - sublists - valid.md`,
 
-    expectedOutputPath: '/data/test-sublists-valid.md',
+    expectedOutputPath: `${path.sep}data${path.sep}test-sublists-valid.md`,
   },
 
   {
     name: 'Enex file urlEncode whitespace',
     options: {
-      enexSource: './test/data/test-urlencode.enex',
+      enexSource: `.${testDataFolder}test-urlencode.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
       urlEncodeFileNamesAndLinks: true,
     },
-    testOutputPath: 'notes/test-urlencode/test - note with picture (filename with spaces).md',
+    testOutputPath: `notes${path.sep}test-urlencode${path.sep}test - note with picture (filename with spaces).md`,
 
-    expectedOutputPath: '/data/test-urlencode.md',
+    expectedOutputPath: `${path.sep}data${path.sep}test-urlencode.md`,
   },
 
   {
     name: 'Note with sublists (multiple)',
     options: {
-      enexSource: './test/data/test-sublists-multiple.enex',
+      enexSource: `.${testDataFolder}test-sublists-multiple.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
     },
-    testOutputPath: 'notes/test-sublists-multiple/test - sublists - multiple.md',
+    testOutputPath: `notes${path.sep}test-sublists-multiple${path.sep}test - sublists - multiple.md`,
 
-    expectedOutputPath: '/data/test-sublists-multiple.md',
+    expectedOutputPath: `${path.sep}data${path.sep}test-sublists-multiple.md`,
   },
 
 
   {
     name: 'Webclip - article',
     options: {
-      enexSource: './test/data/test-webclip_article.enex',
+      enexSource: `.${testDataFolder}test-webclip_article.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
       outputFormat: OutputFormat.ObsidianMD,
     },
-    testOutputPath: 'notes/test-webclip_article/yarle evernote.md',
+    testOutputPath: `notes${path.sep}test-webclip_article${path.sep}yarle evernote.md`,
 
-    expectedOutputPath: '/data/test-webclip_article.md',
+    expectedOutputPath: `${path.sep}data${path.sep}test-webclip_article.md`,
   },
 
 
   {
     name: 'Webclip - simplified article',
     options: {
-      enexSource: './test/data/test-webclip_simplifiedarticle.enex',
+      enexSource: `.${testDataFolder}test-webclip_simplifiedarticle.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
       outputFormat: OutputFormat.ObsidianMD,
     },
-    testOutputPath: 'notes/test-webclip_simplifiedarticle/yarle evernote.md',
-    expectedOutputPath: '/data/test-webclip_simplifiedarticle.md',
+    testOutputPath: `notes${path.sep}test-webclip_simplifiedarticle${path.sep}yarle evernote.md`,
+    expectedOutputPath: `${path.sep}data${path.sep}test-webclip_simplifiedarticle.md`,
 
   },
 
@@ -481,7 +484,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Webclip - bookmark',
     options: {
-      enexSource: './test/data/test-webclip_bookmark.enex',
+      enexSource: `.${testDataFolder}test-webclip_bookmark.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -489,16 +492,16 @@ export const yarleTests: Array<YarleTest> = [
     }
     ,
 
-    testOutputPath: 'notes/test-webclip_bookmark/Yarle.md',
+    testOutputPath: `notes${path.sep}test-webclip_bookmark${path.sep}Yarle.md`,
 
-    expectedOutputPath: '/data/test-webclip_bookmark.md',
+    expectedOutputPath: `${path.sep}data${path.sep}test-webclip_bookmark.md`,
   },
 
 
   {
     name: 'Webclip - screenshot',
     options: {
-      enexSource: './test/data/test-webclip_screenshot.enex',
+      enexSource: `.${testDataFolder}test-webclip_screenshot.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -506,9 +509,9 @@ export const yarleTests: Array<YarleTest> = [
     }
     ,
 
-    testOutputPath: 'notes/test-webclip_screenshot/Yarle.md',
+    testOutputPath: `notes${path.sep}test-webclip_screenshot${path.sep}Yarle.md`,
 
-    expectedOutputPath: '/data/test-webclip_screenshot.md',
+    expectedOutputPath: `${path.sep}data${path.sep}test-webclip_screenshot.md`,
   },
 
 
@@ -516,24 +519,24 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'applies template passed as parameter',
     options: {
-      enexSource: './test/data/test-template.enex',
+      enexSource: `.${testDataFolder}test-template.enex`,
       outputDir: 'out',
-      templateFile: './test/data/template_tags_bottom.templ',
+      templateFile: '.${testDataFolder}template_tags_bottom.templ',
       isMetadataNeeded: true,
       outputFormat: OutputFormat.ObsidianMD,
       skipEnexFileNameFromOutputPath: false,
     },
-    testOutputPath: 'notes/test-template/test - templates.md',
-    expectedOutputPath: '/data/test - templates.md',
+    testOutputPath: `notes${path.sep}test-template${path.sep}test - templates.md`,
+    expectedOutputPath: `${path.sep}data${path.sep}test - templates.md`,
   },
 
 
   {
     name: 'applies template passed as parameter - skip metadata if it doesn\'t exists',
     options: {
-      enexSource: './test/data/test-template-nometa.enex',
+      enexSource: `.${testDataFolder}test-template-nometa.enex`,
       outputDir: 'out',
-      templateFile: './test/data/template_tags_bottom.templ',
+      templateFile: '.${testDataFolder}template_tags_bottom.templ',
       isMetadataNeeded: true,
       outputFormat: OutputFormat.ObsidianMD,
       skipEnexFileNameFromOutputPath: false,
@@ -544,25 +547,25 @@ export const yarleTests: Array<YarleTest> = [
       skipTags: false,
       useHashTags: true,
     },
-    testOutputPath: 'notes/test-template-nometa/TEST - templates.md',
+    testOutputPath: `notes${path.sep}test-template-nometa${path.sep}TEST - templates.md`,
 
-    expectedOutputPath: '/data/test - templates-nometa.md',
+    expectedOutputPath: `${path.sep}data${path.sep}test - templates-nometa.md`,
   },
 
 
   {
     name: 'only renders content with a template with just the content block',
     options: {
-      enexSource: './test/data/test-template 2.enex',
+      enexSource: `.${testDataFolder}test-template 2.enex`,
       outputDir: 'out',
-      templateFile: './test/data/bare_template.templ',
+      templateFile: '.${testDataFolder}bare_template.templ',
       isMetadataNeeded: true,
       outputFormat: OutputFormat.ObsidianMD,
       skipEnexFileNameFromOutputPath: false,
 
     },
-    testOutputPath: 'notes/test-template 2/test - templates just content.md',
-    expectedOutputPath: '/data/test - templates just content.md',
+    testOutputPath: `notes${path.sep}test-template 2${path.sep}test - templates just content.md`,
+    expectedOutputPath: `${path.sep}data${path.sep}test - templates just content.md`,
 
   },
 
@@ -571,9 +574,9 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'monospace code blocks',
     options: {
-      enexSource: './test/data/test-monospace-codeblocks.enex',
+      enexSource: `.${testDataFolder}test-monospace-codeblocks.enex`,
       outputDir: 'out',
-      templateFile: './test/data/bare_template.templ',
+      templateFile: '.${testDataFolder}bare_template.templ',
       isMetadataNeeded: true,
       outputFormat: OutputFormat.ObsidianMD,
       skipEnexFileNameFromOutputPath: false,
@@ -581,8 +584,8 @@ export const yarleTests: Array<YarleTest> = [
 
     },
 
-    testOutputPath: 'notes/test-monospace-codeblocks/test-monospace-codeblocks.md',
-    expectedOutputPath: '/data/test-monospace-codeblocks.md',
+    testOutputPath: `notes${path.sep}test-monospace-codeblocks${path.sep}test-monospace-codeblocks.md`,
+    expectedOutputPath: `${path.sep}data${path.sep}test-monospace-codeblocks.md`,
 
   },
 
@@ -591,68 +594,68 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'keep Markdown characters - noop escape function in turndown',
     options: {
-      enexSource: './test/data/test-markdown-en.enex',
+      enexSource: `.${testDataFolder}test-markdown-en.enex`,
       outputDir: 'out',
-      templateFile: './test/data/bare_template.templ',
+      templateFile: '.${testDataFolder}bare_template.templ',
       isMetadataNeeded: true,
       outputFormat: OutputFormat.ObsidianMD,
       skipEnexFileNameFromOutputPath: false,
       keepMDCharactersOfENNotes: true,
 
     },
-    testOutputPath: 'notes/test-markdown-en/test-markdown-en.md',
-    expectedOutputPath: '/data/test-markdown-en.md',
+    testOutputPath: `notes${path.sep}test-markdown-en${path.sep}test-markdown-en.md`,
+    expectedOutputPath: `${path.sep}data${path.sep}test-markdown-en.md`,
 
   },
   {
     name: ' Pure external url with unescapeable characters',
     options: {
-      enexSource: './test/data/test-externalLink-escape.enex',
+      enexSource: `.${testDataFolder}test-externalLink-escape.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
       skipLocation: true,
       keepMDCharactersOfENNotes: true,
     },
-    testOutputPath: 'notes/test-externalLink-escape/External Link.md',
+    testOutputPath: `notes${path.sep}test-externalLink-escape${path.sep}External Link.md`,
 
-    expectedOutputPath: '/data/test-externalLink-escape.md',
+    expectedOutputPath: `${path.sep}data${path.sep}test-externalLink-escape.md`,
   },
 
   {
     name: ' Custom date format',
     options: {
-      enexSource: './test/data/test-justTextButCustomDate.enex',
+      enexSource: `.${testDataFolder}test-justTextButCustomDate.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
       skipLocation: true,
       keepMDCharactersOfENNotes: true,
       dateFormat: 'YYYY MMMM DD',
     },
-    testOutputPath: 'notes/test-justTextButCustomDate/test -note with text only.md',
-    expectedOutputPath: '/data/test-justTextButCustomDate.md',
+    testOutputPath: `notes${path.sep}test-justTextButCustomDate${path.sep}test -note with text only.md`,
+    expectedOutputPath: `${path.sep}data${path.sep}test-justTextButCustomDate.md`,
   },
   {
     name: 'multiple metadata content',
     options: {
-      enexSource: './test/data/test-noteWithTags.enex',
+      enexSource: `.${testDataFolder}test-noteWithTags.enex`,
       outputDir: 'out',
-      templateFile: './test/data/multimeta-template.tmpl',
+      templateFile: '.${testDataFolder}multimeta-template.tmpl',
       isMetadataNeeded: true,
       outputFormat: OutputFormat.ObsidianMD,
       skipEnexFileNameFromOutputPath: false,
       keepMDCharactersOfENNotes: true,
 
     },
-    testOutputPath: 'notes/test-noteWithTags/test -note with text only.md',
-    expectedOutputPath: '/data/test-noteWithTags-multi.md',
+    testOutputPath: `notes${path.sep}test-noteWithTags${path.sep}test -note with text only.md`,
+    expectedOutputPath: `${path.sep}data${path.sep}test-noteWithTags-multi.md`,
 
   },
   {
     name: 'multiple metadata content',
     options: {
-      enexSource: './test/data/test-intend-newlines.enex',
+      enexSource: `.${testDataFolder}test-intend-newlines.enex`,
       outputDir: 'out',
-      templateFile: './test/data/multimeta-template.tmpl',
+      templateFile: '.${testDataFolder}multimeta-template.tmpl',
       isMetadataNeeded: true,
       outputFormat: OutputFormat.ObsidianMD,
       skipEnexFileNameFromOutputPath: false,
@@ -660,23 +663,23 @@ export const yarleTests: Array<YarleTest> = [
       keepOriginalAmountOfNewlines: true,
 
     },
-    testOutputPath: 'notes/test-intend-newlines/test -note with text only.md',
-    expectedOutputPath: '/data/test-intend-newlines.md',
+    testOutputPath: `notes${path.sep}test-intend-newlines${path.sep}test -note with text only.md`,
+    expectedOutputPath: `${path.sep}data${path.sep}test-intend-newlines.md`,
   },
   {
     name: 'hanging enex',
     options: {
-      enexSource: './test/data/huge-html.enex',
+      enexSource: `.${testDataFolder}huge-html.enex`,
       outputDir: 'out',
-      templateFile: './test/data/multimeta-template.tmpl',
+      templateFile: '.${testDataFolder}multimeta-template.tmpl',
       isMetadataNeeded: true,
       outputFormat: OutputFormat.ObsidianMD,
       skipEnexFileNameFromOutputPath: false,
       keepMDCharactersOfENNotes: true,
 
     },
-    testOutputPath: 'notes/huge-html/Untitled Note.md',
-    expectedOutputPath: '/data/test-hugeHtml.md',
+    testOutputPath: `notes${path.sep}huge-html${path.sep}Untitled Note.md`,
+    expectedOutputPath: `${path.sep}data${path.sep}test-hugeHtml.md`,
 
 
   },
