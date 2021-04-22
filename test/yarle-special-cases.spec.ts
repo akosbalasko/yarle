@@ -45,7 +45,7 @@ describe('Yarle special cases', async () => {
       isMetadataNeeded: true,
     };
     await yarle.dropTheRope(options);
-    console.log(`conversion log: ${fs.readFileSync(`${LOGFILE}`);
+    console.log(`conversion log: ${fs.readFileSync(LOGFILE)}`);
     assert.equal(
       fs.existsSync(
         `${__dirname}/../out/notes/test-withPicture/test - note with picture.md`,
