@@ -1,7 +1,7 @@
 import assert from 'assert';
 import fs from 'fs';
 import mockTimezone from 'timezone-mock';
-
+import * as path from 'path';
 import { OutputFormat } from './../src/output-format';
 import * as utils from './../src/utils';
 import * as yarle from './../src/yarle';
@@ -40,7 +40,7 @@ describe('Yarle special cases', async () => {
 
   it('Enex file with note containing a picture', async () => {
     const options: YarleOptions = {
-      enexSource: './test/data/test-withPicture.enex',
+      enexSource: `.${path.sep}test${path.sep}data${path.sep}test-withPicture.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
     };
