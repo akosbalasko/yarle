@@ -77,7 +77,7 @@ describe('Yarle special cases', async () => {
       templateFile: `${testDataFolder}keephtml-template.tmpl`,
       outputDir: 'out',
     };
-    
+
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
@@ -165,10 +165,10 @@ describe('Yarle special cases', async () => {
     );
 
     assert.equal(
-      fs.readFileSync(
+      eol.auto(fs.readFileSync(
         `/tmp/out/notes//test-textWithImage/Untitled.md`,
         'utf8',
-      ),
+      )),
       fs.readFileSync(`${__dirname}/data/test-textWithImage.md`, 'utf8'),
     );
   });
