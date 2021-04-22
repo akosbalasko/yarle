@@ -521,7 +521,7 @@ export const yarleTests: Array<YarleTest> = [
     options: {
       enexSource: `.${testDataFolder}test-template.enex`,
       outputDir: 'out',
-      templateFile: `.${testDataFolder}template_tags_bottom.templ',
+      templateFile: `.${testDataFolder}template_tags_bottom.templ`,
       isMetadataNeeded: true,
       outputFormat: OutputFormat.ObsidianMD,
       skipEnexFileNameFromOutputPath: false,
@@ -536,7 +536,7 @@ export const yarleTests: Array<YarleTest> = [
     options: {
       enexSource: `.${testDataFolder}test-template-nometa.enex`,
       outputDir: 'out',
-      templateFile: `.${testDataFolder}template_tags_bottom.templ',
+      templateFile: `.${testDataFolder}template_tags_bottom.templ`,
       isMetadataNeeded: true,
       outputFormat: OutputFormat.ObsidianMD,
       skipEnexFileNameFromOutputPath: false,
@@ -558,7 +558,7 @@ export const yarleTests: Array<YarleTest> = [
     options: {
       enexSource: `.${testDataFolder}test-template 2.enex`,
       outputDir: 'out',
-      templateFile: `.${testDataFolder}bare_template.templ',
+      templateFile: `.${testDataFolder}bare_template.templ`,
       isMetadataNeeded: true,
       outputFormat: OutputFormat.ObsidianMD,
       skipEnexFileNameFromOutputPath: false,
@@ -576,7 +576,7 @@ export const yarleTests: Array<YarleTest> = [
     options: {
       enexSource: `.${testDataFolder}test-monospace-codeblocks.enex`,
       outputDir: 'out',
-      templateFile: `.${testDataFolder}bare_template.templ',
+      templateFile: `.${testDataFolder}bare_template.templ`,
       isMetadataNeeded: true,
       outputFormat: OutputFormat.ObsidianMD,
       skipEnexFileNameFromOutputPath: false,
@@ -596,7 +596,7 @@ export const yarleTests: Array<YarleTest> = [
     options: {
       enexSource: `.${testDataFolder}test-markdown-en.enex`,
       outputDir: 'out',
-      templateFile: `.${testDataFolder}bare_template.templ',
+      templateFile: `.${testDataFolder}bare_template.templ`,
       isMetadataNeeded: true,
       outputFormat: OutputFormat.ObsidianMD,
       skipEnexFileNameFromOutputPath: false,
