@@ -124,7 +124,7 @@ export const yarleTests: Array<YarleTest> = [
     name: 'Note with notebook name',
     options: {
       enexSource: `.${testDataFolder}test-noteWithNotebookName.enex`,
-      templateFile: '.${testDataFolder}notebook-template.tmpl',
+      templateFile: `.${testDataFolder}notebook-template.tmpl`,
       outputDir: 'out',
     },
     testOutputPath: `notes${path.sep}test-noteWithNotebookName${path.sep}test -note with text only.md`,
@@ -136,7 +136,7 @@ export const yarleTests: Array<YarleTest> = [
     name: 'Note with notebook name and tags',
     options: {
       enexSource: `.${testDataFolder}test-noteWithNotebookNameAndTags.enex`,
-      templateFile: '.${testDataFolder}notebook-template.tmpl',
+      templateFile: `.${testDataFolder}notebook-template.tmpl`,
       outputDir: 'out',
     },
     testOutputPath: `notes${path.sep}test-noteWithNotebookNameAndTags${path.sep}test -note with text only.md`,
@@ -177,7 +177,7 @@ export const yarleTests: Array<YarleTest> = [
     name: 'Note without metadata',
     options: {
       enexSource: `.${testDataFolder}test-noteWithoutMetadata.enex`,
-      templateFile: '.${testDataFolder}nometadata-template.tmpl',
+      templateFile: `.${testDataFolder}nometadata-template.tmpl`,
       outputDir: 'out',
       isMetadataNeeded: false,
       isZettelkastenNeeded: false,
@@ -257,7 +257,7 @@ export const yarleTests: Array<YarleTest> = [
     name: 'Enex file skip Location',
     options: {
       enexSource: `.${testDataFolder}test-skipLocation.enex`,
-      templateFile: '.${testDataFolder}nolocation-template.tmpl',
+      templateFile: `.${testDataFolder}nolocation-template.tmpl`,
       outputDir: 'out',
       isMetadataNeeded: true,
       skipLocation: true,
@@ -521,7 +521,7 @@ export const yarleTests: Array<YarleTest> = [
     options: {
       enexSource: `.${testDataFolder}test-template.enex`,
       outputDir: 'out',
-      templateFile: '.${testDataFolder}template_tags_bottom.templ',
+      templateFile: `.${testDataFolder}template_tags_bottom.templ',
       isMetadataNeeded: true,
       outputFormat: OutputFormat.ObsidianMD,
       skipEnexFileNameFromOutputPath: false,
@@ -536,7 +536,7 @@ export const yarleTests: Array<YarleTest> = [
     options: {
       enexSource: `.${testDataFolder}test-template-nometa.enex`,
       outputDir: 'out',
-      templateFile: '.${testDataFolder}template_tags_bottom.templ',
+      templateFile: `.${testDataFolder}template_tags_bottom.templ',
       isMetadataNeeded: true,
       outputFormat: OutputFormat.ObsidianMD,
       skipEnexFileNameFromOutputPath: false,
@@ -558,7 +558,7 @@ export const yarleTests: Array<YarleTest> = [
     options: {
       enexSource: `.${testDataFolder}test-template 2.enex`,
       outputDir: 'out',
-      templateFile: '.${testDataFolder}bare_template.templ',
+      templateFile: `.${testDataFolder}bare_template.templ',
       isMetadataNeeded: true,
       outputFormat: OutputFormat.ObsidianMD,
       skipEnexFileNameFromOutputPath: false,
@@ -576,7 +576,7 @@ export const yarleTests: Array<YarleTest> = [
     options: {
       enexSource: `.${testDataFolder}test-monospace-codeblocks.enex`,
       outputDir: 'out',
-      templateFile: '.${testDataFolder}bare_template.templ',
+      templateFile: `.${testDataFolder}bare_template.templ',
       isMetadataNeeded: true,
       outputFormat: OutputFormat.ObsidianMD,
       skipEnexFileNameFromOutputPath: false,
@@ -596,7 +596,7 @@ export const yarleTests: Array<YarleTest> = [
     options: {
       enexSource: `.${testDataFolder}test-markdown-en.enex`,
       outputDir: 'out',
-      templateFile: '.${testDataFolder}bare_template.templ',
+      templateFile: `.${testDataFolder}bare_template.templ',
       isMetadataNeeded: true,
       outputFormat: OutputFormat.ObsidianMD,
       skipEnexFileNameFromOutputPath: false,
@@ -639,7 +639,7 @@ export const yarleTests: Array<YarleTest> = [
     options: {
       enexSource: `.${testDataFolder}test-noteWithTags.enex`,
       outputDir: 'out',
-      templateFile: '.${testDataFolder}multimeta-template.tmpl',
+      templateFile: `.${testDataFolder}multimeta-template.tmpl`,
       isMetadataNeeded: true,
       outputFormat: OutputFormat.ObsidianMD,
       skipEnexFileNameFromOutputPath: false,
@@ -655,7 +655,7 @@ export const yarleTests: Array<YarleTest> = [
     options: {
       enexSource: `.${testDataFolder}test-intend-newlines.enex`,
       outputDir: 'out',
-      templateFile: '.${testDataFolder}multimeta-template.tmpl',
+      templateFile: `.${testDataFolder}multimeta-template.tmpl`,
       isMetadataNeeded: true,
       outputFormat: OutputFormat.ObsidianMD,
       skipEnexFileNameFromOutputPath: false,
@@ -671,7 +671,7 @@ export const yarleTests: Array<YarleTest> = [
     options: {
       enexSource: `.${testDataFolder}huge-html.enex`,
       outputDir: 'out',
-      templateFile: '.${testDataFolder}multimeta-template.tmpl',
+      templateFile: `.${testDataFolder}multimeta-template.tmpl`,
       isMetadataNeeded: true,
       outputFormat: OutputFormat.ObsidianMD,
       skipEnexFileNameFromOutputPath: false,
