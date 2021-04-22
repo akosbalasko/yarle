@@ -1,6 +1,7 @@
 import assert from 'assert';
 import fs from 'fs';
 import mockTimezone from 'timezone-mock';
+import eol from 'eol'
 
 import * as utils from './../src/utils';
 import * as yarle from './../src/yarle';
@@ -42,7 +43,7 @@ describe('Yarle simple cases', async () => {
       assert.ok(fs.existsSync(output));
       if (expectedOutput)
         assert.equal(
-          fs.readFileSync(output, 'utf8',),
+          eol.auto(fs.readFileSync(output, 'utf8')),
           fs.readFileSync(expectedOutput, 'utf8'),
         );
 
