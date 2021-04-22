@@ -77,6 +77,7 @@ describe('Yarle special cases', async () => {
       templateFile: `${testDataFolder}keephtml-template.tmpl`,
       outputDir: 'out',
     };
+    
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
