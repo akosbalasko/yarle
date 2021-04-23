@@ -14,7 +14,7 @@ export const processResources = (note: any): string => {
     let updatedContent = cloneDeep(note.content);
     const pathSepRegExp = new RegExp(`\\${path.sep}`,'g');
     const relativeResourceWorkDir = utils.getRelativeResourceDir(note).replace(pathSepRegExp,yarleOptions.pathSeparator);
-    const absoluteResourceWorkDir = utils.getAbsoluteResourceDir(note).replace(pathSepRegExp,yarleOptions.pathSeparator);
+    const absoluteResourceWorkDir = utils.getAbsoluteResourceDir(note) // .replace(pathSepRegExp,yarleOptions.pathSeparator);
 
     loggerInfo(`relative resource work dir: ${relativeResourceWorkDir}`);
 
