@@ -10,6 +10,7 @@ import { hasCreationTimeInTemplate, hasLocationInTemplate, hasSourceURLInTemplat
 import { defaultTemplate } from './utils/templates/default-template';
 import { OutputFormat } from './output-format';
 import * as path from 'path';
+import { clearLogFile } from './utils/clearLogFile';
 
 export const defaultYarleOptions: YarleOptions = {
   enexSource: 'notebook.enex',
@@ -59,7 +60,7 @@ const setOptions = (options: YarleOptions): void => {
 
   yarleOptions.currentTemplate = template;
 
-  loggerInfo(`Current config is: ${JSON.stringify(yarleOptions)}`);
+  loggerInfo(`Current config is: ${JSON.stringify(yarleOptions, null, 4)}`);
   loggerInfo(`Path separator:${path.sep}`)
   /*}*/
 };
@@ -125,6 +126,7 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
 };
 
 export const dropTheRope = async (options: YarleOptions): Promise<void> => {
+  clearLogFile();
   setOptions(options);
   utils.setPaths();
 

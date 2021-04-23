@@ -73,11 +73,11 @@ export const clearMdNotesDistDir = (): void => {
 };
 
 export const setPaths = (): void => {
-  loggerInfo('setting paths');
+  // loggerInfo('setting paths');
   const enexFolder = yarleOptions.enexSource.split(path.sep);
-  loggerInfo(`enex folder split: ${JSON.stringify(enexFolder)}`);
+  // loggerInfo(`enex folder split: ${JSON.stringify(enexFolder)}`);
   const enexFile = (enexFolder.length >= 1 ?  enexFolder[enexFolder.length - 1] : enexFolder[0]).split('.')[0];
-  loggerInfo(`enex file: ${enexFile}`);
+  // loggerInfo(`enex file: ${enexFile}`);
 
   const outputDir = path.isAbsolute(yarleOptions.outputDir)
     ? yarleOptions.outputDir
@@ -85,10 +85,10 @@ export const setPaths = (): void => {
 
   paths.mdPath = `${outputDir}${path.sep}notes${path.sep}`;
   paths.resourcePath = `${outputDir}${path.sep}notes${path.sep}_resources`;
-  loggerInfo(`Skip enex filename from output? ${yarleOptions.skipEnexFileNameFromOutputPath}`);
+  // loggerInfo(`Skip enex filename from output? ${yarleOptions.skipEnexFileNameFromOutputPath}`);
   if (!yarleOptions.skipEnexFileNameFromOutputPath) {
     paths.mdPath = `${paths.mdPath}${enexFile}`;
-    loggerInfo(`mdPath: ${paths.mdPath}`);
+    // loggerInfo(`mdPath: ${paths.mdPath}`);
 
     paths.resourcePath = `${outputDir}${path.sep}notes${path.sep}${enexFile}${path.sep}_resources`;
   }
