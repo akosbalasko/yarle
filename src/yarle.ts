@@ -9,6 +9,7 @@ import { loggerInfo } from './utils/loggerInfo';
 import { hasCreationTimeInTemplate, hasLocationInTemplate, hasSourceURLInTemplate, hasTagsInTemplate, hasUpdateTimeInTemplate, hasNotebookInTemplate, hasLinkToOriginalInTemplate } from './utils/templates/checker-functions';
 import { defaultTemplate } from './utils/templates/default-template';
 import { OutputFormat } from './output-format';
+import * as path from 'path';
 
 export const defaultYarleOptions: YarleOptions = {
   enexSource: 'notebook.enex',
@@ -59,11 +60,12 @@ const setOptions = (options: YarleOptions): void => {
   yarleOptions.currentTemplate = template;
 
   loggerInfo(`Current config is: ${JSON.stringify(yarleOptions)}`);
+  loggerInfo(`Path separator:${path.sep}`)
   /*}*/
 };
 
 export const parseStream = async (options: YarleOptions): Promise<void> => {
-  // loggerInfo(`Getting stream from ${options.enexSource}`);
+  loggerInfo(`Getting stream from ${options.enexSource}`);
   const stream = fs.createReadStream(options.enexSource);
   // const xml = new XmlStream(stream);
   let noteNumber = 0;
@@ -81,7 +83,7 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
       return reject();
     };
     if (!fs.existsSync(options.enexSource)) {
-      return logAndReject({ name: 'NoSuchFileOrDirectory', message: 'source Enex file does not exists' });
+      return loggerInfo(JSON.stringify({ name: 'NoSuchFileOrDirectory', message: 'source Enex file does not exists' }));
     }
 
     const xml = flow(stream);

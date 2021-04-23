@@ -5,6 +5,7 @@ on:
       - "!*"
     tags:
       - "*"
+  
 jobs:
 
   publish_on_linux:
