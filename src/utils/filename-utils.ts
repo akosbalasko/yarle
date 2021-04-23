@@ -36,7 +36,7 @@ export const getResourceFileProperties = (workDir: string, resource: any): Resou
     fileName = fileNamePrefix.split('.')[0];
 
   }
-
+  fileName = fileName.replace(/[/\\?%*:|"<>]/g, '-');
   const index = getFileIndex(workDir, fileName);
   const fileNameWithIndex = index > 0 ? `${fileName}.${index}` : fileName;
 
