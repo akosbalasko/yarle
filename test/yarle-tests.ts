@@ -1,6 +1,7 @@
 import { YarleTest } from './yarle-test';
 import { OutputFormat } from "../src/output-format";
 import * as path from 'path';
+import { YarleTestModifierOptions } from './yarle-test-modifier-options';
 
 const dataFolder = `${path.sep}data${path.sep}`;
 const testDataFolder = `${path.sep}test${dataFolder}`;
