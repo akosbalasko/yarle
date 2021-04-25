@@ -98,7 +98,16 @@
               keep the original amount of newlines, default is false, when the multiple newlines are collapsed to one.)</i></div>
           </label>
       </div>
-
+      <div class="field half">
+        <input type="checkbox" value="false" id='generateNakedUrls'> 
+        <label for="generateNakedUrls" class="pure-checkbox">
+          Generate 'naked' URLs
+          <br><div style='font-size: 12px;'><i>(
+            if it's true, Yarle generates 'naked' external Urls without any extra characters. If its false, external Urls are wrapped by  '\<' and '\>' characters
+            )</i></div>
+        </label>
+    </div>
+      
       <div class="field half">
         <input type="checkbox" value="false" id='addExtensionToInternalLinks'> 
         <label for="addExtensionToInternalLinks" class="pure-checkbox">
