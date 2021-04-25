@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Yarle</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<link rel="stylesheet" href="assets/css/eta-app.css" />
+    <link rel="import" href="sections/enex.html">
+    <link rel="import" href="sections/welcome.html">
+    <link rel="import" href="sections/config.html">
+	<link rel="import" href="sections/template.html">
+	<link rel="import" href="sections/output.html">
+	<link rel="import" href="sections/convert.html">
+	</head>
+	<body>
+
+		<!-- Sidebar -->
+			<section id="sidebar">
+				<div class="inner">
+					<nav>
+						<ul>
+							<li><a id="welcome-menu" data-section="welcome" href="#">Welcome</a></li>
+							<li><a id="enex-menu" data-section="enex" href="#">Step 1: Select your Enex file</a></li>
+							<li><a id="config-menu" data-section="config" href="#">Step 2: Configuration</a></li>
+							<li><a id="template-menu" data-section="template" href="#">Step 3: Set up your Template</a></li>
+							<li><a id="output-menu" data-section="output" href="#">Step 4: Pick your output location</a></li>
+							<li><a id="convert-menu" data-section="convert" href="#">Step 5: Convert</a></li>
+
+						</ul>
+					</nav>
+					<div class="version-info">
+						Tested with Electron v6.0.0
+					</div>
+					<div class="version-info">
+						(Currently running Electron v<script>document.write(process.versions.electron)</script>)
+					</div>
+				</div>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper style1-alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Akos Balasko. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+      <script>window.$ = window.jQuery = require('./assets/js/jquery.min.js');</script>
+			<script>window.i18n = new(require('./translations/i18n'));</script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+      <script>
+        require('./assets/js/menu')
+				require('./assets/js/translations')
+				require('./assets/js/ipc')
+				require('./assets/js/dialog')
+	  </script>
+	  
+
+	</body>
+</html>

@@ -6,8 +6,11 @@ import * as path from 'path';
 
 import * as yarle from './yarle';
 import { YarleOptions } from './YarleOptions';
+import { loggerInfo } from './utils/loggerInfo';
+import { clearLogFile } from './utils/clearLogFile';
 
 export const run = async (opts?: YarleOptions) => {
+    clearLogFile();
     var argv = require('minimist')(process.argv.slice(2));
     let configFile = argv['configFile']
         ? path.isAbsolute(argv['configFile'])
@@ -17,7 +20,7 @@ export const run = async (opts?: YarleOptions) => {
     console.log(`Loading config from ${configFile}`);
     const options: YarleOptions = {...require(configFile),...opts};
     if (options.enexSource.endsWith('.enex')) {
-        console.log(`Converting notes in file: ${options.enexSource}`);
+        loggerInfo(`Converting notes in file: ${options.enexSource}`);
         await yarle.dropTheRope(options);
 
     } else {
@@ -29,7 +32,7 @@ export const run = async (opts?: YarleOptions) => {
             });
         for (const enexFile of enexFiles) {
             options.enexSource = `${enexDir}/${enexFile}`;
-            console.log(`Converting notes in file: ${enexFile}`);
+            loggerInfo(`Converting notes in file: ${enexFile}`);
             await yarle.dropTheRope(options);
 
         }

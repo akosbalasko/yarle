@@ -1,14 +1,16 @@
 
+
 ![logo](screens/yarle-logo.png)
 
 ![Last Commit](https://img.shields.io/github/last-commit/akosbalasko/yarle?style=for-the-badge)  
-![Version](https://img.shields.io/badge/version-3.11.1-blue?style=for-the-badge)
+![Version](https://img.shields.io/badge/version-4.0.9-blue?style=for-the-badge)
 [![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen?style=for-the-badge)](https://github.com/akosbalasko/yarle#readme)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green?style=for-the-badge)](https://github.com/akosbalasko/yarle/graphs/commit-activity)
 [![License: MIT](https://img.shields.io/github/license/akosbalasko/yarle?style=for-the-badge)](https://github.com/akosbalasko/yarle/blob/master/LICENSE)
 
 
 Yarle is the ultimate converter of Evernote notes to Markdown.
+
 
 ## Features:
 
@@ -34,7 +36,26 @@ Yarle is the ultimate converter of Evernote notes to Markdown.
 - :hammer: Updates md files' creation, access, and modification timestamps according to the notes' original create/update/modification time.
 - :hammer: Organizes all attachments into a _resources subfolder (to keep the notes' folder as simple as possible).
 
-## Prerequisite
+## Binaries: 
+
+[Windows](https://github.com/akosbalasko/yarle/releases/download/v4.0.9/yarle-evernote-to-md-4.0.9.Setup.exe)
+
+[Linux](https://github.com/akosbalasko/yarle/releases/download/v4.0.9/yarle-evernote-to-md-4.0.9-1.x86_64.rpm)
+
+[Debian](https://github.com/akosbalasko/yarle/releases/download/v4.0.9/yarle-evernote-to-md_4.0.9_amd64.deb)
+
+[Mac](https://github.com/akosbalasko/yarle/releases/download/v4.0.9/yarle-evernote-to-md-darwin-x64-4.0.9.zip)
+
+
+
+## Instructions
+
+Download the desktop app for your platform, and follow the instructions there.
+
+![out](https://user-images.githubusercontent.com/11886731/114092375-1a72c400-98ba-11eb-9c74-300d1e4c0829.gif)
+
+
+## Prerequisite for legacy versions (below 4.0.0):
 
  - Required [Install Node.js](https://nodejs.org/en/download/) version 10.22.1 or higher.
 
@@ -65,7 +86,7 @@ To configure Yarle, you must create a config file. By default it looks like this
     "monospaceIsCodeBlock": false,
     "keepMDCharactersOfENNotes": false,
     "keepOriginalAmountOfNewlines": false,
-
+    "addExtensionToInternalLinks": true,
     "nestedTags": {
       "separatorInEN": "_",
       "replaceSeparatorWith": "/",
@@ -94,4 +115,6 @@ The following configurational properties are available:
 | ```keepOriginalAmountOfNewlines``` | true or false | keep the original amount of newlines, default is false, when the multiple newlines are collapsed to one. 
 | ```generateNakedUrls``` | true or false | if it's true, Yarle generates 'naked' external Urls without any extra characters. If its false, external Urls will get '<' at their beginning and '>' at their end 
  
+| ```addExtensionToInternalLinks``` | true or false | adds '.md' extensions at the end of internal file links, to make them recognizable by DevonThink and other tools 
+
 Metadata settings can be set via the template.

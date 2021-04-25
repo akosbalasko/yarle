@@ -24,6 +24,7 @@ export const wikiStyleLinksRule = {
         const internalTurndownedContent = getTurndownService(yarleOptions).turndown(removeBrackets(node.innerHTML));
         const lexer = new marked.Lexer({});
         const tokens = lexer.lex(internalTurndownedContent) as any;
+        const extension = yarleOptions.addExtensionToInternalLinks ? '.md' : '';
         let token: any = {
             mdKeyword: '',
             text: internalTurndownedContent,
@@ -33,12 +34,16 @@ export const wikiStyleLinksRule = {
             token['mdKeyword'] = `${'#'.repeat(tokens[0]['depth'])} `;
         }
         const value = nodeProxy.href.value;
+        const type = nodeProxy.type ? nodeProxy.type.value : undefined ;
         const realValue = yarleOptions.urlEncodeFileNamesAndLinks ? encodeURI(value) : value;
 
+        if (type === 'file'){
+            return yarleOptions.outputFormat === OutputFormat.ObsidianMD
+                ? `![[${realValue}]]`
+                : getShortLinkIfPossible(token, value);
+        }
         if (value.match(/^(https?:|www\.|file:|ftp:|mailto:)/)) {
-            return (!token['text'] || _.unescape(token['text']) === _.unescape(value))
-                ? yarleOptions.generateNakedUrls ? value : `<${value}>`
-                : `${token['mdKeyword']}[${token['text']}](${value})`;
+            return getShortLinkIfPossible(token, value);
         }
         if (value.startsWith('evernote://')) {
             const fileName = normalizeTitle(token['text']);
@@ -46,10 +51,10 @@ export const wikiStyleLinksRule = {
             const realFileName = yarleOptions.urlEncodeFileNamesAndLinks ? encodeURI(fileName) : fileName;
 
             if (yarleOptions.outputFormat === OutputFormat.ObsidianMD) {
-                return `${token['mdKeyword']}[[${realFileName}|${displayName}]]`;
+                return `${token['mdKeyword']}[[${realFileName}${extension}|${displayName}]]`;
             }
 
-            return  `${token['mdKeyword']}[${displayName}](${fileName})`;
+            return  `${token['mdKeyword']}[${displayName}](${fileName}${extension})`;
 
         }
 
@@ -60,3 +65,9 @@ export const wikiStyleLinksRule = {
             : `${token['mdKeyword']}[[${realValue}]]`;
     },
 };
+
+export const getShortLinkIfPossible = (token: any, value: string): string => {
+    return (!token['text'] || _.unescape(token['text']) === _.unescape(value))
+                ? yarleOptions.generateNakedUrls ? value : `<${value}>`
+                : `${token['mdKeyword']}[${token['text']}](${value})`;
+}
