@@ -624,16 +624,16 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: ' Pure external url naked',
     options: {
-      enexSource: './test/data/test-externalLink-naked.enex',
+      enexSource: `.${testDataFolder}test-externalLink-naked.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
       skipLocation: true,
       keepMDCharactersOfENNotes: true,
       generateNakedUrls: true,
     },
-    testOutputPath: 'notes/test-externalLink-naked/External Link.md',
+    testOutputPath: `notes${path.sep}test-externalLink-naked${path.sep}External Link.md`,
 
-    expectedOutputPath: '/data/test-externalLink-naked.md',
+    expectedOutputPath: `${dataFolder}test-externalLink-naked.md`,
   },
 
   {
