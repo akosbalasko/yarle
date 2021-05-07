@@ -51,7 +51,7 @@
     "he": "1.2.0",
     "joplin-turndown-plugin-gfm": "1.0.12",
     "jsdom": "16.4.0",
-    "lodash": "4.17.19",
+    "lodash": "4.17.21",
     "marked": "2.0.0",
     "md5-file": "5.0.0",
     "mime-types": "2.1.28",
