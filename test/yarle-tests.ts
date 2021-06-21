@@ -383,6 +383,19 @@ export const yarleTests: Array<YarleTest> = [
     expectedOutputPath: `${dataFolder}test-highlightsObsidian.md`,
   },
 
+  {
+    name: 'Enex file with highlighted text - 2nd implementation',
+    options: {
+      enexSource: `.${testDataFolder}test-highlights2.enex`,
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      plainTextNotesOnly: false,
+      outputFormat: OutputFormat.ObsidianMD,
+    },
+    testOutputPath: `notes${path.sep}test-highlights2${path.sep}Highlights impl2.md`,
+
+    expectedOutputPath: `${dataFolder}test-highlightsImpl2.md`,
+  },
 
   {
     name: 'Enex file - no span style',

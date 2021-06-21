@@ -5,7 +5,7 @@ import { getAttributeProxy } from './get-attribute-proxy';
 import { OutputFormat } from '../../output-format';
 
 const EVERNOTE_HIGHLIGHT = '-evernote-highlight:true;';
-
+const EVERNOTE_COLORHIGHLIGHT = '--en-highlight';
 export const spanRule = {
     filter: filterByNodeName('SPAN'),
     replacement: (content: any, node: any) => {
@@ -14,7 +14,7 @@ export const spanRule = {
         if (nodeProxy.style) {
             const nodeValue: string = nodeProxy.style.value;
 
-            return nodeValue.includes(EVERNOTE_HIGHLIGHT) ?
+            return nodeValue.includes(EVERNOTE_HIGHLIGHT) || nodeValue.includes(EVERNOTE_COLORHIGHLIGHT) ?
                 `${HIGHLIGHT_SEPARATOR}${content}${HIGHLIGHT_SEPARATOR}` :
                 content;
         }
