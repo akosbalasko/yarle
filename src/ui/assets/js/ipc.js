@@ -62,7 +62,7 @@ function(n) {
         ipcRenderer.send('configurationUpdated',
         {
           id: e.target.id,
-          value: e.target.type === 'text' ? e.target.value : e.target.checked
+          value: e.target.type === 'text' || e.target.type === 'select-one' ? e.target.value : e.target.checked
         });
       },
 
@@ -71,9 +71,6 @@ function(n) {
         
       },
       init: function() {
-        $('#open-secondwindow-button').click( function () {
-          ipc.messaging.sendOpenSecondWindowEvent()
-        })
 
         $('#close-me-button').click( function () {
           ipc.messaging.sendCloseSecondWindowEvent()
@@ -82,6 +79,10 @@ function(n) {
         const inputs = document.querySelectorAll('input');
         for (const input of inputs) {
           input.addEventListener('input', ipc.messaging.sendConfigValueChangedEvent);
+        }
+        const selects = document.querySelectorAll('select');
+        for (const select of selects) {
+          select.addEventListener('change', ipc.messaging.sendConfigValueChangedEvent);
         }
       
         $('#startConversion').click(function () {
