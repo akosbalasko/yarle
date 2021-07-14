@@ -30,4 +30,5 @@ export interface YarleOptions {
     keepOriginalAmountOfNewlines?: boolean;
     addExtensionToInternalLinks?: boolean;
     pathSeparator?: string;
+    resourcesDir?: string;
 }

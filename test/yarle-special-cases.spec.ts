@@ -70,6 +70,38 @@ describe('Yarle special cases', async () => {
       fs.readFileSync(`${__dirname}/data/test-withPicture.md`, 'utf8'),
     );
   });
+
+  it('Override resourcesDir', async () => {
+    const options: YarleOptions = {
+      enexSource: `.${path.sep}test${path.sep}data${path.sep}test-withPicture.enex`,
+      outputDir: 'out',
+      resourcesDir: '_attachments',
+      isMetadataNeeded: true,
+    };
+    await yarle.dropTheRope(options);
+    console.log(`conversion log: ${fs.readFileSync(LOGFILE)}`);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-withPicture/test - note with picture.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-withPicture/_attachments/test_-_note_with_picture.resources`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-withPicture/test - note with picture.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-withPicture-customResourcesDir.md`, 'utf8'),
+    );
+  });
+
   it.skip('should keep Html content', async () => {
 
     const options: YarleOptions = {
