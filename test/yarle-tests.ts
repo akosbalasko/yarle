@@ -451,6 +451,18 @@ export const yarleTests: Array<YarleTest> = [
   },
 
   {
+    name: 'Note with tasks',
+    options: {
+      enexSource: `.${testDataFolder}test-tasks.enex`,
+      outputDir: 'out',
+      isMetadataNeeded: true,
+    },
+    testOutputPath: `notes${path.sep}test-tasks${path.sep}test - tasks.md`,
+
+    expectedOutputPath: `${dataFolder}test-tasks.md`,
+  },
+
+  {
     name: 'Enex file urlEncode whitespace',
     options: {
       enexSource: `.${testDataFolder}test-urlencode.enex`,
