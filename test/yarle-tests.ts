@@ -451,6 +451,33 @@ export const yarleTests: Array<YarleTest> = [
   },
 
   {
+    name: 'Note with headings - default turndown options',
+    options: {
+      enexSource: `.${testDataFolder}test-headings.enex`,
+      outputDir: 'out',
+      isMetadataNeeded: true,
+    },
+    testOutputPath: `notes${path.sep}test-headings${path.sep}test - headings.md`,
+
+    expectedOutputPath: `${dataFolder}test-headings.md`,
+  },
+
+  {
+    name: 'Note with headings - config turndown options',
+    options: {
+      enexSource: `.${testDataFolder}test-headings.enex`,
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      turndownOptions: {
+        headingStyle: 'atx',
+      },
+    },
+    testOutputPath: `notes${path.sep}test-headings${path.sep}test - headings.md`,
+
+    expectedOutputPath: `${dataFolder}test-headings-atx.md`,
+  },
+
+  {
     name: 'Enex file urlEncode whitespace',
     options: {
       enexSource: `.${testDataFolder}test-urlencode.enex`,
