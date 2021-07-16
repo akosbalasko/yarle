@@ -9,6 +9,6 @@ export const taskItemsRule = {
         // don't add an extra list bullet
         const prefix = node.parentElement?.nodeName?.toUpperCase() === 'LI' ? '' : '- ';
 
-        return `${prefix}${(nodeProxy.checked.value === 'true' ? '[x]' : '[ ]')} ${node.innerHTML}`;
+        return `${prefix}${(nodeProxy.checked.value === 'true' ? '[x]' : '[ ]')} ${content}`;
     },
 };
