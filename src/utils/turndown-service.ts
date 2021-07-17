@@ -2,7 +2,7 @@ import TurndownService from 'turndown';
 import { gfm } from 'joplin-turndown-plugin-gfm';
 import { YarleOptions } from './../YarleOptions';
 
-import { monospaceCodeBlockRule, newLineRule, codeBlockRule, imagesRule, spanRule, taskItemsRule, wikiStyleLinksRule } from './turndown-rules';
+import { monospaceCodeBlockRule, newLineRule, codeBlockRule, imagesRule, spanRule, strikethroughRule, taskItemsRule, wikiStyleLinksRule } from './turndown-rules';
 
 /* istanbul ignore next */
 const turndownService = new TurndownService({
@@ -19,6 +19,7 @@ const turndownService = new TurndownService({
     });
 turndownService.use(gfm);
 turndownService.addRule('span', spanRule);
+turndownService.addRule('strikethrough', strikethroughRule);
 turndownService.addRule('evernote task items', taskItemsRule);
 turndownService.addRule('wikistyle links', wikiStyleLinksRule);
 turndownService.addRule('images', imagesRule);

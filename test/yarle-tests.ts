@@ -414,6 +414,17 @@ export const yarleTests: Array<YarleTest> = [
     expectedOutputPath: `${dataFolder}test-nospanstyle.md`,
   },
 
+  {
+    name: 'Note with strikethrough',
+    options: {
+      enexSource: `.${testDataFolder}test-strikethrough.enex`,
+      outputDir: 'out',
+      isMetadataNeeded: true,
+    },
+    testOutputPath: `notes${path.sep}test-strikethrough${path.sep}test - strikethrough.md`,
+
+    expectedOutputPath: `${dataFolder}test-strikethrough.md`,
+  },
 
   {
     name: 'Note with sublists',
