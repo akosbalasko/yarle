@@ -40,7 +40,7 @@ const clearDistDir = (dstPath: string): void => {
 };
 
 export const getRelativeResourceDir = (note: any): string => {
-  return yarleOptions.haveEnexLevelResources ? `.${path.sep}_resources` : `.${path.sep}_resources${path.sep}${getResourceDir(paths.mdPath, note)}.resources`;
+  return yarleOptions.haveEnexLevelResources ? `.${path.sep}${yarleOptions.resourcesDir}` : `.${path.sep}${yarleOptions.resourcesDir}${path.sep}${getResourceDir(paths.mdPath, note)}.resources`;
 };
 
 export const getAbsoluteResourceDir = (note: any): string => {
@@ -84,13 +84,13 @@ export const setPaths = (): void => {
     : `${process.cwd()}${path.sep}${yarleOptions.outputDir}`;
 
   paths.mdPath = `${outputDir}${path.sep}notes${path.sep}`;
-  paths.resourcePath = `${outputDir}${path.sep}notes${path.sep}_resources`;
+  paths.resourcePath = `${outputDir}${path.sep}notes${path.sep}${yarleOptions.resourcesDir}`;
   // loggerInfo(`Skip enex filename from output? ${yarleOptions.skipEnexFileNameFromOutputPath}`);
   if (!yarleOptions.skipEnexFileNameFromOutputPath) {
     paths.mdPath = `${paths.mdPath}${enexFile}`;
     // loggerInfo(`mdPath: ${paths.mdPath}`);
 
-    paths.resourcePath = `${outputDir}${path.sep}notes${path.sep}${enexFile}${path.sep}_resources`;
+    paths.resourcePath = `${outputDir}${path.sep}notes${path.sep}${enexFile}${path.sep}${yarleOptions.resourcesDir}`;
   }
   fsExtra.mkdirsSync(paths.mdPath);
   fsExtra.mkdirsSync(paths.resourcePath);
