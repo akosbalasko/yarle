@@ -23,6 +23,7 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
         monospaceIsCodeBlock: store.get('monospaceIsCodeBlock') as boolean,
         keepOriginalHtml: store.get('keepOriginalHtml') as boolean,
         currentTemplate: store.get('currentTemplate') as string,
+        resourcesDir: store.get('resourcesDir') as string,
         nestedTags: {
             separatorInEN: store.get('separatorInEN') as string,
             replaceSeparatorWith: store.get('replaceSeparatorWith') as string,
