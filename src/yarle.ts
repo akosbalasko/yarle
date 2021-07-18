@@ -1,6 +1,9 @@
 // tslint:disable:no-console
 import fs from 'fs';
-const flow = require('xml-flow')
+import { merge } from 'lodash';
+import * as path from 'path';
+import flow from 'xml-flow';
+
 import * as utils from './utils';
 import { YarleOptions } from './YarleOptions';
 import { processNode } from './process-node';
@@ -9,7 +12,6 @@ import { loggerInfo } from './utils/loggerInfo';
 import { hasCreationTimeInTemplate, hasLocationInTemplate, hasSourceURLInTemplate, hasTagsInTemplate, hasUpdateTimeInTemplate, hasNotebookInTemplate, hasLinkToOriginalInTemplate } from './utils/templates/checker-functions';
 import { defaultTemplate } from './utils/templates/default-template';
 import { OutputFormat } from './output-format';
-import * as path from 'path';
 import { clearLogFile } from './utils/clearLogFile';
 
 export const defaultYarleOptions: YarleOptions = {
@@ -31,20 +33,15 @@ export const defaultYarleOptions: YarleOptions = {
   urlEncodeFileNamesAndLinks: false,
   pathSeparator: '/',
   resourcesDir: '_resources',
+  turndownOptions: {
+    headingStyle: 'atx',
+  },
 };
 
 export let yarleOptions: YarleOptions = { ...defaultYarleOptions };
 
 const setOptions = (options: YarleOptions): void => {
-  yarleOptions = { ...defaultYarleOptions, ...options };
-
-  if (options.nestedTags){
-    yarleOptions.nestedTags = {
-      separatorInEN: options.nestedTags.separatorInEN || defaultYarleOptions.nestedTags.separatorInEN,
-      replaceSpaceWith: options.nestedTags.replaceSpaceWith || defaultYarleOptions.nestedTags.replaceSpaceWith,
-      replaceSeparatorWith: options.nestedTags.replaceSeparatorWith || defaultYarleOptions.nestedTags.replaceSeparatorWith
-    }
-  };
+  yarleOptions = merge({}, defaultYarleOptions, options);
 
   let template = (yarleOptions.templateFile)  ?  fs.readFileSync(yarleOptions.templateFile, 'utf-8'): defaultTemplate;
   template = yarleOptions.currentTemplate ? yarleOptions.currentTemplate : template;
