@@ -33,5 +33,6 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
         keepImageSize: store.get('keepImageSize') as OutputFormat,
         keepOriginalAmountOfNewlines: store.get('keepOriginalAmountOfNewlines') as boolean,
         addExtensionToInternalLinks: store.get('addExtensionToInternalLinks') as boolean,
+        generateNakedUrls: store.get('generateNakedUrls') as boolean,
     }
 }

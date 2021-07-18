@@ -645,6 +645,20 @@ export const yarleTests: Array<YarleTest> = [
 
     expectedOutputPath: `${dataFolder}test-externalLink-escape.md`,
   },
+  {
+    name: ' Pure external url naked',
+    options: {
+      enexSource: `.${testDataFolder}test-externalLink-naked.enex`,
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      skipLocation: true,
+      keepMDCharactersOfENNotes: true,
+      generateNakedUrls: true,
+    },
+    testOutputPath: `notes${path.sep}test-externalLink-naked${path.sep}External Link.md`,
+
+    expectedOutputPath: `${dataFolder}test-externalLink-naked.md`,
+  },
 
   {
     name: ' Custom date format',
