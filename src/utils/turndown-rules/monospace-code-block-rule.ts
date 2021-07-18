@@ -1,5 +1,6 @@
 import { filterByNodeName } from './filter-by-nodename';
 import { getAttributeProxy } from './get-attribute-proxy';
+import { unescapeMarkdown } from './code-block-rule';
 
 const markdownBlock = '\n```\n';
 
@@ -64,6 +65,7 @@ export const monospaceCodeBlockRule = {
                 return content;
             }
 
+            content = unescapeMarkdown(content);
             return content.trim() ? `${markdownBlock}${content}${markdownBlock}` : content;
         }
 

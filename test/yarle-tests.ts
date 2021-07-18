@@ -475,6 +475,17 @@ export const yarleTests: Array<YarleTest> = [
 
     expectedOutputPath: `${dataFolder}test-headings-setext.md`,
   },
+  {
+    name: 'Note with checklists',
+    options: {
+      enexSource: `.${testDataFolder}test-checklist.enex`,
+      outputDir: 'out',
+      isMetadataNeeded: true,
+    },
+    testOutputPath: `notes${path.sep}test-checklist${path.sep}test - checklist.md`,
+
+    expectedOutputPath: `${dataFolder}test-checklist.md`,
+  },
 
   {
     name: 'Enex file urlEncode whitespace',
@@ -673,6 +684,20 @@ export const yarleTests: Array<YarleTest> = [
     testOutputPath: `notes${path.sep}test-externalLink-escape${path.sep}External Link.md`,
 
     expectedOutputPath: `${dataFolder}test-externalLink-escape.md`,
+  },
+  {
+    name: ' Pure external url naked',
+    options: {
+      enexSource: `.${testDataFolder}test-externalLink-naked.enex`,
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      skipLocation: true,
+      keepMDCharactersOfENNotes: true,
+      generateNakedUrls: true,
+    },
+    testOutputPath: `notes${path.sep}test-externalLink-naked${path.sep}External Link.md`,
+
+    expectedOutputPath: `${dataFolder}test-externalLink-naked.md`,
   },
 
   {

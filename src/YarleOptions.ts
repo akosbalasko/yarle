@@ -28,6 +28,7 @@ export interface YarleOptions {
     nestedTags?: TagSeparatorReplaceOptions;
     keepImageSize?: OutputFormat;
     keepOriginalAmountOfNewlines?: boolean;
+    generateNakedUrls?: boolean;
     addExtensionToInternalLinks?: boolean;
     pathSeparator?: string;
     resourcesDir?: string;

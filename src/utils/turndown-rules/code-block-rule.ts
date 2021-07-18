@@ -20,6 +20,8 @@ const getIntendNumber = (node: any): number => {
     return intendNumber;
 }
 
+export const unescapeMarkdown = (s: string): string => s.replace(/\\(.)/g, '$1');
+
 export const codeBlockRule = {
     filter: filterByNodeName('DIV'),
     replacement: (content: string, node: any) => {
@@ -27,6 +29,9 @@ export const codeBlockRule = {
         const intend = getIntendNumber(node);
         content = `${'\t'.repeat(intend)}${content}`; 
         if (isCodeBlock(node)) {
+            // turndown has already escaped markdown chars (and all '\') in content;
+            // reverse that to avoid extraneous backslashes in code block.
+            content = unescapeMarkdown(content);
             return `${markdownBlock}${content}${markdownBlock}`;
         }
 

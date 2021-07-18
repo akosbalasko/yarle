@@ -68,6 +68,6 @@ export const wikiStyleLinksRule = {
 
 export const getShortLinkIfPossible = (token: any, value: string): string => {
     return (!token['text'] || _.unescape(token['text']) === _.unescape(value))
-                ? `<${value}>`
+                ? yarleOptions.generateNakedUrls ? value : `<${value}>`
                 : `${token['mdKeyword']}[${token['text']}](${value})`;
 }
