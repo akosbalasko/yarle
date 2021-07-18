@@ -3,9 +3,9 @@
 Some text before the code block
 
 ```
-\# This program prints Hello, world in Python
+# This program prints *Hello, world* in _Python_
 
-print('Hello, world!')
+print('Hello, world!\n')
 
 
 ```
