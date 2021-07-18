@@ -3,7 +3,7 @@
 ![logo](screens/yarle-logo.png)
 
 ![Last Commit](https://img.shields.io/github/last-commit/akosbalasko/yarle?style=for-the-badge)  
-![Version](https://img.shields.io/badge/version-4.0.9-blue?style=for-the-badge)
+![Version](https://img.shields.io/badge/version-4.1.0-blue?style=for-the-badge)
 [![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen?style=for-the-badge)](https://github.com/akosbalasko/yarle#readme)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green?style=for-the-badge)](https://github.com/akosbalasko/yarle/graphs/commit-activity)
 [![License: MIT](https://img.shields.io/github/license/akosbalasko/yarle?style=for-the-badge)](https://github.com/akosbalasko/yarle/blob/master/LICENSE)
@@ -38,13 +38,13 @@ Yarle is the ultimate converter of Evernote notes to Markdown.
 
 ## Binaries: 
 
-[Windows](https://github.com/akosbalasko/yarle/releases/download/v4.0.9/yarle-evernote-to-md-4.0.9.Setup.exe)
+[Windows](https://github.com/akosbalasko/yarle/releases/download/v4.1.0/yarle-evernote-to-md-4.1.0.Setup.exe)
 
-[Linux](https://github.com/akosbalasko/yarle/releases/download/v4.0.9/yarle-evernote-to-md-4.0.9-1.x86_64.rpm)
+[Linux](https://github.com/akosbalasko/yarle/releases/download/v4.1.0/yarle-evernote-to-md-4.1.0-1.x86_64.rpm)
 
-[Debian](https://github.com/akosbalasko/yarle/releases/download/v4.0.9/yarle-evernote-to-md_4.0.9_amd64.deb)
+[Debian](https://github.com/akosbalasko/yarle/releases/download/v4.1.0/yarle-evernote-to-md_4.1.0_amd64.deb)
 
-[Mac](https://github.com/akosbalasko/yarle/releases/download/v4.0.9/yarle-evernote-to-md-darwin-x64-4.0.9.zip)
+[Mac](https://github.com/akosbalasko/yarle/releases/download/v4.1.0/yarle-evernote-to-md-darwin-x64-4.1.0.zip)
 
 
 
@@ -101,6 +101,7 @@ The following configurational properties are available:
 |```enexSource```| your enex file or the folder of your enex files | specifies the exported Evernote notebook(s) as an absolute path|
 |```templateFile``` | path of your custom template file | if its not specified, a [default template](https://github.com/akosbalasko/yarle/blob/master/src/utils/templates/default-template.ts) will be used
 |```outputDir``` | path to your output dir (absolute or relative) | this is the main output dir where the extracted markdown files and the external resources, images, pdf-s are going to be created|
+|```resourcesDir``` | `_resources` | subdir where attachments/external resources will be placed
 |```isZettelkastenNeeded``` |  true or false | puts Zettelkasten Id (based on time of creation) at the beginning of the file name|
 |```plaintextNotesOnly``` |  true or false | skips any notes with attachments (e.g. notes containing pictures)|
 |```useHashTags```|  true or false | whether to add the pound sign in front of tags|

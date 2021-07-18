@@ -4,18 +4,18 @@
       <div class="content">
         <div class="inner">
           <h2>Step 2: Configuration</h2>
-
+          <br><br>
           <div class="split style1">
 
-          <section style="padding-left:64px; display: block;">
+          <section>
             <h2>General</h2>
 
             <div class="field">
-              <label for="outputFormat2" class="pure-input-1-2">Output format
+              <label for="outputFormat" class="pure-input-1-2">Output format
                      </label>
-                  <select name="outputFormat2" id="outputFormat2">
-                    <option value="obsidianMd">ObsidianMD</option>
-                    <option value="saab">StandardMD</option>
+                  <select name="outputFormat" id="outputFormat">
+                    <option value="ObsidianMD">ObsidianMD</option>
+                    <option value="StandardMD">StandardMD</option>
                   </select>
                   <br><div style='font-size: 12px;'><i>(
                     Generates internal file links and highlights in Obsidian-style: highlights are going to be bounded by `==` instead of \` characters, file links are going to be as follows: `![[file-name]]` instead of `![file-name](file-name))</i></div>
@@ -133,6 +133,12 @@
               </label>
             
           </div>
+
+          <div class="field">
+            <label for="resourcesDir">Custom resources folder:
+            </label>
+            <input type="text" name="resourcesDir" id="resourcesDir" value="_resources">
+          </div>
       </section>
       
       <section style="display: block;width: 20%;">
@@ -159,10 +165,10 @@
       -->
       </section>
           </div>
+          <br><br>
           <div class=" split style1">
             <section>
               <h2>Notes</h2>
-              
               <div class="field">
                 <input type="checkbox" value="false" id='monospaceIsCodeBlock'>
                 <label for="monospaceIsCodeBlock" class="pure-checkbox">
@@ -184,9 +190,11 @@
             <section>
                </section>
           </div>
+          <br><br>
           <div class="split style1">
             <section>
               <h2>Tags</h2>
+
                 <div class="field">
                   <input type="checkbox" value="false" id='useHashTags'> 
                   <label for="useHashTags" class="pure-checkbox">

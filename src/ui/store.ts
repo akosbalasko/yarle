@@ -24,6 +24,7 @@ const schema: any = {
     skipEnexFileNameFromOutputPath: { type: 'boolean', default: false },
     keepMDCharactersOfENNotes: { type: 'boolean', default: false },
     monospaceIsCodeBlock: { type: 'boolean', default: false },
+    resourcesDir: {tyle: 'string', default: '_resources'}
 };
 
 export const store = new Store({schema});

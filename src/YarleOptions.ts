@@ -31,4 +31,5 @@ export interface YarleOptions {
     generateNakedUrls?: boolean;
     addExtensionToInternalLinks?: boolean;
     pathSeparator?: string;
+    resourcesDir?: string;
 }

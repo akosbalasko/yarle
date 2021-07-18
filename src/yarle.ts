@@ -29,7 +29,8 @@ export const defaultYarleOptions: YarleOptions = {
   },
   outputFormat: OutputFormat.StandardMD,
   urlEncodeFileNamesAndLinks: false,
-  pathSeparator: '/'
+  pathSeparator: '/',
+  resourcesDir: '_resources',
 };
 
 export let yarleOptions: YarleOptions = { ...defaultYarleOptions };

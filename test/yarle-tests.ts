@@ -383,6 +383,19 @@ export const yarleTests: Array<YarleTest> = [
     expectedOutputPath: `${dataFolder}test-highlightsObsidian.md`,
   },
 
+  {
+    name: 'Enex file with highlighted text - 2nd implementation',
+    options: {
+      enexSource: `.${testDataFolder}test-highlights2.enex`,
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      plainTextNotesOnly: false,
+      outputFormat: OutputFormat.ObsidianMD,
+    },
+    testOutputPath: `notes${path.sep}test-highlights2${path.sep}Highlights impl2.md`,
+
+    expectedOutputPath: `${dataFolder}test-highlightsImpl2.md`,
+  },
 
   {
     name: 'Enex file - no span style',
@@ -401,6 +414,17 @@ export const yarleTests: Array<YarleTest> = [
     expectedOutputPath: `${dataFolder}test-nospanstyle.md`,
   },
 
+  {
+    name: 'Note with strikethrough',
+    options: {
+      enexSource: `.${testDataFolder}test-strikethrough.enex`,
+      outputDir: 'out',
+      isMetadataNeeded: true,
+    },
+    testOutputPath: `notes${path.sep}test-strikethrough${path.sep}test - strikethrough.md`,
+
+    expectedOutputPath: `${dataFolder}test-strikethrough.md`,
+  },
 
   {
     name: 'Note with sublists',
