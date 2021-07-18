@@ -1,10 +1,8 @@
 # test - headings
 
-Large
-=====
+# Large
 
-Medium
-------
+## Medium
 
 ### Small
 

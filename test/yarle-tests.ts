@@ -222,6 +222,7 @@ export const yarleTests: Array<YarleTest> = [
       enexSource: `.${testDataFolder}test-imageWithoutSrc.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
+      turndownOptions: {headingStyle: 'setext'},
     },
     testOutputPath: `notes${path.sep}test-imageWithoutSrc${path.sep}test-imageWithoutSrc.md`,
 
@@ -468,13 +469,11 @@ export const yarleTests: Array<YarleTest> = [
       enexSource: `.${testDataFolder}test-headings.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
-      turndownOptions: {
-        headingStyle: 'atx',
-      },
+      turndownOptions: {headingStyle: 'setext'},
     },
     testOutputPath: `notes${path.sep}test-headings${path.sep}test - headings.md`,
 
-    expectedOutputPath: `${dataFolder}test-headings-atx.md`,
+    expectedOutputPath: `${dataFolder}test-headings-setext.md`,
   },
 
   {
@@ -509,6 +508,7 @@ export const yarleTests: Array<YarleTest> = [
       enexSource: `.${testDataFolder}test-webclip_article.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
+      turndownOptions: {headingStyle: 'setext'},
       plainTextNotesOnly: false,
       outputFormat: OutputFormat.ObsidianMD,
     },
@@ -524,6 +524,7 @@ export const yarleTests: Array<YarleTest> = [
       enexSource: `.${testDataFolder}test-webclip_simplifiedarticle.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
+      turndownOptions: {headingStyle: 'setext'},
       plainTextNotesOnly: false,
       outputFormat: OutputFormat.ObsidianMD,
     },
@@ -539,6 +540,7 @@ export const yarleTests: Array<YarleTest> = [
       enexSource: `.${testDataFolder}test-webclip_bookmark.enex`,
       outputDir: 'out',
       isMetadataNeeded: true,
+      turndownOptions: {headingStyle: 'setext'},
       plainTextNotesOnly: false,
       outputFormat: OutputFormat.ObsidianMD,
     }
@@ -725,6 +727,7 @@ export const yarleTests: Array<YarleTest> = [
       outputDir: 'out',
       templateFile: `.${testDataFolder}multimeta-template.tmpl`,
       isMetadataNeeded: true,
+      turndownOptions: {headingStyle: 'setext'},
       outputFormat: OutputFormat.ObsidianMD,
       skipEnexFileNameFromOutputPath: false,
       keepMDCharactersOfENNotes: true,
