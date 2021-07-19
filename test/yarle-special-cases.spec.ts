@@ -276,6 +276,38 @@ describe('Yarle special cases', async () => {
     );
   });
 
+  it('Enex file with images using data urls', async () => {
+    const options: YarleOptions = {
+      enexSource: `${testDataFolder}test-image-dataUrl.enex`,
+      outputDir: 'out',
+      isMetadataNeeded: true,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-image-dataUrl/test - image - dataUrl.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-image-dataUrl/test - image - dataUrl.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-image-dataUrl.md`, 'utf8'),
+    );
+
+    // Make sure data-url and en-media resources all exist.
+    // (Really, we ought to be checking specific resource contents --
+    // e.g., with chai-fs `assert.directoryEqual(outResourcesDir, expectedResourcesDir)`.)
+    ['embedded.png', 'embedded.1.svg', 'embedded.2.svg', 'embedded.3.svg', 'photo.png'].forEach(
+      resource => assert(
+        fs.existsSync(
+          `${__dirname}/../out/notes/test-image-dataUrl/_resources/test_-_image_-_dataUrl.resources/${resource}`,
+        ),
+        `Resource file ${resource} not created`,
+      ));
+  });
 
   it('Enex file with two notes with same names', async () => {
     const options: YarleOptions = {

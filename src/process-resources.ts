@@ -7,14 +7,21 @@ import { ResourceHashItem } from './models/ResourceHash';
 import * as utils from './utils';
 
 import { yarleOptions } from './yarle';
-import { loggerInfo } from './utils';
+import { getFileIndex, loggerInfo, setFileDates } from './utils';
+import fsExtra from 'fs-extra';
+
+const getResourceWorkDirs = (note: any) => {
+  const pathSepRegExp = new RegExp(`\\${path.sep}`, 'g');
+  const relativeResourceWorkDir = utils.getRelativeResourceDir(note).replace(pathSepRegExp, yarleOptions.pathSeparator);
+  const absoluteResourceWorkDir = utils.getAbsoluteResourceDir(note); // .replace(pathSepRegExp,yarleOptions.pathSeparator)
+
+  return {absoluteResourceWorkDir, relativeResourceWorkDir};
+};
 
 export const processResources = (note: any): string => {
     let resourceHashes: any = {};
     let updatedContent = cloneDeep(note.content);
-    const pathSepRegExp = new RegExp(`\\${path.sep}`,'g');
-    const relativeResourceWorkDir = utils.getRelativeResourceDir(note).replace(pathSepRegExp,yarleOptions.pathSeparator);
-    const absoluteResourceWorkDir = utils.getAbsoluteResourceDir(note) // .replace(pathSepRegExp,yarleOptions.pathSeparator);
+    const {absoluteResourceWorkDir, relativeResourceWorkDir} = getResourceWorkDirs(note);
 
     loggerInfo(`relative resource work dir: ${relativeResourceWorkDir}`);
 
@@ -88,4 +95,57 @@ const processResource = (workDir: string, resource: any): any => {
     }
 
     return resourceHash;
+};
+
+export const extractDataUrlResources = (
+  note: any,
+  content: string,
+): string => {
+  if (content.indexOf('src="data:') < 0) {
+    return content; // no data urls
+  }
+
+  const {absoluteResourceWorkDir, relativeResourceWorkDir} = getResourceWorkDirs(note);
+  fsExtra.mkdirsSync(absoluteResourceWorkDir);
+
+  // src="data:image/svg+xml;base64,..." --> src="resourceDir/fileName"
+  return content.replace(/src="data:([^;,]*)(;base64)?,([^"]*)"/g, (match, mediatype, encoding, data) => {
+    const fileName = createResourceFromData(mediatype, encoding === ';base64', data, absoluteResourceWorkDir, note);
+    const src = `${relativeResourceWorkDir}${yarleOptions.pathSeparator}${fileName}`;
+
+    return `src="${src}"`;
+  });
+};
+
+// returns filename of new resource
+const createResourceFromData = (
+  mediatype: string,
+  base64: boolean,
+  data: string,
+  absoluteResourceWorkDir: string,
+  note: any,
+): string => {
+  const baseName = 'embedded'; // data doesn't seem to include useful base filename
+  const extension = extensionForMimeType(mediatype) || '.dat';
+  const index = getFileIndex(absoluteResourceWorkDir, baseName);
+  const fileName = index < 1 ? `${baseName}.${extension}` : `${baseName}.${index}.${extension}`;
+  const absFilePath = `${absoluteResourceWorkDir}${path.sep}${fileName}`;
+
+  if (!base64) {
+    data = decodeURIComponent(data);
+  }
+
+  fs.writeFileSync(absFilePath, data, base64 ? 'base64' : undefined);
+  setFileDates(absFilePath, note);
+
+  loggerInfo(`data url resource ${fileName} added`);
+
+  return fileName;
+};
+
+const extensionForMimeType = (mediatype: string): string => {
+  // image/jpeg or image/svg+xml or audio/wav or ...
+  const subtype = mediatype.split('/').pop(); // jpeg or svg+xml or wav
+
+  return subtype.split('+')[0]; // jpeg or svg or wav
 };
