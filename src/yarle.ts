@@ -36,6 +36,7 @@ export const defaultYarleOptions: YarleOptions = {
   turndownOptions: {
     headingStyle: 'atx',
   },
+  logseqMode: false
 };
 
 export let yarleOptions: YarleOptions = { ...defaultYarleOptions };

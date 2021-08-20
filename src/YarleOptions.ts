@@ -32,5 +32,6 @@ export interface YarleOptions {
     addExtensionToInternalLinks?: boolean;
     pathSeparator?: string;
     resourcesDir?: string;
-    turndownOptions?: Record<string, any>;
+    turndownOptions?: Record<string, any>; 
+    logseqMode?: boolean;
 }
