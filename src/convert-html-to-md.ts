@@ -37,13 +37,36 @@ const fixSublists = (node: HTMLElement) => {
 };
 
 export const convertHtml2Md = (yarleOptions: YarleOptions, { htmlContent }: NoteData): NoteData => {
-    const content = htmlContent.replace(/<!DOCTYPE en-note [^>]*>/, '<!DOCTYPE html>')
-      .replace(/(<a [^>]*)\/>/, '$1></a>')
-      .replace(/<div[^\/\<]*\/>/g, '');
+    let content = htmlContent.replace(/<!DOCTYPE en-note [^>]*>/, '<!DOCTYPE html>')
+      .replace(/(<a [^>]*)\/>/, '$1></a>');
+    
+
+    content = content.replace(/<div[^\/\<]*\/>/g, '');  
+ 
     const contentNode = new JSDOM(content).window.document
       .getElementsByTagName('en-note').item(0) as any as HTMLElement;
-    let contentInMd = getTurndownService(yarleOptions).turndown(fixSublists(contentNode));
+
+    const contentNode2 =fixSublists(contentNode);
+
+    let contentInMd = getTurndownService(yarleOptions).turndown(contentNode2);
+
     const newLinePlaceholder = new RegExp('<YARLE_NEWLINE_PLACEHOLDER>', 'g');
     contentInMd = contentInMd.replace(newLinePlaceholder,'');
+
+    if(yarleOptions.logseqMode){
+      //add a "- " at each new line
+      //contentInMd = contentInMd.split('\n').join('\n- ');
+ 
+      contentInMd = contentInMd.replace(/\n/g,'\n- ');
+ 
+      contentInMd = contentInMd.replace(/\r/g,'\n');
+
+      contentInMd = contentInMd.replace(/<br>/g,'[:br]');//fix new line in table
+
+      contentInMd = contentInMd.replace(/- \|/g,' |');//fix table problem
+      
+      contentInMd = '- '+contentInMd;
+    }
+
     return contentInMd && contentInMd !== 'undefined' ? { content: contentInMd } : {content: ''};
 };

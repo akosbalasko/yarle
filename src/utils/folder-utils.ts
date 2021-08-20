@@ -40,12 +40,21 @@ const clearDistDir = (dstPath: string): void => {
 };
 
 export const getRelativeResourceDir = (note: any): string => {
+  if(yarleOptions.logseqMode){
+      console.log("getRelativeResourceDir logseqMode");
+    //  return yarleOptions.haveEnexLevelResources ? `.${path.sep}${yarleOptions.resourcesDir}` : `.${path.sep}${yarleOptions.resourcesDir}${path.sep}${getResourceDir(paths.mdPath, note)}.resources`;
+  }
+
   return yarleOptions.haveEnexLevelResources ? `.${path.sep}${yarleOptions.resourcesDir}` : `.${path.sep}${yarleOptions.resourcesDir}${path.sep}${getResourceDir(paths.mdPath, note)}.resources`;
 };
 
 export const getAbsoluteResourceDir = (note: any): string => {
+
   return yarleOptions.haveEnexLevelResources ? paths.resourcePath : `${paths.resourcePath}${path.sep}${getResourceDir(paths.mdPath, note)}.resources`;
 };
+
+
+
 
 const resourceDirClears = new Map<string, number>();
 export const clearResourceDir = (note: any): void => {
@@ -83,15 +92,22 @@ export const setPaths = (): void => {
     ? yarleOptions.outputDir
     : `${process.cwd()}${path.sep}${yarleOptions.outputDir}`;
 
-  paths.mdPath = `${outputDir}${path.sep}notes${path.sep}`;
+  
+  paths.mdPath = `${outputDir}${path.sep}notes${path.sep}`; 
   paths.resourcePath = `${outputDir}${path.sep}notes${path.sep}${yarleOptions.resourcesDir}`;
+
   // loggerInfo(`Skip enex filename from output? ${yarleOptions.skipEnexFileNameFromOutputPath}`);
   if (!yarleOptions.skipEnexFileNameFromOutputPath) {
     paths.mdPath = `${paths.mdPath}${enexFile}`;
-    // loggerInfo(`mdPath: ${paths.mdPath}`);
-
+    // loggerInfo(`mdPath: ${paths.mdPath}`); 
     paths.resourcePath = `${outputDir}${path.sep}notes${path.sep}${enexFile}${path.sep}${yarleOptions.resourcesDir}`;
   }
+
+  if (yarleOptions.logseqMode) {
+    paths.mdPath = `${outputDir}${path.sep}pages${path.sep}`; 
+    paths.resourcePath = `${outputDir}${path.sep}${yarleOptions.resourcesDir}`;
+  }
+  
   fsExtra.mkdirsSync(paths.mdPath);
   fsExtra.mkdirsSync(paths.resourcePath);
   loggerInfo(`path ${paths.mdPath} created`);
