@@ -26,6 +26,12 @@ export const getTurndownService = (yarleOptions: YarleOptions) => {
     turndownService.addRule('wikistyle links', wikiStyleLinksRule);
     turndownService.addRule('images', imagesRule);
 
+    turndownService.addRule('strikethrough', {
+        filter: ['hr'],
+        replacement: function (content:any) {
+          return '---';
+        }
+      });
 
     if (yarleOptions.keepMDCharactersOfENNotes){
         turndownService.escape = ((str: string) => str);
