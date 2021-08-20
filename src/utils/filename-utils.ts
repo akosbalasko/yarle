@@ -18,7 +18,7 @@ export const getFileIndex = (dstPath: string, fileNamePrefix: string): number | 
 
   const index = fs
     .readdirSync(dstPath)
-    .filter(file => file.indexOf(fileNamePrefix) > -1)
+    .filter(file => file.indexOf(fileNamePrefix+".") > -1) //with two note(Test2 and Test), the second note (Test) should not be renamed 
     .length;
 
   return index;
