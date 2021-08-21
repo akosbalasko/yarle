@@ -45,3 +45,16 @@ Use this settings
     "haveEnexLevelResources": true
 }
 ```
+
+## Further Notes ## 
+
+If successful, the output folder there are two folders:
+- assets
+- pages
+
+You can merge these folders into Logseq
+
+If these are journals,
+- rename pages into journals
+- make sure the files inside are formated as `2021-01-01.md`
+  logseq will auto detect the dates
