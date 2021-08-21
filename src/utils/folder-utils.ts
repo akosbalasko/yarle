@@ -40,16 +40,10 @@ const clearDistDir = (dstPath: string): void => {
 };
 
 export const getRelativeResourceDir = (note: any): string => {
-  if(yarleOptions.logseqMode){
-      console.log("getRelativeResourceDir logseqMode");
-    //  return yarleOptions.haveEnexLevelResources ? `.${path.sep}${yarleOptions.resourcesDir}` : `.${path.sep}${yarleOptions.resourcesDir}${path.sep}${getResourceDir(paths.mdPath, note)}.resources`;
-  }
-
   return yarleOptions.haveEnexLevelResources ? `.${path.sep}${yarleOptions.resourcesDir}` : `.${path.sep}${yarleOptions.resourcesDir}${path.sep}${getResourceDir(paths.mdPath, note)}.resources`;
 };
 
 export const getAbsoluteResourceDir = (note: any): string => {
-
   return yarleOptions.haveEnexLevelResources ? paths.resourcePath : `${paths.resourcePath}${path.sep}${getResourceDir(paths.mdPath, note)}.resources`;
 };
 
