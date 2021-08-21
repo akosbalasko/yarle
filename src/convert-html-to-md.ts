@@ -64,6 +64,12 @@ export const convertHtml2Md = (yarleOptions: YarleOptions, { htmlContent }: Note
       contentInMd = contentInMd.replace(/<br>/g,'[:br]');//fix new line in table
 
       contentInMd = contentInMd.replace(/- \|/g,' |');//fix table problem
+
+      contentInMd = contentInMd.replace(/- __\n/g,'- \n');//fix empty bold/italic
+      contentInMd = contentInMd.replace(/- \*\*\*\*\n/g,'- \n');//fix empty bold/italic
+      contentInMd = contentInMd.replace(/- _\*\*\*\*_\n/g,'- \n');//fix empty bold/italic
+      contentInMd = contentInMd.replace(/- \*\*__\*\*\n/g,'- \n');//fix empty bold/italic
+      
       
       contentInMd = '- '+contentInMd;
     }
