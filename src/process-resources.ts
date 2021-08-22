@@ -68,11 +68,16 @@ const processResource = (workDir: string, resource: any): any => {
     const resourceHash: any = {};
     const data = resource.data.$text;
 
+    const accessTime = utils.getTimeStampMoment(resource);
     const resourceFileProps = utils.getResourceFileProperties(workDir, resource);
-    const fileName = resourceFileProps.fileName;
+    let fileName = resourceFileProps.fileName;
+
+    //add time to ease the same name issue
+    if(yarleOptions.logseqMode) fileName = accessTime +"_"+fileName ;
+    
     const absFilePath = `${workDir}${path.sep}${fileName}`;
 
-    const accessTime = utils.getTimeStampMoment(resource);
+ 
     fs.writeFileSync(absFilePath, data, 'base64');
 
     const atime = accessTime.valueOf() / 1000;

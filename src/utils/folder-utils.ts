@@ -85,13 +85,19 @@ export const setPaths = (): void => {
 
   paths.mdPath = `${outputDir}${path.sep}notes${path.sep}`;
   paths.resourcePath = `${outputDir}${path.sep}notes${path.sep}${yarleOptions.resourcesDir}`;
+
   // loggerInfo(`Skip enex filename from output? ${yarleOptions.skipEnexFileNameFromOutputPath}`);
   if (!yarleOptions.skipEnexFileNameFromOutputPath) {
     paths.mdPath = `${paths.mdPath}${enexFile}`;
-    // loggerInfo(`mdPath: ${paths.mdPath}`);
-
+    // loggerInfo(`mdPath: ${paths.mdPath}`); 
     paths.resourcePath = `${outputDir}${path.sep}notes${path.sep}${enexFile}${path.sep}${yarleOptions.resourcesDir}`;
   }
+
+  if (yarleOptions.logseqMode) {
+    paths.mdPath = `${outputDir}${path.sep}pages${path.sep}`; 
+    paths.resourcePath = `${outputDir}${path.sep}${yarleOptions.resourcesDir}`;
+  }
+  
   fsExtra.mkdirsSync(paths.mdPath);
   fsExtra.mkdirsSync(paths.resourcePath);
   loggerInfo(`path ${paths.mdPath} created`);

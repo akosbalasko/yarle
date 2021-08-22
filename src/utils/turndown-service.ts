@@ -25,12 +25,20 @@ export const getTurndownService = (yarleOptions: YarleOptions) => {
     turndownService.addRule('evernote task items', taskItemsRule);
     turndownService.addRule('wikistyle links', wikiStyleLinksRule);
     turndownService.addRule('images', imagesRule);
-
+    
+    if(yarleOptions.logseqMode){
+        turndownService.addRule('logseq_hr', {
+                filter: ['hr'],
+                replacement: function (content:any) {
+                return '\r  ---';//this \r is important, used to diff from \n
+            }
+        });
+    }
 
     if (yarleOptions.keepMDCharactersOfENNotes){
         turndownService.escape = ((str: string) => str);
     }
-
+    
     if (yarleOptions.monospaceIsCodeBlock)
         turndownService.addRule('codeblocks', monospaceCodeBlockRule);
     else
