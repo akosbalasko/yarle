@@ -55,6 +55,10 @@ Download the desktop app for your platform, and follow the instructions there.
 ![out](https://user-images.githubusercontent.com/11886731/114092375-1a72c400-98ba-11eb-9c74-300d1e4c0829.gif)
 
 
+For export to Logseq, please use the configuration here.
+
+[Notes for Logseq](Notes_for_Logseq.md)
+
 ## Prerequisite for legacy versions (below 4.0.0):
 
  - Required [Install Node.js](https://nodejs.org/en/download/) version 10.22.1 or higher.

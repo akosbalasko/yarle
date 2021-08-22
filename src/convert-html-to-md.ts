@@ -37,41 +37,34 @@ const fixSublists = (node: HTMLElement) => {
 };
 
 export const convertHtml2Md = (yarleOptions: YarleOptions, { htmlContent }: NoteData): NoteData => {
-    let content = htmlContent.replace(/<!DOCTYPE en-note [^>]*>/, '<!DOCTYPE html>')
-      .replace(/(<a [^>]*)\/>/, '$1></a>');
-    
 
-    content = content.replace(/<div[^\/\<]*\/>/g, '');  
- 
+    const content = htmlContent.replace(/<!DOCTYPE en-note [^>]*>/, '<!DOCTYPE html>')
+      .replace(/(<a [^>]*)\/>/, '$1></a>').replace(/<div[^\/\<]*\/>/g, '');  
+
     const contentNode = new JSDOM(content).window.document
       .getElementsByTagName('en-note').item(0) as any as HTMLElement;
-
-    const contentNode2 =fixSublists(contentNode);
-
-    let contentInMd = getTurndownService(yarleOptions).turndown(contentNode2);
-
+    
+    let contentInMd = getTurndownService(yarleOptions).turndown(fixSublists(contentNode));
+  
     const newLinePlaceholder = new RegExp('<YARLE_NEWLINE_PLACEHOLDER>', 'g');
     contentInMd = contentInMd.replace(newLinePlaceholder,'');
 
     if(yarleOptions.logseqMode){
-      //add a "- " at each new line
-      //contentInMd = contentInMd.split('\n').join('\n- ');
- 
-      contentInMd = contentInMd.replace(/\n/g,'\n- ');
- 
-      contentInMd = contentInMd.replace(/\r/g,'\n');
 
-      contentInMd = contentInMd.replace(/<br>/g,'[:br]');//fix new line in table
+      contentInMd = contentInMd.replace(/\n/g,'\n- ') //add a "- " at each new line
+      .replace(/\r/g,'\n')
 
-      contentInMd = contentInMd.replace(/- \|/g,' |');//fix table problem
+      .replace(/<br>/g,'[:br]')//fix new line in table
 
-      contentInMd = contentInMd.replace(/- __\n/g,'- \n');//fix empty bold/italic
-      contentInMd = contentInMd.replace(/- \*\*\*\*\n/g,'- \n');//fix empty bold/italic
-      contentInMd = contentInMd.replace(/- _\*\*\*\*_\n/g,'- \n');//fix empty bold/italic
-      contentInMd = contentInMd.replace(/- \*\*__\*\*\n/g,'- \n');//fix empty bold/italic
+      .replace(/- \|/g,' |')//fix table problem
+
+      .replace(/- __\n/g,'- \n')//fix empty bold/italic
+      .replace(/- \*\*\*\*\n/g,'- \n')
+      .replace(/- _\*\*\*\*_\n/g,'- \n')
+      .replace(/- \*\*__\*\*\n/g,'- \n');
       
+      contentInMd = '- '+contentInMd;//the first line
       
-      contentInMd = '- '+contentInMd;
     }
 
     return contentInMd && contentInMd !== 'undefined' ? { content: contentInMd } : {content: ''};

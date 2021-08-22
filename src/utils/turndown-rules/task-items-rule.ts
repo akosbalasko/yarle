@@ -9,10 +9,9 @@ export const taskItemsRule = {
 
         // If <EN-TODO> is already in <LI> (it always is in newer Evernote builds),
         // don't add an extra list bullet
-        let prefix ="";
-        if(yarleOptions.logseqMode == false)
-            prefix = node.parentElement?.nodeName?.toUpperCase() === 'LI' ? '' : '- ';
-
+        const prefix = yarleOptions.logseqMode? "":
+            node.parentElement?.nodeName?.toUpperCase() === 'LI' ? '' : '- ';
+        
         return `${prefix}${(nodeProxy.checked.value === 'true' ? '[x]' : '[ ]')} ${content}`;
     },
 };

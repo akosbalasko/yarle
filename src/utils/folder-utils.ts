@@ -47,9 +47,6 @@ export const getAbsoluteResourceDir = (note: any): string => {
   return yarleOptions.haveEnexLevelResources ? paths.resourcePath : `${paths.resourcePath}${path.sep}${getResourceDir(paths.mdPath, note)}.resources`;
 };
 
-
-
-
 const resourceDirClears = new Map<string, number>();
 export const clearResourceDir = (note: any): void => {
   const path = getAbsoluteResourceDir(note);
@@ -86,8 +83,7 @@ export const setPaths = (): void => {
     ? yarleOptions.outputDir
     : `${process.cwd()}${path.sep}${yarleOptions.outputDir}`;
 
-  
-  paths.mdPath = `${outputDir}${path.sep}notes${path.sep}`; 
+  paths.mdPath = `${outputDir}${path.sep}notes${path.sep}`;
   paths.resourcePath = `${outputDir}${path.sep}notes${path.sep}${yarleOptions.resourcesDir}`;
 
   // loggerInfo(`Skip enex filename from output? ${yarleOptions.skipEnexFileNameFromOutputPath}`);

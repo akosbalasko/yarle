@@ -38,7 +38,7 @@ export const getTurndownService = (yarleOptions: YarleOptions) => {
     if (yarleOptions.keepMDCharactersOfENNotes){
         turndownService.escape = ((str: string) => str);
     }
-
+    
     if (yarleOptions.monospaceIsCodeBlock)
         turndownService.addRule('codeblocks', monospaceCodeBlockRule);
     else
