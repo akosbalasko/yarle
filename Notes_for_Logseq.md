@@ -47,6 +47,38 @@ Please use settings below
 }
 ```
 
+## Template ## 
+
+You should use the page template below instead of the default one
+
+```
+- This is my template 
+
+{title-block}- #{title}#{end-title-block}
+
+- 
+  ---
+
+
+{content-block}{content}{end-content-block}
+
+- 
+  ---
+
+{created-at-block}- _Created at {created-at}._{end-created-at-block}
+{updated-at-block}- _Last updated at {updated-at}._{end-updated-at-block}
+{source-url-block}- _Source URL: []({source-url})._{end-source-url-block}
+
+
+{tags-block}
+-
+  ---
+- Tagged: 
+  - {tags}
+{end-tags-block}
+
+```
+
 ## Further Notes ## 
 
 If successful, the output folder there are two folders:
