@@ -48,7 +48,7 @@ Yarle is the ultimate converter of Evernote notes to Markdown.
 
 ## Feedback, Appreciation, Donation:
 If you have an idea on how to improve the tool or face any problems, feel free to raise an issue, or even contribute!  
-If you like the product, you can give a star here on github, or <a href="https://www.buymeacoffee.com/akosbalasko" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-yellow.png" alt="Buy Me A Coffee" height="41" width="174"></a>
+If you like the product, you can give a star here on github, or you can <a href="https://www.buymeacoffee.com/akosbalasko" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-yellow.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 
 
 ## Instructions
