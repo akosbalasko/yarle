@@ -157,8 +157,13 @@ app.on('activate', function () {
 ipcMain.on('openEnexSource', () => {
   var { dialog } = require('electron');
   dialog.showOpenDialog(
+   
     { 
-      properties: ['openFile'],
+      properties: ['openFile', 'multiSelections'],
+      filters: [
+
+        { name: 'Enex files', extensions: ['enex']},
+      ]
       
     }).then((result: any) => {
        // fileNames is an array that contains all the selected
@@ -166,12 +171,9 @@ ipcMain.on('openEnexSource', () => {
         loggerInfo("No file selected");
         return;
     }
-    const filePath = result.filePaths[0];
-    loggerInfo('path: ' + filePath);
-    store.set('enexSource', filePath);
-    //const currentEnexFiles = fs.readdirSync(filePath).filter(fileName => fileName.match(/enex$/g)).join('\n');
-    mainWindow.webContents.send('currentEnexFiles', filePath);
-    mainWindow.webContents.send('enexSource', filePath);
+    const filePath = result.filePaths;
+    store.set('enexSources', result.filePaths);
+    mainWindow.webContents.send('enexSources', result.filePaths.join('\n'));
     }).catch((err: any) => {
       loggerInfo(err)
     })

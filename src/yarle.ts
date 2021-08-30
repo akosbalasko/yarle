@@ -15,7 +15,7 @@ import { OutputFormat } from './output-format';
 import { clearLogFile } from './utils/clearLogFile';
 
 export const defaultYarleOptions: YarleOptions = {
-  enexSource: 'notebook.enex',
+  enexSources: ['notebook.enex'],
   outputDir: './mdNotes',
   keepOriginalHtml: false,
   isMetadataNeeded: false,
@@ -63,25 +63,25 @@ const setOptions = (options: YarleOptions): void => {
   /*}*/
 };
 
-export const parseStream = async (options: YarleOptions): Promise<void> => {
-  loggerInfo(`Getting stream from ${options.enexSource}`);
-  const stream = fs.createReadStream(options.enexSource);
+export const parseStream = async (options: YarleOptions, enexSource: string): Promise<void> => {
+  loggerInfo(`Getting stream from ${enexSource}`);
+  const stream = fs.createReadStream(enexSource);
   // const xml = new XmlStream(stream);
   let noteNumber = 0;
   let failed = 0;
   let skipped = 0;
 
-  const notebookName = utils.getNotebookName(options.enexSource);
+  const notebookName = utils.getNotebookName(enexSource);
 
   return new Promise((resolve, reject) => {
 
     const logAndReject = (error: Error) => {
-      loggerInfo(`Could not convert ${options.enexSource}:\n${error.message}`);
+      loggerInfo(`Could not convert ${enexSource}:\n${error.message}`);
       ++failed;
 
       return reject();
     };
-    if (!fs.existsSync(options.enexSource)) {
+    if (!fs.existsSync(enexSource)) {
       return loggerInfo(JSON.stringify({ name: 'NoSuchFileOrDirectory', message: 'source Enex file does not exists' }));
     }
 
@@ -126,9 +126,10 @@ export const parseStream = async (options: YarleOptions): Promise<void> => {
 export const dropTheRope = async (options: YarleOptions): Promise<void> => {
   clearLogFile();
   setOptions(options);
-  utils.setPaths();
-
-  return parseStream(options);
+  for (const enex of options.enexSources){
+    utils.setPaths(enex);
+    await parseStream(options, enex);
+  }
 
 };
 // tslint:enable:no-console

@@ -75,7 +75,9 @@ To configure Yarle, you must create a config file. By default it looks like this
 
 ```
 {
-    "enexSource": "/absolute-path-of-your-enex-dir/test-template.enex",
+    "enexSources": [
+       "/absolute-path-of-your-enex-dir/test-template.enex"
+       ],
     "templateFile": "/absolute-path-of-your-template-dir/sampleTemplate.tmpl",
     "outputDir": "/path-of-your-desired-output-folder",
     "isZettelkastenNeeded": false,
@@ -101,7 +103,7 @@ The following configurational properties are available:
 |
 |Property Name| Property value | Meaning |
 |-------------|----------------|---------|
-|```enexSource```| your enex file or the folder of your enex files | specifies the exported Evernote notebook(s) as an absolute path|
+|```enexSources```| multiple enex files, or a folder of the enex files(if you specify it via command line) | specifies the exported Evernote notebook(s) as an absolute path|
 |```templateFile``` | path of your custom template file | if its not specified, a [default template](https://github.com/akosbalasko/yarle/blob/master/src/utils/templates/default-template.ts) will be used
 |```outputDir``` | path to your output dir (absolute or relative) | this is the main output dir where the extracted markdown files and the external resources, images, pdf-s are going to be created|
 |```resourcesDir``` | `_resources` | subdir where attachments/external resources will be placed

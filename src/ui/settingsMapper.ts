@@ -4,7 +4,7 @@ import { OutputFormat } from "./../output-format";
 
 export const mapSettingsToYarleOptions = (): YarleOptions => {
     return {
-        enexSource: store.get('enexSource') as string,
+        enexSources: store.get('enexSources') as Array<string>,
         outputDir: store.get('outputDir') as string,
         isMetadataNeeded: true,
         isNotebookNameNeeded: store.get('isNotebookNameNeeded') as boolean,
