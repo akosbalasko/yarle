@@ -25,12 +25,12 @@ export const run = async (opts?: YarleOptions) => {
 
     } else {
         const enexFiles = fs
-            .readdirSync(options.enexDir)
+            .readdirSync(options.enexSources[0])
             .filter((file:any) => {
                 return file.match(/.*\.enex/ig);
             });
         
-        options.enexSources = enexFiles.map(enexFile => `${options.enexDir}/${enexFile}`);
+        options.enexSources = enexFiles.map(enexFile => `${options.enexSources[0]}/${enexFile}`);
         await yarle.dropTheRope(options);
     }
 };

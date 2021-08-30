@@ -30,7 +30,7 @@ describe('Yarle special cases', async () => {
   it.skip('Empty enex file - throw eoent', async () => {
     let errorHappened = false;
     const options: YarleOptions = {
-      enexSource: `${testDataFolder}do_not_exists.enex`,
+      enexSources: [ `${testDataFolder}do_not_exists.enex` ],
     };
     try {
       await yarle.dropTheRope(options);
@@ -43,7 +43,7 @@ describe('Yarle special cases', async () => {
 
   it('Enex file with note containing a picture', async () => {
     const options: YarleOptions = {
-      enexSource: `.${path.sep}test${path.sep}data${path.sep}test-withPicture.enex`,
+      enexSources: [ `.${path.sep}test${path.sep}data${path.sep}test-withPicture.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
     };
@@ -73,7 +73,7 @@ describe('Yarle special cases', async () => {
 
   it('Override resourcesDir', async () => {
     const options: YarleOptions = {
-      enexSource: `.${path.sep}test${path.sep}data${path.sep}test-withPicture.enex`,
+      enexSources: [ `.${path.sep}test${path.sep}data${path.sep}test-withPicture.enex` ],
       outputDir: 'out',
       resourcesDir: '_attachments',
       isMetadataNeeded: true,
@@ -105,7 +105,7 @@ describe('Yarle special cases', async () => {
   it.skip('should keep Html content', async () => {
 
     const options: YarleOptions = {
-      enexSource: `${testDataFolder}test-withPicture-keep-html.enex`,
+      enexSources: [ `${testDataFolder}test-withPicture-keep-html.enex` ],
       templateFile: `${testDataFolder}keephtml-template.tmpl`,
       outputDir: 'out',
     };
@@ -150,7 +150,7 @@ describe('Yarle special cases', async () => {
 
   it('Enex file with note containing text and picture', async () => {
     const options: YarleOptions = {
-      enexSource: `${testDataFolder}test-textWithImage.enex`,
+      enexSources: [ `${testDataFolder}test-textWithImage.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
     };
@@ -178,7 +178,7 @@ describe('Yarle special cases', async () => {
   });
   it('Absolute paths', async () => {
     const options: YarleOptions = {
-      enexSource: `${testDataFolder}test-textWithImage.enex`,
+      enexSources: [ `${testDataFolder}test-textWithImage.enex` ],
       outputDir: '/tmp/out',
       isMetadataNeeded: true,
     };
@@ -206,7 +206,7 @@ describe('Yarle special cases', async () => {
   });
   it('Enex file with multiple notes', async () => {
     const options: YarleOptions = {
-      enexSource: `${testDataFolder}test-twoNotes.enex`,
+      enexSources: [ `${testDataFolder}test-twoNotes.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
     };
@@ -249,7 +249,7 @@ describe('Yarle special cases', async () => {
 
   it('Enex file with note containing more pictures', async () => {
     const options: YarleOptions = {
-      enexSource: `${testDataFolder}test-threePictures.enex`,
+      enexSources: [ `${testDataFolder}test-threePictures.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
     };
@@ -279,7 +279,7 @@ describe('Yarle special cases', async () => {
 
   it('Enex file with two notes with same names', async () => {
     const options: YarleOptions = {
-      enexSource: `${testDataFolder}test-twoNotesWithSameName.enex`,
+      enexSources: [ `${testDataFolder}test-twoNotesWithSameName.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -322,7 +322,7 @@ describe('Yarle special cases', async () => {
 
   it('Enex file with internal links ', async () => {
     const options: YarleOptions = {
-      enexSource: `${testDataFolder}test-links.enex`,
+      enexSources: [ `${testDataFolder}test-links.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -357,7 +357,7 @@ describe('Yarle special cases', async () => {
 
   it('Enex file with internal links with extension', async () => {
     const options: YarleOptions = {
-      enexSource: `${testDataFolder}test-links-withExtension.enex`,
+      enexSources: [ `${testDataFolder}test-links-withExtension.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -393,7 +393,7 @@ describe('Yarle special cases', async () => {
 
   it('Enex file with PDF attachment', async () => {
     const options: YarleOptions = {
-      enexSource: `${testDataFolder}test-pdfAttachment.enex`,
+      enexSources: [ `${testDataFolder}test-pdfAttachment.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -414,7 +414,7 @@ describe('Yarle special cases', async () => {
   });
   it('Enex file with PDF attachment - ObsidianMD format', async () => {
     const options: YarleOptions = {
-      enexSource: `${testDataFolder}test-pdfAttachment-ObsidianMD.enex`,
+      enexSources: [ `${testDataFolder}test-pdfAttachment-ObsidianMD.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -443,7 +443,7 @@ describe('Yarle special cases', async () => {
   });
   it('Enex file with attachment - extension comes from mime', async () => {
     const options: YarleOptions = {
-      enexSource: `${testDataFolder}test-scriptAttachment.enex`,
+      enexSources: [ `${testDataFolder}test-scriptAttachment.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -464,7 +464,7 @@ describe('Yarle special cases', async () => {
   });
   it('Enex file obsidian style', async () => {
     const options: YarleOptions = {
-      enexSource: `${testDataFolder}test-twoNotes.enex`,
+      enexSources: [ `${testDataFolder}test-twoNotes.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       outputFormat: OutputFormat.ObsidianMD,
@@ -508,7 +508,7 @@ describe('Yarle special cases', async () => {
 
   it('Folder of enex files', async () => {
     const options: YarleOptions = {
-      enexSource: `${process.cwd()}/test/data/TestDirNotes`,
+      enexSources: [ `${process.cwd()}/test/data/TestDirNotes`], 
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -534,7 +534,7 @@ describe('Yarle special cases', async () => {
 
   it('case sensitive filenames', async () => {
     const options: YarleOptions = {
-      enexSource: `${testDataFolder}test-case-sensitive.enex`,
+      enexSources: [ `${testDataFolder}test-case-sensitive.enex` ],
       outputDir: 'out',
       templateFile: `${testDataFolder}bare_template.templ`,
       isMetadataNeeded: true,
