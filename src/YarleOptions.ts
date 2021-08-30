@@ -2,7 +2,8 @@ import { OutputFormat } from './output-format';
 import { TagSeparatorReplaceOptions } from './models';
 
 export interface YarleOptions {
-    enexSource?: string;
+    enexDir?: string; // used by command line
+    enexSources?: Array<string>; // used by the UI
     templateFile?: string;
     currentTemplate?: string;
     outputDir?: string;

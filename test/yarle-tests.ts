@@ -10,7 +10,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Enex file with note containing text only',
     options: {
-      enexSource: `${__dirname}${path.sep}..${path.sep}${testDataFolder}test-justText.enex`,
+      enexSources: [ `${__dirname}${path.sep}..${path.sep}${testDataFolder}test-justText.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
     },
@@ -21,7 +21,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Enex file with note WithHyperlinkRefs',
     options: {
-      enexSource: `.${testDataFolder}test-bracketlinks.enex`,
+      enexSources: [ `.${testDataFolder}test-bracketlinks.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
     },
@@ -33,7 +33,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Enex file with note containing text only',
     options: {
-      enexSource: `.${testDataFolder}test-justText.enex`,
+      enexSources: [ `.${testDataFolder}test-justText.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
     },
@@ -47,7 +47,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Note with code block',
     options: {
-      enexSource: `.${testDataFolder}test-noteWithCodeBlock.enex`,
+      enexSources: [ `.${testDataFolder}test-noteWithCodeBlock.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
     },
@@ -62,7 +62,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Note with tags',
     options: {
-      enexSource: `.${testDataFolder}test-noteWithTags.enex`,
+      enexSources: [ `.${testDataFolder}test-noteWithTags.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
     },
@@ -74,7 +74,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Note with nested tags',
     options: {
-      enexSource: `.${testDataFolder}test-noteWithNestedTags.enex`,
+      enexSources: [ `.${testDataFolder}test-noteWithNestedTags.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       nestedTags: {
@@ -90,7 +90,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Note with nested tags containing spaces',
     options: {
-      enexSource: `.${testDataFolder}test-noteWithNestedTagsAndSpaces.enex`,
+      enexSources: [ `.${testDataFolder}test-noteWithNestedTagsAndSpaces.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       nestedTags: {
@@ -107,7 +107,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Note with nested tags containing spaces and a specific character to be replaced to',
     options: {
-      enexSource: `.${testDataFolder}test-noteWithNestedTagsAndSpacesCustom.enex`,
+      enexSources: [ `.${testDataFolder}test-noteWithNestedTagsAndSpacesCustom.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       nestedTags: {
@@ -124,7 +124,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Note with notebook name',
     options: {
-      enexSource: `.${testDataFolder}test-noteWithNotebookName.enex`,
+      enexSources: [ `.${testDataFolder}test-noteWithNotebookName.enex` ],
       templateFile: `.${testDataFolder}notebook-template.tmpl`,
       outputDir: 'out',
     },
@@ -136,7 +136,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Note with notebook name and tags',
     options: {
-      enexSource: `.${testDataFolder}test-noteWithNotebookNameAndTags.enex`,
+      enexSources: [ `.${testDataFolder}test-noteWithNotebookNameAndTags.enex` ],
       templateFile: `.${testDataFolder}notebook-template.tmpl`,
       outputDir: 'out',
     },
@@ -148,7 +148,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Note with zettelkastel id',
     options: {
-      enexSource: `.${testDataFolder}test-noteWithZettelKasten.enex`,
+      enexSources: [ `.${testDataFolder}test-noteWithZettelKasten.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       isZettelkastenNeeded: true,
@@ -163,7 +163,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Note with zettelkastel id - no title',
     options: {
-      enexSource: `.${testDataFolder}test-noteWithZettelKasten-notitle.enex`,
+      enexSources: [ `.${testDataFolder}test-noteWithZettelKasten-notitle.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       isZettelkastenNeeded: true,
@@ -177,7 +177,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Note without metadata',
     options: {
-      enexSource: `.${testDataFolder}test-noteWithoutMetadata.enex`,
+      enexSources: [ `.${testDataFolder}test-noteWithoutMetadata.enex` ],
       templateFile: `.${testDataFolder}nometadata-template.tmpl`,
       outputDir: 'out',
       isMetadataNeeded: false,
@@ -191,7 +191,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Note with latlong',
     options: {
-      enexSource: `.${testDataFolder}test-noteWithLatLong.enex`,
+      enexSources: [ `.${testDataFolder}test-noteWithLatLong.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
     },
@@ -206,7 +206,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Note with only source-url',
     options: {
-      enexSource: `.${testDataFolder}test-noteWithSourceUrl.enex`,
+      enexSources: [ `.${testDataFolder}test-noteWithSourceUrl.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
     },
@@ -219,7 +219,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Skips images without src attribute',
     options: {
-      enexSource: `.${testDataFolder}test-imageWithoutSrc.enex`,
+      enexSources: [ `.${testDataFolder}test-imageWithoutSrc.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       turndownOptions: {headingStyle: 'setext'},
@@ -232,7 +232,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Enex file plaintextonly - skipping note that has resource in it',
     options: {
-      enexSource: `.${testDataFolder}test-threePictures.enex`,
+      enexSources: [ `.${testDataFolder}test-threePictures.enex` ],
 
       outputDir: 'out',
       isMetadataNeeded: true,
@@ -244,7 +244,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: ' Pure external url',
     options: {
-      enexSource: `.${testDataFolder}test-pure-external-url.enex`,
+      enexSources: [ `.${testDataFolder}test-pure-external-url.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       skipLocation: true,
@@ -258,7 +258,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Enex file skip Location',
     options: {
-      enexSource: `.${testDataFolder}test-skipLocation.enex`,
+      enexSources: [ `.${testDataFolder}test-skipLocation.enex` ],
       templateFile: `.${testDataFolder}nolocation-template.tmpl`,
       outputDir: 'out',
       isMetadataNeeded: true,
@@ -274,7 +274,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Enex file with table',
     options: {
-      enexSource: `.${testDataFolder}test-table.enex`,
+      enexSources: [ `.${testDataFolder}test-table.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -287,7 +287,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Enex file with specialItems',
     options: {
-      enexSource: `.${testDataFolder}test-specialItems.enex`,
+      enexSources: [ `.${testDataFolder}test-specialItems.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -301,7 +301,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Enex file with links ',
     options: {
-      enexSource: `.${testDataFolder}test-externalLink.enex`,
+      enexSources: [ `.${testDataFolder}test-externalLink.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -314,7 +314,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Enex file with links, pure link (no text) ',
     options: {
-      enexSource: `.${testDataFolder}test-externalLink-notext.enex`,
+      enexSources: [ `.${testDataFolder}test-externalLink-notext.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -328,7 +328,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Enex file with file links ',
     options: {
-      enexSource: `.${testDataFolder}test-externalFileLink.enex`,
+      enexSources: [ `.${testDataFolder}test-externalFileLink.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -342,7 +342,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Enex file with links with resources',
     options: {
-      enexSource: `.${testDataFolder}test-externalLinkWithPicture.enex`,
+      enexSources: [ `.${testDataFolder}test-externalLinkWithPicture.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -359,7 +359,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Enex file with highlighted text',
     options: {
-      enexSource: `.${testDataFolder}test-highlights.enex`,
+      enexSources: [ `.${testDataFolder}test-highlights.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -372,7 +372,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Enex file with highlighted text - Obsidian-style',
     options: {
-      enexSource: `.${testDataFolder}test-highlights.enex`,
+      enexSources: [ `.${testDataFolder}test-highlights.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -387,7 +387,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Enex file with highlighted text - 2nd implementation',
     options: {
-      enexSource: `.${testDataFolder}test-highlights2.enex`,
+      enexSources: [ `.${testDataFolder}test-highlights2.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -401,7 +401,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Enex file - no span style',
     options: {
-      enexSource: `.${testDataFolder}test-nospanstyle.enex`,
+      enexSources: [ `.${testDataFolder}test-nospanstyle.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -418,7 +418,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Note with strikethrough',
     options: {
-      enexSource: `.${testDataFolder}test-strikethrough.enex`,
+      enexSources: [ `.${testDataFolder}test-strikethrough.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
     },
@@ -430,7 +430,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Note with sublists',
     options: {
-      enexSource: `.${testDataFolder}test-sublists.enex`,
+      enexSources: [ `.${testDataFolder}test-sublists.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
     },
@@ -442,7 +442,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Note with sublists (valid html)',
     options: {
-      enexSource: `.${testDataFolder}test-sublists-valid.enex`,
+      enexSources: [ `.${testDataFolder}test-sublists-valid.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
     },
@@ -454,7 +454,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Note with headings - default turndown options',
     options: {
-      enexSource: `.${testDataFolder}test-headings.enex`,
+      enexSources: [ `.${testDataFolder}test-headings.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
     },
@@ -466,7 +466,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Note with headings - config turndown options',
     options: {
-      enexSource: `.${testDataFolder}test-headings.enex`,
+      enexSources: [ `.${testDataFolder}test-headings.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       turndownOptions: {headingStyle: 'setext'},
@@ -478,7 +478,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Note with checklists',
     options: {
-      enexSource: `.${testDataFolder}test-checklist.enex`,
+      enexSources: [ `.${testDataFolder}test-checklist.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
     },
@@ -490,7 +490,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Enex file urlEncode whitespace',
     options: {
-      enexSource: `.${testDataFolder}test-urlencode.enex`,
+      enexSources: [ `.${testDataFolder}test-urlencode.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       urlEncodeFileNamesAndLinks: true,
@@ -503,7 +503,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Note with sublists (multiple)',
     options: {
-      enexSource: `.${testDataFolder}test-sublists-multiple.enex`,
+      enexSources: [ `.${testDataFolder}test-sublists-multiple.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
     },
@@ -516,7 +516,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Webclip - article',
     options: {
-      enexSource: `.${testDataFolder}test-webclip_article.enex`,
+      enexSources: [ `.${testDataFolder}test-webclip_article.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       turndownOptions: {headingStyle: 'setext'},
@@ -532,7 +532,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Webclip - simplified article',
     options: {
-      enexSource: `.${testDataFolder}test-webclip_simplifiedarticle.enex`,
+      enexSources: [ `.${testDataFolder}test-webclip_simplifiedarticle.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       turndownOptions: {headingStyle: 'setext'},
@@ -548,7 +548,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Webclip - bookmark',
     options: {
-      enexSource: `.${testDataFolder}test-webclip_bookmark.enex`,
+      enexSources: [ `.${testDataFolder}test-webclip_bookmark.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       turndownOptions: {headingStyle: 'setext'},
@@ -566,7 +566,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'Webclip - screenshot',
     options: {
-      enexSource: `.${testDataFolder}test-webclip_screenshot.enex`,
+      enexSources: [ `.${testDataFolder}test-webclip_screenshot.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -584,7 +584,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'applies template passed as parameter',
     options: {
-      enexSource: `.${testDataFolder}test-template.enex`,
+      enexSources: [ `.${testDataFolder}test-template.enex` ],
       outputDir: 'out',
       templateFile: `.${testDataFolder}template_tags_bottom.templ`,
       isMetadataNeeded: true,
@@ -599,7 +599,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'applies template passed as parameter - skip metadata if it doesn\'t exists',
     options: {
-      enexSource: `.${testDataFolder}test-template-nometa.enex`,
+      enexSources: [ `.${testDataFolder}test-template-nometa.enex` ],
       outputDir: 'out',
       templateFile: `.${testDataFolder}template_tags_bottom.templ`,
       isMetadataNeeded: true,
@@ -621,7 +621,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'only renders content with a template with just the content block',
     options: {
-      enexSource: `.${testDataFolder}test-template 2.enex`,
+      enexSources: [ `.${testDataFolder}test-template 2.enex` ],
       outputDir: 'out',
       templateFile: `.${testDataFolder}bare_template.templ`,
       isMetadataNeeded: true,
@@ -639,7 +639,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'monospace code blocks',
     options: {
-      enexSource: `.${testDataFolder}test-monospace-codeblocks.enex`,
+      enexSources: [ `.${testDataFolder}test-monospace-codeblocks.enex` ],
       outputDir: 'out',
       templateFile: `.${testDataFolder}bare_template.templ`,
       isMetadataNeeded: true,
@@ -659,7 +659,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'keep Markdown characters - noop escape function in turndown',
     options: {
-      enexSource: `.${testDataFolder}test-markdown-en.enex`,
+      enexSources: [ `.${testDataFolder}test-markdown-en.enex` ],
       outputDir: 'out',
       templateFile: `.${testDataFolder}bare_template.templ`,
       isMetadataNeeded: true,
@@ -675,7 +675,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: ' Pure external url with unescapeable characters',
     options: {
-      enexSource: `.${testDataFolder}test-externalLink-escape.enex`,
+      enexSources: [ `.${testDataFolder}test-externalLink-escape.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       skipLocation: true,
@@ -688,7 +688,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: ' Pure external url naked',
     options: {
-      enexSource: `.${testDataFolder}test-externalLink-naked.enex`,
+      enexSources: [ `.${testDataFolder}test-externalLink-naked.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       skipLocation: true,
@@ -703,7 +703,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: ' Custom date format',
     options: {
-      enexSource: `.${testDataFolder}test-justTextButCustomDate.enex`,
+      enexSources: [ `.${testDataFolder}test-justTextButCustomDate.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       skipLocation: true,
@@ -716,7 +716,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'multiple metadata content',
     options: {
-      enexSource: `.${testDataFolder}test-noteWithTags.enex`,
+      enexSources: [ `.${testDataFolder}test-noteWithTags.enex` ],
       outputDir: 'out',
       templateFile: `.${testDataFolder}multimeta-template.tmpl`,
       isMetadataNeeded: true,
@@ -732,7 +732,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'multiple metadata content',
     options: {
-      enexSource: `.${testDataFolder}test-intend-newlines.enex`,
+      enexSources: [ `.${testDataFolder}test-intend-newlines.enex` ],
       outputDir: 'out',
       templateFile: `.${testDataFolder}multimeta-template.tmpl`,
       isMetadataNeeded: true,
@@ -748,7 +748,7 @@ export const yarleTests: Array<YarleTest> = [
   {
     name: 'hanging enex',
     options: {
-      enexSource: `.${testDataFolder}huge-html.enex`,
+      enexSources: [ `.${testDataFolder}huge-html.enex` ],
       outputDir: 'out',
       templateFile: `.${testDataFolder}multimeta-template.tmpl`,
       isMetadataNeeded: true,
