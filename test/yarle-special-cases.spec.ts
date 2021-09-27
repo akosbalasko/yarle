@@ -278,7 +278,7 @@ describe('Yarle special cases', async () => {
 
   it('Enex file with images using data urls', async () => {
     const options: YarleOptions = {
-      enexSource: `${testDataFolder}test-image-dataUrl.enex`,
+      enexSources: [`${testDataFolder}test-image-dataUrl.enex`],
       outputDir: 'out',
       isMetadataNeeded: true,
     };
@@ -540,7 +540,7 @@ describe('Yarle special cases', async () => {
 
   it('Folder of enex files', async () => {
     const options: YarleOptions = {
-      enexSources: [ `${process.cwd()}/test/data/TestDirNotes`], 
+      enexSources: [ `${process.cwd()}/test/data/TestDirNotes`],
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
