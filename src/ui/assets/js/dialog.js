@@ -8,8 +8,8 @@ ipcRenderer.on('show-message-box-response', (event, args) => {
   dialog.handler.outputMessageboxResponse(args);
 })
 
-ipcRenderer.on('enexSource', (event, store) => {
-  document.getElementById('enexSource').innerHTML = `Current File: ${store}`;
+ipcRenderer.on('enexSources', (event, store) => {
+  document.getElementById('enexSources').innerHTML = store;
 });
 
 ipcRenderer.on('outputDirectorySelected', (event, store) => {

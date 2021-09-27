@@ -3,10 +3,11 @@
 ![logo](screens/yarle-logo.png)
 
 ![Last Commit](https://img.shields.io/github/last-commit/akosbalasko/yarle?style=for-the-badge)  
-![Version](https://img.shields.io/badge/version-4.1.1-blue?style=for-the-badge)
+![Version](https://img.shields.io/badge/version-4.2.0-blue?style=for-the-badge)
 [![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen?style=for-the-badge)](https://github.com/akosbalasko/yarle#readme)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green?style=for-the-badge)](https://github.com/akosbalasko/yarle/graphs/commit-activity)
 [![License: MIT](https://img.shields.io/github/license/akosbalasko/yarle?style=for-the-badge)](https://github.com/akosbalasko/yarle/blob/master/LICENSE)
+![GitHub All Releases](https://img.shields.io/github/downloads/akosbalasko/yarle/total?style=for-the-badge)
 
 
 Yarle is the ultimate converter of Evernote notes to Markdown.
@@ -38,14 +39,17 @@ Yarle is the ultimate converter of Evernote notes to Markdown.
 
 ## Binaries: 
 
-[Windows](https://github.com/akosbalasko/yarle/releases/download/v4.1.1/yarle-evernote-to-md-4.1.1.Setup.exe)
+[Windows](https://github.com/akosbalasko/yarle/releases/download/v4.2.3/yarle-evernote-to-md-4.2.0.Setup.exe)
 
-[Linux (.rpm)](https://github.com/akosbalasko/yarle/releases/download/v4.1.1/yarle-evernote-to-md-4.1.1-1.x86_64.rpm)
+[Linux (.rpm)](https://github.com/akosbalasko/yarle/releases/download/v4.2.3/yarle-evernote-to-md-4.2.0-1.x86_64.rpm)
 
-[Debian (.deb)](https://github.com/akosbalasko/yarle/releases/download/v4.1.1/yarle-evernote-to-md_4.1.1_amd64.deb)
+[Debian (.deb)](https://github.com/akosbalasko/yarle/releases/download/v4.2.3/yarle-evernote-to-md_4.2.0_amd64.deb)
 
-[Mac](https://github.com/akosbalasko/yarle/releases/download/v4.1.1/yarle-evernote-to-md-darwin-x64-4.1.1.zip)
+[Mac](https://github.com/akosbalasko/yarle/releases/download/v4.2.3/yarle-evernote-to-md-darwin-x64-4.2.0.zip)
 
+## Feedback, Appreciation, Donation:
+If you have an idea on how to improve the tool or face any problems, feel free to raise an issue, or even contribute!  
+If you like the product, you can give a star here on github, or you can <a href="https://www.buymeacoffee.com/akosbalasko" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-yellow.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 
 
 ## Instructions
@@ -63,7 +67,7 @@ For export to Logseq, please use the configuration here.
 
  - Required [Install Node.js](https://nodejs.org/en/download/) version 10.22.1 or higher.
 
-## No-install execution
+## Zero-install execution via command line
 Just open a terminal, specify config options in a config file (options detailed in [Configuration](#Configuration)) and type the following:
 
 ```javascript
@@ -76,7 +80,9 @@ To configure Yarle, you must create a config file. By default it looks like this
 
 ```
 {
-    "enexSource": "/absolute-path-of-your-enex-dir/test-template.enex",
+    "enexSources": [
+       "/absolute-path-of-your-enex-dir/test-template.enex"
+       ],
     "templateFile": "/absolute-path-of-your-template-dir/sampleTemplate.tmpl",
     "outputDir": "/path-of-your-desired-output-folder",
     "isZettelkastenNeeded": false,
@@ -102,7 +108,7 @@ The following configurational properties are available:
 |
 |Property Name| Property value | Meaning |
 |-------------|----------------|---------|
-|```enexSource```| your enex file or the folder of your enex files | specifies the exported Evernote notebook(s) as an absolute path|
+|```enexSources```| multiple enex files, or a folder of the enex files(if you specify it via command line) | specifies the exported Evernote notebook(s) as an absolute path|
 |```templateFile``` | path of your custom template file | if its not specified, a [default template](https://github.com/akosbalasko/yarle/blob/master/src/utils/templates/default-template.ts) will be used
 |```outputDir``` | path to your output dir (absolute or relative) | this is the main output dir where the extracted markdown files and the external resources, images, pdf-s are going to be created|
 |```resourcesDir``` | `_resources` | subdir where attachments/external resources will be placed
