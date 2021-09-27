@@ -7,7 +7,7 @@ import {
   saveMdFile,
 } from './utils';
 import { yarleOptions } from './yarle';
-import { processResources } from './process-resources';
+import { extractDataUrlResources, processResources } from './process-resources';
 import { convertHtml2Md } from './convert-html-to-md';
 import { convert2Html } from './convert-to-html';
 import { NoteData } from './models/NoteData';
@@ -36,6 +36,7 @@ export const processNode = (note: any, notebookName: string): void => {
     if (isComplex(note)) {
       noteData.htmlContent = processResources(note);
     }
+    noteData.htmlContent = extractDataUrlResources(note, noteData.htmlContent);
 
     noteData = {...noteData, ...convertHtml2Md(yarleOptions, noteData)};
     noteData = {...noteData, ...getMetadata(note, notebookName)};
