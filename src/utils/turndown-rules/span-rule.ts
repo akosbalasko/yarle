@@ -1,8 +1,9 @@
 
 import { yarleOptions } from '../../yarle';
+import { OutputFormat } from '../../output-format';
+
 import { filterByNodeName } from './filter-by-nodename';
 import { getAttributeProxy } from './get-attribute-proxy';
-import { OutputFormat } from '../../output-format';
 
 const EVERNOTE_HIGHLIGHT = '-evernote-highlight:true;';
 const EVERNOTE_COLORHIGHLIGHT = '--en-highlight';
@@ -16,14 +17,14 @@ export const spanRule = {
         if (nodeProxy.style) {
             const nodeValue: string = nodeProxy.style.value;
 
-            if(yarleOptions.logseqMode){
-                //this aims to care for bold text generated as <span style="font-weight: bold;">Bold</span>
-                if(content != "<YARLE_NEWLINE_PLACEHOLDER>"){
-                    const has_bold =  nodeValue.includes(BOLD);
-                    const has_italic =  nodeValue.includes(ITALIC);
-                    if(has_bold && !has_italic) return `**${content}**`;
-                    if(!has_bold && has_italic) return `_${content}_`;
-                    if(has_bold && has_italic) return `_**${content}**_`;
+            if (yarleOptions.logseqMode) {
+                // this aims to care for bold text generated as <span style="font-weight: bold;">Bold</span>
+                if (content !== '<YARLE_NEWLINE_PLACEHOLDER>') {
+                    const hasBold =  nodeValue.includes(BOLD);
+                    const hasItalic =  nodeValue.includes(ITALIC);
+                    if (hasBold && !hasItalic) { return `**${content}**`; }
+                    if (!hasBold && hasItalic) { return `_${content}_`; }
+                    if (hasBold && hasItalic) { return `_**${content}**_`; }
                 }
             }
 

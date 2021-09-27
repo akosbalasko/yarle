@@ -1,6 +1,7 @@
+import { yarleOptions } from '../../yarle';
+
 import { filterByNodeName } from './filter-by-nodename';
 import { getAttributeProxy } from './get-attribute-proxy';
-import { yarleOptions } from '../../yarle';
 
 export const newLineRule = {
     filter: filterByNodeName('BR'),

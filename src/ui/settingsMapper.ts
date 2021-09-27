@@ -1,6 +1,6 @@
-import { YarleOptions } from "./../YarleOptions";
+import { YarleOptions } from './../YarleOptions';
 import { store } from './store';
-import { OutputFormat } from "./../output-format";
+import { OutputFormat } from './../output-format';
 
 export const mapSettingsToYarleOptions = (): YarleOptions => {
     return {
@@ -37,5 +37,5 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
         logseqMode: store.get('logseqMode') as boolean,
 
         haveEnexLevelResources: store.get('haveEnexLevelResources') as boolean,
-    }
-}
+    };
+};

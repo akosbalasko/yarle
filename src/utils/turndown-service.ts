@@ -1,8 +1,16 @@
 import TurndownService from 'turndown';
 import { gfm } from 'joplin-turndown-plugin-gfm';
-import { YarleOptions } from './../YarleOptions';
 
-import { monospaceCodeBlockRule, newLineRule, codeBlockRule, imagesRule, spanRule, strikethroughRule, taskItemsRule, wikiStyleLinksRule } from './turndown-rules';
+import { YarleOptions } from './../YarleOptions';
+import {
+    codeBlockRule,
+    imagesRule,
+    monospaceCodeBlockRule,
+    newLineRule,
+    spanRule,
+    strikethroughRule,
+    taskItemsRule,
+    wikiStyleLinksRule } from './turndown-rules';
 
 export const getTurndownService = (yarleOptions: YarleOptions) => {
     /* istanbul ignore next */
@@ -25,26 +33,30 @@ export const getTurndownService = (yarleOptions: YarleOptions) => {
     turndownService.addRule('evernote task items', taskItemsRule);
     turndownService.addRule('wikistyle links', wikiStyleLinksRule);
     turndownService.addRule('images', imagesRule);
-    
-    if(yarleOptions.logseqMode){
+
+    if (yarleOptions.logseqMode) {
         turndownService.addRule('logseq_hr', {
                 filter: ['hr'],
-                replacement: function (content:any) {
-                return '\r  ---';//this \r is important, used to diff from \n
-            }
+                // tslint:disable-next-line:typedef
+                replacement(content: any) {
+                return '\r  ---'; // this \r is important, used to diff from \n
+            },
         });
     }
 
-    if (yarleOptions.keepMDCharactersOfENNotes){
+    if (yarleOptions.keepMDCharactersOfENNotes) {
         turndownService.escape = ((str: string) => str);
     }
-    
-    if (yarleOptions.monospaceIsCodeBlock)
-        turndownService.addRule('codeblocks', monospaceCodeBlockRule);
-    else
-        turndownService.addRule('codeblocks', codeBlockRule);
 
-    if (yarleOptions.keepOriginalAmountOfNewlines)
+    if (yarleOptions.monospaceIsCodeBlock) {
+        turndownService.addRule('codeblocks', monospaceCodeBlockRule);
+    } else {
+        turndownService.addRule('codeblocks', codeBlockRule);
+    }
+
+    if (yarleOptions.keepOriginalAmountOfNewlines) {
         turndownService.addRule('newline', newLineRule);
+    }
+
     return turndownService;
 };

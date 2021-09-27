@@ -1,5 +1,6 @@
-import { NoteData } from "./../../../models/NoteData"
-import { TemplateBlockSettings } from "../template-settings"
+import { TemplateBlockSettings } from '../template-settings';
+
+import { NoteData } from './../../../models/NoteData';
 
 export const getTemplateBlockSettings = (text: string, check: Function, T: any, value: string): TemplateBlockSettings => {
     return {
@@ -9,5 +10,5 @@ export const getTemplateBlockSettings = (text: string, check: Function, T: any, 
       endBlockPlaceholder: T.END_BLOCK,
       valuePlaceholder: T.CONTENT_PLACEHOLDER,
       value,
-    }
-  }
+    };
+  };

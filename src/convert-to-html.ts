@@ -15,7 +15,7 @@ export const convert2Html = (noteData: NoteData): void => {
   noteData.htmlContent = noteData.htmlContent.replace(/<(a href|img src)=".\/_resources\//, '<$1="./')
   */
 
-  noteData.htmlContent = `<div${m[1]}>${noteData.htmlContent.replace(/<(a href|img src)=".\/_resources\//g, '<$1="./')}</div>`
+  noteData.htmlContent = `<div${m[1]}>${noteData.htmlContent.replace(/<(a href|img src)=".\/_resources\//g, '<$1="./')}</div>`;
 
   let url = noteData.sourceUrl;
   if (url) {
@@ -35,4 +35,4 @@ export const convert2Html = (noteData: NoteData): void => {
     .reduce((p, c) => `${p}\n<tr><th>${c[0]}:</th><td>${c[1]}</td></tr>`, '');
 
   noteData.htmlContent = generateHtmlContent({title: noteData.title, content: noteData.htmlContent, fontFamily, fontSize, metaTable: trs});
-  }
+  };

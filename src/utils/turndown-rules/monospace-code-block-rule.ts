@@ -66,6 +66,7 @@ export const monospaceCodeBlockRule = {
             }
 
             content = unescapeMarkdown(content);
+
             return content.trim() ? `${markdownBlock}${content}${markdownBlock}` : content;
         }
 
