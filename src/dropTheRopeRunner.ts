@@ -11,14 +11,15 @@ import { clearLogFile } from './utils/clearLogFile';
 
 export const run = async (opts?: YarleOptions) => {
     clearLogFile();
-    var argv = require('minimist')(process.argv.slice(2));
-    let configFile = argv['configFile']
+    // tslint:disable-next-line:no-require-imports
+    const argv = require('minimist')(process.argv.slice(2));
+    const configFile = argv['configFile']
         ? path.isAbsolute(argv['configFile'])
             ? argv['configFile']
             : `${process.cwd()}/${argv['configFile']}`
-        :`${__dirname}/../config.json`;
+        : `${__dirname}/../config.json`;
     console.log(`Loading config from ${configFile}`);
-    const options: YarleOptions = {...require(configFile),...opts};
+    const options: YarleOptions = {...require(configFile), ...opts};
     if (options.enexSources.length === 1 && options.enexSources[0].endsWith('.enex')) {
         loggerInfo(`Converting notes in file: ${options.enexSources}`);
         await yarle.dropTheRope(options);
@@ -26,10 +27,10 @@ export const run = async (opts?: YarleOptions) => {
     } else {
         const enexFiles = fs
             .readdirSync(options.enexSources[0])
-            .filter((file:any) => {
+            .filter((file: any) => {
                 return file.match(/.*\.enex/ig);
             });
-        
+
         options.enexSources = enexFiles.map(enexFile => `${options.enexSources[0]}/${enexFile}`);
         await yarle.dropTheRope(options);
     }

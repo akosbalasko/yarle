@@ -1,5 +1,4 @@
 
-
 export const generateHtmlContent = (options: any) => {
  return `
     <!DOCTYPE html>
@@ -39,5 +38,5 @@ export const generateHtmlContent = (options: any) => {
         </table>
         ${options.content}
         </body>
-        </html>`
-}
+        </html>`;
+};

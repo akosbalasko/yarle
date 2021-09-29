@@ -1,6 +1,7 @@
 import fsExtra from 'fs-extra';
 import fs from 'fs';
 import * as path from 'path';
+
 import { Path } from '../paths';
 import { yarleOptions } from '../yarle';
 
@@ -49,20 +50,20 @@ export const getAbsoluteResourceDir = (note: any): string => {
 
 const resourceDirClears = new Map<string, number>();
 export const clearResourceDir = (note: any): void => {
-  const path = getAbsoluteResourceDir(note);
-  if (!resourceDirClears.has(path)) {
-    resourceDirClears.set(path, 0);
+  const absResPath = getAbsoluteResourceDir(note);
+  if (!resourceDirClears.has(absResPath)) {
+    resourceDirClears.set(absResPath, 0);
   }
 
-  const clears = resourceDirClears.get(path);
+  const clears = resourceDirClears.get(absResPath);
 
   // we're sharing a resource dir, so we can can't clean it more than once
   if (yarleOptions.haveEnexLevelResources && clears >= 1) {
     return;
   }
 
-  clearDistDir(path);
-  resourceDirClears.set(path, clears + 1);
+  clearDistDir(absResPath);
+  resourceDirClears.set(absResPath, clears + 1);
 };
 
 export const clearResourceDistDir = (): void => {

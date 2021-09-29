@@ -1,6 +1,6 @@
-import { YarleOptions } from "./../YarleOptions";
+import { YarleOptions } from './../YarleOptions';
 import { store } from './store';
-import { OutputFormat } from "./../output-format";
+import { OutputFormat } from './../output-format';
 
 export const mapSettingsToYarleOptions = (): YarleOptions => {
     return {
@@ -34,5 +34,5 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
         keepOriginalAmountOfNewlines: store.get('keepOriginalAmountOfNewlines') as boolean,
         addExtensionToInternalLinks: store.get('addExtensionToInternalLinks') as boolean,
         generateNakedUrls: store.get('generateNakedUrls') as boolean,
-    }
-}
+    };
+};

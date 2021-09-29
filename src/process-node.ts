@@ -1,3 +1,5 @@
+import { EOL } from 'os';
+
 import { applyTemplate } from './utils/templates/templates';
 import {
   getMetadata,
@@ -12,17 +14,17 @@ import { convertHtml2Md } from './convert-html-to-md';
 import { convert2Html } from './convert-to-html';
 import { NoteData } from './models/NoteData';
 import { loggerInfo } from './utils/loggerInfo';
-import { EOL } from 'os';
 
 export const processNode = (note: any, notebookName: string): void => {
 
-  let dateStarted: Date = new Date();  
+  const dateStarted: Date = new Date();
   loggerInfo(EOL);
-  loggerInfo("Conversion started at " + dateStarted);
+  loggerInfo(`Conversion started at ${dateStarted}`);
 
-  if (Array.isArray(note.content))
+  if (Array.isArray(note.content)) {
     note.content = note.content.join('');
-  let noteData: NoteData = { 
+  }
+  let noteData: NoteData = {
     title: note.title,
     content: note.content,
     htmlContent: note.content,
@@ -48,7 +50,7 @@ export const processNode = (note: any, notebookName: string): void => {
 
     saveMdFile(data, note);
 
-    if (yarleOptions.keepOriginalHtml){
+    if (yarleOptions.keepOriginalHtml) {
       convert2Html(noteData);
       saveHtmlFile(noteData, note);
     }
@@ -58,10 +60,9 @@ export const processNode = (note: any, notebookName: string): void => {
     loggerInfo(`Failed to convert note: ${noteData.title}, ${JSON.stringify(e)}`);
   }
   // tslint:disable-next-line:no-console
-  let dateFinished: Date = new Date();  
-  let conversionDuration = (dateFinished.getTime()- dateStarted.getTime())/1000; //in seconds.
-  loggerInfo("Conversion finished at " + dateFinished);  
+  const dateFinished: Date = new Date();
+  const conversionDuration = (dateFinished.getTime() - dateStarted.getTime()) / 1000; // in seconds.
+  loggerInfo(`Conversion finished at ${dateFinished}`);
   loggerInfo(`Note "${noteData.title}" converted successfully in ${conversionDuration} seconds.`);
-  
 
 };

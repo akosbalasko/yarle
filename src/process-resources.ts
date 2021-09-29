@@ -2,13 +2,11 @@ import { cloneDeep } from 'lodash';
 import fs from 'fs';
 import md5File from 'md5-file';
 import * as path from 'path';
+import fsExtra from 'fs-extra';
 
 import { ResourceHashItem } from './models/ResourceHash';
 import * as utils from './utils';
-
 import { yarleOptions } from './yarle';
-import { getFileIndex, loggerInfo, setFileDates } from './utils';
-import fsExtra from 'fs-extra';
 
 const getResourceWorkDirs = (note: any) => {
   const pathSepRegExp = new RegExp(`\\${path.sep}`, 'g');
@@ -23,9 +21,9 @@ export const processResources = (note: any): string => {
     let updatedContent = cloneDeep(note.content);
     const {absoluteResourceWorkDir, relativeResourceWorkDir} = getResourceWorkDirs(note);
 
-    loggerInfo(`relative resource work dir: ${relativeResourceWorkDir}`);
+    utils.loggerInfo(`relative resource work dir: ${relativeResourceWorkDir}`);
 
-    loggerInfo(`absolute resource work dir: ${absoluteResourceWorkDir}`);
+    utils.loggerInfo(`absolute resource work dir: ${absoluteResourceWorkDir}`);
 
     utils.clearResourceDir(note);
     if (Array.isArray(note.resource)) {
@@ -49,7 +47,7 @@ export const processResources = (note: any): string => {
 
 const addMediaReference = (content: string, resourceHashes: any, hash: any, workDir: string): string => {
   const src = `${workDir}${yarleOptions.pathSeparator}${resourceHashes[hash].fileName.replace(/ /g, '\ ')}`;
-  loggerInfo(`mediaReference src ${src} added`);
+  utils.loggerInfo(`mediaReference src ${src} added`);
   let updatedContent = cloneDeep(content);
   const replace = `<en-media ([^>]*)hash="${hash}".([^>]*)>`;
   const re = new RegExp(replace, 'g');
@@ -87,7 +85,7 @@ const processResource = (workDir: string, resource: any): any => {
 
     if (resource.recognition && fileName) {
       const hashIndex = resource.recognition.match(/[a-f0-9]{32}/);
-      loggerInfo(`resource ${fileName} addid in hash ${hashIndex}`);
+      utils.loggerInfo(`resource ${fileName} addid in hash ${hashIndex}`);
       resourceHash[hashIndex as any] = {fileName, alreadyUsed: false} as ResourceHashItem;
     } else {
       const md5Hash = md5File.sync(absFilePath);
@@ -127,7 +125,7 @@ const createResourceFromData = (
 ): string => {
   const baseName = 'embedded'; // data doesn't seem to include useful base filename
   const extension = extensionForMimeType(mediatype) || '.dat';
-  const index = getFileIndex(absoluteResourceWorkDir, baseName);
+  const index = utils.getFileIndex(absoluteResourceWorkDir, baseName);
   const fileName = index < 1 ? `${baseName}.${extension}` : `${baseName}.${index}.${extension}`;
   const absFilePath = `${absoluteResourceWorkDir}${path.sep}${fileName}`;
 
@@ -136,9 +134,9 @@ const createResourceFromData = (
   }
 
   fs.writeFileSync(absFilePath, data, base64 ? 'base64' : undefined);
-  setFileDates(absFilePath, note);
+  utils.setFileDates(absFilePath, note);
 
-  loggerInfo(`data url resource ${fileName} added`);
+  utils.loggerInfo(`data url resource ${fileName} added`);
 
   return fileName;
 };

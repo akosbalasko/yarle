@@ -1,8 +1,9 @@
 
 import { yarleOptions } from '../../yarle';
+import { OutputFormat } from '../../output-format';
+
 import { filterByNodeName } from './filter-by-nodename';
 import { getAttributeProxy } from './get-attribute-proxy';
-import { OutputFormat } from '../../output-format';
 
 const EVERNOTE_HIGHLIGHT = '-evernote-highlight:true;';
 const EVERNOTE_COLORHIGHLIGHT = '--en-highlight';

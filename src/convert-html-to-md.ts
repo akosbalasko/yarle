@@ -1,5 +1,4 @@
 import { JSDOM } from 'jsdom';
-const {EOL} = require('os');
 
 import { getTurndownService } from './utils/turndown-service';
 import { NoteData } from './models/NoteData';
@@ -31,7 +30,7 @@ const fixSublists = (node: HTMLElement) => {
         const childElementsArr = Array.from(listNodeDiv.childNodes);
         listNodeDiv.replaceWith(...childElementsArr);
       }
-    };
+    }
 
     return node;
 };
@@ -44,6 +43,7 @@ export const convertHtml2Md = (yarleOptions: YarleOptions, { htmlContent }: Note
       .getElementsByTagName('en-note').item(0) as any as HTMLElement;
     let contentInMd = getTurndownService(yarleOptions).turndown(fixSublists(contentNode));
     const newLinePlaceholder = new RegExp('<YARLE_NEWLINE_PLACEHOLDER>', 'g');
-    contentInMd = contentInMd.replace(newLinePlaceholder,'');
+    contentInMd = contentInMd.replace(newLinePlaceholder, '');
+
     return contentInMd && contentInMd !== 'undefined' ? { content: contentInMd } : {content: ''};
 };

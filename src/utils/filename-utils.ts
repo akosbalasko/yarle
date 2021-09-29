@@ -69,7 +69,8 @@ export const getExtensionFromMime = (resource: any): string => {
   if (!mimeType) {
     return undefined;
   }
-  return mime.extension(mimeType)
+
+  return mime.extension(mimeType);
 };
 
 export const getExtension = (resource: any): string => {
@@ -108,6 +109,7 @@ export const getNoteName = (dstPath: string, note: any): string => {
 };
 
 export const getNotebookName = (enexFile: string): string => {
-  const notebookName = path.basename(enexFile, ".enex");
+  const notebookName = path.basename(enexFile, '.enex');
+
   return notebookName;
-}
+};
