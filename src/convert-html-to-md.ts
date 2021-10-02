@@ -3,6 +3,7 @@ import { JSDOM } from 'jsdom';
 import { getTurndownService } from './utils/turndown-service';
 import { NoteData } from './models/NoteData';
 import { YarleOptions } from './YarleOptions';
+import { OutputFormat } from './output-format';
 
 const fixSublists = (node: HTMLElement) => {
     const ulElements: Array<HTMLElement> = Array.from(node.getElementsByTagName('ul'));
@@ -48,7 +49,7 @@ export const convertHtml2Md = (yarleOptions: YarleOptions, { htmlContent }: Note
     const newLinePlaceholder = new RegExp('<YARLE_NEWLINE_PLACEHOLDER>', 'g');
     contentInMd = contentInMd.replace(newLinePlaceholder, '');
 
-    if (yarleOptions.logseqMode) {
+    if (yarleOptions.outputFormat === OutputFormat.LogSeqMD) {
 
       contentInMd = contentInMd.replace(/\n/g, '\n- ') // add a "- " at each new line
       .replace(/\r/g, '\n')

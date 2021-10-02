@@ -4,13 +4,34 @@
       <div class="content">
         <div class="inner">
           <h2>Step 2: Configuration</h2>
+
+
+          <br><br>
+          <div class="split style1">
+            <section>
+              <h2>Target Dialect</h2>
+          <div class="field">
+         <select name="outputFormat" id="outputFormat">
+           <option value="LogSeqMD">LogSeq</option>
+           <option value="ObsidianMD">Obsidian</option>
+
+           <option value="StandardMD">Other Standard Markdown-based application</option>
+         </select>
+            <!--<input type="checkbox" value="false" id='logseqMode'>
+            <label for="logseqMode" class="pure-checkbox">
+              Export for Logseq
+            </label> -->
+        </div>
+        </section></div>
+
+
           <br><br>
           <div class="split style1">
 
           <section>
             <h2>General</h2>
 
-            <div class="field">
+            <!--<div class="field">
               <label for="outputFormat" class="pure-input-1-2">Output format
                      </label>
                   <select name="outputFormat" id="outputFormat">
@@ -19,8 +40,7 @@
                   </select>
                   <br><div style='font-size: 12px;'><i>(
                     Generates internal file links and highlights in Obsidian-style: highlights are going to be bounded by `==` instead of \` characters, file links are going to be as follows: `![[file-name]]` instead of `![file-name](file-name))</i></div>
-                  
-            </div>
+            </div>-->
             <div class="field half">
             <input type="checkbox" value="false" id='keepOriginalHtml' value="false">
                   <label for="keepOriginalHtml" class="pure-checkbox">
@@ -31,7 +51,7 @@
               
             </div>
             <div class="field half">
-
+              
               <input type="checkbox" value="false" id='addWebClips'> 
                 <label for="addWebClips" class="pure-checkbox">
                   Convert webclips
@@ -131,13 +151,6 @@
                 Skip enex filename from output path
               </label> 
           </div>
-
-          <div class="field"> 
-            <input type="checkbox" value="false" id='logseqMode'>
-            <label for="logseqMode" class="pure-checkbox">
-              Export for Logseq
-            </label> 
-        </div>
 
           <div class="field">
             <label for="resourcesDir">Custom resources folder:

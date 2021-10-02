@@ -1,4 +1,4 @@
-import { app, BrowserWindow, dialog, ipcMain } from 'electron';
+/*import { app, BrowserWindow, dialog, ipcMain } from 'electron';
 import * as fs from 'fs';
 import url from 'url';
 import path from 'path';
@@ -113,3 +113,4 @@ ipcMain.on('startConversion', async (event: any, data: any) => {
   await yarle.dropTheRope(settings);
 
 });
+*/

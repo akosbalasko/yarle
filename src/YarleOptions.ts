@@ -34,5 +34,4 @@ export interface YarleOptions {
     pathSeparator?: string;
     resourcesDir?: string;
     turndownOptions?: Record<string, any>;
-    logseqMode?: boolean;
 }

@@ -8,6 +8,7 @@ import { yarleOptions } from '../yarle';
 import { getNoteFileName, getNoteName } from './filename-utils';
 import { loggerInfo } from './loggerInfo';
 import { logger } from './logger';
+import { OutputFormat } from './../output-format';
 
 export const paths: Path = {};
 
@@ -94,7 +95,7 @@ export const setPaths = (enexSource: string): void => {
     paths.resourcePath = `${outputDir}${path.sep}notes${path.sep}${enexFile}${path.sep}${yarleOptions.resourcesDir}`;
   }
 
-  if (yarleOptions.logseqMode) {
+  if (yarleOptions.outputFormat === OutputFormat.LogSeqMD) {
     paths.mdPath = `${outputDir}${path.sep}pages${path.sep}`;
     paths.resourcePath = `${outputDir}${path.sep}${yarleOptions.resourcesDir}`;
   }

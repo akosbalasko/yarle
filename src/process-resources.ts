@@ -7,6 +7,7 @@ import fsExtra from 'fs-extra';
 import { ResourceHashItem } from './models/ResourceHash';
 import * as utils from './utils';
 import { yarleOptions } from './yarle';
+import { OutputFormat } from './output-format';
 
 const getResourceWorkDirs = (note: any) => {
   const pathSepRegExp = new RegExp(`\\${path.sep}`, 'g');
@@ -78,7 +79,7 @@ const processResource = (workDir: string, resource: any): any => {
     let fileName = resourceFileProps.fileName;
 
     // add time to ease the same name issue
-    if (yarleOptions.logseqMode) { fileName = `${accessTime}_${fileName}` ; }
+    if (yarleOptions.outputFormat === OutputFormat.LogSeqMD) { fileName = `${accessTime}_${fileName}` ; }
 
     const absFilePath = `${workDir}${path.sep}${fileName}`;
 

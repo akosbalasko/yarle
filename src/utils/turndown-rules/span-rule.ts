@@ -17,7 +17,7 @@ export const spanRule = {
         if (nodeProxy.style) {
             const nodeValue: string = nodeProxy.style.value;
 
-            if (yarleOptions.logseqMode) {
+            if (yarleOptions.outputFormat === OutputFormat.LogSeqMD) {
                 // this aims to care for bold text generated as <span style="font-weight: bold;">Bold</span>
                 if (content !== '<YARLE_NEWLINE_PLACEHOLDER>') {
                     const hasBold =  nodeValue.includes(BOLD);

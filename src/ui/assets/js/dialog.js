@@ -1,5 +1,5 @@
 const { ipcRenderer } = require('electron')
-
+const { readFileSync } = require('fs');
 ipcRenderer.on('open-dialog-paths-selected', (event, arg)=> {
   dialog.handler.outputSelectedPathsFromOpenDialog(arg);
 })
@@ -17,9 +17,36 @@ ipcRenderer.on('outputDirectorySelected', (event, store) => {
 })
 
 ipcRenderer.on('defaultTemplateLoaded', (event, store) => {
+  console.log('defaultTemplateLoaded');
   document.getElementById('currentTemplate').value = store;
   });
 
+ipcRenderer.on('logSeqModeSelected', (event, store) => {
+  document.getElementById('keepOriginalAmountOfNewlines').checked = true;
+  document.getElementById('keepOriginalAmountOfNewlines').disabled = true;
+  document.getElementById('haveEnexLevelResources').checked = true
+  document.getElementById('haveEnexLevelResources').disabled = true
+  document.getElementById('urlEncodeFileNamesAndLinks').checked = true
+  document.getElementById('urlEncodeFileNamesAndLinks').disabled = true
+  document.getElementById('resourcesDir').value = 'assets';
+  document.getElementById('resourcesDir').disabled = true
+  document.getElementById('currentTemplate').value = store;
+
+
+  });
+ipcRenderer.on('logSeqModeDeselected', (event, store) => {
+  document.getElementById('keepOriginalAmountOfNewlines').disabled = false;
+  document.getElementById('haveEnexLevelResources').disabled = false
+  document.getElementById('urlEncodeFileNamesAndLinks').disabled = false
+  document.getElementById('resourcesDir').disabled = false
+  document.getElementById('resourcesDir').value = '_resources';
+  document.getElementById('currentTemplate').value = store;
+
+
+
+
+
+  });
 window.dialog = window.dialog || {},
 function(n) {
 

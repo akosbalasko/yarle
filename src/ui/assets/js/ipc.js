@@ -59,6 +59,7 @@ function(n) {
       },
 
       sendConfigValueChangedEvent: function(e) {
+
         ipcRenderer.send('configurationUpdated',
         {
           id: e.target.id,
@@ -78,6 +79,7 @@ function(n) {
 
         const inputs = document.querySelectorAll('input');
         for (const input of inputs) {
+
           input.addEventListener('input', ipc.messaging.sendConfigValueChangedEvent);
         }
         const selects = document.querySelectorAll('select');

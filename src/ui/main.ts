@@ -9,6 +9,7 @@ import { loggerInfo } from '../utils/loggerInfo';
 
 import { store } from './store';
 import { mapSettingsToYarleOptions } from './settingsMapper';
+import { OutputFormat } from './../output-format';
 
 // handle setupevents as quickly as possible
 // tslint:disable-next-line:no-require-imports
@@ -102,6 +103,17 @@ function createWindow() {
     const defaultTemplate = fs.readFileSync(`${__dirname}/../../sampleTemplate.tmpl`, 'utf-8');
     mainWindow.webContents.send('defaultTemplateLoaded', defaultTemplate);
     mainWindow.webContents.send('storedSettingsLoaded', store.store);
+    store.onDidChange('outputFormat', (newValue: any, oldValue: any) => {
+      // tslint:disable-next-line:no-console
+      console.log(`store changed, let\'s set the values ${JSON.stringify(newValue)}`);
+      if (newValue === OutputFormat.LogSeqMD) {
+        const logSeqTemplate = fs.readFileSync(`${__dirname}/../../sampleTemplate_logseq.tmpl`, 'utf-8');
+
+        mainWindow.webContents.send('logSeqModeSelected', logSeqTemplate);
+      } else {
+        mainWindow.webContents.send('logSeqModeDeselected', defaultTemplate);
+      }
+    });
     mainWindow.show();
 
   });
@@ -205,7 +217,7 @@ electron.ipcMain.on('configurationUpdated', (event: any, data: any) => {
 
   // console.log("this is the firstname from the form ->", data)
   store.set(data.id, data.value);
-  loggerInfo(`config: ${JSON.stringify(store.get(data.id))}`);
+  loggerInfo(`config: ${data.id}: ${JSON.stringify(store.get(data.id))}`);
 
 });
 

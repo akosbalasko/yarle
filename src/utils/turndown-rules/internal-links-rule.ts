@@ -61,7 +61,7 @@ export const wikiStyleLinksRule = {
 
         return (yarleOptions.outputFormat === OutputFormat.ObsidianMD)
         ? `${token['mdKeyword']}[[${realValue} | ${token['text']}]]`
-        : (yarleOptions.outputFormat === OutputFormat.StandardMD)
+        : (yarleOptions.outputFormat === OutputFormat.StandardMD || yarleOptions.outputFormat === OutputFormat.LogSeqMD)
             ? `${token['mdKeyword']}[${token['text']}](${realValue})`
             : `${token['mdKeyword']}[[${realValue}]]`;
     },
