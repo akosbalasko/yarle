@@ -32,7 +32,6 @@ Please use settings below
     "turndownOptions": {
         "headingStyle": "atx"
     },
-    "logseqMode": true,
     "skipLocation": true,
     "skipCreationTime": true,
     "skipUpdateTime": true,
@@ -41,9 +40,13 @@ Please use settings below
     "skipEnexFileNameFromOutputPath": false,
     "keepMDCharactersOfENNotes": false,
     "monospaceIsCodeBlock": false,
+    "dateFormat": "YYYY-MM-DD",
     "currentTemplate": "{content-block}{content}{end-content-block}",
     "keepOriginalAmountOfNewlines": true,
-    "haveEnexLevelResources": true
+    "haveEnexLevelResources": true,
+    "logseqSettings":{
+      "journalNotes": false
+    }
 }
 ```
 
@@ -87,7 +90,6 @@ If successful, in the output folder there are two folders:
 
 You can merge these folders into Logseq
 
-If these notes are journals,
+If these notes are journals then set Page type dropdown to Journal. It will 
 - rename `pages` into `journals`
-- make sure the names of files inside are formated as `2021-01-01.md`
-  logseq will auto detect the dates
+- rename all generated note files  as `2021-01-01.md` (based on dateFormat property) to let logseq auto detect the dates

@@ -19,7 +19,6 @@
     "turndownOptions": {
         "headingStyle": "atx"
     },
-    "logseqMode": true,
     "skipLocation": true,
     "skipCreationTime": false,
     "dateFormat": "YYYY-MM-DD",
@@ -31,5 +30,8 @@
     "monospaceIsCodeBlock": false,
     "currentTemplate": "{content-block}{content}{end-content-block}",
     "keepOriginalAmountOfNewlines": true,
-    "haveEnexLevelResources": true
+    "haveEnexLevelResources": true,
+    "logseqSettings":{
+        "journalNotes": false
+    }
 }
