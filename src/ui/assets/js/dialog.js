@@ -1,5 +1,40 @@
 const { ipcRenderer } = require('electron')
-const { readFileSync } = require('fs');
+const flatten = (data) => {
+  const result= {};
+  recurse = (cur, prop) => {
+      if (Object(cur) !== cur) {
+          result[prop] = cur;
+      } else if (Array.isArray(cur)) {
+          const l = cur.length;
+          for (let i = 0; i < l; i++) {
+               recurse(cur[i], prop ? `${prop}.${i}` : `${i}`);
+          }
+          if (l === 0) {
+              result[prop] = [];
+          }
+      } else {
+          var isEmpty = true;
+          // tslint:disable-next-line:forin
+          for (const p in cur) {
+              isEmpty = false;
+              recurse(cur[p], prop ? `${prop}.${p}` : p);
+          }
+          if (isEmpty) {
+              result[prop] = {};
+          }
+      }
+  };
+  recurse(data, '');
+
+  return result;
+};
+
+const updateConfigStore = (configItemName, value) => {
+  ipcRenderer.send('configurationUpdated', {
+    id: configItemName,
+    value
+  });
+}
 ipcRenderer.on('open-dialog-paths-selected', (event, arg)=> {
   dialog.handler.outputSelectedPathsFromOpenDialog(arg);
 })
@@ -21,32 +56,49 @@ ipcRenderer.on('defaultTemplateLoaded', (event, store) => {
   document.getElementById('currentTemplate').value = store;
   });
 
-ipcRenderer.on('logSeqModeSelected', (event, store) => {
-  document.getElementById('keepOriginalAmountOfNewlines').checked = true;
-  document.getElementById('keepOriginalAmountOfNewlines').disabled = true;
-  document.getElementById('haveEnexLevelResources').checked = true
-  document.getElementById('haveEnexLevelResources').disabled = true
-  document.getElementById('urlEncodeFileNamesAndLinks').checked = true
-  document.getElementById('urlEncodeFileNamesAndLinks').disabled = true
-  document.getElementById('resourcesDir').value = 'assets';
-  document.getElementById('resourcesDir').disabled = true
-  document.getElementById('currentTemplate').value = store;
+ipcRenderer.on('logSeqModeSelected', (event, config, template) => {
 
+  const flatConfig = flatten(JSON.parse(config));
+  for (const configItem in flatConfig){
+    if (configItem !== 'outputFormat'){
+      const domItem = document.getElementById(configItem);
+      if (domItem){
+        if (domItem.getAttribute('type') === 'checkbox'){
+          document.getElementById(configItem).checked = flatConfig[configItem]
+        } else if ( domItem.getAttribute('type') == 'text'){
+          document.getElementById(configItem).value = flatConfig[configItem]
+        }
+      
+        document.getElementById(configItem).disabled = true;
+      }
+      updateConfigStore(configItem, flatConfig[configItem]);
+      
+    }
+    document.getElementById('logseqSettings.journalNotes.container').style.display = 'block';
 
+  }
+
+// TODO: add logseq.notetype property : journal/pages. if it's journal, then name the file after the creation date, and set to folder to journal
   });
-ipcRenderer.on('logSeqModeDeselected', (event, store) => {
-  document.getElementById('keepOriginalAmountOfNewlines').disabled = false;
-  document.getElementById('haveEnexLevelResources').disabled = false
-  document.getElementById('urlEncodeFileNamesAndLinks').disabled = false
-  document.getElementById('resourcesDir').disabled = false
+ipcRenderer.on('logSeqModeDeselected', (event, config, store) => {
+
+  const flatConfig = flatten(JSON.parse(config));
+  for (const configItem in flatConfig){
+    if (configItem !== 'outputFormat'){
+      const domItem = document.getElementById(configItem);
+      if (domItem){
+        document.getElementById(configItem).disabled = false;
+    
+      }
+    }
+  }
+
   document.getElementById('resourcesDir').value = '_resources';
-  document.getElementById('currentTemplate').value = store;
+  document.getElementById('logseqSettings.journalNotes.container').style.display = 'none';
 
+  updateConfigStore('resourcesDir', '_resources');
 
-
-
-
-  });
+});
 window.dialog = window.dialog || {},
 function(n) {
 

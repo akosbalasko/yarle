@@ -7,6 +7,8 @@ import * as mime from 'mime-types';
 import { yarleOptions } from '../yarle';
 
 import { ResourceFileProperties } from './../models/ResourceFileProperties';
+import { OutputFormat } from './../output-format';
+import { getCreationTime } from './content-utils';
 
 const FILENAME_DELIMITER = '_';
 
@@ -102,6 +104,9 @@ export const getNoteName = (dstPath: string, note: any): string => {
     const nextIndex = getFileIndex(dstPath, fileNamePrefix);
 
     noteName = (nextIndex === 0) ? fileNamePrefix :  `${fileNamePrefix}.${nextIndex}`;
+  }
+  if (yarleOptions.outputFormat === OutputFormat.LogSeqMD) {
+    return getCreationTime(note);
   }
 
   return noteName;

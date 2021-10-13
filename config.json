@@ -19,5 +19,8 @@
     "outputFormat": "ObsidianMD",
     "skipEnexFileNameFromOutputPath": false,
     "keepOriginalAmountOfNewlines": false,
-    "pathSeparator": "/"
+    "pathSeparator": "/",
+    "logseqSettings":{
+        "journalNotes": false
+    }
 }

@@ -56,10 +56,10 @@ function createWindow() {
   // mainWindow.webContents.openDevTools()
 
   // Show the mainwindow when it is loaded and ready to show
-  mainWindow.once('ready-to-show', () => {
+  /*mainWindow.once('ready-to-show', () => {
     mainWindow.show();
   });
-
+*/
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
     // Dereference the window object, usually you would store windows
@@ -97,21 +97,20 @@ function createWindow() {
   mainWindow.on('closed', () => {
     mainWindow = null;
   });
-  mainWindow.webContents.on('did-finish-load', () => {
+  mainWindow.once('ready-to-show', () => {
     // tslint:disable-next-line:no-console
     console.log(`${__dirname}/../../sampleTemplate.tmpl`);
     const defaultTemplate = fs.readFileSync(`${__dirname}/../../sampleTemplate.tmpl`, 'utf-8');
     mainWindow.webContents.send('defaultTemplateLoaded', defaultTemplate);
     mainWindow.webContents.send('storedSettingsLoaded', store.store);
     store.onDidChange('outputFormat', (newValue: any, oldValue: any) => {
+      const logSeqConfig = fs.readFileSync(`${__dirname}/../../config.logseq.json`, 'utf-8');
       // tslint:disable-next-line:no-console
-      console.log(`store changed, let\'s set the values ${JSON.stringify(newValue)}`);
       if (newValue === OutputFormat.LogSeqMD) {
         const logSeqTemplate = fs.readFileSync(`${__dirname}/../../sampleTemplate_logseq.tmpl`, 'utf-8');
-
-        mainWindow.webContents.send('logSeqModeSelected', logSeqTemplate);
+        mainWindow.webContents.send('logSeqModeSelected', logSeqConfig, logSeqTemplate);
       } else {
-        mainWindow.webContents.send('logSeqModeDeselected', defaultTemplate);
+        mainWindow.webContents.send('logSeqModeDeselected', logSeqConfig, defaultTemplate);
       }
     });
     mainWindow.show();

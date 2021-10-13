@@ -96,7 +96,8 @@ export const setPaths = (enexSource: string): void => {
   }
 
   if (yarleOptions.outputFormat === OutputFormat.LogSeqMD) {
-    paths.mdPath = `${outputDir}${path.sep}pages${path.sep}`;
+    const folderName = yarleOptions.logseqSettings.journalNotes ? 'journal' : 'pages';
+    paths.mdPath = `${outputDir}${path.sep}${folderName}${path.sep}`;
     paths.resourcePath = `${outputDir}${path.sep}${yarleOptions.resourcesDir}`;
   }
 

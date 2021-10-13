@@ -99,7 +99,7 @@ function(n) {
           console.log(JSON.stringify(parameters));
           ipc.messaging.sendSaveTemplateEvent(parameters);
         })
-
+        document.getElementById('logseqSettings.journalNotes.container').style.display = 'none';
       }
     };
 
