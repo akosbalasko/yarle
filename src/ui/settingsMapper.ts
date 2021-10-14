@@ -1,6 +1,6 @@
-import { YarleOptions } from "./../YarleOptions";
+import { YarleOptions } from './../YarleOptions';
 import { store } from './store';
-import { OutputFormat } from "./../output-format";
+import { OutputFormat } from './../output-format';
 
 export const mapSettingsToYarleOptions = (): YarleOptions => {
     return {
@@ -25,14 +25,19 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
         currentTemplate: store.get('currentTemplate') as string,
         resourcesDir: store.get('resourcesDir') as string,
         nestedTags: {
-            separatorInEN: store.get('separatorInEN') as string,
-            replaceSeparatorWith: store.get('replaceSeparatorWith') as string,
-            replaceSpaceWith: store.get('replaceSpaceWith') as string,
+            separatorInEN: store.get('nestedTags.separatorInEN') as string,
+            replaceSeparatorWith: store.get('nestedTags.replaceSeparatorWith') as string,
+            replaceSpaceWith: store.get('nestedTags.replaceSpaceWith') as string,
+        },
+        logseqSettings: {
+            journalNotes: store.get('logseqSettings.journalNotes') as boolean,
         },
         dateFormat: store.get('dateFormat') as string,
         keepImageSize: store.get('keepImageSize') as OutputFormat,
         keepOriginalAmountOfNewlines: store.get('keepOriginalAmountOfNewlines') as boolean,
         addExtensionToInternalLinks: store.get('addExtensionToInternalLinks') as boolean,
         generateNakedUrls: store.get('generateNakedUrls') as boolean,
-    }
-}
+
+        haveEnexLevelResources: store.get('haveEnexLevelResources') as boolean,
+    };
+};

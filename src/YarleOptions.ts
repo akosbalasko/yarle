@@ -20,6 +20,10 @@ export interface YarleOptions {
     skipTags?: boolean;
     useHashTags?: boolean;
     outputFormat?: OutputFormat;
+    logseqSettings?: {
+        journalNotes: boolean,
+    };
+    replaceWhitespacesInTagsByUnderscore?: boolean;
     skipEnexFileNameFromOutputPath?: boolean;
     haveEnexLevelResources?: boolean;
     keepMDCharactersOfENNotes?: boolean;

@@ -7,6 +7,8 @@ import * as mime from 'mime-types';
 import { yarleOptions } from '../yarle';
 
 import { ResourceFileProperties } from './../models/ResourceFileProperties';
+import { OutputFormat } from './../output-format';
+import { getCreationTime } from './content-utils';
 
 const FILENAME_DELIMITER = '_';
 
@@ -69,7 +71,8 @@ export const getExtensionFromMime = (resource: any): string => {
   if (!mimeType) {
     return undefined;
   }
-  return mime.extension(mimeType)
+
+  return mime.extension(mimeType);
 };
 
 export const getExtension = (resource: any): string => {
@@ -102,12 +105,16 @@ export const getNoteName = (dstPath: string, note: any): string => {
 
     noteName = (nextIndex === 0) ? fileNamePrefix :  `${fileNamePrefix}.${nextIndex}`;
   }
+  if (yarleOptions.outputFormat === OutputFormat.LogSeqMD) {
+    return getCreationTime(note);
+  }
 
   return noteName;
 
 };
 
 export const getNotebookName = (enexFile: string): string => {
-  const notebookName = path.basename(enexFile, ".enex");
+  const notebookName = path.basename(enexFile, '.enex');
+
   return notebookName;
-}
+};

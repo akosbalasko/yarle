@@ -1,5 +1,6 @@
 import marked, { Token } from 'marked';
 import * as _ from 'lodash';
+
 import { normalizeTitle } from '../filename-utils';
 import { OutputFormat } from '../../output-format';
 import { yarleOptions } from '../../yarle';
@@ -37,7 +38,7 @@ export const wikiStyleLinksRule = {
         const type = nodeProxy.type ? nodeProxy.type.value : undefined ;
         const realValue = yarleOptions.urlEncodeFileNamesAndLinks ? encodeURI(value) : value;
 
-        if (type === 'file'){
+        if (type === 'file') {
             return yarleOptions.outputFormat === OutputFormat.ObsidianMD
                 ? `![[${realValue}]]`
                 : getShortLinkIfPossible(token, value);
@@ -60,7 +61,7 @@ export const wikiStyleLinksRule = {
 
         return (yarleOptions.outputFormat === OutputFormat.ObsidianMD)
         ? `${token['mdKeyword']}[[${realValue} | ${token['text']}]]`
-        : (yarleOptions.outputFormat === OutputFormat.StandardMD)
+        : (yarleOptions.outputFormat === OutputFormat.StandardMD || yarleOptions.outputFormat === OutputFormat.LogSeqMD)
             ? `${token['mdKeyword']}[${token['text']}](${realValue})`
             : `${token['mdKeyword']}[[${realValue}]]`;
     },
@@ -70,4 +71,4 @@ export const getShortLinkIfPossible = (token: any, value: string): string => {
     return (!token['text'] || _.unescape(token['text']) === _.unescape(value))
                 ? yarleOptions.generateNakedUrls ? value : `<${value}>`
                 : `${token['mdKeyword']}[${token['text']}](${value})`;
-}
+};

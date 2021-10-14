@@ -3,7 +3,7 @@
 ![logo](screens/yarle-logo.png)
 
 ![Last Commit](https://img.shields.io/github/last-commit/akosbalasko/yarle?style=for-the-badge)  
-![Version](https://img.shields.io/badge/version-4.2.3-blue?style=for-the-badge)
+![Version](https://img.shields.io/badge/version-4.5.0-blue?style=for-the-badge)
 [![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen?style=for-the-badge)](https://github.com/akosbalasko/yarle#readme)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green?style=for-the-badge)](https://github.com/akosbalasko/yarle/graphs/commit-activity)
 [![License: MIT](https://img.shields.io/github/license/akosbalasko/yarle?style=for-the-badge)](https://github.com/akosbalasko/yarle/blob/master/LICENSE)
@@ -39,13 +39,13 @@ Yarle is the ultimate converter of Evernote notes to Markdown.
 
 ## Binaries: 
 
-[Windows](https://github.com/akosbalasko/yarle/releases/download/v4.2.3/yarle-evernote-to-md-4.2.3.Setup.exe)
+[Windows](https://github.com/akosbalasko/yarle/releases/download/v4.5.0/yarle-evernote-to-md-4.5.0.Setup.exe)
 
-[Linux (.rpm)](https://github.com/akosbalasko/yarle/releases/download/v4.2.3/yarle-evernote-to-md-4.2.3-1.x86_64.rpm)
+[Linux (.rpm)](https://github.com/akosbalasko/yarle/releases/download/v4.5.0/yarle-evernote-to-md-4.5.0-1.x86_64.rpm)
 
-[Debian (.deb)](https://github.com/akosbalasko/yarle/releases/download/v4.2.3/yarle-evernote-to-md_4.2.3_amd64.deb)
+[Debian (.deb)](https://github.com/akosbalasko/yarle/releases/download/v4.5.0/yarle-evernote-to-md_4.5.0_amd64.deb)
 
-[Mac](https://github.com/akosbalasko/yarle/releases/download/v4.2.3/yarle-evernote-to-md-darwin-x64-4.2.3.zip)
+[Mac](https://github.com/akosbalasko/yarle/releases/download/v4.5.0/yarle-evernote-to-md-darwin-x64-4.5.0.zip)
 
 ## Feedback, Appreciation, Donation:
 If you have an idea on how to improve the tool or face any problems, feel free to raise an issue, or even contribute!  
@@ -57,6 +57,8 @@ If you like the product, you can give a star here on github, or you can <a href=
 Download the desktop app for your platform, and follow the instructions there.
 
 ![out](https://user-images.githubusercontent.com/11886731/114092375-1a72c400-98ba-11eb-9c74-300d1e4c0829.gif)
+
+ In order to perform conversion into Logseq format, please choose Logseq as Target format in the configuration panel, then choose the type of your notes (Journal Notes or Pages). For Logseq all the other options have already been pre-configured. 
 
 
 ## Prerequisite for legacy versions (below 4.0.0):
@@ -97,7 +99,17 @@ To configure Yarle, you must create a config file. By default it looks like this
       "separatorInEN": "_",
       "replaceSeparatorWith": "/",
       "replaceSpaceWith": "-"
-   }
+   },
+   "resourcesDir": "resources",
+   "turndownOptions": {
+      "headingStyle": "atx"
+   },
+   "dateFormat": "YYYY-MM-DD",
+   "haveEnexLevelResources": true,
+    "logseqSettings":{
+        "journalNotes": false
+    }
+
 }
 ```
 The following configurational properties are available:
@@ -120,9 +132,9 @@ The following configurational properties are available:
 | ```keepImageSize``` | `ObsidianMD` or `StandardMD` | preserve an image's width and height in the chosen format when specified
 | ```urlEncodeFileNamesAndLinks``` | true or false | URL-encodes linked file names and internal EN links . e.g "linked file.jpg" will be converted to "linked%20file.jpg" 
 | ```keepOriginalAmountOfNewlines``` | true or false | keep the original amount of newlines, default is false, when the multiple newlines are collapsed to one. 
-| ```generateNakedUrls``` | true or false | if it's true, Yarle generates 'naked' external Urls without any extra characters. If its false, external Urls are wrapped by  '<' and '>' characters 
- 
-| ```addExtensionToInternalLinks``` | true or false | adds '.md' extensions at the end of internal file links, to make them recognizable by DevonThink and other tools 
-| ```turndownOptions``` | `{...}` | additional configuration options for [turndown](https://github.com/mixmark-io/turndown#options), e.g., `{ "bulletListMarker": "-" }` (only in Yarle config file, not desktop app) 
+| ```generateNakedUrls``` | true or false | if it's true, Yarle generates 'naked' external Urls without any extra characters. If its false, external Urls are wrapped by  '<' and '>' characters  
+| ```addExtensionToInternalLinks``` | true or false | adds '.md' extensions at the end of internal file links, to make them recognizable by DevonThink and other tools 
+| ```turndownOptions``` | `{...}` | additional configuration options for [turndown](https://github.com/mixmark-io/turndown#options), e.g., `{ "bulletListMarker": "-" }` (only in Yarle config file, not desktop app)
+| ```logseqSettings``` | `{...}` | settings for Logseq output, currently ```journalNotes``` property is supported, if it is set to `true`, then the notes will be converted to be recognizable by Logseq as Journal notes, the notes will be named by their creation date and they will be collected under `journal` folder. If it is `false`, then they will be converted to be `Pages` (e.g. simple notes, collected in `pages` folder).
 
 Metadata settings can be set via the template.

@@ -9,7 +9,13 @@ import { YarleOptions } from './YarleOptions';
 import { processNode } from './process-node';
 import { isWebClip } from './utils/note-utils';
 import { loggerInfo } from './utils/loggerInfo';
-import { hasCreationTimeInTemplate, hasLocationInTemplate, hasSourceURLInTemplate, hasTagsInTemplate, hasUpdateTimeInTemplate, hasNotebookInTemplate, hasLinkToOriginalInTemplate } from './utils/templates/checker-functions';
+import { hasCreationTimeInTemplate,
+  hasLinkToOriginalInTemplate,
+  hasLocationInTemplate,
+  hasNotebookInTemplate,
+  hasSourceURLInTemplate,
+  hasTagsInTemplate,
+  hasUpdateTimeInTemplate } from './utils/templates/checker-functions';
 import { defaultTemplate } from './utils/templates/default-template';
 import { OutputFormat } from './output-format';
 import { clearLogFile } from './utils/clearLogFile';
@@ -27,7 +33,7 @@ export const defaultYarleOptions: YarleOptions = {
   nestedTags: {
     separatorInEN: '_',
     replaceSeparatorWith: '/',
-    replaceSpaceWith: '-'
+    replaceSpaceWith: '-',
   },
   outputFormat: OutputFormat.StandardMD,
   urlEncodeFileNamesAndLinks: false,
@@ -43,7 +49,7 @@ export let yarleOptions: YarleOptions = { ...defaultYarleOptions };
 const setOptions = (options: YarleOptions): void => {
   yarleOptions = merge({}, defaultYarleOptions, options);
 
-  let template = (yarleOptions.templateFile)  ?  fs.readFileSync(yarleOptions.templateFile, 'utf-8'): defaultTemplate;
+  let template = (yarleOptions.templateFile)  ?  fs.readFileSync(yarleOptions.templateFile, 'utf-8') : defaultTemplate;
   template = yarleOptions.currentTemplate ? yarleOptions.currentTemplate : template;
 
   /*if (yarleOptions.templateFile) {*/
@@ -59,7 +65,7 @@ const setOptions = (options: YarleOptions): void => {
   yarleOptions.currentTemplate = template;
 
   loggerInfo(`Current config is: ${JSON.stringify(yarleOptions, null, 4)}`);
-  loggerInfo(`Path separator:${path.sep}`)
+  loggerInfo(`Path separator:${path.sep}`);
   /*}*/
 };
 
@@ -111,7 +117,7 @@ export const parseStream = async (options: YarleOptions, enexSource: string): Pr
     xml.on('end', () => {
       const success = noteNumber - failed;
       const totalNotes = noteNumber + skipped;
-      loggerInfo("==========================");
+      loggerInfo('==========================');
       loggerInfo(
         `Conversion finished: ${success} succeeded, ${skipped} skipped, ${failed} failed. Total notes: ${totalNotes}`,
       );
@@ -126,7 +132,7 @@ export const parseStream = async (options: YarleOptions, enexSource: string): Pr
 export const dropTheRope = async (options: YarleOptions): Promise<void> => {
   clearLogFile();
   setOptions(options);
-  for (const enex of options.enexSources){
+  for (const enex of options.enexSources) {
     utils.setPaths(enex);
     await parseStream(options, enex);
   }

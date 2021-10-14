@@ -10,6 +10,6 @@ export const logger = createLogger({
     // - Write all logs error (and below) to `quick-start-error.log`.
     //
     new transports.File({ filename: path.join(__dirname, 'error.log'), level: 'error' }),
-    new transports.File({ filename: path.join(__dirname,'conversion.log'), options: { flags: 'w' }})
-  ]
+    new transports.File({ filename: path.join(__dirname, 'conversion.log'), options: { flags: 'w' }}),
+  ],
 });

@@ -1,5 +1,5 @@
 import Moment from 'moment';
-import { utimesSync } from 'fs'
+import { utimesSync } from 'fs';
 import { utimes } from 'utimes';
 
 import { yarleOptions } from './../yarle';
@@ -68,16 +68,15 @@ export const logTags = (note: any): string => {
       let cleanTag = tag
         .toString()
         .replace(/^#/, '');
-      if (tagOptions){
-        
+      if (tagOptions) {
         cleanTag = cleanTag.replace(new RegExp(tagOptions.separatorInEN, 'g'), tagOptions.replaceSeparatorWith);
       }
 
       const replaceSpaceWith = (tagOptions && tagOptions.replaceSpaceWith) || '-';
-      
-      cleanTag = cleanTag.replace(/ /g, replaceSpaceWith)
-      
-      return `${yarleOptions.useHashTags ? '#': ''}${cleanTag}`;
+
+      cleanTag = cleanTag.replace(/ /g, replaceSpaceWith);
+
+      return `${yarleOptions.useHashTags ? '#' : ''}${cleanTag}`;
     });
 
     return tags.join(' ');

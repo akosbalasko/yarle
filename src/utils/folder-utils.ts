@@ -1,12 +1,14 @@
 import fsExtra from 'fs-extra';
 import fs from 'fs';
 import * as path from 'path';
+
 import { Path } from '../paths';
 import { yarleOptions } from '../yarle';
 
 import { getNoteFileName, getNoteName } from './filename-utils';
 import { loggerInfo } from './loggerInfo';
 import { logger } from './logger';
+import { OutputFormat } from './../output-format';
 
 export const paths: Path = {};
 
@@ -49,20 +51,20 @@ export const getAbsoluteResourceDir = (note: any): string => {
 
 const resourceDirClears = new Map<string, number>();
 export const clearResourceDir = (note: any): void => {
-  const path = getAbsoluteResourceDir(note);
-  if (!resourceDirClears.has(path)) {
-    resourceDirClears.set(path, 0);
+  const absResourcePath = getAbsoluteResourceDir(note);
+  if (!resourceDirClears.has(absResourcePath)) {
+    resourceDirClears.set(absResourcePath, 0);
   }
 
-  const clears = resourceDirClears.get(path);
+  const clears = resourceDirClears.get(absResourcePath);
 
   // we're sharing a resource dir, so we can can't clean it more than once
   if (yarleOptions.haveEnexLevelResources && clears >= 1) {
     return;
   }
 
-  clearDistDir(path);
-  resourceDirClears.set(path, clears + 1);
+  clearDistDir(absResourcePath);
+  resourceDirClears.set(absResourcePath, clears + 1);
 };
 
 export const clearResourceDistDir = (): void => {
@@ -85,13 +87,20 @@ export const setPaths = (enexSource: string): void => {
 
   paths.mdPath = `${outputDir}${path.sep}notes${path.sep}`;
   paths.resourcePath = `${outputDir}${path.sep}notes${path.sep}${yarleOptions.resourcesDir}`;
+
   // loggerInfo(`Skip enex filename from output? ${yarleOptions.skipEnexFileNameFromOutputPath}`);
   if (!yarleOptions.skipEnexFileNameFromOutputPath) {
     paths.mdPath = `${paths.mdPath}${enexFile}`;
     // loggerInfo(`mdPath: ${paths.mdPath}`);
-
     paths.resourcePath = `${outputDir}${path.sep}notes${path.sep}${enexFile}${path.sep}${yarleOptions.resourcesDir}`;
   }
+
+  if (yarleOptions.outputFormat === OutputFormat.LogSeqMD) {
+    const folderName = yarleOptions.logseqSettings.journalNotes ? 'journal' : 'pages';
+    paths.mdPath = `${outputDir}${path.sep}${folderName}${path.sep}`;
+    paths.resourcePath = `${outputDir}${path.sep}${yarleOptions.resourcesDir}`;
+  }
+
   fsExtra.mkdirsSync(paths.mdPath);
   fsExtra.mkdirsSync(paths.resourcePath);
   loggerInfo(`path ${paths.mdPath} created`);

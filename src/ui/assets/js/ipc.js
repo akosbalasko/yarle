@@ -50,15 +50,8 @@ window.ipc = window.ipc || {},
 function(n) {
     ipc.messaging = {
 
-      sendOpenSecondWindowEvent: function() {
-        ipcRenderer.send('open-second-window', 'an-argument')
-      },
-
-      sendCloseSecondWindowEvent: function() {
-        ipcRenderer.send('close-second-window', 'an-argument')
-      },
-
       sendConfigValueChangedEvent: function(e) {
+
         ipcRenderer.send('configurationUpdated',
         {
           id: e.target.id,
@@ -78,6 +71,7 @@ function(n) {
 
         const inputs = document.querySelectorAll('input');
         for (const input of inputs) {
+
           input.addEventListener('input', ipc.messaging.sendConfigValueChangedEvent);
         }
         const selects = document.querySelectorAll('select');
@@ -97,7 +91,7 @@ function(n) {
           console.log(JSON.stringify(parameters));
           ipc.messaging.sendSaveTemplateEvent(parameters);
         })
-
+        document.getElementById('logseqSettings.journalNotes.container').style.display = 'none';
       }
     };
 
