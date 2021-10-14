@@ -105,7 +105,7 @@ export const getNoteName = (dstPath: string, note: any): string => {
 
     noteName = (nextIndex === 0) ? fileNamePrefix :  `${fileNamePrefix}.${nextIndex}`;
   }
-  if (yarleOptions.outputFormat === OutputFormat.LogSeqMD) {
+  if (yarleOptions.outputFormat === OutputFormat.LogSeqMD && yarleOptions.logseqSettings.journalNotes) {
     return getCreationTime(note);
   }
 
