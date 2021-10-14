@@ -1,6 +1,6 @@
 {
   "name": "yarle-evernote-to-md",
-  "version": "4.5.1",
+  "version": "4.5.2",
   "description": "Yet Another Rope Ladder from Evernote",
   "keywords": [
     "evernote",
@@ -62,7 +62,7 @@
     "turndown": "7.0.0",
     "utimes": "4.0.3",
     "winston": "3.3.3",
-    "electron-store": "6.0.1",
+    "electron-store": "8.0.1",
     "xml-flow": "1.0.4"
   },
   "engines": {

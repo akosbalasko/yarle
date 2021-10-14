@@ -11,6 +11,11 @@ import { store } from './store';
 import { mapSettingsToYarleOptions } from './settingsMapper';
 import { OutputFormat } from './../output-format';
 
+// tslint:disable-next-line:variable-name
+const Store = require('electron-store');
+
+Store.initRenderer();
+
 // handle setupevents as quickly as possible
 // tslint:disable-next-line:no-require-imports
 const setupEvents = require('./installers/setupEvents');
@@ -70,7 +75,7 @@ function createWindow() {
   });
 
   mainWindow.once('ready-to-show', () => {
-
+    store.set('outputFormat', OutputFormat.ObsidianMD);
     store.onDidChange('outputFormat', (newValue: any, oldValue: any) => {
       const logSeqConfig = fs.readFileSync(`${__dirname}/../../config.logseq.json`, 'utf-8');
       if (newValue === OutputFormat.LogSeqMD) {
@@ -165,7 +170,6 @@ electron.ipcMain.on('selectOutputFolder', () => {
 
 electron.ipcMain.on('configurationUpdated', (event: any, data: any) => {
 
-  // console.log("this is the firstname from the form ->", data)
   store.set(data.id, data.value);
   loggerInfo(`config: ${data.id}: ${JSON.stringify(store.get(data.id))}`);
 
