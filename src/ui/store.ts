@@ -1,5 +1,5 @@
 // tslint:disable-next-line:no-require-imports
-import  Store = require('electron-store');
+import Store = require('electron-store');
 
 import { OutputFormat } from './../output-format';
 
@@ -29,4 +29,4 @@ const schema: any = {
     resourcesDir: {tyle: 'string', default: '_resources'},
 };
 
-export const store = new Store({schema});
+export const store = new Store({schema, watch: true});

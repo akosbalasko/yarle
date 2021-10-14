@@ -32,6 +32,7 @@ const BrowserWindow = electron.BrowserWindow;
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow: any;
 let secondWindow: any;
+const defaultTemplate = fs.readFileSync(`${__dirname}/../../sampleTemplate.tmpl`, 'utf-8');
 
 // tslint:disable-next-line:typedef
 function createWindow() {
@@ -49,17 +50,6 @@ function createWindow() {
     },
   });
 
-  // and load the index.html of the app.
-  mainWindow.loadURL(`file://${__dirname}/index.html`);
-
-  // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
-
-  // Show the mainwindow when it is loaded and ready to show
-  /*mainWindow.once('ready-to-show', () => {
-    mainWindow.show();
-  });
-*/
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
     // Dereference the window object, usually you would store windows
@@ -67,22 +57,6 @@ function createWindow() {
     // when you should delete the corresponding element.
     mainWindow = null;
   });
-
-  secondWindow = new BrowserWindow({frame: false,
-    width: 800,
-    height: 600,
-    minWidth: 800,
-    minHeight: 600,
-    backgroundColor: '#312450',
-    show: false,
-    icon: path.join(__dirname, 'assets/icons/png/64x64.png'),
-    parent: mainWindow,
-    webPreferences: {
-      nodeIntegration: true,
-    },
-  });
-
-  secondWindow.loadURL(`file://${__dirname}/windows/ipcwindow.html`);
 
   mainWindow.loadURL(
     url.format({
@@ -97,35 +71,28 @@ function createWindow() {
   mainWindow.on('closed', () => {
     mainWindow = null;
   });
+
   mainWindow.once('ready-to-show', () => {
-    // tslint:disable-next-line:no-console
-    console.log(`${__dirname}/../../sampleTemplate.tmpl`);
-    const defaultTemplate = fs.readFileSync(`${__dirname}/../../sampleTemplate.tmpl`, 'utf-8');
-    mainWindow.webContents.send('defaultTemplateLoaded', defaultTemplate);
-    mainWindow.webContents.send('storedSettingsLoaded', store.store);
+
     store.onDidChange('outputFormat', (newValue: any, oldValue: any) => {
       const logSeqConfig = fs.readFileSync(`${__dirname}/../../config.logseq.json`, 'utf-8');
-      // tslint:disable-next-line:no-console
       if (newValue === OutputFormat.LogSeqMD) {
         const logSeqTemplate = fs.readFileSync(`${__dirname}/../../sampleTemplate_logseq.tmpl`, 'utf-8');
         mainWindow.webContents.send('logSeqModeSelected', logSeqConfig, logSeqTemplate);
       } else {
-        mainWindow.webContents.send('logSeqModeDeselected', logSeqConfig, defaultTemplate);
+        const defaultConfig = fs.readFileSync(`${__dirname}/../../config.json`, 'utf-8');
+
+        mainWindow.webContents.send('logSeqModeDeselected', defaultConfig, defaultTemplate);
       }
     });
     mainWindow.show();
+    const defaultConfig = fs.readFileSync(`${__dirname}/../../config.json`, 'utf-8');
+
+    mainWindow.webContents.send('logSeqModeDeselected', defaultConfig, defaultTemplate);
 
   });
 
 }
-
-electron.ipcMain.on('open-second-window', (event: any, arg: any) => {
-    secondWindow.show();
-});
-
-electron.ipcMain.on('close-second-window', (event: any, arg: any) => {
-    secondWindow.hide();
-});
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -147,19 +114,6 @@ app.on('activate', () => {
   if (mainWindow === null) {
     createWindow();
   }
-});
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
-
-app.on('ready', createWindow);
-
-app.on('window-all-closed', () => {
-  app.quit();
-});
-
-app.on('activate', () => {
-  if (mainWindow === null) { createWindow(); }
 });
 
 // In this file you can include the rest of your app's specific main process

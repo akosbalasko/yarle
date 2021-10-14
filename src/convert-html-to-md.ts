@@ -52,12 +52,9 @@ export const convertHtml2Md = (yarleOptions: YarleOptions, { htmlContent }: Note
     if (yarleOptions.outputFormat === OutputFormat.LogSeqMD) {
 
       contentInMd = contentInMd.replace(/\n/g, '\n- ') // add a "- " at each new line
-      .replace(/\r/g, '\n')
-
+      // .replace(/\r/g, '\n')
       .replace(/<br>/g, '[:br]')// fix new line in table
-
       .replace(/- \|/g, ' |')// fix table problem
-
       .replace(/- __\n/g, '- \n')// fix empty bold/italic
       .replace(/- \*\*\*\*\n/g, '- \n')
       .replace(/- _\*\*\*\*_\n/g, '- \n')

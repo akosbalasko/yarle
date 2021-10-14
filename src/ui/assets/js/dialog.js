@@ -35,6 +35,25 @@ const updateConfigStore = (configItemName, value) => {
     value
   });
 }
+const updateDomByFlatConfig = (flatConfig, disable) => {
+  for (const configItem in flatConfig){
+    if (configItem !== 'outputFormat'){
+      const domItem = document.getElementById(configItem);
+      if (domItem){
+        if (domItem.getAttribute('type') === 'checkbox'){
+          document.getElementById(configItem).checked = flatConfig[configItem];
+        } else {
+          document.getElementById(configItem).value = flatConfig[configItem];
+        }
+      document.getElementById(configItem).disabled = disable;
+
+      }
+      updateConfigStore(configItem, flatConfig[configItem]);
+      
+    }
+  }
+}
+
 ipcRenderer.on('open-dialog-paths-selected', (event, arg)=> {
   dialog.handler.outputSelectedPathsFromOpenDialog(arg);
 })
@@ -59,45 +78,25 @@ ipcRenderer.on('defaultTemplateLoaded', (event, store) => {
 ipcRenderer.on('logSeqModeSelected', (event, config, template) => {
 
   const flatConfig = flatten(JSON.parse(config));
-  for (const configItem in flatConfig){
-    if (configItem !== 'outputFormat'){
-      const domItem = document.getElementById(configItem);
-      if (domItem){
-        if (domItem.getAttribute('type') === 'checkbox'){
-          document.getElementById(configItem).checked = flatConfig[configItem]
-        } else if ( domItem.getAttribute('type') == 'text'){
-          document.getElementById(configItem).value = flatConfig[configItem]
-        }
-      
-        document.getElementById(configItem).disabled = true;
-      }
-      updateConfigStore(configItem, flatConfig[configItem]);
-      
-    }
-    document.getElementById('logseqSettings.journalNotes.container').style.display = 'block';
+  flatConfig.currentTemplate = template;
+  updateDomByFlatConfig(flatConfig, true);
+  document.getElementById('currentTemplate').disabled = false;
+  document.getElementById('logseqSettings.journalNotes').disabled = false;
 
-  }
+  document.getElementById('logseqSettings.journalNotes.container').style.display = 'block';
 
-// TODO: add logseq.notetype property : journal/pages. if it's journal, then name the file after the creation date, and set to folder to journal
   });
-ipcRenderer.on('logSeqModeDeselected', (event, config, store) => {
+ipcRenderer.on('logSeqModeDeselected', (event, config, template) => {
 
   const flatConfig = flatten(JSON.parse(config));
-  for (const configItem in flatConfig){
-    if (configItem !== 'outputFormat'){
-      const domItem = document.getElementById(configItem);
-      if (domItem){
-        document.getElementById(configItem).disabled = false;
-    
-      }
-    }
-  }
+  updateDomByFlatConfig(flatConfig, false);
+  document.getElementById('currentTemplate').value = template;
 
   document.getElementById('resourcesDir').value = '_resources';
   document.getElementById('logseqSettings.journalNotes.container').style.display = 'none';
 
   updateConfigStore('resourcesDir', '_resources');
-
+  updateConfigStore('currentTemplate', template);
 });
 window.dialog = window.dialog || {},
 function(n) {

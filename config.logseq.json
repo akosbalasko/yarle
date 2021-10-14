@@ -28,7 +28,6 @@
     "skipEnexFileNameFromOutputPath": false,
     "keepMDCharactersOfENNotes": false,
     "monospaceIsCodeBlock": false,
-    "currentTemplate": "{content-block}{content}{end-content-block}",
     "keepOriginalAmountOfNewlines": true,
     "haveEnexLevelResources": true,
     "logseqSettings":{

@@ -50,14 +50,6 @@ window.ipc = window.ipc || {},
 function(n) {
     ipc.messaging = {
 
-      sendOpenSecondWindowEvent: function() {
-        ipcRenderer.send('open-second-window', 'an-argument')
-      },
-
-      sendCloseSecondWindowEvent: function() {
-        ipcRenderer.send('close-second-window', 'an-argument')
-      },
-
       sendConfigValueChangedEvent: function(e) {
 
         ipcRenderer.send('configurationUpdated',
