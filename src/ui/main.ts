@@ -21,8 +21,6 @@ const setupEvents = require('./installers/setupEvents');
 
 // Module to control application life.
 const app = electron.app;
-// tslint:disable-next-line:no-require-imports
-require('./dialog/dialog');
 
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow;
@@ -31,7 +29,6 @@ const BrowserWindow = electron.BrowserWindow;
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow: any;
-let secondWindow: any;
 const defaultTemplate = fs.readFileSync(`${__dirname}/../../sampleTemplate.tmpl`, 'utf-8');
 
 // tslint:disable-next-line:typedef
