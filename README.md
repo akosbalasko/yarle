@@ -3,7 +3,7 @@
 ![logo](screens/yarle-logo.png)
 
 ![Last Commit](https://img.shields.io/github/last-commit/akosbalasko/yarle?style=for-the-badge)  
-![Version](https://img.shields.io/badge/version-4.5.0-blue?style=for-the-badge)
+![Version](https://img.shields.io/badge/version-4.5.1-blue?style=for-the-badge)
 [![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen?style=for-the-badge)](https://github.com/akosbalasko/yarle#readme)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green?style=for-the-badge)](https://github.com/akosbalasko/yarle/graphs/commit-activity)
 [![License: MIT](https://img.shields.io/github/license/akosbalasko/yarle?style=for-the-badge)](https://github.com/akosbalasko/yarle/blob/master/LICENSE)
@@ -37,15 +37,16 @@ Yarle is the ultimate converter of Evernote notes to Markdown.
 - :hammer: Updates md files' creation, access, and modification timestamps according to the notes' original create/update/modification time.
 - :hammer: Organizes all attachments into a _resources subfolder (to keep the notes' folder as simple as possible).
 
+
 ## Binaries: 
 
-[Windows](https://github.com/akosbalasko/yarle/releases/download/v4.5.0/yarle-evernote-to-md-4.5.0.Setup.exe)
+[Windows](https://github.com/akosbalasko/yarle/releases/download/v4.5.1/yarle-evernote-to-md-4.5.1.Setup.exe)
 
-[Linux (.rpm)](https://github.com/akosbalasko/yarle/releases/download/v4.5.0/yarle-evernote-to-md-4.5.0-1.x86_64.rpm)
+[Linux (.rpm)](https://github.com/akosbalasko/yarle/releases/download/v4.5.1/yarle-evernote-to-md-4.5.1-1.x86_64.rpm)
 
-[Debian (.deb)](https://github.com/akosbalasko/yarle/releases/download/v4.5.0/yarle-evernote-to-md_4.5.0_amd64.deb)
+[Debian (.deb)](https://github.com/akosbalasko/yarle/releases/download/v4.5.1/yarle-evernote-to-md_4.5.1_amd64.deb)
 
-[Mac](https://github.com/akosbalasko/yarle/releases/download/v4.5.0/yarle-evernote-to-md-darwin-x64-4.5.0.zip)
+[Mac](https://github.com/akosbalasko/yarle/releases/download/v4.5.1/yarle-evernote-to-md-darwin-x64-4.5.1.zip)
 
 ## Feedback, Appreciation, Donation:
 If you have an idea on how to improve the tool or face any problems, feel free to raise an issue, or even contribute!  
