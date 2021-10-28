@@ -6,7 +6,7 @@ const schema: any = {
     type: 'boolean',
     default: true,
   },
-    enexSources: {type: 'array'},
+    enexSources: {},
     // templateFile: {type: 'string'},
     outputDir: {type: 'string'},
     // isMetadataNeeded: { type: 'boolean', default: false },
