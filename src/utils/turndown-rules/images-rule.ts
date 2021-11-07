@@ -22,7 +22,11 @@ export const imagesRule = {
 
       return `![](${realValue} =${widthParam}x${heightParam})`;
     } else if (yarleOptions.keepImageSize === OutputFormat.ObsidianMD) {
-      return `![|${node.width}x${node.height}](${realValue})`;
+      if (realValue.startsWith('./')) {
+        return `![[${realValue}|${node.width}x${node.height}]]`; // embedded syntax
+      } else {
+        return `![|${node.width}x${node.height}](${realValue})`;
+      }
     }
 
     const useObsidianMD = yarleOptions.outputFormat === OutputFormat.ObsidianMD;
