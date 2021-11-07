@@ -13,19 +13,20 @@ export const imagesRule = {
       return '';
     }
     const value = nodeProxy.src.value;
+    const widthParam = node.width || '';
+    const heightParam = node.height || '';
     const realValue = yarleOptions.urlEncodeFileNamesAndLinks ? encodeURI(value) : value;
 
     // while this isn't really a standard, it is common enough
     if (yarleOptions.keepImageSize === OutputFormat.StandardMD || yarleOptions.keepImageSize === OutputFormat.LogSeqMD) {
-      const widthParam = node.width || '';
-      const heightParam = node.height || '';
-
-      return `![](${realValue} =${widthParam}x${heightParam})`;
+      const sizeString = (widthParam || heightParam) ? ` =${widthParam}x${heightParam}` : '';
+      return `![](${realValue}${sizeString})`;
     } else if (yarleOptions.keepImageSize === OutputFormat.ObsidianMD) {
       if (realValue.startsWith('./')) {
-        return `![[${realValue}|${node.width}x${node.height}]]`; // embedded syntax
+        const sizeString = (widthParam || heightParam) ? `|${widthParam}x${heightParam}` : '';
+        return `![[${realValue}${sizeString}]]`; 
       } else {
-        return `![|${node.width}x${node.height}](${realValue})`;
+        return `![${sizeString}](${realValue})`; 
       }
     }
 
