@@ -13,7 +13,12 @@ export const imagesRule = {
       return '';
     }
     const value = nodeProxy.src.value;
-    const realValue = yarleOptions.urlEncodeFileNamesAndLinks ? encodeURI(value) : value;
+    let realValue = value;
+    if (yarleOptions.sanitizeResourceNameSpaces) {
+      realValue = realValue.replaceAll(' ', '-');
+    } else if (yarleOptions.urlEncodeFileNamesAndLinks) {
+      realValue = encodeURI(value);
+    }
 
     // while this isn't really a standard, it is common enough
     if (yarleOptions.keepImageSize === OutputFormat.StandardMD || yarleOptions.keepImageSize === OutputFormat.LogSeqMD) {

@@ -34,11 +34,14 @@ export const getResourceFileProperties = (workDir: string, resource: any): Resou
 
   if (resource['resource-attributes'] && resource['resource-attributes']['file-name']) {
     const fileNamePrefix = resource['resource-attributes']['file-name'].substr(0, 50);
-
     fileName = fileNamePrefix.split('.')[0];
-
   }
   fileName = fileName.replace(/[/\\?%*:|"<>]/g, '-');
+
+  if (yarleOptions.sanitizeResourceNameSpaces) {
+    fileName = fileName.replace(/ /g, '-');
+  }
+
   const index = getFileIndex(workDir, fileName);
   const fileNameWithIndex = index > 0 ? `${fileName}.${index}` : fileName;
 
