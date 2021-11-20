@@ -29,6 +29,7 @@ export interface YarleOptions {
     keepMDCharactersOfENNotes?: boolean;
     urlEncodeFileNamesAndLinks?: boolean;
     sanitizeResourceNameSpaces?: boolean;
+    replacementChar?: string;
     monospaceIsCodeBlock?: boolean;
     dateFormat?: string;
     nestedTags?: TagSeparatorReplaceOptions;

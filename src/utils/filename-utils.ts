@@ -10,10 +10,10 @@ import { ResourceFileProperties } from './../models/ResourceFileProperties';
 import { OutputFormat } from './../output-format';
 import { getCreationTime } from './content-utils';
 
-const FILENAME_DELIMITER = '_';
-
 export const normalizeTitle = (title: string) => {
-  return sanitize(title, {replacement: FILENAME_DELIMITER});
+  // Allow setting a specific replacement character for file and resource names
+  // Default to a retrocompatible value
+  return sanitize(title, {replacement: yarleOptions.replacementChar || '_'});
 };
 
 export const getFileIndex = (dstPath: string, fileNamePrefix: string): number | string => {
@@ -39,7 +39,7 @@ export const getResourceFileProperties = (workDir: string, resource: any): Resou
   fileName = fileName.replace(/[/\\?%*:|"<>]/g, '-');
 
   if (yarleOptions.sanitizeResourceNameSpaces) {
-    fileName = fileName.replace(/ /g, '-');
+    fileName = fileName.replace(/ /g, yarleOptions.replacementChar);
   }
 
   const index = getFileIndex(workDir, fileName);

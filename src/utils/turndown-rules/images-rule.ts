@@ -15,9 +15,9 @@ export const imagesRule = {
     const value = nodeProxy.src.value;
     let realValue = value;
     if (yarleOptions.sanitizeResourceNameSpaces) {
-      realValue = realValue.replaceAll(' ', '-');
+      realValue = realValue.replaceAll(' ', yarleOptions.replacementChar);
     } else if (yarleOptions.urlEncodeFileNamesAndLinks) {
-      realValue = encodeURI(value);
+      realValue = encodeURI(realValue);
     }
 
     // while this isn't really a standard, it is common enough
