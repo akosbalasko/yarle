@@ -17,15 +17,13 @@ export const spanRule = {
         if (nodeProxy.style) {
             const nodeValue: string = nodeProxy.style.value;
 
-            if (yarleOptions.outputFormat === OutputFormat.LogSeqMD) {
-                // this aims to care for bold text generated as <span style="font-weight: bold;">Bold</span>
-                if (content !== '<YARLE_NEWLINE_PLACEHOLDER>') {
-                    const hasBold =  nodeValue.includes(BOLD);
-                    const hasItalic =  nodeValue.includes(ITALIC);
-                    if (hasBold && !hasItalic) { return `**${content}**`; }
-                    if (!hasBold && hasItalic) { return `_${content}_`; }
-                    if (hasBold && hasItalic) { return `_**${content}**_`; }
-                }
+            // this aims to care for bold text generated as <span style="font-weight: bold;">Bold</span>
+            if (content !== '<YARLE_NEWLINE_PLACEHOLDER>') {
+                const hasBold =  nodeValue.includes(BOLD);
+                const hasItalic =  nodeValue.includes(ITALIC);
+                if (hasBold && !hasItalic) { return `**${content}**`; }
+                if (!hasBold && hasItalic) { return `_${content}_`; }
+                if (hasBold && hasItalic) { return `_**${content}**_`; }
             }
 
             return nodeValue.includes(EVERNOTE_HIGHLIGHT) || nodeValue.includes(EVERNOTE_COLORHIGHLIGHT) ?
