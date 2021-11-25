@@ -17,10 +17,15 @@ export const normalizeTitle = (title: string) => {
 };
 
 export const getFileIndex = (dstPath: string, fileNamePrefix: string): number | string => {
-
   const index = fs
     .readdirSync(dstPath)
-    .filter(file => file.indexOf(fileNamePrefix) > -1)
+    .filter(file => {
+      // make sure we get the first copy with no count suffix or the copies whose filename changed
+      // drop the extension to compare with filename prefix
+      const filePrefix = file.split('.').slice(0, -1).join('.');
+
+      return filePrefix === fileNamePrefix || file.match(new RegExp(`${fileNamePrefix}\.\\d+\.`));
+    })
     .length;
 
   return index;
@@ -87,7 +92,6 @@ export const getZettelKastelId = (note: any, dstPath: string): string => {
 };
 
 export const getNoteName = (dstPath: string, note: any): string => {
-
   let noteName;
 
   if (yarleOptions.isZettelkastenNeeded) {
