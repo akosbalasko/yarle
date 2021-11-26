@@ -1,0 +1,16 @@
+name: Greetings
+
+on: [pull_request, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: 'Yihaa, thank you for reporting me this issue and to let me improve Yarle!'
+        pr-message: 'Horrray, I am glad to your contribution to Yarle, I do my best to review your improvement.'
