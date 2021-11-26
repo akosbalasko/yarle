@@ -13,3 +13,4 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           issue-label: needs-reply
+          days-before-close: 14
