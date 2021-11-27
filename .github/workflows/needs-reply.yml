@@ -14,3 +14,4 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           issue-label: needs-reply
           days-before-close: 14
+          close-message: It looks like there hasn't been a reply in 14 days, so I'm closing this issue.
