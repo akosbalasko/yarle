@@ -12,7 +12,9 @@ import { getAttributeProxy } from './get-attribute-proxy';
 export const removeBrackets = (str: string): string => {
     return str.replace(/\[|\]/g, '');
 };
-
+export const removeDoubleBackSlashes = (str: string): string => {
+    return str.replace(/\\/g, '');
+};
 export const wikiStyleLinksRule = {
     filter: filterByNodeName('A'),
     replacement: (content: any, node: any) => {
@@ -22,7 +24,9 @@ export const wikiStyleLinksRule = {
             return '';
         }
 
-        const internalTurndownedContent = getTurndownService(yarleOptions).turndown(removeBrackets(node.innerHTML));
+        let internalTurndownedContent =
+            getTurndownService(yarleOptions).turndown(removeBrackets(node.innerHTML));
+        internalTurndownedContent = removeDoubleBackSlashes(internalTurndownedContent);
         const lexer = new marked.Lexer({});
         const tokens = lexer.lex(internalTurndownedContent) as any;
         const extension = yarleOptions.addExtensionToInternalLinks ? '.md' : '';
