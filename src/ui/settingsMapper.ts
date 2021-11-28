@@ -37,7 +37,7 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
         keepOriginalAmountOfNewlines: store.get('keepOriginalAmountOfNewlines') as boolean,
         addExtensionToInternalLinks: store.get('addExtensionToInternalLinks') as boolean,
         generateNakedUrls: store.get('generateNakedUrls') as boolean,
-
+        urlEncodeFileNamesAndLinks: store.get('urlEncodeFileNamesAndLinks') as boolean,
         haveEnexLevelResources: store.get('haveEnexLevelResources') as boolean,
     };
 };
