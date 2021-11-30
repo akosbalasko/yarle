@@ -46,24 +46,31 @@ export const wikiStyleLinksRule = {
         if (value.match(/^(https?:|www\.|file:|ftp:|mailto:)/)) {
             return getShortLinkIfPossible(token, value);
         }
+
+        const displayName = token['text'];
+        const mdKeyword = token['mdKeyword'];
+
+        // handle ObsidianMD internal link display name
+        const omitObsidianLinksDisplayName = yarleOptions.outputFormat === OutputFormat.ObsidianMD
+            && yarleOptions.obsidianSettings.omitLinkDisplayName;
+        const renderedObsidianDisplayName = omitObsidianLinksDisplayName ? '' : `|${displayName}`;
+
         if (value.startsWith('evernote://')) {
-            const fileName = normalizeTitle(token['text']);
-            const displayName = token['text'];
+            const fileName = normalizeTitle(displayName);
             const realFileName = yarleOptions.urlEncodeFileNamesAndLinks ? encodeURI(fileName) : fileName;
 
             if (yarleOptions.outputFormat === OutputFormat.ObsidianMD) {
-                return `${token['mdKeyword']}[[${realFileName}${extension}|${displayName}]]`;
+                return `${mdKeyword}[[${realFileName}${extension}${renderedObsidianDisplayName}]]`;
             }
 
-            return  `${token['mdKeyword']}[${displayName}](${fileName}${extension})`;
-
+            return `${mdKeyword}[${displayName}](${fileName}${extension})`;
         }
 
         return (yarleOptions.outputFormat === OutputFormat.ObsidianMD)
-        ? `${token['mdKeyword']}[[${realValue} | ${token['text']}]]`
+        ? `${mdKeyword}[[${realValue}${renderedObsidianDisplayName}]]`
         : (yarleOptions.outputFormat === OutputFormat.StandardMD || yarleOptions.outputFormat === OutputFormat.LogSeqMD)
-            ? `${token['mdKeyword']}[${token['text']}](${realValue})`
-            : `${token['mdKeyword']}[[${realValue}]]`;
+            ? `${mdKeyword}[${displayName}](${realValue})`
+            : `${mdKeyword}[[${realValue}]]`;
     },
 };
 
