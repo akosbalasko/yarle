@@ -26,6 +26,7 @@ export interface YarleOptions {
     replaceWhitespacesInTagsByUnderscore?: boolean;
     skipEnexFileNameFromOutputPath?: boolean;
     haveEnexLevelResources?: boolean;
+    haveGlobalResources?: boolean;
     keepMDCharactersOfENNotes?: boolean;
     urlEncodeFileNamesAndLinks?: boolean;
     monospaceIsCodeBlock?: boolean;

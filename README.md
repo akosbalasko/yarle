@@ -91,7 +91,6 @@ To configure Yarle, you must create a config file. By default it looks like this
     "outputFormat": "StandardMD",
     "urlEncodeFileNamesAndLinks": false,
     "skipEnexFileNameFromOutputPath": false,
-    "haveEnexLevelResources": false,
     "monospaceIsCodeBlock": false,
     "keepMDCharactersOfENNotes": false,
     "keepOriginalAmountOfNewlines": false,
