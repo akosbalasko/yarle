@@ -41,9 +41,9 @@ export const run = async (opts?: YarleOptions) => {
         const fileName: string = (linkProps as any)['title'];
         const notebookName: string = (linkProps as any)['notebookName'];
         const encodedFileName = options.urlEncodeFileNamesAndLinks ? encodeURI(fileName as string) : fileName as string;
-        let realFileName = encodedFileName;
 
         for (const notebookFolder of outputNotebookFolders) {
+            let realFileName = encodedFileName;
             if (notebookName && !notebookFolder.endsWith(notebookName)) {
                 realFileName = `${notebookName}${path.sep}${encodedFileName}`;
             }
