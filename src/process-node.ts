@@ -14,12 +14,16 @@ import { convertHtml2Md } from './convert-html-to-md';
 import { convert2Html } from './convert-to-html';
 import { NoteData } from './models/NoteData';
 import { loggerInfo } from './utils/loggerInfo';
-
+import { isTOC } from './utils/is-toc';
+import { RuntimePropertiesSingleton } from './runtime-properties';
 export const processNode = (note: any, notebookName: string): void => {
 
   const dateStarted: Date = new Date();
   loggerInfo(EOL);
   loggerInfo(`Conversion started at ${dateStarted}`);
+
+  const runtimeProps = RuntimePropertiesSingleton.getInstance();
+  runtimeProps.setCurrentNoteName(note.title);
 
   if (Array.isArray(note.content)) {
     note.content = note.content.join('');
@@ -54,6 +58,11 @@ export const processNode = (note: any, notebookName: string): void => {
       convert2Html(noteData);
       saveHtmlFile(noteData, note);
     }
+
+    /* if (isTOC(noteData.title)) {
+      const  noteIdNameMap = RuntimePropertiesSingleton.getInstance();
+      noteIdNameMap.extendNoteIdNameMap(noteData);
+    }*/
 
   } catch (e) {
     // tslint:disable-next-line:no-console

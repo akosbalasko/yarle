@@ -8,6 +8,7 @@ import * as yarle from './yarle';
 import { YarleOptions } from './YarleOptions';
 import { loggerInfo } from './utils/loggerInfo';
 import { clearLogFile } from './utils/clearLogFile';
+import { RuntimePropertiesSingleton } from './runtime-properties';
 
 export const run = async (opts?: YarleOptions) => {
     clearLogFile();
@@ -22,8 +23,6 @@ export const run = async (opts?: YarleOptions) => {
     const options: YarleOptions = {...require(configFile), ...opts};
     if (options.enexSources.length === 1 && options.enexSources[0].endsWith('.enex')) {
         loggerInfo(`Converting notes in file: ${options.enexSources}`);
-        await yarle.dropTheRope(options);
-
     } else {
         const enexFiles = fs
             .readdirSync(options.enexSources[0])
@@ -32,6 +31,41 @@ export const run = async (opts?: YarleOptions) => {
             });
 
         options.enexSources = enexFiles.map(enexFile => `${options.enexSources[0]}/${enexFile}`);
-        await yarle.dropTheRope(options);
     }
+    const outputNotebookFolders = await yarle.dropTheRope(options);
+
+    // apply internal links
+    const linkNameMap = RuntimePropertiesSingleton.getInstance();
+    const allLinks = linkNameMap.getAllNoteIdNameMap();
+    for (const [linkName, linkProps] of Object.entries(allLinks)) {
+        const fileName: string = (linkProps as any)['title'];
+        const notebookName: string = (linkProps as any)['notebookName'];
+        const encodedFileName = options.urlEncodeFileNamesAndLinks ? encodeURI(fileName as string) : fileName as string;
+        let realFileName = encodedFileName;
+
+        for (const notebookFolder of outputNotebookFolders) {
+            if (notebookName && !notebookFolder.endsWith(notebookName)) {
+                realFileName = `${notebookName}${path.sep}${encodedFileName}`;
+            }
+            const filesInOutputDir = fs.readdirSync(notebookFolder);
+            const extension = '.md';
+
+            const targetFiles = filesInOutputDir.filter(file => {
+                return path.extname(file).toLowerCase() === extension;
+            });
+            for (const targetFile of targetFiles) {
+                const fileContent = fs.readFileSync(`${notebookFolder}${path.sep}${targetFile}`, 'UTF-8');
+                const escapedLinkName = escapeEntity(linkName);
+                const regexp = new RegExp(escapedLinkName, 'g');
+                const updatedContent = fileContent.replace(regexp, realFileName);
+                if (fileContent !== updatedContent) {
+                    fs.writeFileSync(`${notebookFolder}${path.sep}${targetFile}`, updatedContent);
+                }
+            }
+        }
+    }
+};
+
+const escapeEntity = (entity: string): string => {
+    return entity.replace(/\//g, '\\/');
 };
