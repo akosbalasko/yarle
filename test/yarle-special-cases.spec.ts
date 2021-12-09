@@ -430,7 +430,7 @@ describe('Yarle special cases', async () => {
 
   it('Multiple enex files with interEnex links', async () => {
     const options: YarleOptions = {
-      enexSources: [ `${testDataFolder}${path.sep}LinkedInterNotebooks` ],
+      enexSources: [ `${testDataFolder}/LinkedInterNotebooks` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
