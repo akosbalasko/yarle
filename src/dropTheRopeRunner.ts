@@ -44,8 +44,10 @@ export const run = async (opts?: YarleOptions) => {
 
         for (const notebookFolder of outputNotebookFolders) {
             let realFileName = encodedFileName;
+            let realFileNameInContent = encodedFileName;
             if (notebookName && !notebookFolder.endsWith(notebookName)) {
-                realFileName = `${notebookName}/${encodedFileName}`;
+                realFileName = `${notebookName}${encodedFileName}`;
+                realFileNameInContent = `${notebookName}/${encodedFileName}`;
             }
             const filesInOutputDir = fs.readdirSync(notebookFolder);
             console.log(`Files in output dir: ${JSON.stringify(filesInOutputDir)}`);
@@ -61,7 +63,7 @@ export const run = async (opts?: YarleOptions) => {
                 const fileContent = fs.readFileSync(`${notebookFolder}${path.sep}${targetFile}`, 'UTF-8');
                 const escapedLinkName = escapeEntity(linkName);
                 const regexp = new RegExp(escapedLinkName, 'g');
-                const updatedContent = fileContent.replace(regexp, realFileName);
+                const updatedContent = fileContent.replace(regexp, realFileNameInContent);
                 if (fileContent !== updatedContent) {
                     console.log(`replaced output written to: ${notebookFolder}${path.sep}${targetFile}`);
                     fs.writeFileSync(`${notebookFolder}${path.sep}${targetFile}`, updatedContent);
