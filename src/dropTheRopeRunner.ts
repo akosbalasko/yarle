@@ -45,7 +45,7 @@ export const run = async (opts?: YarleOptions) => {
         for (const notebookFolder of outputNotebookFolders) {
             let realFileName = encodedFileName;
             if (notebookName && !notebookFolder.endsWith(notebookName)) {
-                realFileName = `${notebookName}${path.sep}${encodedFileName}`;
+                realFileName = `${notebookName}/${encodedFileName}`;
             }
             const filesInOutputDir = fs.readdirSync(notebookFolder);
             const extension = '.md';
