@@ -59,6 +59,7 @@ export const run = async (opts?: YarleOptions) => {
                 const regexp = new RegExp(escapedLinkName, 'g');
                 const updatedContent = fileContent.replace(regexp, realFileName);
                 if (fileContent !== updatedContent) {
+                    console.log(`replaced output written to: ${notebookFolder}${path.sep}${targetFile}`)
                     fs.writeFileSync(`${notebookFolder}${path.sep}${targetFile}`, updatedContent);
                 }
             }
