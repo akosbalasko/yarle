@@ -428,7 +428,7 @@ describe('Yarle special cases', async () => {
     );
   });
 
-  it('Multiple enex files with interEnex links', async () => {
+  it.only('Multiple enex files with interEnex links', async () => {
     const options: YarleOptions = {
       enexSources: [ `${process.cwd()}/test/data/LinkedInterNotebooks` ],
       outputDir: 'out',
