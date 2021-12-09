@@ -48,6 +48,7 @@ export const run = async (opts?: YarleOptions) => {
                 realFileName = `${notebookName}/${encodedFileName}`;
             }
             const filesInOutputDir = fs.readdirSync(notebookFolder);
+            console.log(`Files in output dir: ${JSON.stringify(filesInOutputDir)}`);
             const extension = '.md';
 
             const targetFiles = filesInOutputDir.filter(file => {
@@ -59,7 +60,7 @@ export const run = async (opts?: YarleOptions) => {
                 const regexp = new RegExp(escapedLinkName, 'g');
                 const updatedContent = fileContent.replace(regexp, realFileName);
                 if (fileContent !== updatedContent) {
-                    console.log(`replaced output written to: ${notebookFolder}${path.sep}${targetFile}`)
+                    console.log(`replaced output written to: ${notebookFolder}${path.sep}${targetFile}`);
                     fs.writeFileSync(`${notebookFolder}${path.sep}${targetFile}`, updatedContent);
                 }
             }
