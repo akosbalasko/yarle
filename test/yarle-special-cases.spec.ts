@@ -440,6 +440,9 @@ describe('Yarle special cases', async () => {
 
     };
     await dropTheRopeRunner.run(options);
+
+    // tslint:disable-next-line:no-console
+    console.log(`out dir: ${__dirname}/../out/notes/test-internotebook_links_A/Note2.md`);
     assert.equal(
       fs.existsSync(`${__dirname}/../out/notes/test-internotebook_links_A/Note2.md`),
       true,
