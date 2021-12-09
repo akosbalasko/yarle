@@ -30,7 +30,7 @@ export const run = async (opts?: YarleOptions) => {
                 return file.match(/.*\.enex/ig);
             });
 
-        options.enexSources = enexFiles.map(enexFile => `${options.enexSources[0]}/${enexFile}`);
+        options.enexSources = enexFiles.map(enexFile => `${options.enexSources[0]}${path.sep}${enexFile}`);
     }
     const outputNotebookFolders = await yarle.dropTheRope(options);
 
