@@ -49,6 +49,9 @@ export const run = async (opts?: YarleOptions) => {
             }
             const filesInOutputDir = fs.readdirSync(notebookFolder);
             console.log(`Files in output dir: ${JSON.stringify(filesInOutputDir)}`);
+            console.log(`notebookFolder: ${notebookFolder}`);
+            console.log(`realFileName: ${realFileName}`);
+
             const extension = '.md';
 
             const targetFiles = filesInOutputDir.filter(file => {
