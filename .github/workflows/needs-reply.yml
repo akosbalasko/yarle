@@ -1,0 +1,17 @@
+name: Close old issues that need reply
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Close old issues that need reply
+        uses: dwieeb/needs-reply@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          issue-label: needs-reply
+          days-before-close: 14
+          close-message: It looks like there hasn't been a reply in 14 days, so I'm closing this issue.
