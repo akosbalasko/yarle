@@ -109,6 +109,9 @@ To configure Yarle, you must create a config file. By default it looks like this
    "haveEnexLevelResources": true,
     "logseqSettings":{
         "journalNotes": false
+    },
+   "obsidianSettings": {
+      "omitLinkDisplayName": false
     }
 
 }
@@ -138,7 +141,7 @@ The following configurational properties are available:
 | ```generateNakedUrls``` | true or false | if it's true, Yarle generates 'naked' external Urls without any extra characters. If its false, external Urls are wrapped by  '<' and '>' characters
 | ```addExtensionToInternalLinks``` | true or false | adds '.md' extensions at the end of internal file links, to make them recognizable by DevonThink and other tools
 | ```turndownOptions``` | `{...}` | additional configuration options for [turndown](https://github.com/mixmark-io/turndown#options), e.g., `{ "bulletListMarker": "-" }` (only in Yarle config file, not desktop app)
-| ```obsidianSettings``` | `{...}` | settings for Obsidian output. Currently, ```omitObsidianLinksDisplayName``` is supported. If set to `true` links will be of the form `[[foo]]`. Conversely they will be of the form `[[foo|bar]]`. Defaults to `false`.
+| ```obsidianSettings``` | `{...}` | settings for Obsidian output. Currently, ```omitLinkDisplayName``` is supported. If set to `true` links will be of the form `[[foo]]`. Conversely they will be of the form `[[foo|bar]]`. Defaults to `false`.
 | ```logseqSettings``` | `{...}` | settings for Logseq output, currently ```journalNotes``` property is supported, if it is set to `true`, then the notes will be converted to be recognizable by Logseq as Journal notes, the notes will be named by their creation date and they will be collected under `journal` folder. If it is `false`, then they will be converted to be `Pages` (e.g. simple notes, collected in `pages` folder).
 
 Metadata settings can be set via the template.

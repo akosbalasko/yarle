@@ -34,5 +34,8 @@
     "haveEnexLevelResources": true,
     "logseqSettings":{
         "journalNotes": false
+    },
+    "obsidianSettings": {
+        "omitLinkDisplayName": false
     }
 }

@@ -25,5 +25,8 @@
     "replacementChar": "_",
     "logseqSettings":{
         "journalNotes": false
+    },
+    "obsidianSettings": {
+        "omitLinkDisplayName": false
     }
 }

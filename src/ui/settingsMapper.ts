@@ -32,6 +32,9 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
         logseqSettings: {
             journalNotes: store.get('logseqSettings.journalNotes') as boolean,
         },
+        obsidianSettings: {
+            omitLinkDisplayName: store.get('obsidianSettings.omitLinkDisplayName') as boolean,
+        },
         dateFormat: store.get('dateFormat') as string,
         keepImageSize: store.get('keepImageSize') as OutputFormat,
         keepOriginalAmountOfNewlines: store.get('keepOriginalAmountOfNewlines') as boolean,
