@@ -23,6 +23,9 @@ export interface YarleOptions {
     logseqSettings?: {
         journalNotes: boolean,
     };
+    obsidianSettings?: {
+        omitLinkDisplayName?: boolean,
+    };
     replaceWhitespacesInTagsByUnderscore?: boolean;
     skipEnexFileNameFromOutputPath?: boolean;
     haveEnexLevelResources?: boolean;

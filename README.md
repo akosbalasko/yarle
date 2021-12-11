@@ -2,7 +2,7 @@
 
 ![logo](screens/yarle-logo.png)
 
-![Last Commit](https://img.shields.io/github/last-commit/akosbalasko/yarle?style=for-the-badge)  
+![Last Commit](https://img.shields.io/github/last-commit/akosbalasko/yarle?style=for-the-badge)
 ![Version](https://img.shields.io/badge/version-4.5.4-blue?style=for-the-badge)
 [![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen?style=for-the-badge)](https://github.com/akosbalasko/yarle#readme)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green?style=for-the-badge)](https://github.com/akosbalasko/yarle/graphs/commit-activity)
@@ -38,7 +38,7 @@ Yarle is the ultimate converter of Evernote notes to Markdown.
 - :hammer: Organizes all attachments into a _resources subfolder (to keep the notes' folder as simple as possible).
 
 
-## Binaries: 
+## Binaries:
 
 [Windows](https://github.com/akosbalasko/yarle/releases/download/v4.5.4/yarle-evernote-to-md-4.5.4.Setup.exe)
 
@@ -49,7 +49,7 @@ Yarle is the ultimate converter of Evernote notes to Markdown.
 [Mac](https://github.com/akosbalasko/yarle/releases/download/v4.5.4/yarle-evernote-to-md-darwin-x64-4.5.4.zip)
 
 ## Feedback, Appreciation, Donation:
-If you have an idea on how to improve the tool or face any problems, feel free to raise an issue, or even contribute!  
+If you have an idea on how to improve the tool or face any problems, feel free to raise an issue, or even contribute!
 If you like the product, you can give a star here on github, or you can <a href="https://www.buymeacoffee.com/akosbalasko" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-yellow.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 
 
@@ -59,7 +59,7 @@ Download the desktop app for your platform, and follow the instructions there.
 
 ![out](https://user-images.githubusercontent.com/11886731/114092375-1a72c400-98ba-11eb-9c74-300d1e4c0829.gif)
 
- In order to perform conversion into Logseq format, please choose Logseq as Target format in the configuration panel, then choose the type of your notes (Journal Notes or Pages). For Logseq all the other options have already been pre-configured. 
+ In order to perform conversion into Logseq format, please choose Logseq as Target format in the configuration panel, then choose the type of your notes (Journal Notes or Pages). For Logseq all the other options have already been pre-configured.
 
 
 ## Prerequisite for legacy versions (below 4.0.0):
@@ -138,6 +138,7 @@ The following configurational properties are available:
 | ```generateNakedUrls``` | true or false | if it's true, Yarle generates 'naked' external Urls without any extra characters. If its false, external Urls are wrapped by  '<' and '>' characters
 | ```addExtensionToInternalLinks``` | true or false | adds '.md' extensions at the end of internal file links, to make them recognizable by DevonThink and other tools
 | ```turndownOptions``` | `{...}` | additional configuration options for [turndown](https://github.com/mixmark-io/turndown#options), e.g., `{ "bulletListMarker": "-" }` (only in Yarle config file, not desktop app)
+| ```obsidianSettings``` | `{...}` | settings for Obsidian output. Currently, ```omitObsidianLinksDisplayName``` is supported. If set to `true` links will be of the form `[[foo]]`. Conversely they will be of the form `[[foo|bar]]`. Defaults to `false`.
 | ```logseqSettings``` | `{...}` | settings for Logseq output, currently ```journalNotes``` property is supported, if it is set to `true`, then the notes will be converted to be recognizable by Logseq as Journal notes, the notes will be named by their creation date and they will be collected under `journal` folder. If it is `false`, then they will be converted to be `Pages` (e.g. simple notes, collected in `pages` folder).
 
 Metadata settings can be set via the template.
