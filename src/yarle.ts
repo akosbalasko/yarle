@@ -37,6 +37,8 @@ export const defaultYarleOptions: YarleOptions = {
   },
   outputFormat: OutputFormat.StandardMD,
   urlEncodeFileNamesAndLinks: false,
+  sanitizeResourceNameSpaces: false,
+  replacementChar: '_',
   pathSeparator: '/',
   resourcesDir: '_resources',
   turndownOptions: {
