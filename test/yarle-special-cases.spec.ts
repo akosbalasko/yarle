@@ -351,6 +351,42 @@ describe('Yarle special cases', async () => {
     );
   });
 
+  it('Enex file with internal links underscore', async () => {
+    const options: YarleOptions = {
+      enexSources: [ `${testDataFolder}test-links_underline_within.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      plainTextNotesOnly: false,
+
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(`${__dirname}/../out/notes/test-links_underline_within/Note_A.md`),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-links_underline_within/Note_A.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-linksNote_A.md`, 'utf8'),
+    );
+
+    assert.equal(
+      fs.existsSync(`${__dirname}/../out/notes/test-links_underline_within/Note_B.md`),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-links_underline_within/Note_B.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-linksNote_B.md`, 'utf8'),
+    );
+  });
+
   it('Enex file with internal links ', async () => {
     const options: YarleOptions = {
       enexSources: [ `${testDataFolder}test-links.enex` ],

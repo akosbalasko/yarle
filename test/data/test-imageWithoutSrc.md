@@ -4,11 +4,11 @@ Transaction Management & Scope
 ==============================
 
 Other challenges lie in transaction management. Centralised (monolithic) applications, with more localised interactions, can better leverage database transaction scope; i.e. one transaction manages a series of database interactions, and still support relatively simple rollback and commit facilities.
-Microservices, are more isolated, and often use different database technologies. Thus, transaction scope is isolated to the microservice-level; transactions are not shared. This leads to data consistency, and rollback challenges. Another practice must be used to orchestrate transactions. See Figure 10.
+Microservices, are more isolated, and often use different database technologies. Thus, transaction scope is isolated to the microservice-level; transactions are not shared. This leads to data consistency, and rollback challenges. Another practice must be used to orchestrate transactions. See _Figure 10_.
 
 ![0-RuK5Uc39KyMAOkxr.jpg](./_resources/test-imageWithoutSrc.resources/0-RuK5Uc39KyMAOkxr.jpg)
 
-Figure 10 — transactional scope; monolith vs microservices
+_Figure 10 — transactional scope; monolith vs microservices_
 
 In the first scenario, typical of a monolith, one transaction (Tx A) manages all five database interactions, often into the same (monolithic) database schema. The second case, used in microservices, is quite different. In this case, a transaction is managed per action (assuming each database interaction is encapsulated by a single microservice interaction). This is fine if all transactions succeed, but challenging when part of the flow fails and remedial action is required.
 
@@ -24,34 +24,34 @@ Promoting a level of uniformity is therefore sensible. Better to select a limite
 Performance
 ===========
 
-Because each microservice interaction is independent (including their transactions), any significant collaboration (i.e. a workflow involving many parties), can create performance challenges. Specifically, this relates to latency (the time it takes from the initiation of an action, to receiving a response). See Figure 11.
+Because each microservice interaction is independent (including their transactions), any significant collaboration (i.e. a workflow involving many parties), can create performance challenges. Specifically, this relates to latency (the time it takes from the initiation of an action, to receiving a response). See _Figure 11_.
 
 ![0-1o3tk4QQCG15z1iT.jpg](./_resources/test-imageWithoutSrc.resources/0-1o3tk4QQCG15z1iT.jpg)
 
-Figure 11 — performance (latency) with microservices
+_Figure 11 — performance (latency) with microservices_
 
 No science was harmed in the making of this diagram! It’s merely meant to demonstrate the difference challenges for the architectural styles.
 The scenario represents a distributed (e.g. microservices) system. The workflow interacts with four different domains (1, 2, 3, and 4) to complete a job. The useful functional value (white, numbered boxes) may be of a relatively short duration, whilst the red bar represents the varying latency costs of network negotiation/transfer/marshalling to talk with the next microservice. The orange bar represents the overall time cost so far. There’s quite a bit of red involved in these distributed interactions.
-In Figure 12 we have a centralised representation.
+In _Figure 12_ we have a centralised representation.
 
 ![0-x2glWzxpcQ0qselE.jpg](./_resources/test-imageWithoutSrc.resources/0-x2glWzxpcQ0qselE.jpg)
 
-Figure 12 — monolith latency
+_Figure 12 — monolith latency_
 
 In this case, the workflow must interact with the same four services/domains, but the cost to communicate with each component is much less (i.e. the short red bars).
 
-> Note — Tactics to Reduce Latency Woes
-> There’s a few tactics that can mitigate these latency issues, but no real definitive solution. You can:
-> 1\. Attempt to bring dependents closer together in the network, thus reducing latency.
-> 2\. Use an orchestration mechanism that sends messages to each, and compiles a response as they become available (assuming you can do this).
-> 3\. Go entirely asynchronous.
-> 4\. If visual representation, provide data in stages, using technologies like Ajax.
+> _Note — Tactics to Reduce Latency Woes_
+> _There’s a few tactics that can mitigate these latency issues, but no real definitive solution. You can:_
+> _1\. Attempt to bring dependents closer together in the network, thus reducing latency._
+> _2\. Use an orchestration mechanism that sends messages to each, and compiles a response as they become available (assuming you can do this)._
+> _3\. Go entirely asynchronous._
+> _4\. If visual representation, provide data in stages, using technologies like Ajax._
 
 In the end, it depends upon the system. Most technologists I know would favor scalability over performance; i.e. ensure the system can scale to meet greater demands, at the (willing) cost of slightly reduced performance.
 
 * * *
 
-...
+_..._
 
 Business & Technical Qualities
 ==============================

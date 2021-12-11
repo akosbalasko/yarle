@@ -10,17 +10,22 @@ import { ResourceFileProperties } from './../models/ResourceFileProperties';
 import { OutputFormat } from './../output-format';
 import { getCreationTime } from './content-utils';
 
-const FILENAME_DELIMITER = '_';
-
 export const normalizeTitle = (title: string) => {
-  return sanitize(title, {replacement: FILENAME_DELIMITER});
+  // Allow setting a specific replacement character for file and resource names
+  // Default to a retrocompatible value
+  return sanitize(title, {replacement: yarleOptions.replacementChar || '_'});
 };
 
 export const getFileIndex = (dstPath: string, fileNamePrefix: string): number | string => {
-
   const index = fs
     .readdirSync(dstPath)
-    .filter(file => file.indexOf(fileNamePrefix) > -1)
+    .filter(file => {
+      // make sure we get the first copy with no count suffix or the copies whose filename changed
+      // drop the extension to compare with filename prefix
+      const filePrefix = file.split('.').slice(0, -1).join('.');
+
+      return filePrefix === fileNamePrefix || file.match(new RegExp(`${fileNamePrefix}\.\\d+\.`));
+    })
     .length;
 
   return index;
@@ -34,11 +39,14 @@ export const getResourceFileProperties = (workDir: string, resource: any): Resou
 
   if (resource['resource-attributes'] && resource['resource-attributes']['file-name']) {
     const fileNamePrefix = resource['resource-attributes']['file-name'].substr(0, 50);
-
     fileName = fileNamePrefix.split('.')[0];
-
   }
   fileName = fileName.replace(/[/\\?%*:|"<>]/g, '-');
+
+  if (yarleOptions.sanitizeResourceNameSpaces) {
+    fileName = fileName.replace(/ /g, yarleOptions.replacementChar);
+  }
+
   const index = getFileIndex(workDir, fileName);
   const fileNameWithIndex = index > 0 ? `${fileName}.${index}` : fileName;
 
@@ -87,7 +95,6 @@ export const getZettelKastelId = (note: any, dstPath: string): string => {
 };
 
 export const getNoteName = (dstPath: string, note: any): string => {
-
   let noteName;
 
   if (yarleOptions.isZettelkastenNeeded) {

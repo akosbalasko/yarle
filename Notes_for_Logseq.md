@@ -27,6 +27,8 @@ Please use settings below
     },
     "outputFormat": "StandardMD",
     "urlEncodeFileNamesAndLinks": false,
+    "sanitizeResourceNameSpaces": false, 
+    "replacementChar": "_",
     "pathSeparator": "/",
     "resourcesDir": "assets",
     "turndownOptions": {
