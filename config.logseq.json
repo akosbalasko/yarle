@@ -32,6 +32,7 @@
     "monospaceIsCodeBlock": false,
     "keepOriginalAmountOfNewlines": true,
     "haveEnexLevelResources": true,
+    "haveGlobalResources": false,
     "logseqSettings":{
         "journalNotes": false
     },

@@ -22,6 +22,8 @@
     "urlEncodeFileNamesAndLinks": false,
     "pathSeparator": "/",
     "sanitizeResourceNameSpaces": false,
+    "haveEnexLevelResources": false,
+    "haveGlobalResources": false,
     "replacementChar": "_",
     "logseqSettings":{
         "journalNotes": false

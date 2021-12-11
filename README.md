@@ -106,6 +106,7 @@ To configure Yarle, you must create a config file. By default it looks like this
    },
    "dateFormat": "YYYY-MM-DD",
    "haveEnexLevelResources": true,
+   "haveGlobalResources": false,
     "logseqSettings":{
         "journalNotes": false
     },
