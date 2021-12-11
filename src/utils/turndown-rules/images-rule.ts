@@ -13,6 +13,8 @@ export const imagesRule = {
       return '';
     }
     const value = nodeProxy.src.value;
+    const widthParam = node.width || '';
+    const heightParam = node.height || '';
     let realValue = value;
     if (yarleOptions.sanitizeResourceNameSpaces) {
       realValue = realValue.replaceAll(' ', yarleOptions.replacementChar);
@@ -22,12 +24,15 @@ export const imagesRule = {
 
     // while this isn't really a standard, it is common enough
     if (yarleOptions.keepImageSize === OutputFormat.StandardMD || yarleOptions.keepImageSize === OutputFormat.LogSeqMD) {
-      const widthParam = node.width || '';
-      const heightParam = node.height || '';
-
-      return `![](${realValue} =${widthParam}x${heightParam})`;
+      const sizeString = (widthParam || heightParam) ? ` =${widthParam}x${heightParam}` : '';
+      return `![](${realValue}${sizeString})`;
     } else if (yarleOptions.keepImageSize === OutputFormat.ObsidianMD) {
-      return `![|${node.width}x${node.height}](${realValue})`;
+      if (realValue.startsWith('./')) {
+        const sizeString = (widthParam || heightParam) ? `|${widthParam}x${heightParam}` : '';
+        return `![[${realValue}${sizeString}]]`; 
+      } else {
+        return `![${sizeString}](${realValue})`; 
+      }
     }
 
     const useObsidianMD = yarleOptions.outputFormat === OutputFormat.ObsidianMD;
