@@ -20,6 +20,8 @@
     "skipEnexFileNameFromOutputPath": false,
     "keepOriginalAmountOfNewlines": false,
     "pathSeparator": "/",
+    "sanitizeResourceNameSpaces": false,
+    "replacementChar": "_",
     "logseqSettings":{
         "journalNotes": false
     }

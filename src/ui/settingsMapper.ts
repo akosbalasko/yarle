@@ -39,5 +39,7 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
         generateNakedUrls: store.get('generateNakedUrls') as boolean,
 
         haveEnexLevelResources: store.get('haveEnexLevelResources') as boolean,
+        sanitizeResourceNameSpaces: store.get('sanitizeResourceNameSpaces') as boolean,
+        replacementChar: store.get('replacementChar') as string,
     };
 };
