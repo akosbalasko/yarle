@@ -21,17 +21,19 @@ export const imagesRule = {
     } else if (yarleOptions.urlEncodeFileNamesAndLinks) {
       realValue = encodeURI(realValue);
     }
+    let sizeString = (widthParam || heightParam) ? ` =${widthParam}x${heightParam}` : '';
 
     // while this isn't really a standard, it is common enough
     if (yarleOptions.keepImageSize === OutputFormat.StandardMD || yarleOptions.keepImageSize === OutputFormat.LogSeqMD) {
-      const sizeString = (widthParam || heightParam) ? ` =${widthParam}x${heightParam}` : '';
+
       return `![](${realValue}${sizeString})`;
     } else if (yarleOptions.keepImageSize === OutputFormat.ObsidianMD) {
       if (realValue.startsWith('./')) {
-        const sizeString = (widthParam || heightParam) ? `|${widthParam}x${heightParam}` : '';
-        return `![[${realValue}${sizeString}]]`; 
+        sizeString = (widthParam || heightParam) ? `|${widthParam}x${heightParam}` : '';
+
+        return `![[${realValue}${sizeString}]]`;
       } else {
-        return `![${sizeString}](${realValue})`; 
+        return `![${sizeString}](${realValue})`;
       }
     }
 

@@ -357,9 +357,11 @@ describe('Yarle special cases', async () => {
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
+      templateFile: undefined,
+      outputFormat: OutputFormat.StandardMD,
 
     };
-    await yarle.dropTheRope(options);
+    await dropTheRopeRunner.run(options);
     assert.equal(
       fs.existsSync(`${__dirname}/../out/notes/test-links_underline_within/Note_A.md`),
       true,
