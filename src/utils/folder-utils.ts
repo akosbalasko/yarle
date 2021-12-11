@@ -107,3 +107,7 @@ export const setPaths = (enexSource: string): void => {
   // clearDistDir(paths.simpleMdPath);
   // clearDistDir(paths.complexMdPath);
 };
+
+export const getNotesPath = (): string => {
+  return paths.mdPath;
+};

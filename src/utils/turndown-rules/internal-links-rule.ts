@@ -5,9 +5,11 @@ import { normalizeTitle } from '../filename-utils';
 import { OutputFormat } from '../../output-format';
 import { yarleOptions } from '../../yarle';
 import { getTurndownService } from '../turndown-service';
+import { RuntimePropertiesSingleton } from '../../runtime-properties';
 
 import { filterByNodeName } from './filter-by-nodename';
 import { getAttributeProxy } from './get-attribute-proxy';
+import { isTOC } from './../../utils/is-toc';
 
 export const removeBrackets = (str: string): string => {
     return str.replace(/\[|\]/g, '');
@@ -60,14 +62,21 @@ export const wikiStyleLinksRule = {
         const renderedObsidianDisplayName = omitObsidianLinksDisplayName ? '' : `|${displayName}`;
 
         if (value.startsWith('evernote://')) {
-            const fileName = normalizeTitle(displayName);
-            const realFileName = yarleOptions.urlEncodeFileNamesAndLinks ? encodeURI(fileName) : fileName;
-
-            if (yarleOptions.outputFormat === OutputFormat.ObsidianMD) {
-                return `${mdKeyword}[[${realFileName}${extension}${renderedObsidianDisplayName}]]`;
+            const fileName = normalizeTitle(token['text']);
+            const displayName = token['text'];
+            const noteIdNameMap = RuntimePropertiesSingleton.getInstance();
+            if (isTOC(noteIdNameMap.getCurrentNoteName())) {
+                noteIdNameMap.addItemToTOCMap({ url: value, title: fileName });
+            } else {
+                noteIdNameMap.addItemToMap({ url: value, title: fileName });
             }
 
-            return `${mdKeyword}[${displayName}](${fileName}${extension})`;
+            const linkedNoteId = value;
+            if (yarleOptions.outputFormat === OutputFormat.ObsidianMD) {
+                return `${mdKeyword}[[${linkedNoteId}${extension}${renderedObsidianDisplayName}]]`;
+            }
+
+            return `${mdKeyword}[${displayName}](${linkedNoteId}${extension})`;
         }
 
         return (yarleOptions.outputFormat === OutputFormat.ObsidianMD)

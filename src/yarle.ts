@@ -19,6 +19,7 @@ import { hasCreationTimeInTemplate,
 import { defaultTemplate } from './utils/templates/default-template';
 import { OutputFormat } from './output-format';
 import { clearLogFile } from './utils/clearLogFile';
+import { RuntimePropertiesSingleton } from './runtime-properties';
 
 export const defaultYarleOptions: YarleOptions = {
   enexSources: ['notebook.enex'],
@@ -109,6 +110,7 @@ export const parseStream = async (options: YarleOptions, enexSource: string): Pr
           // make sure single attributes are not collapsed
           note['note-attributes'] = noteAttributes;
         }
+
         processNode(note, notebookName);
         ++noteNumber;
         loggerInfo(`Notes processed: ${noteNumber}\n\n`);
@@ -131,13 +133,19 @@ export const parseStream = async (options: YarleOptions, enexSource: string): Pr
   });
 };
 
-export const dropTheRope = async (options: YarleOptions): Promise<void> => {
+export const dropTheRope = async (options: YarleOptions): Promise<Array<string>> => {
   clearLogFile();
   setOptions(options);
+  const outputNotebookFolders = [];
   for (const enex of options.enexSources) {
     utils.setPaths(enex);
+    const runtimeProps = RuntimePropertiesSingleton.getInstance();
+    runtimeProps.setCurrentNotebookName(utils.getNotebookName(enex));
     await parseStream(options, enex);
+    outputNotebookFolders.push(utils.getNotesPath());
   }
+
+  return outputNotebookFolders;
 
 };
 // tslint:enable:no-console

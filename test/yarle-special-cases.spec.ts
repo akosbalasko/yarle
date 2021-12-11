@@ -1,6 +1,6 @@
 import assert from 'assert';
 import fs from 'fs';
-import eol from 'eol'
+import eol from 'eol';
 import mockTimezone from 'timezone-mock';
 import * as path from 'path';
 import { OutputFormat } from './../src/output-format';
@@ -393,8 +393,11 @@ describe('Yarle special cases', async () => {
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
+      templateFile: undefined,
+      outputFormat: OutputFormat.StandardMD,
     };
-    await yarle.dropTheRope(options);
+    await dropTheRopeRunner.run(options);
+
     assert.equal(
       fs.existsSync(`${__dirname}/../out/notes/test-links/NoteA.md`),
       true,
@@ -429,8 +432,11 @@ describe('Yarle special cases', async () => {
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
       addExtensionToInternalLinks: true,
+      templateFile: undefined,
+      outputFormat: OutputFormat.StandardMD,
+
     };
-    await yarle.dropTheRope(options);
+    await dropTheRopeRunner.run(options);
     assert.equal(
       fs.existsSync(`${__dirname}/../out/notes/test-links-withExtension/NoteA.md`),
       true,
@@ -458,6 +464,100 @@ describe('Yarle special cases', async () => {
     );
   });
 
+  it('Multiple enex files with interEnex links', async () => {
+    const options: YarleOptions = {
+      enexSources: [ `${process.cwd()}${path.sep}test${path.sep}data${path.sep}LinkedInterNotebooks` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      plainTextNotesOnly: false,
+      addExtensionToInternalLinks: true,
+      templateFile: undefined,
+      outputFormat: OutputFormat.StandardMD,
+
+    };
+    await dropTheRopeRunner.run(options);
+
+    // tslint:disable-next-line:no-console
+    console.log(`out dir: ${__dirname}/../out/notes/test-internotebook_links_A/Note2.md`);
+    assert.equal(
+      fs.existsSync(`${__dirname}/../out/notes/test-internotebook_links_A/Note2.md`),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-internotebook_links_A/Note2.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/LinkedInterNotebooks/test-internotebook_links_A/Note2.md`, 'utf8'),
+    );
+
+    assert.equal(
+      fs.existsSync(`${__dirname}/../out/notes/test-internotebook_links_A/Table of Contents.md`),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-internotebook_links_A/Table of Contents.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/LinkedInterNotebooks/test-internotebook_links_A/Table of Contents.md`, 'utf8'),
+    );
+
+    assert.equal(
+      fs.existsSync(`${__dirname}/../out/notes/test-internotebook_links_A/Note in Notebook A.md`),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-internotebook_links_A/Note in Notebook A.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/LinkedInterNotebooks/test-internotebook_links_A/Note in Notebook A.md`, 'utf8'),
+    );
+
+    assert.equal(
+      fs.existsSync(`${__dirname}/../out/notes/test-internotebook_links_B/Untitled.md`),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-internotebook_links_B/Untitled.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/LinkedInterNotebooks/test-internotebook_links_B/Untitled.md`, 'utf8'),
+    );
+
+    assert.equal(
+      fs.existsSync(`${__dirname}/../out/notes/test-internotebook_links_B/Table of Contents.md`),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-internotebook_links_B/Table of Contents.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/LinkedInterNotebooks/test-internotebook_links_B/Table of Contents.md`, 'utf8'),
+    );
+
+    assert.equal(
+      fs.existsSync(`${__dirname}/../out/notes/test-internotebook_links_B/Note in Notebook B.md`),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-internotebook_links_B/Note in Notebook B.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/LinkedInterNotebooks/test-internotebook_links_B/Note in Notebook B.md`, 'utf8'),
+    );
+
+  });
   it('Enex file with PDF attachment', async () => {
     const options: YarleOptions = {
       enexSources: [ `${testDataFolder}test-pdfAttachment.enex` ],
