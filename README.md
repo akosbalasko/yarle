@@ -145,3 +145,13 @@ The following configurational properties are available:
 | ```logseqSettings``` | `{...}` | settings for Logseq output, currently ```journalNotes``` property is supported, if it is set to `true`, then the notes will be converted to be recognizable by Logseq as Journal notes, the notes will be named by their creation date and they will be collected under `journal` folder. If it is `false`, then they will be converted to be `Pages` (e.g. simple notes, collected in `pages` folder).
 
 Metadata settings can be set via the template.
+
+
+## Note links over notebooks? No problem, here is what to do: 
+
+In order to minimize the wrong conversion of links due to duplicated note names, you need to do the followings:
+
+1. Before export your notes: select all withing a notebook
+2. Create a Table of Content note
+3. Export the notebook together with the TOC file 
+4. Start yarle and convert your notes
