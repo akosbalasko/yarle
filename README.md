@@ -152,6 +152,6 @@ Metadata settings can be set via the template.
 In order to minimize the wrong conversion of links due to duplicated note names, you need to do the followings:
 
 1. Before export your notes: select all withing a notebook
-2. Create a Table of Content note
+2. Create a Table of Contents note
 3. Export the notebook together with the TOC file 
 4. Start yarle and convert your notes
