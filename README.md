@@ -52,6 +52,23 @@ Yarle is the ultimate converter of Evernote notes to Markdown.
 If you have an idea on how to improve the tool or face any problems, feel free to raise an issue, or even contribute!
 If you like the product, you can give a star here on github, or you can <a href="https://www.buymeacoffee.com/akosbalasko" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-yellow.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 
+## Proud to be proposed by: 
+
+<a href="https://github.com/kmaasrud/awesome-obsidian" rel="Awesome Obsidian">
+<img src="screens/obsidian-logo.png" alt="drawing" width="100"/>
+</a>
+<a href="https://github.com/logseq/awesome-logseq" rel="Awesome Logseq">
+<img src="screens/logseq-logo.png" alt="drawing" width="100"/>
+</a>
+<a href="https://help.noteplan.co/article/33-how-to-import-notes" rel="Noteplan help page">
+<img src="screens/noteplan-logo.png" alt="drawing" width="100"/>
+</a>
+<a href="https://support.craft.do/hc/en-us/articles/4411890239121-Import-documents-into-Craft" rel="Craft.do support page">
+<img src="screens/craft.do-logo.jpeg" alt="drawing" width="100"/>
+</a>
+<a href="https://wiki.dendron.so/notes/700b02fc-1e6c-46b1-8d68-5d8e17a55d33/" rel="Dendron import proposal">
+<img src="screens/dendron-logo.png" alt="drawing" width="100"/>
+</a>
 
 ## Instructions
 
