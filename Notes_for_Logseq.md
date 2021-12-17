@@ -27,6 +27,8 @@ Please use settings below
     },
     "outputFormat": "StandardMD",
     "urlEncodeFileNamesAndLinks": false,
+    "sanitizeResourceNameSpaces": false, 
+    "replacementChar": "_",
     "pathSeparator": "/",
     "resourcesDir": "assets",
     "turndownOptions": {
@@ -44,6 +46,7 @@ Please use settings below
     "currentTemplate": "{content-block}{content}{end-content-block}",
     "keepOriginalAmountOfNewlines": true,
     "haveEnexLevelResources": true,
+    "haveGlobalResources": false,
     "logseqSettings":{
       "journalNotes": false
     }

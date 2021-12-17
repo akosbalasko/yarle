@@ -2,7 +2,7 @@
 
 ![logo](screens/yarle-logo.png)
 
-![Last Commit](https://img.shields.io/github/last-commit/akosbalasko/yarle?style=for-the-badge)  
+![Last Commit](https://img.shields.io/github/last-commit/akosbalasko/yarle?style=for-the-badge)
 ![Version](https://img.shields.io/badge/version-4.5.4-blue?style=for-the-badge)
 [![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen?style=for-the-badge)](https://github.com/akosbalasko/yarle#readme)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green?style=for-the-badge)](https://github.com/akosbalasko/yarle/graphs/commit-activity)
@@ -38,7 +38,7 @@ Yarle is the ultimate converter of Evernote notes to Markdown.
 - :hammer: Organizes all attachments into a _resources subfolder (to keep the notes' folder as simple as possible).
 
 
-## Binaries: 
+## Binaries:
 
 [Windows](https://github.com/akosbalasko/yarle/releases/download/v4.5.4/yarle-evernote-to-md-4.5.4.Setup.exe)
 
@@ -49,9 +49,26 @@ Yarle is the ultimate converter of Evernote notes to Markdown.
 [Mac](https://github.com/akosbalasko/yarle/releases/download/v4.5.4/yarle-evernote-to-md-darwin-x64-4.5.4.zip)
 
 ## Feedback, Appreciation, Donation:
-If you have an idea on how to improve the tool or face any problems, feel free to raise an issue, or even contribute!  
+If you have an idea on how to improve the tool or face any problems, feel free to raise an issue, or even contribute!
 If you like the product, you can give a star here on github, or you can <a href="https://www.buymeacoffee.com/akosbalasko" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-yellow.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 
+## Proud to be proposed by: 
+
+<a href="https://github.com/kmaasrud/awesome-obsidian" rel="Awesome Obsidian">
+<img src="screens/obsidian-logo.png" alt="drawing" width="100"/>
+</a>
+<a href="https://github.com/logseq/awesome-logseq" rel="Awesome Logseq">
+<img src="screens/logseq-logo.png" alt="drawing" width="100"/>
+</a>
+<a href="https://help.noteplan.co/article/33-how-to-import-notes" rel="Noteplan help page">
+<img src="screens/noteplan-logo.png" alt="drawing" width="100"/>
+</a>
+<a href="https://support.craft.do/hc/en-us/articles/4411890239121-Import-documents-into-Craft" rel="Craft.do support page">
+<img src="screens/craft.do-logo.jpeg" alt="drawing" width="100"/>
+</a>
+<a href="https://wiki.dendron.so/notes/700b02fc-1e6c-46b1-8d68-5d8e17a55d33/" rel="Dendron import proposal">
+<img src="screens/dendron-logo.png" alt="drawing" width="100"/>
+</a>
 
 ## Instructions
 
@@ -59,7 +76,7 @@ Download the desktop app for your platform, and follow the instructions there.
 
 ![out](https://user-images.githubusercontent.com/11886731/114092375-1a72c400-98ba-11eb-9c74-300d1e4c0829.gif)
 
- In order to perform conversion into Logseq format, please choose Logseq as Target format in the configuration panel, then choose the type of your notes (Journal Notes or Pages). For Logseq all the other options have already been pre-configured. 
+ In order to perform conversion into Logseq format, please choose Logseq as Target format in the configuration panel, then choose the type of your notes (Journal Notes or Pages). For Logseq all the other options have already been pre-configured.
 
 
 ## Prerequisite for legacy versions (below 4.0.0):
@@ -91,7 +108,6 @@ To configure Yarle, you must create a config file. By default it looks like this
     "outputFormat": "StandardMD",
     "urlEncodeFileNamesAndLinks": false,
     "skipEnexFileNameFromOutputPath": false,
-    "haveEnexLevelResources": false,
     "monospaceIsCodeBlock": false,
     "keepMDCharactersOfENNotes": false,
     "keepOriginalAmountOfNewlines": false,
@@ -107,8 +123,12 @@ To configure Yarle, you must create a config file. By default it looks like this
    },
    "dateFormat": "YYYY-MM-DD",
    "haveEnexLevelResources": true,
+   "haveGlobalResources": false,
     "logseqSettings":{
         "journalNotes": false
+    },
+   "obsidianSettings": {
+      "omitLinkDisplayName": false
     }
 
 }
@@ -131,11 +151,24 @@ The following configurational properties are available:
 |```keepMDCharactersOfENNotes```| true or false | set it true, if you used Markdown format in your EN notes|
 | ```nestedTags``` | it's a complex property contains the following subitems: "separatorInEN", "replaceSeparatorWith" and  "replaceSpaceWith" | separatorInEN stores the tag separator used in Evernote, replaceSeparatorWith is the string to what separatorInEN should be replaced to, and replaceSpaceWith is the string to what the space character should be replaced to in the tags. For example using the default settings a tag ```tag1_sub tag of tag1``` is going to be converted to ```tag1/sub-tag-of-tag1```
 | ```keepImageSize``` | `ObsidianMD` or `StandardMD` | preserve an image's width and height in the chosen format when specified
-| ```urlEncodeFileNamesAndLinks``` | true or false | URL-encodes linked file names and internal EN links . e.g "linked file.jpg" will be converted to "linked%20file.jpg" 
-| ```keepOriginalAmountOfNewlines``` | true or false | keep the original amount of newlines, default is false, when the multiple newlines are collapsed to one. 
-| ```generateNakedUrls``` | true or false | if it's true, Yarle generates 'naked' external Urls without any extra characters. If its false, external Urls are wrapped by  '<' and '>' characters  
-| ```addExtensionToInternalLinks``` | true or false | adds '.md' extensions at the end of internal file links, to make them recognizable by DevonThink and other tools 
+| ```urlEncodeFileNamesAndLinks``` | true or false | URL-encodes linked file names and internal EN links . e.g "linked file.jpg" will be converted to "linked%20file.jpg"
+| ```sanitizeResourceNameSpaces``` | true or false | Replace spaces in resource names with the `replacementChar`. e.g "linked file.jpg" will be converted to "linked_file.jpg"
+| ```replacementChar``` | string | the replacement character. e.g "linked*file.jpg" will be converted to "linked_file.jpg". It defaults to "_"
+| ```keepOriginalAmountOfNewlines``` | true or false | keep the original amount of newlines, default is false, when the multiple newlines are collapsed to one.
+| ```generateNakedUrls``` | true or false | if it's true, Yarle generates 'naked' external Urls without any extra characters. If its false, external Urls are wrapped by  '<' and '>' characters
+| ```addExtensionToInternalLinks``` | true or false | adds '.md' extensions at the end of internal file links, to make them recognizable by DevonThink and other tools
 | ```turndownOptions``` | `{...}` | additional configuration options for [turndown](https://github.com/mixmark-io/turndown#options), e.g., `{ "bulletListMarker": "-" }` (only in Yarle config file, not desktop app)
+| ```obsidianSettings``` | `{...}` | settings for Obsidian output. Currently, ```omitLinkDisplayName``` is supported. If set to `true` links will be of the form `[[foo]]`. Conversely they will be of the form `[[foo|bar]]`. Defaults to `false`.
 | ```logseqSettings``` | `{...}` | settings for Logseq output, currently ```journalNotes``` property is supported, if it is set to `true`, then the notes will be converted to be recognizable by Logseq as Journal notes, the notes will be named by their creation date and they will be collected under `journal` folder. If it is `false`, then they will be converted to be `Pages` (e.g. simple notes, collected in `pages` folder).
 
 Metadata settings can be set via the template.
+
+
+## Note links over notebooks? No problem, here is what to do: 
+
+In order to minimize the wrong conversion of links due to duplicated note names, you need to do the followings:
+
+1. Before export your notes: select all withing a notebook
+2. Create a Table of Contents note
+3. Export the notebook together with the TOC file 
+4. Start yarle and convert your notes

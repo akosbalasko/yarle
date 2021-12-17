@@ -32,11 +32,18 @@
             <select name="logseqSettings.journalNotes" id="logseqSettings.journalNotes">
               <option value="true">Journal Notes</option>
               <option value="false">Pages</option>
-             </select>   
-            </div>
+            </select>   
+          </div>
             <br>
             <div class="field half">
-            <input type="checkbox" value="false" id='keepOriginalHtml' value="false">
+              <input type="checkbox"  value="false" name="obsidianSettings.omitLinkDisplayName" id="obsidianSettings.omitLinkDisplayName">
+              <label for="obsidianSettings.omitLinkDisplayName" class="pure-input-1-2">Omit links' display name
+              </label>
+            </div>              
+            
+            <br>
+            <div class="field half">
+            <input type="checkbox" id='keepOriginalHtml' value="false">
                   <label for="keepOriginalHtml" class="pure-checkbox">
                     Keep the original Html
                     <br><div style='font-size: 12px;'><i>(
@@ -75,12 +82,19 @@
           <div class="field half">
             <input type="checkbox" value="false" id='haveEnexLevelResources'> 
             <label for="haveEnexLevelResources" class="pure-checkbox">
-              Store attachments in one folder only
+              Store attachments in notebook-level
               <br><div style='font-size: 12px;'><i>(
-                Stores note resources on global _resources folder per enex export if enabled.)</i></div>
+                Store note resources on global _resources folder for each enex export)</i></div>
             </label>
           </div>
-
+          <div class="field half">
+            <input type="checkbox" value="false" id='haveGlobalResources'> 
+            <label for="haveGlobalResources" class="pure-checkbox">
+              Store attachments in one folder only 
+              <br><div style='font-size: 12px;'><i>(
+                Stores note resources on global _resources folder)</i></div>
+            </label>
+          </div>
           <div class="field half">
             <label for="keepImageSize" class="pure-checkbox">
               Keep Image size
@@ -103,7 +117,22 @@
           </label>
         </div>
 
+        <div class="field half">
+          <input type="checkbox" value="false" id='sanitizeResourceNameSpaces'> 
+          <label for="sanitizeResourceNameSpaces" class="pure-checkbox">
+            Sanitize spaces in resource names
+            <br>
+          </label>
+        </div>
 
+        <div class="field half">
+          <label for="replacementChar" class="pure-checkbox">
+            Replacement character for sanitizing spaces in resource names
+          </label>
+          <input type="text" value="_" id='replacementChar'> 
+          
+        </div>
+        <br><br>
         <div class="field half">
           <input type="checkbox" value="false" id='keepOriginalAmountOfNewlines'> 
           <label for="keepOriginalAmountOfNewlines" class="pure-checkbox">

@@ -13,16 +13,28 @@ export const imagesRule = {
       return '';
     }
     const value = nodeProxy.src.value;
-    const realValue = yarleOptions.urlEncodeFileNamesAndLinks ? encodeURI(value) : value;
+    const widthParam = node.width || '';
+    const heightParam = node.height || '';
+    let realValue = value;
+    if (yarleOptions.sanitizeResourceNameSpaces) {
+      realValue = realValue.replaceAll(' ', yarleOptions.replacementChar);
+    } else if (yarleOptions.urlEncodeFileNamesAndLinks) {
+      realValue = encodeURI(realValue);
+    }
+    let sizeString = (widthParam || heightParam) ? ` =${widthParam}x${heightParam}` : '';
 
     // while this isn't really a standard, it is common enough
     if (yarleOptions.keepImageSize === OutputFormat.StandardMD || yarleOptions.keepImageSize === OutputFormat.LogSeqMD) {
-      const widthParam = node.width || '';
-      const heightParam = node.height || '';
 
-      return `![](${realValue} =${widthParam}x${heightParam})`;
+      return `![](${realValue}${sizeString})`;
     } else if (yarleOptions.keepImageSize === OutputFormat.ObsidianMD) {
-      return `![|${node.width}x${node.height}](${realValue})`;
+      if (realValue.startsWith('./')) {
+        sizeString = (widthParam || heightParam) ? `|${widthParam}x${heightParam}` : '';
+
+        return `![[${realValue}${sizeString}]]`;
+      } else {
+        return `![${sizeString}](${realValue})`;
+      }
     }
 
     const useObsidianMD = yarleOptions.outputFormat === OutputFormat.ObsidianMD;

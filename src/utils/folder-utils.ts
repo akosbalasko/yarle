@@ -42,29 +42,41 @@ const clearDistDir = (dstPath: string): void => {
 };
 
 export const getRelativeResourceDir = (note: any): string => {
-  return yarleOptions.haveEnexLevelResources ? `.${path.sep}${yarleOptions.resourcesDir}` : `.${path.sep}${yarleOptions.resourcesDir}${path.sep}${getResourceDir(paths.mdPath, note)}.resources`;
+  const enexFolder = `${path.sep}${yarleOptions.resourcesDir}`;
+  if (yarleOptions.haveGlobalResources) {
+    return `..${enexFolder}`;
+  }
+
+  return yarleOptions.haveEnexLevelResources
+    ? `.${enexFolder}`
+    : `.${enexFolder}${path.sep}${getResourceDir(paths.mdPath, note)}.resources`;
 };
 
 export const getAbsoluteResourceDir = (note: any): string => {
-  return yarleOptions.haveEnexLevelResources ? paths.resourcePath : `${paths.resourcePath}${path.sep}${getResourceDir(paths.mdPath, note)}.resources`;
+  if (yarleOptions.haveGlobalResources) {
+    return path.resolve(paths.resourcePath, '..', '..', yarleOptions.resourcesDir);
+  }
+
+  return yarleOptions.haveEnexLevelResources
+    ? paths.resourcePath
+    : `${paths.resourcePath}${path.sep}${getResourceDir(paths.mdPath, note)}.resources`;
 };
 
 const resourceDirClears = new Map<string, number>();
 export const clearResourceDir = (note: any): void => {
-  const absResourcePath = getAbsoluteResourceDir(note);
-  if (!resourceDirClears.has(absResourcePath)) {
-    resourceDirClears.set(absResourcePath, 0);
+  const resPath = getAbsoluteResourceDir(note);
+  if (!resourceDirClears.has(resPath)) {
+    resourceDirClears.set(resPath, 0);
   }
 
-  const clears = resourceDirClears.get(absResourcePath);
-
+  const clears = resourceDirClears.get(resPath);
   // we're sharing a resource dir, so we can can't clean it more than once
-  if (yarleOptions.haveEnexLevelResources && clears >= 1) {
+  if ((yarleOptions.haveEnexLevelResources || yarleOptions.haveGlobalResources) && clears >= 1) {
     return;
   }
 
-  clearDistDir(absResourcePath);
-  resourceDirClears.set(absResourcePath, clears + 1);
+  clearDistDir(resPath);
+  resourceDirClears.set(resPath, clears + 1);
 };
 
 export const clearResourceDistDir = (): void => {
@@ -102,8 +114,14 @@ export const setPaths = (enexSource: string): void => {
   }
 
   fsExtra.mkdirsSync(paths.mdPath);
-  fsExtra.mkdirsSync(paths.resourcePath);
+  if (!yarleOptions.haveEnexLevelResources && !yarleOptions.haveGlobalResources) {
+    fsExtra.mkdirsSync(paths.resourcePath);
+  }
   loggerInfo(`path ${paths.mdPath} created`);
   // clearDistDir(paths.simpleMdPath);
   // clearDistDir(paths.complexMdPath);
+};
+
+export const getNotesPath = (): string => {
+  return paths.mdPath;
 };

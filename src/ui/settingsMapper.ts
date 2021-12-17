@@ -32,12 +32,18 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
         logseqSettings: {
             journalNotes: store.get('logseqSettings.journalNotes') as boolean,
         },
+        obsidianSettings: {
+            omitLinkDisplayName: store.get('obsidianSettings.omitLinkDisplayName') as boolean,
+        },
         dateFormat: store.get('dateFormat') as string,
         keepImageSize: store.get('keepImageSize') as OutputFormat,
         keepOriginalAmountOfNewlines: store.get('keepOriginalAmountOfNewlines') as boolean,
         addExtensionToInternalLinks: store.get('addExtensionToInternalLinks') as boolean,
         generateNakedUrls: store.get('generateNakedUrls') as boolean,
-
+        urlEncodeFileNamesAndLinks: store.get('urlEncodeFileNamesAndLinks') as boolean,
         haveEnexLevelResources: store.get('haveEnexLevelResources') as boolean,
+        haveGlobalResources: store.get('haveGlobalResources') as boolean,
+        sanitizeResourceNameSpaces: store.get('sanitizeResourceNameSpaces') as boolean,
+        replacementChar: store.get('replacementChar') as string,
     };
 };
