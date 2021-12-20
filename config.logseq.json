@@ -1,0 +1,42 @@
+
+{
+    "keepOriginalHtml": false,
+    "isMetadataNeeded": true,
+    "isNotebookNameNeeded": false,
+    "isZettelkastenNeeded": false,
+    "plainTextNotesOnly": false,
+    "skipWebClips": true,
+    "useHashTags": false,
+    "nestedTags": {
+        "separatorInEN": "_",
+        "replaceSeparatorWith": "---",
+        "replaceSpaceWith": "-"
+    },
+    "outputFormat": "StandardMD",
+    "urlEncodeFileNamesAndLinks": false,
+    "sanitizeResourceNameSpaces": false, 
+    "replacementChar": "_",
+    "pathSeparator": "/",
+    "resourcesDir": "assets",
+    "turndownOptions": {
+        "headingStyle": "atx"
+    },
+    "skipLocation": true,
+    "skipCreationTime": false,
+    "dateFormat": "YYYY-MM-DD",
+    "skipUpdateTime": true,
+    "skipSourceUrl": true,
+    "skipTags": true,
+    "skipEnexFileNameFromOutputPath": false,
+    "keepMDCharactersOfENNotes": false,
+    "monospaceIsCodeBlock": false,
+    "keepOriginalAmountOfNewlines": true,
+    "haveEnexLevelResources": true,
+    "haveGlobalResources": false,
+    "logseqSettings":{
+        "journalNotes": false
+    },
+    "obsidianSettings": {
+        "omitLinkDisplayName": false
+    }
+}

@@ -11,6 +11,7 @@ import {
     strikethroughRule,
     taskItemsRule,
     wikiStyleLinksRule } from './turndown-rules';
+import { OutputFormat } from './../output-format';
 
 export const getTurndownService = (yarleOptions: YarleOptions) => {
     /* istanbul ignore next */
@@ -33,6 +34,16 @@ export const getTurndownService = (yarleOptions: YarleOptions) => {
     turndownService.addRule('evernote task items', taskItemsRule);
     turndownService.addRule('wikistyle links', wikiStyleLinksRule);
     turndownService.addRule('images', imagesRule);
+
+    if (yarleOptions.outputFormat === OutputFormat.LogSeqMD) {
+        turndownService.addRule('logseq_hr', {
+                filter: ['hr'],
+                // tslint:disable-next-line:typedef
+                replacement(content: any) {
+                return '\r  ---'; // this \r is important, used to diff from \n
+            },
+        });
+    }
 
     if (yarleOptions.keepMDCharactersOfENNotes) {
         turndownService.escape = ((str: string) => str);

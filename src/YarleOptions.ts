@@ -20,10 +20,20 @@ export interface YarleOptions {
     skipTags?: boolean;
     useHashTags?: boolean;
     outputFormat?: OutputFormat;
+    logseqSettings?: {
+        journalNotes: boolean,
+    };
+    obsidianSettings?: {
+        omitLinkDisplayName?: boolean,
+    };
+    replaceWhitespacesInTagsByUnderscore?: boolean;
     skipEnexFileNameFromOutputPath?: boolean;
     haveEnexLevelResources?: boolean;
+    haveGlobalResources?: boolean;
     keepMDCharactersOfENNotes?: boolean;
     urlEncodeFileNamesAndLinks?: boolean;
+    sanitizeResourceNameSpaces?: boolean;
+    replacementChar?: string;
     monospaceIsCodeBlock?: boolean;
     dateFormat?: string;
     nestedTags?: TagSeparatorReplaceOptions;

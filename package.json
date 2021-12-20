@@ -1,6 +1,6 @@
 {
   "name": "yarle-evernote-to-md",
-  "version": "4.2.3",
+  "version": "4.7.0",
   "description": "Yet Another Rope Ladder from Evernote",
   "keywords": [
     "evernote",
@@ -22,7 +22,7 @@
     "build-windows": "tsc --project .\\src",
     "build:watch": "nodemon --watch src/ --exec \"npm run build\" -e ts",
     "coverage": "nyc mocha",
-    "lint": "tslint --project ./src/tsconfig.json",
+    "lint": "tslint --fix --project ./src/tsconfig.json",
     "debug": "node --inspect --max-old-space-size=1024 ./dist/dropTheRope.js",
     "test": "nyc --reporter=html --reporter=text mocha",
     "test-watch": "mocha --watch",
@@ -62,7 +62,7 @@
     "turndown": "7.0.0",
     "utimes": "4.0.3",
     "winston": "3.3.3",
-    "electron-store": "6.0.1",
+    "electron-store": "8.0.1",
     "xml-flow": "1.0.4"
   },
   "engines": {

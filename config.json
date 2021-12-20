@@ -19,5 +19,16 @@
     "outputFormat": "ObsidianMD",
     "skipEnexFileNameFromOutputPath": false,
     "keepOriginalAmountOfNewlines": false,
-    "pathSeparator": "/"
+    "urlEncodeFileNamesAndLinks": false,
+    "pathSeparator": "/",
+    "sanitizeResourceNameSpaces": false,
+    "haveEnexLevelResources": false,
+    "haveGlobalResources": false,
+    "replacementChar": "_",
+    "logseqSettings":{
+        "journalNotes": false
+    },
+    "obsidianSettings": {
+        "omitLinkDisplayName": false
+    }
 }

@@ -1,6 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { EOL } from 'os';
+// tslint:disable-next-line:no-require-imports
+const {EOL} = require('os');
 
 const getAppDataPath = () => {
     switch (process.platform) {

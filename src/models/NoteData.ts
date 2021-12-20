@@ -1,3 +1,5 @@
+import { InternalLink } from './InternalLink';
+
 export interface NoteData {
     title?: string;
     tags?: string;
@@ -10,4 +12,5 @@ export interface NoteData {
     location?: string;
     linkToOriginal?: string;
     notebookName?: string;
+    internalLinks?: Array<InternalLink>;
   }

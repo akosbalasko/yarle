@@ -69,7 +69,6 @@ export const logTags = (note: any): string => {
         .toString()
         .replace(/^#/, '');
       if (tagOptions) {
-
         cleanTag = cleanTag.replace(new RegExp(tagOptions.separatorInEN, 'g'), tagOptions.replaceSeparatorWith);
       }
 

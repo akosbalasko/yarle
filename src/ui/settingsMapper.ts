@@ -25,14 +25,25 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
         currentTemplate: store.get('currentTemplate') as string,
         resourcesDir: store.get('resourcesDir') as string,
         nestedTags: {
-            separatorInEN: store.get('separatorInEN') as string,
-            replaceSeparatorWith: store.get('replaceSeparatorWith') as string,
-            replaceSpaceWith: store.get('replaceSpaceWith') as string,
+            separatorInEN: store.get('nestedTags.separatorInEN') as string,
+            replaceSeparatorWith: store.get('nestedTags.replaceSeparatorWith') as string,
+            replaceSpaceWith: store.get('nestedTags.replaceSpaceWith') as string,
+        },
+        logseqSettings: {
+            journalNotes: store.get('logseqSettings.journalNotes') as boolean,
+        },
+        obsidianSettings: {
+            omitLinkDisplayName: store.get('obsidianSettings.omitLinkDisplayName') as boolean,
         },
         dateFormat: store.get('dateFormat') as string,
         keepImageSize: store.get('keepImageSize') as OutputFormat,
         keepOriginalAmountOfNewlines: store.get('keepOriginalAmountOfNewlines') as boolean,
         addExtensionToInternalLinks: store.get('addExtensionToInternalLinks') as boolean,
         generateNakedUrls: store.get('generateNakedUrls') as boolean,
+        urlEncodeFileNamesAndLinks: store.get('urlEncodeFileNamesAndLinks') as boolean,
+        haveEnexLevelResources: store.get('haveEnexLevelResources') as boolean,
+        haveGlobalResources: store.get('haveGlobalResources') as boolean,
+        sanitizeResourceNameSpaces: store.get('sanitizeResourceNameSpaces') as boolean,
+        replacementChar: store.get('replacementChar') as string,
     };
 };

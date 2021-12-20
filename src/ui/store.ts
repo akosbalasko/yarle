@@ -1,14 +1,12 @@
 // tslint:disable-next-line:no-require-imports
-import  Store = require('electron-store');
-
+import Store = require('electron-store');
 import { OutputFormat } from './../output-format';
-
 const schema: any = {
   keepOriginalHtml: {
     type: 'boolean',
     default: true,
   },
-    enexSources: {type: 'array'},
+    enexSources: {},
     // templateFile: {type: 'string'},
     outputDir: {type: 'string'},
     // isMetadataNeeded: { type: 'boolean', default: false },
@@ -26,7 +24,7 @@ const schema: any = {
     skipEnexFileNameFromOutputPath: { type: 'boolean', default: false },
     keepMDCharactersOfENNotes: { type: 'boolean', default: false },
     monospaceIsCodeBlock: { type: 'boolean', default: false },
-    resourcesDir: {tyle: 'string', default: '_resources'},
+    resourcesDir: {type: 'string', default: '_resources'},
 };
 
-export const store = new Store({schema});
+export const store = new Store({schema, watch: true});
