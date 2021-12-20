@@ -12,9 +12,10 @@ import { mapSettingsToYarleOptions } from './settingsMapper';
 import { OutputFormat } from './../output-format';
 
 // tslint:disable-next-line:variable-name
-const Store = require('electron-store');
+// tslint:disable-next-line:no-require-imports
+const eStore = require('electron-store');
 
-Store.initRenderer();
+eStore.initRenderer();
 
 // handle setupevents as quickly as possible
 // tslint:disable-next-line:no-require-imports

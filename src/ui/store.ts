@@ -1,5 +1,6 @@
 // tslint:disable-next-line:no-require-imports
 import Store = require('electron-store');
+
 import { OutputFormat } from './../output-format';
 const schema: any = {
   keepOriginalHtml: {
