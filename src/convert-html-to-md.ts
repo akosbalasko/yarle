@@ -5,6 +5,30 @@ import { NoteData } from './models/NoteData';
 import { YarleOptions } from './YarleOptions';
 import { OutputFormat } from './output-format';
 
+const unwrapElement = (node: Element) => {
+    node.replaceWith(...Array.from(node.children));
+};
+
+const swapParent = (wrapper: Element) => {
+    const span = wrapper.parentElement;
+    span.replaceWith(...Array.from(span.childNodes));
+    span.append(...Array.from(wrapper.childNodes));
+    wrapper.appendChild(span);
+};
+
+const fixTasks = (node: HTMLElement) => {
+    // fix bold or italic breaking a task's syntax
+    // i.e. '*[] foo*' instead of '[] *foo*'
+    const spanTasks = Array.from(node.querySelectorAll('span>en-todo'));
+    spanTasks.forEach(swapParent);
+    // fix an anchor breaking a task's syntax
+    // i.e. '[] [foo](bar)' instead of '[[] foo](bar)'
+    const anchorTasks = Array.from(node.querySelectorAll('a>en-todo'));
+    anchorTasks.forEach(swapParent);
+
+    return node;
+};
+
 const fixSublists = (node: HTMLElement) => {
     const ulElements: Array<HTMLElement> = Array.from(node.getElementsByTagName('ul'));
     const olElements: Array<HTMLElement> = Array.from(node.getElementsByTagName('ol'));
@@ -44,7 +68,8 @@ export const convertHtml2Md = (yarleOptions: YarleOptions, { htmlContent }: Note
     const contentNode = new JSDOM(content).window.document
       .getElementsByTagName('en-note').item(0) as any as HTMLElement;
 
-    let contentInMd = getTurndownService(yarleOptions).turndown(fixSublists(contentNode));
+    let contentInMd = getTurndownService(yarleOptions)
+        .turndown(fixTasks(fixSublists(contentNode)));
 
     const newLinePlaceholder = new RegExp('<YARLE_NEWLINE_PLACEHOLDER>', 'g');
     contentInMd = contentInMd.replace(newLinePlaceholder, '');
