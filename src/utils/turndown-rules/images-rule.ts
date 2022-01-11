@@ -17,7 +17,7 @@ export const imagesRule = {
     const heightParam = node.height || '';
     let realValue = value;
     if (yarleOptions.sanitizeResourceNameSpaces) {
-      realValue = realValue.replaceAll(' ', yarleOptions.replacementChar);
+      realValue = realValue.replace(/ /g, yarleOptions.replacementChar);
     } else if (yarleOptions.urlEncodeFileNamesAndLinks) {
       realValue = encodeURI(realValue);
     }
