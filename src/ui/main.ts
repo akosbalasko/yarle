@@ -4,7 +4,7 @@ import url from 'url';
 import path from 'path';
 import electron from 'electron';
 
-import * as yarle from '../yarle';
+import * as dropTheRopeRunner from '../dropTheRopeRunner';
 import { loggerInfo } from '../utils/loggerInfo';
 
 import { store } from './store';
@@ -177,7 +177,8 @@ electron.ipcMain.on('configurationUpdated', (event: any, data: any) => {
 
 electron.ipcMain.on('startConversion', async (event: any, data: any) => {
   const settings = mapSettingsToYarleOptions();
-  await yarle.dropTheRope(settings);
+  // await yarle.dropTheRope(settings);
+  await dropTheRopeRunner.run(settings);
 
 });
 
