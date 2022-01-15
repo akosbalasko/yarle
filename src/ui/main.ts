@@ -4,6 +4,7 @@ import url from 'url';
 import path from 'path';
 import electron from 'electron';
 
+import { applyLinks } from '../utils/apply-links';
 import * as yarle from '../yarle';
 import { loggerInfo } from '../utils/loggerInfo';
 
@@ -177,7 +178,9 @@ electron.ipcMain.on('configurationUpdated', (event: any, data: any) => {
 
 electron.ipcMain.on('startConversion', async (event: any, data: any) => {
   const settings = mapSettingsToYarleOptions();
-  await yarle.dropTheRope(settings);
+  const outputNotebookFolders = await yarle.dropTheRope(settings);
+  // apply internal links
+  applyLinks(settings, outputNotebookFolders);
 
 });
 
