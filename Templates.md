@@ -33,6 +33,9 @@ A custom template file can have any file name and extension.
 | Tags | `{tags-block}{tags}{end-tags-block}` | Note tags |
 | Content | `{content-block}{content}{end-content-block}` | Note content |
 | Date of creation | `{created-at-block}{created-at}{end-created-at-block}` | Creation date of the note |
+| Reminder Time | `{reminder-time-block}{reminder-time}{end-reminder-time-block}` | Reminder time of the note |
+| Reminder Done Time | `{reminder-done-time-block}{reminder-done-time}{end-reminder-done-time-block}` | Reminder done time of the note |
+| Reminder Order | `{reminder-order-block}{reminder-order}{end-reminder-order-block}` | Reminder order of the note |
 | Last update | `{updated-at-block}{updated-at}{end-updated-at-block}` | Last updated date of the note |
 | Source URL | `{source-url-block}{source-url}{end-source-url-block}` | Source URL from the EN metadata|
 | Original Notebook Name | `{notebook-block}{notebook}{end-notebook-block}` | Name of the EN notebook where the note is stored |
