@@ -61,21 +61,21 @@ export const getReminderTime = (note: any): string => {
   return !yarleOptions.skipReminderTime &&
     note['note-attributes'] &&
     note['note-attributes']['reminder-time']
-    ? `${note['note-attributes']['reminder-time']}`
+    ? Moment(note['note-attributes']['reminder-time']).format(yarleOptions.dateFormat)
     : undefined;
 };
 export const getReminderOrder = (note: any): string => {
   return !yarleOptions.skipReminderOrder &&
     note['note-attributes'] &&
     note['note-attributes']['reminder-order']
-    ? `${note['note-attributes']['reminder-order']}`
+    ? note['note-attributes']['reminder-order']
     : undefined;
 };
 export const getReminderDoneTime = (note: any): string => {
   return !yarleOptions.skipReminderDoneTime &&
     note['note-attributes'] &&
     note['note-attributes']['reminder-done-time']
-    ? `${note['note-attributes']['reminder-done-time']}`
+    ? Moment(note['note-attributes']['reminder-done-time']).format(yarleOptions.dateFormat)
     : undefined;
 };
 /*
