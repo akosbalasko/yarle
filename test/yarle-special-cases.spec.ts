@@ -631,6 +631,35 @@ describe('Yarle special cases', async () => {
       true,
     );
   });
+
+  it('Enex file with reminder', async () => {
+    const options: YarleOptions = {
+      enexSources: [ `${testDataFolder}test-reminder.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      plainTextNotesOnly: false,
+      skipReminderTime: false,
+      skipReminderOrder: false,
+      skipReminderDoneTime: false,
+      templateFile: `${testDataFolder}reminder_template.templ`,
+
+    };
+    await yarle.dropTheRope(options);
+
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-reminder/reminders title.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-reminder/reminders title.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test - reminders title.md`, 'utf8'),
+    );
+  });
   it('Enex file obsidian style', async () => {
     const options: YarleOptions = {
       enexSources: [ `${testDataFolder}test-twoNotes.enex` ],

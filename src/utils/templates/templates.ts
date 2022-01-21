@@ -12,6 +12,9 @@ import {
   applyLinkToOriginalTemplate,
   applyLocationTemplate,
   applyNotebookTemplate,
+  applyReminderDoneTimeTemplate,
+  applyReminderOrderTemplate,
+  applyReminderTimeTemplate,
   applySourceUrlTemplate,
   applyTagsTemplate,
   applyTitleTemplate,
@@ -23,6 +26,9 @@ import {
   removeLocationPlaceholder,
   removeMetadataBlockPlaceholder,
   removeNotebookPlaceholder,
+  removeReminderDoneTimePlaceholder,
+  removeReminderOrderPlaceholder,
+  removeReminderTimePlaceholder,
   removeSourceUrlPlaceholder,
   removeUpdatedAtPlaceholder,
  } from './remove-functions';
@@ -58,6 +64,18 @@ export const applyTemplate = (noteData: NoteData, yarleOptions: YarleOptions) =>
   result = (yarleOptions.isNotebookNameNeeded && noteData.notebookName)
       ? applyNotebookTemplate(noteData, result)
       : removeNotebookPlaceholder(result);
+
+  result = (!yarleOptions.skipReminderTime && noteData.reminderTime)
+    ? applyReminderTimeTemplate(noteData, result)
+    : removeReminderTimePlaceholder(result);
+
+  result = (!yarleOptions.skipReminderOrder && noteData.reminderOrder)
+    ? applyReminderOrderTemplate(noteData, result)
+    : removeReminderOrderPlaceholder(result);
+
+  result = (!yarleOptions.skipReminderDoneTime && noteData.reminderDoneTime)
+    ? applyReminderDoneTimeTemplate(noteData, result)
+    : removeReminderDoneTimePlaceholder(result);
 
   result = result.replace(T.START_BLOCK, '')
       .replace(T.END_BLOCK, '');
