@@ -4,7 +4,7 @@ import { utimes } from 'utimes';
 
 import { yarleOptions } from './../yarle';
 import { MetaData } from './../models/MetaData';
-import { NoteData, TagSeparatorReplaceOptions } from './../models';
+import { NoteData } from './../models';
 import { getHtmlFileLink } from './folder-utils';
 
 export const getMetadata = (note: any, notebookName: string): MetaData => {
@@ -15,6 +15,9 @@ export const getMetadata = (note: any, notebookName: string): MetaData => {
         sourceUrl: getSourceUrl(note),
         location: getLatLong(note),
         linkToOriginal: getLinkToOriginal(note),
+        reminderTime: getReminderTime(note),
+        reminderOrder: getReminderOrder(note),
+        reminderDoneTime: getReminderDoneTime(note),
         notebookName,
       };
 };
@@ -54,6 +57,31 @@ export const getLatLong = (note: any): string => {
     ? `${note['note-attributes'].latitude},${note['note-attributes'].longitude}`
     : undefined;
 };
+export const getReminderTime = (note: any): string => {
+  return !yarleOptions.skipReminderTime &&
+    note['note-attributes'] &&
+    note['note-attributes']['reminder-time']
+    ? Moment(note['note-attributes']['reminder-time']).format(yarleOptions.dateFormat)
+    : undefined;
+};
+export const getReminderOrder = (note: any): string => {
+  return !yarleOptions.skipReminderOrder &&
+    note['note-attributes'] &&
+    note['note-attributes']['reminder-order']
+    ? note['note-attributes']['reminder-order']
+    : undefined;
+};
+export const getReminderDoneTime = (note: any): string => {
+  return !yarleOptions.skipReminderDoneTime &&
+    note['note-attributes'] &&
+    note['note-attributes']['reminder-done-time']
+    ? Moment(note['note-attributes']['reminder-done-time']).format(yarleOptions.dateFormat)
+    : undefined;
+};
+/*
+<reminder-order>
+<reminder-time>
+<reminder-done-time> */
 export const getTags = (note: any): NoteData => {
   return {tags: logTags(note)};
 

@@ -5,4 +5,7 @@ export interface MetaData {
     location?: string;
     linkToOriginal?: string;
     notebookName?: string;
+    reminderTime?: string;
+    reminderOrder?: string;
+    reminderDoneTime?: string;
   }
