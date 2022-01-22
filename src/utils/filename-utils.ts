@@ -41,7 +41,7 @@ export const getResourceFileProperties = (workDir: string, resource: any): Resou
     const fileNamePrefix = resource['resource-attributes']['file-name'].substr(0, 50);
     fileName = fileNamePrefix.split('.')[0];
   }
-  fileName = fileName.replace(/[/\\?%*:|"<>]/g, '-');
+  fileName = fileName.replace(/[/\\?%*:|"<>\[\]\+]/g, '-');
 
   if (yarleOptions.sanitizeResourceNameSpaces) {
     fileName = fileName.replace(/ /g, yarleOptions.replacementChar);
