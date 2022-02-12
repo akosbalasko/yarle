@@ -13,6 +13,9 @@ import { hasCreationTimeInTemplate,
   hasLinkToOriginalInTemplate,
   hasLocationInTemplate,
   hasNotebookInTemplate,
+  hasReminderDoneTimeInTemplate,
+  hasReminderOrderInTemplate,
+  hasReminderTimeInTemplate,
   hasSourceURLInTemplate,
   hasTagsInTemplate,
   hasUpdateTimeInTemplate } from './utils/templates/checker-functions';
@@ -60,6 +63,9 @@ const setOptions = (options: YarleOptions): void => {
   yarleOptions.skipCreationTime = !hasCreationTimeInTemplate(template);
   yarleOptions.skipLocation = !hasLocationInTemplate(template);
   yarleOptions.skipSourceUrl = !hasSourceURLInTemplate(template);
+  yarleOptions.skipReminderTime = !hasReminderTimeInTemplate(template);
+  yarleOptions.skipReminderDoneTime = !hasReminderDoneTimeInTemplate(template);
+  yarleOptions.skipReminderOrder = !hasReminderOrderInTemplate(template);
   yarleOptions.skipTags = !hasTagsInTemplate(template);
   yarleOptions.skipUpdateTime = !hasUpdateTimeInTemplate(template);
   yarleOptions.isNotebookNameNeeded = hasNotebookInTemplate(template);
