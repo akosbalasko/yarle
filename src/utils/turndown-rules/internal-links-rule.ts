@@ -1,4 +1,5 @@
-import marked, { Token } from 'marked';
+// tslint:disable-next-line:no-require-imports
+import marked = require('marked');
 import * as _ from 'lodash';
 
 import { normalizeTitle } from '../filename-utils';
