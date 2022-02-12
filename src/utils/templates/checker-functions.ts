@@ -7,9 +7,23 @@ import * as SOURCEURL from './placeholders/sourceurl-placeholders';
 import * as TAGS from './placeholders/tags-placeholders';
 import * as METADATA from './placeholders/metadata-placeholders';
 import * as UPDATETIME from './placeholders/updatedat-placeholders';
+import * as REMINDERTIME from './placeholders/remindertime-placeholders';
+import * as REMINDERDONETIME from './placeholders/reminderdonetime-placeholders';
+import * as REMINDERORDER from './placeholders/reminderorder-placeholders';
 
 export const hasCreationTimeInTemplate = (templateContent: string): boolean => {
     return hasItemInTemplate(CREATIONTIME, templateContent);
+};
+
+export const hasReminderTimeInTemplate = (templateContent: string): boolean => {
+    return hasItemInTemplate(REMINDERTIME, templateContent);
+};
+export const hasReminderDoneTimeInTemplate = (templateContent: string): boolean => {
+    return hasItemInTemplate(REMINDERDONETIME, templateContent);
+
+};
+export const hasReminderOrderInTemplate = (templateContent: string): boolean => {
+    return hasItemInTemplate(REMINDERORDER, templateContent);
 };
 
 export const hasLocationInTemplate = (templateContent: string): boolean => {

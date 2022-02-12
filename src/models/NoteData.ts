@@ -13,4 +13,7 @@ export interface NoteData {
     linkToOriginal?: string;
     notebookName?: string;
     internalLinks?: Array<InternalLink>;
+    reminderTime?: string;
+    reminderDoneTime?: string;
+    reminderOrder?: string;
   }

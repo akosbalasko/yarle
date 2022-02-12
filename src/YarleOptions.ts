@@ -17,6 +17,9 @@ export interface YarleOptions {
     skipUpdateTime?: boolean;
     skipSourceUrl?: boolean;
     skipWebClips?: boolean;
+    skipReminderTime?: boolean;
+    skipReminderOrder?: boolean;
+    skipReminderDoneTime?: boolean;
     skipTags?: boolean;
     useHashTags?: boolean;
     outputFormat?: OutputFormat;

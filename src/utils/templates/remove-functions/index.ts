@@ -5,3 +5,6 @@ export * from './remove-notebook-placeholder';
 export * from './remove-metadataBlock-placeholder';
 export * from './remove-location-placeholder';
 export * from './remove-link-to-original-placeholder';
+export * from './remove-remindertime-placeholder';
+export * from './remove-reminderdonetime-placeholder';
+export * from './remove-reminderorder-placeholder';

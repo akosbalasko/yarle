@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE en-export SYSTEM "http://xml.evernote.com/pub/evernote-export3.dtd">
+<en-export export-date="20220119T200151Z" application="Evernote" version="Evernote Mac 7.14 (458244)">
+	<note>
+		<title>
+			reminders title
+		</title>
+		<content>
+			<![CDATA[
+			<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+			<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd">
+			<en-note/>
+			]]>
+		</content>
+		<created>
+			20220119T193959Z
+		</created>
+		<updated>
+			20220119T194008Z
+		</updated>
+		<note-attributes>
+			<latitude>
+				47.625
+			</latitude>
+			<longitude>
+				19.1387093306179
+			</longitude>
+			<altitude>
+				126.2126541137695
+			</altitude>
+			<author>
+				akos
+			</author>
+			<source>
+				desktop.mac
+			</source>
+			<reminder-order>
+				1642621213000
+			</reminder-order>
+			<reminder-time>
+				20220120T070000Z
+			</reminder-time>
+			<reminder-done-time>
+				20220119T200123Z
+			</reminder-done-time>
+		</note-attributes>
+	</note>
+</en-export>

@@ -7,3 +7,6 @@ export * from './apply-sourceurl-template';
 export * from './apply-location-template';
 export * from './apply-original-template';
 export * from './apply-notebook-template';
+export * from './apply-remindertime-template';
+export * from './apply-reminderorder-template';
+export * from './apply-reminderdonetime-template';
