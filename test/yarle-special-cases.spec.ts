@@ -756,4 +756,29 @@ describe('Yarle special cases', async () => {
     );
   });
 
+  it('really old creation time', async () => {
+    const options: YarleOptions = {
+      enexSources: [ `${testDataFolder}test-old-note.enex` ],
+      outputDir: 'out',
+      templateFile: `${testDataFolder}full_template.templ`,
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.ObsidianMD,
+      skipEnexFileNameFromOutputPath: false,
+
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-old-note/Untitled.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-old-note/Untitled.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-old-note.md`, 'utf8'),
+    );
+  });
 });
