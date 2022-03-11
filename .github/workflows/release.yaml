@@ -47,6 +47,8 @@ jobs:
     - uses: actions/setup-node@master
       with:
         node-version: 14
+    - name: install node-gyp
+      run: npm install node-gyp@latest
     - name: install dependencies
       run: npm install
     - name: compile
