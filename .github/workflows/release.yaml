@@ -41,7 +41,7 @@ jobs:
       run: npm run publish
 
   publish_on_win:
-    runs-on: windows-latest
+    runs-on: windows-2019
     steps:
     - uses: actions/checkout@v2       
     - uses: actions/setup-node@master
@@ -51,7 +51,7 @@ jobs:
       run: npm install
     - name: compile
       run: npm run compile
-    #- name: publish
-      #env:
-        #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #run: npm run publish
+    - name: publish
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: npm run publish
