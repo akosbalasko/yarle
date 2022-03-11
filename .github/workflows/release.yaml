@@ -49,7 +49,7 @@ jobs:
         node-version: 14
 
     - name: cd node folder
-      run: C:\Program Files\nodejs\node_modules\npm\node_modules\@npmcli\run-script
+      run: cd "C:\Program Files\nodejs\node_modules\npm\node_modules\@npmcli\run-script"
     - name: install node-gyp
       run: npm install  node-gyp@latest
 
