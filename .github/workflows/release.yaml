@@ -46,13 +46,7 @@ jobs:
     - uses: actions/checkout@v2       
     - uses: actions/setup-node@master
       with:
-        node-version: 14
-
-    - name: cd node folder
-      run: cd "C:\Program Files\nodejs\node_modules\npm\node_modules\@npmcli\run-script"
-    - name: install node-gyp
-      run: npm install  node-gyp@latest
-
+        node-version: 16
     - name: install dependencies
       run: npm install
     - name: compile
