@@ -47,12 +47,10 @@ jobs:
     - uses: actions/setup-node@master
       with:
         node-version: 14
+
     - name: install node-gyp
-      run: npm install node-gyp@latest
-    - name: where node
-      run: where node
-    - name: config node-gyp
-      run: npm config set msvs_version 2022
+      run: npm install --prefix  C:\Program Files\nodejs\node_modules\npm\node_modules\@npmcli\run-script node-gyp@latest
+
     - name: install dependencies
       run: npm install
     - name: compile
