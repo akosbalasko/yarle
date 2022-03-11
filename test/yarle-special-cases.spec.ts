@@ -309,9 +309,9 @@ describe('Yarle special cases', async () => {
       ));
   });
 
-  it('Enex file with two notes with same names', async () => {
+  it('Enex file with three notes with same names', async () => {
     const options: YarleOptions = {
-      enexSources: [ `${testDataFolder}test-twoNotesWithSameName.enex` ],
+      enexSources: [ `${testDataFolder}test-3NotesWithSameName.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
@@ -320,32 +320,49 @@ describe('Yarle special cases', async () => {
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/notes/test-twoNotesWithSameName/Untitled.md`,
+        `${__dirname}/../out/notes/test-3NotesWithSameName/Github - $4.00.md`,
       ),
       true,
     );
 
     assert.equal(
       eol.auto(fs.readFileSync(
-        `${__dirname}/../out/notes/test-twoNotesWithSameName/Untitled.md`,
+        `${__dirname}/../out/notes/test-3NotesWithSameName/Github - $4.00.md`,
         'utf8',
       )),
-      fs.readFileSync(`${__dirname}/data/test-twoNotesWithSameName.md`, 'utf8'),
+      fs.readFileSync(`${__dirname}/data/test-3NotesWithSameName.md`, 'utf8'),
     );
 
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/notes/test-twoNotesWithSameName/Untitled.1.md`,
+        `${__dirname}/../out/notes/test-3NotesWithSameName/Github - $4.00.1.md`,
       ),
       true,
     );
     assert.equal(
       eol.auto(fs.readFileSync(
-        `${__dirname}/../out/notes/test-twoNotesWithSameName/Untitled.1.md`,
+        `${__dirname}/../out/notes/test-3NotesWithSameName/Github - $4.00.1.md`,
         'utf8',
       )),
       fs.readFileSync(
-        `${__dirname}/data/test-twoNotesWithSameName.1.md`,
+        `${__dirname}/data/test-3NotesWithSameName.1.md`,
+        'utf8',
+      ),
+    );
+
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-3NotesWithSameName/Github - $4.00.2.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-3NotesWithSameName/Github - $4.00.2.md`,
+        'utf8',
+      )),
+      fs.readFileSync(
+        `${__dirname}/data/test-3NotesWithSameName.2.md`,
         'utf8',
       ),
     );
