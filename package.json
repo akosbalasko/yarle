@@ -125,7 +125,11 @@
 
   "build": {
     "appId": "yarle",
-    "copyright":"Copyright © 2022, Akos Balasko"
+    "copyright":"Copyright © 2022, Akos Balasko",
+    "files": [
+      "dist/**/*",
+      "package.json"
+    ]
   }
   ,
   "config": {
