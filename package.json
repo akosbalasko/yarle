@@ -44,6 +44,7 @@
   "dependencies": {
     "@types/fs-extra": "8.1.0",
     "@electron-forge/cli": "6.0.0-beta.54",
+    "electron-builder": "22.4.1",
     "chai": "4.2.0",
     "chokidar": "3.4.3",
     "fast-xml-parser": "3.12.5",
