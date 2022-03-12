@@ -112,7 +112,9 @@
     "files": [
       "dist/**/*",
       "package.json",
-      "sampleTemplate.tmpl"
+      "sampleTemplate.tmpl",
+      "config.json",
+      "config.logseq.json"
     ],
     "mac": {
       "icon": "./src/ui/assets/icons/mac/icon.icns"
