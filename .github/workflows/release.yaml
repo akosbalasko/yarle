@@ -22,7 +22,7 @@ jobs:
     - name: publish
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GLOBAL_AGENT.HTTP_PROXY: http://127.0.0.1:8080
+        GLOBAL_AGENT_HTTP_PROXY: http://127.0.0.1:8080
       run: npm run publish
 
   publish_on_mac:
@@ -39,7 +39,7 @@ jobs:
     - name: publish
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GLOBAL_AGENT.HTTP_PROXY: http://127.0.0.1:8080
+        GLOBAL_AGENT_HTTP_PROXY: http://127.0.0.1:8080
       run: npm run publish
 
   publish_on_win:
@@ -56,5 +56,5 @@ jobs:
     - name: publish
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GLOBAL_AGENT.HTTP_PROXY: http://127.0.0.1:8080
+        GLOBAL_AGENT_HTTP_PROXY: http://127.0.0.1:8080
       run: npm run publish
