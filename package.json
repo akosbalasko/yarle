@@ -15,6 +15,8 @@
     "yarle": "./dist/dropTheRope.js"
   },
   "scripts": {
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
     "clean-by-rimraf": "rimraf ./out && rimraf ./dist && rimraf \"node_modules/!(rimraf|.bin)\"",
     "clean": "rm -f -r ./out && rm -f -r ./dist && rm -r -f ./node_modules",
     "build": "npm i  && tsc --project ./src/tsconfig.json",
