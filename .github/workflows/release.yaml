@@ -49,6 +49,7 @@ jobs:
     - uses: actions/setup-node@v2
       with:
         node-version: 14
+        cache: 'npm'
     - name: install dependencies
       run: npm install
     - name: compile
