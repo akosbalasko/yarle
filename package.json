@@ -131,9 +131,7 @@
       "package.json"
     ],
     "snap":{
-        "provider": "generic",
-        "url": "https://anydummyurl.com"
-
+        "publish": "github"
     }
   }
   ,
