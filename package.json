@@ -126,12 +126,10 @@
       "icon": "./src/ui/assets/icons/png",
       "target": [
         {
-          "target:": "deb",
-          "arch": "arm64"
+          "target:": "deb"
         },
         {
-          "target:": "rpm",
-          "arch": "arm64"
+          "target:": "rpm"
         }
       ]
     },
