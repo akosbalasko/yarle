@@ -129,10 +129,10 @@
       "publish": "github"
     },
     "deb" : {
-      "arch": "arm64"
+      "publish": "github"
     },
     "rpm": {
-      "arch": "arm64"
+      "publish": "github"
     }
   }
 }
