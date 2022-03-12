@@ -131,6 +131,7 @@
         "rpm": {
           "arch": "arm64"
         }
+      }
     },
     "snap": {
       "publish": "github"
