@@ -46,7 +46,6 @@
   "dependencies": {
     "@types/fs-extra": "8.1.0",
     "@electron-forge/cli": "6.0.0-beta.54",
-    "electron-builder": "22.4.1",
     "chai": "4.2.0",
     "chokidar": "3.4.3",
     "fast-xml-parser": "3.12.5",
@@ -84,6 +83,7 @@
     "@electron-forge/maker-squirrel": "6.0.0-beta.54",
     "@electron-forge/maker-zip": "6.0.0-beta.54",
     "@electron-forge/publisher-github": "6.0.0-beta.52",
+    "electron-builder": "22.4.1",
     "@types/he": "1.1.1",
     "@types/jsdom": "16.2.4",
     "@types/lodash": "4.14.151",
