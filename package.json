@@ -123,18 +123,16 @@
       "icon": "./src/ui/assets/icons/win/icon.png"
     },
     "linux": {
-      "icon": "./src/ui/assets/icons/png",
-      "target": {
-        "deb" : {
-          "arch": "arm64"
-        },
-        "rpm": {
-          "arch": "arm64"
-        }
-      }
+      "icon": "./src/ui/assets/icons/png"
     },
     "snap": {
       "publish": "github"
+    },
+    "deb" : {
+      "arch": "arm64"
+    },
+    "rpm": {
+      "arch": "arm64"
     }
   }
 }
