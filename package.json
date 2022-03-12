@@ -126,53 +126,14 @@
   "build": {
     "appId": "yarle",
     "copyright":"Copyright © 2022, Akos Balasko",
+    "icon": "./src/ui/assets/icons/mac/icon.icns",
     "files": [
       "dist/**/*",
-      "package.json"
+      "package.json",
+      "sampleTemplate.tmpl"
     ],
     "snap":{
         "publish": "github"
-    }
-  }
-  ,
-  "config": {
-    "forge": {
-      "packagerConfig": {
-        "icon": "./src/ui/assets/icons/mac/icon.icns"
-      },
-      "makers": [
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "yarle"
-          }
-        },
-        {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
-        },
-        {
-          "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
-        }
-      ],
-      "publishers": [
-        {
-          "name": "@electron-forge/publisher-github",
-          "config": {
-            "repository": {
-              "owner": "akosbalasko",
-              "name": "yarle"
-            }
-          }
-        }
-      ]
     }
   }
 }
