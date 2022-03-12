@@ -114,7 +114,8 @@
       "package.json",
       "sampleTemplate.tmpl",
       "config.json",
-      "config.logseq.json"
+      "config.logseq.json",
+      "src/ui/**/*"
     ],
     "mac": {
       "icon": "./src/ui/assets/icons/mac/icon.icns"
