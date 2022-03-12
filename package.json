@@ -129,7 +129,12 @@
     "files": [
       "dist/**/*",
       "package.json"
-    ]
+    ],
+    "snap":{
+        "provider": "generic",
+        "url": "https://anydummyurl.com"
+
+    }
   }
   ,
   "config": {
