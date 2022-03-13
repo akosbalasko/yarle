@@ -1,6 +1,6 @@
 {
   "name": "yarle-evernote-to-md",
-  "version": "4.8.3",
+  "version": "4.8.7",
   "description": "Yet Another Rope Ladder from Evernote",
   "keywords": [
     "evernote",
@@ -15,9 +15,11 @@
     "yarle": "./dist/dropTheRope.js"
   },
   "scripts": {
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
     "clean-by-rimraf": "rimraf ./out && rimraf ./dist && rimraf \"node_modules/!(rimraf|.bin)\"",
     "clean": "rm -f -r ./out && rm -f -r ./dist && rm -r -f ./node_modules",
-    "build": "npm i  && tsc --project ./src/tsconfig.json",
+    "build": "npm i  && tsc --project ./src/tsconfig.json && copyfiles -u 1 \"src/ui/**/*\" dist",
     "install-tsc": "npm install -g typescript",
     "build-windows": "tsc --project .\\src",
     "build:watch": "nodemon --watch src/ --exec \"npm run build\" -e ts",
@@ -26,24 +28,17 @@
     "debug": "node --inspect --max-old-space-size=1024 ./dist/dropTheRope.js",
     "test": "nyc --reporter=html --reporter=text mocha",
     "test-watch": "mocha --watch",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
     "compile": "npm run build && copyfiles -u 1 \"src/ui/**/*\" dist",
-    "start": "tsc  --project ./src/tsconfig.json && electron-forge start --inspect-electron",
-    "publish": "electron-forge publish",
+    "start": "electron .",
     "css-build": "node-sass --omit-source-map-url ./src/ui/sass/purecss.scss ./src/ui/css/purecss.css",
     "css-watch": "npm run css-build -- --watch",
     "publish-npm": "npm run compile && npm publish",
-    "package-mac": "electron-packager . --overwrite --asar --platform=darwin --arch=x64 --icon=./src/ui/assets/icons/mac/icon.icns --prune=true --out=release-builds --darwinDarkModeSupport=true",
-    "package-win": "electron-packager . electron-tutorial-app --overwrite --asar --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Yarle\"",
-    "package-linux": "electron-packager . electron-tutorial-app --overwrite --asar --platform=linux --arch=x64 --icon=assets/icons/png/512x512.png --prune=true --out=release-builds",
-    "create-installer-mac": "electron-installer-dmg ./out/yarle-evernote-to-md-darwin-x64/yarle-evernote-to-md.app yarle-evernote-to-md --out=release-builds --overwrite --icon=./src/ui/assets/icons/mac/icon.icns",
-    "create-installer-win": "node installers/windows/createinstaller.js",
-    "create-debian-installer": "electron-installer-debian --src release-builds/electron-tutorial-app-linux-x64/ --arch amd64 --config debian.json"
+    "package-mac": "electron-builder . --overwrite --asar --platform=darwin --arch=x64 --icon=./src/ui/assets/icons/mac/icon.icns --prune=true --out=release-builds --darwinDarkModeSupport=true",
+    "package-win": "electron-builder . electron-tutorial-app --overwrite --asar --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Yarle\"",
+    "package-linux": "electron-builder . electron-tutorial-app --overwrite --asar --platform=linux --arch=x64 --icon=assets/icons/png/512x512.png --prune=true --out=release-builds"
   },
   "dependencies": {
     "@types/fs-extra": "8.1.0",
-    "@electron-forge/cli": "6.0.0-beta.54",
     "chai": "4.2.0",
     "chokidar": "3.4.3",
     "fast-xml-parser": "3.12.5",
@@ -60,7 +55,7 @@
     "rimraf": "3.0.2",
     "sanitize-filename": "1.6.3",
     "turndown": "7.0.0",
-    "utimes": "4.0.3",
+    "utimes": "4.1.1",
     "winston": "3.3.3",
     "electron-store": "8.0.1",
     "xml-flow": "1.0.4"
@@ -76,11 +71,7 @@
   "homepage": "https://github.com/akosbalasko/yarle",
   "license": "(MIT OR Apache-2.0)",
   "devDependencies": {
-    "@electron-forge/maker-deb": "6.0.0-beta.54",
-    "@electron-forge/maker-rpm": "6.0.0-beta.54",
-    "@electron-forge/maker-squirrel": "6.0.0-beta.54",
-    "@electron-forge/maker-zip": "6.0.0-beta.54",
-    "@electron-forge/publisher-github": "6.0.0-beta.52",
+    "electron-builder": "23.0.2",
     "@types/he": "1.1.1",
     "@types/jsdom": "16.2.4",
     "@types/lodash": "4.14.151",
@@ -95,10 +86,6 @@
     "bulma": "0.9.1",
     "copyfiles": "2.4.1",
     "electron": "9.4.0",
-    "electron-installer-dmg": "3.0.0",
-    "electron-packager": "12.2.0",
-    "electron-squirrel-startup": "1.0.0",
-    "electron-winstaller": "2.7.0",
     "eol": "0.9.1",
     "eslint": "7.16.0",
     "eslint-plugin-import": "2.22.1",
@@ -119,44 +106,42 @@
     "name": "Akos Balasko",
     "email": "akos0215@gmail.com"
   },
-  "config": {
-    "forge": {
-      "packagerConfig": {
-        "icon": "./src/ui/assets/icons/mac/icon.icns"
-      },
-      "makers": [
+  "build": {
+    "appId": "yarle",
+    "copyright": "Copyright © 2022, Akos Balasko",
+    "files": [
+      "dist/**/*",
+      "package.json",
+      "sampleTemplate.tmpl",
+      "config.json",
+      "config.logseq.json",
+      "src/ui/**/*"
+    ],
+    "mac": {
+      "icon": "./src/ui/assets/icons/mac/icon.icns"
+    },
+    "win": {
+      "icon": "./src/ui/assets/icons/win/icon.png"
+    },
+    "linux": {
+      "icon": "./src/ui/assets/icons/png",
+      "target": [
         {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "yarle"
-          }
+          "target": "deb"
         },
         {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
-        },
-        {
-          "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
-        }
-      ],
-      "publishers": [
-        {
-          "name": "@electron-forge/publisher-github",
-          "config": {
-            "repository": {
-              "owner": "akosbalasko",
-              "name": "yarle"
-            }
-          }
+          "target": "rpm"
         }
       ]
+    },
+    "snap": {
+      "publish": "github"
+    },
+    "deb": {
+      "publish": "github"
+    },
+    "rpm": {
+      "publish": "github"
     }
   }
 }

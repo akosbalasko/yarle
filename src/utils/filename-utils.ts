@@ -16,6 +16,10 @@ export const normalizeTitle = (title: string) => {
   return sanitize(title, {replacement: yarleOptions.replacementChar || '_'});
 };
 
+const escapeRegExp = (text: string): string =>  {
+  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+};
+
 export const getFileIndex = (dstPath: string, fileNamePrefix: string): number | string => {
   const index = fs
     .readdirSync(dstPath)
@@ -23,8 +27,10 @@ export const getFileIndex = (dstPath: string, fileNamePrefix: string): number | 
       // make sure we get the first copy with no count suffix or the copies whose filename changed
       // drop the extension to compare with filename prefix
       const filePrefix = file.split('.').slice(0, -1).join('.');
+      const escapedFilePrefix = escapeRegExp(fileNamePrefix);
+      const fileWithSameName = filePrefix.match(new RegExp(`${escapedFilePrefix}\\.\\d+`));
 
-      return filePrefix === fileNamePrefix || file.match(new RegExp(`${fileNamePrefix}\.\\d+\.`));
+      return filePrefix === fileNamePrefix || fileWithSameName;
     })
     .length;
 

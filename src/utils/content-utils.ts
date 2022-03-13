@@ -118,7 +118,11 @@ export const setFileDates = (path: string, note: any): void => {
   const mtime = updated / 1000;
   utimesSync(path, mtime, mtime);
   // also set creation time where supported
-  const created = Moment(note.created).valueOf();
+  const creationTime = Moment(note.created);
+
+  const created = (Moment('1970-01-01 00:00:00.000').isBefore(creationTime)
+    ? creationTime
+    : Moment('1970-01-01 00:00:00.001')).valueOf();
   if (created) {
     utimes(path, {btime: created});
   }
