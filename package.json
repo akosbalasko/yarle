@@ -29,7 +29,7 @@
     "test": "nyc --reporter=html --reporter=text mocha",
     "test-watch": "mocha --watch",
     "compile": "npm run build && copyfiles -u 1 \"src/ui/**/*\" dist",
-    "start": "tsc  --project ./src/tsconfig.json && electron-forge start --inspect-electron",
+    "start": "electron .",
     "css-build": "node-sass --omit-source-map-url ./src/ui/sass/purecss.scss ./src/ui/css/purecss.css",
     "css-watch": "npm run css-build -- --watch",
     "publish-npm": "npm run compile && npm publish",
