@@ -52,7 +52,7 @@ Yarle is the ultimate converter of Evernote notes to Markdown.
 If you have an idea on how to improve the tool or face any problems, feel free to raise an issue, or even contribute!
 If you like the product, you can give a star here on github, or you can <a href="https://www.buymeacoffee.com/akosbalasko" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-yellow.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 
-## Yarle's supporters said: 
+### Yarle's supporters said: 
 
 <!--START_SECTION:buy-me-a-coffee--><div><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"> from <b>Someone</b> </div>  <div><i>Hi, some months ago I used your tool to migrate thousands of notes to Obsidian. You even fixed some issues I reported. I always meant to buy you some coffee but I almost forgot. But here I am. Thank you!</i></div><br>
 <div><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"> from <b>@andreashaubold</b> </div>  <div><i>I moved 1.000+ notes from Evernote to Obsidian. Yarle did a great job! Thanks for creating this tool!</i></div><br>
