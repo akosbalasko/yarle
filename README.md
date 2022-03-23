@@ -54,8 +54,9 @@ If you like the product, you can give a star here on github, or you can <a href=
 
 ## Yarle's supporters said: 
 
-<!--START_SECTION:buy-me-a-coffee-->
-<!--END_SECTION:buy-me-a-coffe-->
+<!--START_SECTION:buy-me-a-coffee--><div><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"> from <b>Someone</b> </div>  <div><i>Hi, some months ago I used your tool to migrate thousands of notes to Obsidian. You even fixed some issues I reported. I always meant to buy you some coffee but I almost forgot. But here I am. Thank you!</i></div><br>
+<div><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"> from <b>@andreashaubold</b> </div>  <div><i>I moved 1.000+ notes from Evernote to Obsidian. Yarle did a great job! Thanks for creating this tool!</i></div><br>
+<div><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"> from <b>Chris</b> </div>  <div><i>Thanks for the quick transfer!</i></div><br><!--END_SECTION:buy-me-a-coffe-->
 
 ## Proud to be proposed by: 
 
