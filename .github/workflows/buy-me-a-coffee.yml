@@ -1,0 +1,17 @@
+name: Buy Me A Coffee Readme
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Runs at every 12AM UTC
+    - cron: "0 0 * * *"
+
+jobs:
+  bmac-readme:
+    name: Update Buy Me A Coffee section in this repo's README
+    runs-on: ubuntu-latest
+    steps:
+      - uses: akosbalasko/coffee-readme@main
+        with:
+          BUY_ME_A_COFFEE_TOKEN: ${{ secrets.BUY_ME_A_COFFEE_TOKEN }}
+          GH_TOKEN: ${{secrets.GITHUB_TOKEN }}
