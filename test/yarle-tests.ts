@@ -761,6 +761,5 @@ export const yarleTests: Array<YarleTest> = [
     testOutputPath: `notes${path.sep}huge-html${path.sep}Untitled Note.md`,
     expectedOutputPath: `${dataFolder}test-hugeHtml.md`,
 
-
   },
 ]

@@ -24,6 +24,7 @@ describe('Yarle simple cases', async () => {
 
   afterEach(async () => {
     utils.clearMdNotesDistDir();
+
   });
 
   const tests: Array<YarleTest> = yarleTests;
@@ -50,6 +51,6 @@ describe('Yarle simple cases', async () => {
           fs.readFileSync(expectedOutput, 'utf8'),
         );
 
-    });
+    }).timeout(5000);
   }
 })
