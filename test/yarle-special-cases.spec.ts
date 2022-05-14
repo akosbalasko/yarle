@@ -870,9 +870,8 @@ describe('Yarle error cases', async () => {
       await yarle.dropTheRope(options);
       assert.equal(true, false);
     } catch (e) {
-      // tslint:disable-next-line:no-console
-      console.log(e.message);
-      assert.equal(e.message.startsWith('ENAMETOOLONG: name too long'), true);
+
+      assert.equal(e.message.startsWith('ENAMETOOLONG: name too long') || e.message.startsWith('EINVAL: invalid argument, mkdir'), true);
     }
   });
 
