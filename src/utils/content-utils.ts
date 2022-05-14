@@ -6,6 +6,7 @@ import { yarleOptions } from './../yarle';
 import { MetaData } from './../models/MetaData';
 import { NoteData } from './../models';
 import { getHtmlFileLink } from './folder-utils';
+import { escapeStringRegexp } from './escape-string-regexp';
 
 export const getMetadata = (note: any, notebookName: string): MetaData => {
 
@@ -97,7 +98,7 @@ export const logTags = (note: any): string => {
         .toString()
         .replace(/^#/, '');
       if (tagOptions) {
-        cleanTag = cleanTag.replace(new RegExp(tagOptions.separatorInEN, 'g'), tagOptions.replaceSeparatorWith);
+        cleanTag = cleanTag.replace(new RegExp(escapeStringRegexp(tagOptions.separatorInEN), 'g'), tagOptions.replaceSeparatorWith);
       }
 
       const replaceSpaceWith = (tagOptions && tagOptions.replaceSpaceWith) || '-';

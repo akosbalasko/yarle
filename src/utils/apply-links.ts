@@ -5,6 +5,7 @@ import * as path from 'path';
 
 import { YarleOptions } from './../YarleOptions';
 import { RuntimePropertiesSingleton } from './../runtime-properties';
+import { escapeStringRegexp } from './escape-string-regexp';
 
 export const applyLinks = (options: YarleOptions, outputNotebookFolders: Array<string>): void => {
     const linkNameMap = RuntimePropertiesSingleton.getInstance();
@@ -33,8 +34,7 @@ export const applyLinks = (options: YarleOptions, outputNotebookFolders: Array<s
             });
             for (const targetFile of targetFiles) {
                 const fileContent = fs.readFileSync(`${notebookFolder}${path.sep}${targetFile}`, 'UTF-8');
-                const escapedLinkName = escapeEntity(linkName);
-                const regexp = new RegExp(escapedLinkName, 'g');
+                const regexp = new RegExp(escapeStringRegexp(linkName), 'g');
                 const updatedContent = fileContent.replace(regexp, realFileNameInContent);
                 if (fileContent !== updatedContent) {
                     console.log(`replaced output written to: ${notebookFolder}${path.sep}${targetFile}`);
@@ -43,8 +43,4 @@ export const applyLinks = (options: YarleOptions, outputNotebookFolders: Array<s
             }
         }
     }
-};
-
-const escapeEntity = (entity: string): string => {
-    return entity.replace(/\//g, '\\/');
 };
