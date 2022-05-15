@@ -89,7 +89,7 @@
     "eol": "0.9.1",
     "eslint": "7.16.0",
     "eslint-plugin-import": "2.22.1",
-    "mocha": "5.2.0",
+    "mocha": "10.0.0",
     "node-sass": "5.0.0",
     "nodemon": "2.0.5",
     "nyc": "15.1.0",
@@ -105,6 +105,17 @@
   "author": {
     "name": "Akos Balasko",
     "email": "akos0215@gmail.com"
+  },
+  "mocha": {
+    "require": [
+      "ts-node/register"
+    ],
+    "recursive": true,
+    "extension": [
+      "ts",
+      "js",
+      "tsx"
+    ]
   },
   "build": {
     "appId": "yarle",
