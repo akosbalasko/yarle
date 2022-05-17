@@ -1,3 +1,10 @@
+## [4.9.1](https://github.com/akosbalasko/yarle/compare/v4.9.0...v4.9.1) (2022-05-17)
+
+
+### Bug Fixes
+
+* semantic-release tags ([cd2c062](https://github.com/akosbalasko/yarle/commit/cd2c0622f80431f8151f65a7485831504ba2c38e))
+
 # [4.9.0](https://github.com/akosbalasko/yarle/compare/v4.8.8...v4.9.0) (2022-05-17)
 
 
