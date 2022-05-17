@@ -108,7 +108,7 @@
   },
   "build": {
     "appId": "yarle",
-    "artifactName": "${productName}.${ext}",
+    "artifactName": "${productName}_${os}_${arch}.${ext}",
     "copyright": "Copyright © 2022, Akos Balasko",
     "files": [
       "dist/**/*",
