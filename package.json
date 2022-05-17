@@ -1,6 +1,6 @@
 {
   "name": "yarle-evernote-to-md",
-  "version": "4.8.7",
+  "version": "4.8.8",
   "description": "Yet Another Rope Ladder from Evernote",
   "keywords": [
     "evernote",
@@ -111,6 +111,7 @@
   },
   "build": {
     "appId": "yarle",
+    "artifactName": "${productName}_${os}_${arch}.${ext}",
     "copyright": "Copyright © 2022, Akos Balasko",
     "files": [
       "dist/**/*",
