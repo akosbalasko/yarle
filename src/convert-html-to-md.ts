@@ -42,7 +42,8 @@ const fixSublists = (node: HTMLElement) => {
             listNode.previousElementSibling &&
             listNode.previousElementSibling.tagName === 'LI'
         ) {
-            // The below moves, not copies. https://stackoverflow.com/questions/7555442/move-an-element-to-another-parent-after-changing-its-id
+            // The below moves, not copies.
+            // https://stackoverflow.com/questions/7555442/move-an-element-to-another-parent-after-changing-its-id
             listNode.previousElementSibling.appendChild(listNode);
         }
     });

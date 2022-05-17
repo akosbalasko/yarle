@@ -1,7 +1,6 @@
-import { OutputFormat } from './../../output-format';
-
 import { yarleOptions } from '../../yarle';
 
+import { OutputFormat } from './../../output-format';
 import { filterByNodeName } from './filter-by-nodename';
 import { getAttributeProxy } from './get-attribute-proxy';
 
