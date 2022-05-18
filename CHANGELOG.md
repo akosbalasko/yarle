@@ -1,3 +1,11 @@
+## [4.9.6](https://github.com/akosbalasko/yarle/compare/v4.9.5...v4.9.6) (2022-05-18)
+
+
+### Bug Fixes
+
+* github plugin removed ([c6d705a](https://github.com/akosbalasko/yarle/commit/c6d705a889f684353080026d8aac600b5ca0baf7))
+* if ([9daf867](https://github.com/akosbalasko/yarle/commit/9daf8676863bdf33f51393a94e48f3191af97347))
+
 ## [4.9.5](https://github.com/akosbalasko/yarle/compare/v4.9.4...v4.9.5) (2022-05-18)
 
 
