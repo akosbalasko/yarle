@@ -14,7 +14,7 @@ jobs:
           node-version: 14
 
       - name: build code
-          run: 'npm i && npm run compile'
+        run: npm i && npm run compile
       - name: Semantic Release
         id: semantic
         uses: cycjimmy/semantic-release-action@v3
