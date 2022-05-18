@@ -5,6 +5,9 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+        # Map a step output to a job output
+    outputs:
+      output1: ${{ steps.semantic.outputs.newrelease }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -26,6 +29,7 @@ jobs:
       - name: Do something when a new release published
         if: steps.semantic.outputs.new_release_published == 'true'
         run: |
+          echo "::set-output name=new_release_published::true"
           echo ${{ steps.semantic.outputs.new_release_version }}
           echo ${{ steps.semantic.outputs.new_release_major_version }}
           echo ${{ steps.semantic.outputs.new_release_minor_version }}
@@ -35,7 +39,7 @@ jobs:
 
     runs-on: ${{ matrix.os }}
     needs: release
-    if: needs.release.steps.semantic.outputs.new_release_published == 'true'
+    if: needs.release.outputs.new_release_published == 'true'
     strategy:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-2019]
