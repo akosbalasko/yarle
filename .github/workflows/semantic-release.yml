@@ -35,7 +35,7 @@ jobs:
 
     runs-on: ${{ matrix.os }}
     needs: release
-    if: jobs.release.steps.semantic.outputs.new_release_published == 'true'
+    if: needs.release.steps.semantic.outputs.new_release_published == 'true'
     strategy:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-2019]
