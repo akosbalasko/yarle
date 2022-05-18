@@ -35,6 +35,7 @@ jobs:
 
     runs-on: ${{ matrix.os }}
     needs: release
+    if: jobs.release.steps.semantic.outputs.new_release_published == 'true'
     strategy:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-2019]
@@ -56,5 +57,5 @@ jobs:
           github_token: ${{ secrets.github_token }}
           # If the commit is tagged with a version (e.g. "v1.0.0"),
           # release the app after building
-          release: ${{ startsWith(github.ref, 'refs/tags/v') }}
+          release: true
           build_script_name: 'compile'
