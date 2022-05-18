@@ -1,3 +1,10 @@
+## [4.9.3](https://github.com/akosbalasko/yarle/compare/v4.9.2...v4.9.3) (2022-05-18)
+
+
+### Bug Fixes
+
+* semantic-release extended by os-dep package creation ([6724836](https://github.com/akosbalasko/yarle/commit/6724836c569c05ac70edac47195adb9260492c0c))
+
 ## [4.9.2](https://github.com/akosbalasko/yarle/compare/v4.9.1...v4.9.2) (2022-05-18)
 
 
