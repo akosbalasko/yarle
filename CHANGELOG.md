@@ -1,3 +1,10 @@
+## [4.9.5](https://github.com/akosbalasko/yarle/compare/v4.9.4...v4.9.5) (2022-05-18)
+
+
+### Bug Fixes
+
+* github plugin added ([e3e6989](https://github.com/akosbalasko/yarle/commit/e3e69893fd838bae715b38adbef6de5552fb3e79))
+
 ## [4.9.4](https://github.com/akosbalasko/yarle/compare/v4.9.3...v4.9.4) (2022-05-18)
 
 
