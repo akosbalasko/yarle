@@ -1,3 +1,11 @@
+## [4.9.2](https://github.com/akosbalasko/yarle/compare/v4.9.1...v4.9.2) (2022-05-18)
+
+
+### Bug Fixes
+
+* automation fixed ([13f766c](https://github.com/akosbalasko/yarle/commit/13f766c607b78cff5ec9f9b4be98def69daf1b4b))
+* release automation ([984e755](https://github.com/akosbalasko/yarle/commit/984e75547171acb0c81833177f511f9184c771f3))
+
 ## [4.9.1](https://github.com/akosbalasko/yarle/compare/v4.9.0...v4.9.1) (2022-05-17)
 
 
