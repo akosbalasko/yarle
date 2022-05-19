@@ -798,4 +798,32 @@ describe('Yarle special cases', async () => {
       fs.readFileSync(`${__dirname}/data/test-old-note.md`, 'utf8'),
     );
   });
+
+
+  it.skip('nested list', async () => {
+    const options: YarleOptions = {
+      enexSources: [ `${testDataFolder}test-nested-lists.enex` ],
+      outputDir: 'out',
+      templateFile: `${testDataFolder}full_template.templ`,
+      isMetadataNeeded: true,
+      keepOriginalHtml: true,
+      outputFormat: OutputFormat.ObsidianMD,
+      skipEnexFileNameFromOutputPath: false,
+
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-old-note/Untitled.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-old-note/Untitled.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-old-note.md`, 'utf8'),
+    );
+  });
 });

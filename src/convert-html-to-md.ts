@@ -28,6 +28,14 @@ const fixTasks = (node: HTMLElement) => {
 
     return node;
 };
+const fixSublistsInContent = (content: string): string => {
+    let cont = content.replace(/<li><div>/g, '<li>');
+    cont = cont.replace(/<\/div><\/li>/g, '</li>');
+    cont = cont.replace(/<li>/g, '<li><div>');
+    cont = cont.replace(/<\/li>/g, '</div></li>');
+
+    return cont;
+};
 
 const fixSublists = (node: HTMLElement) => {
     const ulElements: Array<HTMLElement> = Array.from(node.getElementsByTagName('ul'));
@@ -63,14 +71,14 @@ const fixSublists = (node: HTMLElement) => {
 
     // The contents of every EN list item are wrapped by a div element. `<li><div>foo</div></li>`
     // We need to remove this `<div>`, since it's a block element and will lead to unwanted whitespace otherwise
-    const liElements: Array<HTMLElement> = Array.from(node.getElementsByTagName('li'));
+    /*const liElements: Array<HTMLElement> = Array.from(node.getElementsByTagName('li'));
     for (const liNode of liElements) {
         const listNodeDiv = liNode.firstElementChild;
         if (listNodeDiv && listNodeDiv.tagName === 'DIV') {
             const childElementsArr = Array.from(listNodeDiv.childNodes);
             listNodeDiv.replaceWith(...childElementsArr);
         }
-    }
+    }*/
 
     return node;
 };
@@ -80,15 +88,16 @@ export const convertHtml2Md = (yarleOptions: YarleOptions, { htmlContent }: Note
     const content = htmlContent.replace(/<!DOCTYPE en-note [^>]*>/, '<!DOCTYPE html>')
       .replace(/(<a [^>]*)\/>/, '$1></a>').replace(/<div[^\/\<]*\/>/g, '');
 
-    const contentNode = new JSDOM(content).window.document
+    const contentNode = new JSDOM(fixSublistsInContent(content)).window.document
       .getElementsByTagName('en-note').item(0) as any as HTMLElement;
 
     let contentInMd = getTurndownService(yarleOptions)
         .turndown(fixTasks(fixSublists(contentNode)));
 
-    const newLinePlaceholder = new RegExp('<YARLE_NEWLINE_PLACEHOLDER>', 'g');
-    contentInMd = contentInMd.replace(newLinePlaceholder, '');
+    const newLinePlaceholder = new RegExp('<YARLE_NEWLINE_PLACEHOLDER>|</YARLE_NEWLINE_PLACEHOLDER>', 'g');
 
+    contentInMd = contentInMd.replace(newLinePlaceholder, '');
+    contentInMd = contentInMd.replace(/\n    \n/g, '\n');
     if (yarleOptions.outputFormat === OutputFormat.LogSeqMD) {
 
       contentInMd = contentInMd.replace(/\n/g, '\n- ') // add a "- " at each new line

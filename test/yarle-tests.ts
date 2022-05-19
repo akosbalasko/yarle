@@ -446,8 +446,8 @@ export const yarleTests: Array<YarleTest> = [
       outputDir: 'out',
       isMetadataNeeded: true,
     },
+    testModifier: YarleTestModifierOptions.only,
     testOutputPath: `notes${path.sep}test-sublists-valid${path.sep}test - sublists - valid.md`,
-
     expectedOutputPath: `${dataFolder}test-sublists-valid.md`,
   },
 
