@@ -449,6 +449,17 @@ export const yarleTests: Array<YarleTest> = [
   },
 
   {
+    name: 'Note with sublists (invalid html)',
+    options: {
+      enexSources: [ `.${testDataFolder}test-sublists-invalid.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+    },
+    testOutputPath: `notes${path.sep}test-sublists-invalid${path.sep}Test note.md`,
+    expectedOutputPath: `${dataFolder}test-sublists-invalid.md`,
+  },
+
+  {
     name: 'Note with headings - default turndown options',
     options: {
       enexSources: [ `.${testDataFolder}test-headings.enex` ],
@@ -456,7 +467,6 @@ export const yarleTests: Array<YarleTest> = [
       isMetadataNeeded: true,
     },
     testOutputPath: `notes${path.sep}test-headings${path.sep}test - headings.md`,
-
     expectedOutputPath: `${dataFolder}test-headings.md`,
   },
 
