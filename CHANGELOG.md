@@ -1,3 +1,10 @@
+## [4.9.9](https://github.com/akosbalasko/yarle/compare/v4.9.8...v4.9.9) (2022-05-21)
+
+
+### Bug Fixes
+
+* all regexp inputs escaped ([#378](https://github.com/akosbalasko/yarle/issues/378)) ([fb23e6d](https://github.com/akosbalasko/yarle/commit/fb23e6dbe60fff6736b6606a5d7130427a55a514))
+
 ## [4.9.8](https://github.com/akosbalasko/yarle/compare/v4.9.7...v4.9.8) (2022-05-21)
 
 
