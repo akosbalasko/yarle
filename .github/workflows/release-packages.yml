@@ -4,7 +4,6 @@ jobs:
   build-packages:
 
     runs-on: ${{ matrix.os }}
-    needs: release
     strategy:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-2019]
