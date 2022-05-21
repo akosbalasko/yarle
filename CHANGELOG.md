@@ -1,3 +1,10 @@
+## [4.9.10](https://github.com/akosbalasko/yarle/compare/v4.9.9...v4.9.10) (2022-05-21)
+
+
+### Bug Fixes
+
+* no dry-run in release ([#386](https://github.com/akosbalasko/yarle/issues/386)) ([5a82b0d](https://github.com/akosbalasko/yarle/commit/5a82b0d69d328b800c14e4c85fc68bf83917629b))
+
 ## [4.9.9](https://github.com/akosbalasko/yarle/compare/v4.9.8...v4.9.9) (2022-05-21)
 
 
