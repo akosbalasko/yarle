@@ -1,3 +1,10 @@
+## [4.9.13](https://github.com/akosbalasko/yarle/compare/v4.9.12...v4.9.13) (2022-05-21)
+
+
+### Bug Fixes
+
+* remove dependency from yml ([30d341e](https://github.com/akosbalasko/yarle/commit/30d341e7b529e61cd672f97af48447c76f2a25c3))
+
 ## [4.9.12](https://github.com/akosbalasko/yarle/compare/v4.9.11...v4.9.12) (2022-05-21)
 
 
