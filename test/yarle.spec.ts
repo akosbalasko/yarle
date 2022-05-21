@@ -50,6 +50,6 @@ describe('Yarle simple cases', async () => {
           fs.readFileSync(expectedOutput, 'utf8'),
         );
 
-    });
+    }).timeout(5000);
   }
 })

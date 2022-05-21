@@ -12,7 +12,7 @@ import { store } from './store';
 import { mapSettingsToYarleOptions } from './settingsMapper';
 import { OutputFormat } from './../output-format';
 
-// tslint:disable-next-line:variable-name
+// tslint:disable-next-line:no-require-imports variable-name
 const Store = require('electron-store');
 
 Store.initRenderer();

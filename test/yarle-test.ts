@@ -5,6 +5,6 @@ export interface YarleTest {
   options: YarleOptions;
   testModifier?: YarleTestModifierOptions;
   expectedOutputPath?: string;
-  testOutputPath: string; 
+  testOutputPath: string;
   name: string;
 }
