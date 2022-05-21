@@ -6,3 +6,4 @@ export * from './templates';
 export * from './save-html-file';
 export * from './save-md-file';
 export * from './loggerInfo';
+export * from './escape-string-regexp';

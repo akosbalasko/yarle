@@ -9,15 +9,12 @@ import { yarleOptions } from '../yarle';
 import { ResourceFileProperties } from './../models/ResourceFileProperties';
 import { OutputFormat } from './../output-format';
 import { getCreationTime } from './content-utils';
+import { escapeStringRegexp } from './escape-string-regexp';
 
 export const normalizeTitle = (title: string) => {
   // Allow setting a specific replacement character for file and resource names
   // Default to a retrocompatible value
   return sanitize(title, {replacement: yarleOptions.replacementChar || '_'});
-};
-
-const escapeRegExp = (text: string): string =>  {
-  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
 };
 
 export const getFileIndex = (dstPath: string, fileNamePrefix: string): number | string => {
@@ -27,7 +24,7 @@ export const getFileIndex = (dstPath: string, fileNamePrefix: string): number | 
       // make sure we get the first copy with no count suffix or the copies whose filename changed
       // drop the extension to compare with filename prefix
       const filePrefix = file.split('.').slice(0, -1).join('.');
-      const escapedFilePrefix = escapeRegExp(fileNamePrefix);
+      const escapedFilePrefix = escapeStringRegexp(fileNamePrefix);
       const fileWithSameName = filePrefix.match(new RegExp(`${escapedFilePrefix}\\.\\d+`));
 
       return filePrefix === fileNamePrefix || fileWithSameName;
