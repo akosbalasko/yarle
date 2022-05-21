@@ -29,7 +29,6 @@ export const yarleTests: Array<YarleTest> = [
     expectedOutputPath: `${dataFolder}test-bracketlinks.md`,
   },
 
-
   {
     name: 'Enex file with note containing text only',
     options: {
@@ -411,7 +410,6 @@ export const yarleTests: Array<YarleTest> = [
     ,
 
     testOutputPath: `notes${path.sep}test-nospanstyle${path.sep}test-nospanstyle.md`,
-
     expectedOutputPath: `${dataFolder}test-nospanstyle.md`,
   },
 
@@ -447,8 +445,18 @@ export const yarleTests: Array<YarleTest> = [
       isMetadataNeeded: true,
     },
     testOutputPath: `notes${path.sep}test-sublists-valid${path.sep}test - sublists - valid.md`,
-
     expectedOutputPath: `${dataFolder}test-sublists-valid.md`,
+  },
+
+  {
+    name: 'Note with sublists (invalid html)',
+    options: {
+      enexSources: [ `.${testDataFolder}test-sublists-invalid.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+    },
+    testOutputPath: `notes${path.sep}test-sublists-invalid${path.sep}Test note.md`,
+    expectedOutputPath: `${dataFolder}test-sublists-invalid.md`,
   },
 
   {
@@ -459,7 +467,6 @@ export const yarleTests: Array<YarleTest> = [
       isMetadataNeeded: true,
     },
     testOutputPath: `notes${path.sep}test-headings${path.sep}test - headings.md`,
-
     expectedOutputPath: `${dataFolder}test-headings.md`,
   },
 
@@ -512,6 +519,17 @@ export const yarleTests: Array<YarleTest> = [
     expectedOutputPath: `${dataFolder}test-sublists-multiple.md`,
   },
 
+  {
+    name: 'Note with lists (simple)',
+    options: {
+      enexSources: [ `.${testDataFolder}test-list.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+    },
+    testOutputPath: `notes${path.sep}test-list${path.sep}test - list.md`,
+    expectedOutputPath: `${dataFolder}test-list.md`,
+
+  },
 
   {
     name: 'Webclip - article',
@@ -760,7 +778,6 @@ export const yarleTests: Array<YarleTest> = [
     },
     testOutputPath: `notes${path.sep}huge-html${path.sep}Untitled Note.md`,
     expectedOutputPath: `${dataFolder}test-hugeHtml.md`,
-
 
   },
 ]

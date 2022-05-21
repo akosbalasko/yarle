@@ -28,6 +28,14 @@ const fixTasks = (node: HTMLElement) => {
 
     return node;
 };
+const fixSublistsInContent = (content: string): string => {
+    let cont = content.replace(/<li>/g, '<li><div>');
+    cont = cont.replace(/<\/li>/g, '</div></li>');
+    cont = cont.replace(/<li><div>(\s)*<div>/g, '<li><div>');
+    cont = cont.replace(/<\/div>(\s)*<\/div><\/li>/g, '</div></li>');
+
+    return cont;
+};
 
 const fixSublists = (node: HTMLElement) => {
     const ulElements: Array<HTMLElement> = Array.from(node.getElementsByTagName('ul'));
@@ -80,7 +88,7 @@ export const convertHtml2Md = (yarleOptions: YarleOptions, { htmlContent }: Note
     const content = htmlContent.replace(/<!DOCTYPE en-note [^>]*>/, '<!DOCTYPE html>')
       .replace(/(<a [^>]*)\/>/, '$1></a>').replace(/<div[^\/\<]*\/>/g, '');
 
-    const contentNode = new JSDOM(content).window.document
+    const contentNode = new JSDOM(fixSublistsInContent(content)).window.document
       .getElementsByTagName('en-note').item(0) as any as HTMLElement;
 
     let contentInMd = getTurndownService(yarleOptions)

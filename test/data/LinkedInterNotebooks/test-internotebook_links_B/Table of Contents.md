@@ -1,7 +1,7 @@
 # Table of Contents
 
-1.  [Untitled](Untitled.md)
-2.  [Note in Notebook B](Note in Notebook B.md)
+1. [Untitled](Untitled.md)
+2. [Note in Notebook B](Note in Notebook B.md)
 
     Created at: 2021-11-28T19:54:10+00:00
     Updated at: 2021-11-28T19:54:10+00:00

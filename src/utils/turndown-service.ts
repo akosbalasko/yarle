@@ -12,6 +12,7 @@ import {
     taskItemsRule,
     wikiStyleLinksRule } from './turndown-rules';
 import { OutputFormat } from './../output-format';
+import { taskListRule } from './turndown-rules/task-list-rule';
 
 export const getTurndownService = (yarleOptions: YarleOptions) => {
     /* istanbul ignore next */
@@ -34,6 +35,7 @@ export const getTurndownService = (yarleOptions: YarleOptions) => {
     turndownService.addRule('evernote task items', taskItemsRule);
     turndownService.addRule('wikistyle links', wikiStyleLinksRule);
     turndownService.addRule('images', imagesRule);
+    turndownService.addRule('list', taskListRule);
 
     if (yarleOptions.outputFormat === OutputFormat.LogSeqMD) {
         turndownService.addRule('logseq_hr', {
