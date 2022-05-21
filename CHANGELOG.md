@@ -1,3 +1,10 @@
+## [4.9.11](https://github.com/akosbalasko/yarle/compare/v4.9.10...v4.9.11) (2022-05-21)
+
+
+### Bug Fixes
+
+* release process split ([#387](https://github.com/akosbalasko/yarle/issues/387)) ([e7fc8b5](https://github.com/akosbalasko/yarle/commit/e7fc8b56c1be8ef1ca0f1e1cd28956027652b9ca))
+
 ## [4.9.10](https://github.com/akosbalasko/yarle/compare/v4.9.9...v4.9.10) (2022-05-21)
 
 
