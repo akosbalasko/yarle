@@ -1,3 +1,10 @@
+## [4.9.12](https://github.com/akosbalasko/yarle/compare/v4.9.11...v4.9.12) (2022-05-21)
+
+
+### Bug Fixes
+
+* release yml ([aa10ed5](https://github.com/akosbalasko/yarle/commit/aa10ed559e71cec11452afb6260eaee266edfd1b))
+
 ## [4.9.11](https://github.com/akosbalasko/yarle/compare/v4.9.10...v4.9.11) (2022-05-21)
 
 
