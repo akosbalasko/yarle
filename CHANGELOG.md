@@ -1,3 +1,10 @@
+## [4.9.8](https://github.com/akosbalasko/yarle/compare/v4.9.7...v4.9.8) (2022-05-21)
+
+
+### Bug Fixes
+
+* extra spaces in lists ([#380](https://github.com/akosbalasko/yarle/issues/380)) ([ebf6bf5](https://github.com/akosbalasko/yarle/commit/ebf6bf5ebc140b3fb34e8954f03e367108099b2c))
+
 ## [4.9.7](https://github.com/akosbalasko/yarle/compare/v4.9.6...v4.9.7) (2022-05-18)
 
 
