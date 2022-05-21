@@ -1,16 +1,16 @@
-name: Build OS-dependent packages - no release
+name: Build and release packages
 on: workflow_dispatch
-jobs:
-  release:
-    runs-on: ${{ matrix.os }}
+build-packages:
 
+    runs-on: ${{ matrix.os }}
+    needs: release
     strategy:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-2019]
 
     steps:
       - name: Check out Git repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
 
       - name: Install Node.js, NPM and Yarn
         uses: actions/setup-node@v1
@@ -23,4 +23,7 @@ jobs:
           # GitHub token, automatically provided to the action
           # (No need to define this secret in the repo settings)
           github_token: ${{ secrets.github_token }}
+          # If the commit is tagged with a version (e.g. "v1.0.0"),
+          # release the app after building
+          release: true
           build_script_name: 'compile'
