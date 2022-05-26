@@ -9,6 +9,7 @@ import * as yarle from './../src/yarle';
 import * as dropTheRopeRunner from './../src/dropTheRopeRunner';
 import { YarleOptions } from './../src/YarleOptions';
 import { LOGFILE } from './../src/utils';
+import { TaskOutputFormat } from '../src/task-output-format';
 
 const testDataFolder = `.${path.sep}test${path.sep}data${path.sep}`;
 
@@ -773,6 +774,88 @@ describe('Yarle special cases', async () => {
     );
   });
 
+  it('tasks from Evernote v10+ - no global filter', async () => {
+    const options: YarleOptions = {
+      enexSources: [ `${testDataFolder}test-things-to-do.enex` ],
+      outputDir: 'out',
+      templateFile: `${testDataFolder}full_template.templ`,
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.ObsidianMD,
+      taskOutputFormat: TaskOutputFormat.ObsidianMD,
+      skipEnexFileNameFromOutputPath: false,
+
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-things-to-do/Things to do.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-things-to-do/Things to do.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-things-to-do.md`, 'utf8'),
+    );
+  });
+
+  it('tasks from Evernote v10+ with global filter', async () => {
+    const options: YarleOptions = {
+      enexSources: [ `${testDataFolder}test-things-to-do.enex` ],
+      outputDir: 'out',
+      templateFile: `${testDataFolder}full_template.templ`,
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.ObsidianMD,
+      taskOutputFormat: TaskOutputFormat.ObsidianMD,
+      obsidianTaskTag: '#globalTaskTag',
+      skipEnexFileNameFromOutputPath: false,
+
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-things-to-do/Things to do.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-things-to-do/Things to do.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-things-to-do-global-filter.md`, 'utf8'),
+    );
+  });
+
+  it('tasks from Evernote v10+ standard task', async () => {
+    const options: YarleOptions = {
+      enexSources: [ `${testDataFolder}test-things-to-do.enex` ],
+      outputDir: 'out',
+      templateFile: `${testDataFolder}full_template.templ`,
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.ObsidianMD,
+      taskOutputFormat: TaskOutputFormat.StandardMD,
+      skipEnexFileNameFromOutputPath: false,
+
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-things-to-do/Things to do.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-things-to-do/Things to do.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-things-to-do-standard.md`, 'utf8'),
+    );
+  });
+
   it('really old creation time', async () => {
     const options: YarleOptions = {
       enexSources: [ `${testDataFolder}test-old-note.enex` ],
@@ -798,4 +881,5 @@ describe('Yarle special cases', async () => {
       fs.readFileSync(`${__dirname}/data/test-old-note.md`, 'utf8'),
     );
   });
+
 });

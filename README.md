@@ -112,6 +112,7 @@ To configure Yarle, you must create a config file. By default it looks like this
     "skipWebClips": false,
     "useHashTags": true,
     "outputFormat": "StandardMD",
+    "taskOutputFormat": "StandardMD",
     "urlEncodeFileNamesAndLinks": false,
     "skipEnexFileNameFromOutputPath": false,
     "monospaceIsCodeBlock": false,
@@ -166,6 +167,8 @@ The following configurational properties are available:
 | ```turndownOptions``` | `{...}` | additional configuration options for [turndown](https://github.com/mixmark-io/turndown#options), e.g., `{ "bulletListMarker": "-" }` (only in Yarle config file, not desktop app)
 | ```obsidianSettings``` | `{...}` | settings for Obsidian output. Currently, ```omitLinkDisplayName``` is supported. If set to `true` links will be of the form `[[foo]]`. Conversely they will be of the form `[[foo|bar]]`. Defaults to `false`.
 | ```logseqSettings``` | `{...}` | settings for Logseq output, currently ```journalNotes``` property is supported, if it is set to `true`, then the notes will be converted to be recognizable by Logseq as Journal notes, the notes will be named by their creation date and they will be collected under `journal` folder. If it is `false`, then they will be converted to be `Pages` (e.g. simple notes, collected in `pages` folder).
+| ```taskOutputFormat``` | `ObsidianMD` or `StandardMD` | Output format of Evernote v10+ tasks. ObsidianMD will connvert tasks to match with Obsidian Tasks plugin's requirements. StandardMD will create plain tasks, loosing many features like reminders or due dates.
+| ```obsidianTaskTag``` | string | a tag to put to a task converted from Evernote v10+ tasks. Optional by Obsidian Tasks plugin, pls check the details there. 
 
 Metadata settings can be set via the template.
 

@@ -1,6 +1,6 @@
 import { filterByNodeName } from './filter-by-nodename';
 import { getAttributeProxy } from './get-attribute-proxy';
-import { unescapeMarkdown } from './code-block-rule';
+import { unescapeMarkdown } from './replace-code-block';
 
 const markdownBlock = '\n```\n';
 
@@ -38,7 +38,7 @@ const deepestFont: (node: any) => string = node => {
     return null;
 };
 
-const isCodeBlock: (node: any) => boolean = node => {
+const isMonospaceCodeBlock: (node: any) => boolean = node => {
     const nodeProxy = getAttributeProxy(node);
     const style = nodeProxy.style?.value;
     if (style && style.includes(codeBlockFlag)) {
@@ -49,35 +49,41 @@ const isCodeBlock: (node: any) => boolean = node => {
 
     return font && reMonospaceFont.test(font);
 };
-
+/*
 export const monospaceCodeBlockRule = {
     filter: filterByNodeName('DIV'),
     replacement: (content: string, node: any) => {
-        if (isCodeBlock(node)) {
-            const previous = node.previousSibling;
-            const previousIsBlock = previous && previous.tagName === node.tagName && isCodeBlock(previous);
-            const next = node.nextSibling;
-            const nextIsBlock = next && next.tagName === node.tagName && isCodeBlock(next);
-            if (previousIsBlock || nextIsBlock) {
-                content = previousIsBlock ? `\n${content}` : `${markdownBlock}${content}`;
-                content = nextIsBlock ? `${content}\n` : `${content}${markdownBlock}`;
-
-                return content;
-            }
-
-            content = unescapeMarkdown(content);
-
-            return content.trim() ? `${markdownBlock}${content}${markdownBlock}` : content;
+        if (yarleOptions.monospaceIsCodeBlock && isMonospaceCodeBlock(node)) {
+            return replaceMonospaceCodeBlock(content, node);
         }
+    },
+};
+*/
+export const replaceMonospaceCodeBlock = (content: string, node: any): any => {
+    if (isMonospaceCodeBlock(node)) {
+        const previous = node.previousSibling;
+        const previousIsBlock = previous && previous.tagName === node.tagName && isMonospaceCodeBlock(previous);
+        const next = node.nextSibling;
+        const nextIsBlock = next && next.tagName === node.tagName && isMonospaceCodeBlock(next);
+        if (previousIsBlock || nextIsBlock) {
+            content = previousIsBlock ? `\n${content}` : `${markdownBlock}${content}`;
+            content = nextIsBlock ? `${content}\n` : `${content}${markdownBlock}`;
 
-        if (node.parentElement && isCodeBlock(node.parentElement) && node.parentElement.firstElementChild === node) {
             return content;
         }
 
-        if (node.parentElement && isCodeBlock(node.parentElement)) {
-            return `\n${content}`;
-        }
+        content = unescapeMarkdown(content);
 
-        return node.isBlock ? `\n${content}\n` : content;
-    },
+        return content.trim() ? `${markdownBlock}${content}${markdownBlock}` : content;
+    }
+
+    if (node.parentElement && isMonospaceCodeBlock(node.parentElement) && node.parentElement.firstElementChild === node) {
+        return content;
+    }
+
+    if (node.parentElement && isMonospaceCodeBlock(node.parentElement)) {
+        return `\n${content}`;
+    }
+
+    return node.isBlock ? `\n${content}\n` : content;
 };

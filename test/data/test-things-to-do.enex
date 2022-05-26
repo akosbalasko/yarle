@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE en-export SYSTEM "http://xml.evernote.com/pub/evernote-export4.dtd">
+<en-export export-date="20220621T141333Z" application="Evernote" version="10.37.3">
+  <note>
+    <title>Things to do</title>
+    <created>20210722T085928Z</created>
+    <updated>20220520T222012Z</updated>
+    <note-attributes>
+      <author>akos</author>
+      <source>task</source>
+    </note-attributes>
+    <content>
+      <![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd"><en-note><div style="--en-task-group:true; --en-id:0bd3793f-2bd2-4723-b8ec-054c590b4d11;--en-content-hash:bfd4126fbd52d692b0bf47ca914cd9e4;-webkit-user-modify:read-only;-moz-user-modify:read-only;user-modify:read-only;border-radius:3px;border:1px solid rgba(182,182,182,0.09);background:rgba(174,174,174,0.09);overflow:hidden;color:#868686"><div style="background:rgba(182,182,182,0.09) no-repeat 6px 6px url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzg2ODY4NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE5LjcyNTEgMjBDMjAuMTgxIDIwIDIwLjYwMTEgMTkuNzU2IDIwLjgyOSAxOS4zNkMyMS4wNTcgMTguOTY0IDIxLjA1NyAxOC40NzYgMjAuODI5IDE4LjA4TDEzLjEwMzEgNC42Mzk5OUMxMi44NzYgNC4yNDM5OSAxMi40NTUxIDQgMTIgNEMxMS41NDQ5IDQgMTEuMTI0IDQuMjQzOTkgMTAuODk2MSA0LjYzOTk5TDMuMTcwOTggMTguMDhDMi45NDMwMSAxOC40NzYgMi45NDMwMSAxOC45NjQgMy4xNzA5OCAxOS4zNkMzLjM5ODEgMTkuNzU2IDMuODE4OTMgMjAgNC4yNzQwOCAyMEgxOS43MjUxWk00Ljg2NDg5IDE4LjRMMTIgNS45ODc5OEwxOS4xMzUxIDE4LjRINC44NjQ4OVoiLz4KPHBhdGggZD0iTTEyLjc1IDEwLjU3NTJDMTIuNzUgMTAuMTYxIDEyLjQxNDIgOS44MjUyMyAxMiA5LjgyNTIzQzExLjU4NTggOS44MjUyMyAxMS4yNSAxMC4xNjEgMTEuMjUgMTAuNTc1MlYxMy4yOTc5QzExLjI1IDEzLjcxMjEgMTEuNTg1OCAxNC4wNDc5IDEyIDE0LjA0NzlDMTIuNDE0MiAxNC4wNDc5IDEyLjc1IDEzLjcxMjEgMTIuNzUgMTMuMjk3OVYxMC41NzUyWiIvPgo8cGF0aCBkPSJNMTIuODc1IDE1Ljk1MTFDMTIuODc1IDE2LjQzNDQgMTIuNDgzMiAxNi44MjYxIDEyIDE2LjgyNjFDMTEuNTE2OCAxNi44MjYxIDExLjEyNSAxNi40MzQ0IDExLjEyNSAxNS45NTExQzExLjEyNSAxNS40Njc5IDExLjUxNjggMTUuMDc2MSAxMiAxNS4wNzYxQzEyLjQ4MzIgMTUuMDc2MSAxMi44NzUgMTUuNDY3OSAxMi44NzUgMTUuOTUxMVoiLz4KPC9zdmc+Cg==&quot;);padding:8px 38px;font-weight:600">Content not supported</div><div style="padding:2px 6px;margin: 1em">This block is a placeholder for Tasks, which has been officially released on the newest version of Evernote and is no longer supported on this version. Deleting or moving this block may cause unexpected behavior in newer versions of Evernote.</div></div><div><br /></div></en-note>      ]]>
+    </content>
+    <task>
+      <title>Simple task</title>
+      <created>20220520T221209Z</created>
+      <updated>20220520T222015Z</updated>
+      <taskStatus>open</taskStatus>
+      <taskFlag>false</taskFlag>
+      <sortWeight>C</sortWeight>
+      <noteLevelID>c78e74a2-8984-41b7-8ce8-052da41204c0</noteLevelID>
+      <taskGroupNoteLevelID>0bd3793f-2bd2-4723-b8ec-054c590b4d11</taskGroupNoteLevelID>
+      <statusUpdated>20220520T221209Z</statusUpdated>
+      <creator>16093948</creator>
+      <lastEditor>16093948</lastEditor>
+    </task>
+    <task>
+      <title>Done</title>
+      <created>20220520T221216Z</created>
+      <updated>20220520T221522Z</updated>
+      <taskStatus>completed</taskStatus>
+      <taskFlag>false</taskFlag>
+      <sortWeight>Q</sortWeight>
+      <noteLevelID>8cfb3940-5abe-4a07-9582-6b6aca6898a3</noteLevelID>
+      <taskGroupNoteLevelID>0bd3793f-2bd2-4723-b8ec-054c590b4d11</taskGroupNoteLevelID>
+      <statusUpdated>20220520T221221Z</statusUpdated>
+      <creator>16093948</creator>
+      <lastEditor>16093948</lastEditor>
+    </task>
+    <task>
+      <title>Task with due date</title>
+      <created>20220520T221227Z</created>
+      <updated>20220520T221610Z</updated>
+      <taskStatus>open</taskStatus>
+      <taskFlag>false</taskFlag>
+      <sortWeight>U</sortWeight>
+      <noteLevelID>7e89a048-4675-47d8-888e-575bdbcb88aa</noteLevelID>
+      <taskGroupNoteLevelID>0bd3793f-2bd2-4723-b8ec-054c590b4d11</taskGroupNoteLevelID>
+      <dueDate>20220528T215959Z</dueDate>
+      <dueDateUIOption>date_only</dueDateUIOption>
+      <timeZone>Europe/Budapest</timeZone>
+      <repeatAfterCompletion>false</repeatAfterCompletion>
+      <statusUpdated>20220520T221227Z</statusUpdated>
+      <creator>16093948</creator>
+      <lastEditor>16093948</lastEditor>
+    </task>
+    <task>
+      <title>Task with a flag</title>
+      <created>20220520T221528Z</created>
+      <updated>20220520T221614Z</updated>
+      <taskStatus>open</taskStatus>
+      <taskFlag>true</taskFlag>
+      <sortWeight>W</sortWeight>
+      <noteLevelID>c8afdd7e-ae58-4443-8944-8c698e0d6231</noteLevelID>
+      <taskGroupNoteLevelID>0bd3793f-2bd2-4723-b8ec-054c590b4d11</taskGroupNoteLevelID>
+      <statusUpdated>20220520T221528Z</statusUpdated>
+      <creator>16093948</creator>
+      <lastEditor>16093948</lastEditor>
+    </task>
+    <task>
+      <title>Task with a reminder</title>
+      <created>20220520T221602Z</created>
+      <updated>20220520T221729Z</updated>
+      <taskStatus>open</taskStatus>
+      <taskFlag>false</taskFlag>
+      <sortWeight>E</sortWeight>
+      <noteLevelID>68d2dee2-1607-4b5f-9d34-b85da6320176</noteLevelID>
+      <taskGroupNoteLevelID>0bd3793f-2bd2-4723-b8ec-054c590b4d11</taskGroupNoteLevelID>
+      <statusUpdated>20220520T221602Z</statusUpdated>
+      <creator>16093948</creator>
+      <lastEditor>16093948</lastEditor>
+      <reminder>
+        <created>20220520T221603Z</created>
+        <updated>20220520T221603Z</updated>
+        <noteLevelID>2d6f6efa-4a22-49e0-8247-f3f19ae765ac</noteLevelID>
+        <reminderDate>20220522T070000Z</reminderDate>
+        <reminderDateUIOption>date_time</reminderDateUIOption>
+        <timeZone>Europe/Budapest</timeZone>
+        <reminderStatus>active</reminderStatus>
+      </reminder>
+    </task>
+  </note>
+</en-export>

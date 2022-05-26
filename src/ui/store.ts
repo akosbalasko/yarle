@@ -22,6 +22,8 @@ const schema: any = {
     addTags: { type: 'boolean', default: false },
     useHashTags: { type: 'boolean', default: false },
     outputFormat: {type: 'string', default: OutputFormat.ObsidianMD},
+    obsidianTaskTag: { type: 'string' },
+    taskOutputFormat: {type: 'string', default: OutputFormat.ObsidianMD},
     skipEnexFileNameFromOutputPath: { type: 'boolean', default: false },
     keepMDCharactersOfENNotes: { type: 'boolean', default: false },
     monospaceIsCodeBlock: { type: 'boolean', default: false },

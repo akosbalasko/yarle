@@ -1,5 +1,6 @@
 import { OutputFormat } from './output-format';
 import { TagSeparatorReplaceOptions } from './models';
+import { TaskOutputFormat } from './task-output-format';
 
 export interface YarleOptions {
     enexDir?: string; // used by command line
@@ -47,4 +48,6 @@ export interface YarleOptions {
     pathSeparator?: string;
     resourcesDir?: string;
     turndownOptions?: Record<string, any>;
+    taskOutputFormat?: TaskOutputFormat;
+    obsidianTaskTag?: string;
 }
