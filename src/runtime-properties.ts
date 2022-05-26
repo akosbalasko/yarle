@@ -8,6 +8,7 @@ export class RuntimePropertiesSingleton {
     noteIdNameTOCMap: any; // Table of Contents map - the trusted source
     currentNoteName: string;
     currentNotebookName: string;
+    currentNotePath: string;
 
     private constructor() {
         this.noteIdNameMap = {};
@@ -65,4 +66,12 @@ export class RuntimePropertiesSingleton {
     getCurrentNoteName(): string {
         return this.currentNoteName;
     }
+    getCurrentNotePath(): string {
+        return this.currentNotePath;
+    }
+
+    setCurrentNotePath(value: string): void {
+        this.currentNotePath = value;
+    }
+
 }

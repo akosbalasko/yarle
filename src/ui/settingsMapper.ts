@@ -1,6 +1,7 @@
 import { YarleOptions } from './../YarleOptions';
 import { store } from './store';
 import { OutputFormat } from './../output-format';
+import { TaskOutputFormat } from './../task-output-format';
 
 export const mapSettingsToYarleOptions = (): YarleOptions => {
     return {
@@ -18,6 +19,8 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
         skipTags: !(store.get('addTags') as boolean),
         useHashTags: store.get('useHashTags') as boolean,
         outputFormat: store.get('outputFormat') as OutputFormat,
+        obsidianTaskTag: store.get('obsidianTaskTag') as string,
+        taskOutputFormat: store.get('taskOutputFormat') as TaskOutputFormat,
         skipEnexFileNameFromOutputPath: store.get('skipEnexFileNameFromOutputPath') as boolean,
         keepMDCharactersOfENNotes: store.get('keepMDCharactersOfENNotes') as boolean,
         monospaceIsCodeBlock: store.get('monospaceIsCodeBlock') as boolean,

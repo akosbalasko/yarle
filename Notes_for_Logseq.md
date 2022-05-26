@@ -26,6 +26,7 @@ Please use settings below
         "replaceSpaceWith": "-"
     },
     "outputFormat": "StandardMD",
+    "taskOutputFormat: "StandardMD",
     "urlEncodeFileNamesAndLinks": false,
     "sanitizeResourceNameSpaces": false, 
     "replacementChar": "_",

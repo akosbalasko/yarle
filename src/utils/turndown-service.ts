@@ -3,9 +3,8 @@ import { gfm } from 'joplin-turndown-plugin-gfm';
 
 import { YarleOptions } from './../YarleOptions';
 import {
-    codeBlockRule,
+    divRule,
     imagesRule,
-    monospaceCodeBlockRule,
     newLineRule,
     spanRule,
     strikethroughRule,
@@ -51,12 +50,16 @@ export const getTurndownService = (yarleOptions: YarleOptions) => {
         turndownService.escape = ((str: string) => str);
     }
 
+    turndownService.addRule('divBlock', divRule);
+    /*
+    turndownService.addRule('v10Tasks', v10TaskBlockRule);
+
     if (yarleOptions.monospaceIsCodeBlock) {
         turndownService.addRule('codeblocks', monospaceCodeBlockRule);
     } else {
         turndownService.addRule('codeblocks', codeBlockRule);
     }
-
+    */
     if (yarleOptions.keepOriginalAmountOfNewlines) {
         turndownService.addRule('newline', newLineRule);
     }

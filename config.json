@@ -17,6 +17,7 @@
     "skipTags": false,
     "useHashTags": true,
     "outputFormat": "ObsidianMD",
+    "taskOutputFormat": "ObsidianMD",
     "skipEnexFileNameFromOutputPath": false,
     "keepOriginalAmountOfNewlines": false,
     "urlEncodeFileNamesAndLinks": false,
