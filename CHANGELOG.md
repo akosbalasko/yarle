@@ -1,3 +1,10 @@
+# [4.10.0](https://github.com/akosbalasko/yarle/compare/v4.9.13...v4.10.0) (2022-05-26)
+
+
+### Features
+
+* evernote v10+ tasks implemented ([#388](https://github.com/akosbalasko/yarle/issues/388)) ([e1f5155](https://github.com/akosbalasko/yarle/commit/e1f51559482bd54e5875b3be7414798d1e3a67aa))
+
 ## [4.9.13](https://github.com/akosbalasko/yarle/compare/v4.9.12...v4.9.13) (2022-05-21)
 
 
