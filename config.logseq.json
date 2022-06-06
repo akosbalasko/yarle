@@ -1,5 +1,6 @@
 
 {
+    "templateFile": "./sampleTemplate_logseq.tmpl",
     "keepOriginalHtml": false,
     "isMetadataNeeded": true,
     "isNotebookNameNeeded": false,
