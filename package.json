@@ -120,6 +120,7 @@
       "dist/**/*",
       "package.json",
       "sampleTemplate.tmpl",
+      "sampleTemplate_logseq.tmpl",
       "config.json",
       "config.logseq.json",
       "src/ui/**/*"
