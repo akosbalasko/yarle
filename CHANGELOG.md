@@ -1,3 +1,10 @@
+## [4.10.1](https://github.com/akosbalasko/yarle/compare/v4.10.0...v4.10.1) (2022-06-06)
+
+
+### Bug Fixes
+
+* template added ([#392](https://github.com/akosbalasko/yarle/issues/392)) ([1e8612e](https://github.com/akosbalasko/yarle/commit/1e8612ed7f01d6d4e94b8c7b62ad027b8dea1125))
+
 # [4.10.0](https://github.com/akosbalasko/yarle/compare/v4.9.13...v4.10.0) (2022-05-26)
 
 
