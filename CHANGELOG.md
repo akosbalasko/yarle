@@ -1,3 +1,10 @@
+## [4.10.2](https://github.com/akosbalasko/yarle/compare/v4.10.1...v4.10.2) (2022-07-12)
+
+
+### Bug Fixes
+
+* minimist added ([#398](https://github.com/akosbalasko/yarle/issues/398)) ([5a4f4f3](https://github.com/akosbalasko/yarle/commit/5a4f4f359b2738be6e6a35202b5d28667d14547e))
+
 ## [4.10.1](https://github.com/akosbalasko/yarle/compare/v4.10.0...v4.10.1) (2022-06-06)
 
 
