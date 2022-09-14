@@ -79,7 +79,7 @@ const processResource = (workDir: string, resource: any): any => {
     let fileName = resourceFileProps.fileName;
 
     // add time to ease the same name issue
-    if (yarleOptions.outputFormat === OutputFormat.LogSeqMD) { fileName = `${accessTime}_${fileName}` ; }
+    if (yarleOptions.outputFormat === OutputFormat.LogSeqMD) { fileName = `${accessTime.toDate().getTime()}_${fileName}` ; }
 
     const absFilePath = `${workDir}${path.sep}${fileName}`;
 
