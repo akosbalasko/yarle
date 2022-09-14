@@ -1,3 +1,10 @@
+## [4.10.3](https://github.com/akosbalasko/yarle/compare/v4.10.2...v4.10.3) (2022-09-14)
+
+
+### Bug Fixes
+
+* timestamp added instead of human readable datetime ([#408](https://github.com/akosbalasko/yarle/issues/408)) ([434500a](https://github.com/akosbalasko/yarle/commit/434500a8dafa72941f02242d1664af55aed37e94))
+
 ## [4.10.2](https://github.com/akosbalasko/yarle/compare/v4.10.1...v4.10.2) (2022-07-12)
 
 
