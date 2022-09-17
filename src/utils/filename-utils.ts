@@ -1,3 +1,4 @@
+import uniqueFilename from 'unique-filename';
 import sanitize from 'sanitize-filename';
 import * as fs from 'fs';
 import Moment from 'moment';
@@ -35,7 +36,7 @@ export const getFileIndex = (dstPath: string, fileNamePrefix: string): number | 
 
 };
 export const getResourceFileProperties = (workDir: string, resource: any): ResourceFileProperties => {
-  const UNKNOWNFILENAME = 'unknown_filename';
+  const UNKNOWNFILENAME = yarleOptions.useUniqueUnknownFileNames ? uniqueFilename('', 'unknown_filename') : 'unknown_filename';
 
   const extension = getExtension(resource);
   let fileName = UNKNOWNFILENAME;

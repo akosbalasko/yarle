@@ -579,8 +579,6 @@ export const yarleTests: Array<YarleTest> = [
 
     expectedOutputPath: `${dataFolder}test-webclip_bookmark.md`,
   },
-
-
   {
     name: 'Webclip - screenshot',
     options: {

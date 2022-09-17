@@ -58,6 +58,7 @@
     "rimraf": "3.0.2",
     "sanitize-filename": "1.6.3",
     "turndown": "7.0.0",
+    "unique-filename": "2.0.1",
     "utimes": "5.1.1",
     "winston": "3.3.3",
     "xml-flow": "1.0.4"

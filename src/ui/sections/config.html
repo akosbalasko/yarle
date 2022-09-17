@@ -91,9 +91,17 @@
           <div class="field half">
             <input type="checkbox" value="false" id='haveGlobalResources'> 
             <label for="haveGlobalResources" class="pure-checkbox">
-              Store attachments in one folder only 
+              Store all attachments in one folder 
               <br><div style='font-size: 12px;'><i>(
                 Stores note resources on global _resources folder)</i></div>
+            </label>
+          </div>
+		  <div class="field half">
+            <input type="checkbox" value="false" id='useUniqueUnknownFileNames'> 
+            <label for="useUniqueUnknownFileNames" class="pure-checkbox">
+              Use unique end in the name of 'unknown files' 
+              <br><div style='font-size: 12px;'><i>(
+                Instead of generating unknown_file if the filename cannot be recognised, it creates unknown_file-\<uniqueID\> as filenames</i></div>
             </label>
           </div>
           <div class="field half">
