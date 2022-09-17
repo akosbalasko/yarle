@@ -1,3 +1,10 @@
+# [4.11.0](https://github.com/akosbalasko/yarle/compare/v4.10.3...v4.11.0) (2022-09-17)
+
+
+### Features
+
+* unique unknown filename implemented ([#412](https://github.com/akosbalasko/yarle/issues/412)) ([94ebf8d](https://github.com/akosbalasko/yarle/commit/94ebf8ddadd378a9f6014b86d424a229aa3247b9))
+
 ## [4.10.3](https://github.com/akosbalasko/yarle/compare/v4.10.2...v4.10.3) (2022-09-14)
 
 
