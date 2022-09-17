@@ -599,6 +599,72 @@ describe('Yarle special cases', async () => {
       true,
     );
   });
+
+  it.skip('2 Enex files with the same PDF attachment - global resource folder ', async () => {
+    const options: YarleOptions = {
+		enexSources: [
+			`${testDataFolder}One in Five TIA Patients Go on to Stroke, Even in Current Era.enex`,
+		],
+		outputDir: 'out',
+		keepOriginalHtml: false,
+		isMetadataNeeded: true,
+		isNotebookNameNeeded: false,
+		isZettelkastenNeeded: false,
+		plainTextNotesOnly: false,
+		skipWebClips: true,
+		useHashTags: false,
+		nestedTags: {
+			separatorInEN: '_',
+			replaceSeparatorWith: '---',
+			replaceSpaceWith: '-',
+		},
+		outputFormat: OutputFormat.LogSeqMD,
+		taskOutputFormat: TaskOutputFormat.StandardMD,
+		obsidianTaskTag: '',
+		urlEncodeFileNamesAndLinks: false,
+		sanitizeResourceNameSpaces: false,
+		replacementChar: '_',
+		pathSeparator: '/',
+		resourcesDir: 'assets',
+		turndownOptions: {
+			headingStyle: 'atx',
+		},
+		skipLocation: true,
+		skipCreationTime: false,
+		skipUpdateTime: false,
+		skipSourceUrl: false,
+		skipTags: false,
+		skipEnexFileNameFromOutputPath: false,
+		keepMDCharactersOfENNotes: false,
+		monospaceIsCodeBlock: false,
+		currentTemplate: '{title-block}- #{title}#{end-title-block}\r\n\r\n- \r\n  ---\r\n\r\n\r\n{content-block}{content}{end-content-block}\r\n\r\n- \r\n  ---\r\n\r\n{created-at-block}- _Created at {created-at}._{end-created-at-block}\r\n{updated-at-block}- _Last updated at {updated-at}._{end-updated-at-block}\r\n{source-url-block}- _Source URL: []({source-url})._{end-source-url-block}\r\n\r\n\r\n{tags-block}\r\n- Tagged: \r\n- \r\n```\r\n{tags}\r\n```\r\n{end-tags-block}',
+		logseqSettings: {
+			journalNotes: false,
+		},
+		obsidianSettings: {
+			omitLinkDisplayName: false,
+		},
+		dateFormat: 'YYYY-MM-DD',
+		keepOriginalAmountOfNewlines: true,
+		addExtensionToInternalLinks: true,
+		generateNakedUrls: true,
+		haveEnexLevelResources: true,
+		haveGlobalResources: false,
+	};
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-pdfAttachment/pdfAttachment.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-pdfAttachment/_resources/pdfAttachment.resources/sample.pdf`,
+      ),
+      true,
+    );
+  });
   it('Enex file with PDF attachment - ObsidianMD format', async () => {
     const options: YarleOptions = {
       enexSources: [ `${testDataFolder}test-pdfAttachment-ObsidianMD.enex` ],

@@ -48,6 +48,7 @@ Please use settings below
     "keepOriginalAmountOfNewlines": true,
     "haveEnexLevelResources": true,
     "haveGlobalResources": false,
+	"useUniqueUnknownFileNames": false,
     "logseqSettings":{
       "journalNotes": false
     }

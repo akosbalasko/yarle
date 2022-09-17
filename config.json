@@ -25,6 +25,7 @@
     "sanitizeResourceNameSpaces": false,
     "haveEnexLevelResources": false,
     "haveGlobalResources": false,
+	"useUniqueUnknownFileNames": false,
     "replacementChar": "_",
     "logseqSettings":{
         "journalNotes": false
