@@ -3,6 +3,9 @@ import * as fs from 'fs';
 import url from 'url';
 import path from 'path';
 import electron from 'electron';
+import fetch from 'electron-fetch';
+import * as Evernote from 'evernote';
+import { Tokenizer } from 'marked';
 
 import { applyLinks } from '../utils/apply-links';
 import * as yarle from '../yarle';
@@ -146,6 +149,51 @@ electron.ipcMain.on('openEnexSource', () => {
       loggerInfo(err);
     });
  });
+electron.ipcMain.on('auth', async () => {
+    const token = 'S=s1:U=96bff:E=18ac22ec298:C=1836a7d9a80:P=185:A=akos0215-2543:V=2:H=8153cc8375d376fe922e6ccb7839f7fd';
+    const evernoteClient = new Evernote.Client({token, sandbox: true, china: false});
+    const notestore = evernoteClient.getNoteStore();
+
+    const notebooks = await notestore.listNotebooks();
+    console.log(JSON.stringify(notebooks));
+    mainWindow.webContents.send('evernoteNotebookList', JSON.stringify(notebooks));
+/*
+  const request = await fetch('http://localhost:3000/oauth', {
+    method: 'GET',
+    redirect: 'follow',
+  });
+  // tslint:disable-next-line:no-console
+  console.log(await request.text());
+
+  const win = new electron.BrowserWindow({ width: 800, height: 1500 });
+  win.loadURL('http://localhost:3000/oauth');
+
+  const contents = win.webContents;
+  win.on('close', () => {
+  electron.session.defaultSession.cookies.get({})
+    .then(cookies => {
+      const tokenCookie = cookies.find((cookie: any) => cookie.name === 'oauthAccessToken');
+      const token = decodeURIComponent(tokenCookie.value);
+      console.log(token);
+      store.set('token', token);
+      // getting the notes stack
+      const evernoteClient = new Evernote.Client({token, sandbox: true, china: false});
+      evernoteClient.getNoteStore().listNotebooks()
+        .then(notebooks => {
+            loggerInfo(JSON.stringify(notebooks));
+            mainWindow.webContents.send('evernoteNotebookList', notebooks);
+        })
+        .catch(error => {
+          loggerInfo(error);
+          loggerInfo(`Error during authorization phase: ${JSON.stringify(error)}`);
+        });
+      mainWindow.webContents.send('yarleAuthorized', token);
+    }).catch(error => {
+      loggerInfo(`Error during authorization phase: ${JSON.stringify(error)}`);
+    });
+  });
+*/
+});
 
 electron.ipcMain.on('selectOutputFolder', () => {
   electron.dialog.showOpenDialog(

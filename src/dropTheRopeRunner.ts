@@ -21,6 +21,7 @@ export const run = async (opts?: YarleOptions) => {
         : `${__dirname}/../config.json`;
     console.log(`Loading config from ${configFile}`);
     const options: YarleOptions = {...require(configFile), ...opts};
+	   loggerInfo(`Token: ${options.token}`);
     if (options.enexSources.length === 1 && options.enexSources[0].endsWith('.enex')) {
         loggerInfo(`Converting notes in file: ${options.enexSources}`);
     } else {

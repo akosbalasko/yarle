@@ -49,7 +49,7 @@ const updateDomByFlatConfig = (flatConfig, disable) => {
 
       }
       updateConfigStore(configItem, flatConfig[configItem]);
-      
+
     }
   }
 }
@@ -68,6 +68,21 @@ ipcRenderer.on('enexSources', (event, store) => {
 
 ipcRenderer.on('outputDirectorySelected', (event, store) => {
   document.getElementById('outputDirectory').innerHTML = `Current output folder: ${store}`;
+})
+
+ipcRenderer.on('evernoteNotebookList', (event, store) => {
+	var table = new Tabulator("#example-table", {
+    height: "311px",
+    data: store,
+    dataTree: true,
+    dataTreeStartExpanded: true,
+    columns:[
+    {title:"name", field:"name", width:200}, //never hide this column
+    {title:"guid", field:"guid", width:150, responsive: 2},
+
+    ],
+});
+	document.getElementById('evernoteNotebookList').innerHTML = store;
 })
 
 ipcRenderer.on('defaultTemplateLoaded', (event, store) => {
@@ -135,10 +150,14 @@ function(n) {
         $('#selectEnexFile').click( function () {
           ipcRenderer.send('openEnexSource');
         })
-	
+
         $('#selectOutputFolder').click( function () {
           ipcRenderer.send('selectOutputFolder');
         });
+
+        $('#auth').click( function () {
+			ipcRenderer.send('auth');
+		  });
 
         $('#showErrorBox').click( function () {
           dialog.handler.showErrorBox();
@@ -153,6 +172,7 @@ function(n) {
         })
       }
     };
+
 
     n(function() {
         dialog.handler.init();

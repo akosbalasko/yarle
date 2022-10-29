@@ -48,5 +48,6 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
         haveGlobalResources: store.get('haveGlobalResources') as boolean,
         sanitizeResourceNameSpaces: store.get('sanitizeResourceNameSpaces') as boolean,
         replacementChar: store.get('replacementChar') as string,
+		token: store.get('token') ? decodeURIComponent((store.get('token') as any)['value'] as string) : undefined,
     };
 };

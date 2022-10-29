@@ -61,7 +61,7 @@ function(n) {
 
       sendSaveTemplateEvent: function(e) {
         ipcRenderer.send('saveTemplate',e);
-        
+
       },
       init: function() {
 
@@ -78,7 +78,7 @@ function(n) {
         for (const select of selects) {
           select.addEventListener('change', ipc.messaging.sendConfigValueChangedEvent);
         }
-      
+
         $('#startConversion').click(function () {
           startLogWatcher();
           ipcRenderer.send('startConversion');
@@ -94,11 +94,9 @@ function(n) {
         document.getElementById('logseqSettings.journalNotes.container').style.display = 'none';
       }
     };
-
     n(function() {
         ipc.messaging.init();
     })
 
-    
 
 }(jQuery);
