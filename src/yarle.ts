@@ -9,12 +9,12 @@ import { YarleOptions } from './YarleOptions';
 import { processNode } from './process-node';
 import { isWebClip } from './utils/note-utils';
 import { loggerInfo } from './utils/loggerInfo';
-import { hasCreationTimeInTemplate,
+import { hasAnyTagsInTemplate,
+  hasCreationTimeInTemplate,
   hasLinkToOriginalInTemplate,
   hasLocationInTemplate,
   hasNotebookInTemplate,
   hasSourceURLInTemplate,
-  hasTagsInTemplate,
   hasUpdateTimeInTemplate } from './utils/templates/checker-functions';
 import { defaultTemplate } from './utils/templates/default-template';
 import { OutputFormat } from './output-format';
@@ -65,7 +65,7 @@ const setOptions = (options: YarleOptions): void => {
   yarleOptions.skipCreationTime = !hasCreationTimeInTemplate(template);
   yarleOptions.skipLocation = !hasLocationInTemplate(template);
   yarleOptions.skipSourceUrl = !hasSourceURLInTemplate(template);
-  yarleOptions.skipTags = !hasTagsInTemplate(template);
+  yarleOptions.skipTags = !hasAnyTagsInTemplate(template);
   yarleOptions.skipUpdateTime = !hasUpdateTimeInTemplate(template);
   yarleOptions.isNotebookNameNeeded = hasNotebookInTemplate(template);
   yarleOptions.keepOriginalHtml = hasLinkToOriginalInTemplate(template);
