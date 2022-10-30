@@ -1,3 +1,10 @@
+# [4.12.0](https://github.com/akosbalasko/yarle/compare/v4.11.0...v4.12.0) (2022-10-30)
+
+
+### Features
+
+* array tags ([#415](https://github.com/akosbalasko/yarle/issues/415)) ([a8c7552](https://github.com/akosbalasko/yarle/commit/a8c7552ce155cf8abecc14643360c67bac2df0c4))
+
 # [4.11.0](https://github.com/akosbalasko/yarle/compare/v4.10.3...v4.11.0) (2022-09-17)
 
 
