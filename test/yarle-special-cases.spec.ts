@@ -947,5 +947,31 @@ describe('Yarle special cases', async () => {
       fs.readFileSync(`${__dirname}/data/test-old-note.md`, 'utf8'),
     );
   });
+  it('yaml tags list', async () => {
+    const options: YarleOptions = {
+      enexSources: [ `${testDataFolder}test-noteWithTags.enex` ],
+      outputDir: 'out',
+      templateFile: `${testDataFolder}tags-array_template.templ`,
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.ObsidianMD,
+      skipEnexFileNameFromOutputPath: false,
+			skipTags: false,
+			useHashTags: false,
 
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-noteWithTags/test -note with text only.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-noteWithTags/test -note with text only.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test -note with tags array.md`, 'utf8'),
+    );
+  });
 });

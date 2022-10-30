@@ -5,6 +5,7 @@ import * as NOTEBOOK from './placeholders/notebook-placeholders';
 import * as ORIGINALLINK from './placeholders/original-placeholders';
 import * as SOURCEURL from './placeholders/sourceurl-placeholders';
 import * as TAGS from './placeholders/tags-placeholders';
+import * as YAMLARRAYTAGS from './placeholders/tags-array-placeholders';
 import * as METADATA from './placeholders/metadata-placeholders';
 import * as UPDATETIME from './placeholders/updatedat-placeholders';
 import * as REMINDERTIME from './placeholders/remindertime-placeholders';
@@ -38,9 +39,11 @@ export const hasOriginalLinkInTemplate = (templateContent: string): boolean => 
 export const hasSourceURLInTemplate = (templateContent: string): boolean => {
     return hasItemInTemplate(SOURCEURL, templateContent);
 };
-export const hasTagsInTemplate = (templateContent: string): boolean => {
-    return hasItemInTemplate(TAGS, templateContent);
+export const hasAnyTagsInTemplate = (templateContent: string): boolean => {
+    return (hasItemInTemplate(TAGS, templateContent)
+		|| hasItemInTemplate(YAMLARRAYTAGS, templateContent));
 };
+
 export const hasMetadataInTemplate = (templateContent: string): boolean => {
     return templateContent.includes(METADATA.START_BLOCK) &&
     templateContent.includes(METADATA.END_BLOCK);

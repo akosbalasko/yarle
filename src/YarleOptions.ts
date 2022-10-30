@@ -50,5 +50,5 @@ export interface YarleOptions {
     turndownOptions?: Record<string, any>;
     taskOutputFormat?: TaskOutputFormat;
     obsidianTaskTag?: string;
-	useUniqueUnknownFileNames?: boolean;
+	  useUniqueUnknownFileNames?: boolean;
 }
