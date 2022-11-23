@@ -1,15 +1,15 @@
 # test - checklist
 
 * [ ] Checklist item 1
-  * [ ] Nested item 1a
-  * [x] Nested item 1b is checked
+	* [ ] Nested item 1a
+	* [x] Nested item 1b is checked
 * [x] Checklist item 2 is checked
-  * Nested unordered 2a
+	* Nested unordered 2a
 * [ ] Checklist item 3
-  1. Nested ordered 3a
+	1. Nested ordered 3a
 
 * Unordered list item
-  * [ ] Nested checklist item
+	* [ ] Nested checklist item
 
 * [ ] Checklist **bold** `inline code` & [link](https://example.com?a=1&b=2)
 
