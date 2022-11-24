@@ -3,7 +3,7 @@ import { yarleOptions } from '../../yarle';
 
 import { filterByNodeName } from './filter-by-nodename';
 import { getAttributeProxy } from './get-attribute-proxy';
-
+const indentCharacter = '	';
 export const taskListRule = {
     filter: 'li',
     replacement: (content: any, node: any, options: any) => {
@@ -12,8 +12,8 @@ export const taskListRule = {
         const singleLineContent = content
             .replace(/^\n+/, '') // Remove leading newlines
             .replace(/\n+$/, '\n') // Replace trailing newlines with just a single one
-            .replace(/\n/gm, '\n  '); // Indent
-        const indentChars = '  '.repeat(indentCount);
+            .replace(/\n/gm, `\n${indentCharacter}`); // Indent
+        const indentChars = indentCharacter.repeat(indentCount);
 
         let prefix =  indentCount > 0 ?  indentChars : '* ';
         const parent = node.parentNode;

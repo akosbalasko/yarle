@@ -238,21 +238,21 @@ Save for later
 ### Most popular
 
 * [![[./_resources/Untitled_Note.resources/unknown_filename.6.png]]
-  
-  #### Manchester Royal Infirmary closes A&E due to suspected Mers cases](http://www.theguardian.com/society/2015/jul/27/manchester-royal-infirmary-closes-ae-suspected-mers-cases)
+	
+	#### Manchester Royal Infirmary closes A&E due to suspected Mers cases](http://www.theguardian.com/society/2015/jul/27/manchester-royal-infirmary-closes-ae-suspected-mers-cases)
 
 <http://www.theguardian.com/society/2015/jul/27/manchester-royal-infirmary-closes-ae-suspected-mers-cases>* <http://www.theguardian.com/society/2015/jul/27/manchester-royal-infirmary-closes-ae-suspected-mers-cases>[![[./_resources/Untitled_Note.resources/unknown_filename.11.png]]
-  
-  #### The brilliant thing about Kate Moss is that she can never be shamed](http://www.theguardian.com/fashion/2015/jul/27/kate-moss-refuses-shamed-tabloid-media)
+	
+	#### The brilliant thing about Kate Moss is that she can never be shamed](http://www.theguardian.com/fashion/2015/jul/27/kate-moss-refuses-shamed-tabloid-media)
 <http://www.theguardian.com/fashion/2015/jul/27/kate-moss-refuses-shamed-tabloid-media>* <http://www.theguardian.com/fashion/2015/jul/27/kate-moss-refuses-shamed-tabloid-media>[![[./_resources/Untitled_Note.resources/unknown_filename.3.png]]
-  
-  #### 'I'm sitting next to a weirdo on the bus' and other true meanings of emoji](http://www.theguardian.com/technology/2015/jul/27/emoji-true-meanings-explained)
+	
+	#### 'I'm sitting next to a weirdo on the bus' and other true meanings of emoji](http://www.theguardian.com/technology/2015/jul/27/emoji-true-meanings-explained)
 <http://www.theguardian.com/technology/2015/jul/27/emoji-true-meanings-explained>* <http://www.theguardian.com/technology/2015/jul/27/emoji-true-meanings-explained>[![[./_resources/Untitled_Note.resources/unknown_filename.15.png]]
-  
-  #### Rail operators were warned of cows near tracks before Kent collision](http://www.theguardian.com/uk-news/2015/jul/27/rail-operators-were-warned-of-cows-near-tracks-before-kent-collision)
+	
+	#### Rail operators were warned of cows near tracks before Kent collision](http://www.theguardian.com/uk-news/2015/jul/27/rail-operators-were-warned-of-cows-near-tracks-before-kent-collision)
 <http://www.theguardian.com/uk-news/2015/jul/27/rail-operators-were-warned-of-cows-near-tracks-before-kent-collision>* <http://www.theguardian.com/uk-news/2015/jul/27/rail-operators-were-warned-of-cows-near-tracks-before-kent-collision>[![[./_resources/Untitled_Note.resources/unknown_filename.7.png]]
-  
-  #### Murdered 'Mr Big' said he could be killed 'at any time' in 1998 interview](http://www.theguardian.com/uk-news/2015/jul/27/salford-mr-big-paul-massey-murder-risk-interview-1998)
+	
+	#### Murdered 'Mr Big' said he could be killed 'at any time' in 1998 interview](http://www.theguardian.com/uk-news/2015/jul/27/salford-mr-big-paul-massey-murder-risk-interview-1998)
 <http://www.theguardian.com/uk-news/2015/jul/27/salford-mr-big-paul-massey-murder-risk-interview-1998>
 <http://www.theguardian.com/uk-news/2015/jul/27/salford-mr-big-paul-massey-murder-risk-interview-1998>
 <http://www.theguardian.com/uk-news/2015/jul/27/salford-mr-big-paul-massey-murder-risk-interview-1998>
@@ -266,28 +266,28 @@ Threads collapsed](http://www.theguardian.com/uk-news/2015/jul/27/salford-mr-big
 <http://www.theguardian.com/uk-news/2015/jul/27/salford-mr-big-paul-massey-murder-risk-interview-1998>
 [1 [2](http://www.theguardian.com/discussion/p/4azh6?page=2)](http://www.theguardian.com/uk-news/2015/jul/27/salford-mr-big-paul-massey-murder-risk-interview-1998) [3](http://www.theguardian.com/discussion/p/4azh6?page=3) [4](http://www.theguardian.com/discussion/p/4azh6?page=4)… [8](http://www.theguardian.com/discussion/p/4azh6?page=8) [next](http://www.theguardian.com/discussion/p/4azh6?page=2)
 
-  ![[./_resources/Untitled_Note.resources/unknown_filename.5.png]]
-  [Lillianne](https://profile.theguardian.com/user/id/14670089)
-  [3h ago](http://discussion.theguardian.com/comment-permalink/56464029)
-  <http://discussion.theguardian.com/comment-permalink/56464029>
-  <http://discussion.theguardian.com/comment-permalink/56464029>
-  <http://discussion.theguardian.com/comment-permalink/56464029>
-  <http://discussion.theguardian.com/comment-permalink/56464029>
-  <http://discussion.theguardian.com/comment-permalink/56464029>
-  <http://discussion.theguardian.com/comment-permalink/56464029>
-   [                            This comment was removed by a moderator because it didn't abide by our](http://discussion.theguardian.com/comment-permalink/56464029) [community standards](http://www.theguardian.com/community-standards).                             Replies may also be deleted. For more detail see [our FAQs](http://www.theguardian.com/community-faqs).
-  
-  ![[./_resources/Untitled_Note.resources/unknown_filename.5.png]]
-  [nevermindlastnight](https://profile.theguardian.com/user/id/14881964)
-  [3h ago](http://discussion.theguardian.com/comment-permalink/56464149)
-  <http://discussion.theguardian.com/comment-permalink/56464149>
-  <http://discussion.theguardian.com/comment-permalink/56464149>
-  <http://discussion.theguardian.com/comment-permalink/56464149>
-  <http://discussion.theguardian.com/comment-permalink/56464149>
-  <http://discussion.theguardian.com/comment-permalink/56464149>
-  <http://discussion.theguardian.com/comment-permalink/56464149>
-   [                            This comment was removed by a moderator because it didn't abide by our](http://discussion.theguardian.com/comment-permalink/56464149) [community standards](http://www.theguardian.com/community-standards).                             Replies may also be deleted. For more detail see [our FAQs](http://www.theguardian.com/community-faqs).
-  
+	![[./_resources/Untitled_Note.resources/unknown_filename.5.png]]
+	[Lillianne](https://profile.theguardian.com/user/id/14670089)
+	[3h ago](http://discussion.theguardian.com/comment-permalink/56464029)
+	<http://discussion.theguardian.com/comment-permalink/56464029>
+	<http://discussion.theguardian.com/comment-permalink/56464029>
+	<http://discussion.theguardian.com/comment-permalink/56464029>
+	<http://discussion.theguardian.com/comment-permalink/56464029>
+	<http://discussion.theguardian.com/comment-permalink/56464029>
+	<http://discussion.theguardian.com/comment-permalink/56464029>
+	 [                            This comment was removed by a moderator because it didn't abide by our](http://discussion.theguardian.com/comment-permalink/56464029) [community standards](http://www.theguardian.com/community-standards).                             Replies may also be deleted. For more detail see [our FAQs](http://www.theguardian.com/community-faqs).
+	
+	![[./_resources/Untitled_Note.resources/unknown_filename.5.png]]
+	[nevermindlastnight](https://profile.theguardian.com/user/id/14881964)
+	[3h ago](http://discussion.theguardian.com/comment-permalink/56464149)
+	<http://discussion.theguardian.com/comment-permalink/56464149>
+	<http://discussion.theguardian.com/comment-permalink/56464149>
+	<http://discussion.theguardian.com/comment-permalink/56464149>
+	<http://discussion.theguardian.com/comment-permalink/56464149>
+	<http://discussion.theguardian.com/comment-permalink/56464149>
+	<http://discussion.theguardian.com/comment-permalink/56464149>
+	 [                            This comment was removed by a moderator because it didn't abide by our](http://discussion.theguardian.com/comment-permalink/56464149) [community standards](http://www.theguardian.com/community-standards).                             Replies may also be deleted. For more detail see [our FAQs](http://www.theguardian.com/community-faqs).
+	
 
 Close report comment form
 Reason (optional)
