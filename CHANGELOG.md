@@ -1,3 +1,10 @@
+# [4.13.0](https://github.com/akosbalasko/yarle/compare/v4.12.1...v4.13.0) (2022-11-24)
+
+
+### Features
+
+* buymeacoffee widget added ([#423](https://github.com/akosbalasko/yarle/issues/423)) ([909d545](https://github.com/akosbalasko/yarle/commit/909d545dcd0a58da615727ea3f6d1c7bd6c90b86))
+
 ## [4.12.1](https://github.com/akosbalasko/yarle/compare/v4.12.0...v4.12.1) (2022-11-24)
 
 
