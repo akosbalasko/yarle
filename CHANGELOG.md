@@ -1,3 +1,10 @@
+## [4.12.1](https://github.com/akosbalasko/yarle/compare/v4.12.0...v4.12.1) (2022-11-24)
+
+
+### Bug Fixes
+
+* replacing two spaces by a single tab ([#421](https://github.com/akosbalasko/yarle/issues/421)) ([ade1cf8](https://github.com/akosbalasko/yarle/commit/ade1cf8c3442df55d1ae944017af50d53d91a61a))
+
 # [4.12.0](https://github.com/akosbalasko/yarle/compare/v4.11.0...v4.12.0) (2022-10-30)
 
 
