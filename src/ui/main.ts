@@ -41,7 +41,7 @@ const defaultTemplate = fs.readFileSync(`${__dirname}/../../sampleTemplate.tmpl`
 function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({titleBarStyle: 'hidden',
-    width: 1281,
+    width: 1600,
     height: 800,
     minWidth: 1281,
     minHeight: 800,
