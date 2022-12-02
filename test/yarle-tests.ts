@@ -17,7 +17,16 @@ export const yarleTests: Array<YarleTest> = [
     testOutputPath: `notes${path.sep}test-justText${path.sep}test -note with text only.md`,
     expectedOutputPath: `${dataFolder}test-justText.md`,
   },
-
+  {
+    name: 'Enex file with note containing text only - remove characters which break obsidian links',
+    options: {
+      enexSources: [ `${__dirname}${path.sep}..${path.sep}${testDataFolder}test-justText-linkbreakingNote.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+    },
+    testOutputPath: `notes${path.sep}test-justText-linkbreakingNote${path.sep}test -note _with text only.md`,
+    expectedOutputPath: `${dataFolder}test -note _with text only.md`,
+  },
   {
     name: 'Enex file with note WithHyperlinkRefs',
     options: {
