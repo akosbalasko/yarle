@@ -31,6 +31,7 @@ export const defaultYarleOptions: YarleOptions = {
   isMetadataNeeded: false,
   isNotebookNameNeeded: false,
   isZettelkastenNeeded: false,
+  useZettelIdAsFilename: false,
   plainTextNotesOnly: false,
   skipWebClips: false,
   useHashTags: true,

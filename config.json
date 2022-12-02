@@ -8,6 +8,7 @@
     "isMetadataNeeded": false,
     "isNotebookNameNeeded": false,
     "isZettelkastenNeeded": false,
+    "useZettelIdAsFilename": false,
     "plainTextNotesOnly": false,
     "skipLocation": false,
     "skipCreationTime": false,

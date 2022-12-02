@@ -109,7 +109,8 @@ export const getNoteName = (dstPath: string, note: any): string => {
       `${zettelPrefix}.${nextIndex}` :
       zettelPrefix;
 
-    noteName += getFilePrefix(note) !== 'Untitled' ? `${separator}${getFilePrefix(note)}` : '';
+    if (!yarleOptions.useZettelIdAsFilename)
+      noteName += getFilePrefix(note) !== 'Untitled' ? `${separator}${getFilePrefix(note)}` : '';
   } else {
     const fileNamePrefix = getFilePrefix(note);
     const nextIndex = getFileIndex(dstPath, fileNamePrefix);

@@ -108,6 +108,7 @@ To configure Yarle, you must create a config file. By default it looks like this
     "templateFile": "/absolute-path-of-your-template-dir/sampleTemplate.tmpl",
     "outputDir": "/path-of-your-desired-output-folder",
     "isZettelkastenNeeded": false,
+    "useZettelIdAsFilename": false,
     "plainTextNotesOnly": false,
     "skipWebClips": false,
     "useHashTags": true,
@@ -150,6 +151,7 @@ The following configurational properties are available:
 |```outputDir``` | path to your output dir (absolute or relative) | this is the main output dir where the extracted markdown files and the external resources, images, pdf-s are going to be created|
 |```resourcesDir``` | `_resources` | subdir where attachments/external resources will be placed
 |```isZettelkastenNeeded``` |  true or false | puts Zettelkasten Id (based on time of creation) at the beginning of the file name|
+|```useZettelIdAsFilename``` | true or false | Note files are named by their creation date (those are interpreted as zettelIds)|
 |```plaintextNotesOnly``` |  true or false | skips any notes with attachments (e.g. notes containing pictures)|
 |```useHashTags```|  true or false | whether to add the pound sign in front of tags|
 |```outputFormat```|  ObsidianMD or StandardMD | generates internal file links and highlights in Obsidian-style: highlights are going to be bounded by `==` instead of \` characters, file links are going to be as follows: `![[file-name]]` instead of `![file-name](file-name)`. Possible values: `ObsidianMD` to get Obsidian-style notes, `StandardMD` or skip it completely, if you prefer Standard Markdown format.|

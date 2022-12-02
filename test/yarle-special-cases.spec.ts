@@ -610,6 +610,7 @@ describe('Yarle special cases', async () => {
 		isMetadataNeeded: true,
 		isNotebookNameNeeded: false,
 		isZettelkastenNeeded: false,
+    useZettelIdAsFilename: false,
 		plainTextNotesOnly: false,
 		skipWebClips: true,
 		useHashTags: false,
