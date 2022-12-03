@@ -1,3 +1,10 @@
+# [4.14.0](https://github.com/akosbalasko/yarle/compare/v4.13.0...v4.14.0) (2022-12-03)
+
+
+### Features
+
+* useZettelIdAsFilename option ([#426](https://github.com/akosbalasko/yarle/issues/426)) ([c846f49](https://github.com/akosbalasko/yarle/commit/c846f4959c3c25b9440b6ede5fd8badbbf422320))
+
 # [4.13.0](https://github.com/akosbalasko/yarle/compare/v4.12.1...v4.13.0) (2022-11-24)
 
 
