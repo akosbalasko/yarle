@@ -151,6 +151,7 @@ export const yarleTests: Array<YarleTest> = [
       outputDir: 'out',
       isMetadataNeeded: true,
       isZettelkastenNeeded: true,
+      useZettelIdAsFilename: false
     },
     testOutputPath: `notes${path.sep}test-noteWithZettelKasten${path.sep}201810060943 test -note with text only.md`,
 
@@ -158,6 +159,19 @@ export const yarleTests: Array<YarleTest> = [
     expectedOutputPath: `${dataFolder}test-noteWithZettelKasten.md`,
   },
 
+  {
+    name: 'Note with zettelkastel id - use as filename',
+    options: {
+      enexSources: [ `.${testDataFolder}test-noteWithZettelKasten.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      isZettelkastenNeeded: true,
+
+      useZettelIdAsFilename: true,
+    },
+    testOutputPath: `notes${path.sep}test-noteWithZettelKasten${path.sep}201810060943.md`,
+    expectedOutputPath: `${dataFolder}test-noteWithZettelKasten.md`,
+  },
 
   {
     name: 'Note with zettelkastel id - no title',

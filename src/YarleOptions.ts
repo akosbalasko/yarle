@@ -12,6 +12,7 @@ export interface YarleOptions {
     isMetadataNeeded?: boolean;
     isNotebookNameNeeded?: boolean;
     isZettelkastenNeeded?: boolean;
+    useZettelIdAsFilename?: boolean;
     plainTextNotesOnly?: boolean;
     skipLocation?: boolean;
     skipCreationTime?: boolean;

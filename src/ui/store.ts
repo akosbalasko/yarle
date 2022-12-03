@@ -13,6 +13,7 @@ const schema: any = {
     // isMetadataNeeded: { type: 'boolean', default: false },
     isNotebookNameNeeded: { type: 'boolean', default: false },
     isZettelkastenNeeded: { type: 'boolean', default: false },
+    useZettelIdAsFilename: { type: 'boolean', default: false},
     plainTextNotesOnly: { type: 'boolean', default: false },
     addLocation: { type: 'boolean', default: false },
     addCreationTime: { type: 'boolean', default: false },

@@ -101,7 +101,7 @@ export const getZettelKastelId = (note: any, dstPath: string): string => {
 export const getNoteName = (dstPath: string, note: any): string => {
   let noteName;
 
-  if (yarleOptions.isZettelkastenNeeded) {
+  if (yarleOptions.isZettelkastenNeeded || yarleOptions.useZettelIdAsFilename) {
     const zettelPrefix = getZettelKastelId(note, dstPath);
     const nextIndex = getFileIndex(dstPath, zettelPrefix);
     const separator = ' ';
@@ -109,7 +109,8 @@ export const getNoteName = (dstPath: string, note: any): string => {
       `${zettelPrefix}.${nextIndex}` :
       zettelPrefix;
 
-    noteName += getFilePrefix(note) !== 'Untitled' ? `${separator}${getFilePrefix(note)}` : '';
+    if (!yarleOptions.useZettelIdAsFilename)
+      noteName += getFilePrefix(note) !== 'Untitled' ? `${separator}${getFilePrefix(note)}` : '';
   } else {
     const fileNamePrefix = getFilePrefix(note);
     const nextIndex = getFileIndex(dstPath, fileNamePrefix);

@@ -10,6 +10,7 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
         isMetadataNeeded: true,
         isNotebookNameNeeded: store.get('isNotebookNameNeeded') as boolean,
         isZettelkastenNeeded: store.get('isZettelkastenNeeded') as boolean,
+        useZettelIdAsFilename: store.get('useZettelIdAsFilename') as boolean,
         plainTextNotesOnly: store.get('plainTextNotesOnly') as boolean,
         skipLocation: !(store.get('addLocation') as boolean),
         skipCreationTime: !(store.get('addCreationTime') as boolean),
