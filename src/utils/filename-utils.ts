@@ -15,7 +15,8 @@ import { escapeStringRegexp } from './escape-string-regexp';
 export const normalizeTitle = (title: string) => {
   // Allow setting a specific replacement character for file and resource names
   // Default to a retrocompatible value
-  return sanitize(title, {replacement: yarleOptions.replacementChar || '_'});
+  return sanitize(title, {replacement: yarleOptions.replacementChar || '_'}).replace(/[\[\]\#\^]/g,'')
+  ;
 };
 
 export const getFileIndex = (dstPath: string, fileNamePrefix: string): number | string => {
@@ -120,7 +121,6 @@ export const getNoteName = (dstPath: string, note: any): string => {
   if (yarleOptions.outputFormat === OutputFormat.LogSeqMD && yarleOptions.logseqSettings.journalNotes) {
     return getCreationTime(note);
   }
-
   return noteName;
 
 };
