@@ -1,3 +1,10 @@
+# [4.15.0](https://github.com/akosbalasko/yarle/compare/v4.14.0...v4.15.0) (2022-12-03)
+
+
+### Features
+
+* title normalized to do not break links ([#427](https://github.com/akosbalasko/yarle/issues/427)) ([f9ccf4c](https://github.com/akosbalasko/yarle/commit/f9ccf4c2a734f3ac79acb55e67edc39d0a9cd05a))
+
 # [4.14.0](https://github.com/akosbalasko/yarle/compare/v4.13.0...v4.14.0) (2022-12-03)
 
 
