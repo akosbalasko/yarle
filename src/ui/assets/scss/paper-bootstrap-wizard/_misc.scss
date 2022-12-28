@@ -1,0 +1,128 @@
+/*     General overwrite     */
+
+body{
+    color: $font-color;
+    font-size: $font-size-base;
+    font-family: 'Muli', Arial, sans-serif;
+}
+
+a{
+    color: #2CA8FF;
+}
+a:hover, a:focus {
+    color: #109CFF;
+}
+a:focus, a:active,
+button::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+select::-moz-focus-inner,
+input[type="file"] > input[type="button"]::-moz-focus-inner,
+input[type="button"]:focus {
+    outline: 0 !important;
+}
+
+.btn:focus,
+.btn:hover,
+.btn:active{
+    outline: 0;
+}
+
+/*           Animations              */
+.form-control, .input-group-addon{
+    -webkit-transition: all 300ms linear;
+    -moz-transition: all 300ms linear;
+    -o-transition: all 300ms linear;
+    -ms-transition: all 300ms linear;
+    transition: all 300ms linear;
+}
+
+
+
+
+.image-container{
+    min-height: 100vh;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+}
+
+.wizard-container{
+    padding-top: 100px;
+    z-index: 3;
+}
+
+.made-with-pk{
+    width: 50px;
+    height: 50px;
+    display: block;
+    position: fixed;
+    z-index: 555;
+    bottom: 40px;
+    right: 40px;
+    border-radius: 30px;
+    background-color: rgba(16, 16, 16, 0.35);
+    border: 1px solid rgba(255,255,255,.15);
+    color: $white-color;
+    cursor: pointer;
+    padding: 10px 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-transition: .55s cubic-bezier(.6,0,.4,1);
+    -moz-transition: .55s cubic-bezier(.6,0,.4,1);
+    -o-transition: .55s cubic-bezier(.6,0,.4,1);
+    transition: .55s cubic-bezier(.6,0,.4,1);
+
+
+    &:hover,
+    &:active,
+    &:focus{
+        width: 218px;
+        color: $white-color;
+        transition-duration: .55s;
+        padding: 10px 19px;
+
+        .made-with{
+            opacity: 1;
+        }
+    }
+
+    .brand,
+    .made-with{
+        float: left;
+    }
+    .brand{
+        position: relative;
+        top: 4px;
+        letter-spacing: 1px;
+        vertical-align: middle;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .made-with{
+        color: rgba(255,255,255, .6);
+        position: absolute;
+        left: 58px;
+        top: 14px;
+        opacity: 0;
+        margin: 0;
+        -webkit-transition: .55s cubic-bezier(.6,0,.4,1);
+        -moz-transition: .55s cubic-bezier(.6,0,.4,1);
+        -o-transition: .55s cubic-bezier(.6,0,.4,1);
+        transition: .55s cubic-bezier(.6,0,.4,1);
+
+        strong{
+            font-weight: 400;
+            color: rgba(255,255,255, .9);
+        }
+    }
+}
+
+.col-sm-8{
+    .col-sm-4{
+        padding-right: 6px;
+        padding-left: 6px;
+    }
+}

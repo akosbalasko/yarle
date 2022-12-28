@@ -1,0 +1,29 @@
+.card{
+    border-radius: $border-radius-extreme;
+    box-shadow: 0 2px 2px rgba(204, 197, 185, 0.5);
+    background-color: $white-color;
+    color: $card-black-color;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+
+    .card-checkboxes{
+        background-color: $gray-input-bg;
+        box-shadow: none;
+        color: rgba(0,0,0, 0.3);
+    }
+
+    .card-hover-effect{
+        -webkit-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;
+        -moz-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;
+        -o-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;
+        -ms-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;
+        transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;
+
+        &:hover{
+            box-shadow: 0px 12px 17px -7px rgba(0, 0, 0, 0.3);
+            @include translateY(-10px);
+        }
+    }
+}

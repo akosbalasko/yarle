@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <h1>Hello from Electron renderer!</h1>
+    <p>👋</p>
+    
+  </body>
+</html>
+
+
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+        <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+		<title>Yarle</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<link rel="stylesheet" href="assets/css/eta-app.css" />
+    <link rel="import" href="sections/enex.html">
+    <link rel="import" href="sections/welcome.html">
+    <link rel="import" href="sections/config.html">
+	<link rel="import" href="sections/template.html">
+	<link rel="import" href="sections/output.html">
+	<link rel="import" href="sections/convert.html">
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="akosbalasko" data-description="Support me on Buy me a coffee!" data-message="" data-color="#40DCA5" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+	</head>
+	<body>
+
+		<!-- Sidebar -->
+			<section id="sidebar">
+				<div class="inner">
+					<nav>
+						<ul>
+							<li><a id="welcome-menu" data-section="welcome" href="#">Welcome</a></li>
+							<li><a id="enex-menu" data-section="enex" href="#">Step 1: Select your Enex files</a></li>
+							<li><a id="config-menu" data-section="config" href="#">Step 2: Configuration</a></li>
+							<li><a id="template-menu" data-section="template" href="#">Step 3: Set up your Template</a></li>
+							<li><a id="output-menu" data-section="output" href="#">Step 4: Pick your output location</a></li>
+							<li><a id="convert-menu" data-section="convert" href="#">Step 5: Convert</a></li>
+
+						</ul>
+					</nav>
+					<div class="version-info">
+						Tested with Electron v6.0.0
+					</div>
+					<div class="version-info">
+						<!--(Currently running Electron v<script>document.write(process.versions.electron)</script>)-->
+					</div>
+				</div>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper style1-alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Akos Balasko. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+
+</body>
+<script src="./renderer.js"></script>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/translations/i18n"></script>
+<script src="./js/jquery.scrollex.min.js"></script>
+<script src="./js/jquery.scrolly.min.js"></script>
+<script src="./js/skel.min.js"></script>
+<script src="./js/util.js"></script>
+<script src="./js/main.js"></script>
+<script src="./js/menu.js"></script>
+<script src="./js/translations"></script>
+<script src="./js/ipc.js"></script>
+<script src="./js/dialog.js"></script>
+</html>
