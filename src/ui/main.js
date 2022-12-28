@@ -1,16 +1,19 @@
 const { app, BrowserWindow, dialog, ipcMain } = require('electron')
 const fs = require('fs');
-const {loggerInfo}  = '../utils/loggerInfo';
-const { store } = require('./store');
+const {loggerInfo}  = require('../utils/loggerInfo')
+const store = require('./store');
+const { initialize, enable } = require("@electron/remote/main")
 
+initialize();
 // tslint:disable-next-line:no-require-imports variable-name
 const Store = require('electron-store');
 
-const path = require('path')
+const path = require('path');
+const { getTokenSourceMapRange } = require('typescript');
 Store.initRenderer();
 // handle setupevents as quickly as possible
 // tslint:disable-next-line:no-require-imports
-const setupEvents = require('./installers/setupEvents');
+// const setupEvents = require('./installers/setupEvents');
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
@@ -27,11 +30,30 @@ const createWindow = () => {
     show: true,
     icon: path.join(__dirname, 'assets/icons/png/192x192.png'),
     webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: true,
       preload: path.join(__dirname, 'preload.js'),
     },
   })
-  ipcMain.handle('ping', () => 'pong')
+  enable(mainWindow.webContents)
+  ipcMain.on('ping', () => 'pong')
   mainWindow.loadFile(path.join(__dirname, 'index.html'))
+
+     // IPC listener
+     ipcMain.on('electron-store-get', async (event, val) => {
+      console.log('getting value of key: ' + val)
+      event.returnValue = store.get(val);
+    });
+    ipcMain.on('electron-store-set', async (event, key, val) => {
+      store.set(key, val);
+    });
+
+    ipcMain.on('configurationUpdated', (event, data) => {
+      console.log('!! ', data.value)
+        store.set(data.id, data.value);
+      loggerInfo(`config: ${data.id}: ${JSON.stringify(store.get(data.id))}`);
+    
+    });
 }
 /*
 mainWindow.once('ready-to-show', () => {
@@ -58,7 +80,8 @@ mainWindow.once('ready-to-show', () => {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
-  
+  createWindow() 
+
   // In this file you can include the rest of your app's specific main process
   // code. You can also put them in separate files and import them here.
   ipcMain.handle('dialog:openFile', async () => {
@@ -99,13 +122,6 @@ app.whenReady().then(() => {
 
   });
   
-  ipcMain.handle('configurationUpdated', (event, data) => {
-  
-    store.set(data.id, data.value);
-    loggerInfo(`config: ${data.id}: ${JSON.stringify(store.get(data.id))}`);
-  
-  });
-  
   ipcMain.handle('startConversion', async (event, data) => {
     const settings = mapSettingsToYarleOptions();
     const outputNotebookFolders = await yarle.dropTheRope(settings);
@@ -120,7 +136,7 @@ app.whenReady().then(() => {
     console.log(`Template : ${data.value}`);
   });
   
-  createWindow() 
+  
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
   })});

@@ -18,5 +18,13 @@ contextBridge.exposeInMainWorld('electronAPI', {
   },
   selectOutputFolder: async () => {
     return ipcRenderer.invoke('dialog:selectOutputFolder')
-  }
+  },
+  store: {
+    get(key) {
+      return ipcRenderer.send('electron-store-get', key);
+    },
+    set(property, val) {
+      ipcRenderer.send('configurationUpdated', {id: property, value: val});
+    },
+  },
 })

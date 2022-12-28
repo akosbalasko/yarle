@@ -1,8 +1,8 @@
 // tslint:disable-next-line:no-require-imports
 const Store = require('electron-store');
 
-const { OutputFormat }  = require('./../output-format');
-const schema: any = {
+const { OutputFormat }  = require('../output-format');
+const schema = {
   keepOriginalHtml: {
     type: 'boolean',
     default: true,
@@ -31,4 +31,5 @@ const schema: any = {
     resourcesDir: {type: 'string', default: '_resources'},
 };
 
-export const store = new Store({schema, watch: true});
+let store = new Store({schema, watch: true});
+module.exports = store
