@@ -461,6 +461,19 @@ export const yarleTests: Array<YarleTest> = [
   },
 
   {
+    name: 'Note empty en-todo',
+    options: {
+      enexSources: [ `.${testDataFolder}test-empty-en-todo.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+    },
+    testOutputPath: `notes${path.sep}test-empty-en-todo${path.sep}test-empty-en-todo.md`,
+
+    testModifier: YarleTestModifierOptions.only,
+    expectedOutputPath: `${dataFolder}test-empty-en-todo.md`,
+  },
+
+  {
     name: 'Note with sublists (valid html)',
     options: {
       enexSources: [ `.${testDataFolder}test-sublists-valid.enex` ],

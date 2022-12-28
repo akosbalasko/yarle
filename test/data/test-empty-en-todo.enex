@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE en-export SYSTEM "http://xml.evernote.com/pub/evernote-export4.dtd">
+<en-export export-date="20221205T171453Z" application="Evernote Beta" version="10.47.7">
+  <note>
+    <title>test-empty-en-todo</title>
+    <created>20160804T143332Z</created>
+    <updated>20160809T172613Z</updated>
+    <tag>WorkLog</tag>
+    <tag>AU_RA</tag>
+    <note-attributes>
+      <source>desktop.mac</source>
+    </note-attributes>
+    <content>
+      <![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd">
+<en-note>
+<div><i><b>For this week</b></i></div>
+<ul>
+<li><i><b><en-todo checked="true"/></b></i>Add view_post_X_forum variable</li>
+<li><en-todo checked="true"/>Handle the two non-_ttl variables to allow for analysis</li>
+<li><en-todo/>Begin stepwise regression work</li>
+</ul>
+<div><br/></div>
+</en-note>      ]]>
+    </content>
+  </note>
+</en-export>

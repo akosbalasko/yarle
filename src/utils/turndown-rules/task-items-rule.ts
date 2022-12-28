@@ -14,6 +14,6 @@ export const taskItemsRule = {
         const prefix = yarleOptions.outputFormat === OutputFormat.LogSeqMD ? '' :
             node.parentElement?.nodeName?.toUpperCase() === 'LI' ? '' : '- ';
 
-        return `${prefix}${(nodeProxy.checked.value === 'true' ? '[x]' : '[ ]')} ${content}`;
+        return `${prefix}${(nodeProxy.checked  && nodeProxy.checked.value === 'true' ? '[x]' : '[ ]')} ${content}`;
     },
 };
