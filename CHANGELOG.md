@@ -1,3 +1,10 @@
+## [4.15.1](https://github.com/akosbalasko/yarle/compare/v4.15.0...v4.15.1) (2022-12-28)
+
+
+### Bug Fixes
+
+* empty en-todo fixed ([#431](https://github.com/akosbalasko/yarle/issues/431)) ([fa6a76d](https://github.com/akosbalasko/yarle/commit/fa6a76dd98516f302f6442494cda3f3668ee9625))
+
 # [4.15.0](https://github.com/akosbalasko/yarle/compare/v4.14.0...v4.15.0) (2022-12-03)
 
 
