@@ -1,4 +1,6 @@
 const { contextBridge, ipcRenderer } = require('electron')
+const path = require('path');
+const fs = require('fs');
 
 contextBridge.exposeInMainWorld('versions', {
   node: () => process.versions.node,
@@ -27,4 +29,50 @@ contextBridge.exposeInMainWorld('electronAPI', {
       ipcRenderer.send('configurationUpdated', {id: property, value: val});
     },
   },
+
+  startLogWatcher: (logArea) => {
+    const LOGFILE =  path.join(getAppDataPath(),'conversion.log');
+
+    var chokidar = require("chokidar");
+    console.log('watching: ' + LOGFILE);
+    var watcher = chokidar.watch(LOGFILE, {
+    ignored: /[\/\\]\./,
+    persistent: true,
+    usePolling: true
+    });
+  
+    function onWatcherReady() {
+      console.info('From here can you check for real changes, the initial scan has been completed.');
+  
+    }
+  
+    // Declare the listeners of the watcher
+    watcher.on('change', function (path) {
+      console.log(`${path} changed`);
+      logArea.innerHTML = fs.readFileSync(path, 'UTF-8')
+      //ipcRenderer.send('updateLogArea', fs.readFileSync(path, 'UTF-8'));
+    }).on('ready', onWatcherReady)
+  },
+
+  startConversion: () => {
+    ipcRenderer.send('startConversion')
+  }
 })
+
+const getAppDataPath = () => {
+  switch (process.platform) {
+    case "darwin": {
+      return path.join(process.env.HOME, "Library", "Application Support", "yarle-evernote-to-md");
+    }
+    case "win32": {
+      return path.join(process.env.APPDATA, "yarle-evernote-to-md");
+    }
+    case "linux": {
+      return path.join(process.env.HOME, ".yarle-evernote-to-md");
+    }
+    default: {
+      console.log("Unsupported platform!");
+      process.exit(1);
+    }
+  }
+}

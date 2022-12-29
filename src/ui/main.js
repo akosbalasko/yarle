@@ -3,6 +3,8 @@ const fs = require('fs');
 const {loggerInfo}  = require('../utils/loggerInfo')
 const store = require('./store');
 const { initialize, enable } = require("@electron/remote/main")
+const { mapSettingsToYarleOptions } = require('./settingsMapper')
+const yarle = require('../yarle')
 
 initialize();
 // tslint:disable-next-line:no-require-imports variable-name
@@ -18,14 +20,18 @@ Store.initRenderer();
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 const defaultTemplate = fs.readFileSync(`${__dirname}/../../sampleTemplate.tmpl`, 'utf-8');
-
+const width  = 1280;
+const height = 960;
 const createWindow = () => {
   mainWindow = new BrowserWindow({
     titleBarStyle: 'hidden',
-    width: 1600,
-    height: 800,
-    minWidth: 1281,
-    minHeight: 800,
+    width    : width,
+    height   : height,
+    minWidth : width,
+    minHeight: height,
+    maxWidth : width,
+    maxHeight: height,
+    resizable: true,
     backgroundColor: '#312450',
     show: true,
     icon: path.join(__dirname, 'assets/icons/png/192x192.png'),
@@ -52,6 +58,20 @@ const createWindow = () => {
       console.log('!! ', data.value)
         store.set(data.id, data.value);
       loggerInfo(`config: ${data.id}: ${JSON.stringify(store.get(data.id))}`);
+    
+    });
+
+    ipcMain.on('updateLogArea', (event, data) => {
+      console.log('updateLogArea in ipcMain reached')
+      mainWindow.webContents.send('updateLogArea', data)
+    });
+
+
+    ipcMain.on('startConversion', async (event, data) => {
+      const settings = mapSettingsToYarleOptions();
+      const outputNotebookFolders = await yarle.dropTheRope(settings);
+      // apply internal links
+      applyLinks(settings, outputNotebookFolders);
     
     });
 }
@@ -122,13 +142,7 @@ app.whenReady().then(() => {
 
   });
   
-  ipcMain.handle('startConversion', async (event, data) => {
-    const settings = mapSettingsToYarleOptions();
-    const outputNotebookFolders = await yarle.dropTheRope(settings);
-    // apply internal links
-    applyLinks(settings, outputNotebookFolders);
-  
-  });
+
   
   ipcMain.handle('saveTemplate', async (event, data) => {
     store.set(data.id, data.value);

@@ -1,4 +1,4 @@
-  
+
 const selectEnexFilesDialogBtn = document.getElementById('selectEnexFilesDialogBtn')
 const filePathElement = document.getElementById('filePath')
 
@@ -39,6 +39,19 @@ for(const configItem of configItems){
 
 }
 
+const startConversionBtn = document.getElementById('startConversion')
+startConversionBtn.addEventListener('click', (event) => {
+  window.electronAPI.startLogWatcher(document.getElementById('logArea'))
+  window.electronAPI.startConversion()
+})
+
+const templateButton = document.getElementById('saveTemplate')
+templateButton.addEventListener('click', () => {
+  console.log('savetemplate');
+  window.electronAPI.store.set('currentTemplate', document.getElementById('currentTemplate').value);
+
+document.getElementById('logseqSettings.journalNotes.container').style.display = 'none';
+})
 function isBooleanString(value) {
   return value === 'true' || value === 'false'
 }

@@ -1353,6 +1353,7 @@ input[type="button"]:focus {
   height:435px;
   overflow-x: scroll;
   overflow-y: scroll;
+  margin-top: 4rem;
 }
 .wizard-card .wizard-footer {
   padding: 0 15px 5px;
@@ -1368,6 +1369,7 @@ input[type="button"]:focus {
 }
 .wizard-card .wizard-header h3 {
   text-align: center;
+
 }
 .wizard-card .wizard-title {
   color: #252422;
@@ -1471,4 +1473,10 @@ input[type="button"]:focus {
   .btn-wd {
     min-width: 140px;
   }
+}
+
+.centerized-content {
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
 }
