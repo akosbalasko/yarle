@@ -53,6 +53,8 @@ contextBridge.exposeInMainWorld('electronAPI', {
       //ipcRenderer.send('updateLogArea', fs.readFileSync(path, 'UTF-8'));
     }).on('ready', onWatcherReady)
   },
+  onLogSeqModeSelected: (callback) => ipcRenderer.on('logSeqModeSelected', callback),
+  onLogSeqModeDeSelected: (callback) => ipcRenderer.on('logSeqModeDeSelected', callback),
 
   startConversion: () => {
     ipcRenderer.send('startConversion')

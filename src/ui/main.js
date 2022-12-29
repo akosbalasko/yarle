@@ -5,13 +5,13 @@ const store = require('./store');
 const { initialize, enable } = require("@electron/remote/main")
 const { mapSettingsToYarleOptions } = require('./settingsMapper')
 const yarle = require('../yarle')
+const {OutputFormat} = require('./../output-format')
 
 initialize();
 // tslint:disable-next-line:no-require-imports variable-name
 const Store = require('electron-store');
 
 const path = require('path');
-const { getTokenSourceMapRange } = require('typescript');
 Store.initRenderer();
 // handle setupevents as quickly as possible
 // tslint:disable-next-line:no-require-imports
@@ -42,11 +42,10 @@ const createWindow = () => {
     },
   })
   enable(mainWindow.webContents)
-  ipcMain.on('ping', () => 'pong')
   mainWindow.loadFile(path.join(__dirname, 'index.html'))
 
      // IPC listener
-     ipcMain.on('electron-store-get', async (event, val) => {
+    ipcMain.on('electron-store-get', async (event, val) => {
       console.log('getting value of key: ' + val)
       event.returnValue = store.get(val);
     });
@@ -55,7 +54,6 @@ const createWindow = () => {
     });
 
     ipcMain.on('configurationUpdated', (event, data) => {
-      console.log('!! ', data.value)
         store.set(data.id, data.value);
       loggerInfo(`config: ${data.id}: ${JSON.stringify(store.get(data.id))}`);
     
@@ -74,28 +72,38 @@ const createWindow = () => {
       applyLinks(settings, outputNotebookFolders);
     
     });
-}
-/*
-mainWindow.once('ready-to-show', () => {
-  store.set('outputFormat', OutputFormat.ObsidianMD);
-  store.onDidChange('outputFormat', (newValue, oldValue) => {
-    const logSeqConfig = fs.readFileSync(`${__dirname}/../../config.logseq.json`, 'utf-8');
-    if (newValue === OutputFormat.LogSeqMD) {
-      const logSeqTemplate = fs.readFileSync(`${__dirname}/../../sampleTemplate_logseq.tmpl`, 'utf-8');
-      mainWindow.webContents.send('logSeqModeSelected', logSeqConfig, logSeqTemplate);
-    } else {
-      const defaultConfig = fs.readFileSync(`${__dirname}/../../config.json`, 'utf-8');
 
-      mainWindow.webContents.send('logSeqModeDeselected', defaultConfig, defaultTemplate);
-    }
+
+  mainWindow.once('ready-to-show', () => {
+    console.log(('ready-to-sho'))
+
+    store.onDidChange('outputFormat', (newValue, oldValue) => {
+      console.log(('output format changed, newValue' + newValue))
+      console.log(OutputFormat.LogSeqMD)
+      const logSeqConfig = fs.readFileSync(`${__dirname}/../../config.logseq.json`, 'utf-8');
+      if (newValue === OutputFormat.LogSeqMD) {
+        const logSeqTemplate = fs.readFileSync(`${__dirname}/../../sampleTemplate_logseq.tmpl`, 'utf-8');
+        console.log(('logSeqModeSelected'))
+
+        mainWindow.webContents.send('logSeqModeSelected', logSeqConfig, logSeqTemplate);
+      } else {
+        const defaultConfig = fs.readFileSync(`${__dirname}/../../config.json`, 'utf-8');
+        console.log(('logSeqModeDeselected'))
+
+        mainWindow.webContents.send('logSeqModeDeSelected', defaultConfig, defaultTemplate);
+      }
+    });
+    store.set('outputFormat', OutputFormat.ObsidianMD);
+
+    const defaultConfig = fs.readFileSync(`${__dirname}/../../config.json`, 'utf-8');
+
+    mainWindow.webContents.send('logSeqModeDeSelected', defaultConfig, defaultTemplate);
+    mainWindow.show();
+
   });
-  mainWindow.show();
-  const defaultConfig = fs.readFileSync(`${__dirname}/../../config.json`, 'utf-8');
 
-  mainWindow.webContents.send('logSeqModeDeselected', defaultConfig, defaultTemplate);
+}
 
-});
-*/
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.

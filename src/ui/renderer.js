@@ -55,3 +55,80 @@ document.getElementById('logseqSettings.journalNotes.container').style.display =
 function isBooleanString(value) {
   return value === 'true' || value === 'false'
 }
+
+window.electronAPI.onLogSeqModeSelected((event, config, template) => {
+
+    console.log('window.electronAPI.onLogSeqModeSelected')
+    const flatConfig = flatten(JSON.parse(config));
+    flatConfig.currentTemplate = template;
+    updateDomByFlatConfig(flatConfig, true);
+    document.getElementById('currentTemplate').disabled = false;
+    document.getElementById('logseqSettings.journalNotes').disabled = false;
+  
+    document.getElementById('logseqSettings.journalNotes.container').style.display = 'block';
+  
+})
+
+window.electronAPI.onLogSeqModeDeSelected((event, config, template) => {
+  console.log('window.electronAPI.onLogSeqModeDeSelected')
+
+  const flatConfig = flatten(JSON.parse(config));
+  updateDomByFlatConfig(flatConfig, false);
+  document.getElementById('currentTemplate').value = template;
+
+  document.getElementById('resourcesDir').value = '_resources';
+  document.getElementById('logseqSettings.journalNotes.container').style.display = 'none';
+
+  window.electronAPI.store.set('resourcesDir', '_resources');
+  window.electronAPI.store.set('currentTemplate', template);
+});
+
+
+const updateDomByFlatConfig = (flatConfig, disable) => {
+  for (const configItem in flatConfig){
+    if (configItem !== 'outputFormat'){
+      const domItem = document.getElementById(configItem);
+      if (domItem){
+        if (domItem.getAttribute('type') === 'checkbox'){
+          document.getElementById(configItem).checked = flatConfig[configItem];
+        } else {
+          document.getElementById(configItem).value = flatConfig[configItem];
+        }
+      document.getElementById(configItem).disabled = disable;
+
+      }
+      window.electronAPI.store.set(configItem, flatConfig[configItem])
+      
+    }
+  }
+}
+
+const flatten = (data) => {
+  const result= {};
+  recurse = (cur, prop) => {
+      if (Object(cur) !== cur) {
+          result[prop] = cur;
+      } else if (Array.isArray(cur)) {
+          const l = cur.length;
+          for (let i = 0; i < l; i++) {
+               recurse(cur[i], prop ? `${prop}.${i}` : `${i}`);
+          }
+          if (l === 0) {
+              result[prop] = [];
+          }
+      } else {
+          var isEmpty = true;
+          // tslint:disable-next-line:forin
+          for (const p in cur) {
+              isEmpty = false;
+              recurse(cur[p], prop ? `${prop}.${p}` : p);
+          }
+          if (isEmpty) {
+              result[prop] = {};
+          }
+      }
+  };
+  recurse(data, '');
+
+  return result;
+};
