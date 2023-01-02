@@ -1367,7 +1367,7 @@ input[type="button"]:focus {
   border-radius: 3px 3px 0 0;
   z-index: 3;
 }
-.wizard-card .wizard-header h3 {
+.wizard-card .wizard-header h1 {
   text-align: center;
 
 }
@@ -1479,4 +1479,22 @@ input[type="button"]:focus {
   display: flex;
   justify-content: center;
   padding-top: 2rem;
+}
+.configurationSection{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+   
+}
+.configurationSectionItems {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+}
+.configurationSectionItems > .form-group {
+  width: 50%;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }

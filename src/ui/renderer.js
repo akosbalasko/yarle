@@ -1,4 +1,5 @@
 
+
 const selectEnexFilesDialogBtn = document.getElementById('selectEnexFilesDialogBtn')
 const filePathElement = document.getElementById('filePath')
 
@@ -14,15 +15,48 @@ selectOutputFolderDialogBtn.addEventListener('click', async () => {
   const outputFolder = await window.electronAPI.selectOutputFolder()
   outputFolderElement.innerText = outputFolder
 })
-/*
+
 const outputFormatSelect = document.getElementById('outputFormat')
+
 outputFormatSelect.addEventListener('change', async (event) => {
+  //const defaultConfig = window.electronAPI.readFileSync(`${window.electronAPI.currentDir}/../../config.json`, 'utf-8');
+  const defaultConfig = window.electronAPI.getConfigByType('ObsidianMD')
+  const defaultTemplate = window.electronAPI.getTemplateByType('ObsidianMD')
+  //const defaultTemplate = window.electronAPI.readFileSync(`${window.electronAPI.currentDir}/../../sampleTemplate.tmpl`, 'utf-8');
+
   // save changed value to store
   console.log('value:'+ event.target.value)
-  await window.electronAPI.store.set('outputFormat', event.target.value)
-  const newStoredValue = window.electronAPI.store.get('outputFormat')
-  console.log('store value: ' + JSON.stringify(newStoredValue))
-})*/
+  if (event.target.value === window.electronAPI.outputFormat.LogSeqMD) {
+    console.log('window.electronAPI.onLogSeqModeSelected')
+
+    const logSeqConfig =  window.electronAPI.getConfigByType('LogSeqMD')
+    const logSeqTemplate =  window.electronAPI.getTemplateByType('LogSeqMD')
+    const flatConfig = flatten(JSON.parse(logSeqConfig));
+    document.getElementById('currentTemplate').value = logSeqTemplate;
+
+    updateDomByFlatConfig(flatConfig, true);
+    document.getElementById('currentTemplate').disabled = true;
+
+    document.getElementById('logseqSettings.journalNotes').disabled = false;
+  
+    document.getElementById('logseqSettings.journalNotes.container').style.display = 'block';
+  } else {
+    console.log('window.electronAPI.onLogSeqModeDeSelected')
+    //const logSeqConfig = window.electronAPI.readFileSync(`${window.electronAPI.currentDir}/../../config.logseq.json`, 'utf-8');
+    //const logSeqTemplate = window.electronAPI.readFileSync(`${window.electronAPI.currentDir}/../../sampleTemplate_logseq.tmpl`, 'utf-8');
+    const flatConfig = flatten(JSON.parse(defaultConfig));
+    flatConfig.currentTemplate = defaultTemplate;
+    
+    updateDomByFlatConfig(flatConfig, false);
+    document.getElementById('currentTemplate').disabled = false;
+
+    document.getElementById('resourcesDir').value = '_resources';
+    document.getElementById('logseqSettings.journalNotes.container').style.display = 'none';
+  
+    window.electronAPI.store.set('resourcesDir', '_resources');
+    window.electronAPI.store.set('currentTemplate', template);
+  }
+})
 
 const configItems = document.getElementsByClassName('configurationItem')
 for(const configItem of configItems){
@@ -56,35 +90,8 @@ function isBooleanString(value) {
   return value === 'true' || value === 'false'
 }
 
-window.electronAPI.onLogSeqModeSelected((event, config, template) => {
-
-    console.log('window.electronAPI.onLogSeqModeSelected')
-    const flatConfig = flatten(JSON.parse(config));
-    flatConfig.currentTemplate = template;
-    updateDomByFlatConfig(flatConfig, true);
-    document.getElementById('currentTemplate').disabled = false;
-    document.getElementById('logseqSettings.journalNotes').disabled = false;
-  
-    document.getElementById('logseqSettings.journalNotes.container').style.display = 'block';
-  
-})
-
-window.electronAPI.onLogSeqModeDeSelected((event, config, template) => {
-  console.log('window.electronAPI.onLogSeqModeDeSelected')
-
-  const flatConfig = flatten(JSON.parse(config));
-  updateDomByFlatConfig(flatConfig, false);
-  document.getElementById('currentTemplate').value = template;
-
-  document.getElementById('resourcesDir').value = '_resources';
-  document.getElementById('logseqSettings.journalNotes.container').style.display = 'none';
-
-  window.electronAPI.store.set('resourcesDir', '_resources');
-  window.electronAPI.store.set('currentTemplate', template);
-});
-
-
 const updateDomByFlatConfig = (flatConfig, disable) => {
+  console.log('geloo')
   for (const configItem in flatConfig){
     if (configItem !== 'outputFormat'){
       const domItem = document.getElementById(configItem);
@@ -94,7 +101,9 @@ const updateDomByFlatConfig = (flatConfig, disable) => {
         } else {
           document.getElementById(configItem).value = flatConfig[configItem];
         }
-      document.getElementById(configItem).disabled = disable;
+      if (!disable)
+      document.getElementById(configItem).removeAttribute('disabled')
+      else document.getElementById(configItem).disabled = true;
 
       }
       window.electronAPI.store.set(configItem, flatConfig[configItem])

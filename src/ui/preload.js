@@ -1,6 +1,7 @@
 const { contextBridge, ipcRenderer } = require('electron')
 const path = require('path');
 const fs = require('fs');
+const { OutputFormat } = require("../output-format")
 
 contextBridge.exposeInMainWorld('versions', {
   node: () => process.versions.node,
@@ -21,6 +22,25 @@ contextBridge.exposeInMainWorld('electronAPI', {
   selectOutputFolder: async () => {
     return ipcRenderer.invoke('dialog:selectOutputFolder')
   },
+  readFileSync: fs.readFileSync,
+  getConfigByType: (type) => {
+    return fs.readFileSync(
+      (type === OutputFormat.LogSeqMD)
+        ? `${__dirname}/../../config.logseq.json`
+        : `${__dirname}/../../config.json`
+      , 'utf-8');
+    
+  },
+  getTemplateByType: (type) => {
+    return fs.readFileSync(
+      (type === OutputFormat.LogSeqMD)
+        ? `${__dirname}/../../sampleTemplate_logseq.tmpl`
+        : `${__dirname}/../../sampleTemplate.tmpl`
+      , 'utf-8');
+    
+  },  
+  outputFormat: OutputFormat,
+  currentDir: __dirname,
   store: {
     get(key) {
       return ipcRenderer.send('electron-store-get', key);
@@ -53,7 +73,10 @@ contextBridge.exposeInMainWorld('electronAPI', {
       //ipcRenderer.send('updateLogArea', fs.readFileSync(path, 'UTF-8'));
     }).on('ready', onWatcherReady)
   },
-  onLogSeqModeSelected: (callback) => ipcRenderer.on('logSeqModeSelected', callback),
+  onLogSeqModeSelected: (callback) => {
+    console.log('onLogSeqModeSelected triggered')
+    ipcRenderer.on('logSeqModeSelected', callback)
+  },
   onLogSeqModeDeSelected: (callback) => ipcRenderer.on('logSeqModeDeSelected', callback),
 
   startConversion: () => {

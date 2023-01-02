@@ -33,7 +33,7 @@
 
 	</head>
 
-	<body>
+	<body >
 	<div class="image-container set-full-height" style="background-image: url('assets/img/orange-background.jpg')">
 
 	    <!--   Big container   -->
@@ -48,7 +48,7 @@
 		                <!--        You can switch " data-color="green" "  with one of the next bright colors: "blue", "azure", "orange", "red"       -->
 
 		                    	<div class="wizard-header">
-		                        	<h3 class="wizard-title"><span style="color:orange;font-size: large">Y</span><span style="font-size:small">et</span><span style="color:orange;font-size: large;">A</span><span style="font-size:small">nother</span> <span style="color:orange;font-size: large;">R</span><span style="font-size:small">ope</span><span style="color:orange;font-size: large;">L</span><span style="font-size:small">adder from</span> <span style="color:orange;font-size: large">E</span><span style="font-size:small">vernote</span></h3>
+		                        	<h1 class="wizard-title"><span style="color:orange;font-size: large">Y</span><span style="font-size:small">et</span> <span style="color:orange;font-size: large;">A</span><span style="font-size:small">nother</span> <span style="color:orange;font-size: large;">R</span><span style="font-size:small">ope</span> <span style="color:orange;font-size: large;">L</span><span style="font-size:small">adder from</span> <span style="color:orange;font-size: large">E</span><span style="font-size:small">vernote</span></h1>
 		                        	<!--<p class="category"><span style="color:orange">Y</span>et <span style="color:orange">A</span>nother <span style="color:orange">R</span>ope <span style="color:orange">L</span>adder from <span style="color:orange">E</span>vernote</p>-->
 		                    	</div>
 								<div class="wizard-navigation">
@@ -160,300 +160,197 @@
 										  </section>
 		                            </div>
 		                            <div class="tab-pane" id="configuration">
-											<h5 class="info-text">Target Dialect </h5>
-											<div class="row">
-												<div class="col-sm-5 col-sm-offset-1">
+										<div class="configurationSection">
+											<h5 class="info-text"> Target Dialect </h5>
+												<div class="configurationSectionItems">
 													<div class="form-group">
-												<select name="outputFormat" id="outputFormat" class="form-control configurationItem">
-												<option value="ObsidianMD">Obsidian</option>
-												<option value="LogSeqMD">LogSeq</option>
-												<option value="StandardMD">Other Standard Markdown-based application</option>
-												</select>
+														<select name="outputFormat" id="outputFormat" class="form-control configurationItem">
+														<option value="ObsidianMD">Obsidian</option>
+														<option value="LogSeqMD">LogSeq</option>
+														<option value="StandardMD">Other Standard Markdown-based application</option>
+														</select>
 													</div>
 												</div>
 											</div>
-											<h5 class="info-text">General </h5>
-											<div class="row">
-												<div class="col-sm-5 col-sm-offset-1">
-													<div class="form-group" id="logseqSettings.journalNotes.container">
-														<label for="logseqSettings.journalNotes" class="pure-input-1-2">Notes type
-														</label>
-														<select name="logseqSettings.journalNotes" id="logseqSettings.journalNotes" class="form-control configurationItem">
-														  <option value="true">Journal Notes</option>
-														  <option value="false">Pages</option>
-														</select>   
+											<div class="configurationSection">
+												<h5 class="info-text">General </h5>
+													<div class="configurationSectionItems">
+
+														<div class="form-group" id="logseqSettings.journalNotes.container">
+															<label for="logseqSettings.journalNotes" class="pure-input-1-2">Notes type
+															</label>
+															<select name="logseqSettings.journalNotes" id="logseqSettings.journalNotes" class="form-control configurationItem">
+															<option value="true">Journal Notes</option>
+															<option value="false">Pages</option>
+															</select>   
+														</div>
+													
+														<div class="form-group">
+															<!--<input type="checkbox"  value="false" name="obsidianSettings.omitLinkDisplayName" id="obsidianSettings.omitLinkDisplayName">-->
+															<label for="obsidianSettings.omitLinkDisplayName" class="pure-input-1-2">Omit links' display name
+															</label>
+															<select class="form-control configurationItem" name="obsidianSettings.omitLinkDisplayName" id="obsidianSettings.omitLinkDisplayName">
+																<option value="true" selected>Yes</option>
+																<option value="false">No</option>
+															</select>
+														</div>
+													
+														<div class="form-group">
+															<label for="keepOriginalHtml" class="pure-checkbox">
+															Keep the original Html
+															<br><div style='font-size: 12px;'><i>(
+															Converts the notes to HTML format also.)</i></div>
+															</label>
+															<!--<input type="checkbox" id='keepOriginalHtml' value="false">-->
+															<select class="form-control configurationItem" name="keepOriginalHtml" id="keepOriginalHtml">
+																<option value="true">Yes</option>
+																<option value="false" selected>No</option>
+															</select>
 													</div>
-												</div>
-												<div class="col-sm-5">
-													<div class="form-group">
-														<!--<input type="checkbox"  value="false" name="obsidianSettings.omitLinkDisplayName" id="obsidianSettings.omitLinkDisplayName">-->
-												  <label for="obsidianSettings.omitLinkDisplayName" class="pure-input-1-2">Omit links' display name
-												  </label>
-												  <select class="form-control configurationItem" name="obsidianSettings.omitLinkDisplayName" id="obsidianSettings.omitLinkDisplayName">
-													<option value="true" selected>Yes</option>
-													<option value="false">No</option>
-												  </select>
-													</div>
-												</div>
-												<div class="col-sm-5 col-sm-offset-1">
-													<div class="form-group">
-														<label for="keepOriginalHtml" class="pure-checkbox">
-														  Keep the original Html
-														  <br><div style='font-size: 12px;'><i>(
-														  Converts the notes to HTML format also.)</i></div>
+													
+														<div class="form-group">
+															<!--<input type="checkbox" value="false" id='addWebClips'> -->
+														<label for="addWebClips" class="pure-checkbox">
+														Convert webclips
+														<br><div style='font-size: 12px;'><i>(Convert webclips too)</i></div>
 														</label>
-														<!--<input type="checkbox" id='keepOriginalHtml' value="false">-->
-														<select class="form-control configurationItem" name="keepOriginalHtml" id="keepOriginalHtml">
+														<select class="form-control configurationItem" name="addWebClips" id="addWebClips">
 															<option value="true">Yes</option>
 															<option value="false" selected>No</option>
-														  </select>
+														</select>
 													</div>
-												</div>
-												<div class="col-sm-5">
-													<div class="form-group">
-														<!--<input type="checkbox" value="false" id='addWebClips'> -->
-													<label for="addWebClips" class="pure-checkbox">
-													  Convert webclips
-													  <br><div style='font-size: 12px;'><i>(Convert webclips too)</i></div>
+													
+														<div class="form-group">
+															<!--<input type="checkbox" value="false" id='isZettelkastenNeeded'> -->
+													<label for="isZettelkastenNeeded" class="pure-checkbox">
+														Zettelkasten-prefix needed.
+														<br><div style='font-size: 12px;'><i>((It puts Zettelkasten Id (based on time of creation) at the beginning of the file name.))</i></div>
 													</label>
-													<select class="form-control configurationItem" name="addWebClips" id="addWebClips">
+													<select class="form-control configurationItem" name="isZettelkastenNeeded" id="isZettelkastenNeeded">
+														<option value="true" selected>Yes</option>
+														<option value="false">No</option>
+													</select>
+													</div>
+													
+														<div class="form-group">
+															<!--<input type="checkbox" value="false" id='useZettelIdAsFilename'> -->
+													<label for="useZettelIdAsFilename" class="pure-checkbox">
+														Use Creation dates(zettelIds) as filenames.
+														<br><div style='font-size: 12px;'><i>((It creates files named by their Zettelkasten Id (based on time of creation)))</i></div>
+													</label>
+													<select class="form-control configurationItem" name="useZettelIdAsFilename" id="useZettelIdAsFilename">
+														<option value="true" selected>Yes</option>
+														<option value="false">No</option>
+													</select>
+													</div>
+													
+														<div class="form-group">
+															<label for="dateFormat" >
+																Date format:
+															</label>
+															<br><div style='font-size: 12px;'><i>(
+																ISO 8601 specification of the expected date format (e.g. YYYY-MM-DD))</i></div>
+																<input type="text" class="form-control configurationItem" value="" id='dateFormat'> 
+
+													</div>
+													
+														
+														<div class="form-group">
+															<label for="keepImageSize" class="pure-checkbox">
+																Keep Image size
+																
+															</label>
+																<select name="keepImageSize" id="keepImageSize" class="form-control configurationItem">
+																<option value="ObsidianMD">Yes</option>
+																<option value="StandardMD">No</option>
+																</select>
+																<br><div style='font-size: 12px;'><i>(
+																Preserves the images' width and height in the chosen format.)</i></div>
+													</div>
+													
+														<div class="form-group">
+															<!--<input type="checkbox" value="false" id='urlEncodeFileNamesAndLinks'> -->
+												<label for="urlEncodeFileNamesAndLinks" class="pure-checkbox">
+													Perform URL Encoding on FileNames And Links
+													<br><div style='font-size: 12px;'><i>(
+													URL-encodes linked file names and internal EN links . e.g "linked file.jpg" will be converted to "linked%20file.jpg" )</i></div>
+												</label>
+												<select class="form-control configurationItem" name="urlEncodeFileNamesAndLinks" id="urlEncodeFileNamesAndLinks">
+													<option value="true">Yes</option>
+													<option value="false" selected>No</option>
+												</select>
+													</div>
+													
+														<div class="form-group">
+															<!--<input type="checkbox" value="false" id='keepOriginalAmountOfNewlines'> -->
+												<label for="keepOriginalAmountOfNewlines" class="pure-checkbox">
+													Keep original amount of newlines
+													<br><div style='font-size: 12px;'><i>(
+													keep the original amount of newlines, default is false, when the multiple newlines are collapsed to one.)</i></div>
+												</label>
+												<select class="form-control configurationItem" name="keepOriginalAmountOfNewlines" id="keepOriginalAmountOfNewlines">
+													<option value="true">Yes</option>
+													<option value="false" selected>No</option>
+												</select>
+													</div>
+													
+														<div class="form-group">
+															<!--<input type="checkbox" value="false" id='generateNakedUrls'> -->
+												<label for="generateNakedUrls" class="pure-checkbox">
+												Generate 'naked' URLs
+												<br><div style='font-size: 12px;'><i>(
+													if it's true, Yarle generates 'naked' external Urls without any extra characters. If its false, external Urls are wrapped by  '\<' and '\>' characters
+													)</i></div>
+												</label>
+												<select class="form-control configurationItem" name="generateNakedUrls" id="generateNakedUrls">
+													<option value="true">Yes</option>
+													<option value="false" selected>No</option>
+												</select>
+													</div>
+													
+														<div class="form-group">
+															<!--<input type="checkbox" value="false" id='addExtensionToInternalLinks'> -->
+												<label for="addExtensionToInternalLinks" class="pure-checkbox">
+												Add 'md' extension of internal links
+												<br><div style='font-size: 12px;'><i>(
+													adds '.md' extensions at the end of internal file links, to make them recognizable by DevonThink and other tools )</i></div>
+												</label>
+												<select class="form-control configurationItem" name="addExtensionToInternalLinks" id="addExtensionToInternalLinks">
+													<option value="true">Yes</option>
+													<option value="false" selected>No</option>
+												</select>
+													</div>
+													
+														<div class="form-group">
+															<!--<input type="checkbox" value="false" id='plainTextNotesOnly'> -->
+												<label for="plainTextNotesOnly" class="pure-checkbox">
+												Convert plain text notes only
+												<br><div style='font-size: 12px;'><i>(
+													Skips any notes with attachments (e.g. notes containing pictures).)</i></div>
+												</label>
+												<select class="form-control configurationItem" name="plainTextNotesOnly" id="plainTextNotesOnly">
+													<option value="true">Yes</option>
+													<option value="false" selected>No</option>
+												</select>
+													</div>
+													
+														<div class="form-group">
+															<!--<input type="checkbox" value="false" id='skipEnexFileNameFromOutputPath'>-->
+													<label for="skipEnexFileNameFromOutputPath" class="pure-checkbox">
+														Skip enex filename from output path
+													</label> 
+													<select class="form-control configurationItem" name="skipEnexFileNameFromOutputPath" id="skipEnexFileNameFromOutputPath">
 														<option value="true">Yes</option>
 														<option value="false" selected>No</option>
-													  </select>
+													</select>
 													</div>
-												</div>
-												<div class="col-sm-5 col-sm-offset-1">
-													<div class="form-group">
-														<!--<input type="checkbox" value="false" id='isZettelkastenNeeded'> -->
-												  <label for="isZettelkastenNeeded" class="pure-checkbox">
-													Zettelkasten-prefix needed.
-													  <br><div style='font-size: 12px;'><i>((It puts Zettelkasten Id (based on time of creation) at the beginning of the file name.))</i></div>
-												  </label>
-												  <select class="form-control configurationItem" name="isZettelkastenNeeded" id="isZettelkastenNeeded">
-													<option value="true" selected>Yes</option>
-													<option value="false">No</option>
-												  </select>
-													</div>
-												</div>
-												<div class="col-sm-5">
-													<div class="form-group">
-														<!--<input type="checkbox" value="false" id='useZettelIdAsFilename'> -->
-												  <label for="useZettelIdAsFilename" class="pure-checkbox">
-													Use Creation dates(zettelIds) as filenames.
-													  <br><div style='font-size: 12px;'><i>((It creates files named by their Zettelkasten Id (based on time of creation)))</i></div>
-												  </label>
-												  <select class="form-control configurationItem" name="useZettelIdAsFilename" id="useZettelIdAsFilename">
-													<option value="true" selected>Yes</option>
-													<option value="false">No</option>
-												  </select>
-													</div>
-												</div>
-												<div class="col-sm-5 col-sm-offset-1">
-													<div class="form-group">
-														<label for="dateFormat" >
-															Date format:
-														  </label>
-														  <br><div style='font-size: 12px;'><i>(
-															ISO 8601 specification of the expected date format (e.g. YYYY-MM-DD))</i></div>
-															<input type="text" class="form-control configurationItem" value="" id='dateFormat'> 
 
-													</div>
-												</div>
-												<div class="col-sm-5">
-													<div class="form-group">
-														<!--<input type="checkbox" value="false" id='haveEnexLevelResources'> -->
-												<label for="haveEnexLevelResources" class="pure-checkbox">
-												  Store attachments in notebook-level
-												  <br><div style='font-size: 12px;'><i>(
-													Store note resources on global _resources folder for each enex export)</i></div>
-												</label>
-												<select class="form-control configurationItem" name="haveEnexLevelResources" id="haveEnexLevelResources">
-													<option value="true">Yes</option>
-													<option value="false" selected>No</option>
-												  </select>
-													</div>
-												</div>
-												<div class="col-sm-5 col-sm-offset-1">
-													<div class="form-group">
-														<!--<input type="checkbox" value="false" id='haveGlobalResources'> -->
-												<label for="haveGlobalResources" class="pure-checkbox">
-												  Store all attachments in one folder 
-												  <br><div style='font-size: 12px;'><i>(
-													Stores note resources on global _resources folder)</i></div>
-												</label>
-												<select class="form-control configurationItem" name="haveGlobalResources" id="haveGlobalResources">
-													<option value="true">Yes</option>
-													<option value="false" selected>No</option>
-												  </select>
-													</div>
-												</div>
-												<div class="col-sm-5">
-													<div class="form-group">
-														<!--<input type="checkbox" value="false" id='useUniqueUnknownFileNames'> -->
-												<label for="useUniqueUnknownFileNames" class="pure-checkbox">
-												  Use unique end in the name of 'unknown files' 
-												  <br><div style='font-size: 12px;'><i>(
-													Instead of generating unknown_file if the filename cannot be recognised, it creates unknown_file-\<uniqueID\> as filenames</i></div>
-												</label>
-												<select class="form-control configurationItem" name="useUniqueUnknownFileNames" id="useUniqueUnknownFileNames">
-													<option value="true">Yes</option>
-													<option value="false" selected>No</option>
-												  </select>
-													</div>
-												</div>
-												<div class="col-sm-5 col-sm-offset-1">
-													<div class="form-group">
-														<label for="keepImageSize" class="pure-checkbox">
-															Keep Image size
-															
-														  </label>
-															<select name="keepImageSize" id="keepImageSize" class="form-control configurationItem">
-															  <option value="ObsidianMD">Yes</option>
-															  <option value="StandardMD">No</option>
-															</select>
-															<br><div style='font-size: 12px;'><i>(
-															  Preserves the images' width and height in the chosen format.)</i></div>
-													</div>
-												</div>
-												<div class="col-sm-5">
-													<div class="form-group">
-														<!--<input type="checkbox" value="false" id='urlEncodeFileNamesAndLinks'> -->
-											  <label for="urlEncodeFileNamesAndLinks" class="pure-checkbox">
-												Perform URL Encoding on FileNames And Links
-												<br><div style='font-size: 12px;'><i>(
-												  URL-encodes linked file names and internal EN links . e.g "linked file.jpg" will be converted to "linked%20file.jpg" )</i></div>
-											  </label>
-											  <select class="form-control configurationItem" name="urlEncodeFileNamesAndLinks" id="urlEncodeFileNamesAndLinks">
-												<option value="true">Yes</option>
-												<option value="false" selected>No</option>
-											  </select>
-													</div>
-												</div>
-												<div class="col-sm-5 col-sm-offset-1">
-													<div class="form-group">
-														<!--<input type="checkbox" value="false" id='sanitizeResourceNameSpaces'> -->
-											  <label for="sanitizeResourceNameSpaces" class="pure-checkbox">
-												Sanitize spaces in resource names
-												<br>
-											  </label>
-											  <select class="form-control configurationItem" name="sanitizeResourceNameSpaces" id="sanitizeResourceNameSpaces">
-												<option value="true">Yes</option>
-												<option value="false" selected>No</option>
-											  </select>
-													</div>
-												</div>
-												<div class="col-sm-5">
-													<div class="form-group">
-														<label for="replacementChar" class="pure-checkbox">
-															Replacement character for sanitizing spaces in resource names
-														  </label>
-														  <input type="text"  class="form-control configurationItem"value="_" id='replacementChar'> 
-														  
-													</div>
-												</div>
-												<div class="col-sm-5 col-sm-offset-1">
-													<div class="form-group">
-														<!--<input type="checkbox" value="false" id='keepOriginalAmountOfNewlines'> -->
-											  <label for="keepOriginalAmountOfNewlines" class="pure-checkbox">
-												Keep original amount of newlines
-												<br><div style='font-size: 12px;'><i>(
-												  keep the original amount of newlines, default is false, when the multiple newlines are collapsed to one.)</i></div>
-											  </label>
-											  <select class="form-control configurationItem" name="keepOriginalAmountOfNewlines" id="keepOriginalAmountOfNewlines">
-												<option value="true">Yes</option>
-												<option value="false" selected>No</option>
-											  </select>
-													</div>
-												</div>
-												<div class="col-sm-5">
-													<div class="form-group">
-														<!--<input type="checkbox" value="false" id='generateNakedUrls'> -->
-											<label for="generateNakedUrls" class="pure-checkbox">
-											  Generate 'naked' URLs
-											  <br><div style='font-size: 12px;'><i>(
-												if it's true, Yarle generates 'naked' external Urls without any extra characters. If its false, external Urls are wrapped by  '\<' and '\>' characters
-												)</i></div>
-											</label>
-											<select class="form-control configurationItem" name="generateNakedUrls" id="generateNakedUrls">
-												<option value="true">Yes</option>
-												<option value="false" selected>No</option>
-											  </select>
-													</div>
-												</div>
-												<div class="col-sm-5 col-sm-offset-1">
-													<div class="form-group">
-														<!--<input type="checkbox" value="false" id='addExtensionToInternalLinks'> -->
-											<label for="addExtensionToInternalLinks" class="pure-checkbox">
-											  Add 'md' extension of internal links
-											  <br><div style='font-size: 12px;'><i>(
-												adds '.md' extensions at the end of internal file links, to make them recognizable by DevonThink and other tools )</i></div>
-											</label>
-											<select class="form-control configurationItem" name="addExtensionToInternalLinks" id="addExtensionToInternalLinks">
-												<option value="true">Yes</option>
-												<option value="false" selected>No</option>
-											  </select>
-													</div>
-												</div>
-												<div class="col-sm-5">
-													<div class="form-group">
-														<!--<input type="checkbox" value="false" id='plainTextNotesOnly'> -->
-											<label for="plainTextNotesOnly" class="pure-checkbox">
-											  Convert plain text notes only
-											  <br><div style='font-size: 12px;'><i>(
-												Skips any notes with attachments (e.g. notes containing pictures).)</i></div>
-											</label>
-											<select class="form-control configurationItem" name="plainTextNotesOnly" id="plainTextNotesOnly">
-												<option value="true">Yes</option>
-												<option value="false" selected>No</option>
-											  </select>
-													</div>
-												</div>
-												<div class="col-sm-5 col-sm-offset-1">
-													<div class="form-group">
-														<!--<input type="checkbox" value="false" id='skipEnexFileNameFromOutputPath'>-->
-												  <label for="skipEnexFileNameFromOutputPath" class="pure-checkbox">
-													Skip enex filename from output path
-												  </label> 
-												  <select class="form-control configurationItem" name="skipEnexFileNameFromOutputPath" id="skipEnexFileNameFromOutputPath">
-													<option value="true">Yes</option>
-													<option value="false" selected>No</option>
-												  </select>
-													</div>
-												</div>
-												<div class="col-sm-5">
-													<div class="form-group">
-														<label for="resourcesDir">Custom resources folder:
-														</label>
-														<input type="text"  class="form-control configurationItem" name="resourcesDir" id="resourcesDir" value="_resources">
-													</div>
-												</div>
-												<!--
-												<div class="col-sm-5 col-sm-offset-1">
-													<div class="form-group">
-														<label>Does your place have wi-fi?</label>
-														<select class="form-control configurationItem">
-															<option disabled="" selected="">- response -</option>
-															<option>Yes</option>
-															<option>No </option>
-														</select>
-													</div>
-												</div>
-												<div class="col-sm-5">
-													<div class="form-group">
-														<label>Is breakfast included?</label>
-														<select class="form-control configurationItem">
-															<option disabled="" selected="">- response -</option>
-															<option>Yes</option>
-															<option>No </option>
-														</select>
-													</div>
-												</div>-->
 											</div>
-
+										</div>
+										<div class="configurationSection">
 										<h5 class="info-text">Notes</h5>
-										<div class="row">
-											<div class="col-sm-5 col-sm-offset-1">
-												<div class="form-group">
+										<div class="configurationSectionItems">
+											<div class="form-group">
 													<!--<input type="checkbox" value="false" id='monospaceIsCodeBlock'>-->
 													<label for="monospaceIsCodeBlock" class="pure-checkbox">
 													  Monospace Is used as Code block
@@ -465,8 +362,6 @@
 														<option value="false" selected>No</option>
 													  </select>
 												</div>
-											</div>
-											<div class="col-sm-5">
 												<div class="form-group">
 													<!--<input type="checkbox" value="false" id='keepMDCharactersOfENNotes'> -->
 													<label for="keepMDCharactersOfENNotes" class="pure-checkbox">
@@ -482,10 +377,81 @@
 												</div>
 											</div>
 										</div>
-									
+										<div class="configurationSection">
+											<h5 class="info-text">Attachments</h5>
+											<div class="configurationSectionItems">
+
+												<div class="form-group">
+													<!--<input type="checkbox" value="false" id='haveEnexLevelResources'> -->
+											<label for="haveEnexLevelResources" class="pure-checkbox">
+											Store attachments in notebook-level
+											<br><div style='font-size: 12px;'><i>(
+												Store note resources on global _resources folder for each enex export)</i></div>
+											</label>
+											<select class="form-control configurationItem" name="haveEnexLevelResources" id="haveEnexLevelResources">
+												<option value="true">Yes</option>
+												<option value="false" selected>No</option>
+											</select>
+											</div>
+											
+												<div class="form-group">
+													<!--<input type="checkbox" value="false" id='haveGlobalResources'> -->
+											<label for="haveGlobalResources" class="pure-checkbox">
+											Store all attachments in one folder 
+											<br><div style='font-size: 12px;'><i>(
+												Stores note resources on global _resources folder)</i></div>
+											</label>
+											<select class="form-control configurationItem" name="haveGlobalResources" id="haveGlobalResources">
+												<option value="true">Yes</option>
+												<option value="false" selected>No</option>
+											</select>
+											</div>
+											
+												<div class="form-group">
+													<!--<input type="checkbox" value="false" id='useUniqueUnknownFileNames'> -->
+											<label for="useUniqueUnknownFileNames" class="pure-checkbox">
+											Use unique end in the name of 'unknown files' 
+											<br><div style='font-size: 12px;'><i>(
+												Instead of generating unknown_file if the filename cannot be recognised, it creates unknown_file-\<uniqueID\> as filenames</i></div>
+											</label>
+											<select class="form-control configurationItem" name="useUniqueUnknownFileNames" id="useUniqueUnknownFileNames">
+												<option value="true">Yes</option>
+												<option value="false" selected>No</option>
+											</select>
+											</div>
+											
+													<div class="form-group">
+														<!--<input type="checkbox" value="false" id='sanitizeResourceNameSpaces'> -->
+											<label for="sanitizeResourceNameSpaces" class="pure-checkbox">
+												Sanitize spaces in resource names
+												<br>
+											</label>
+											<select class="form-control configurationItem" name="sanitizeResourceNameSpaces" id="sanitizeResourceNameSpaces">
+												<option value="true">Yes</option>
+												<option value="false" selected>No</option>
+											</select>
+												</div>
+												
+													<div class="form-group">
+														<label for="replacementChar" class="pure-checkbox">
+															Replacement character for sanitizing spaces in resource names
+														</label>
+														<input type="text"  class="form-control configurationItem"value="_" id='replacementChar'> 
+														
+												</div>
+																									
+												<div class="form-group">
+													<label for="resourcesDir">Custom resources folder:
+													</label>
+													<input type="text"  class="form-control configurationItem" name="resourcesDir" id="resourcesDir" value="_resources">
+											</div>
+											
+											</div>
+										</div>
+										<div class="configurationSection">
+
 										<h5 class="info-text">Tags</h5>
-										<div class="row">
-											<div class="col-sm-5 col-sm-offset-1">
+										<div class="configurationSectionItems">
 												<div class="form-group">
 													<!--<input type="checkbox" value="false" id='useHashTags'> -->
 													  <label for="useHashTags" class="pure-checkbox">
@@ -500,8 +466,6 @@
 														<option value="false" selected>No</option>
 													  </select>
 												</div>
-											</div>
-											<div class="col-sm-5">
 												<div class="form-group">
 													<!--<input type="checkbox" value="false" id='nestedTags'> -->
 													  <label for="nestedTags" class="pure-checkbox">
@@ -516,31 +480,23 @@
 														<option value="false" selected>No</option>
 													  </select>
 												</div>
-											</div>
-											<div class="col-sm-5 col-sm-offset-1">
 												<div class="form-group">
 													<label for="nestedTags.separatorInEN"> Separator of nested tags in EN
 													</label>
 													<input type="text"  class="form-control configurationItem" name="nestedTags.separatorInEN" id="nestedTags.separatorInEN" >
 								  
 												</div>
-											</div>
-											<div class="col-sm-5">
 												<div class="form-group">
 													<label for="nestedTags.replaceSeparatorWith" class="pure-input-1-2">Replace separator with</label>
 													  <input type="text"  class="form-control configurationItem" id='nestedTags.replaceSeparatorWith' name='nestedTags.replaceSeparatorWith' size="10"/>
 													
 												</div>
-											</div>
-											<div class="col-sm-5 col-sm-offset-1">
 												<div class="form-group">
 													<label for="nestedTags.replaceSpaceWith" class="pure-input-1-2">Replace space with
 													</label>
 								  
 												  <input type="text"  class="form-control configurationItem" id='nestedTags.replaceSpaceWith' width="20px">
 												</div>
-											</div>
-											<div class="col-sm-5">
 												<div class="form-group">
 													<label>Evernote v10+ Tasks</label>
 													<select name="taskOutputFormat" id="taskOutputFormat" class="form-control configurationItem">
@@ -548,8 +504,6 @@
 														<option value="StandardMD">Other Standard Markdown-based application</option>
 													  </select>
 												</div>
-											</div>
-											<div class="col-sm-5 col-sm-offset-1">
 												<div class="form-group">
 													<label for="obsidianTaskTag" class="pure-input-1-2">Obsidian tasks tag
 													</label>

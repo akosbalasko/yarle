@@ -24,11 +24,10 @@ const width  = 1280;
 const height = 960;
 const createWindow = () => {
   mainWindow = new BrowserWindow({
-    titleBarStyle: 'hidden',
     width    : width,
     height   : height,
-    minWidth : width,
-    minHeight: height,
+    minWidth : width/2,
+    minHeight: height/2,
     maxWidth : width,
     maxHeight: height,
     resizable: true,
@@ -75,8 +74,8 @@ const createWindow = () => {
 
 
   mainWindow.once('ready-to-show', () => {
-    console.log(('ready-to-sho'))
-
+    console.log(('ready-to-show'))
+/*
     store.onDidChange('outputFormat', (newValue, oldValue) => {
       console.log(('output format changed, newValue' + newValue))
       console.log(OutputFormat.LogSeqMD)
@@ -85,24 +84,34 @@ const createWindow = () => {
         const logSeqTemplate = fs.readFileSync(`${__dirname}/../../sampleTemplate_logseq.tmpl`, 'utf-8');
         console.log(('logSeqModeSelected'))
 
-        mainWindow.webContents.send('logSeqModeSelected', logSeqConfig, logSeqTemplate);
+        mainWindo.webContents.send('onLogSeqModeSelected', logSeqConfig, logSeqTemplate);
       } else {
         const defaultConfig = fs.readFileSync(`${__dirname}/../../config.json`, 'utf-8');
         console.log(('logSeqModeDeselected'))
 
         mainWindow.webContents.send('logSeqModeDeSelected', defaultConfig, defaultTemplate);
       }
-    });
+    });*/
     store.set('outputFormat', OutputFormat.ObsidianMD);
 
-    const defaultConfig = fs.readFileSync(`${__dirname}/../../config.json`, 'utf-8');
+    //const defaultConfig = fs.readFileSync(`${__dirname}/../../config.json`, 'utf-8');
 
-    mainWindow.webContents.send('logSeqModeDeSelected', defaultConfig, defaultTemplate);
+    //mainWindow.webContents.send('logSeqModeDeSelected', defaultConfig, defaultTemplate);
     mainWindow.show();
 
   });
+  
+  // Emitted when the window is closed.
+  mainWindow.on('closed', function() {
+    // Dereference the window object, usually you would store windows
+    // in an array if your app supports multi windows, this is the time
+    // when you should delete the corresponding element.
+    mainWindow = null
+  })
+  
 
 }
+//TODO: CONFIG VEZÉRLŐ SZABÁLYOK NEM JÓK MÉG(NESTED TAGS NEM AKTIVÁLÓDIK)
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
