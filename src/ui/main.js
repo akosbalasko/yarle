@@ -31,8 +31,8 @@ const createWindow = () => {
     maxWidth : width,
     maxHeight: height,
     resizable: true,
-    backgroundColor: '#312450',
     show: true,
+    backgroundColor: '#FFA534',
     icon: path.join(__dirname, 'assets/icons/png/192x192.png'),
     webPreferences: {
       nodeIntegration: true,
