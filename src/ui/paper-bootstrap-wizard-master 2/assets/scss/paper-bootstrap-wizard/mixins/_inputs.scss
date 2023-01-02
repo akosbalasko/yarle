@@ -1,9 +1,0 @@
-@mixin input-size($padding-vertical, $padding-horizontal, $height){
-    padding: $padding-vertical $padding-horizontal;
-    height: $height;
-}
-
-@mixin placeholder($color, $opacity){
-   color: $color;
-   @include opacity(1);
-}
