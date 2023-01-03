@@ -469,7 +469,6 @@ export const yarleTests: Array<YarleTest> = [
     },
     testOutputPath: `notes${path.sep}test-empty-en-todo${path.sep}test-empty-en-todo.md`,
 
-    testModifier: YarleTestModifierOptions.only,
     expectedOutputPath: `${dataFolder}test-empty-en-todo.md`,
   },
 
