@@ -98,7 +98,7 @@
     "electron": "22.0.0",
     "electron-builder": "22.10.3",
     "eol": "0.9.1",
-    "eslint": "8.29.0",
+    "eslint": "7.32.0",
     "eslint-plugin-import": "2.24.1",
     "mocha": "10.2.0",
     "node-sass": "8.0.0",
