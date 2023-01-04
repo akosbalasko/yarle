@@ -26,12 +26,21 @@
     "sanitizeResourceNameSpaces": false,
     "haveEnexLevelResources": false,
     "haveGlobalResources": false,
-	"useUniqueUnknownFileNames": false,
+    "useUniqueUnknownFileNames": false,
     "replacementChar": "_",
-    "logseqSettings":{
+    "logseqSettings": {
         "journalNotes": false
     },
     "obsidianSettings": {
         "omitLinkDisplayName": false
-    }
+    },
+    "nestedTags": {
+        "separatorInEN": "_",
+        "replaceSeparatorWith": "---",
+        "replaceSpaceWith": "-"
+    },
+    "resourcesDir": "",
+    "keepMDCharactersOfENNotes": false,
+    "monospaceIsCodeBlock": false,
+    "dateFormat": "YYYY-MM-DD"
 }

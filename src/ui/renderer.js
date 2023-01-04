@@ -37,7 +37,7 @@ outputFormatSelect.addEventListener('change', async (event) => {
     updateDomByFlatConfig(flatConfig, true);
     document.getElementById('currentTemplate').disabled = true;
 
-    document.getElementById('logseqSettings.journalNotes').disabled = false;
+    document.getElementById('logseqSettings.journalNotes').removeAttribute('disabled');
   
     document.getElementById('logseqSettings.journalNotes.container').style.display = 'block';
   } else {
@@ -48,13 +48,13 @@ outputFormatSelect.addEventListener('change', async (event) => {
     flatConfig.currentTemplate = defaultTemplate;
     
     updateDomByFlatConfig(flatConfig, false);
-    document.getElementById('currentTemplate').disabled = false;
+    document.getElementById('currentTemplate').removeAttribute('disabled');
 
     document.getElementById('resourcesDir').value = '_resources';
     document.getElementById('logseqSettings.journalNotes.container').style.display = 'none';
   
     window.electronAPI.store.set('resourcesDir', '_resources');
-    window.electronAPI.store.set('currentTemplate', template);
+    window.electronAPI.store.set('currentTemplate', flatConfig.currentTemplate);
   }
 })
 
@@ -91,7 +91,6 @@ function isBooleanString(value) {
 }
 
 const updateDomByFlatConfig = (flatConfig, disable) => {
-  console.log('geloo')
   for (const configItem in flatConfig){
     if (configItem !== 'outputFormat'){
       const domItem = document.getElementById(configItem);
