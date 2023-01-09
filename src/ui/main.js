@@ -94,10 +94,11 @@ const createWindow = () => {
     });*/
     store.set('outputFormat', OutputFormat.ObsidianMD);
 
-    //const defaultConfig = fs.readFileSync(`${__dirname}/../../config.json`, 'utf-8');
+    const defaultConfig = fs.readFileSync(`${__dirname}/../../config.json`, 'utf-8');
 
-    //mainWindow.webContents.send('logSeqModeDeSelected', defaultConfig, defaultTemplate);
     mainWindow.show();
+    mainWindow.webContents.send('logSeqModeDeSelected');
+
 
   });
   

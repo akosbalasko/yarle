@@ -19,43 +19,12 @@ selectOutputFolderDialogBtn.addEventListener('click', async () => {
 const outputFormatSelect = document.getElementById('outputFormat')
 
 outputFormatSelect.addEventListener('change', async (event) => {
-  //const defaultConfig = window.electronAPI.readFileSync(`${window.electronAPI.currentDir}/../../config.json`, 'utf-8');
-  const defaultConfig = window.electronAPI.getConfigByType('ObsidianMD')
-  const defaultTemplate = window.electronAPI.getTemplateByType('ObsidianMD')
-  //const defaultTemplate = window.electronAPI.readFileSync(`${window.electronAPI.currentDir}/../../sampleTemplate.tmpl`, 'utf-8');
+  handleOutputFormatChange(event)
+})
 
-  // save changed value to store
-  console.log('value:'+ event.target.value)
-  if (event.target.value === window.electronAPI.outputFormat.LogSeqMD) {
-    console.log('window.electronAPI.onLogSeqModeSelected')
-
-    const logSeqConfig =  window.electronAPI.getConfigByType('LogSeqMD')
-    const logSeqTemplate =  window.electronAPI.getTemplateByType('LogSeqMD')
-    const flatConfig = flatten(JSON.parse(logSeqConfig));
-    document.getElementById('currentTemplate').value = logSeqTemplate;
-
-    updateDomByFlatConfig(flatConfig, true);
-    document.getElementById('currentTemplate').disabled = true;
-
-    document.getElementById('logseqSettings.journalNotes').removeAttribute('disabled');
-  
-    document.getElementById('logseqSettings.journalNotes.container').style.display = 'block';
-  } else {
-    console.log('window.electronAPI.onLogSeqModeDeSelected')
-    //const logSeqConfig = window.electronAPI.readFileSync(`${window.electronAPI.currentDir}/../../config.logseq.json`, 'utf-8');
-    //const logSeqTemplate = window.electronAPI.readFileSync(`${window.electronAPI.currentDir}/../../sampleTemplate_logseq.tmpl`, 'utf-8');
-    const flatConfig = flatten(JSON.parse(defaultConfig));
-    flatConfig.currentTemplate = defaultTemplate;
-    
-    updateDomByFlatConfig(flatConfig, false);
-    document.getElementById('currentTemplate').removeAttribute('disabled');
-
-    document.getElementById('resourcesDir').value = '_resources';
-    document.getElementById('logseqSettings.journalNotes.container').style.display = 'none';
-  
-    window.electronAPI.store.set('resourcesDir', '_resources');
-    window.electronAPI.store.set('currentTemplate', flatConfig.currentTemplate);
-  }
+window.electronAPI.onLogSeqModeDeSelected((event, value) => {
+  console.log('onLogSeqModeDeselected triggered')
+  handleOutputFormatChange(event, window.electronAPI.outputFormat.ObsidianMD)
 })
 
 const configItems = document.getElementsByClassName('configurationItem')
@@ -72,6 +41,45 @@ for(const configItem of configItems){
 })
 
 }
+const handleOutputFormatChange = ((event, initValue) => {
+    //const defaultConfig = window.electronAPI.readFileSync(`${window.electronAPI.currentDir}/../../config.json`, 'utf-8');
+    const defaultConfig = window.electronAPI.getConfigByType('ObsidianMD')
+    const defaultTemplate = window.electronAPI.getTemplateByType('ObsidianMD')
+    //const defaultTemplate = window.electronAPI.readFileSync(`${window.electronAPI.currentDir}/../../sampleTemplate.tmpl`, 'utf-8');
+  
+    // save changed value to store
+    const value = initValue || event.target.value
+    if (value === window.electronAPI.outputFormat.LogSeqMD) {
+      console.log('window.electronAPI.onLogSeqModeSelected')
+  
+      const logSeqConfig =  window.electronAPI.getConfigByType('LogSeqMD')
+      const logSeqTemplate =  window.electronAPI.getTemplateByType('LogSeqMD')
+      const flatConfig = flatten(JSON.parse(logSeqConfig));
+      document.getElementById('currentTemplate').value = logSeqTemplate;
+  
+      updateDomByFlatConfig(flatConfig, true);
+      document.getElementById('currentTemplate').disabled = true;
+  
+      document.getElementById('logseqSettings.journalNotes').removeAttribute('disabled');
+    
+      document.getElementById('logseqSettings.journalNotes.container').style.display = 'block';
+    } else {
+      console.log('window.electronAPI.onLogSeqModeDeSelected')
+      //const logSeqConfig = window.electronAPI.readFileSync(`${window.electronAPI.currentDir}/../../config.logseq.json`, 'utf-8');
+      //const logSeqTemplate = window.electronAPI.readFileSync(`${window.electronAPI.currentDir}/../../sampleTemplate_logseq.tmpl`, 'utf-8');
+      const flatConfig = flatten(JSON.parse(defaultConfig));
+      flatConfig.currentTemplate = defaultTemplate;
+      
+      updateDomByFlatConfig(flatConfig, false);
+      document.getElementById('currentTemplate').removeAttribute('disabled');
+  
+      document.getElementById('resourcesDir').value = '_resources';
+      document.getElementById('logseqSettings.journalNotes.container').style.display = 'none';
+    
+      window.electronAPI.store.set('resourcesDir', '_resources');
+      window.electronAPI.store.set('currentTemplate', flatConfig.currentTemplate);
+    }
+})
 
 const startConversionBtn = document.getElementById('startConversion')
 startConversionBtn.addEventListener('click', (event) => {
