@@ -34,7 +34,7 @@ export const convertTasktoMd = (task: EvernoteTask, notebookName: string): strin
       : '- [x]';
     const title = task.title ? ` ${task.title}` : '';
     const tag = yarleOptions.obsidianTaskTag !== '' ? ` ${yarleOptions.obsidianTaskTag}` : '';
-    const duedate = task.duedate
+    const duedate = task.duedate && !isNaN(task.duedate.getTime())
       ? ` ${DUE_DATE_ICON} ${convertDateFormat(task.duedate)}`
       : '';
     const reminder = task.reminderdate ? ` ${SCHEDULE_DATE_ICON} ${convertDateFormat(task.reminderdate)}` : '';
