@@ -47,7 +47,7 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
         urlEncodeFileNamesAndLinks: store.get('urlEncodeFileNamesAndLinks') as boolean,
         haveEnexLevelResources: store.get('haveEnexLevelResources') as boolean,
         haveGlobalResources: store.get('haveGlobalResources') as boolean,
-		useUniqueUnknownFileNames: store.get('useUniqueUnknownFileNames') as boolean,
+    useUniqueUnknownFileNames: store.get('useUniqueUnknownFileNames') as boolean,
         sanitizeResourceNameSpaces: store.get('sanitizeResourceNameSpaces') as boolean,
         replacementChar: store.get('replacementChar') as string,
     };

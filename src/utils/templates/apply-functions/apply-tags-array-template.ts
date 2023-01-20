@@ -8,8 +8,9 @@ import { getTemplateBlockSettings } from './get-templateblock-settings';
 export const applyTagsArrayTemplate = (noteData: NoteData, inputText: string, check: Function): string => {
   const result = cloneDeep(inputText);
 
-	if (noteData.tags)
-		noteData.tags = JSON.stringify(noteData.tags.split(' '));
+   if (noteData.tags) {
+    noteData.tags = JSON.stringify(noteData.tags.split(' '));
+   }
   const tagsTemplateSettings = getTemplateBlockSettings(result, check, P, noteData.tags);
 
   return applyTemplateOnBlock(tagsTemplateSettings);
