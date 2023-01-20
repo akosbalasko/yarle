@@ -7,6 +7,29 @@ const indentCharacter = '	';
 export const taskListRule = {
     filter: 'li',
     replacement: (content: any, node: any, options: any) => {
+
+        const isTodoDoneBlock = (node: any)  => {
+            const nodeProxy = getAttributeProxy(node);
+            const taskFlag = '--en-checked:true;';
+
+            return nodeProxy.style && nodeProxy.style.value.indexOf(taskFlag) >= 0;
+        };
+        const isTodoBlock = (node: any)  => {
+            const nodeProxy = getAttributeProxy(node);
+            const taskFlag = '--en-checked:false;';
+
+            return nodeProxy.style && nodeProxy.style.value.indexOf(taskFlag) >= 0;
+        };
+        const todoPrefix = yarleOptions.outputFormat === OutputFormat.LogSeqMD ? '' :
+        node.parentElement?.nodeName?.toUpperCase() === 'LI' ? '' : '- ';
+
+        if (isTodoDoneBlock(node)) {
+        return `${todoPrefix}[x] ${content}\n`;
+        }
+        if (isTodoBlock(node)) {
+        return `${todoPrefix}[ ] ${content}\n`;
+        }
+
         const indentCount  = content.match(/^\n*/)[0].length || 0;
 
         const singleLineContent = content
