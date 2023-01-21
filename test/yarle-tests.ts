@@ -534,8 +534,7 @@ export const yarleTests: Array<YarleTest> = [
       outputDir: 'out',
       isMetadataNeeded: true,
     },
-    testOutputPath: `notes${path.sep}test-checklist${path.sep}test - checklist.md`,
-
+    testOutputPath: `notes${path.sep}test-checklist${path.sep}test-checklist.md`,
     expectedOutputPath: `${dataFolder}test-checklist.md`,
   },
 

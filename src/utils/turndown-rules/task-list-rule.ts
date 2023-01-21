@@ -20,25 +20,27 @@ export const taskListRule = {
 
             return nodeProxy.style && nodeProxy.style.value.indexOf(taskFlag) >= 0;
         };
-        const todoPrefix = yarleOptions.outputFormat === OutputFormat.LogSeqMD ? '' :
-        node.parentElement?.nodeName?.toUpperCase() === 'LI' ? '' : '- ';
-
-        if (isTodoDoneBlock(node)) {
-        return `${todoPrefix}[x] ${content}\n`;
-        }
-        if (isTodoBlock(node)) {
-        return `${todoPrefix}[ ] ${content}\n`;
-        }
 
         const indentCount  = content.match(/^\n*/)[0].length || 0;
+        const indentChars = indentCharacter.repeat(indentCount);
+
+        const todoPrefix = yarleOptions.outputFormat === OutputFormat.LogSeqMD ? '' :
+        node.parentElement?.nodeName?.toUpperCase() === 'LI' ? '' : `${indentChars}- `;
+
 
         const singleLineContent = content
             .replace(/^\n+/, '') // Remove leading newlines
             .replace(/\n+$/, '\n') // Replace trailing newlines with just a single one
             .replace(/\n/gm, `\n${indentCharacter}`); // Indent
-        const indentChars = indentCharacter.repeat(indentCount);
 
-        let prefix =  indentCount > 0 ?  indentChars : '* ';
+        let prefix =  indentCount > 0
+            ? indentChars
+            : (isTodoDoneBlock(node)
+                ? '[x] '
+                : (isTodoBlock(node)
+                    ? '[ ] '
+                    :'* '))
+                    ;
         const parent = node.parentNode;
         if (parent.nodeName === 'OL') {
             const start = parent.getAttribute('start');
