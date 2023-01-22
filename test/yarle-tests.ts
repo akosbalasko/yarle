@@ -469,10 +469,18 @@ export const yarleTests: Array<YarleTest> = [
     },
     testOutputPath: `notes${path.sep}test-empty-en-todo${path.sep}test-empty-en-todo.md`,
 
-    testModifier: YarleTestModifierOptions.only,
     expectedOutputPath: `${dataFolder}test-empty-en-todo.md`,
   },
-
+  {
+    name: 'Note checkboxes',
+    options: {
+      enexSources: [ `.${testDataFolder}test-checkboxes.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+    },
+    testOutputPath: `notes${path.sep}test-checkboxes${path.sep}checkboxes.md`,
+    expectedOutputPath: `${dataFolder}test-checkboxes.md`,
+  },
   {
     name: 'Note with sublists (valid html)',
     options: {
@@ -525,8 +533,7 @@ export const yarleTests: Array<YarleTest> = [
       outputDir: 'out',
       isMetadataNeeded: true,
     },
-    testOutputPath: `notes${path.sep}test-checklist${path.sep}test - checklist.md`,
-
+    testOutputPath: `notes${path.sep}test-checklist${path.sep}test-checkbox.v10.48.md`,
     expectedOutputPath: `${dataFolder}test-checklist.md`,
   },
 

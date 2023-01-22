@@ -15,7 +15,7 @@ import { escapeStringRegexp } from './escape-string-regexp';
 export const normalizeTitle = (title: string) => {
   // Allow setting a specific replacement character for file and resource names
   // Default to a retrocompatible value
-  return sanitize(title, {replacement: yarleOptions.replacementChar || '_'}).replace(/[\[\]\#\^]/g,'')
+  return sanitize(title, {replacement: yarleOptions.replacementChar || '_'}).replace(/[\[\]\#\^]/g, '')
   ;
 };
 
@@ -110,8 +110,9 @@ export const getNoteName = (dstPath: string, note: any): string => {
       `${zettelPrefix}.${nextIndex}` :
       zettelPrefix;
 
-    if (!yarleOptions.useZettelIdAsFilename)
+    if (!yarleOptions.useZettelIdAsFilename) {
       noteName += getFilePrefix(note) !== 'Untitled' ? `${separator}${getFilePrefix(note)}` : '';
+    }
   } else {
     const fileNamePrefix = getFilePrefix(note);
     const nextIndex = getFileIndex(dstPath, fileNamePrefix);
@@ -121,6 +122,7 @@ export const getNoteName = (dstPath: string, note: any): string => {
   if (yarleOptions.outputFormat === OutputFormat.LogSeqMD && yarleOptions.logseqSettings.journalNotes) {
     return getCreationTime(note);
   }
+
   return noteName;
 
 };

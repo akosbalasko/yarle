@@ -41,7 +41,7 @@ export const hasSourceURLInTemplate = (templateContent: string): boolean => {
 };
 export const hasAnyTagsInTemplate = (templateContent: string): boolean => {
     return (hasItemInTemplate(TAGS, templateContent)
-		|| hasItemInTemplate(YAMLARRAYTAGS, templateContent));
+    || hasItemInTemplate(YAMLARRAYTAGS, templateContent));
 };
 
 export const hasMetadataInTemplate = (templateContent: string): boolean => {
