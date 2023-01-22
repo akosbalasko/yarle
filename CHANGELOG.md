@@ -1,3 +1,10 @@
+# [4.16.0](https://github.com/akosbalasko/yarle/compare/v4.15.2...v4.16.0) (2023-01-22)
+
+
+### Features
+
+* support of v10.48 todos implemented ([#438](https://github.com/akosbalasko/yarle/issues/438)) ([e0027e7](https://github.com/akosbalasko/yarle/commit/e0027e74cba872a8d49f3936398cbf5ac0091fb7))
+
 ## [4.15.2](https://github.com/akosbalasko/yarle/compare/v4.15.1...v4.15.2) (2023-01-17)
 
 
