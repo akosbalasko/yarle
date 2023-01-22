@@ -250,7 +250,7 @@
 															</label>
 															<br><div style='font-size: 12px;'><i>(
 																ISO 8601 specification of the expected date format (e.g. YYYY-MM-DD))</i></div>
-																<input type="text" class="form-control configurationItem" value="" id='dateFormat'> 
+																<input type="text" class="form-control configurationItem" value="YYYY-MM-DD" id='dateFormat'> 
 
 													</div>
 													
@@ -861,18 +861,22 @@
 		
 		                            <div class="tab-pane" id="output">
 		                                <section id="output" class="wrapper style1 fullscreen intro">
-											<div class="inner">
+											<div class="row centerized-content">
+											<div>
 											  <!--<h5>Step 4: Set your output folder</h5>-->
 												 
 												  <input type='button'  id="selectOutputFolderDialogBtn" class='btn btn-fill btn-danger btn-wd' name='selectOutputFolderDialogBtn' value='Select output folder' />
-												  <h3>Selected Output folder: </h3>
-												  
-												  <span id='outputFolder' size=50></span>
-									  
-									  
+												</div>
 											</div>
-									  
+											<div class="row">
+												<div class="col-sm-offset-2">
+												<h5>Selected Output folder: </h5>
+												<span id='outputFolder' size=50></span>
+											</div>
+											</div>
+																  
 									  </section>
+
 		                            </div>
 									<div class="tab-pane" id="convert">
 		                                <section id="convert" class="wrapper style2 spotlights">

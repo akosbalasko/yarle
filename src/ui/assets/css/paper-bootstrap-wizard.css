@@ -1356,7 +1356,7 @@ input[type="button"]:focus {
   margin-top: 4rem;
 }
 .wizard-card .wizard-footer {
-  padding: 0 15px 5px;
+  padding: 4rem 15px 5px;
 }
 .wizard-card .disabled {
   display: none;

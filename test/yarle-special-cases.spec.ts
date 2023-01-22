@@ -31,6 +31,7 @@ describe('Yarle special cases', async () => {
   it.skip('Empty enex file - throw eoent', async () => {
     let errorHappened = false;
     const options: YarleOptions = {
+dateFormat: undefined,
       enexSources: [ `${testDataFolder}do_not_exists.enex` ],
     };
     try {
@@ -44,6 +45,7 @@ describe('Yarle special cases', async () => {
 
   it('Enex file with note containing a picture', async () => {
     const options: YarleOptions = {
+dateFormat: undefined,
       enexSources: [ `.${path.sep}test${path.sep}data${path.sep}test-withPicture.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
@@ -74,6 +76,7 @@ describe('Yarle special cases', async () => {
 
   it('Override resourcesDir', async () => {
     const options: YarleOptions = {
+dateFormat: undefined,
       enexSources: [ `.${path.sep}test${path.sep}data${path.sep}test-withPicture.enex` ],
       outputDir: 'out',
       resourcesDir: '_attachments',
@@ -106,6 +109,7 @@ describe('Yarle special cases', async () => {
   it.skip('should keep Html content', async () => {
 
     const options: YarleOptions = {
+dateFormat: undefined,
       enexSources: [ `${testDataFolder}test-withPicture-keep-html.enex` ],
       templateFile: `${testDataFolder}keephtml-template.tmpl`,
       outputDir: 'out',
@@ -151,6 +155,7 @@ describe('Yarle special cases', async () => {
 
   it('Enex file with note containing text and picture', async () => {
     const options: YarleOptions = {
+dateFormat: undefined,
       enexSources: [ `${testDataFolder}test-textWithImage.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
@@ -179,6 +184,7 @@ describe('Yarle special cases', async () => {
   });
   it('Absolute paths', async () => {
     const options: YarleOptions = {
+dateFormat: undefined,
       enexSources: [ `${testDataFolder}test-textWithImage.enex` ],
       outputDir: '/tmp/out',
       isMetadataNeeded: true,
@@ -207,6 +213,7 @@ describe('Yarle special cases', async () => {
   });
   it('Enex file with multiple notes', async () => {
     const options: YarleOptions = {
+dateFormat: undefined,
       enexSources: [ `${testDataFolder}test-twoNotes.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
@@ -250,6 +257,7 @@ describe('Yarle special cases', async () => {
 
   it('Enex file with note containing more pictures', async () => {
     const options: YarleOptions = {
+dateFormat: undefined,
       enexSources: [ `${testDataFolder}test-threePictures.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
@@ -279,6 +287,7 @@ describe('Yarle special cases', async () => {
 
   it('Enex file with images using data urls', async () => {
     const options: YarleOptions = {
+dateFormat: undefined,
       enexSources: [`${testDataFolder}test-image-dataUrl.enex`],
       outputDir: 'out',
       isMetadataNeeded: true,
@@ -312,6 +321,7 @@ describe('Yarle special cases', async () => {
 
   it('Enex file with three notes with same names', async () => {
     const options: YarleOptions = {
+dateFormat: undefined,
       enexSources: [ `${testDataFolder}test-3NotesWithSameName.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
@@ -377,6 +387,7 @@ describe('Yarle special cases', async () => {
       plainTextNotesOnly: false,
       templateFile: undefined,
       outputFormat: OutputFormat.StandardMD,
+      dateFormat: undefined,
 
     };
     await dropTheRopeRunner.run(options);
@@ -409,6 +420,7 @@ describe('Yarle special cases', async () => {
 
   it('Enex file with internal links ', async () => {
     const options: YarleOptions = {
+dateFormat: undefined,
       enexSources: [ `${testDataFolder}test-links.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
@@ -447,6 +459,7 @@ describe('Yarle special cases', async () => {
 
   it('Enex file with internal links with extension', async () => {
     const options: YarleOptions = {
+dateFormat: undefined,
       enexSources: [ `${testDataFolder}test-links-withExtension.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
@@ -486,6 +499,7 @@ describe('Yarle special cases', async () => {
 
   it('Multiple enex files with interEnex links', async () => {
     const options: YarleOptions = {
+dateFormat: undefined,
       enexSources: [ `${process.cwd()}${path.sep}test${path.sep}data${path.sep}LinkedInterNotebooks` ],
       outputDir: 'out',
       isMetadataNeeded: true,
@@ -580,6 +594,7 @@ describe('Yarle special cases', async () => {
   });
   it('Enex file with PDF attachment', async () => {
     const options: YarleOptions = {
+dateFormat: undefined,
       enexSources: [ `${testDataFolder}test-pdfAttachment.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
@@ -668,6 +683,7 @@ describe('Yarle special cases', async () => {
   });
   it('Enex file with PDF attachment - ObsidianMD format', async () => {
     const options: YarleOptions = {
+dateFormat: undefined,
       enexSources: [ `${testDataFolder}test-pdfAttachment-ObsidianMD.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
@@ -697,6 +713,7 @@ describe('Yarle special cases', async () => {
   });
   it('Enex file with attachment - extension comes from mime', async () => {
     const options: YarleOptions = {
+dateFormat: undefined,
       enexSources: [ `${testDataFolder}test-scriptAttachment.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
@@ -719,6 +736,7 @@ describe('Yarle special cases', async () => {
 
   it('Enex file with reminder', async () => {
     const options: YarleOptions = {
+dateFormat: undefined,
       enexSources: [ `${testDataFolder}test-reminder.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
@@ -747,6 +765,7 @@ describe('Yarle special cases', async () => {
   });
   it('Enex file obsidian style', async () => {
     const options: YarleOptions = {
+dateFormat: undefined,
       enexSources: [ `${testDataFolder}test-twoNotes.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
@@ -791,6 +810,7 @@ describe('Yarle special cases', async () => {
 
   it('Folder of enex files', async () => {
     const options: YarleOptions = {
+dateFormat: undefined,
       enexSources: [ `${process.cwd()}/test/data/TestDirNotes`],
       outputDir: 'out',
       isMetadataNeeded: true,
@@ -817,6 +837,7 @@ describe('Yarle special cases', async () => {
 
   it('case sensitive filenames', async () => {
     const options: YarleOptions = {
+dateFormat: undefined,
       enexSources: [ `${testDataFolder}test-case-sensitive.enex` ],
       outputDir: 'out',
       templateFile: `${testDataFolder}bare_template.templ`,
@@ -840,9 +861,62 @@ describe('Yarle special cases', async () => {
       ),
     );
   });
+  it.skip('tasks from Evernote v10+ - no global filter', async () => {
+    const options: YarleOptions = {
+      enexSources: [ `${testDataFolder}Checkboxes.enex` ],
+      outputDir: 'out',
+      templateFile: `${testDataFolder}full_template.templ`,
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.ObsidianMD,
+      taskOutputFormat: TaskOutputFormat.ObsidianMD,
+      skipEnexFileNameFromOutputPath: false,
 
+        isZettelkastenNeeded: false,
+        useZettelIdAsFilename: false,
+        plainTextNotesOnly: false,
+        skipWebClips: false,
+        useHashTags: true,
+        //outputFormat: "ObsidianMD",
+        //taskOutputFormat: "ObsidianMD",
+        urlEncodeFileNamesAndLinks: false,
+        monospaceIsCodeBlock: false,
+        keepMDCharactersOfENNotes: false,
+        keepOriginalAmountOfNewlines: false,
+        addExtensionToInternalLinks: true,
+        nestedTags: {
+           separatorInEN: "_",
+           replaceSeparatorWith: "/",
+           replaceSpaceWith: "-"
+        },
+        resourcesDir: "_resources",
+        turndownOptions: {
+           headingStyle: "atx"
+        },
+        dateFormat: "YYYY-MM-DD",
+        haveEnexLevelResources: true,
+        haveGlobalResources: false,
+        useUniqueUnknownFileNames: false,
+        logseqSettings: {
+           journalNotes: false
+        },
+        obsidianSettings: {
+           "omitLinkDisplayName": false
+        },
+        obsidianTaskTag: "gtd"
+     
+    };
+
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-things-to-do/Things to do.md`,
+      ),
+      true,
+    );
+  });
   it('tasks from Evernote v10+ - no global filter', async () => {
     const options: YarleOptions = {
+dateFormat: undefined,
       enexSources: [ `${testDataFolder}test-things-to-do.enex` ],
       outputDir: 'out',
       templateFile: `${testDataFolder}full_template.templ`,
@@ -870,6 +944,7 @@ describe('Yarle special cases', async () => {
 
   it('tasks from Evernote v10+ with global filter', async () => {
     const options: YarleOptions = {
+dateFormat: undefined,
       enexSources: [ `${testDataFolder}test-things-to-do.enex` ],
       outputDir: 'out',
       templateFile: `${testDataFolder}full_template.templ`,
@@ -898,6 +973,7 @@ describe('Yarle special cases', async () => {
 
   it('tasks from Evernote v10+ standard task', async () => {
     const options: YarleOptions = {
+dateFormat: undefined,
       enexSources: [ `${testDataFolder}test-things-to-do.enex` ],
       outputDir: 'out',
       templateFile: `${testDataFolder}full_template.templ`,
@@ -925,6 +1001,7 @@ describe('Yarle special cases', async () => {
 
   it('really old creation time', async () => {
     const options: YarleOptions = {
+dateFormat: undefined,
       enexSources: [ `${testDataFolder}test-old-note.enex` ],
       outputDir: 'out',
       templateFile: `${testDataFolder}full_template.templ`,
@@ -950,6 +1027,7 @@ describe('Yarle special cases', async () => {
   });
   it('yaml tags list', async () => {
     const options: YarleOptions = {
+dateFormat: undefined,
       enexSources: [ `${testDataFolder}test-noteWithTags.enex` ],
       outputDir: 'out',
       templateFile: `${testDataFolder}tags-array_template.templ`,

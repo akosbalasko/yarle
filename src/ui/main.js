@@ -133,10 +133,9 @@ app.whenReady().then(() => {
         ],
   
       })
-      console.log('it is canceled? ' + canceled)
       if (canceled) {
         return
-      } else {
+      } else if (filePaths) {
         store.set('enexSources', filePaths);
         return filePaths.join('\n')
       }
@@ -149,7 +148,7 @@ app.whenReady().then(() => {
       });
       if (canceled) {
         return
-      } else {
+      } else if (filePaths) {
         const outputPath = filePaths[0];
         store.set('outputDir', outputPath);
         // tslint:disable-next-line:no-console
