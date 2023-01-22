@@ -16,7 +16,7 @@ import {
   applyReminderOrderTemplate,
   applyReminderTimeTemplate,
   applySourceUrlTemplate,
-	applyTagsArrayTemplate,
+  applyTagsArrayTemplate,
   applyTagsTemplate,
   applyTitleTemplate,
   applyUpdatedAtTemplate,
@@ -40,7 +40,7 @@ export const applyTemplate = (noteData: NoteData, yarleOptions: YarleOptions) =>
 
   result = applyTitleTemplate(noteData, result, () => noteData.title);
   result = applyTagsTemplate(noteData, result, () => !yarleOptions.skipTags);
-	result = applyTagsArrayTemplate(noteData, result, () => !yarleOptions.skipTags);
+  result = applyTagsArrayTemplate(noteData, result, () => !yarleOptions.skipTags);
 
   result = applyContentTemplate(noteData, result, () => noteData.content);
 

@@ -123,6 +123,17 @@ export const parseStream = async (options: YarleOptions, enexSource: string): Pr
         loggerInfo(`Notes processed: ${noteNumber}\n\n`);
       }
       noteAttributes = null;
+      
+      const runtimeProps = RuntimePropertiesSingleton.getInstance();
+      const currentNotePath = runtimeProps.getCurrentNotePath();
+      if (currentNotePath) {
+        for (const task of Object.keys(tasks)) {
+
+          const fileContent = fs.readFileSync(currentNotePath, 'UTF-8');
+          const updatedContent = fileContent.replace(`<YARLE-EN-V10-TASK>${task}</YARLE-EN-V10-TASK>`, tasks[task].join('\n'));
+          fs.writeFileSync(currentNotePath, updatedContent);
+        }
+      }
     });
 
     xml.on('tag:task', (pureTask: any) => {
@@ -136,15 +147,7 @@ export const parseStream = async (options: YarleOptions, enexSource: string): Pr
     });
 
     xml.on('end', () => {
-      const runtimeProps = RuntimePropertiesSingleton.getInstance();
-      const currentNotePath = runtimeProps.getCurrentNotePath();
-      if (currentNotePath) {
-        for (const task of Object.keys(tasks)) {
-          const fileContent = fs.readFileSync(currentNotePath, 'UTF-8');
-          const updatedContent = fileContent.replace(`<YARLE-EN-V10-TASK>${task}</YARLE-EN-V10-TASK>`, tasks[task].join('\n'));
-          fs.writeFileSync(currentNotePath, updatedContent);
-        }
-      }
+
 
       const success = noteNumber - failed;
       const totalNotes = noteNumber + skipped;
