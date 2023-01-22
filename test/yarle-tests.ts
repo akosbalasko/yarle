@@ -479,7 +479,6 @@ export const yarleTests: Array<YarleTest> = [
       isMetadataNeeded: true,
     },
     testOutputPath: `notes${path.sep}test-checkboxes${path.sep}checkboxes.md`,
-
     expectedOutputPath: `${dataFolder}test-checkboxes.md`,
   },
   {
@@ -534,7 +533,7 @@ export const yarleTests: Array<YarleTest> = [
       outputDir: 'out',
       isMetadataNeeded: true,
     },
-    testOutputPath: `notes${path.sep}test-checklist${path.sep}test-checklist.md`,
+    testOutputPath: `notes${path.sep}test-checklist${path.sep}test-checkbox.v10.48.md`,
     expectedOutputPath: `${dataFolder}test-checklist.md`,
   },
 

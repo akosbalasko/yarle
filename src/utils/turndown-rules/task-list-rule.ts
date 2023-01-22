@@ -36,9 +36,9 @@ export const taskListRule = {
         let prefix =  indentCount > 0
             ? indentChars
             : (isTodoDoneBlock(node)
-                ? '[x] '
+                ? '- [x] '
                 : (isTodoBlock(node)
-                    ? '[ ] '
+                    ? '- [ ] '
                     :'* '))
                     ;
         const parent = node.parentNode;
