@@ -80,7 +80,7 @@ If you like the product, you can give a star here on github, or you can <a href=
 
 Download the desktop app for your platform, and follow the instructions there.
 
-![out](https://user-images.githubusercontent.com/11886731/114092375-1a72c400-98ba-11eb-9c74-300d1e4c0829.gif)
+https://user-images.githubusercontent.com/11886731/213943491-97211b41-c130-4b6b-a1e9-1fc360741ff7.mov
 
  In order to perform conversion into Logseq format, please choose Logseq as Target format in the configuration panel, then choose the type of your notes (Journal Notes or Pages). For Logseq all the other options have already been pre-configured.
 
