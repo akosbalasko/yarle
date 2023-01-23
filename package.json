@@ -96,7 +96,7 @@
     "bulma": "0.9.1",
     "copyfiles": "2.4.1",
     "electron": "22.0.0",
-    "electron-builder": "22.10.3",
+    "electron-builder": "23.0.2",
     "eol": "0.9.1",
     "eslint": "7.32.0",
     "eslint-plugin-import": "2.24.1",
