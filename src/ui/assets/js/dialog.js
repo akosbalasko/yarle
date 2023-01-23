@@ -98,6 +98,8 @@ ipcRenderer.on('logSeqModeDeselected', (event, config, template) => {
   updateConfigStore('resourcesDir', '_resources');
   updateConfigStore('currentTemplate', template);
 });
+
+
 window.dialog = window.dialog || {},
 function(n) {
 

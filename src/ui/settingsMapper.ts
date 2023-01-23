@@ -1,5 +1,5 @@
 import { YarleOptions } from './../YarleOptions';
-import { store } from './store';
+const store = require ('./store');
 import { OutputFormat } from './../output-format';
 import { TaskOutputFormat } from './../task-output-format';
 
