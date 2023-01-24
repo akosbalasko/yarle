@@ -1,3 +1,10 @@
+## [5.0.1](https://github.com/akosbalasko/yarle/compare/v5.0.0...v5.0.1) (2023-01-24)
+
+
+### Bug Fixes
+
+* copyright set, example enex copied to dist, icons ([#439](https://github.com/akosbalasko/yarle/issues/439)) ([d3f75e2](https://github.com/akosbalasko/yarle/commit/d3f75e235eaa77e312c06742773256cad1f50f6e))
+
 # [4.16.0](https://github.com/akosbalasko/yarle/compare/v4.15.2...v4.16.0) (2023-01-22)
 
 
