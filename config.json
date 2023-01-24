@@ -1,6 +1,6 @@
 {
     "enexSources": [
-        "./test/data/test-template.enex"
+        "./data/test-template.enex"
     ],
     "templateFile": "./sampleTemplate.tmpl",
     "outputDir": "out",
