@@ -1,3 +1,10 @@
+## [5.0.2](https://github.com/akosbalasko/yarle/compare/v5.0.1...v5.0.2) (2023-01-24)
+
+
+### Bug Fixes
+
+* example enex file added to root ([#440](https://github.com/akosbalasko/yarle/issues/440)) ([f9c2a7a](https://github.com/akosbalasko/yarle/commit/f9c2a7aff6243b97cc17f49c1bff759e2cab65df))
+
 ## [5.0.1](https://github.com/akosbalasko/yarle/compare/v5.0.0...v5.0.1) (2023-01-24)
 
 

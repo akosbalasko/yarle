@@ -1,6 +1,6 @@
 {
   "name": "yarle-evernote-to-md",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "Yet Another Rope Ladder from Evernote",
   "keywords": [
     "evernote",
@@ -20,7 +20,7 @@
     "dist": "electron-builder",
     "clean-by-rimraf": "rimraf ./out && rimraf ./dist && rimraf \"node_modules/!(rimraf|.bin)\"",
     "clean": "rm -f -r ./out && rm -f -r ./dist && rm -r -f ./node_modules",
-    "build": "npm i  && tsc --project ./src/tsconfig.json && copyfiles -u 1 \"src/ui/**/*\" dist" ,
+    "build": "npm i  && tsc --project ./src/tsconfig.json && copyfiles -u 1 \"src/ui/**/*\" dist",
     "install-tsc": "npm install -g typescript",
     "build-windows": "tsc --project .\\src",
     "build:watch": "nodemon --watch src/ --exec \"npm run build\" -e ts",
