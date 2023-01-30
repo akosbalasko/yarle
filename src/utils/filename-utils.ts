@@ -11,6 +11,7 @@ import { ResourceFileProperties } from './../models/ResourceFileProperties';
 import { OutputFormat } from './../output-format';
 import { getCreationTime } from './content-utils';
 import { escapeStringRegexp } from './escape-string-regexp';
+import { isLogseqJournal } from './is-logseq-journal';
 
 export const normalizeTitle = (title: string) => {
   // Allow setting a specific replacement character for file and resource names
@@ -119,7 +120,7 @@ export const getNoteName = (dstPath: string, note: any): string => {
 
     noteName = (nextIndex === 0) ? fileNamePrefix :  `${fileNamePrefix}.${nextIndex}`;
   }
-  if (yarleOptions.outputFormat === OutputFormat.LogSeqMD && yarleOptions.logseqSettings.journalNotes) {
+  if (isLogseqJournal(yarleOptions)) {
     return getCreationTime(note);
   }
 
