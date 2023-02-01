@@ -1,3 +1,10 @@
+## [5.0.4](https://github.com/akosbalasko/yarle/compare/v5.0.3...v5.0.4) (2023-02-01)
+
+
+### Bug Fixes
+
+* multiple logseg journal notes appended ([#445](https://github.com/akosbalasko/yarle/issues/445)) ([16382db](https://github.com/akosbalasko/yarle/commit/16382db63d919a406cd344ae4025fc2344128f5d))
+
 ## [5.0.3](https://github.com/akosbalasko/yarle/compare/v5.0.2...v5.0.3) (2023-02-01)
 
 
