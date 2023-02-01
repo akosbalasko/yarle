@@ -254,11 +254,12 @@ dateFormat: undefined,
       fs.readFileSync(`${__dirname}/data/test-twoNotes-text.md`, 'utf8'),
     );
   });
-  it.skip('Enex file with multiple notes, same journal notes, Logseq', async () => {
+  it('Enex file with multiple notes, same journal notes, Logseq', async () => {
     const options: YarleOptions = {
-dateFormat: undefined,
       enexSources: [ `${testDataFolder}test-two-logseqNotes.enex` ],
       outputDir: 'out',
+      dateFormat: 'YYYY-MM-DD',
+      templateFile: `${testDataFolder}template_logseq.tmpl`,
       logseqSettings:{
         journalNotes: true
       },
@@ -269,38 +270,25 @@ dateFormat: undefined,
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/notes/test-two-logseqNotes/test - note with picture.md`,
+        `${__dirname}/../out/journal/2018-10-06.md`,
       ),
       true,
     );
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/notes/test-two-logseqNotes/_resources/test_-_note_with_picture.resources`,
+        `${__dirname}/../out/_resources/2018-10-06.resources`,
       ),
       true,
     );
 
     assert.equal(
       eol.auto(fs.readFileSync(
-        `${__dirname}/../out/notes/test-two-logseqNotes/test - note with picture.md`,
+        `${__dirname}/../out/journal/2018-10-06.md`,
         'utf8',
       )),
-      fs.readFileSync(`${__dirname}/data/test-two-logseqNotes-pic.md`, 'utf8'),
-    );
-    assert.equal(
-      fs.existsSync(
-        `${__dirname}/../out/notes/test-two-logseqNotes/test -note with text only.md`,
-      ),
-      true,
+      fs.readFileSync(`${__dirname}/data/multiple-notes-in-logseq-journal.md`, 'utf8'),
     );
 
-    assert.equal(
-      eol.auto(fs.readFileSync(
-        `${__dirname}/../out/notes/test-two-logseqNotes/test -note with text only.md`,
-        'utf8',
-      )),
-      fs.readFileSync(`${__dirname}/data/test-two-logseqNotes-text.md`, 'utf8'),
-    );
   });
   it('Enex file with note containing more pictures', async () => {
     const options: YarleOptions = {
