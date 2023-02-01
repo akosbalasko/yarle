@@ -254,7 +254,42 @@ dateFormat: undefined,
       fs.readFileSync(`${__dirname}/data/test-twoNotes-text.md`, 'utf8'),
     );
   });
+  it('Enex file with multiple notes, same journal notes, Logseq', async () => {
+    const options: YarleOptions = {
+      enexSources: [ `${testDataFolder}test-two-logseqNotes.enex` ],
+      outputDir: 'out',
+      dateFormat: 'YYYY-MM-DD',
+      templateFile: `${testDataFolder}template_logseq.tmpl`,
+      logseqSettings:{
+        journalNotes: true
+      },
+      outputFormat: OutputFormat.LogSeqMD,
 
+      isMetadataNeeded: true,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/journal/2018-10-06.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/_resources/2018-10-06.resources`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/journal/2018-10-06.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/multiple-notes-in-logseq-journal.md`, 'utf8'),
+    );
+
+  });
   it('Enex file with note containing more pictures', async () => {
     const options: YarleOptions = {
 dateFormat: undefined,
