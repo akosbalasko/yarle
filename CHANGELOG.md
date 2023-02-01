@@ -1,3 +1,10 @@
+## [5.0.3](https://github.com/akosbalasko/yarle/compare/v5.0.2...v5.0.3) (2023-02-01)
+
+
+### Bug Fixes
+
+* create resource folder for Logseq, no matter what ([#443](https://github.com/akosbalasko/yarle/issues/443)) ([33e823a](https://github.com/akosbalasko/yarle/commit/33e823ad2296377fac8cd08531af34e6105316b6))
+
 ## [5.0.2](https://github.com/akosbalasko/yarle/compare/v5.0.1...v5.0.2) (2023-01-24)
 
 

@@ -114,7 +114,8 @@ export const setPaths = (enexSource: string): void => {
   }
 
   fsExtra.mkdirsSync(paths.mdPath);
-  if (!yarleOptions.haveEnexLevelResources && !yarleOptions.haveGlobalResources) {
+  if ((!yarleOptions.haveEnexLevelResources && !yarleOptions.haveGlobalResources) || 
+    yarleOptions.outputFormat === OutputFormat.LogSeqMD) {
     fsExtra.mkdirsSync(paths.resourcePath);
   }
   loggerInfo(`path ${paths.mdPath} created`);
