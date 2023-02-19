@@ -6,6 +6,7 @@ const { initialize, enable } = require("@electron/remote/main")
 const { mapSettingsToYarleOptions } = require('./settingsMapper')
 const yarle = require('../yarle')
 const {OutputFormat} = require('./../output-format')
+const { applyLinks } = require('./../utils/apply-links');
 
 initialize();
 // tslint:disable-next-line:no-require-imports variable-name
