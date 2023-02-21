@@ -9,9 +9,7 @@
 [![License: MIT](https://img.shields.io/github/license/akosbalasko/yarle?style=for-the-badge)](https://github.com/akosbalasko/yarle/blob/master/LICENSE)
 ![GitHub All Releases](https://img.shields.io/github/downloads/akosbalasko/yarle/total?style=for-the-badge)
 
-
 Yarle is the ultimate converter of Evernote notes to Markdown.
-
 
 ## Features:
 
