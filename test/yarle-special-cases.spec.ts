@@ -1160,7 +1160,7 @@ describe('Yarle error cases', async () => {
     try {
       await yarle.dropTheRope(options);
       assert.equal(true, false);
-    } catch (e) {
+    } catch (e: any) {
 
       assert.equal(e.message.startsWith('ENAMETOOLONG: name too long') || e.message.startsWith('EINVAL: invalid argument, mkdir'), true);
     }
