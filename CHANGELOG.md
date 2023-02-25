@@ -1,3 +1,10 @@
+## [5.0.7](https://github.com/akosbalasko/yarle/compare/v5.0.6...v5.0.7) (2023-02-25)
+
+
+### Bug Fixes
+
+* prevent updating outputFormat to reinit enex or outputDir ([#453](https://github.com/akosbalasko/yarle/issues/453)) ([79055a8](https://github.com/akosbalasko/yarle/commit/79055a8d5204b7fe9f4b85171ec0a8715c03d482))
+
 ## [5.0.6](https://github.com/akosbalasko/yarle/compare/v5.0.5...v5.0.6) (2023-02-21)
 
 
