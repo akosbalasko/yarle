@@ -100,7 +100,7 @@ function isBooleanString(value) {
 
 const updateDomByFlatConfig = (flatConfig, disable) => {
   for (const configItem in flatConfig){
-    if (configItem !== 'outputFormat'){
+    if (configItem !== 'outputFormat' && !configItem.startsWith('enexSources') && configItem!== 'outputDir'){
       const domItem = document.getElementById(configItem);
       if (domItem){
         if (domItem.getAttribute('type') === 'checkbox'){
