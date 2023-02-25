@@ -1,7 +1,6 @@
-import { OutputFormat } from './../../output-format';
-
 import { yarleOptions } from '../../yarle';
 
+import { OutputFormat } from './../../output-format';
 import { filterByNodeName } from './filter-by-nodename';
 import { getAttributeProxy } from './get-attribute-proxy';
 
@@ -15,6 +14,6 @@ export const taskItemsRule = {
         const prefix = yarleOptions.outputFormat === OutputFormat.LogSeqMD ? '' :
             node.parentElement?.nodeName?.toUpperCase() === 'LI' ? '' : '- ';
 
-        return `${prefix}${(nodeProxy.checked.value === 'true' ? '[x]' : '[ ]')} ${content}`;
+        return `${prefix}${(nodeProxy.checked  && nodeProxy.checked.value === 'true' ? '[x]' : '[ ]')} ${content}`;
     },
 };

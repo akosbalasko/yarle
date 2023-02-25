@@ -10,3 +10,4 @@ export * from './apply-notebook-template';
 export * from './apply-remindertime-template';
 export * from './apply-reminderorder-template';
 export * from './apply-reminderdonetime-template';
+export * from './apply-tags-array-template';

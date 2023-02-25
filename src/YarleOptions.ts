@@ -1,5 +1,6 @@
 import { OutputFormat } from './output-format';
 import { TagSeparatorReplaceOptions } from './models';
+import { TaskOutputFormat } from './task-output-format';
 
 export interface YarleOptions {
     enexDir?: string; // used by command line
@@ -11,6 +12,7 @@ export interface YarleOptions {
     isMetadataNeeded?: boolean;
     isNotebookNameNeeded?: boolean;
     isZettelkastenNeeded?: boolean;
+    useZettelIdAsFilename?: boolean;
     plainTextNotesOnly?: boolean;
     skipLocation?: boolean;
     skipCreationTime?: boolean;
@@ -47,4 +49,7 @@ export interface YarleOptions {
     pathSeparator?: string;
     resourcesDir?: string;
     turndownOptions?: Record<string, any>;
+    taskOutputFormat?: TaskOutputFormat;
+    obsidianTaskTag?: string;
+    useUniqueUnknownFileNames?: boolean;
 }

@@ -9,17 +9,20 @@ import { YarleOptions } from './YarleOptions';
 import { processNode } from './process-node';
 import { isWebClip } from './utils/note-utils';
 import { loggerInfo } from './utils/loggerInfo';
-import { hasCreationTimeInTemplate,
+import { hasAnyTagsInTemplate,
+  hasCreationTimeInTemplate,
   hasLinkToOriginalInTemplate,
   hasLocationInTemplate,
   hasNotebookInTemplate,
   hasSourceURLInTemplate,
-  hasTagsInTemplate,
   hasUpdateTimeInTemplate } from './utils/templates/checker-functions';
 import { defaultTemplate } from './utils/templates/default-template';
 import { OutputFormat } from './output-format';
 import { clearLogFile } from './utils/clearLogFile';
 import { RuntimePropertiesSingleton } from './runtime-properties';
+import { processTaskFactory } from './process-tasks';
+import { mapEvernoteTask } from './models/EvernoteTask';
+import { TaskOutputFormat } from './task-output-format';
 
 export const defaultYarleOptions: YarleOptions = {
   enexSources: ['notebook.enex'],
@@ -28,6 +31,7 @@ export const defaultYarleOptions: YarleOptions = {
   isMetadataNeeded: false,
   isNotebookNameNeeded: false,
   isZettelkastenNeeded: false,
+  useZettelIdAsFilename: false,
   plainTextNotesOnly: false,
   skipWebClips: false,
   useHashTags: true,
@@ -37,6 +41,8 @@ export const defaultYarleOptions: YarleOptions = {
     replaceSpaceWith: '-',
   },
   outputFormat: OutputFormat.StandardMD,
+  taskOutputFormat: TaskOutputFormat.StandardMD,
+  obsidianTaskTag: '',
   urlEncodeFileNamesAndLinks: false,
   sanitizeResourceNameSpaces: false,
   replacementChar: '_',
@@ -60,7 +66,7 @@ const setOptions = (options: YarleOptions): void => {
   yarleOptions.skipCreationTime = !hasCreationTimeInTemplate(template);
   yarleOptions.skipLocation = !hasLocationInTemplate(template);
   yarleOptions.skipSourceUrl = !hasSourceURLInTemplate(template);
-  yarleOptions.skipTags = !hasTagsInTemplate(template);
+  yarleOptions.skipTags = !hasAnyTagsInTemplate(template);
   yarleOptions.skipUpdateTime = !hasUpdateTimeInTemplate(template);
   yarleOptions.isNotebookNameNeeded = hasNotebookInTemplate(template);
   yarleOptions.keepOriginalHtml = hasLinkToOriginalInTemplate(template);
@@ -79,8 +85,9 @@ export const parseStream = async (options: YarleOptions, enexSource: string): Pr
   let noteNumber = 0;
   let failed = 0;
   let skipped = 0;
-
+  const tasks: any = {}; // key: taskId value: generated md text
   const notebookName = utils.getNotebookName(enexSource);
+  const processTaskFn = processTaskFactory(yarleOptions.taskOutputFormat);
 
   return new Promise((resolve, reject) => {
 
@@ -116,9 +123,32 @@ export const parseStream = async (options: YarleOptions, enexSource: string): Pr
         loggerInfo(`Notes processed: ${noteNumber}\n\n`);
       }
       noteAttributes = null;
+      
+      const runtimeProps = RuntimePropertiesSingleton.getInstance();
+      const currentNotePath = runtimeProps.getCurrentNotePath();
+      if (currentNotePath) {
+        for (const task of Object.keys(tasks)) {
+
+          const fileContent = fs.readFileSync(currentNotePath, 'UTF-8');
+          const updatedContent = fileContent.replace(`<YARLE-EN-V10-TASK>${task}</YARLE-EN-V10-TASK>`, tasks[task].join('\n'));
+          fs.writeFileSync(currentNotePath, updatedContent);
+        }
+      }
+    });
+
+    xml.on('tag:task', (pureTask: any) => {
+      const task = mapEvernoteTask(pureTask);
+      if (!tasks[task.taskgroupnotelevelid]) {
+        tasks[task.taskgroupnotelevelid] = [];
+      }
+
+      tasks[task.taskgroupnotelevelid].push(processTaskFn(task, notebookName));
+
     });
 
     xml.on('end', () => {
+
+
       const success = noteNumber - failed;
       const totalNotes = noteNumber + skipped;
       loggerInfo('==========================');

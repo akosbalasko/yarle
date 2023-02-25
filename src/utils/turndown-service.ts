@@ -3,15 +3,15 @@ import { gfm } from 'joplin-turndown-plugin-gfm';
 
 import { YarleOptions } from './../YarleOptions';
 import {
-    codeBlockRule,
+    divRule,
     imagesRule,
-    monospaceCodeBlockRule,
     newLineRule,
     spanRule,
     strikethroughRule,
     taskItemsRule,
     wikiStyleLinksRule } from './turndown-rules';
 import { OutputFormat } from './../output-format';
+import { taskListRule } from './turndown-rules/task-list-rule';
 
 export const getTurndownService = (yarleOptions: YarleOptions) => {
     /* istanbul ignore next */
@@ -34,6 +34,7 @@ export const getTurndownService = (yarleOptions: YarleOptions) => {
     turndownService.addRule('evernote task items', taskItemsRule);
     turndownService.addRule('wikistyle links', wikiStyleLinksRule);
     turndownService.addRule('images', imagesRule);
+    turndownService.addRule('list', taskListRule);
 
     if (yarleOptions.outputFormat === OutputFormat.LogSeqMD) {
         turndownService.addRule('logseq_hr', {
@@ -49,12 +50,16 @@ export const getTurndownService = (yarleOptions: YarleOptions) => {
         turndownService.escape = ((str: string) => str);
     }
 
+    turndownService.addRule('divBlock', divRule);
+    /*
+    turndownService.addRule('v10Tasks', v10TaskBlockRule);
+
     if (yarleOptions.monospaceIsCodeBlock) {
         turndownService.addRule('codeblocks', monospaceCodeBlockRule);
     } else {
         turndownService.addRule('codeblocks', codeBlockRule);
     }
-
+    */
     if (yarleOptions.keepOriginalAmountOfNewlines) {
         turndownService.addRule('newline', newLineRule);
     }

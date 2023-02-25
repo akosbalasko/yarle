@@ -1,6 +1,6 @@
 {
     "enexSources": [
-        "./test/data/test-template.enex"
+        "./test-template.enex"
     ],
     "templateFile": "./sampleTemplate.tmpl",
     "outputDir": "out",
@@ -8,6 +8,7 @@
     "isMetadataNeeded": false,
     "isNotebookNameNeeded": false,
     "isZettelkastenNeeded": false,
+    "useZettelIdAsFilename": false,
     "plainTextNotesOnly": false,
     "skipLocation": false,
     "skipCreationTime": false,
@@ -17,6 +18,7 @@
     "skipTags": false,
     "useHashTags": true,
     "outputFormat": "ObsidianMD",
+    "taskOutputFormat": "ObsidianMD",
     "skipEnexFileNameFromOutputPath": false,
     "keepOriginalAmountOfNewlines": false,
     "urlEncodeFileNamesAndLinks": false,
@@ -24,11 +26,21 @@
     "sanitizeResourceNameSpaces": false,
     "haveEnexLevelResources": false,
     "haveGlobalResources": false,
+    "useUniqueUnknownFileNames": false,
     "replacementChar": "_",
-    "logseqSettings":{
+    "logseqSettings": {
         "journalNotes": false
     },
     "obsidianSettings": {
         "omitLinkDisplayName": false
-    }
+    },
+    "nestedTags": {
+        "separatorInEN": "_",
+        "replaceSeparatorWith": "---",
+        "replaceSpaceWith": "-"
+    },
+    "resourcesDir": "",
+    "keepMDCharactersOfENNotes": false,
+    "monospaceIsCodeBlock": false,
+    "dateFormat": "YYYY-MM-DD"
 }

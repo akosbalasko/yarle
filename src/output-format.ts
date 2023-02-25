@@ -3,3 +3,5 @@ export enum OutputFormat {
     StandardMD= 'StandardMD',
     LogSeqMD = 'LogSeqMD',
 }
+
+module.exports={OutputFormat}

@@ -17,6 +17,7 @@ Please use settings below
     "isMetadataNeeded": true,
     "isNotebookNameNeeded": false,
     "isZettelkastenNeeded": false,
+    "useZettelIdAsFilename": false,
     "plainTextNotesOnly": false,
     "skipWebClips": true,
     "useHashTags": false,
@@ -26,6 +27,7 @@ Please use settings below
         "replaceSpaceWith": "-"
     },
     "outputFormat": "StandardMD",
+    "taskOutputFormat: "StandardMD",
     "urlEncodeFileNamesAndLinks": false,
     "sanitizeResourceNameSpaces": false, 
     "replacementChar": "_",
@@ -47,6 +49,7 @@ Please use settings below
     "keepOriginalAmountOfNewlines": true,
     "haveEnexLevelResources": true,
     "haveGlobalResources": false,
+	"useUniqueUnknownFileNames": false,
     "logseqSettings":{
       "journalNotes": false
     }
