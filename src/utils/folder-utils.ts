@@ -90,7 +90,7 @@ export const setPaths = (enexSource: string): void => {
   // loggerInfo('setting paths');
   const enexFolder = enexSource.split(path.sep);
   // loggerInfo(`enex folder split: ${JSON.stringify(enexFolder)}`);
-  const enexFile = (enexFolder.length >= 1 ?  enexFolder[enexFolder.length - 1] : enexFolder[0]).split('.')[0];
+  const enexFile = (enexFolder.length >= 1 ?  enexFolder[enexFolder.length - 1] : enexFolder[0]).split(/.enex$/)[0];
   // loggerInfo(`enex file: ${enexFile}`);
 
   const outputDir = path.isAbsolute(yarleOptions.outputDir)
