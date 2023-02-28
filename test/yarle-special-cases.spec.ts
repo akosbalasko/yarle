@@ -1088,4 +1088,36 @@ dateFormat: undefined,
       fs.readFileSync(`${__dirname}/data/test -note with tags array.md`, 'utf8'),
     );
   });
+
+  
+
+  it('dots in enex file name', async () => {
+    const options: YarleOptions = {
+      dateFormat: undefined,
+      enexSources: [ `${testDataFolder}test.dots.in.enex.File.Name.enex` ],
+      outputDir: 'out',
+      templateFile: `${testDataFolder}tags-array_template.templ`,
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.ObsidianMD,
+      skipEnexFileNameFromOutputPath: false,
+			skipTags: false,
+			useHashTags: false,
+
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test.dots.in.enex.File.Name/test.dots.in.enex.File.Name.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test.dots.in.enex.File.Name/test.dots.in.enex.File.Name.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test.dots.in.enex.File.Name.md`, 'utf8'),
+    );
+  });
+
 });
