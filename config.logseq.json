@@ -16,6 +16,7 @@
     },
     "outputFormat": "StandardMD",
     "taskOutputFormat": "StandardMD",
+    "keepImageSize": "StandardMD",
     "urlEncodeFileNamesAndLinks": false,
     "sanitizeResourceNameSpaces": false, 
     "replacementChar": "_",
