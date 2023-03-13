@@ -54,5 +54,5 @@ sharer.js, passport-evernote-auth, passport-evernote, share-buttons, _yarle_\-_e
 
     Created at: 2020-10-18T08:24:57+01:00
     Updated at: 2020-10-18T08:24:57+01:00
-    Source URL: https://www.google.com/search?sxsrf=ALeKk03bpXQ9mBvZPr4siq9b90rD9F_scA%3A1603005812287&ei=dO2LX9qUEcX1qwGn5brgBQ&q=yarle+evernote&oq=yarle+evernote&gs_lcp=CgZwc3ktYWIQAzIECCMQJzoHCCMQsAMQJzoHCAAQsAMQQzoHCC4QsAMQQzoJCAAQsAMQBxAeOgcIABCwAxAKOgUIABDJAzoCCAA6BAgAEAo6BAguEAo6BwguEMkDEA06BggAEA0QCjoGCAAQDRAeOggIABANEAoQHjoICAAQDRAFEB46CAgAEBYQChAeOgUIIRCgAToHCAAQyQMQDToECAAQDVDdEViJKmD_MGgDcAB4AYAB7gSIAf0RkgEJMC45LjEuNS0xmAEAoAEBqgEHZ3dzLXdpesgBCsABAQ&sclient=psy-ab&ved=0ahUKEwjano6Azr3sAhXF-ioKHaeyDlwQ4dUDCA0&uact=5
+    Source URL https://www.google.com/search?sxsrf=ALeKk03bpXQ9mBvZPr4siq9b90rD9F_scA%3A1603005812287&ei=dO2LX9qUEcX1qwGn5brgBQ&q=yarle+evernote&oq=yarle+evernote&gs_lcp=CgZwc3ktYWIQAzIECCMQJzoHCCMQsAMQJzoHCAAQsAMQQzoHCC4QsAMQQzoJCAAQsAMQBxAeOgcIABCwAxAKOgUIABDJAzoCCAA6BAgAEAo6BAguEAo6BwguEMkDEA06BggAEA0QCjoGCAAQDRAeOggIABANEAoQHjoICAAQDRAFEB46CAgAEBYQChAeOgUIIRCgAToHCAAQyQMQDToECAAQDVDdEViJKmD_MGgDcAB4AYAB7gSIAf0RkgEJMC45LjEuNS0xmAEAoAEBqgEHZ3dzLXdpesgBCsABAQ&sclient=psy-ab&ved=0ahUKEwjano6Azr3sAhXF-ioKHaeyDlwQ4dUDCA0&uact=5
 
