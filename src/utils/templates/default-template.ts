@@ -9,7 +9,7 @@ Tag(s): {tags}
 
 {created-at-block}    Created at: {created-at}{end-created-at-block}
 {updated-at-block}    Updated at: {updated-at}{end-updated-at-block}
-{source-url-block}    Source URL: {source-url}{end-source-url-block}
+{source-url-block}    Source URL {source-url}{end-source-url-block}
 {location-block}    Where: {location}{end-location-block}
 
 `;

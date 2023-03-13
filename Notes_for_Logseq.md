@@ -76,7 +76,7 @@ You should use the page template below instead of the default one
 
 {created-at-block}- _Created at {created-at}._{end-created-at-block}
 {updated-at-block}- _Last updated at {updated-at}._{end-updated-at-block}
-{source-url-block}- _Source URL: []({source-url})._{end-source-url-block}
+{source-url-block}- _Source URL []({source-url})._{end-source-url-block}
 
 
 {tags-block}

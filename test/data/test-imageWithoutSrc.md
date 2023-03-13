@@ -64,5 +64,5 @@ Some of my qualifications may not be obvious at the moment (e.g. how can scalabi
 
     Created at: 2020-01-13T18:38:07+00:00
     Updated at: 2020-08-30T18:46:33+01:00
-    Source URL: https://medium.com/@nmckinnonblog/microservices-42b09caeb73d
+    Source URL https://medium.com/@nmckinnonblog/microservices-42b09caeb73d
 
