@@ -1,3 +1,10 @@
+## [5.0.10](https://github.com/akosbalasko/yarle/compare/v5.0.9...v5.0.10) (2023-03-13)
+
+
+### Bug Fixes
+
+* default template is in valid YAML format ([#460](https://github.com/akosbalasko/yarle/issues/460)) ([f9b313c](https://github.com/akosbalasko/yarle/commit/f9b313cdf257d4d6b97fb1fa8c6de84fa3ff0d5b))
+
 ## [5.0.9](https://github.com/akosbalasko/yarle/compare/v5.0.8...v5.0.9) (2023-03-06)
 
 
