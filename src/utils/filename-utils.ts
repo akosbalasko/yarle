@@ -4,6 +4,7 @@ import * as fs from 'fs';
 import Moment from 'moment';
 import * as path from 'path';
 import * as mime from 'mime-types';
+import { nanoid } from 'nanoid';
 
 import { yarleOptions } from '../yarle';
 
@@ -98,6 +99,10 @@ export const getExtension = (resource: any): string => {
 export const getZettelKastelId = (note: any, dstPath: string): string => {
   return Moment(note['created']).format('YYYYMMDDHHmm');
 
+};
+
+export const getUniqueId = (): string => {
+  return nanoid(5);
 };
 
 export const getNoteName = (dstPath: string, note: any): string => {

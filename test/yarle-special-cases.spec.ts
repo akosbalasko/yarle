@@ -3,12 +3,12 @@ import fs from 'fs';
 import eol from 'eol';
 import mockTimezone from 'timezone-mock';
 import * as path from 'path';
+
 import { OutputFormat } from './../src/output-format';
 import * as utils from './../src/utils';
 import * as yarle from './../src/yarle';
 import * as dropTheRopeRunner from './../src/dropTheRopeRunner';
 import { YarleOptions } from './../src/YarleOptions';
-import { LOGFILE } from './../src/utils';
 import { TaskOutputFormat } from '../src/task-output-format';
 
 const testDataFolder = `.${path.sep}test${path.sep}data${path.sep}`;
@@ -42,7 +42,6 @@ dateFormat: undefined,
     assert.equal(true, errorHappened);
   });
 
-
   it('Enex file with note containing a picture', async () => {
     const options: YarleOptions = {
 dateFormat: undefined,
@@ -51,7 +50,8 @@ dateFormat: undefined,
       isMetadataNeeded: true,
     };
     await yarle.dropTheRope(options);
-    console.log(`conversion log: ${fs.readFileSync(LOGFILE)}`);
+    // tslint:disable-next-line:no-console
+    console.log(`conversion log: ${fs.readFileSync(utils.LOGFILE)}`);
     assert.equal(
       fs.existsSync(
         `${__dirname}/../out/notes/test-withPicture/test - note with picture.md`,
@@ -83,7 +83,8 @@ dateFormat: undefined,
       isMetadataNeeded: true,
     };
     await yarle.dropTheRope(options);
-    console.log(`conversion log: ${fs.readFileSync(LOGFILE)}`);
+    // tslint:disable-next-line:no-console
+    console.log(`conversion log: ${fs.readFileSync(utils.LOGFILE)}`);
     assert.equal(
       fs.existsSync(
         `${__dirname}/../out/notes/test-withPicture/test - note with picture.md`,
@@ -192,20 +193,20 @@ dateFormat: undefined,
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `/tmp/out/notes/test-textWithImage/Untitled.md`,
+        '/tmp/out/notes/test-textWithImage/Untitled.md',
       ),
       true,
     );
     assert.equal(
       fs.existsSync(
-        `/tmp/out/notes/test-textWithImage/_resources/Untitled.resources`,
+        '/tmp/out/notes/test-textWithImage/_resources/Untitled.resources',
       ),
       true,
     );
 
     assert.equal(
       eol.auto(fs.readFileSync(
-        `/tmp/out/notes//test-textWithImage/Untitled.md`,
+        '/tmp/out/notes//test-textWithImage/Untitled.md',
         'utf8',
       )),
       fs.readFileSync(`${__dirname}/data/test-textWithImage.md`, 'utf8'),
@@ -1060,6 +1061,51 @@ dateFormat: undefined,
       fs.readFileSync(`${__dirname}/data/test-old-note.md`, 'utf8'),
     );
   });
+  it('really long filename', async () => {
+    const options: YarleOptions = {
+      enexSources: [ `${testDataFolder}test-long-note.enex` ],
+      outputDir: 'out',
+      templateFile: `${testDataFolder}full_template.templ`,
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.ObsidianMD,
+      skipEnexFileNameFromOutputPath: false,
+
+    };
+    await yarle.dropTheRope(options);
+    const expectedFileNamePrefix = 'This is going to be a really reallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreally';
+
+    const fileList = fs.readdirSync(`${__dirname}/../out/notes/test-long-note`);
+    assert.equal(fileList.filter(fileName => fileName.startsWith(expectedFileNamePrefix)).length, 1);
+
+  });
+
+  it('really long filename - with link', async () => {
+    const options: YarleOptions = {
+      enexSources: [ `${testDataFolder}test-long-linked-notes.enex` ],
+      outputDir: 'out',
+      templateFile: `${testDataFolder}full_template.templ`,
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.ObsidianMD,
+      obsidianSettings: {omitLinkDisplayName: false},
+      skipEnexFileNameFromOutputPath: false,
+
+    };
+    await dropTheRopeRunner.run(options);
+    const expectedFileNamePrefix = 'This is going to be a really really';
+
+    const fileList = fs.readdirSync(`${__dirname}/../out/notes/test-long-linked-notes`);
+    assert.equal(fileList.filter(fileName => fileName.startsWith(expectedFileNamePrefix)).length, 1);
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-long-linked-notes/NoteB.md`,
+        'utf8',
+      )).includes('evernote://'),
+      false,
+    );
+
+  });
+
   it('yaml tags list', async () => {
     const options: YarleOptions = {
 dateFormat: undefined,
@@ -1118,6 +1164,38 @@ dateFormat: undefined,
       )),
       fs.readFileSync(`${__dirname}/data/test.dots.in.enex.File.Name.md`, 'utf8'),
     );
+  });
+
+});
+
+describe('Yarle error cases', async () => {
+  before(() => {
+    mockTimezone.register('Europe/London');
+
+  });
+
+  after(() => {
+    mockTimezone.unregister();
+
+  });
+
+  it('really long filePath', async () => {
+    const options: YarleOptions = {
+      enexSources: [ `${testDataFolder}test-justText.enex` ],
+      outputDir: 'out/longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglongfolderName',
+      templateFile: `${testDataFolder}full_template.templ`,
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.ObsidianMD,
+      skipEnexFileNameFromOutputPath: false,
+
+    };
+    try {
+      await yarle.dropTheRope(options);
+      assert.equal(true, false);
+    } catch (e: any) {
+
+      assert.equal(e.message.startsWith('ENAMETOOLONG: name too long') || e.message.startsWith('EINVAL: invalid argument, mkdir'), true);
+    }
   });
 
 });

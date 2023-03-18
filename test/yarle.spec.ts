@@ -24,6 +24,7 @@ describe('Yarle simple cases', async () => {
 
   afterEach(async () => {
     utils.clearMdNotesDistDir();
+
   });
 
   const tests: Array<YarleTest> = yarleTests;

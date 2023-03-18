@@ -5,13 +5,23 @@ import * as path from 'path';
 
 import { YarleOptions } from './../YarleOptions';
 import { RuntimePropertiesSingleton } from './../runtime-properties';
+import { truncatFileName } from './folder-utils';
 import { escapeStringRegexp } from './escape-string-regexp';
 
 export const applyLinks = (options: YarleOptions, outputNotebookFolders: Array<string>): void => {
     const linkNameMap = RuntimePropertiesSingleton.getInstance();
     const allLinks = linkNameMap.getAllNoteIdNameMap();
+    const allconvertedFiles: Array<string> = [];
+    for (const outputFolder of outputNotebookFolders){
+        getAllFiles(outputFolder, allconvertedFiles);
+    }
     for (const [linkName, linkProps] of Object.entries(allLinks)) {
-        const fileName: string = (linkProps as any)['title'];
+        const uniqueId = linkProps.uniqueEnd;
+        let fileName = (linkProps as any)['title'];
+        if (allconvertedFiles.find(fn => fn.includes(uniqueId))) {
+            fileName = truncatFileName(fileName, uniqueId);
+        }
+
         const notebookName: string = (linkProps as any)['notebookName'];
         const encodedFileName = options.urlEncodeFileNamesAndLinks ? encodeURI(fileName as string) : fileName as string;
 
@@ -44,3 +54,18 @@ export const applyLinks = (options: YarleOptions, outputNotebookFolders: Array<s
         }
     }
 };
+
+const getAllFiles = (dirPath: string, arrayOfFiles: Array<any>): Array<any> => {
+    const files = fs.readdirSync(dirPath);
+
+    arrayOfFiles = arrayOfFiles || [];
+    files.forEach(file => {
+      if (fs.statSync(`${dirPath}${path.sep}${file}`).isDirectory()) {
+        arrayOfFiles = getAllFiles(`${dirPath}${path.sep}${file}`, arrayOfFiles);
+      } else {
+        arrayOfFiles.push(path.join(__dirname, dirPath, '/', file));
+      }
+    });
+
+    return arrayOfFiles;
+  };

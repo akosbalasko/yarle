@@ -5,19 +5,48 @@ import * as path from 'path';
 import { Path } from '../paths';
 import { yarleOptions } from '../yarle';
 
-import { getNoteFileName, getNoteName } from './filename-utils';
+import { getNoteFileName, getNoteName, getUniqueId, normalizeTitle } from './filename-utils';
 import { loggerInfo } from './loggerInfo';
-import { logger } from './logger';
 import { OutputFormat } from './../output-format';
+import { RuntimePropertiesSingleton } from './../runtime-properties';
 
 export const paths: Path = {};
+const MAX_PATH = 249;
 
 export const getResourceDir = (dstPath: string, note: any): string => {
   return getNoteName(dstPath, note).replace(/\s/g, '_');
 };
 
+export const truncatFileName = (fileName: string, uniqueId: string): string => {
+
+  if (fileName.length <= 11) {
+    throw Error('FATAL: note folder directory path exceeds the OS limitation. Please pick a destination closer to the root folder.');
+  }
+
+  const fullPath = `${getNotesPath()}${path.sep}${fileName}`;
+
+  return fullPath.length <  MAX_PATH ? fileName : `${fileName.slice(0, MAX_PATH - 11)}_${uniqueId}.md`;
+};
+
+const truncateFilePath = (note: any, fileName: string, fullFilePath: string): string => {
+  const noteIdNameMap = RuntimePropertiesSingleton.getInstance();
+
+  const noteIdMap = noteIdNameMap.getNoteIdNameMapByNoteTitle(normalizeTitle(note.title))[0] || {uniqueEnd: getUniqueId()};
+
+
+  if (fileName.length <= 11) {
+    throw Error('FATAL: note folder directory path exceeds the OS limitation. Please pick a destination closer to the root folder.');
+  }
+
+  return `${fullFilePath.slice(0, MAX_PATH - 11)}_${noteIdMap.uniqueEnd}.md`;
+  // -11 is the nanoid 5 char +_+ the max possible extension of the note (.md vs .html)
+};
+
 const getFilePath = (dstPath: string, note: any): string => {
-  return `${dstPath}${path.sep}${getNoteFileName(dstPath, note)}`;
+  const fileName = getNoteFileName(dstPath, note);
+  const fullFilePath = `${dstPath}${path.sep}${normalizeTitle(fileName)}`;
+
+  return fullFilePath.length <  MAX_PATH ? fullFilePath : truncateFilePath(note, fileName, fullFilePath);
 };
 
 export const getMdFilePath = (note: any): string => {
