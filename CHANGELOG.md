@@ -1,3 +1,24 @@
+## [5.0.10](https://github.com/akosbalasko/yarle/compare/v5.0.9...v5.0.10) (2023-03-13)
+
+
+### Bug Fixes
+
+* default template is in valid YAML format ([#460](https://github.com/akosbalasko/yarle/issues/460)) ([f9b313c](https://github.com/akosbalasko/yarle/commit/f9b313cdf257d4d6b97fb1fa8c6de84fa3ff0d5b))
+
+## [5.0.9](https://github.com/akosbalasko/yarle/compare/v5.0.8...v5.0.9) (2023-03-06)
+
+
+### Bug Fixes
+
+* keepImageSize added to config ([#458](https://github.com/akosbalasko/yarle/issues/458)) ([b0ed312](https://github.com/akosbalasko/yarle/commit/b0ed31295cd799b644dd3aa56029047cdced7539))
+
+## [5.0.8](https://github.com/akosbalasko/yarle/compare/v5.0.7...v5.0.8) (2023-02-28)
+
+
+### Bug Fixes
+
+* handling enex filenames containing multiple dots ([#456](https://github.com/akosbalasko/yarle/issues/456)) ([61a4275](https://github.com/akosbalasko/yarle/commit/61a4275614fe502eac8df3922b65c6d3a26fbc95))
+
 ## [5.0.7](https://github.com/akosbalasko/yarle/compare/v5.0.6...v5.0.7) (2023-02-25)
 
 

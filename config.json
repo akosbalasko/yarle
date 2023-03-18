@@ -19,6 +19,7 @@
     "useHashTags": true,
     "outputFormat": "ObsidianMD",
     "taskOutputFormat": "ObsidianMD",
+    "keepImageSize": "ObsidianMD",
     "skipEnexFileNameFromOutputPath": false,
     "keepOriginalAmountOfNewlines": false,
     "urlEncodeFileNamesAndLinks": false,

@@ -4,7 +4,7 @@
     Tag(s): #Press-column-fragments
     Created at: 2015-07-27T17:57:37+01:00
     Updated at: 2015-07-27T17:57:38+01:00
-    Source URL: http://www.theguardian.com/world/2015/jul/27/dying-for-christianity-millions-at-risk-amid-rise-in-persecution-across-the-globe
+    Source URL http://www.theguardian.com/world/2015/jul/27/dying-for-christianity-millions-at-risk-amid-rise-in-persecution-across-the-globe
     Notebook: huge-html
 
 ---
@@ -346,6 +346,6 @@ View more comments
 
     Created at: 2015-07-27T17:57:37+01:00
     Updated at: 2015-07-27T17:57:38+01:00
-    Source URL: http://www.theguardian.com/world/2015/jul/27/dying-for-christianity-millions-at-risk-amid-rise-in-persecution-across-the-globe
+    Source URL http://www.theguardian.com/world/2015/jul/27/dying-for-christianity-millions-at-risk-amid-rise-in-persecution-across-the-globe
     Notebook: huge-html
 

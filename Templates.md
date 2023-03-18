@@ -52,7 +52,7 @@ This example puts the note title at the top, preceded by `#`. The tags are liste
 
 {tags-block}
 ---
-Tags: {tags}
+Tags {tags}
 
 ---
 {end-tags-block}
@@ -77,7 +77,7 @@ As a starting point, you can edit the `sampleTemplate.tmpl` default template. Do
 
 {tags-array-block}
 ---
-Tags: {tags-array}
+Tags {tags-array}
 
 ---
 {end-tags-array-block}
