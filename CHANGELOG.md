@@ -1,3 +1,10 @@
+## [5.0.11](https://github.com/akosbalasko/yarle/compare/v5.0.10...v5.0.11) (2023-03-18)
+
+
+### Bug Fixes
+
+* truncate if the filepath exceeds the OS limit ([#377](https://github.com/akosbalasko/yarle/issues/377)) ([9510fac](https://github.com/akosbalasko/yarle/commit/9510facfa1aa8a1d987003a3919b8ec23a2d4824))
+
 ## [5.0.10](https://github.com/akosbalasko/yarle/compare/v5.0.9...v5.0.10) (2023-03-13)
 
 
