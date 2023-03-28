@@ -16,6 +16,10 @@ import { NoteData } from './models/NoteData';
 import { loggerInfo } from './utils/loggerInfo';
 import { isTOC } from './utils/is-toc';
 import { RuntimePropertiesSingleton } from './runtime-properties';
+import { OutputFormat } from './output-format';
+import { convert2TanaNode } from './utils/convert-to-tana-node';
+import { saveTanaFile } from './utils/save-tana-file';
+
 export const processNode = (note: any, notebookName: string): void => {
 
   const dateStarted: Date = new Date();
@@ -51,6 +55,11 @@ export const processNode = (note: any, notebookName: string): void => {
     const data = applyTemplate(noteData, yarleOptions);
     // tslint:disable-next-line:no-console
     // loggerInfo(`data =>\n ${JSON.stringify(data)} \n***`);
+
+    if (yarleOptions.outputFormat === OutputFormat.Tana){
+      const tanaJson = convert2TanaNode(noteData, yarleOptions)
+      saveTanaFile(tanaJson, note)
+    }
 
     saveMdFile(data, note);
 

@@ -1135,8 +1135,6 @@ dateFormat: undefined,
     );
   });
 
-  
-
   it('dots in enex file name', async () => {
     const options: YarleOptions = {
       dateFormat: undefined,
@@ -1198,4 +1196,32 @@ describe('Yarle error cases', async () => {
     }
   });
 
+  it.only('Tana bulletchild recognization', async () => {
+    const options: YarleOptions = {
+      dateFormat: undefined,
+      enexSources: [ `${testDataFolder}test-multiline-text.enex` ],
+      outputDir: 'out',
+      templateFile: `${testDataFolder}full_template.templ`,
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.Tana,
+      skipEnexFileNameFromOutputPath: false,
+			skipTags: false,
+			useHashTags: false,
+
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test.dots.in.enex.File.Name/test.dots.in.enex.File.Name.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test.dots.in.enex.File.Name/test.dots.in.enex.File.Name.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test.dots.in.enex.File.Name.md`, 'utf8'),
+    );
+  });
 });
