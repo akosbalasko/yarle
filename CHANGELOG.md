@@ -1,3 +1,10 @@
+## [5.0.12](https://github.com/akosbalasko/yarle/compare/v5.0.11...v5.0.12) (2023-05-09)
+
+
+### Bug Fixes
+
+* remove template placeholders ([#471](https://github.com/akosbalasko/yarle/issues/471)) ([55d0aa7](https://github.com/akosbalasko/yarle/commit/55d0aa7cab34cf87a111e65a3429dfbca27607b1))
+
 ## [5.0.11](https://github.com/akosbalasko/yarle/compare/v5.0.10...v5.0.11) (2023-03-18)
 
 
