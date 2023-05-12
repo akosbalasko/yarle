@@ -1,5 +1,5 @@
 import { NoteData } from "../../models"
-import { NodeType, TanaIntermediateFile, TanaIntermediateNode,TanaIntermediateSummary } from "tana-import-tools"
+import { NodeType, TanaIntermediateFile, TanaIntermediateNode } from "./types"
 import { RuntimePropertiesSingleton } from '../../runtime-properties';
 import { checkboxDone, checkboxTodo, tanaCodeBlock } from "../../constants";
 

@@ -24,7 +24,7 @@ import { processTaskFactory } from './process-tasks';
 import { mapEvernoteTask } from './models/EvernoteTask';
 import { TaskOutputFormat } from './task-output-format';
 import { isTanaOutput } from './utils/tana/is-tana-output';
-import { NodeType } from 'tana-import-tools';
+import { NodeType } from "./utils/tana/types";
 import { checkboxDone, checkboxTodo } from './constants';
 import { cleanTanaContent } from './utils/tana/convert-to-tana-node';
 

@@ -2,7 +2,7 @@ import * as fs from 'fs';
 
 import { YarleOptions } from "../../YarleOptions";
 import { getAllOutputFilesWithExtension } from "../get-all-output-files";
-import { TanaIntermediateFile, TanaIntermediateNode } from 'tana-import-tools';
+import { TanaIntermediateFile, TanaIntermediateNode } from "./types";
 const tanaNoteFileName = 'notes-converted-in-tana-intermediate-format.json';
 
 export const createTanaOutput = (options: YarleOptions, outputNotebookFolders: Array<string>): void => {

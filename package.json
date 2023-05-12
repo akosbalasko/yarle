@@ -40,7 +40,6 @@
     "package-linux": "electron-builder . electron-tutorial-app --overwrite --asar --platform=linux --arch=x64 --icon=assets/icons/png/512x512.png --prune=true --out=release-builds"
   },
   "dependencies": {
-    "tana-import-tools": "git+https://github.com/tanainc/tana-import-tools.git",
     "@electron/remote": "2.0.8",
     "@types/fs-extra": "8.1.0",
     "chai": "4.2.0",

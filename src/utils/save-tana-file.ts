@@ -1,4 +1,4 @@
-import { TanaIntermediateFile } from 'tana-import-tools';
+import { TanaIntermediateFile } from "./tana/types";
 import { RuntimePropertiesSingleton } from './../runtime-properties';
 import { writeFile } from './file-utils';
 import { getJsonFilePath } from './folder-utils';
