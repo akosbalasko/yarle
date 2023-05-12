@@ -17,8 +17,9 @@ import { loggerInfo } from './utils/loggerInfo';
 import { isTOC } from './utils/is-toc';
 import { RuntimePropertiesSingleton } from './runtime-properties';
 import { OutputFormat } from './output-format';
-import { convert2TanaNode } from './utils/convert-to-tana-node';
+import { convert2TanaNode } from './utils/tana/convert-to-tana-node';
 import { saveTanaFile } from './utils/save-tana-file';
+import { isTanaOutput } from './utils/tana/is-tana-output';
 
 export const processNode = (note: any, notebookName: string): void => {
 
@@ -56,12 +57,11 @@ export const processNode = (note: any, notebookName: string): void => {
     // tslint:disable-next-line:no-console
     // loggerInfo(`data =>\n ${JSON.stringify(data)} \n***`);
 
-    if (yarleOptions.outputFormat === OutputFormat.Tana){
+    if (isTanaOutput()){
       const tanaJson = convert2TanaNode(noteData, yarleOptions)
       saveTanaFile(tanaJson, note)
     }
-
-    saveMdFile(data, note);
+    else saveMdFile(data, note);
 
     if (yarleOptions.keepOriginalHtml) {
       convert2Html(noteData);

@@ -7,14 +7,15 @@ import { YarleOptions } from './../YarleOptions';
 import { RuntimePropertiesSingleton } from './../runtime-properties';
 import { truncatFileName } from './folder-utils';
 import { escapeStringRegexp } from './escape-string-regexp';
-import { getAllFiles } from './get-all-output-files';
+import { getAllOutputFilesWithExtension } from './get-all-output-files';
+import { isTanaOutput } from './tana/is-tana-output';
 
 export const applyLinks = (options: YarleOptions, outputNotebookFolders: Array<string>): void => {
     const linkNameMap = RuntimePropertiesSingleton.getInstance();
     const allLinks = linkNameMap.getAllNoteIdNameMap();
     const allconvertedFiles: Array<string> = [];
     for (const outputFolder of outputNotebookFolders){
-        getAllFiles(outputFolder, allconvertedFiles);
+        getAllOutputFilesWithExtension(outputFolder, allconvertedFiles, undefined);
     }
     for (const [linkName, linkProps] of Object.entries(allLinks)) {
         const uniqueId = linkProps.uniqueEnd;
@@ -38,15 +39,28 @@ export const applyLinks = (options: YarleOptions, outputNotebookFolders: Array<s
             console.log(`notebookFolder: ${notebookFolder}`);
             console.log(`realFileName: ${realFileName}`);
 
-            const extension = '.md';
+            const extension = isTanaOutput() ? '.json': '.md';
 
             const targetFiles = filesInOutputDir.filter(file => {
                 return path.extname(file).toLowerCase() === extension;
             });
             for (const targetFile of targetFiles) {
                 const fileContent = fs.readFileSync(`${notebookFolder}${path.sep}${targetFile}`, 'UTF-8');
+                let updatedContent = fileContent;
+                if (isTanaOutput()){
+                    const tanaNote = JSON.parse(updatedContent)
+                    const linkedNode  = tanaNote.nodes?.find( (note:any) => note.name === realFileNameInContent)
+                    if (linkedNode){
+                        const linkItem = linkNameMap.getNoteIdNameMapByNoteTitle(realFileNameInContent)
+                        linkedNode.uid = linkItem[0].uniqueEnd
+                        updatedContent = JSON.stringify(tanaNote)
+                    }
+
+                }
                 const regexp = new RegExp(escapeStringRegexp(linkName), 'g');
-                const updatedContent = fileContent.replace(regexp, realFileNameInContent);
+                updatedContent = updatedContent.replace(regexp, realFileNameInContent);
+ 
+
                 if (fileContent !== updatedContent) {
                     console.log(`replaced output written to: ${notebookFolder}${path.sep}${targetFile}`);
                     fs.writeFileSync(`${notebookFolder}${path.sep}${targetFile}`, updatedContent);

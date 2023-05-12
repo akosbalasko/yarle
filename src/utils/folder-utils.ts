@@ -42,19 +42,22 @@ const truncateFilePath = (note: any, fileName: string, fullFilePath: string): st
   // -11 is the nanoid 5 char +_+ the max possible extension of the note (.md vs .html)
 };
 
-const getFilePath = (dstPath: string, note: any): string => {
-  const fileName = getNoteFileName(dstPath, note);
+const getFilePath = (dstPath: string, note: any, extension: string): string => {
+  const fileName = getNoteFileName(dstPath, note, extension);
   const fullFilePath = `${dstPath}${path.sep}${normalizeTitle(fileName)}`;
 
   return fullFilePath.length <  MAX_PATH ? fullFilePath : truncateFilePath(note, fileName, fullFilePath);
 };
 
 export const getMdFilePath = (note: any): string => {
-  return getFilePath(paths.mdPath, note);
+  return getFilePath(paths.mdPath, note, 'md');
 };
 
+export const getJsonFilePath = (note: any): string => {
+  return getFilePath(paths.mdPath, note, 'json');
+};
 export const getHtmlFilePath = (note: any): string => {
-  return getFilePath(paths.resourcePath, note).replace(/\.md$/, '.html');
+  return getFilePath(paths.resourcePath, note, 'html');
 };
 
 export const getHtmlFileLink = (note: any): string => {
