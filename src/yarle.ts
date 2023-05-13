@@ -70,7 +70,7 @@ const setOptions = (options: YarleOptions): void => {
   yarleOptions.skipCreationTime = !hasCreationTimeInTemplate(template);
   yarleOptions.skipLocation = !hasLocationInTemplate(template);
   yarleOptions.skipSourceUrl = !hasSourceURLInTemplate(template);
-  yarleOptions.skipTags = !hasAnyTagsInTemplate(template);
+  yarleOptions.skipTags = !hasAnyTagsInTemplate(template) && !isTanaOutput();
   yarleOptions.skipUpdateTime = !hasUpdateTimeInTemplate(template);
   yarleOptions.isNotebookNameNeeded = hasNotebookInTemplate(template);
   yarleOptions.keepOriginalHtml = hasLinkToOriginalInTemplate(template);

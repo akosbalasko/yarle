@@ -44,5 +44,5 @@
     "resourcesDir": "",
     "keepMDCharactersOfENNotes": false,
     "monospaceIsCodeBlock": false,
-    "dateFormat": "MM-DD-YYYY"
+    "dateFormat": "YYYY-MM-DD"
 }
