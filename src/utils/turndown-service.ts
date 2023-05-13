@@ -5,6 +5,7 @@ import { YarleOptions } from './../YarleOptions';
 import {
     divRule,
     imagesRule,
+    italicRule,
     newLineRule,
     spanRule,
     strikethroughRule,
@@ -35,6 +36,7 @@ export const getTurndownService = (yarleOptions: YarleOptions) => {
     turndownService.addRule('wikistyle links', wikiStyleLinksRule);
     turndownService.addRule('images', imagesRule);
     turndownService.addRule('list', taskListRule);
+    turndownService.addRule('italic', italicRule);
 
     if (yarleOptions.outputFormat === OutputFormat.LogSeqMD) {
         turndownService.addRule('logseq_hr', {

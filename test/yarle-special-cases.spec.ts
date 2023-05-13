@@ -1196,7 +1196,7 @@ describe('Yarle error cases', async () => {
     }
   });
 
-  it('Tana bulletchild recognization', async () => {
+  it('Tana recognization', async () => {
     const options: YarleOptions = {
       dateFormat: undefined,
       enexSources: [ `${testDataFolder}test-tana-notes.enex` ],
@@ -1207,6 +1207,7 @@ describe('Yarle error cases', async () => {
       skipEnexFileNameFromOutputPath: false,
 			skipTags: false,
 			useHashTags: false, // IMPORTANT, IT HAS TO BE FALSE
+      generateNakedUrls: true // IMPORTANT, IT HAS TO BE TRUE
 
     };
     await dropTheRopeRunner.run(options);
