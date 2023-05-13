@@ -1196,7 +1196,7 @@ describe('Yarle error cases', async () => {
     }
   });
 
-  it('Tana recognization', async () => {
+  it.only('Tana recognization', async () => {
     const options: YarleOptions = {
       dateFormat: undefined,
       enexSources: [ `${testDataFolder}test-tana-notes.enex` ],

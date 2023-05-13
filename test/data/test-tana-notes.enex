@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE en-export SYSTEM "http://xml.evernote.com/pub/evernote-export4.dtd">
-<en-export export-date="20230613T121507Z" application="Evernote" version="10.56.9">
+<en-export export-date="20230613T123658Z" application="Evernote" version="10.56.9">
+  <note>
+    <title>Nested tasks</title>
+    <created>20230513T123501Z</created>
+    <updated>20230513T123604Z</updated>
+    <note-attributes>
+      <author>akos</author>
+    </note-attributes>
+    <content>
+      <![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd"><en-note><ul><li><div>RootTask1</div></li><ul><li><div>childTask1.1</div></li><ul><li><div>task1.1.1</div></li><li><div>task1.1.2</div></li></ul><li><div>childTask1.2</div></li></ul><li><div>RootTask2</div></li><ul><li><div>childTask2.1</div></li><ul><li><div>task2.1.1</div></li><li><div>task2.1.2</div></li></ul><li><div>childTask2.2</div></li><ul><li><div>task2.2.1</div></li></ul></ul></ul></en-note>      ]]>
+    </content>
+  </note>
   <note>
     <title>Tasks</title>
     <created>20230511T153321Z</created>
