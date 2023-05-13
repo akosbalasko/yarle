@@ -952,7 +952,7 @@ dateFormat: undefined,
   });
   it('tasks from Evernote v10+ - no global filter', async () => {
     const options: YarleOptions = {
-dateFormat: undefined,
+      dateFormat: undefined,
       enexSources: [ `${testDataFolder}test-things-to-do.enex` ],
       outputDir: 'out',
       templateFile: `${testDataFolder}full_template.templ`,

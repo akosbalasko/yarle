@@ -81,6 +81,9 @@ const setOptions = (options: YarleOptions): void => {
   loggerInfo(`Path separator:${path.sep}`);
   /*}*/
 };
+interface TaskGroups {
+  [key: string]: Map<string, string>;
+}
 
 export const parseStream = async (options: YarleOptions, enexSource: string): Promise<void> => {
   loggerInfo(`Getting stream from ${enexSource}`);
@@ -89,7 +92,7 @@ export const parseStream = async (options: YarleOptions, enexSource: string): Pr
   let noteNumber = 0;
   let failed = 0;
   let skipped = 0;
-  const tasks: any = {}; // key: taskId value: generated md text
+  const tasks: TaskGroups = {}; // key: taskId value: generated md text
   const notebookName = utils.getNotebookName(enexSource);
   const processTaskFn = processTaskFactory(yarleOptions.taskOutputFormat);
 
@@ -135,13 +138,14 @@ export const parseStream = async (options: YarleOptions, enexSource: string): Pr
 
           const taskPlaceholder = `<YARLE-EN-V10-TASK>${task}</YARLE-EN-V10-TASK>`
           const fileContent = fs.readFileSync(currentNotePath, 'UTF-8');
-          let updatedContent = fileContent.replace(taskPlaceholder, tasks[task].join('\n'));
+          let updatedContent = fileContent.replace(taskPlaceholder, [...tasks[task].values()].join('\n'));
 
           if (isTanaOutput()){
             const tanaNote = JSON.parse(fileContent);
             const rootTaskChild = tanaNote.nodes?.[0].children?.find((child:any) => child.name === taskPlaceholder)
             if (rootTaskChild){
-              for (const taskItem of tasks[task]){
+              const sortedTasks = new Map([...tasks[task]].sort());
+              for (const taskItem of sortedTasks.values()){
                 // split by tasks
                 const todoState = taskItem.startsWith(checkboxTodo)? 'todo':'done'
                 tanaNote.nodes?.[0].children?.push({
@@ -172,10 +176,10 @@ export const parseStream = async (options: YarleOptions, enexSource: string): Pr
     xml.on('tag:task', (pureTask: any) => {
       const task = mapEvernoteTask(pureTask);
       if (!tasks[task.taskgroupnotelevelid]) {
-        tasks[task.taskgroupnotelevelid] = [];
+        tasks[task.taskgroupnotelevelid] = new Map();
       }
 
-      tasks[task.taskgroupnotelevelid].push(processTaskFn(task, notebookName));
+      tasks[task.taskgroupnotelevelid].set(task.sortweight, processTaskFn(task, notebookName));
 
     });
 
