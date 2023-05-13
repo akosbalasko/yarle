@@ -1201,7 +1201,7 @@ describe('Yarle error cases', async () => {
       dateFormat: undefined,
       enexSources: [ `${testDataFolder}test-tana-notes.enex` ],
       outputDir: 'out',
-      templateFile: `${testDataFolder}full_template.templ`,
+      templateFile: `${testDataFolder}sampleTemplate_tana.tmpl`,
       isMetadataNeeded: true,
       outputFormat: OutputFormat.Tana,
       skipEnexFileNameFromOutputPath: false,

@@ -58,7 +58,7 @@ export const processNode = (note: any, notebookName: string): void => {
     // loggerInfo(`data =>\n ${JSON.stringify(data)} \n***`);
 
     if (isTanaOutput()){
-      const tanaJson = convert2TanaNode(noteData, yarleOptions)
+      const tanaJson = convert2TanaNode({...noteData, content: data}, yarleOptions)
       saveTanaFile(tanaJson, note)
     }
     else saveMdFile(data, note);

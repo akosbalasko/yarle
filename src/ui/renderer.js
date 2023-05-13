@@ -1,5 +1,4 @@
 
-
 const selectEnexFilesDialogBtn = document.getElementById('selectEnexFilesDialogBtn')
 const filePathElement = document.getElementById('filePath')
 
@@ -71,7 +70,9 @@ const handleOutputFormatChange = ((event, initValue) => {
           //const logSeqConfig = window.electronAPI.readFileSync(`${window.electronAPI.currentDir}/../../config.logseq.json`, 'utf-8');
           //const logSeqTemplate = window.electronAPI.readFileSync(`${window.electronAPI.currentDir}/../../sampleTemplate_logseq.tmpl`, 'utf-8');
           const flatTanaConfig = flatten(JSON.parse(defaultConfig));
-          flatTanaConfig.currentTemplate = defaultTemplate;
+          const tanaTemplate =  window.electronAPI.getTemplateByType('Tana Internal Format')
+
+          flatTanaConfig.currentTemplate = tanaTemplate;
           
           updateDomByFlatConfig(flatTanaConfig, false);
           document.getElementById('currentTemplate').removeAttribute('disabled');
