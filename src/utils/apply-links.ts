@@ -48,7 +48,6 @@ export const applyLinks = (options: YarleOptions, outputNotebookFolders: Array<s
                 const fileContent = fs.readFileSync(`${notebookFolder}${path.sep}${targetFile}`, 'UTF-8');
                 let updatedContent = fileContent;
                 if (isTanaOutput()){
-                    console.log("updated Content: " + updatedContent)
                     const tanaNote = JSON.parse(updatedContent)
                     const linkedNode  = tanaNote.nodes?.find( (note:any) => note.name === realFileNameInContent)
                     if (linkedNode){
