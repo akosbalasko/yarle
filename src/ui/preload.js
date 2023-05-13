@@ -78,6 +78,11 @@ contextBridge.exposeInMainWorld('electronAPI', {
     ipcRenderer.on('logSeqModeSelected', callback)
   },
   onLogSeqModeDeSelected: (callback) => ipcRenderer.on('logSeqModeDeSelected', callback),
+  onTanaModeSelected: (callback) => {
+    console.log('onTanaModeSelected triggered')
+    ipcRenderer.on('tanaModeSelected', callback)
+  },
+  onTanaModeDeSelected: (callback) => ipcRenderer.on('tanaModeDeSelected', callback),
 
   startConversion: () => {
     ipcRenderer.send('startConversion')

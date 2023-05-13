@@ -18,7 +18,6 @@ export const createTanaOutput = (options: YarleOptions, outputNotebookFolders: A
         updateMergedNotes(mergedNotes, convertedTanaNote)
         saveMergedTanaNotes(options, mergedNotes)
     }
-    console.log(JSON.stringify(allconvertedFiles))
 }
 
 const updateMergedNotes = (mergedNotes: TanaIntermediateFile, convertedTanaNote: TanaIntermediateFile): void => {

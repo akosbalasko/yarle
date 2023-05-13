@@ -2,7 +2,7 @@ export enum OutputFormat {
     ObsidianMD= 'ObsidianMD',
     StandardMD= 'StandardMD',
     LogSeqMD = 'LogSeqMD',
-    Tana = 'Tana internal format',
+    Tana = 'Tana Internal Format',
 }
 
 module.exports={OutputFormat}

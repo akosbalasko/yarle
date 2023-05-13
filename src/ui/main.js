@@ -7,6 +7,8 @@ const { mapSettingsToYarleOptions } = require('./settingsMapper')
 const yarle = require('../yarle')
 const {OutputFormat} = require('./../output-format')
 const { applyLinks } = require('./../utils/apply-links');
+const { isTanaOutput } = require('./../utils/tana/is-tana-output');
+const {createTanaOutput } = require('./../utils/tana/create-tana-output');
 
 initialize();
 // tslint:disable-next-line:no-require-imports variable-name
@@ -71,6 +73,9 @@ const createWindow = () => {
       // apply internal links
       applyLinks(settings, outputNotebookFolders);
     
+      if (isTanaOutput()){
+        createTanaOutput(settings, outputNotebookFolders)
+    }
     });
 
 
