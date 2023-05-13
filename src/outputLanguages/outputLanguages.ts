@@ -23,7 +23,7 @@ languageItems[OutputFormat.Tana] = {
 
 languageItems[OutputFormat.StandardMD] = {
     bold: '**',
-    italic: '__',
+    italic: '_',
     highlight: '`',
     strikethrough: '~~', 
 }
