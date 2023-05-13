@@ -138,13 +138,14 @@ export const parseStream = async (options: YarleOptions, enexSource: string): Pr
 
           const taskPlaceholder = `<YARLE-EN-V10-TASK>${task}</YARLE-EN-V10-TASK>`
           const fileContent = fs.readFileSync(currentNotePath, 'UTF-8');
-          let updatedContent = fileContent.replace(taskPlaceholder, [...tasks[task].values()].join('\n'));
+          const sortedTasks = new Map([...tasks[task]].sort());
+
+          let updatedContent = fileContent.replace(taskPlaceholder, [...sortedTasks.values()].join('\n'));
 
           if (isTanaOutput()){
             const tanaNote = JSON.parse(fileContent);
             const rootTaskChild = tanaNote.nodes?.[0].children?.find((child:any) => child.name === taskPlaceholder)
             if (rootTaskChild){
-              const sortedTasks = new Map([...tasks[task]].sort());
               for (const taskItem of sortedTasks.values()){
                 // split by tasks
                 const todoState = taskItem.startsWith(checkboxTodo)? 'todo':'done'
