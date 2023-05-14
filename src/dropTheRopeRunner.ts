@@ -9,6 +9,8 @@ import { YarleOptions } from './YarleOptions';
 import { loggerInfo } from './utils/loggerInfo';
 import { clearLogFile } from './utils/clearLogFile';
 import { applyLinks } from './utils/apply-links';
+import { createTanaOutput } from './utils/tana/create-tana-output';
+import { isTanaOutput } from './utils/tana/is-tana-output';
 
 export const run = async (opts?: YarleOptions) => {
     clearLogFile();
@@ -34,6 +36,13 @@ export const run = async (opts?: YarleOptions) => {
     }
     const outputNotebookFolders = await yarle.dropTheRope(options);
 
+    // POSTPROCESSES 
     // apply internal links
     applyLinks(options, outputNotebookFolders);
+
+    // create tana output if it's required
+    if (isTanaOutput()){
+        createTanaOutput(options, outputNotebookFolders)
+    }
+    
 };

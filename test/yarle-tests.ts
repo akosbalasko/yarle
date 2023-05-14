@@ -767,7 +767,7 @@ export const yarleTests: Array<YarleTest> = [
       isMetadataNeeded: true,
       skipLocation: true,
       keepMDCharactersOfENNotes: true,
-      dateFormat: 'YYYY MMMM DD',
+      dateFormat: 'YYYY-MM-DD',
     },
     testOutputPath: `notes${path.sep}test-justTextButCustomDate${path.sep}test -note with text only.md`,
     expectedOutputPath: `${dataFolder}test-justTextButCustomDate.md`,

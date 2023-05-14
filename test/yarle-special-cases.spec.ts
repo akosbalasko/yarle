@@ -952,7 +952,7 @@ dateFormat: undefined,
   });
   it('tasks from Evernote v10+ - no global filter', async () => {
     const options: YarleOptions = {
-dateFormat: undefined,
+      dateFormat: undefined,
       enexSources: [ `${testDataFolder}test-things-to-do.enex` ],
       outputDir: 'out',
       templateFile: `${testDataFolder}full_template.templ`,
@@ -1135,8 +1135,6 @@ dateFormat: undefined,
     );
   });
 
-  
-
   it('dots in enex file name', async () => {
     const options: YarleOptions = {
       dateFormat: undefined,
@@ -1198,4 +1196,33 @@ describe('Yarle error cases', async () => {
     }
   });
 
+  it('Tana recognization', async () => {
+    const options: YarleOptions = {
+      dateFormat:  "YYYY-MM-DD",
+      enexSources: [ `${testDataFolder}test-tana-notes.enex` ],
+      outputDir: 'out',
+      templateFile: `${testDataFolder}sampleTemplate_tana.tmpl`,
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.Tana,
+      skipEnexFileNameFromOutputPath: false,
+			skipTags: false,
+			useHashTags: false, // IMPORTANT, IT HAS TO BE FALSE
+      generateNakedUrls: true // IMPORTANT, IT HAS TO BE TRUE
+
+    };
+    await dropTheRopeRunner.run(options);
+    /*assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes-converted-in-tana-intermediate-format.json`,
+      ),
+      true,
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes-converted-in-tana-intermediate-format.json`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/notes-converted-in-tana-intermediate-format.json`, 'utf8'),
+    );*/
+  });
 });

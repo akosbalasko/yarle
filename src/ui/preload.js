@@ -1,7 +1,7 @@
 const { contextBridge, ipcRenderer } = require('electron')
 const path = require('path');
 const fs = require('fs');
-const { OutputFormat } = require("../output-format")
+const { OutputFormat } = require("../output-format");
 
 contextBridge.exposeInMainWorld('versions', {
   node: () => process.versions.node,
@@ -24,19 +24,35 @@ contextBridge.exposeInMainWorld('electronAPI', {
   },
   readFileSync: fs.readFileSync,
   getConfigByType: (type) => {
-    return fs.readFileSync(
-      (type === OutputFormat.LogSeqMD)
-        ? `${__dirname}/../../config.logseq.json`
-        : `${__dirname}/../../config.json`
-      , 'utf-8');
+    let configFile;
+    switch(type){
+      case OutputFormat.LogSeqMD:
+        configFile = `${__dirname}/../../config.logseq.json`
+        break;
+      case OutputFormat.Tana:
+        configFile = `${__dirname}/../../config.tana.json`
+        break;
+      default: 
+      configFile = `${__dirname}/../../config.json`;
+        break;
+    }
+    return fs.readFileSync(configFile, 'utf-8');
     
   },
   getTemplateByType: (type) => {
-    return fs.readFileSync(
-      (type === OutputFormat.LogSeqMD)
-        ? `${__dirname}/../../sampleTemplate_logseq.tmpl`
-        : `${__dirname}/../../sampleTemplate.tmpl`
-      , 'utf-8');
+    let templateFile;
+    switch(type){
+      case OutputFormat.LogSeqMD:
+        templateFile = `${__dirname}/../../sampleTemplate_logseq.tmpl`
+        break;
+      case OutputFormat.Tana:
+        templateFile = `${__dirname}/../../sampleTemplate_tana.tmpl`
+        break;
+      default: 
+        templateFile = `${__dirname}/../../sampleTemplate.tmpl`;
+        break;
+    }
+    return fs.readFileSync(templateFile, 'utf-8');
     
   },  
   outputFormat: OutputFormat,
@@ -78,6 +94,11 @@ contextBridge.exposeInMainWorld('electronAPI', {
     ipcRenderer.on('logSeqModeSelected', callback)
   },
   onLogSeqModeDeSelected: (callback) => ipcRenderer.on('logSeqModeDeSelected', callback),
+  onTanaModeSelected: (callback) => {
+    console.log('onTanaModeSelected triggered')
+    ipcRenderer.on('tanaModeSelected', callback)
+  },
+  onTanaModeDeSelected: (callback) => ipcRenderer.on('tanaModeDeSelected', callback),
 
   startConversion: () => {
     ipcRenderer.send('startConversion')

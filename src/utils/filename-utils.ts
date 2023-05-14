@@ -68,8 +68,8 @@ export const getFilePrefix = (note: any): string => {
   return normalizeTitle(note['title'] ? `${note['title'].toString()}` : 'Untitled');
 };
 
-export const getNoteFileName = (dstPath: string, note: any): string => {
-  return `${getNoteName(dstPath, note)}.md`;
+export const getNoteFileName = (dstPath: string, note: any, extension: string = 'md'): string => {
+  return `${getNoteName(dstPath, note)}.${extension}`;
 };
 export const getExtensionFromResourceFileName = (resource: any): string => {
   if (!(resource['resource-attributes'] &&
