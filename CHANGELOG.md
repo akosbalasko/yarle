@@ -1,3 +1,10 @@
+# [5.1.0](https://github.com/akosbalasko/yarle/compare/v5.0.12...v5.1.0) (2023-05-14)
+
+
+### Features
+
+* support of Tana internal format ([#472](https://github.com/akosbalasko/yarle/issues/472)) ([86f6dd3](https://github.com/akosbalasko/yarle/commit/86f6dd396341f6160cfdb16514c89c12d3049882))
+
 ## [5.0.12](https://github.com/akosbalasko/yarle/compare/v5.0.11...v5.0.12) (2023-05-09)
 
 
