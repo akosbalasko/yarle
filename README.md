@@ -35,8 +35,15 @@ Yarle is the ultimate converter of Evernote notes to Markdown.
 - :hammer: Updates md files' creation, access, and modification timestamps according to the notes' original create/update/modification time.
 - :hammer: Organizes all attachments into a _resources subfolder (to keep the notes' folder as simple as possible).
 
+## Supported applications to import your notes to: 
 
-## Binaries:
+- Obsidian
+- LogSeq
+- Tana
+- Any other note taking application which recognizes notes in standard markdown, like NotePlan or Craft
+
+## Download Yarle here:
+<div id="downloadApp"></div>
 
 [Windows](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_win_x64.exe)
 
@@ -76,16 +83,15 @@ If you like the product, you can give a star here on github, or you can <a href=
 
 ## Instructions
 
-Download the desktop app for your platform, and follow the instructions there.
+<a href="#downloadApp">Download the application</a> matching with your Operating system and double-click on it. (On mac, you need to right-click + Run to Open it, because Apple prevents to directly run an application downloaded from Internet)
 
 https://user-images.githubusercontent.com/11886731/213943491-97211b41-c130-4b6b-a1e9-1fc360741ff7.mov
 
  In order to perform conversion into Logseq format, please choose Logseq as Target format in the configuration panel, then choose the type of your notes (Journal Notes or Pages). For Logseq all the other options have already been pre-configured.
 
+## Zero-install execution with bundles
 
-## Prerequisite for legacy versions (below 4.0.0):
 
- - Required [Install Node.js](https://nodejs.org/en/download/) version 10.22.1 or higher.
 
 ## Zero-install execution via command line
 Just open a terminal, specify config options in a config file (options detailed in [Configuration](#Configuration)) and type the following:
