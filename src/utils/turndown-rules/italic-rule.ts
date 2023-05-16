@@ -7,7 +7,8 @@ export const italicRule = {
   filter: ['i'],
   replacement: (content: any) => {
     const languageItems = getLanguageItems(yarleOptions.outputFormat);
-
-    return `${languageItems.italic}${content}${languageItems.italic}`;
+    return (content.trim() !== '')
+      ? `${languageItems.italic}${content}${languageItems.italic}`
+      : content
   },
 };

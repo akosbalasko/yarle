@@ -17,7 +17,7 @@
     "skipWebClips": false,
     "skipTags": false,
     "useHashTags": false,
-    "outputFormat": "ObsidianMD",
+    "outputFormat": "Tana Internal Format",
     "taskOutputFormat": "ObsidianMD",
     "keepImageSize": "ObsidianMD",
     "skipEnexFileNameFromOutputPath": false,
