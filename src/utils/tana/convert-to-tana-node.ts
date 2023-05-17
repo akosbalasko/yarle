@@ -56,7 +56,7 @@ const convertString2TanaTable = (content: string, data: NoteData): TanaIntermedi
         createdAt: new Date(data.createdAt).getTime(),
         editedAt: new Date(data.updatedAt).getTime(),
         type: 'node' as NodeType,
-        name: 'TABLE',
+        name: '',
         refs:[],
         children: []
     }
