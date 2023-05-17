@@ -1,7 +1,7 @@
 import { NoteData } from "../../models"
 import { NodeType, TanaIntermediateFile, TanaIntermediateNode } from "./types"
 import { RuntimePropertiesSingleton } from '../../runtime-properties';
-import { checkboxDone, checkboxTodo, tanaCodeBlock } from "../../constants";
+import { checkboxDone, checkboxTodo, tanaCodeBlock, tanaTableBlock, tanaTableColBlock, tanaTableRowBlock } from "../../constants";
 import { createNewTanaFile } from "./create-new-tana-file";
 
 export const cleanTanaContent = (content: string, valueToClean: string):string => {
@@ -50,6 +50,45 @@ const convertString2TanaCodeblock = (content: string, data: NoteData): TanaInter
         children: []
     }
 }
+const convertString2TanaTable = (content: string, data: NoteData): TanaIntermediateNode => {
+    const mainTableNode: TanaIntermediateNode = {
+        uid: 'uuid' + Math.random(),
+        createdAt: new Date(data.createdAt).getTime(),
+        editedAt: new Date(data.updatedAt).getTime(),
+        type: 'node' as NodeType,
+        name: 'TABLE',
+        refs:[],
+        children: []
+    }
+    const rows = content.split(tanaTableRowBlock)
+    for (const row of rows){
+        const cols = row.split(tanaTableColBlock)
+        const rowNode: TanaIntermediateNode = {
+            uid: 'uuid' + Math.random(),
+            createdAt: new Date(data.createdAt).getTime(),
+            editedAt: new Date(data.updatedAt).getTime(),
+            type: 'node' as NodeType,
+            name: row,
+            refs:[],
+            children: []
+        }
+        for (const col of cols) {
+            const colNode: TanaIntermediateNode = {
+                uid: 'uuid' + Math.random(),
+                createdAt: new Date(data.createdAt).getTime(),
+                editedAt: new Date(data.updatedAt).getTime(),
+                type: 'field' as NodeType,
+                name: col,
+                refs:[],
+                children: []
+            }
+            rowNode.children.push(colNode)
+        }
+        mainTableNode.children.push(rowNode)
+
+    }
+    return mainTableNode
+}
 export const convertChild = (data: NoteData, child: string) => {
     // if it is a link
     const regex = /\evernote:\/\/[^)]*\)/g;
@@ -63,6 +102,8 @@ export const convertChild = (data: NoteData, child: string) => {
         convertedChild =  convertString2TanaCheckbox(child, 'todo', data)
     if (child.startsWith(checkboxDone))
         convertedChild =  convertString2TanaCheckbox(child, 'done', data)
+    if (child.startsWith(tanaTableBlock))
+        convertedChild = convertString2TanaTable(child.replace(new RegExp(tanaTableBlock, 'g'), ''), data)
     if (found && found.length > 0){
         for (const link of found){
             const pureLink = link.slice(0, -1)
