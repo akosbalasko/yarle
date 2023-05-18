@@ -50,7 +50,7 @@ Obsidian
 LogSeq
 </a>
 
-<a href="https://tana.inc" rel= "Tana">Tana</a> (with some limitations, check them <a href="tana_limitations">here</a>)
+<a href="https://tana.inc" rel= "Tana">Tana</a> (check details and limitations <a href="tana_limitations">here</a>)
  
 
 ## Download Yarle here:
@@ -198,9 +198,13 @@ In order to minimize the wrong conversion of links due to duplicated note names,
 3. Export the notebook together with the TOC file 
 4. Start yarle and convert your notes
 
-## Limitations of converting notes to Tana
+## Converting Notes to Tana
+
+Yarle converts your notes to Tana Internal Format. To achieve this, the only thing you need to do differently than the default usage is to the output format as Tana Internal Format. The conversion will produce one file only called `notes-in-TIF.json`. It will contain all of your notes in Tana Internal Format, then you can import this file to Tana. 
+
+### Limitations
 <div id="tana_limitations"><div>
 
 Currently Yarle (or any other converter), cannot convert images into Tana Internal Format. Moreover Yarle converts Evernote tables to Tana as plain text.
- 
+
 Once Tana Internal Format supports these features, we are glad to fill these gaps in the conversion. 

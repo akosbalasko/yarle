@@ -4,7 +4,7 @@ import { YarleOptions } from "../../YarleOptions";
 import { getAllOutputFilesWithExtension } from "../get-all-output-files";
 import { TanaIntermediateFile } from "./types";
 import { createNewTanaFile } from './create-new-tana-file';
-const tanaNoteFileName = 'notes-converted-in-tana-intermediate-format.json';
+const tanaNoteFileName = 'notes-in-TIF.json';
 
 export const createTanaOutput = (options: YarleOptions, outputNotebookFolders: Array<string>): void => {
     const allconvertedFiles: Array<string> = [];
