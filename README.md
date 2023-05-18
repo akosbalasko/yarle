@@ -46,7 +46,7 @@ Any other note taking application which recognizes notes in standard markdown, l
 
 <a href="https://github.com/logseq/awesome-logseq" rel="Awesome Logseq">LogSeq</a>
 
-<a href="https://tana.inc" rel= "Tana">Tana</a> (check details and limitations <a href="tana_limitations">here</a>)
+<a href="https://tana.inc" rel= "Tana">Tana</a> (check details and limitations <a href="#tana_limitations">here</a>)
  
 
 ## Download Yarle here:
