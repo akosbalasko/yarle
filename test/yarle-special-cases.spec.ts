@@ -1211,19 +1211,7 @@ describe('Yarle error cases', async () => {
 
     };
     await dropTheRopeRunner.run(options);
-    /*assert.equal(
-      fs.existsSync(
-        `${__dirname}/../out/notes-converted-in-tana-intermediate-format.json`,
-      ),
-      true,
-    );
-    assert.equal(
-      eol.auto(fs.readFileSync(
-        `${__dirname}/../out/notes-converted-in-tana-intermediate-format.json`,
-        'utf8',
-      )),
-      fs.readFileSync(`${__dirname}/data/notes-converted-in-tana-intermediate-format.json`, 'utf8'),
-    );*/
+
   });
   it('Tana recognization - highlights', async () => {
     const options: YarleOptions = {
@@ -1240,19 +1228,7 @@ describe('Yarle error cases', async () => {
 
     };
     await dropTheRopeRunner.run(options);
-    /*assert.equal(
-      fs.existsSync(
-        `${__dirname}/../out/notes-converted-in-tana-intermediate-format.json`,
-      ),
-      true,
-    );
-    assert.equal(
-      eol.auto(fs.readFileSync(
-        `${__dirname}/../out/notes-converted-in-tana-intermediate-format.json`,
-        'utf8',
-      )),
-      fs.readFileSync(`${__dirname}/data/notes-converted-in-tana-intermediate-format.json`, 'utf8'),
-    );*/
+
   });
   it('Tana recognization - table', async () => {
     const options: YarleOptions = {
@@ -1269,18 +1245,6 @@ describe('Yarle error cases', async () => {
 
     };
     await dropTheRopeRunner.run(options);
-    /*assert.equal(
-      fs.existsSync(
-        `${__dirname}/../out/notes-converted-in-tana-intermediate-format.json`,
-      ),
-      true,
-    );
-    assert.equal(
-      eol.auto(fs.readFileSync(
-        `${__dirname}/../out/notes-converted-in-tana-intermediate-format.json`,
-        'utf8',
-      )),
-      fs.readFileSync(`${__dirname}/data/notes-converted-in-tana-intermediate-format.json`, 'utf8'),
-    );*/
+
   });
 });
