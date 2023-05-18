@@ -36,7 +36,25 @@ Yarle is the ultimate converter of Evernote notes to Markdown.
 - :hammer: Organizes all attachments into a _resources subfolder (to keep the notes' folder as simple as possible).
 
 
-## Binaries:
+
+
+## To where can I import the converted notes? 
+
+Any other note taking application which recognizes notes in standard markdown, like NotePlan or Craft, but Yarle supports some others that has specific format requirements too. These are: 
+
+<a href="https://github.com/kmaasrud/awesome-obsidian" rel="Awesome Obsidian">
+Obsidian
+</a>
+
+<a href="https://github.com/logseq/awesome-logseq" rel="Awesome Logseq">
+LogSeq
+</a>
+
+<a href="https://tana.inc" rel= "Tana">Tana</a> (check details and limitations <a href="tana_limitations">here</a>)
+ 
+
+## Download Yarle here:
+<div id="downloadApp"></div>
 
 [Windows](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_win_x64.exe)
 
@@ -76,18 +94,14 @@ If you like the product, you can give a star here on github, or you can <a href=
 
 ## Instructions
 
-Download the desktop app for your platform, and follow the instructions there.
+<a href="#downloadApp">Download the application</a> matching with your Operating system and double-click on it. (On mac, you need to right-click + Run to Open it, because Apple prevents to directly run an application downloaded from Internet)
 
 https://user-images.githubusercontent.com/11886731/213943491-97211b41-c130-4b6b-a1e9-1fc360741ff7.mov
 
  In order to perform conversion into Logseq format, please choose Logseq as Target format in the configuration panel, then choose the type of your notes (Journal Notes or Pages). For Logseq all the other options have already been pre-configured.
 
 
-## Prerequisite for legacy versions (below 4.0.0):
-
- - Required [Install Node.js](https://nodejs.org/en/download/) version 10.22.1 or higher.
-
-## Zero-install execution via command line
+## Using Yarle via command line
 Just open a terminal, specify config options in a config file (options detailed in [Configuration](#Configuration)) and type the following:
 
 ```javascript
@@ -183,3 +197,14 @@ In order to minimize the wrong conversion of links due to duplicated note names,
 2. Create a Table of Contents note
 3. Export the notebook together with the TOC file 
 4. Start yarle and convert your notes
+
+## Converting Notes to Tana
+
+Yarle converts your notes to Tana Internal Format. To achieve this, the only thing you need to do differently than the default usage is to the output format as Tana Internal Format. The conversion will produce one file only called `notes-in-TIF.json`. It will contain all of your notes in Tana Internal Format, then you can import this file to Tana. 
+
+### Limitations
+<div id="tana_limitations"><div>
+
+Currently Yarle (or any other converter), cannot convert images into Tana Internal Format. Moreover Yarle converts Evernote tables to Tana as plain text.
+
+Once Tana Internal Format supports these features, we are glad to fill these gaps in the conversion. 
