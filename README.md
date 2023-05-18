@@ -201,5 +201,6 @@ In order to minimize the wrong conversion of links due to duplicated note names,
 ## Limitations of converting notes to Tana
 <div id="tana_limitations"><div>
 
-Currently Yarle (or any other converter), cannot convert images into Tana Internal Format, and the tables in Evernote will be converted as plain text. 
+Currently Yarle (or any other converter), cannot convert images into Tana Internal Format. Moreover Yarle converts Evernote tables to Tana as plain text.
+ 
 Once Tana Internal Format supports these features, we are glad to fill these gaps in the conversion. 
