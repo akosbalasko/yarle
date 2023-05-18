@@ -13,6 +13,8 @@ import {
     wikiStyleLinksRule } from './turndown-rules';
 import { OutputFormat } from './../output-format';
 import { taskListRule } from './turndown-rules/task-list-rule';
+import { removeNewlines } from './remove-newlines';
+import { tanaTableBlock, tanaTableColBlock, tanaTableRowBlock } from './../constants';
 
 export const getTurndownService = (yarleOptions: YarleOptions) => {
     /* istanbul ignore next */
@@ -48,6 +50,26 @@ export const getTurndownService = (yarleOptions: YarleOptions) => {
         });
     }
 
+    if(yarleOptions.outputFormat === OutputFormat.Tana) {
+        turndownService.addRule('tanaSkipTableRule', {
+            filter: ['table'],
+            replacement(content: any) {
+                return `${tanaTableBlock}${removeNewlines(content)}`;
+            },
+        })
+        turndownService.addRule('tanaSkipTableRowRule', {
+            filter: ['tr'],
+            replacement(content: any) {
+                return `${tanaTableRowBlock}${removeNewlines(content)}`;
+            },
+        })
+        turndownService.addRule('tanaSkipTableColRule', {
+            filter: ['td'],
+            replacement(content: any) {
+                return `${tanaTableColBlock}${removeNewlines(content)}`;
+            },
+        })
+    }
     if (yarleOptions.keepMDCharactersOfENNotes) {
         turndownService.escape = ((str: string) => str);
     }

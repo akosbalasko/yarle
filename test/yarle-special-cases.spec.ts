@@ -1225,4 +1225,62 @@ describe('Yarle error cases', async () => {
       fs.readFileSync(`${__dirname}/data/notes-converted-in-tana-intermediate-format.json`, 'utf8'),
     );*/
   });
+  it('Tana recognization - highlights', async () => {
+    const options: YarleOptions = {
+      dateFormat:  "YYYY-MM-DD",
+      enexSources: [ `${testDataFolder}tana-highlight-test.enex` ],
+      outputDir: 'out',
+      templateFile: `${testDataFolder}sampleTemplate_tana.tmpl`,
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.Tana,
+      skipEnexFileNameFromOutputPath: false,
+			skipTags: false,
+			useHashTags: false, // IMPORTANT, IT HAS TO BE FALSE
+      generateNakedUrls: true // IMPORTANT, IT HAS TO BE TRUE
+
+    };
+    await dropTheRopeRunner.run(options);
+    /*assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes-converted-in-tana-intermediate-format.json`,
+      ),
+      true,
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes-converted-in-tana-intermediate-format.json`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/notes-converted-in-tana-intermediate-format.json`, 'utf8'),
+    );*/
+  });
+  it('Tana recognization - table', async () => {
+    const options: YarleOptions = {
+      dateFormat:  "YYYY-MM-DD",
+      enexSources: [ `${testDataFolder}test-tana-02.enex` ],
+      outputDir: 'out',
+      templateFile: `${testDataFolder}sampleTemplate_tana.tmpl`,
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.Tana,
+      skipEnexFileNameFromOutputPath: false,
+			skipTags: false,
+			useHashTags: false, // IMPORTANT, IT HAS TO BE FALSE
+      generateNakedUrls: true // IMPORTANT, IT HAS TO BE TRUE
+
+    };
+    await dropTheRopeRunner.run(options);
+    /*assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes-converted-in-tana-intermediate-format.json`,
+      ),
+      true,
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes-converted-in-tana-intermediate-format.json`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/notes-converted-in-tana-intermediate-format.json`, 'utf8'),
+    );*/
+  });
 });
