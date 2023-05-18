@@ -7,20 +7,23 @@ import { createNewTanaFile } from "./create-new-tana-file";
 export const cleanTanaContent = (content: string, valueToClean: string):string => {
     return content.replace(valueToClean, '')
 }
+const createTanaNode = (type: NodeType, content: string, data: NoteData, uid: string  = 'uuid' + Math.random()): TanaIntermediateNode => {
+    return {
+        uid,
+        createdAt: new Date(data.createdAt).getTime(),
+        editedAt: new Date(data.updatedAt).getTime(),
+        type,
+        name: content,
+        refs: [], 
+        children: []
+    }
+}
 const convertString2TanaNode = (content: string, data: NoteData, addTags: boolean = false): TanaIntermediateNode => {
     const linkNameMap = RuntimePropertiesSingleton.getInstance();
     const link = linkNameMap.getNoteIdNameMapByNoteTitle(content);
     const uid = link && link[0] ? link[0].uniqueEnd : 'uuid' + Math.random()
 
-    const tanaNode: TanaIntermediateNode =  {
-        uid,
-        createdAt: new Date(data.createdAt).getTime(),
-        editedAt: new Date(data.updatedAt).getTime(),
-        type: 'node' as NodeType,
-        name: content,
-        refs: [], 
-        children: []
-    }
+    const tanaNode: TanaIntermediateNode = createTanaNode('node' as NodeType, content, data, uid);
     if (addTags){
         const tags = JSON.parse(data.tags)
         tanaNode.supertags = tags
@@ -28,60 +31,28 @@ const convertString2TanaNode = (content: string, data: NoteData, addTags: boolea
     return tanaNode
 }
 const convertString2TanaCheckbox = (content: string, todoState: string, data: NoteData): TanaIntermediateNode => {
-    return {
-        uid: 'uuid' + Math.random(),
-        createdAt: new Date(data.createdAt).getTime(),
-        editedAt: new Date(data.updatedAt).getTime(),
-        type: 'node' as NodeType,
-        name: cleanTanaContent(content, todoState === 'todo' ? checkboxTodo: checkboxDone),
-        todoState: todoState as "todo"|"done",
-        refs:[],
-        children: []
-    }
+    const checkboxNode = createTanaNode(
+        'node' as NodeType,
+        cleanTanaContent(content, todoState === 'todo' ? checkboxTodo: checkboxDone),
+        data)
+    checkboxNode.todoState = todoState as "todo"|"done"
+    return checkboxNode;
+
 }
 const convertString2TanaCodeblock = (content: string, data: NoteData): TanaIntermediateNode => {
-    return {
-        uid: 'uuid' + Math.random(),
-        createdAt: new Date(data.createdAt).getTime(),
-        editedAt: new Date(data.updatedAt).getTime(),
-        type: 'codeblock' as NodeType,
-        name: cleanTanaContent(content, tanaCodeBlock),
-        refs:[],
-        children: []
-    }
+    return createTanaNode('codeblock' as NodeType, cleanTanaContent(content, tanaCodeBlock), data);
+
 }
 const convertString2TanaTable = (content: string, data: NoteData): TanaIntermediateNode => {
-    const mainTableNode: TanaIntermediateNode = {
-        uid: 'uuid' + Math.random(),
-        createdAt: new Date(data.createdAt).getTime(),
-        editedAt: new Date(data.updatedAt).getTime(),
-        type: 'node' as NodeType,
-        name: '',
-        refs:[],
-        children: []
-    }
+    const mainTableNode: TanaIntermediateNode = createTanaNode('node' as NodeType, 'Table', data);
+
     const rows = content.split(tanaTableRowBlock)
     for (const row of rows){
         const cols = row.split(tanaTableColBlock)
-        const rowNode: TanaIntermediateNode = {
-            uid: 'uuid' + Math.random(),
-            createdAt: new Date(data.createdAt).getTime(),
-            editedAt: new Date(data.updatedAt).getTime(),
-            type: 'node' as NodeType,
-            name: row,
-            refs:[],
-            children: []
-        }
+        const rowNode: TanaIntermediateNode = createTanaNode('node' as NodeType, row, data);
+
         for (const col of cols) {
-            const colNode: TanaIntermediateNode = {
-                uid: 'uuid' + Math.random(),
-                createdAt: new Date(data.createdAt).getTime(),
-                editedAt: new Date(data.updatedAt).getTime(),
-                type: 'field' as NodeType,
-                name: col,
-                refs:[],
-                children: []
-            }
+            const colNode: TanaIntermediateNode =createTanaNode('field' as NodeType, col, data); 
             rowNode.children.push(colNode)
         }
         mainTableNode.children.push(rowNode)
