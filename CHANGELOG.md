@@ -1,3 +1,10 @@
+## [5.1.2](https://github.com/akosbalasko/yarle/compare/v5.1.1...v5.1.2) (2023-05-18)
+
+
+### Bug Fixes
+
+* some unused asserts removed ([#476](https://github.com/akosbalasko/yarle/issues/476)) ([79fd72c](https://github.com/akosbalasko/yarle/commit/79fd72c0e90c3aeb52b84fb0540a22d01205a862))
+
 ## [5.1.1](https://github.com/akosbalasko/yarle/compare/v5.1.0...v5.1.1) (2023-05-18)
 
 
