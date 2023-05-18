@@ -1,26 +1,29 @@
 import { NoteData } from "../../models"
 import { NodeType, TanaIntermediateFile, TanaIntermediateNode } from "./types"
 import { RuntimePropertiesSingleton } from '../../runtime-properties';
-import { checkboxDone, checkboxTodo, tanaCodeBlock } from "../../constants";
+import { checkboxDone, checkboxTodo, tanaCodeBlock, tanaTableBlock, tanaTableColBlock, tanaTableRowBlock } from "../../constants";
 import { createNewTanaFile } from "./create-new-tana-file";
 
 export const cleanTanaContent = (content: string, valueToClean: string):string => {
     return content.replace(valueToClean, '')
+}
+const createTanaNode = (type: NodeType, content: string, data: NoteData, uid: string  = 'uuid' + Math.random()): TanaIntermediateNode => {
+    return {
+        uid,
+        createdAt: new Date(data.createdAt).getTime(),
+        editedAt: new Date(data.updatedAt).getTime(),
+        type,
+        name: content,
+        refs: [], 
+        children: []
+    }
 }
 const convertString2TanaNode = (content: string, data: NoteData, addTags: boolean = false): TanaIntermediateNode => {
     const linkNameMap = RuntimePropertiesSingleton.getInstance();
     const link = linkNameMap.getNoteIdNameMapByNoteTitle(content);
     const uid = link && link[0] ? link[0].uniqueEnd : 'uuid' + Math.random()
 
-    const tanaNode: TanaIntermediateNode =  {
-        uid,
-        createdAt: new Date(data.createdAt).getTime(),
-        editedAt: new Date(data.updatedAt).getTime(),
-        type: 'node' as NodeType,
-        name: content,
-        refs: [], 
-        children: []
-    }
+    const tanaNode: TanaIntermediateNode = createTanaNode('node' as NodeType, content, data, uid);
     if (addTags){
         const tags = JSON.parse(data.tags)
         tanaNode.supertags = tags
@@ -28,27 +31,34 @@ const convertString2TanaNode = (content: string, data: NoteData, addTags: boolea
     return tanaNode
 }
 const convertString2TanaCheckbox = (content: string, todoState: string, data: NoteData): TanaIntermediateNode => {
-    return {
-        uid: 'uuid' + Math.random(),
-        createdAt: new Date(data.createdAt).getTime(),
-        editedAt: new Date(data.updatedAt).getTime(),
-        type: 'node' as NodeType,
-        name: cleanTanaContent(content, todoState === 'todo' ? checkboxTodo: checkboxDone),
-        todoState: todoState as "todo"|"done",
-        refs:[],
-        children: []
-    }
+    const checkboxNode = createTanaNode(
+        'node' as NodeType,
+        cleanTanaContent(content, todoState === 'todo' ? checkboxTodo: checkboxDone),
+        data)
+    checkboxNode.todoState = todoState as "todo"|"done"
+    return checkboxNode;
+
 }
 const convertString2TanaCodeblock = (content: string, data: NoteData): TanaIntermediateNode => {
-    return {
-        uid: 'uuid' + Math.random(),
-        createdAt: new Date(data.createdAt).getTime(),
-        editedAt: new Date(data.updatedAt).getTime(),
-        type: 'codeblock' as NodeType,
-        name: cleanTanaContent(content, tanaCodeBlock),
-        refs:[],
-        children: []
+    return createTanaNode('codeblock' as NodeType, cleanTanaContent(content, tanaCodeBlock), data);
+
+}
+const convertString2TanaTable = (content: string, data: NoteData): TanaIntermediateNode => {
+    const mainTableNode: TanaIntermediateNode = createTanaNode('node' as NodeType, 'Table', data);
+
+    const rows = content.split(tanaTableRowBlock)
+    for (const row of rows){
+        const cols = row.split(tanaTableColBlock)
+        const rowNode: TanaIntermediateNode = createTanaNode('node' as NodeType, row, data);
+
+        for (const col of cols) {
+            const colNode: TanaIntermediateNode =createTanaNode('field' as NodeType, col, data); 
+            rowNode.children.push(colNode)
+        }
+        mainTableNode.children.push(rowNode)
+
     }
+    return mainTableNode
 }
 export const convertChild = (data: NoteData, child: string) => {
     // if it is a link
@@ -63,6 +73,8 @@ export const convertChild = (data: NoteData, child: string) => {
         convertedChild =  convertString2TanaCheckbox(child, 'todo', data)
     if (child.startsWith(checkboxDone))
         convertedChild =  convertString2TanaCheckbox(child, 'done', data)
+    if (child.startsWith(tanaTableBlock))
+        convertedChild = convertString2TanaTable(child.replace(new RegExp(tanaTableBlock, 'g'), ''), data)
     if (found && found.length > 0){
         for (const link of found){
             const pureLink = link.slice(0, -1)

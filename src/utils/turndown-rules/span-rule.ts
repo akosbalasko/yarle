@@ -17,7 +17,7 @@ export const spanRule = {
         const languageItems = getLanguageItems(yarleOptions.outputFormat);
         //const HIGHLIGHT_SEPARATOR = yarleOptions.outputFormat === OutputFormat.ObsidianMD ? '==' : '`' ;
         const nodeProxy = getAttributeProxy(node);
-        if (nodeProxy.style) {
+        if (nodeProxy.style && content.trim() !== '') {
             const nodeValue: string = nodeProxy.style.value;
 
             // this aims to care for bold text generated as <span style="font-weight: bold;">Bold</span>
