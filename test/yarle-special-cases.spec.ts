@@ -1254,7 +1254,7 @@ describe('Yarle error cases', async () => {
       fs.readFileSync(`${__dirname}/data/notes-converted-in-tana-intermediate-format.json`, 'utf8'),
     );*/
   });
-  it.only('Tana recognization - table', async () => {
+  it('Tana recognization - table', async () => {
     const options: YarleOptions = {
       dateFormat:  "YYYY-MM-DD",
       enexSources: [ `${testDataFolder}test-tana-02.enex` ],
