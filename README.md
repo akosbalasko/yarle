@@ -42,13 +42,9 @@ Yarle is the ultimate converter of Evernote notes to Markdown.
 
 Any other note taking application which recognizes notes in standard markdown, like NotePlan or Craft, but Yarle supports some others that has specific format requirements too. These are: 
 
-<a href="https://github.com/kmaasrud/awesome-obsidian" rel="Awesome Obsidian">
-Obsidian
-</a>
+<a href="https://github.com/kmaasrud/awesome-obsidian" rel="Awesome Obsidian">Obsidian</a>
 
-<a href="https://github.com/logseq/awesome-logseq" rel="Awesome Logseq">
-LogSeq
-</a>
+<a href="https://github.com/logseq/awesome-logseq" rel="Awesome Logseq">LogSeq</a>
 
 <a href="https://tana.inc" rel= "Tana">Tana</a> (check details and limitations <a href="tana_limitations">here</a>)
  
