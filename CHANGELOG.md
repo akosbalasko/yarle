@@ -1,3 +1,10 @@
+## [5.1.1](https://github.com/akosbalasko/yarle/compare/v5.1.0...v5.1.1) (2023-05-18)
+
+
+### Bug Fixes
+
+* tana highlights fixed ([#474](https://github.com/akosbalasko/yarle/issues/474)) ([6e3c444](https://github.com/akosbalasko/yarle/commit/6e3c44466600efaca02f15536511934c7bf438c8))
+
 # [5.1.0](https://github.com/akosbalasko/yarle/compare/v5.0.12...v5.1.0) (2023-05-14)
 
 
