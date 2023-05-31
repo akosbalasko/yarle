@@ -1,3 +1,10 @@
+# [5.2.0](https://github.com/akosbalasko/yarle/compare/v5.1.2...v5.2.0) (2023-05-31)
+
+
+### Features
+
+* tana tables improved ([#477](https://github.com/akosbalasko/yarle/issues/477)) ([ecf9908](https://github.com/akosbalasko/yarle/commit/ecf9908746df28309c593a6079c84f08a817f1a2))
+
 ## [5.1.2](https://github.com/akosbalasko/yarle/compare/v5.1.1...v5.1.2) (2023-05-18)
 
 
