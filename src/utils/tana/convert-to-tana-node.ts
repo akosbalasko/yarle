@@ -3,21 +3,12 @@ import { NodeType, TanaIntermediateFile, TanaIntermediateNode } from "./types"
 import { RuntimePropertiesSingleton } from '../../runtime-properties';
 import { checkboxDone, checkboxTodo, tanaCodeBlock, tanaTableBlock, tanaTableColBlock, tanaTableRowBlock } from "../../constants";
 import { createNewTanaFile } from "./create-new-tana-file";
+import { createTanaNode } from "./create-tana-node";
 
 export const cleanTanaContent = (content: string, valueToClean: string):string => {
     return content.replace(valueToClean, '')
 }
-const createTanaNode = (type: NodeType, content: string, data: NoteData, uid: string  = 'uuid' + Math.random()): TanaIntermediateNode => {
-    return {
-        uid,
-        createdAt: new Date(data.createdAt).getTime(),
-        editedAt: new Date(data.updatedAt).getTime(),
-        type,
-        name: content,
-        refs: [], 
-        children: []
-    }
-}
+
 const convertString2TanaNode = (content: string, data: NoteData, addTags: boolean = false): TanaIntermediateNode => {
     const linkNameMap = RuntimePropertiesSingleton.getInstance();
     const link = linkNameMap.getNoteIdNameMapByNoteTitle(content);
@@ -34,28 +25,55 @@ const convertString2TanaCheckbox = (content: string, todoState: string, data: No
     const checkboxNode = createTanaNode(
         'node' as NodeType,
         cleanTanaContent(content, todoState === 'todo' ? checkboxTodo: checkboxDone),
-        data)
+        data, undefined)
     checkboxNode.todoState = todoState as "todo"|"done"
     return checkboxNode;
 
 }
 const convertString2TanaCodeblock = (content: string, data: NoteData): TanaIntermediateNode => {
-    return createTanaNode('codeblock' as NodeType, cleanTanaContent(content, tanaCodeBlock), data);
+    return createTanaNode('codeblock' as NodeType, cleanTanaContent(content, tanaCodeBlock), data, undefined);
 
 }
+const splitAndCleanArray = (content: string, splitBy: string): Array<string> => {
+    return content.split(splitBy).filter(contentElem => contentElem !== '');
+}
 const convertString2TanaTable = (content: string, data: NoteData): TanaIntermediateNode => {
-    const mainTableNode: TanaIntermediateNode = createTanaNode('node' as NodeType, 'Table', data);
 
-    const rows = content.split(tanaTableRowBlock)
-    for (const row of rows){
-        const cols = row.split(tanaTableColBlock)
-        const rowNode: TanaIntermediateNode = createTanaNode('node' as NodeType, row, data);
+    const mainTableNode: TanaIntermediateNode = createTanaNode('node' as NodeType, 'Table', data, undefined);
 
-        for (const col of cols) {
-            const colNode: TanaIntermediateNode =createTanaNode('field' as NodeType, col, data); 
-            rowNode.children.push(colNode)
+    const rows = splitAndCleanArray(content, tanaTableRowBlock)
+    const columns: Array<TanaIntermediateNode> = [];
+    for (const [rowIndex, row] of rows.entries()){
+
+        const cols = splitAndCleanArray(row, tanaTableColBlock)
+
+        if (rowIndex === 0){
+
+            // create fields for this first row
+            for (const col of cols){
+
+                columns.push(createTanaNode('field' as NodeType, col, data, undefined))
+            }
         }
-        mainTableNode.children.push(rowNode)
+        else {
+            let rowNode: TanaIntermediateNode;
+        for (const [index, col] of cols.entries()) {
+            if (index === 0){
+                const rowItems = row.split(tanaTableColBlock)
+                rowNode = createTanaNode('node' as NodeType, rowItems && rowItems.length >= 1 ? rowItems[1]:'', data, undefined); 
+            } else {
+                const cellNode: TanaIntermediateNode = createTanaNode('node' as NodeType, col, data, undefined);
+                const columnField = {...columns[index], uid: 'uid' + Math.random()}
+                columnField.children = [];
+                columnField.children.push(cellNode)
+                rowNode.children.push(columnField)
+            }
+            //rowNode.children.push(cellNode)
+
+        }
+            mainTableNode.children.push(rowNode)
+
+        }
 
     }
     return mainTableNode
