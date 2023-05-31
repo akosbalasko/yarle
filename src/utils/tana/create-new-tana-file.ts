@@ -5,6 +5,7 @@ export const createNewTanaFile =(): TanaIntermediateFile => {
         version: 'TanaIntermediateFile V0.1',
         nodes: [],
         supertags: [],
+        attributes: [],
         summary: {
             leafNodes:0,
             topLevelNodes: 0,
