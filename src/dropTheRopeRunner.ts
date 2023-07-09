@@ -34,15 +34,17 @@ export const run = async (opts?: YarleOptions) => {
 
         options.enexSources = enexFiles.map(enexFile => `${options.enexSources[0]}${path.sep}${enexFile}`);
     }
-    const outputNotebookFolders = await yarle.dropTheRope(options);
-
+    const results = await yarle.dropTheRope(options);
+    console.log("results: ")
+    console.log(results)
+    console.log("end of results ")
     // POSTPROCESSES 
     // apply internal links
-    applyLinks(options, outputNotebookFolders);
+    applyLinks(options, results.map((result:any) => result.outputFolders));
 
     // create tana output if it's required
     if (isTanaOutput()){
-        createTanaOutput(options, outputNotebookFolders)
+        createTanaOutput(options, results.map((result:any) => result.outputFolders));
     }
-    
+ 
 };

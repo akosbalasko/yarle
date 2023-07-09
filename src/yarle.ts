@@ -27,6 +27,8 @@ import { isTanaOutput } from './utils/tana/is-tana-output';
 import { NodeType } from "./utils/tana/types";
 import { checkboxDone, checkboxTodo } from './constants';
 import { cleanTanaContent } from './utils/tana/convert-to-tana-node';
+import { calculateStatistics } from './calculateStatistics';
+import { YarleStatistics } from './models/YarleStatistics';
 
 export const defaultYarleOptions: YarleOptions = {
   enexSources: ['notebook.enex'],
@@ -85,7 +87,7 @@ interface TaskGroups {
   [key: string]: Map<string, string>;
 }
 
-export const parseStream = async (options: YarleOptions, enexSource: string): Promise<void> => {
+export const parseStream = async (options: YarleOptions, enexSource: string): Promise<YarleStatistics> => {
   loggerInfo(`Getting stream from ${enexSource}`);
   const stream = fs.createReadStream(enexSource);
   // const xml = new XmlStream(stream);
@@ -102,7 +104,7 @@ export const parseStream = async (options: YarleOptions, enexSource: string): Pr
       loggerInfo(`Could not convert ${enexSource}:\n${error.message}`);
       ++failed;
 
-      return reject();
+      return reject(calculateStatistics(noteNumber, failed, skipped));
     };
     if (!fs.existsSync(enexSource)) {
       return loggerInfo(JSON.stringify({ name: 'NoSuchFileOrDirectory', message: 'source Enex file does not exists' }));
@@ -194,26 +196,27 @@ export const parseStream = async (options: YarleOptions, enexSource: string): Pr
         `Conversion finished: ${success} succeeded, ${skipped} skipped, ${failed} failed. Total notes: ${totalNotes}`,
       );
 
-      return resolve();
+      return resolve(calculateStatistics(noteNumber, failed, skipped));
     });
     xml.on('error', logAndReject);
     stream.on('error', logAndReject);
   });
 };
 
-export const dropTheRope = async (options: YarleOptions): Promise<Array<string>> => {
+export const dropTheRope = async (options: YarleOptions): Promise<any> => {
   clearLogFile();
   setOptions(options);
-  const outputNotebookFolders = [];
+  const results = [];
   for (const enex of options.enexSources) {
     utils.setPaths(enex);
     const runtimeProps = RuntimePropertiesSingleton.getInstance();
     runtimeProps.setCurrentNotebookName(utils.getNotebookName(enex));
-    await parseStream(options, enex);
-    outputNotebookFolders.push(utils.getNotesPath());
+    const statistics = await parseStream(options, enex);
+    console.log("statistics: ", statistics)
+    results.push({outputFolders: utils.getNotesPath(), statistics});
   }
 
-  return outputNotebookFolders;
+  return results;
 
 };
 // tslint:enable:no-console

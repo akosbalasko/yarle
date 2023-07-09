@@ -141,6 +141,9 @@ function(n) {
         $('#selectOutputFolder').click( function () {
           ipcRenderer.send('selectOutputFolder');
         });
+        $('#loginBtn').click( function () {
+          ipcRenderer.send('magicLogin');
+        });
 
         $('#showErrorBox').click( function () {
           dialog.handler.showErrorBox();

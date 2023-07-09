@@ -22,6 +22,10 @@ contextBridge.exposeInMainWorld('electronAPI', {
   selectOutputFolder: async () => {
     return ipcRenderer.invoke('dialog:selectOutputFolder')
   },
+  magicLogin: async () => {
+    console.log("preload - magicLogin")
+    return ipcRenderer.invoke('perform:magicLogin')
+  },
   readFileSync: fs.readFileSync,
   getConfigByType: (type) => {
     let configFile;

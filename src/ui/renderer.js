@@ -6,6 +6,12 @@ selectEnexFilesDialogBtn.addEventListener('click', async () => {
   const filePath = await window.electronAPI.openFile()
   filePathElement.innerText = filePath
 })
+const loginBtn = document.getElementById('loginBtn')
+
+
+loginBtn.addEventListener('click', async () => {
+  await window.electronAPI.magicLogin()
+})
 
 const selectOutputFolderDialogBtn = document.getElementById('selectOutputFolderDialogBtn')
 const outputFolderElement = document.getElementById('outputFolder')

@@ -31,6 +31,11 @@
 	<link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
 	<link href="assets/css/themify-icons.css" rel="stylesheet">
 
+	<style>
+		a {
+			pointer-events: none;
+		}
+	</style>
 	</head>
 
 	<body >
@@ -62,6 +67,14 @@
 													<i class="ti-map"></i>
 												</div>
 												Welcome
+											</a>
+										</li>
+										<li>
+											<a href="#login" data-toggle="tab">
+												<div class="icon-circle">
+													<i class="ti-map"></i>
+												</div>
+												Login
 											</a>
 										</li>
 			                            <li>
@@ -143,6 +156,27 @@
 											</div>
 										  </section>
 									</div>
+		                            <div class="tab-pane" id="login">
+		                            	<section id="login" class="wrapper style1 fullscreen intro ">
+											<div class="row centerized-content">
+												<h1>Get your magic link</h1>
+											</div>
+											<div class="row centerized-content">
+													<input
+													type="email"
+													name="email"
+													required="required"
+													placeholder="Enter your email"
+													/>
+											</div>
+											<div class="row centerized-content">
+												<div>
+												  <input type='button'  id="loginBtn" class='btn btn-fill btn-danger btn-wd' name='loginBtn' value='Login' />
+												</div>
+											</div>
+
+										  </section>
+		                            </div>
 		                            <div class="tab-pane" id="enex">
 		                            	<section id="enex" class="wrapper style1 fullscreen intro">
 											<div class="row centerized-content">

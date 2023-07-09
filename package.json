@@ -51,6 +51,7 @@
     "joplin-turndown-plugin-gfm": "1.0.12",
     "jsdom": "20.0.3",
     "lodash": "4.17.21",
+    "magic-sdk": "18.2.0",
     "marked": "4.2.5",
     "md5-file": "5.0.0",
     "mime-types": "2.1.28",
