@@ -33,9 +33,9 @@ for(const configItem of configItems){
    console.log('event:'+ JSON.stringify(event))
    let value = event.target.value
    if (isBooleanString(event.target.value))
-    value = Boolean(value)
+    value = JSON.parse(value)
     await window.electronAPI.store.set(event.target.id,value)
-   const newStoredValue = window.electronAPI.store.get(event.target.id)
+   const newStoredValue = await window.electronAPI.store.get(event.target.id)
    console.log('store value: ' + JSON.stringify(newStoredValue))
 })
 
