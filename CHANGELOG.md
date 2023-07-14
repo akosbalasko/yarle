@@ -1,3 +1,10 @@
+## [5.2.1](https://github.com/akosbalasko/yarle/compare/v5.2.0...v5.2.1) (2023-07-14)
+
+
+### Bug Fixes
+
+* boolean conversion fixed ([#490](https://github.com/akosbalasko/yarle/issues/490)) ([dc42c1e](https://github.com/akosbalasko/yarle/commit/dc42c1e68d113bae4cc99f74ddbfb970bb5bb5fe))
+
 # [5.2.0](https://github.com/akosbalasko/yarle/compare/v5.1.2...v5.2.0) (2023-05-31)
 
 
