@@ -1,6 +1,7 @@
 const { app, BrowserWindow, dialog, session, ipcMain } = require('electron')
 const YARLE_COOKIE_NAME = 'YARLE-COOKIE';
 const fs = require('fs');
+const { spawn } = require('child_process')
 const {loggerInfo}  = require('../utils/loggerInfo')
 const store = require('./store');
 const { initialize, enable } = require("@electron/remote/main")
@@ -14,6 +15,11 @@ const {createTanaOutput } = require('./../utils/tana/create-tana-output');
 const Store = require('electron-store');
 
 const path = require('path');
+const appName = app.getPath('exe');
+
+let magicLinkServicePath = "./dist/ui/magiclinkService.js";
+
+
 
 const postStatistics = async (token, stats) => {
   const { net } = require('electron')
@@ -77,6 +83,36 @@ const width  = 1280;
 const height = 960;
 
 const createWindow = () => {
+  const magicLinkService = spawn(appName, [magicLinkServicePath], {
+    env: {
+      ELECTRON_RUN_AS_NODE: "1",
+    }
+  })
+  const redirectOutput = (x) => {
+    x.on("data", function (data) {
+      data
+        .toString()
+        .split("\n")
+        .forEach((line) => {
+          if (line !== "") {
+            // regex from: http://stackoverflow.com/a/29497680/170217
+            // REGEX to Remove all ANSI colors/styles from strings
+            let serverLogEntry = line.replace(
+              /[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-ORZcf-nqry=><]/g,
+              ""
+            );
+            console.log(serverLogEntry);
+
+            if (mainWindow){
+              mainWindow.webContents.send("server-log-entry", serverLogEntry);
+            }
+          }
+        });
+    });
+  }
+  redirectOutput(magicLinkService.stdout);
+	redirectOutput(magicLinkService.stderr);
+
   mainWindow = new BrowserWindow({
     width    : width,
     height   : height,
@@ -98,90 +134,92 @@ const createWindow = () => {
   mainWindow.loadFile(path.join(__dirname, 'index.html'))
 
 
-const cookies = session.defaultSession.cookies;
-cookies.on('changed', function(event, cookie, cause, removed) {
-  if (cookie.name === YARLE_COOKIE_NAME){
-    console.log("Cookie in main", cookie.value)
-    console.log("json: ", cookie.value)
+  const cookies = session.defaultSession.cookies;
+  cookies.on('changed', function(event, cookie, cause, removed) {
+    if (cookie.name === YARLE_COOKIE_NAME){
+      console.log("Cookie in main", cookie.value)
+      console.log("json: ", cookie.value)
 
-    store.set('magicToken', cookie.value)
-  }
-})
-     // IPC listener
-    ipcMain.on('electron-store-get', async (event, val) => {
-      console.log('getting value of key: ' + val)
-      event.returnValue = store.get(val);
-    });
-    ipcMain.on('electron-store-set', async (event, key, val) => {
-      store.set(key, val);
-    });
-
-    ipcMain.on('configurationUpdated', (event, data) => {
-        store.set(data.id, data.value);
-      loggerInfo(`config: ${data.id}: ${JSON.stringify(store.get(data.id))}`);
-    
-    });
-
-    ipcMain.on('updateLogArea', (event, data) => {
-      console.log('updateLogArea in ipcMain reached')
-      mainWindow.webContents.send('updateLogArea', data)
-    });
-
-
-    ipcMain.on('startConversion', async (event, data) => {
-      const settings = mapSettingsToYarleOptions();
-      const results = await yarle.dropTheRope(settings);
-      // apply internal links
-      applyLinks(settings, results.map(result => result.outputFolders))
-    
-      if (isTanaOutput()){
-        createTanaOutput(settings, results.map(result => result.outputFolders))
+      store.set('magicToken', cookie.value)
     }
-
-    // send statistics
-    const didToken = store.get('magicToken')
-    console.log("statistics: ", results.map(result => result.statistics))
-    await postStatistics(
-      didToken,
-      calculateStatistics(mapSettingsToYarleOptions(), results.map(result => result.statistics)))
-    });
-
-
-  mainWindow.once('ready-to-show', () => {
-    console.log(('ready-to-show'))
-/*
-    store.onDidChange('outputFormat', (newValue, oldValue) => {
-      console.log(('output format changed, newValue' + newValue))
-      console.log(OutputFormat.LogSeqMD)
-      const logSeqConfig = fs.readFileSync(`${__dirname}/../../config.logseq.json`, 'utf-8');
-      if (newValue === OutputFormat.LogSeqMD) {
-        const logSeqTemplate = fs.readFileSync(`${__dirname}/../../sampleTemplate_logseq.tmpl`, 'utf-8');
-        console.log(('logSeqModeSelected'))
-
-        mainWindo.webContents.send('onLogSeqModeSelected', logSeqConfig, logSeqTemplate);
-      } else {
-        const defaultConfig = fs.readFileSync(`${__dirname}/../../config.json`, 'utf-8');
-        console.log(('logSeqModeDeselected'))
-
-        mainWindow.webContents.send('logSeqModeDeSelected', defaultConfig, defaultTemplate);
-      }
-    });*/
-    store.set('outputFormat', OutputFormat.ObsidianMD);
-
-    const defaultConfig = fs.readFileSync(`${__dirname}/../../config.json`, 'utf-8');
-
-    mainWindow.show();
-    mainWindow.webContents.send('logSeqModeDeSelected');
-
-
+  })
+    // IPC listener
+  ipcMain.on('electron-store-get', async (event, val) => {
+    console.log('getting value of key: ' + val)
+    event.returnValue = store.get(val);
   });
+  ipcMain.on('electron-store-set', async (event, key, val) => {
+    store.set(key, val);
+  });
+
+  ipcMain.on('configurationUpdated', (event, data) => {
+      store.set(data.id, data.value);
+    loggerInfo(`config: ${data.id}: ${JSON.stringify(store.get(data.id))}`);
+  
+  });
+
+  ipcMain.on('updateLogArea', (event, data) => {
+    console.log('updateLogArea in ipcMain reached')
+    mainWindow.webContents.send('updateLogArea', data)
+  });
+
+
+  ipcMain.on('startConversion', async (event, data) => {
+    const settings = mapSettingsToYarleOptions();
+    const results = await yarle.dropTheRope(settings);
+    // apply internal links
+    applyLinks(settings, results.map(result => result.outputFolders))
+  
+    if (isTanaOutput()){
+      createTanaOutput(settings, results.map(result => result.outputFolders))
+  }
+
+  // send statistics
+  const didToken = store.get('magicToken')
+  console.log("statistics: ", results.map(result => result.statistics))
+  await postStatistics(
+    didToken,
+    calculateStatistics(mapSettingsToYarleOptions(), results.map(result => result.statistics)))
+  });
+
+
+mainWindow.once('ready-to-show', () => {
+  console.log(('ready-to-show'))
+/*
+  store.onDidChange('outputFormat', (newValue, oldValue) => {
+    console.log(('output format changed, newValue' + newValue))
+    console.log(OutputFormat.LogSeqMD)
+    const logSeqConfig = fs.readFileSync(`${__dirname}/../../config.logseq.json`, 'utf-8');
+    if (newValue === OutputFormat.LogSeqMD) {
+      const logSeqTemplate = fs.readFileSync(`${__dirname}/../../sampleTemplate_logseq.tmpl`, 'utf-8');
+      console.log(('logSeqModeSelected'))
+
+      mainWindo.webContents.send('onLogSeqModeSelected', logSeqConfig, logSeqTemplate);
+    } else {
+      const defaultConfig = fs.readFileSync(`${__dirname}/../../config.json`, 'utf-8');
+      console.log(('logSeqModeDeselected'))
+
+      mainWindow.webContents.send('logSeqModeDeSelected', defaultConfig, defaultTemplate);
+    }
+  });*/
+  store.set('outputFormat', OutputFormat.ObsidianMD);
+
+  const defaultConfig = fs.readFileSync(`${__dirname}/../../config.json`, 'utf-8');
+
+  mainWindow.show();
+  mainWindow.webContents.send('logSeqModeDeSelected');
+
+
+});
   
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
+    magicLinkService.kill();
     mainWindow = null
+    
   })
   
 

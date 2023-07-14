@@ -1,4 +1,4 @@
-import { YarleOptions } from "YarleOptions";
+import { YarleOptions } from "./../YarleOptions";
 
 export interface YarleStatistics{
     notes?: {

@@ -18,40 +18,52 @@
   "scripts": {
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
+    "build-only": "tsc --project ./src/tsconfig.json",
     "clean-by-rimraf": "rimraf ./out && rimraf ./dist && rimraf \"node_modules/!(rimraf|.bin)\"",
     "clean": "rm -f -r ./out && rm -f -r ./dist && rm -r -f ./node_modules",
-    "build": "npm i  && tsc --project ./src/tsconfig.json && copyfiles -u 1 \"src/ui/**/*\" dist",
+    "build": "npm i  && tsc --project ./src/tsconfig.json && copyfiles -u 1 \"src/ui/**/*\" dist && copyfiles -u 1 \"src/views/**/*\" dist",
     "install-tsc": "npm install -g typescript",
     "build-windows": "tsc --project .\\src",
     "build:watch": "nodemon --watch src/ --exec \"npm run build\" -e ts",
     "coverage": "nyc mocha",
     "lint": "tslint --fix --project ./src/tsconfig.json",
     "debug": "node --inspect --max-old-space-size=1024 ./dist/dropTheRope.js",
-    "test": "nyc --reporter=html --reporter=text mocha",
+    "test": "react-scripts test",
     "test-watch": "mocha --watch",
     "compile": "npm run build && copyfiles -u 1 \"src/ui/**/*\" dist",
-    "start": "electron .",
     "css-build": "node-sass --omit-source-map-url ./src/ui/sass/purecss.scss ./src/ui/css/purecss.css ./dist/ui/assets/css",
     "css-watch": "npm run css-build -- --watch",
     "publish-npm": "npm run compile && npm publish",
     "release": "npx semantic-release",
     "package-mac": "electron-builder . --overwrite --asar --platform=darwin --arch=x64 --icon=./src/ui/assets/icons/mac/icon.icns --prune=true --out=release-builds --darwinDarkModeSupport=true",
     "package-win": "electron-builder . electron-tutorial-app --overwrite --asar --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Yarle\"",
-    "package-linux": "electron-builder . electron-tutorial-app --overwrite --asar --platform=linux --arch=x64 --icon=assets/icons/png/512x512.png --prune=true --out=release-builds"
+    "package-linux": "electron-builder . electron-tutorial-app --overwrite --asar --platform=linux --arch=x64 --icon=assets/icons/png/512x512.png --prune=true --out=release-builds",
+    "start": "concurrently \"npm run react-start \" \"wait-on http://127.0.0.1:3000/ && electron .\"",
+    "login-start": " npm run react-start",
+    "yarle-nologin": "electron .",
+    "eject": "react-scripts eject",
+    "react-start": "NODE_OPTIONS=--openssl-legacy-provider && react-app-rewired  --openssl-legacy-provider start",
+    "react-build": "react-app-rewired build",
+    "react-test": "react-app-rewired test",
+    "old": "electron ."
   },
   "dependencies": {
     "@electron/remote": "2.0.8",
     "@types/fs-extra": "8.1.0",
     "chai": "4.2.0",
     "chokidar": "3.4.3",
+    "cookie-parser": "^1.4.6",
+    "electron": "22.0.0",
     "electron-store": "8.0.1",
+    "express": "^4.18.2",
     "fast-xml-parser": "3.12.5",
     "fs-extra": "4.0.2",
     "he": "1.2.0",
     "joplin-turndown-plugin-gfm": "1.0.12",
+    "js-cookie": "^3.0.5",
     "jsdom": "20.0.3",
     "lodash": "4.17.21",
-    "magic-sdk": "18.2.0",
+    "magic-sdk": "^18.4.1",
     "marked": "4.2.5",
     "md5-file": "5.0.0",
     "mime-types": "2.1.28",
@@ -82,6 +94,8 @@
     "@semantic-release/git": "10.0.1",
     "@semantic-release/github": "8.0.4",
     "@semantic-release/npm": "9.0.1",
+    "@types/cookie-parser": "^1.4.3",
+    "@types/express": "^4.17.17",
     "@types/he": "1.1.1",
     "@types/jsdom": "20.0.1",
     "@types/lodash": "4.14.151",
@@ -107,6 +121,8 @@
     "nodemon": "2.0.20",
     "nyc": "15.1.0",
     "purecss-sass": "2.0.3",
+    "react-app-rewired": "^2.2.1",
+    "react-scripts": "4.0.2",
     "semantic-release": "19.0.5",
     "sinon": "9.0.2",
     "timezone-mock": "1.1.1",
@@ -159,5 +175,17 @@
     "rpm": {
       "publish": "github"
     }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
