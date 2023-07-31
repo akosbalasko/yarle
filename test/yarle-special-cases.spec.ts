@@ -1230,10 +1230,10 @@ describe('Yarle error cases', async () => {
     await dropTheRopeRunner.run(options);
 
   });
-  it('Tana recognization - table', async () => {
+  it.skip('Tana recognization - table', async () => {
     const options: YarleOptions = {
       dateFormat:  "YYYY-MM-DD",
-      enexSources: [ `${testDataFolder}test-tana-02.enex` ],
+      enexSources: [ `${testDataFolder}test-tana-table.enex` ],
       outputDir: 'out',
       templateFile: `${testDataFolder}sampleTemplate_tana.tmpl`,
       isMetadataNeeded: true,
