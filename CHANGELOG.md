@@ -1,3 +1,185 @@
+## [5.2.1](https://github.com/akosbalasko/yarle/compare/v5.2.0...v5.2.1) (2023-07-14)
+
+
+### Bug Fixes
+
+* boolean conversion fixed ([#490](https://github.com/akosbalasko/yarle/issues/490)) ([dc42c1e](https://github.com/akosbalasko/yarle/commit/dc42c1e68d113bae4cc99f74ddbfb970bb5bb5fe))
+
+# [5.2.0](https://github.com/akosbalasko/yarle/compare/v5.1.2...v5.2.0) (2023-05-31)
+
+
+### Features
+
+* tana tables improved ([#477](https://github.com/akosbalasko/yarle/issues/477)) ([ecf9908](https://github.com/akosbalasko/yarle/commit/ecf9908746df28309c593a6079c84f08a817f1a2))
+
+## [5.1.2](https://github.com/akosbalasko/yarle/compare/v5.1.1...v5.1.2) (2023-05-18)
+
+
+### Bug Fixes
+
+* some unused asserts removed ([#476](https://github.com/akosbalasko/yarle/issues/476)) ([79fd72c](https://github.com/akosbalasko/yarle/commit/79fd72c0e90c3aeb52b84fb0540a22d01205a862))
+
+## [5.1.1](https://github.com/akosbalasko/yarle/compare/v5.1.0...v5.1.1) (2023-05-18)
+
+
+### Bug Fixes
+
+* tana highlights fixed ([#474](https://github.com/akosbalasko/yarle/issues/474)) ([6e3c444](https://github.com/akosbalasko/yarle/commit/6e3c44466600efaca02f15536511934c7bf438c8))
+
+# [5.1.0](https://github.com/akosbalasko/yarle/compare/v5.0.12...v5.1.0) (2023-05-14)
+
+
+### Features
+
+* support of Tana internal format ([#472](https://github.com/akosbalasko/yarle/issues/472)) ([86f6dd3](https://github.com/akosbalasko/yarle/commit/86f6dd396341f6160cfdb16514c89c12d3049882))
+
+## [5.0.12](https://github.com/akosbalasko/yarle/compare/v5.0.11...v5.0.12) (2023-05-09)
+
+
+### Bug Fixes
+
+* remove template placeholders ([#471](https://github.com/akosbalasko/yarle/issues/471)) ([55d0aa7](https://github.com/akosbalasko/yarle/commit/55d0aa7cab34cf87a111e65a3429dfbca27607b1))
+
+## [5.0.11](https://github.com/akosbalasko/yarle/compare/v5.0.10...v5.0.11) (2023-03-18)
+
+
+### Bug Fixes
+
+* truncate if the filepath exceeds the OS limit ([#377](https://github.com/akosbalasko/yarle/issues/377)) ([9510fac](https://github.com/akosbalasko/yarle/commit/9510facfa1aa8a1d987003a3919b8ec23a2d4824))
+
+## [5.0.10](https://github.com/akosbalasko/yarle/compare/v5.0.9...v5.0.10) (2023-03-13)
+
+
+### Bug Fixes
+
+* default template is in valid YAML format ([#460](https://github.com/akosbalasko/yarle/issues/460)) ([f9b313c](https://github.com/akosbalasko/yarle/commit/f9b313cdf257d4d6b97fb1fa8c6de84fa3ff0d5b))
+
+## [5.0.9](https://github.com/akosbalasko/yarle/compare/v5.0.8...v5.0.9) (2023-03-06)
+
+
+### Bug Fixes
+
+* keepImageSize added to config ([#458](https://github.com/akosbalasko/yarle/issues/458)) ([b0ed312](https://github.com/akosbalasko/yarle/commit/b0ed31295cd799b644dd3aa56029047cdced7539))
+
+## [5.0.8](https://github.com/akosbalasko/yarle/compare/v5.0.7...v5.0.8) (2023-02-28)
+
+
+### Bug Fixes
+
+* handling enex filenames containing multiple dots ([#456](https://github.com/akosbalasko/yarle/issues/456)) ([61a4275](https://github.com/akosbalasko/yarle/commit/61a4275614fe502eac8df3922b65c6d3a26fbc95))
+
+## [5.0.7](https://github.com/akosbalasko/yarle/compare/v5.0.6...v5.0.7) (2023-02-25)
+
+
+### Bug Fixes
+
+* prevent updating outputFormat to reinit enex or outputDir ([#453](https://github.com/akosbalasko/yarle/issues/453)) ([79055a8](https://github.com/akosbalasko/yarle/commit/79055a8d5204b7fe9f4b85171ec0a8715c03d482))
+
+## [5.0.6](https://github.com/akosbalasko/yarle/compare/v5.0.5...v5.0.6) (2023-02-21)
+
+
+### Bug Fixes
+
+* release process trigger ([#451](https://github.com/akosbalasko/yarle/issues/451)) ([464c075](https://github.com/akosbalasko/yarle/commit/464c075b5da9d27fb94e72589e1c711c429ca87e))
+
+## [5.0.4](https://github.com/akosbalasko/yarle/compare/v5.0.3...v5.0.4) (2023-02-01)
+
+
+### Bug Fixes
+
+* multiple logseg journal notes appended ([#445](https://github.com/akosbalasko/yarle/issues/445)) ([16382db](https://github.com/akosbalasko/yarle/commit/16382db63d919a406cd344ae4025fc2344128f5d))
+
+## [5.0.3](https://github.com/akosbalasko/yarle/compare/v5.0.2...v5.0.3) (2023-02-01)
+
+
+### Bug Fixes
+
+* create resource folder for Logseq, no matter what ([#443](https://github.com/akosbalasko/yarle/issues/443)) ([33e823a](https://github.com/akosbalasko/yarle/commit/33e823ad2296377fac8cd08531af34e6105316b6))
+
+## [5.0.2](https://github.com/akosbalasko/yarle/compare/v5.0.1...v5.0.2) (2023-01-24)
+
+
+### Bug Fixes
+
+* example enex file added to root ([#440](https://github.com/akosbalasko/yarle/issues/440)) ([f9c2a7a](https://github.com/akosbalasko/yarle/commit/f9c2a7aff6243b97cc17f49c1bff759e2cab65df))
+
+## [5.0.1](https://github.com/akosbalasko/yarle/compare/v5.0.0...v5.0.1) (2023-01-24)
+
+
+### Bug Fixes
+
+* copyright set, example enex copied to dist, icons ([#439](https://github.com/akosbalasko/yarle/issues/439)) ([d3f75e2](https://github.com/akosbalasko/yarle/commit/d3f75e235eaa77e312c06742773256cad1f50f6e))
+
+# [4.16.0](https://github.com/akosbalasko/yarle/compare/v4.15.2...v4.16.0) (2023-01-22)
+
+
+### Features
+
+* support of v10.48 todos implemented ([#438](https://github.com/akosbalasko/yarle/issues/438)) ([e0027e7](https://github.com/akosbalasko/yarle/commit/e0027e74cba872a8d49f3936398cbf5ac0091fb7))
+
+## [4.15.2](https://github.com/akosbalasko/yarle/compare/v4.15.1...v4.15.2) (2023-01-17)
+
+
+### Bug Fixes
+
+* evernote v10 multiple tasks ([#435](https://github.com/akosbalasko/yarle/issues/435)) ([0e5fca2](https://github.com/akosbalasko/yarle/commit/0e5fca2e731d1f20013d184ad5495fb085151d72))
+
+## [4.15.1](https://github.com/akosbalasko/yarle/compare/v4.15.0...v4.15.1) (2022-12-28)
+
+
+### Bug Fixes
+
+* empty en-todo fixed ([#431](https://github.com/akosbalasko/yarle/issues/431)) ([fa6a76d](https://github.com/akosbalasko/yarle/commit/fa6a76dd98516f302f6442494cda3f3668ee9625))
+
+# [4.15.0](https://github.com/akosbalasko/yarle/compare/v4.14.0...v4.15.0) (2022-12-03)
+
+
+### Features
+
+* title normalized to do not break links ([#427](https://github.com/akosbalasko/yarle/issues/427)) ([f9ccf4c](https://github.com/akosbalasko/yarle/commit/f9ccf4c2a734f3ac79acb55e67edc39d0a9cd05a))
+
+# [4.14.0](https://github.com/akosbalasko/yarle/compare/v4.13.0...v4.14.0) (2022-12-03)
+
+
+### Features
+
+* useZettelIdAsFilename option ([#426](https://github.com/akosbalasko/yarle/issues/426)) ([c846f49](https://github.com/akosbalasko/yarle/commit/c846f4959c3c25b9440b6ede5fd8badbbf422320))
+
+# [4.13.0](https://github.com/akosbalasko/yarle/compare/v4.12.1...v4.13.0) (2022-11-24)
+
+
+### Features
+
+* buymeacoffee widget added ([#423](https://github.com/akosbalasko/yarle/issues/423)) ([909d545](https://github.com/akosbalasko/yarle/commit/909d545dcd0a58da615727ea3f6d1c7bd6c90b86))
+
+## [4.12.1](https://github.com/akosbalasko/yarle/compare/v4.12.0...v4.12.1) (2022-11-24)
+
+
+### Bug Fixes
+
+* replacing two spaces by a single tab ([#421](https://github.com/akosbalasko/yarle/issues/421)) ([ade1cf8](https://github.com/akosbalasko/yarle/commit/ade1cf8c3442df55d1ae944017af50d53d91a61a))
+
+# [4.12.0](https://github.com/akosbalasko/yarle/compare/v4.11.0...v4.12.0) (2022-10-30)
+
+
+### Features
+
+* array tags ([#415](https://github.com/akosbalasko/yarle/issues/415)) ([a8c7552](https://github.com/akosbalasko/yarle/commit/a8c7552ce155cf8abecc14643360c67bac2df0c4))
+
+# [4.11.0](https://github.com/akosbalasko/yarle/compare/v4.10.3...v4.11.0) (2022-09-17)
+
+
+### Features
+
+* unique unknown filename implemented ([#412](https://github.com/akosbalasko/yarle/issues/412)) ([94ebf8d](https://github.com/akosbalasko/yarle/commit/94ebf8ddadd378a9f6014b86d424a229aa3247b9))
+
+## [4.10.3](https://github.com/akosbalasko/yarle/compare/v4.10.2...v4.10.3) (2022-09-14)
+
+
+### Bug Fixes
+
+* timestamp added instead of human readable datetime ([#408](https://github.com/akosbalasko/yarle/issues/408)) ([434500a](https://github.com/akosbalasko/yarle/commit/434500a8dafa72941f02242d1664af55aed37e94))
+
 ## [4.10.2](https://github.com/akosbalasko/yarle/compare/v4.10.1...v4.10.2) (2022-07-12)
 
 

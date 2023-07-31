@@ -1,11 +1,20 @@
 import { InternalLink, NoteData } from './models';
+export interface NoteIdNameEntry {
+    title: string;
+    noteName: string;
+    notebookName: string;
+    uniqueEnd: string;
+}
 
+export interface NoteIdNames {
+ [key: string]: NoteIdNameEntry;
+}
 export class RuntimePropertiesSingleton {
 
     static instance: RuntimePropertiesSingleton;
 
-    noteIdNameMap: any;
-    noteIdNameTOCMap: any; // Table of Contents map - the trusted source
+    noteIdNameMap: NoteIdNames;
+    noteIdNameTOCMap: NoteIdNames; // Table of Contents map - the trusted source
     currentNoteName: string;
     currentNotebookName: string;
     currentNotePath: string;
@@ -30,6 +39,7 @@ export class RuntimePropertiesSingleton {
             title: linkItem.title,
             noteName: this.currentNoteName,
             notebookName: this.currentNotebookName,
+            uniqueEnd: linkItem.uniqueEnd,
         };
     }
     addItemToTOCMap(linkItem: InternalLink): void {
@@ -38,6 +48,7 @@ export class RuntimePropertiesSingleton {
             title: linkItem.title,
             noteName: this.currentNoteName,
             notebookName: this.currentNotebookName,
+            uniqueEnd: linkItem.uniqueEnd,
         };
     }
 
@@ -49,11 +60,15 @@ export class RuntimePropertiesSingleton {
         return this.noteIdNameTOCMap;
     }
 
-    getAllNoteIdNameMap(): any {
+    getAllNoteIdNameMap(): NoteIdNames {
         return {
             ...this.noteIdNameMap,
             ...this.noteIdNameTOCMap,
         };
+    }
+
+    getNoteIdNameMapByNoteTitle(noteTitle: string): any {
+        return Object.values(this.getAllNoteIdNameMap()).filter(noteIdName => noteIdName.title === noteTitle);
     }
 
     setCurrentNotebookName(currentNotebookName: string): void {

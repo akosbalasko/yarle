@@ -1,8 +1,10 @@
+import uniqueFilename from 'unique-filename';
 import sanitize from 'sanitize-filename';
 import * as fs from 'fs';
 import Moment from 'moment';
 import * as path from 'path';
 import * as mime from 'mime-types';
+import { nanoid } from 'nanoid';
 
 import { yarleOptions } from '../yarle';
 
@@ -10,11 +12,13 @@ import { ResourceFileProperties } from './../models/ResourceFileProperties';
 import { OutputFormat } from './../output-format';
 import { getCreationTime } from './content-utils';
 import { escapeStringRegexp } from './escape-string-regexp';
+import { isLogseqJournal } from './is-logseq-journal';
 
 export const normalizeTitle = (title: string) => {
   // Allow setting a specific replacement character for file and resource names
   // Default to a retrocompatible value
-  return sanitize(title, {replacement: yarleOptions.replacementChar || '_'});
+  return sanitize(title, {replacement: yarleOptions.replacementChar || '_'}).replace(/[\[\]\#\^]/g, '')
+  ;
 };
 
 export const getFileIndex = (dstPath: string, fileNamePrefix: string): number | string => {
@@ -35,7 +39,7 @@ export const getFileIndex = (dstPath: string, fileNamePrefix: string): number | 
 
 };
 export const getResourceFileProperties = (workDir: string, resource: any): ResourceFileProperties => {
-  const UNKNOWNFILENAME = 'unknown_filename';
+  const UNKNOWNFILENAME = yarleOptions.useUniqueUnknownFileNames ? uniqueFilename('', 'unknown_filename') : 'unknown_filename';
 
   const extension = getExtension(resource);
   let fileName = UNKNOWNFILENAME;
@@ -64,8 +68,8 @@ export const getFilePrefix = (note: any): string => {
   return normalizeTitle(note['title'] ? `${note['title'].toString()}` : 'Untitled');
 };
 
-export const getNoteFileName = (dstPath: string, note: any): string => {
-  return `${getNoteName(dstPath, note)}.md`;
+export const getNoteFileName = (dstPath: string, note: any, extension: string = 'md'): string => {
+  return `${getNoteName(dstPath, note)}.${extension}`;
 };
 export const getExtensionFromResourceFileName = (resource: any): string => {
   if (!(resource['resource-attributes'] &&
@@ -97,10 +101,14 @@ export const getZettelKastelId = (note: any, dstPath: string): string => {
 
 };
 
+export const getUniqueId = (): string => {
+  return nanoid(5);
+};
+
 export const getNoteName = (dstPath: string, note: any): string => {
   let noteName;
 
-  if (yarleOptions.isZettelkastenNeeded) {
+  if (yarleOptions.isZettelkastenNeeded || yarleOptions.useZettelIdAsFilename) {
     const zettelPrefix = getZettelKastelId(note, dstPath);
     const nextIndex = getFileIndex(dstPath, zettelPrefix);
     const separator = ' ';
@@ -108,14 +116,16 @@ export const getNoteName = (dstPath: string, note: any): string => {
       `${zettelPrefix}.${nextIndex}` :
       zettelPrefix;
 
-    noteName += getFilePrefix(note) !== 'Untitled' ? `${separator}${getFilePrefix(note)}` : '';
+    if (!yarleOptions.useZettelIdAsFilename) {
+      noteName += getFilePrefix(note) !== 'Untitled' ? `${separator}${getFilePrefix(note)}` : '';
+    }
   } else {
     const fileNamePrefix = getFilePrefix(note);
     const nextIndex = getFileIndex(dstPath, fileNamePrefix);
 
     noteName = (nextIndex === 0) ? fileNamePrefix :  `${fileNamePrefix}.${nextIndex}`;
   }
-  if (yarleOptions.outputFormat === OutputFormat.LogSeqMD && yarleOptions.logseqSettings.journalNotes) {
+  if (isLogseqJournal(yarleOptions)) {
     return getCreationTime(note);
   }
 

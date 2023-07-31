@@ -3,7 +3,8 @@ import moment from 'moment';
 
 import { yarleOptions } from './yarle';
 import { TaskOutputFormat } from './task-output-format';
-import { EvernoteTask, EvernoteTaskStatus } from './models/EvernoteTask';
+import { EvernoteTask } from './models/EvernoteTask';
+import { getTaskStatusMd } from './utils/get-task-status-md';
 
 const MEDIUM_PRIORITY_ICON = '🔼';
 const LOW_PRIORITY_ICON = '🔽';
@@ -20,21 +21,17 @@ export const processTaskFactory = (outputFormat: TaskOutputFormat): Function =>�
 };
 
 const convertTasktoPlainMdTask = (task: EvernoteTask, notebookName: string): string => {
-  const taskStatusMd = (task.taskstatus === EvernoteTaskStatus.Open)
-    ? '- [ ]'
-    : '- [x]';
+  const taskStatusMd = getTaskStatusMd(task)
   const title = task.title ? ` ${task.title}` : '';
 
   return `${taskStatusMd}${title}`;
 };
 
 export const convertTasktoMd = (task: EvernoteTask, notebookName: string): string => {
-    const taskStatusMd = (task.taskstatus === EvernoteTaskStatus.Open)
-      ? '- [ ]'
-      : '- [x]';
+    const taskStatusMd = getTaskStatusMd(task)
     const title = task.title ? ` ${task.title}` : '';
     const tag = yarleOptions.obsidianTaskTag !== '' ? ` ${yarleOptions.obsidianTaskTag}` : '';
-    const duedate = task.duedate
+    const duedate = task.duedate && !isNaN(task.duedate.getTime())
       ? ` ${DUE_DATE_ICON} ${convertDateFormat(task.duedate)}`
       : '';
     const reminder = task.reminderdate ? ` ${SCHEDULE_DATE_ICON} ${convertDateFormat(task.reminderdate)}` : '';

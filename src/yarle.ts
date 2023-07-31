@@ -9,12 +9,12 @@ import { YarleOptions } from './YarleOptions';
 import { processNode } from './process-node';
 import { isWebClip } from './utils/note-utils';
 import { loggerInfo } from './utils/loggerInfo';
-import { hasCreationTimeInTemplate,
+import { hasAnyTagsInTemplate,
+  hasCreationTimeInTemplate,
   hasLinkToOriginalInTemplate,
   hasLocationInTemplate,
   hasNotebookInTemplate,
   hasSourceURLInTemplate,
-  hasTagsInTemplate,
   hasUpdateTimeInTemplate } from './utils/templates/checker-functions';
 import { defaultTemplate } from './utils/templates/default-template';
 import { OutputFormat } from './output-format';
@@ -23,6 +23,10 @@ import { RuntimePropertiesSingleton } from './runtime-properties';
 import { processTaskFactory } from './process-tasks';
 import { mapEvernoteTask } from './models/EvernoteTask';
 import { TaskOutputFormat } from './task-output-format';
+import { isTanaOutput } from './utils/tana/is-tana-output';
+import { NodeType } from "./utils/tana/types";
+import { checkboxDone, checkboxTodo } from './constants';
+import { cleanTanaContent } from './utils/tana/convert-to-tana-node';
 
 export const defaultYarleOptions: YarleOptions = {
   enexSources: ['notebook.enex'],
@@ -31,6 +35,7 @@ export const defaultYarleOptions: YarleOptions = {
   isMetadataNeeded: false,
   isNotebookNameNeeded: false,
   isZettelkastenNeeded: false,
+  useZettelIdAsFilename: false,
   plainTextNotesOnly: false,
   skipWebClips: false,
   useHashTags: true,
@@ -65,7 +70,7 @@ const setOptions = (options: YarleOptions): void => {
   yarleOptions.skipCreationTime = !hasCreationTimeInTemplate(template);
   yarleOptions.skipLocation = !hasLocationInTemplate(template);
   yarleOptions.skipSourceUrl = !hasSourceURLInTemplate(template);
-  yarleOptions.skipTags = !hasTagsInTemplate(template);
+  yarleOptions.skipTags = !hasAnyTagsInTemplate(template) && !isTanaOutput();
   yarleOptions.skipUpdateTime = !hasUpdateTimeInTemplate(template);
   yarleOptions.isNotebookNameNeeded = hasNotebookInTemplate(template);
   yarleOptions.keepOriginalHtml = hasLinkToOriginalInTemplate(template);
@@ -76,6 +81,9 @@ const setOptions = (options: YarleOptions): void => {
   loggerInfo(`Path separator:${path.sep}`);
   /*}*/
 };
+interface TaskGroups {
+  [key: string]: Map<string, string>;
+}
 
 export const parseStream = async (options: YarleOptions, enexSource: string): Promise<void> => {
   loggerInfo(`Getting stream from ${enexSource}`);
@@ -84,7 +92,7 @@ export const parseStream = async (options: YarleOptions, enexSource: string): Pr
   let noteNumber = 0;
   let failed = 0;
   let skipped = 0;
-  const tasks: any = {}; // key: taskId value: generated md text
+  const tasks: TaskGroups = {}; // key: taskId value: generated md text
   const notebookName = utils.getNotebookName(enexSource);
   const processTaskFn = processTaskFactory(yarleOptions.taskOutputFormat);
 
@@ -122,28 +130,62 @@ export const parseStream = async (options: YarleOptions, enexSource: string): Pr
         loggerInfo(`Notes processed: ${noteNumber}\n\n`);
       }
       noteAttributes = null;
+      
+      const runtimeProps = RuntimePropertiesSingleton.getInstance();
+      const currentNotePath = runtimeProps.getCurrentNotePath();
+      if (currentNotePath) {
+        for (const task of Object.keys(tasks)) {
+
+          const taskPlaceholder = `<YARLE-EN-V10-TASK>${task}</YARLE-EN-V10-TASK>`
+          const fileContent = fs.readFileSync(currentNotePath, 'UTF-8');
+          const sortedTasks = new Map([...tasks[task]].sort());
+
+          let updatedContent = fileContent.replace(taskPlaceholder, [...sortedTasks.values()].join('\n'));
+
+          if (isTanaOutput()){
+            const tanaNote = JSON.parse(fileContent);
+            const rootTaskChild = tanaNote.nodes?.[0].children?.find((child:any) => child.name === taskPlaceholder)
+            if (rootTaskChild){
+              for (const taskItem of sortedTasks.values()){
+                // split by tasks
+                const todoState = taskItem.startsWith(checkboxTodo)? 'todo':'done'
+                tanaNote.nodes?.[0].children?.push({
+              
+                    uid: 'uuid' + Math.random(),
+                    createdAt: rootTaskChild.createdAt,
+                    editedAt: rootTaskChild.editedAt,
+                    type: 'node' as NodeType,
+
+                    name: cleanTanaContent(taskItem, todoState === 'todo' ? checkboxTodo: checkboxDone),
+                    todoState: todoState as "todo"|"done",
+                    refs:[],
+                }
+
+                )
+              }
+            tanaNote.nodes?.[0].children.splice(tanaNote.nodes?.[0].children.indexOf(rootTaskChild), 1)
+            updatedContent = JSON.stringify(tanaNote)
+          }
+
+          }
+          fs.writeFileSync(currentNotePath, updatedContent);
+          
+        }
+      }
     });
 
     xml.on('tag:task', (pureTask: any) => {
       const task = mapEvernoteTask(pureTask);
       if (!tasks[task.taskgroupnotelevelid]) {
-        tasks[task.taskgroupnotelevelid] = [];
+        tasks[task.taskgroupnotelevelid] = new Map();
       }
 
-      tasks[task.taskgroupnotelevelid].push(processTaskFn(task, notebookName));
+      tasks[task.taskgroupnotelevelid].set(task.sortweight, processTaskFn(task, notebookName));
 
     });
 
     xml.on('end', () => {
-      const runtimeProps = RuntimePropertiesSingleton.getInstance();
-      const currentNotePath = runtimeProps.getCurrentNotePath();
-      if (currentNotePath) {
-        for (const task of Object.keys(tasks)) {
-          const fileContent = fs.readFileSync(currentNotePath, 'UTF-8');
-          const updatedContent = fileContent.replace(`<YARLE-EN-V10-TASK>${task}</YARLE-EN-V10-TASK>`, tasks[task].join('\n'));
-          fs.writeFileSync(currentNotePath, updatedContent);
-        }
-      }
+
 
       const success = noteNumber - failed;
       const totalNotes = noteNumber + skipped;

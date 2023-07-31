@@ -1,7 +1,7 @@
 import marked, { Token } from 'marked';
 import * as _ from 'lodash';
 
-import { normalizeTitle } from '../filename-utils';
+import { getUniqueId, normalizeTitle } from '../filename-utils';
 import { OutputFormat } from '../../output-format';
 import { yarleOptions } from '../../yarle';
 import { getTurndownService } from '../turndown-service';
@@ -25,7 +25,6 @@ export const wikiStyleLinksRule = {
         if (!nodeProxy.href) {
             return '';
         }
-
         let internalTurndownedContent =
             getTurndownService(yarleOptions).turndown(removeBrackets(node.innerHTML));
         internalTurndownedContent = removeDoubleBackSlashes(internalTurndownedContent);
@@ -64,10 +63,11 @@ export const wikiStyleLinksRule = {
         if (value.startsWith('evernote://')) {
             const fileName = normalizeTitle(token['text']);
             const noteIdNameMap = RuntimePropertiesSingleton.getInstance();
+            const uniqueId = getUniqueId();
             if (isTOC(noteIdNameMap.getCurrentNoteName())) {
-                noteIdNameMap.addItemToTOCMap({ url: value, title: fileName });
+                noteIdNameMap.addItemToTOCMap({ url: value, title: fileName, uniqueEnd: uniqueId  });
             } else {
-                noteIdNameMap.addItemToMap({ url: value, title: fileName });
+                noteIdNameMap.addItemToMap({ url: value, title: fileName, uniqueEnd: uniqueId  });
             }
 
             const linkedNoteId = value;

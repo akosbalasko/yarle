@@ -1,4 +1,10 @@
-const {ipcRenderer} = require('electron')
+//const {ipcRenderer} = require('electron')
+const func = async () => {
+  const response = await window.versions.chrome()
+  console.log(response) // prints out 'pong'
+}
+
+func()
 const fs = require('fs');
 const path = require('path');
 

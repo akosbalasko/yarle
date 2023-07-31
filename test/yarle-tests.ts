@@ -17,7 +17,16 @@ export const yarleTests: Array<YarleTest> = [
     testOutputPath: `notes${path.sep}test-justText${path.sep}test -note with text only.md`,
     expectedOutputPath: `${dataFolder}test-justText.md`,
   },
-
+  {
+    name: 'Enex file with note containing text only - remove characters which break obsidian links',
+    options: {
+      enexSources: [ `${__dirname}${path.sep}..${path.sep}${testDataFolder}test-justText-linkbreakingNote.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+    },
+    testOutputPath: `notes${path.sep}test-justText-linkbreakingNote${path.sep}test -note _with text only.md`,
+    expectedOutputPath: `${dataFolder}test -note _with text only.md`,
+  },
   {
     name: 'Enex file with note WithHyperlinkRefs',
     options: {
@@ -151,6 +160,7 @@ export const yarleTests: Array<YarleTest> = [
       outputDir: 'out',
       isMetadataNeeded: true,
       isZettelkastenNeeded: true,
+      useZettelIdAsFilename: false
     },
     testOutputPath: `notes${path.sep}test-noteWithZettelKasten${path.sep}201810060943 test -note with text only.md`,
 
@@ -158,6 +168,19 @@ export const yarleTests: Array<YarleTest> = [
     expectedOutputPath: `${dataFolder}test-noteWithZettelKasten.md`,
   },
 
+  {
+    name: 'Note with zettelkastel id - use as filename',
+    options: {
+      enexSources: [ `.${testDataFolder}test-noteWithZettelKasten.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      isZettelkastenNeeded: true,
+
+      useZettelIdAsFilename: true,
+    },
+    testOutputPath: `notes${path.sep}test-noteWithZettelKasten${path.sep}201810060943.md`,
+    expectedOutputPath: `${dataFolder}test-noteWithZettelKasten.md`,
+  },
 
   {
     name: 'Note with zettelkastel id - no title',
@@ -438,6 +461,27 @@ export const yarleTests: Array<YarleTest> = [
   },
 
   {
+    name: 'Note empty en-todo',
+    options: {
+      enexSources: [ `.${testDataFolder}test-empty-en-todo.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+    },
+    testOutputPath: `notes${path.sep}test-empty-en-todo${path.sep}test-empty-en-todo.md`,
+
+    expectedOutputPath: `${dataFolder}test-empty-en-todo.md`,
+  },
+  {
+    name: 'Note checkboxes',
+    options: {
+      enexSources: [ `.${testDataFolder}test-checkboxes.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+    },
+    testOutputPath: `notes${path.sep}test-checkboxes${path.sep}checkboxes.md`,
+    expectedOutputPath: `${dataFolder}test-checkboxes.md`,
+  },
+  {
     name: 'Note with sublists (valid html)',
     options: {
       enexSources: [ `.${testDataFolder}test-sublists-valid.enex` ],
@@ -489,8 +533,7 @@ export const yarleTests: Array<YarleTest> = [
       outputDir: 'out',
       isMetadataNeeded: true,
     },
-    testOutputPath: `notes${path.sep}test-checklist${path.sep}test - checklist.md`,
-
+    testOutputPath: `notes${path.sep}test-checklist${path.sep}test-checkbox.v10.48.md`,
     expectedOutputPath: `${dataFolder}test-checklist.md`,
   },
 
@@ -579,8 +622,6 @@ export const yarleTests: Array<YarleTest> = [
 
     expectedOutputPath: `${dataFolder}test-webclip_bookmark.md`,
   },
-
-
   {
     name: 'Webclip - screenshot',
     options: {
@@ -726,7 +767,7 @@ export const yarleTests: Array<YarleTest> = [
       isMetadataNeeded: true,
       skipLocation: true,
       keepMDCharactersOfENNotes: true,
-      dateFormat: 'YYYY MMMM DD',
+      dateFormat: 'YYYY-MM-DD',
     },
     testOutputPath: `notes${path.sep}test-justTextButCustomDate${path.sep}test -note with text only.md`,
     expectedOutputPath: `${dataFolder}test-justTextButCustomDate.md`,

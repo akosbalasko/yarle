@@ -4,8 +4,6 @@ import { filterByNodeName } from './filter-by-nodename';
 import { getAttributeProxy } from './get-attribute-proxy';
 import { replaceMonospaceCodeBlock } from './replace-monospace-code-block';
 
-const markdownBlock = '\n```\n';
-
 const isTaskBlock = (node: any)  => {
     const nodeProxy = getAttributeProxy(node);
     const taskFlag = '--en-task-group:true';

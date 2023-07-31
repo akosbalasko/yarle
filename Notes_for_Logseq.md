@@ -17,6 +17,7 @@ Please use settings below
     "isMetadataNeeded": true,
     "isNotebookNameNeeded": false,
     "isZettelkastenNeeded": false,
+    "useZettelIdAsFilename": false,
     "plainTextNotesOnly": false,
     "skipWebClips": true,
     "useHashTags": false,
@@ -48,6 +49,7 @@ Please use settings below
     "keepOriginalAmountOfNewlines": true,
     "haveEnexLevelResources": true,
     "haveGlobalResources": false,
+	"useUniqueUnknownFileNames": false,
     "logseqSettings":{
       "journalNotes": false
     }
@@ -74,7 +76,7 @@ You should use the page template below instead of the default one
 
 {created-at-block}- _Created at {created-at}._{end-created-at-block}
 {updated-at-block}- _Last updated at {updated-at}._{end-updated-at-block}
-{source-url-block}- _Source URL: []({source-url})._{end-source-url-block}
+{source-url-block}- _Source URL []({source-url})._{end-source-url-block}
 
 
 {tags-block}

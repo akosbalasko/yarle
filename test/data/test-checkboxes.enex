@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE en-export SYSTEM "http://xml.evernote.com/pub/evernote-export4.dtd">
+<en-export export-date="20230220T204656Z" application="Evernote" version="10.51.7">
+  <note>
+    <title>checkboxes</title>
+    <created>20230120T204520Z</created>
+    <updated>20230120T204630Z</updated>
+    <note-attributes>
+      <author>akos</author>
+    </note-attributes>
+    <content>
+      <![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd"><en-note><div><br /></div><ul style="--en-todo:true;"><li style="--en-checked:false;"><div> Checkbox not completed</div></li><li style="--en-checked:true;"><div>Checkbox done</div></li></ul></en-note>      ]]>
+    </content>
+  </note>
+</en-export>

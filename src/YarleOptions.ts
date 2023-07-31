@@ -13,6 +13,7 @@ export interface YarleOptions {
     isMetadataNeeded?: boolean;
     isNotebookNameNeeded?: boolean;
     isZettelkastenNeeded?: boolean;
+    useZettelIdAsFilename?: boolean;
     plainTextNotesOnly?: boolean;
     skipLocation?: boolean;
     skipCreationTime?: boolean;
@@ -51,4 +52,5 @@ export interface YarleOptions {
     turndownOptions?: Record<string, any>;
     taskOutputFormat?: TaskOutputFormat;
     obsidianTaskTag?: string;
+    useUniqueUnknownFileNames?: boolean;
 }

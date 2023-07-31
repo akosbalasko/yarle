@@ -9,9 +9,7 @@
 [![License: MIT](https://img.shields.io/github/license/akosbalasko/yarle?style=for-the-badge)](https://github.com/akosbalasko/yarle/blob/master/LICENSE)
 ![GitHub All Releases](https://img.shields.io/github/downloads/akosbalasko/yarle/total?style=for-the-badge)
 
-
 Yarle is the ultimate converter of Evernote notes to Markdown.
-
 
 ## Features:
 
@@ -38,7 +36,21 @@ Yarle is the ultimate converter of Evernote notes to Markdown.
 - :hammer: Organizes all attachments into a _resources subfolder (to keep the notes' folder as simple as possible).
 
 
-## Binaries:
+
+
+## To where can I import the converted notes? 
+
+Any other note taking application which recognizes notes in standard markdown, like NotePlan or Craft, but Yarle supports some others that has specific format requirements too. These are: 
+
+<a href="https://github.com/kmaasrud/awesome-obsidian" rel="Awesome Obsidian">Obsidian</a>
+
+<a href="https://github.com/logseq/awesome-logseq" rel="Awesome Logseq">LogSeq</a>
+
+<a href="https://tana.inc" rel= "Tana">Tana</a> (check details and limitations <a href="#tana_limitations">here</a>)
+ 
+
+## Download Yarle here:
+<div id="downloadApp"></div>
 
 [Windows](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_win_x64.exe)
 
@@ -54,9 +66,9 @@ If you like the product, you can give a star here on github, or you can <a href=
 
 ### Yarle's supporters said: 
 
-<!--START_SECTION:buy-me-a-coffee--><div><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"> from <b>Someone</b> </div>  <div><i>Hi, some months ago I used your tool to migrate thousands of notes to Obsidian. You even fixed some issues I reported. I always meant to buy you some coffee but I almost forgot. But here I am. Thank you!</i></div><br>
-<div><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"> from <b>@andreashaubold</b> </div>  <div><i>I moved 1.000+ notes from Evernote to Obsidian. Yarle did a great job! Thanks for creating this tool!</i></div><br>
-<div><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"> from <b>Chris</b> </div>  <div><i>Thanks for the quick transfer!</i></div><br><!--END_SECTION:buy-me-a-coffe-->
+<!--START_SECTION:buy-me-a-coffee--><div><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"> from <b>Someone</b> </div>  <div><i>Thanks, this really helped me out of evernote!</i></div><br>
+<div><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"> from <b>john@thebeard.org</b> </div>  <div><i>YARLE has just allowed me to transfer several years-worth of Evernote notes to Obsidian painlessly and astonishingly quickly. Your work has made my day. Thank you.</i></div><br>
+<div><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"> from <b>@opscat</b> </div>  <div><i>Thanks so much!</i></div><br><!--END_SECTION:buy-me-a-coffe-->
 
 ## Proud to be proposed by: 
 
@@ -78,18 +90,14 @@ If you like the product, you can give a star here on github, or you can <a href=
 
 ## Instructions
 
-Download the desktop app for your platform, and follow the instructions there.
+<a href="#downloadApp">Download the application</a> matching with your Operating system and double-click on it. (On mac, you need to right-click + Run to Open it, because Apple prevents to directly run an application downloaded from Internet)
 
-![out](https://user-images.githubusercontent.com/11886731/114092375-1a72c400-98ba-11eb-9c74-300d1e4c0829.gif)
+https://user-images.githubusercontent.com/11886731/213943491-97211b41-c130-4b6b-a1e9-1fc360741ff7.mov
 
  In order to perform conversion into Logseq format, please choose Logseq as Target format in the configuration panel, then choose the type of your notes (Journal Notes or Pages). For Logseq all the other options have already been pre-configured.
 
 
-## Prerequisite for legacy versions (below 4.0.0):
-
- - Required [Install Node.js](https://nodejs.org/en/download/) version 10.22.1 or higher.
-
-## Zero-install execution via command line
+## Using Yarle via command line
 Just open a terminal, specify config options in a config file (options detailed in [Configuration](#Configuration)) and type the following:
 
 ```javascript
@@ -108,6 +116,7 @@ To configure Yarle, you must create a config file. By default it looks like this
     "templateFile": "/absolute-path-of-your-template-dir/sampleTemplate.tmpl",
     "outputDir": "/path-of-your-desired-output-folder",
     "isZettelkastenNeeded": false,
+    "useZettelIdAsFilename": false,
     "plainTextNotesOnly": false,
     "skipWebClips": false,
     "useHashTags": true,
@@ -131,6 +140,7 @@ To configure Yarle, you must create a config file. By default it looks like this
    "dateFormat": "YYYY-MM-DD",
    "haveEnexLevelResources": true,
    "haveGlobalResources": false,
+   "useUniqueUnknownFileNames": false,
     "logseqSettings":{
         "journalNotes": false
     },
@@ -149,6 +159,7 @@ The following configurational properties are available:
 |```outputDir``` | path to your output dir (absolute or relative) | this is the main output dir where the extracted markdown files and the external resources, images, pdf-s are going to be created|
 |```resourcesDir``` | `_resources` | subdir where attachments/external resources will be placed
 |```isZettelkastenNeeded``` |  true or false | puts Zettelkasten Id (based on time of creation) at the beginning of the file name|
+|```useZettelIdAsFilename``` | true or false | Note files are named by their creation date (those are interpreted as zettelIds)|
 |```plaintextNotesOnly``` |  true or false | skips any notes with attachments (e.g. notes containing pictures)|
 |```useHashTags```|  true or false | whether to add the pound sign in front of tags|
 |```outputFormat```|  ObsidianMD or StandardMD | generates internal file links and highlights in Obsidian-style: highlights are going to be bounded by `==` instead of \` characters, file links are going to be as follows: `![[file-name]]` instead of `![file-name](file-name)`. Possible values: `ObsidianMD` to get Obsidian-style notes, `StandardMD` or skip it completely, if you prefer Standard Markdown format.|
@@ -169,6 +180,7 @@ The following configurational properties are available:
 | ```logseqSettings``` | `{...}` | settings for Logseq output, currently ```journalNotes``` property is supported, if it is set to `true`, then the notes will be converted to be recognizable by Logseq as Journal notes, the notes will be named by their creation date and they will be collected under `journal` folder. If it is `false`, then they will be converted to be `Pages` (e.g. simple notes, collected in `pages` folder).
 | ```taskOutputFormat``` | `ObsidianMD` or `StandardMD` | Output format of Evernote v10+ tasks. ObsidianMD will connvert tasks to match with Obsidian Tasks plugin's requirements. StandardMD will create plain tasks, loosing many features like reminders or due dates.
 | ```obsidianTaskTag``` | string | a tag to put to a task converted from Evernote v10+ tasks. Optional by Obsidian Tasks plugin, pls check the details there. 
+|```useUniqueUnknownFileNames``` | boolean | generates a couple of random characters at the end of the resource file names if the exact name cannot be recognised. For instance: unknown_filename-d2fd86c3.pdf
 
 Metadata settings can be set via the template.
 
@@ -181,3 +193,14 @@ In order to minimize the wrong conversion of links due to duplicated note names,
 2. Create a Table of Contents note
 3. Export the notebook together with the TOC file 
 4. Start yarle and convert your notes
+
+## Converting notes to Tana
+
+Yarle converts your notes to Tana Internal Format. To achieve this, the only thing you need to do differently than the default usage is to the output format as Tana Internal Format. The conversion will produce one file only called `notes-in-TIF.json`. It will contain all of your notes in Tana Internal Format, then you can import this file to Tana. 
+
+### Limitations
+<div id="tana_limitations"><div>
+
+Currently Yarle (or any other converter), cannot convert images into Tana Internal Format. Moreover Yarle converts Evernote tables to Tana as plain text.
+
+Once Tana Internal Format supports these features, we are glad to fill these gaps in the conversion. 

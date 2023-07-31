@@ -5,5 +5,6 @@ export * from './internal-links-rule';
 export * from './span-rule';
 export * from './strikethrough-rule';
 export * from './task-items-rule';
-export * from './newline-rule';
+export * from './newline-rule';
 export * from './div-rule';
+export * from './italic-rule';

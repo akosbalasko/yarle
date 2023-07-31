@@ -1,5 +1,5 @@
 import { YarleOptions } from './../YarleOptions';
-import { store } from './store';
+const store = require ('./store');
 import { OutputFormat } from './../output-format';
 import { TaskOutputFormat } from './../task-output-format';
 
@@ -10,6 +10,7 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
         isMetadataNeeded: true,
         isNotebookNameNeeded: store.get('isNotebookNameNeeded') as boolean,
         isZettelkastenNeeded: store.get('isZettelkastenNeeded') as boolean,
+        useZettelIdAsFilename: store.get('useZettelIdAsFilename') as boolean,
         plainTextNotesOnly: store.get('plainTextNotesOnly') as boolean,
         skipLocation: !(store.get('addLocation') as boolean),
         skipCreationTime: !(store.get('addCreationTime') as boolean),
@@ -46,6 +47,7 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
         urlEncodeFileNamesAndLinks: store.get('urlEncodeFileNamesAndLinks') as boolean,
         haveEnexLevelResources: store.get('haveEnexLevelResources') as boolean,
         haveGlobalResources: store.get('haveGlobalResources') as boolean,
+    useUniqueUnknownFileNames: store.get('useUniqueUnknownFileNames') as boolean,
         sanitizeResourceNameSpaces: store.get('sanitizeResourceNameSpaces') as boolean,
         replacementChar: store.get('replacementChar') as string,
 		token: store.get('token') ? decodeURIComponent((store.get('token') as any)['value'] as string) : undefined,

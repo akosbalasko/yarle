@@ -5,6 +5,7 @@
     "isMetadataNeeded": true,
     "isNotebookNameNeeded": false,
     "isZettelkastenNeeded": false,
+    "useZettelIdAsFilename": false,
     "plainTextNotesOnly": false,
     "skipWebClips": true,
     "useHashTags": false,
@@ -15,6 +16,7 @@
     },
     "outputFormat": "StandardMD",
     "taskOutputFormat": "StandardMD",
+    "keepImageSize": "StandardMD",
     "urlEncodeFileNamesAndLinks": false,
     "sanitizeResourceNameSpaces": false, 
     "replacementChar": "_",
@@ -35,6 +37,7 @@
     "keepOriginalAmountOfNewlines": true,
     "haveEnexLevelResources": true,
     "haveGlobalResources": false,
+	"useUniqueUnknownFileNames": false,
     "logseqSettings":{
         "journalNotes": false
     },
