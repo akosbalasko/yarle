@@ -8,7 +8,9 @@ const yarle = require('../yarle')
 const {OutputFormat} = require('./../output-format')
 const { applyLinks } = require('./../utils/apply-links');
 const { isTanaOutput } = require('./../utils/tana/is-tana-output');
+const { isHeptaOutput } = require('./../utils/heptabase/is-hepta-output');
 const {createTanaOutput } = require('./../utils/tana/create-tana-output');
+const { zipFolder } = require('./../utils/heptabase/zip-folder');
 
 initialize();
 // tslint:disable-next-line:no-require-imports variable-name
@@ -76,6 +78,9 @@ const createWindow = () => {
       if (isTanaOutput()){
         createTanaOutput(settings, outputNotebookFolders)
     }
+      if (isHeptaOutput()){
+        await zipFolder(settings, outputNotebookFolders)
+      }
     });
 
 

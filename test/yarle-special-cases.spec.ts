@@ -1247,4 +1247,38 @@ describe('Yarle error cases', async () => {
     await dropTheRopeRunner.run(options);
 
   });
+
+  
+  it('Heptabase', async () => {
+    const options: YarleOptions = {
+dateFormat: undefined,
+      enexSources: [ `.${path.sep}test${path.sep}data${path.sep}test-hepta.enex` ],
+      outputDir: 'out',
+      outputFormat: OutputFormat.Heptabase,
+      isMetadataNeeded: true,
+    };
+    await dropTheRopeRunner.run(options);
+    // tslint:disable-next-line:no-console
+    console.log(`conversion log: ${fs.readFileSync(utils.LOGFILE)}`);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-hepta.zip`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-hepta/test - note with picture.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-hepta/test - note with picture.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-hepta.md`, 'utf8'),
+    );
+  });
 });

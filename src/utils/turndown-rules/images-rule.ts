@@ -3,6 +3,7 @@ import { yarleOptions } from '../../yarle';
 import { filterByNodeName } from './filter-by-nodename';
 import { getAttributeProxy } from './get-attribute-proxy';
 import { OutputFormat } from './../../output-format';
+import { isHeptaOrObsidianOutput } from './../is-hepta-or-obsidian-output';
 
 export const imagesRule = {
   filter: filterByNodeName('IMG'),
@@ -36,7 +37,7 @@ export const imagesRule = {
       }
     }
 
-    const useObsidianMD = yarleOptions.outputFormat === OutputFormat.ObsidianMD;
+    const useObsidianMD = isHeptaOrObsidianOutput();
     if (useObsidianMD && !value.match(/^[a-z]+:/)) {
       return `![[${realValue}]]`;
     }
