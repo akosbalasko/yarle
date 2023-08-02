@@ -9,7 +9,7 @@
 [![License: MIT](https://img.shields.io/github/license/akosbalasko/yarle?style=for-the-badge)](https://github.com/akosbalasko/yarle/blob/master/LICENSE)
 ![GitHub All Releases](https://img.shields.io/github/downloads/akosbalasko/yarle/total?style=for-the-badge)
 
-Yarle is the ultimate converter of Evernote notes to Markdown.
+Yarle is the **ULTIMATE CONVERTER OF EVERNOTE** notes to Markdown.
 
 ## Features:
 
@@ -48,15 +48,32 @@ Any other note taking application which recognizes notes in standard markdown, l
 
 <a href="https://tana.inc" rel= "Tana">Tana</a> (check details and limitations <a href="#tana_limitations">here</a>)
  
-
+<a href="https://heptabase.com/" rel="Heptabase">Heptabase</a>
 ## Download Yarle here:
-<div id="downloadApp"></div>
 
-[Windows](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_win_x64.exe)
+
+
+<div id="downloadApp"></div>
+|   |   |
+|---|---|
+| ![Foo](./screens/windows-logo.png)  | [Windows](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_win_x64.exe)  |
+| ![Foo](./screens/linux-logo.jpeg)  |  [Linux (.rpm)](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_linux_x86_64.rpm) |
+
+
+
+<a href="https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_win_x64.exe" rel="Yarle for Windows">![Foo](./screens/windows-logo.png)</a>
+
+
+
+<a href="https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_linux_x86_64.rpm" rel="Yarle for Windows">![Foo](./screens/linux-logo.jpeg)</a>
 
 [Linux (.rpm)](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_linux_x86_64.rpm)
 
+<a href="https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_linux_amd64.deb" rel="Yarle for Windows">![Foo](./screens/debian-logo.webp)</a>
+
 [Debian (.deb)](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_linux_amd64.deb)
+
+<a href="https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_mac_x64.zip" rel="Yarle for Mac">![Foo](./screens/macos-logo-02.png)</a>
 
 [Mac](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_mac_x64.zip)
 
