@@ -8,8 +8,16 @@
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green?style=for-the-badge)](https://github.com/akosbalasko/yarle/graphs/commit-activity)
 [![License: MIT](https://img.shields.io/github/license/akosbalasko/yarle?style=for-the-badge)](https://github.com/akosbalasko/yarle/blob/master/LICENSE)
 ![GitHub All Releases](https://img.shields.io/github/downloads/akosbalasko/yarle/total?style=for-the-badge)
+<br><br><br>
+## Download YARLE, the **ULTIMATE CONVERTER OF EVERNOTE** notes here:
+<br>
+<div id="downloadApp"></div>
 
-Yarle is the ultimate converter of Evernote notes to Markdown.
+| <img src="./screens/macos-logo-02.png" width="100"> | <img src="./screens/windows-logo.png" width="200"> | <img src="./screens/linux-logo.jpeg" width="200"> |<img src="./screens/debian-logo.webp" width="200">  |
+|---|---|---|---|
+| [Get YARLE for Mac](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_mac_x64.zip)| <a class="button" href="https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_win_x64.exe">Get YARLE for Windows</a>| [Get YARLE for Linux (.rpm)](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_linux_x86_64.rpm)| [Get YARLE for Debian (.deb)](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_linux_amd64.deb)
+
+<br><br>
 
 ## Features:
 
@@ -48,17 +56,10 @@ Any other note taking application which recognizes notes in standard markdown, l
 
 <a href="https://tana.inc" rel= "Tana">Tana</a> (check details and limitations <a href="#tana_limitations">here</a>)
  
+<a href="https://heptabase.com/" rel="Heptabase">Heptabase</a>
 
-## Download Yarle here:
-<div id="downloadApp"></div>
 
-[Windows](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_win_x64.exe)
 
-[Linux (.rpm)](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_linux_x86_64.rpm)
-
-[Debian (.deb)](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_linux_amd64.deb)
-
-[Mac](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_mac_x64.zip)
 
 ## Feedback, Appreciation, Donation:
 If you have an idea on how to improve the tool or face any problems, feel free to raise an issue, or even contribute!
@@ -74,6 +75,9 @@ If you like the product, you can give a star here on github, or you can <a href=
 
 <a href="https://github.com/kmaasrud/awesome-obsidian" rel="Awesome Obsidian">
 <img src="screens/obsidian-logo.png" alt="drawing" width="100"/>
+</a>
+<a href="" rel="Tana Inc.">
+<img src="screens/tana-logo.svg" alt="drawing" width="100"/>
 </a>
 <a href="https://github.com/logseq/awesome-logseq" rel="Awesome Logseq">
 <img src="screens/logseq-logo.png" alt="drawing" width="100"/>
@@ -194,7 +198,7 @@ In order to minimize the wrong conversion of links due to duplicated note names,
 3. Export the notebook together with the TOC file 
 4. Start yarle and convert your notes
 
-## Converting notes to Tana
+## <img src="screens/tana-logo.svg" alt="drawing" width="50"/>  Converting notes to Tana 
 
 Yarle converts your notes to Tana Internal Format. To achieve this, the only thing you need to do differently than the default usage is to the output format as Tana Internal Format. The conversion will produce one file only called `notes-in-TIF.json`. It will contain all of your notes in Tana Internal Format, then you can import this file to Tana. 
 
@@ -204,3 +208,8 @@ Yarle converts your notes to Tana Internal Format. To achieve this, the only thi
 Currently Yarle (or any other converter), cannot convert images into Tana Internal Format. Moreover Yarle converts Evernote tables to Tana as plain text.
 
 Once Tana Internal Format supports these features, we are glad to fill these gaps in the conversion. 
+
+
+## <img src="screens/hepta-logo.png" alt="drawing" width="50"/> Converting notes to Heptabase
+
+Just select Heptabase as output format, and then a zip is going to be created as a result of the conversion that contains all of your notes with images, everything together, prepared to be uploaded to Heptabase. 

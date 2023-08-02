@@ -14,6 +14,12 @@ languageItems[OutputFormat.ObsidianMD] = {
     highlight: '==',
     strikethrough: '~~',         
 }
+languageItems[OutputFormat.Heptabase] = { 
+    bold: '**',
+    italic: '_',
+    highlight: '==',
+    strikethrough: '~~',         
+}
 languageItems[OutputFormat.Tana] = {
     bold: '**',
     italic: '__',

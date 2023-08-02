@@ -10,6 +10,7 @@ import { RuntimePropertiesSingleton } from '../../runtime-properties';
 import { filterByNodeName } from './filter-by-nodename';
 import { getAttributeProxy } from './get-attribute-proxy';
 import { isTOC } from './../../utils/is-toc';
+import { isHeptaOrObsidianOutput } from './../../utils/is-hepta-or-obsidian-output';
 
 export const removeBrackets = (str: string): string => {
     return str.replace(/\[|\]/g, '');
@@ -44,7 +45,7 @@ export const wikiStyleLinksRule = {
         const realValue = yarleOptions.urlEncodeFileNamesAndLinks ? encodeURI(value) : value;
 
         if (type === 'file') {
-            return yarleOptions.outputFormat === OutputFormat.ObsidianMD
+            return isHeptaOrObsidianOutput()
                 ? `![[${realValue}]]`
                 : getShortLinkIfPossible(token, value);
         }
@@ -56,7 +57,7 @@ export const wikiStyleLinksRule = {
         const mdKeyword = token['mdKeyword'];
 
         // handle ObsidianMD internal link display name
-        const omitObsidianLinksDisplayName = yarleOptions.outputFormat === OutputFormat.ObsidianMD
+        const omitObsidianLinksDisplayName = isHeptaOrObsidianOutput()
             && yarleOptions.obsidianSettings.omitLinkDisplayName;
         const renderedObsidianDisplayName = omitObsidianLinksDisplayName ? '' : `|${displayName}`;
 
@@ -71,14 +72,14 @@ export const wikiStyleLinksRule = {
             }
 
             const linkedNoteId = value;
-            if (yarleOptions.outputFormat === OutputFormat.ObsidianMD) {
+            if (isHeptaOrObsidianOutput()) {
                 return `${mdKeyword}[[${linkedNoteId}${extension}${renderedObsidianDisplayName}]]`;
             }
 
             return `${mdKeyword}[${displayName}](${linkedNoteId}${extension})`;
         }
 
-        return (yarleOptions.outputFormat === OutputFormat.ObsidianMD)
+        return (isHeptaOrObsidianOutput())
         ? `${mdKeyword}[[${realValue}${renderedObsidianDisplayName}]]`
         : (yarleOptions.outputFormat === OutputFormat.StandardMD || yarleOptions.outputFormat === OutputFormat.LogSeqMD)
             ? `${mdKeyword}[${displayName}](${realValue})`
