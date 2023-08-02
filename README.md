@@ -109,10 +109,8 @@ npx -p yarle-evernote-to-md@latest yarle --configFile <path_to_your_file e.g. ./
 ```
 
 ## Yarle intro and usage videos on Youtube:
-[![YARLE: A lifeline to escape from Evernote❓ Conversion tool for converting Evernote notes to Markdown](https://www.youtube.com/watch?v=gZxMz67uYHg/0.jpg)](https://www.youtube.com/watch?v=gZxMz67uYHg "")
-[![How to migrate notes from Evernote to Obsidian (using Yarle)](https://www.youtube.com/watch?v=EPMkm5zRIts/0.jpg)](https://www.youtube.com/watch?v=EPMkm5zRIts "")
-
-
+<a href="https://www.youtube.com/watch?v=EPMkm5zRIts">How to migrate notes from Evernote to Obsidian (using Yarle)</a><br>
+<a href="https://www.youtube.com/watch?v=gZxMz67uYHg">YARLE: A lifeline to escape from Evernote</a>
 
 ## Configuration:
 
