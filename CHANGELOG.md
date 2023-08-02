@@ -1,3 +1,10 @@
+# [5.3.0](https://github.com/akosbalasko/yarle/compare/v5.2.1...v5.3.0) (2023-08-02)
+
+
+### Features
+
+* heptabase support ([#494](https://github.com/akosbalasko/yarle/issues/494)) ([7d065bb](https://github.com/akosbalasko/yarle/commit/7d065bb339688b9f3ea4f598c3951762c9e8f66b))
+
 ## [5.2.1](https://github.com/akosbalasko/yarle/compare/v5.2.0...v5.2.1) (2023-07-14)
 
 
