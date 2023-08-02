@@ -1,3 +1,10 @@
+## [5.3.1](https://github.com/akosbalasko/yarle/compare/v5.3.0...v5.3.1) (2023-08-02)
+
+
+### Bug Fixes
+
+* readme updated, test fixed ([#495](https://github.com/akosbalasko/yarle/issues/495)) ([bd3a6d4](https://github.com/akosbalasko/yarle/commit/bd3a6d4018df15f4544eeb92a1edcdc5c61350b9))
+
 # [5.3.0](https://github.com/akosbalasko/yarle/compare/v5.2.1...v5.3.0) (2023-08-02)
 
 
