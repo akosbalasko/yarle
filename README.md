@@ -8,8 +8,16 @@
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green?style=for-the-badge)](https://github.com/akosbalasko/yarle/graphs/commit-activity)
 [![License: MIT](https://img.shields.io/github/license/akosbalasko/yarle?style=for-the-badge)](https://github.com/akosbalasko/yarle/blob/master/LICENSE)
 ![GitHub All Releases](https://img.shields.io/github/downloads/akosbalasko/yarle/total?style=for-the-badge)
+<br><br><br>
+## Download YARLE, the **ULTIMATE CONVERTER OF EVERNOTE** notes here:
+<br>
+<div id="downloadApp"></div>
 
-Yarle is the **ULTIMATE CONVERTER OF EVERNOTE** notes to Markdown.
+| <img src="./screens/macos-logo-02.png" width="100"> | <img src="./screens/windows-logo.png" width="200"> | <img src="./screens/linux-logo.jpeg" width="200"> |<img src="./screens/debian-logo.webp" width="200">  |
+|---|---|---|---|
+| [Get YARLE for Mac](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_mac_x64.zip)| <a class="button" href="https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_win_x64.exe">Get YARLE for Windows</a>| [Get YARLE for Linux (.rpm)](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_linux_x86_64.rpm)| [Get YARLE for Debian (.deb)](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_linux_amd64.deb)
+
+<br><br>
 
 ## Features:
 
@@ -49,33 +57,9 @@ Any other note taking application which recognizes notes in standard markdown, l
 <a href="https://tana.inc" rel= "Tana">Tana</a> (check details and limitations <a href="#tana_limitations">here</a>)
  
 <a href="https://heptabase.com/" rel="Heptabase">Heptabase</a>
-## Download Yarle here:
 
 
 
-<div id="downloadApp"></div>
-|   |   |
-|---|---|
-| ![Foo](./screens/windows-logo.png)  | [Windows](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_win_x64.exe)  |
-| ![Foo](./screens/linux-logo.jpeg)  |  [Linux (.rpm)](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_linux_x86_64.rpm) |
-
-
-
-<a href="https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_win_x64.exe" rel="Yarle for Windows">![Foo](./screens/windows-logo.png)</a>
-
-
-
-<a href="https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_linux_x86_64.rpm" rel="Yarle for Windows">![Foo](./screens/linux-logo.jpeg)</a>
-
-[Linux (.rpm)](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_linux_x86_64.rpm)
-
-<a href="https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_linux_amd64.deb" rel="Yarle for Windows">![Foo](./screens/debian-logo.webp)</a>
-
-[Debian (.deb)](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_linux_amd64.deb)
-
-<a href="https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_mac_x64.zip" rel="Yarle for Mac">![Foo](./screens/macos-logo-02.png)</a>
-
-[Mac](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_mac_x64.zip)
 
 ## Feedback, Appreciation, Donation:
 If you have an idea on how to improve the tool or face any problems, feel free to raise an issue, or even contribute!
@@ -92,6 +76,7 @@ If you like the product, you can give a star here on github, or you can <a href=
 <a href="https://github.com/kmaasrud/awesome-obsidian" rel="Awesome Obsidian">
 <img src="screens/obsidian-logo.png" alt="drawing" width="100"/>
 </a>
+<a href="" rel="Tana Inc.">
 <img src="screens/tana-logo.svg" alt="drawing" width="100"/>
 </a>
 <a href="https://github.com/logseq/awesome-logseq" rel="Awesome Logseq">
