@@ -1255,6 +1255,7 @@ dateFormat: undefined,
       enexSources: [ `.${path.sep}test${path.sep}data${path.sep}test-hepta.enex` ],
       outputDir: 'out',
       outputFormat: OutputFormat.Heptabase,
+      templateFile: `${testDataFolder}full_template.templ`,
       isMetadataNeeded: true,
     };
     await dropTheRopeRunner.run(options);
