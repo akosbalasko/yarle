@@ -1,3 +1,10 @@
+## [5.3.2](https://github.com/akosbalasko/yarle/compare/v5.3.1...v5.3.2) (2023-08-22)
+
+
+### Bug Fixes
+
+* obsidian default template ([#500](https://github.com/akosbalasko/yarle/issues/500)) ([6d3d331](https://github.com/akosbalasko/yarle/commit/6d3d3315126a977c64716d42236242de12380715))
+
 ## [5.3.1](https://github.com/akosbalasko/yarle/compare/v5.3.0...v5.3.1) (2023-08-02)
 
 
