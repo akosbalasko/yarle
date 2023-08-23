@@ -71,10 +71,13 @@ If you like the product, you can give a star here on github, or you can <a href=
 <div><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"> from <b>john@thebeard.org</b> </div>  <div><i>YARLE has just allowed me to transfer several years-worth of Evernote notes to Obsidian painlessly and astonishingly quickly. Your work has made my day. Thank you.</i></div><br>
 <div><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"> from <b>@opscat</b> </div>  <div><i>Thanks so much!</i></div><br><!--END_SECTION:buy-me-a-coffe-->
 
-## Proud to be proposed by: 
+## Proud to be suggested by: 
 
 <a href="https://github.com/kmaasrud/awesome-obsidian" rel="Awesome Obsidian">
 <img src="screens/obsidian-logo.png" alt="drawing" width="100"/>
+</a>
+<a href="https://www.twosapp.com/import" rel="Twos App">
+<img src="screens/twos-logo.jpeg" alt="drawing" width="100"/>
 </a>
 <a href="" rel="Tana Inc.">
 <img src="screens/tana-logo.svg" alt="drawing" width="100"/>
