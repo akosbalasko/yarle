@@ -1,3 +1,10 @@
+# [5.4.0](https://github.com/akosbalasko/yarle/compare/v5.3.2...v5.4.0) (2023-08-23)
+
+
+### Features
+
+* twos app mentioned in Readme ([#501](https://github.com/akosbalasko/yarle/issues/501)) ([4402371](https://github.com/akosbalasko/yarle/commit/4402371e68a2dac7b66d8cb7f6549443b7250567))
+
 ## [5.3.2](https://github.com/akosbalasko/yarle/compare/v5.3.1...v5.3.2) (2023-08-22)
 
 
