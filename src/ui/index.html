@@ -422,8 +422,7 @@
 											</select>
 											</div>
 											
-													<div class="form-group">
-														<!--<input type="checkbox" value="false" id='sanitizeResourceNameSpaces'> -->
+											<div class="form-group">
 											<label for="sanitizeResourceNameSpaces" class="pure-checkbox">
 												Sanitize spaces in resource names
 												<br>
@@ -432,16 +431,24 @@
 												<option value="true">Yes</option>
 												<option value="false" selected>No</option>
 											</select>
-												</div>
-												
-													<div class="form-group">
-														<label for="replacementChar" class="pure-checkbox">
-															Replacement character for sanitizing spaces in resource names
-														</label>
-														<input type="text"  class="form-control configurationItem"value="_" id='replacementChar'> 
+											</div>
+	
+											<div class="form-group">
+												<label for="replacementChar" class="pure-checkbox">
+													Replacement character for sanitizing spaces in resource names
+												</label>
+												<input type="text"  class="form-control configurationItem"value="_" id='replacementChar'> 
 														
-												</div>
-																									
+											</div>
+										
+											<div class="form-group">
+												<label for="replacementCharacterMap">
+													Replacement character map in filenames: 
+												</label>
+												<textarea class="form-control configurationItem" name="replacementCharacterMap" id="replacementCharacterMap" rows="15"></textarea>
+														
+											</div>
+
 												<div class="form-group">
 													<label for="resourcesDir">Custom resources folder:
 													</label>

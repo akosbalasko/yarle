@@ -14,10 +14,30 @@ import { getCreationTime } from './content-utils';
 import { escapeStringRegexp } from './escape-string-regexp';
 import { isLogseqJournal } from './is-logseq-journal';
 
+const applyCharacterMap = (title: string): string => {
+  let appliedTitle = title;
+  try{
+    console.log(yarleOptions.replacementCharacterMap)
+    for (const key of Object.keys(yarleOptions.replacementCharacterMap)){
+      const replacement = yarleOptions.replacementCharacterMap[key as any];
+      console.log("replacing " + escapeStringRegexp(key) + "->" + replacement)
+
+      const regex: RegExp = new RegExp(escapeStringRegexp(key), 'g');
+      appliedTitle = appliedTitle.replace(regex, replacement)
+    }
+  }catch(e){
+    console.log(e)
+  }
+  console.log(appliedTitle)
+  return appliedTitle;
+}
+
 export const normalizeTitle = (title: string) => {
   // Allow setting a specific replacement character for file and resource names
   // Default to a retrocompatible value
-  return sanitize(title, {replacement: yarleOptions.replacementChar || '_'}).replace(/[\[\]\#\^]/g, '')
+  const normalizedTitle = sanitize(applyCharacterMap(title), {replacement: yarleOptions.replacementChar || '_'}).replace(/[\[\]\#\^]/g, '')
+  console.log(normalizedTitle)
+  return normalizedTitle;
   ;
 };
 
@@ -48,7 +68,7 @@ export const getResourceFileProperties = (workDir: string, resource: any): Resou
     const fileNamePrefix = resource['resource-attributes']['file-name'].substr(0, 50);
     fileName = fileNamePrefix.split('.')[0];
   }
-  fileName = fileName.replace(/[/\\?%*:|"<>\[\]\+]/g, '-');
+  fileName = applyCharacterMap(fileName).replace(/[/\\?%*:|"<>\[\]\+]/g, '-');
 
   if (yarleOptions.sanitizeResourceNameSpaces) {
     fileName = fileName.replace(/ /g, yarleOptions.replacementChar);
