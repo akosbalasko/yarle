@@ -1,3 +1,10 @@
+# [5.5.0](https://github.com/akosbalasko/yarle/compare/v5.4.0...v5.5.0) (2023-08-25)
+
+
+### Features
+
+* CharacterMap implemented ([#502](https://github.com/akosbalasko/yarle/issues/502)) ([72ae039](https://github.com/akosbalasko/yarle/commit/72ae039901f95b05c7054cec1ccac8e751b82afc))
+
 # [5.4.0](https://github.com/akosbalasko/yarle/compare/v5.3.2...v5.4.0) (2023-08-23)
 
 
