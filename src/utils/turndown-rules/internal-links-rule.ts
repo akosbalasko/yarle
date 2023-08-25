@@ -11,6 +11,7 @@ import { filterByNodeName } from './filter-by-nodename';
 import { getAttributeProxy } from './get-attribute-proxy';
 import { isTOC } from './../../utils/is-toc';
 import { isHeptaOrObsidianOutput } from './../../utils/is-hepta-or-obsidian-output';
+import sanitize from 'sanitize-filename';
 
 export const removeBrackets = (str: string): string => {
     return str.replace(/\[|\]/g, '');
@@ -53,7 +54,8 @@ export const wikiStyleLinksRule = {
             return getShortLinkIfPossible(token, value);
         }
 
-        const displayName = token['text'];
+        const displayName = sanitize(token['text'], {replacement: yarleOptions.replacementChar || '_'}).replace(/[\[\]\#\^]/g, '')
+
         const mdKeyword = token['mdKeyword'];
 
         // handle ObsidianMD internal link display name

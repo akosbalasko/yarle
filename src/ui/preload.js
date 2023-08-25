@@ -36,8 +36,13 @@ contextBridge.exposeInMainWorld('electronAPI', {
       configFile = `${__dirname}/../../config.json`;
         break;
     }
-    return fs.readFileSync(configFile, 'utf-8');
-    
+    let config = fs.readFileSync(configFile, 'utf-8');
+    config = JSON.parse(config);
+    if (config.replacementCharacterMap){
+      config.replacementCharacterMap = JSON.stringify(config.replacementCharacterMap, null, 2);
+    }
+
+    return JSON.stringify(config);
   },
   getTemplateByType: (type) => {
     let templateFile;

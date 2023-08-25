@@ -34,6 +34,8 @@ for(const configItem of configItems){
    let value = event.target.value
    if (isBooleanString(event.target.value))
     value = JSON.parse(value)
+   if (isCharacterMap(event.target.value))
+    value = JSON.stringify(value)
     await window.electronAPI.store.set(event.target.id,value)
    const newStoredValue = await window.electronAPI.store.get(event.target.id)
    console.log('store value: ' + JSON.stringify(newStoredValue))
@@ -127,6 +129,10 @@ document.getElementById('logseqSettings.journalNotes.container').style.display =
 })
 function isBooleanString(value) {
   return value === 'true' || value === 'false'
+}
+
+function isCharacterMap(value) {
+  return typeof value === 'CharacterMap'
 }
 
 const updateDomByFlatConfig = (flatConfig, disable) => {

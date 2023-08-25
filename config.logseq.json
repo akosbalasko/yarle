@@ -20,6 +20,17 @@
     "urlEncodeFileNamesAndLinks": false,
     "sanitizeResourceNameSpaces": false, 
     "replacementChar": "_",
+    "replacementCharacterMap": {
+        "<": "_",
+        ">": "_",
+        ":": "_",
+        "\"": "_",
+        "/": "_",
+        "\\": "_", 
+        "|": "_",
+        "?": "_",
+        "*": "_"
+    },
     "pathSeparator": "/",
     "resourcesDir": "assets",
     "turndownOptions": {

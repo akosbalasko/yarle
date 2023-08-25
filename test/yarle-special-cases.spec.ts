@@ -42,6 +42,49 @@ dateFormat: undefined,
     assert.equal(true, errorHappened);
   });
 
+  it('Custom filename Character map', async () => {
+    const options: YarleOptions = {
+dateFormat: undefined,
+      enexSources: [ `.${path.sep}test${path.sep}data${path.sep}sanitize_fulltest.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      replacementCharacterMap: {
+        "<": "lessthan",
+        ">": "greaterThan",
+        ":": "colon",
+        "\"": "apostrophe",
+        "/": "backslash",
+        "\\": "slash", 
+        "|": "line",
+        "?": "question",
+        "*": "star"
+    },
+    };
+    await yarle.dropTheRope(options);
+    // tslint:disable-next-line:no-console
+    console.log(`conversion log: ${fs.readFileSync(utils.LOGFILE)}`);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/sanitize_fulltest/title_lessthangreaterThancolonapostrophebackslashslashlinequestionstar_endOfTitle.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/sanitize_fulltest/_resources/title_lessthangreaterThancolonapostrophebackslashslashlinequestionstar_endOfTitle.resources/imageTitle_lessthangreaterThan-apostrophecolonslashlinequestionstar_endOfImageTitle.png`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/sanitize_fulltest/title_lessthangreaterThancolonapostrophebackslashslashlinequestionstar_endOfTitle.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/sanitize_fulltest/title_lessthangreaterThancolonapostrophebackslashslashlinequestionstar_endOfTitle.md`, 'utf8'),
+    );
+  });
+
   it('Enex file with note containing a picture', async () => {
     const options: YarleOptions = {
 dateFormat: undefined,

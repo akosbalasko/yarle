@@ -29,6 +29,17 @@
     "haveGlobalResources": false,
     "useUniqueUnknownFileNames": false,
     "replacementChar": "_",
+    "replacementCharacterMap": {
+        "<": "_",
+        ">": "_",
+        ":": "_",
+        "\"": "_",
+        "/": "_",
+        "\\": "_", 
+        "|": "_",
+        "?": "_",
+        "*": "_"
+    },
     "generateNakedUrls": true,
     "logseqSettings": {
         "journalNotes": false

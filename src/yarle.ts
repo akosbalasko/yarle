@@ -50,6 +50,7 @@ export const defaultYarleOptions: YarleOptions = {
   urlEncodeFileNamesAndLinks: false,
   sanitizeResourceNameSpaces: false,
   replacementChar: '_',
+  replacementCharacterMap: {},
   pathSeparator: '/',
   resourcesDir: '_resources',
   turndownOptions: {
