@@ -1,3 +1,10 @@
+## [5.5.1](https://github.com/akosbalasko/yarle/compare/v5.5.0...v5.5.1) (2023-08-31)
+
+
+### Bug Fixes
+
+* dots and underscores removed ([#508](https://github.com/akosbalasko/yarle/issues/508)) ([a3e804a](https://github.com/akosbalasko/yarle/commit/a3e804a985d26c2eaf58b4567413148dcb5f0f5f))
+
 # [5.5.0](https://github.com/akosbalasko/yarle/compare/v5.4.0...v5.5.0) (2023-08-25)
 
 
