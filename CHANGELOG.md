@@ -1,3 +1,10 @@
+## [5.5.2](https://github.com/akosbalasko/yarle/compare/v5.5.1...v5.5.2) (2023-09-04)
+
+
+### Bug Fixes
+
+* case insensitive filenames ([#513](https://github.com/akosbalasko/yarle/issues/513)) ([708f6e4](https://github.com/akosbalasko/yarle/commit/708f6e4e295f034c84983d95b2af3415741cb77e))
+
 ## [5.5.1](https://github.com/akosbalasko/yarle/compare/v5.5.0...v5.5.1) (2023-08-31)
 
 
