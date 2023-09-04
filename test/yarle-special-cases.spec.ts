@@ -1207,6 +1207,47 @@ dateFormat: undefined,
     );
   });
 
+  it('case insensitive file names', async () => {
+    const options: YarleOptions = {
+      dateFormat: undefined,
+      enexSources: [ `${testDataFolder}case-insensitive.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.ObsidianMD,
+      skipEnexFileNameFromOutputPath: false,
+			skipTags: false,
+			useHashTags: false,
+
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/case-insensitive/test abc.1.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/case-insensitive/test ABC.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/case-insensitive/test ABC.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test ABC.md`, 'utf8'),
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/case-insensitive/test abc.1.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test abc.1.md`, 'utf8'),
+    );
+
+  });
 });
 
 describe('Yarle error cases', async () => {
