@@ -232,3 +232,4 @@ Once Tana Internal Format supports these features, we are glad to fill these gap
 ## <img src="screens/hepta-logo.png" alt="drawing" width="50"/> Converting notes to Heptabase
 
 Just select Heptabase as output format, and then a zip is going to be created as a result of the conversion that contains all of your notes with images, everything together, prepared to be uploaded to Heptabase. 
+
