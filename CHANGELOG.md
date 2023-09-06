@@ -1,3 +1,10 @@
+## [5.5.3](https://github.com/akosbalasko/yarle/compare/v5.5.2...v5.5.3) (2023-09-06)
+
+
+### Bug Fixes
+
+* version trigger ([#516](https://github.com/akosbalasko/yarle/issues/516)) ([de64da3](https://github.com/akosbalasko/yarle/commit/de64da30d016c004684bf61a0b93854ba298f764))
+
 ## [5.5.2](https://github.com/akosbalasko/yarle/compare/v5.5.1...v5.5.2) (2023-09-04)
 
 
