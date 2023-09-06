@@ -71,7 +71,7 @@ dateFormat: undefined,
     );
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/notes/sanitize_fulltest/_resources/title_lessthangreaterThancolonapostrophebackslashslashlinequestionstar_endOfTitle.resources/imageTitle_lessthangreaterThan-apostrophecolonslashlinequestionstar_endOfImageTitle.png`,
+        `${__dirname}/../out/notes/sanitize_fulltest/_resources/title_lessthangreaterThancolonapostrophebackslashslashlinequestionstar_endOfTitle.resources/imageTitle_lessthangreaterThan-apostrophecolonslashlinequestionstar_endOfImageTitle.pngquestion=imagePostfix_lessthangreaterThan-apostrophecolonslashlinequestionstar_endOfImagePostfix`,
       ),
       true,
     );
