@@ -14,6 +14,9 @@ import { getCreationTime } from './content-utils';
 import { escapeStringRegexp } from './escape-string-regexp';
 import { isLogseqJournal } from './is-logseq-journal';
 
+const applyCharacterMapSafely = (title: string): string => {
+  return applyCharacterMap(title).replace(/[/\\?%*:|"<>\[\]\+]/g, '-');
+}
 const applyCharacterMap = (title: string): string => {
   let appliedTitle = title;
   try{
@@ -58,15 +61,15 @@ export const getFileIndex = (dstPath: string, fileNamePrefix: string): number | 
 export const getResourceFileProperties = (workDir: string, resource: any): ResourceFileProperties => {
   const UNKNOWNFILENAME = yarleOptions.useUniqueUnknownFileNames ? uniqueFilename('', 'unknown_filename') : 'unknown_filename';
 
-  const extension = getExtension(resource);
+  let extension = getExtension(resource);
   let fileName = UNKNOWNFILENAME;
 
   if (resource['resource-attributes'] && resource['resource-attributes']['file-name']) {
     const fileNamePrefix = resource['resource-attributes']['file-name'].substr(0, 50);
     fileName = fileNamePrefix.split('.')[0];
   }
-  fileName = applyCharacterMap(fileName).replace(/[/\\?%*:|"<>\[\]\+]/g, '-');
-
+  fileName = applyCharacterMapSafely(fileName);
+  extension = applyCharacterMapSafely(extension);
   if (yarleOptions.sanitizeResourceNameSpaces) {
     fileName = fileName.replace(/ /g, yarleOptions.replacementChar);
   }
