@@ -1,3 +1,10 @@
+## [5.5.4](https://github.com/akosbalasko/yarle/compare/v5.5.3...v5.5.4) (2023-09-07)
+
+
+### Bug Fixes
+
+* some webclip-related issues ([#519](https://github.com/akosbalasko/yarle/issues/519)) ([8e999be](https://github.com/akosbalasko/yarle/commit/8e999be8b8616661c62826422b83eedff7ddaf8b))
+
 ## [5.5.3](https://github.com/akosbalasko/yarle/compare/v5.5.2...v5.5.3) (2023-09-06)
 
 
