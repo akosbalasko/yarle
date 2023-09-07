@@ -20,10 +20,8 @@ const applyCharacterMapSafely = (title: string): string => {
 const applyCharacterMap = (title: string): string => {
   let appliedTitle = title;
   try{
-    console.log(yarleOptions.replacementCharacterMap)
     for (const key of Object.keys(yarleOptions.replacementCharacterMap)){
       const replacement = yarleOptions.replacementCharacterMap[key as any];
-      console.log("replacing " + escapeStringRegexp(key) + "->" + replacement)
 
       const regex: RegExp = new RegExp(escapeStringRegexp(key), 'g');
       appliedTitle = appliedTitle.replace(regex, replacement)

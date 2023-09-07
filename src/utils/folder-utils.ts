@@ -14,7 +14,7 @@ export const paths: Path = {};
 const MAX_PATH = 249;
 
 export const getResourceDir = (dstPath: string, note: any): string => {
-  return getNoteName(dstPath, note).replace(/\s/g, '_');
+  return getNoteName(dstPath, note).replace(/\s/g, '_').substr(0, 50);
 };
 
 export const truncatFileName = (fileName: string, uniqueId: string): string => {
