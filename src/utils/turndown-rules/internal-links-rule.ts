@@ -60,7 +60,7 @@ export const wikiStyleLinksRule = {
 
         // handle ObsidianMD internal link display name
         const omitObsidianLinksDisplayName = isHeptaOrObsidianOutput()
-            && yarleOptions.obsidianSettings.omitLinkDisplayName;
+            && yarleOptions.obsidianSettings?.omitLinkDisplayName;
         const renderedObsidianDisplayName = omitObsidianLinksDisplayName ? '' : `|${displayName}`;
 
         if (value.startsWith('evernote://')) {
