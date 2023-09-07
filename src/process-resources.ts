@@ -72,7 +72,7 @@ const addMediaReference = (content: string, resourceHashes: any, hash: any, work
 
 const processResource = (workDir: string, resource: any): any => {
     const resourceHash: any = {};
-    const data = resource.data.$text;
+    const data = resource.data?.$text || '';
 
     const accessTime = utils.getTimeStampMoment(resource);
     const resourceFileProps = utils.getResourceFileProperties(workDir, resource);
@@ -134,7 +134,7 @@ const createResourceFromData = (
   const fileName = index < 1 ? `${baseName}.${extension}` : `${baseName}.${index}.${extension}`;
   const absFilePath = `${absoluteResourceWorkDir}${path.sep}${fileName}`;
 
-  if (!base64) {
+  if (!base64 && !data.startsWith('&lt;svg')) { // TODO: handle <svg, tags, they may be checkboxes
     data = decodeURIComponent(data);
   }
 
