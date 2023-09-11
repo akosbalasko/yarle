@@ -1,3 +1,10 @@
+## [5.5.5](https://github.com/akosbalasko/yarle/compare/v5.5.4...v5.5.5) (2023-09-11)
+
+
+### Bug Fixes
+
+* missing obsidiansettings ([#521](https://github.com/akosbalasko/yarle/issues/521)) ([240f689](https://github.com/akosbalasko/yarle/commit/240f6899d9e685d895377bb4edae335ddc9239f7))
+
 ## [5.5.4](https://github.com/akosbalasko/yarle/compare/v5.5.3...v5.5.4) (2023-09-07)
 
 
