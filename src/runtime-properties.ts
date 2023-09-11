@@ -4,6 +4,7 @@ export interface NoteIdNameEntry {
     noteName: string;
     notebookName: string;
     uniqueEnd: string;
+    url: string
 }
 
 export interface NoteIdNames {
@@ -34,18 +35,21 @@ export class RuntimePropertiesSingleton {
     }
 
     addItemToMap(linkItem: InternalLink): void {
-        this.noteIdNameMap[linkItem.url] = {
-            ...this.noteIdNameMap[linkItem.url],
+        this.noteIdNameMap[linkItem.id] = {
+            ...this.noteIdNameMap[linkItem.id],
+            url: linkItem.url,
             title: linkItem.title,
             noteName: this.currentNoteName,
             notebookName: this.currentNotebookName,
             uniqueEnd: linkItem.uniqueEnd,
+
         };
     }
     addItemToTOCMap(linkItem: InternalLink): void {
-        this.noteIdNameTOCMap[linkItem.url] = {
-            ...this.noteIdNameMap[linkItem.url],
+        this.noteIdNameTOCMap[linkItem.id] = {
+            ...this.noteIdNameMap[linkItem.id],
             title: linkItem.title,
+            url: linkItem.url,
             noteName: this.currentNoteName,
             notebookName: this.currentNotebookName,
             uniqueEnd: linkItem.uniqueEnd,

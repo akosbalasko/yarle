@@ -19,6 +19,15 @@ export const removeBrackets = (str: string): string => {
 export const removeDoubleBackSlashes = (str: string): string => {
     return str.replace(/\\/g, '');
 };
+const isEvernoteLink = (value: string): boolean => {
+    return value.startsWith('evernote:///view') || value.startsWith('https://www.evernote.com')
+}
+const getEvernoteUniqueId = (value: string): string => {
+    const urlSpl = value.split('/').reverse()
+    return (urlSpl[0] !== '')
+        ? urlSpl[0]
+        : urlSpl[1]
+}
 export const wikiStyleLinksRule = {
     filter: filterByNodeName('A'),
     replacement: (content: any, node: any) => {
@@ -50,7 +59,7 @@ export const wikiStyleLinksRule = {
                 ? `![[${realValue}]]`
                 : getShortLinkIfPossible(token, value);
         }
-        if (value.match(/^(https?:|www\.|file:|ftp:|mailto:)/)) {
+        if (value.match(/^(https?:|www\.|file:|ftp:|mailto:)/) && !value.startsWith("https://www.evernote.com")) {
             return getShortLinkIfPossible(token, value);
         }
 
@@ -63,17 +72,19 @@ export const wikiStyleLinksRule = {
             && yarleOptions.obsidianSettings?.omitLinkDisplayName;
         const renderedObsidianDisplayName = omitObsidianLinksDisplayName ? '' : `|${displayName}`;
 
-        if (value.startsWith('evernote://')) {
+        if (isEvernoteLink(value) ) {
             const fileName = normalizeTitle(token['text']);
             const noteIdNameMap = RuntimePropertiesSingleton.getInstance();
-            const uniqueId = getUniqueId();
+            const uniqueEnd = getUniqueId();
+            const id = getEvernoteUniqueId(value)
             if (isTOC(noteIdNameMap.getCurrentNoteName())) {
-                noteIdNameMap.addItemToTOCMap({ url: value, title: fileName, uniqueEnd: uniqueId  });
+                noteIdNameMap.addItemToTOCMap({ id, url: value, title: fileName, uniqueEnd  });
+
             } else {
-                noteIdNameMap.addItemToMap({ url: value, title: fileName, uniqueEnd: uniqueId  });
+                noteIdNameMap.addItemToMap({ id, url: value, title: fileName, uniqueEnd  });
             }
 
-            const linkedNoteId = value;
+            const linkedNoteId = id;
             if (isHeptaOrObsidianOutput()) {
                 return `${mdKeyword}[[${linkedNoteId}${extension}${renderedObsidianDisplayName}]]`;
             }
