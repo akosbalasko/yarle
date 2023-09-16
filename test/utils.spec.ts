@@ -5,6 +5,7 @@ import moment from 'moment';
 
 import * as utils from './../src/utils';
 import * as  options from './../src/xml-parser.options';
+import { updateFileContentSafely } from '../src/utils/file-utils';
 
 describe('SetFileDates', () => {
     let content;
@@ -19,7 +20,7 @@ describe('SetFileDates', () => {
     });
 
     it('happy path =» file exists and modified successfully', () => {
-        utils.setFileDates('./test/data/test-justText.enex', notes['note']);
+        utils.setFileDates('./test/data/test-justText.enex', notes['note']['created'], notes['note']['updated']);
         const fStat = fs.statSync('./test/data/test-justText.enex');
         const atime = moment(fStat.atime).format();
         const mtime = moment(fStat.mtime).format();
@@ -32,7 +33,7 @@ describe('SetFileDates', () => {
     it('throws an error in case of a missing file', () => {
         let errorHappened = false;
         try {
-            utils.setFileDates('./test/data/do_not_exists.enex', notes['note']);
+            utils.setFileDates('./test/data/do_not_exists.enex', notes['note']['created'], notes['note']['updated']);
         } catch (e) {
             errorHappened = true;
         }
@@ -41,7 +42,7 @@ describe('SetFileDates', () => {
     });
     it('set to now if no updated field in note',  () => {
             notes['note']['updated'] = undefined;
-            utils.setFileDates('./test/data/test-justText.enex', notes['note']);
+            utils.setFileDates('./test/data/test-justText.enex', notes['note']['created'], notes['note']['updated']);
             const fStat = fs.statSync('./test/data/test-justText.enex');
             const atime = moment(fStat.atime);
             const mtime = moment(fStat.mtime);
@@ -52,6 +53,22 @@ describe('SetFileDates', () => {
     });
 
    });
+
+describe('file utils', () => {
+    it('update file content safely', () => {
+        const filePath = './test/data/updateFileContentSafelyFile.md';
+        const origFStat = fs.statSync(filePath);
+
+        updateFileContentSafely(filePath, 'this is the updated File content');
+
+        const newFStat = fs.statSync(filePath);
+
+        assert.deepEqual(origFStat.birthtime, newFStat.birthtime);
+        assert.deepEqual(origFStat.mtime, newFStat.mtime);
+
+    });
+    
+})
 
 describe('extensions', () => {
     it('no resource-attributes', () => {
