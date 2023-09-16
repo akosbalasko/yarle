@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE en-export SYSTEM "http://xml.evernote.com/pub/evernote-export4.dtd">
+<en-export export-date="20231016T164742Z" application="Evernote" version="10.61.5">
+  <note>
+    <title>link to telephone: 202-555-0179</title>
+    <created>20230916T163526Z</created>
+    <updated>20230916T164741Z</updated>
+    <note-attributes>
+      <author>akos</author>
+    </note-attributes>
+    <content>
+      <![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd"><en-note><div>link to telephone: <a href="tel:202-555-0179">202-555-0179</a></div><div>link: <a href="https://google.com">Google</a></div></en-note>      ]]>
+    </content>
+  </note>
+</en-export>
