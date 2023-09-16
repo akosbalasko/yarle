@@ -1,3 +1,10 @@
+## [5.5.8](https://github.com/akosbalasko/yarle/compare/v5.5.7...v5.5.8) (2023-09-16)
+
+
+### Bug Fixes
+
+* tel in href fixed ([#524](https://github.com/akosbalasko/yarle/issues/524)) ([e334ea2](https://github.com/akosbalasko/yarle/commit/e334ea2df36eebf298198b56944f89658dbba254))
+
 ## [5.5.7](https://github.com/akosbalasko/yarle/compare/v5.5.6...v5.5.7) (2023-09-16)
 
 
