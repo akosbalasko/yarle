@@ -169,6 +169,21 @@ export const yarleTests: Array<YarleTest> = [
   },
 
   {
+    name: 'Note with tel in link id',
+    options: {
+      enexSources: [ `.${testDataFolder}link to telephone 202-555-0179.enex` ],
+      outputDir: 'out',
+      outputFormat: OutputFormat.ObsidianMD,
+      isMetadataNeeded: true,
+      isZettelkastenNeeded: true,
+      useZettelIdAsFilename: false
+    },
+    testOutputPath: `notes${path.sep}link to telephone 202-555-0179${path.sep}202309161735 link to telephone_ 202-555-0179.md`,
+
+    expectedOutputPath: `${dataFolder}link to telephone_ 202-555-0179.md`,
+  },
+
+  {
     name: 'Note with zettelkastel id - use as filename',
     options: {
       enexSources: [ `.${testDataFolder}test-noteWithZettelKasten.enex` ],
