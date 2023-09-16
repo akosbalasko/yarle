@@ -1,3 +1,10 @@
+## [5.5.7](https://github.com/akosbalasko/yarle/compare/v5.5.6...v5.5.7) (2023-09-16)
+
+
+### Bug Fixes
+
+* moddates updated during applylinks, implemented and tested ([#523](https://github.com/akosbalasko/yarle/issues/523)) ([40ea8a0](https://github.com/akosbalasko/yarle/commit/40ea8a02094f2d5eb1ea771c74e907262ebb3402))
+
 ## [5.5.6](https://github.com/akosbalasko/yarle/compare/v5.5.5...v5.5.6) (2023-09-11)
 
 
