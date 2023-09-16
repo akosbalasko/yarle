@@ -114,18 +114,18 @@ export const logTags = (note: any): string => {
   return undefined;
 };
 
-export const setFileDates = (path: string, note: any): void => {
-  const updated = Moment(note.updated).valueOf();
-  const mtime = updated / 1000;
+export const setFileDates = (path: string, created: any, updated: any): void => {
+  const updatedMoment = Moment(updated).valueOf();
+  const mtime = updatedMoment / 1000;
   utimesSync(path, mtime, mtime);
   // also set creation time where supported
-  const creationTime = Moment(note.created);
+  const creationTime = Moment(created);
 
-  const created = (Moment('1970-01-01 00:00:00.000').isBefore(creationTime)
+  const createdMoment = (Moment('1970-01-01 00:00:00.000').isBefore(creationTime)
     ? creationTime
     : Moment('1970-01-01 00:00:00.001')).valueOf();
-  if (created) {
-    utimes(path, {btime: created});
+  if (createdMoment) {
+    utimes(path, {btime: createdMoment});
   }
 };
 

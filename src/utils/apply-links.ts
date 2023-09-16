@@ -9,6 +9,7 @@ import { truncatFileName } from './folder-utils';
 import { escapeStringRegexp } from './escape-string-regexp';
 import { getAllOutputFilesWithExtension } from './get-all-output-files';
 import { isTanaOutput } from './tana/is-tana-output';
+import { updateFileContentSafely } from './file-utils';
 
 export const applyLinks = (options: YarleOptions, outputNotebookFolders: Array<string>): void => {
     const linkNameMap = RuntimePropertiesSingleton.getInstance();
@@ -62,8 +63,9 @@ export const applyLinks = (options: YarleOptions, outputNotebookFolders: Array<s
  
 
                 if (fileContent !== updatedContent) {
-                    console.log(`replaced output written to: ${notebookFolder}${path.sep}${targetFile}`);
-                    fs.writeFileSync(`${notebookFolder}${path.sep}${targetFile}`, updatedContent);
+                    const filePath = `${notebookFolder}${path.sep}${targetFile}`;
+                    updateFileContentSafely(filePath, updatedContent);
+                    
                 }
             }
         }

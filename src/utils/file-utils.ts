@@ -22,7 +22,7 @@ export const writeFile = (absFilePath: string, data: any, note: any): void => {
       }
       else {
         fs.writeFileSync(absFilePath, data);
-        setFileDates(absFilePath, note);
+        setFileDates(absFilePath, note.created, note.updated);
       }
     } catch (e) {
       // tslint:disable-next-line: no-console
@@ -30,3 +30,10 @@ export const writeFile = (absFilePath: string, data: any, note: any): void => {
       throw e;
     }
   };
+
+  export const updateFileContentSafely = (filePath: string, updatedContent: string): void => {
+    const {birthtime, mtime} = fs.statSync(filePath)
+    console.log(`replaced output written to: ${filePath}`);
+    fs.writeFileSync(filePath, updatedContent);
+    setFileDates(filePath, birthtime, mtime)
+}

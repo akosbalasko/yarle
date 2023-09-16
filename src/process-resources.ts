@@ -139,7 +139,7 @@ const createResourceFromData = (
   }
 
   fs.writeFileSync(absFilePath, data, base64 ? 'base64' : undefined);
-  utils.setFileDates(absFilePath, note);
+  utils.setFileDates(absFilePath, note.created, note.updated);
 
   utils.loggerInfo(`data url resource ${fileName} added`);
 
