@@ -15,6 +15,7 @@ import { OutputFormat } from './../output-format';
 import { taskListRule } from './turndown-rules/task-list-rule';
 import { removeNewlines } from './remove-newlines';
 import { tanaTableBlock, tanaTableColBlock, tanaTableRowBlock } from './../constants';
+import { underlineRule } from './turndown-rules/underline-rule';
 
 export const getTurndownService = (yarleOptions: YarleOptions) => {
     /* istanbul ignore next */
@@ -39,7 +40,7 @@ export const getTurndownService = (yarleOptions: YarleOptions) => {
     turndownService.addRule('images', imagesRule);
     turndownService.addRule('list', taskListRule);
     turndownService.addRule('italic', italicRule);
-
+    turndownService.addRule('underline', underlineRule);
     if (yarleOptions.outputFormat === OutputFormat.LogSeqMD) {
         turndownService.addRule('logseq_hr', {
                 filter: ['hr'],
