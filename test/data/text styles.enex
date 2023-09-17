@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE en-export SYSTEM "http://xml.evernote.com/pub/evernote-export4.dtd">
+<en-export export-date="20231017T104418Z" application="Evernote" version="10.61.10">
+  <note>
+    <title>text styles</title>
+    <created>20230917T104146Z</created>
+    <updated>20230917T104412Z</updated>
+    <note-attributes>
+      <author>akos</author>
+    </note-attributes>
+    <content>
+      <![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd"><en-note><div><u>This is an underline text</u></div><div><b>This is a bold text</b></div><div><i>This is an italic text</i></div><div><span style="--en-highlight:yellow;background-color: #ffef9e;">This is a highlighted text</span></div></en-note>      ]]>
+    </content>
+  </note>
+</en-export>
