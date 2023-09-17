@@ -1,3 +1,10 @@
+# [5.6.0](https://github.com/akosbalasko/yarle/compare/v5.5.8...v5.6.0) (2023-09-17)
+
+
+### Features
+
+* underline supported ([#527](https://github.com/akosbalasko/yarle/issues/527)) ([3397824](https://github.com/akosbalasko/yarle/commit/33978241d4a0e0971f4b99bbdf870c4c8719267b))
+
 ## [5.5.8](https://github.com/akosbalasko/yarle/compare/v5.5.7...v5.5.8) (2023-09-16)
 
 
