@@ -182,7 +182,18 @@ export const yarleTests: Array<YarleTest> = [
 
     expectedOutputPath: `${dataFolder}link to telephone_ 202-555-0179.md`,
   },
+  {
+    name: 'Note text styles',
+    options: {
+      enexSources: [ `.${testDataFolder}text styles.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      useZettelIdAsFilename: false
+    },
+    testOutputPath: `notes${path.sep}text styles${path.sep}text styles.md`,
 
+    expectedOutputPath: `${dataFolder}text styles.md`,
+  },
   {
     name: 'Note with zettelkastel id - use as filename',
     options: {
