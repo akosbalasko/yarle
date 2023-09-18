@@ -59,7 +59,7 @@ export const wikiStyleLinksRule = {
                 ? `![[${realValue}]]`
                 : getShortLinkIfPossible(token, value);
         }
-        if (value.match(/^(https?:|tel:|www\.|file:|ftp:|mailto:)/) && !value.startsWith("https://www.evernote.com")) {
+        if (value.match(/^(https?:|tel:|www\.|file:|busycalevent:|ftp:|mailto:)/) && !value.startsWith("https://www.evernote.com")) {
             return getShortLinkIfPossible(token, value);
         }
 

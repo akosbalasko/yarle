@@ -179,7 +179,6 @@ export const yarleTests: Array<YarleTest> = [
       useZettelIdAsFilename: false
     },
     testOutputPath: `notes${path.sep}link to telephone 202-555-0179${path.sep}202309161735 link to telephone_ 202-555-0179.md`,
-
     expectedOutputPath: `${dataFolder}link to telephone_ 202-555-0179.md`,
   },
   {

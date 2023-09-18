@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE en-export SYSTEM "http://xml.evernote.com/pub/evernote-export4.dtd">
-<en-export export-date="20231016T164742Z" application="Evernote" version="10.61.5">
+<en-export export-date="20231018T170555Z" application="Evernote" version="10.61.10">
   <note>
     <title>link to telephone: 202-555-0179</title>
     <created>20230916T163526Z</created>
@@ -10,7 +10,7 @@
     </note-attributes>
     <content>
       <![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd"><en-note><div>link to telephone: <a href="tel:202-555-0179">202-555-0179</a></div><div>link: <a href="https://google.com">Google</a></div></en-note>      ]]>
+<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd"><en-note><div>link to telephone: <a href="tel:202-555-0179" rev="en_rl_none">202-555-0179</a></div><div>link: <a href="https://google.com" rev="en_rl_none">Google</a></div><div>busycal link: <a href="busycalevent://new/Meeting%20with%20Joe%20June%207%20at%203pm%20%2FWork">event</a></div></en-note>      ]]>
     </content>
   </note>
 </en-export>
