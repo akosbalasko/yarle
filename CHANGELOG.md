@@ -1,3 +1,10 @@
+# [5.7.0](https://github.com/akosbalasko/yarle/compare/v5.6.0...v5.7.0) (2023-09-18)
+
+
+### Features
+
+* conversion of busycal events to standard links added ([#528](https://github.com/akosbalasko/yarle/issues/528)) ([c0dace3](https://github.com/akosbalasko/yarle/commit/c0dace3cce1ceda836b8069b873580719ab2ac16))
+
 # [5.6.0](https://github.com/akosbalasko/yarle/compare/v5.5.8...v5.6.0) (2023-09-17)
 
 
