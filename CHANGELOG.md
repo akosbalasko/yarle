@@ -1,3 +1,10 @@
+# [5.8.0](https://github.com/akosbalasko/yarle/compare/v5.7.0...v5.8.0) (2023-09-23)
+
+
+### Features
+
+* levenshtein distanced links implemented ([#532](https://github.com/akosbalasko/yarle/issues/532)) ([e9d5080](https://github.com/akosbalasko/yarle/commit/e9d5080abb0d41ff491f7f7319e59c7815107627))
+
 # [5.7.0](https://github.com/akosbalasko/yarle/compare/v5.6.0...v5.7.0) (2023-09-18)
 
 
