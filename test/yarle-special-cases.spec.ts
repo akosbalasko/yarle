@@ -537,64 +537,18 @@ dateFormat: undefined,
     );
   });
 
-  it.only('Enex file with internal Levenshtein links ', async () => {
+  it('Enex file with internal Levenshtein links ', async () => {
     const options: YarleOptions = {
+      dateFormat: undefined,
+
       enexSources: [ `${testDataFolder}test-levenshtein-links.enex` ],
       outputDir: 'out',
+      isMetadataNeeded: true,
+      plainTextNotesOnly: false,
+      templateFile: undefined,
       outputFormat: OutputFormat.StandardMD,
-      useLevenshteinForLinks: false,
-      templateFile: "./sampleTemplate.tmpl",
-      "keepOriginalHtml": false,
-      "isMetadataNeeded": false,
-      "isNotebookNameNeeded": false,
-      "isZettelkastenNeeded": false,
-      "useZettelIdAsFilename": false,
-      "plainTextNotesOnly": false,
-      "skipLocation": false,
-      "skipCreationTime": false,
-      "skipUpdateTime": false,
-      "skipSourceUrl": false,
-      "skipWebClips": false,
-      "skipTags": false,
-      "useHashTags": true,
-      "taskOutputFormat": TaskOutputFormat.ObsidianMD,
-      "keepImageSize": OutputFormat.ObsidianMD,
-      "skipEnexFileNameFromOutputPath": false,
-      "keepOriginalAmountOfNewlines": false,
-      "urlEncodeFileNamesAndLinks": false,
-      "pathSeparator": "/",
-      "sanitizeResourceNameSpaces": false,
-      "haveEnexLevelResources": false,
-      "haveGlobalResources": false,
-      "useUniqueUnknownFileNames": false,
-  
-      "replacementChar": "_",
-      "replacementCharacterMap": {
-          "<": "_",
-          ">": "_",
-          ":": "_",
-          "\"": "_",
-          "/": "_",
-          "\\": "_", 
-          "|": "_",
-          "?": "_",
-          "*": "_"
-      },
-      "logseqSettings": {
-          "journalNotes": false
-      },
-      "obsidianSettings": {
-          "omitLinkDisplayName": false
-      },
-      "nestedTags": {
-          "separatorInEN": "_",
-          "replaceSeparatorWith": "---",
-          "replaceSpaceWith": "-"
-      },
-      "resourcesDir": "",
-      "keepMDCharactersOfENNotes": false,
-      "monospaceIsCodeBlock": false,
-      "dateFormat": "YYYY-MM-DD"
+      useLevenshteinForLinks: true,
+
 
     };
     await dropTheRopeRunner.run(options);
