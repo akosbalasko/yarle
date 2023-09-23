@@ -54,4 +54,5 @@ export interface YarleOptions {
     taskOutputFormat?: TaskOutputFormat;
     obsidianTaskTag?: string;
     useUniqueUnknownFileNames?: boolean;
+    useLevenshteinForLinks?: boolean;
 }

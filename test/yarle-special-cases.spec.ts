@@ -506,6 +506,7 @@ dateFormat: undefined,
       plainTextNotesOnly: false,
       templateFile: undefined,
       outputFormat: OutputFormat.StandardMD,
+
     };
     await dropTheRopeRunner.run(options);
 
@@ -533,6 +534,49 @@ dateFormat: undefined,
         'utf8',
       )),
       fs.readFileSync(`${__dirname}/data/test-linksNoteB.md`, 'utf8'),
+    );
+  });
+
+  it('Enex file with internal Levenshtein links ', async () => {
+    const options: YarleOptions = {
+      dateFormat: undefined,
+
+      enexSources: [ `${testDataFolder}test-levenshtein-links.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      plainTextNotesOnly: false,
+      templateFile: undefined,
+      outputFormat: OutputFormat.StandardMD,
+      useLevenshteinForLinks: true,
+
+
+    };
+    await dropTheRopeRunner.run(options);
+
+    assert.equal(
+      fs.existsSync(`${__dirname}/../out/notes/test-levenshtein-links/NoteA.md`),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-levenshtein-links/NoteA.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-levenshtein-linksNoteA.md`, 'utf8'),
+    );
+
+    assert.equal(
+      fs.existsSync(`${__dirname}/../out/notes/test-levenshtein-links/NoteB.md`),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-levenshtein-links/NoteB.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-levenshtein-linksNoteB.md`, 'utf8'),
     );
   });
 

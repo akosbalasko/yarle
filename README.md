@@ -163,6 +163,7 @@ To configure Yarle, you must create a config file. By default it looks like this
    "haveEnexLevelResources": true,
    "haveGlobalResources": false,
    "useUniqueUnknownFileNames": false,
+   "useLevenshteinForLinks": false,
     "logseqSettings":{
         "journalNotes": false
     },
@@ -204,7 +205,7 @@ The following configurational properties are available:
 | ```taskOutputFormat``` | `ObsidianMD` or `StandardMD` | Output format of Evernote v10+ tasks. ObsidianMD will connvert tasks to match with Obsidian Tasks plugin's requirements. StandardMD will create plain tasks, loosing many features like reminders or due dates.
 | ```obsidianTaskTag``` | string | a tag to put to a task converted from Evernote v10+ tasks. Optional by Obsidian Tasks plugin, pls check the details there. 
 |```useUniqueUnknownFileNames``` | boolean | generates a couple of random characters at the end of the resource file names if the exact name cannot be recognised. For instance: unknown_filename-d2fd86c3.pdf
-
+|```useLevenshteinForLinks```| boolean| it applies the link to the note with the filename that has the closest Levenshtein distance to the text of the link
 Metadata settings can be set via the template.
 
 

@@ -13,6 +13,7 @@ import { OutputFormat } from './../output-format';
 import { getCreationTime } from './content-utils';
 import { escapeStringRegexp } from './escape-string-regexp';
 import { isLogseqJournal } from './is-logseq-journal';
+import { closest } from 'fastest-levenshtein';
 
 const applyCharacterMapSafely = (title: string): string => {
   return applyCharacterMap(title).replace(/[/\\?%*:|"<>\[\]\+]/g, '-');
@@ -156,3 +157,8 @@ export const getNotebookName = (enexFile: string): string => {
 
   return notebookName;
 };
+
+
+export const getClosestFileName = (text: string ,allconvertedFiles: string[]): string => {
+  return closest(text, allconvertedFiles);
+}

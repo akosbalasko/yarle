@@ -28,6 +28,8 @@
     "haveEnexLevelResources": false,
     "haveGlobalResources": false,
     "useUniqueUnknownFileNames": false,
+    "useLevenshteinForLinks": false,
+
     "replacementChar": "_",
     "replacementCharacterMap": {
         "<": "_",
