@@ -49,6 +49,7 @@
     "haveEnexLevelResources": true,
     "haveGlobalResources": false,
 	"useUniqueUnknownFileNames": false,
+    "useLevenshteinForLinks": false,
     "logseqSettings":{
         "journalNotes": false
     },

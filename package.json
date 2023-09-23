@@ -46,6 +46,7 @@
     "chokidar": "3.4.3",
     "electron-store": "8.0.1",
     "fast-xml-parser": "3.12.5",
+    "fastest-levenshtein": "1.0.16",
     "fs-extra": "4.0.2",
     "he": "1.2.0",
     "joplin-turndown-plugin-gfm": "1.0.12",

@@ -10,6 +10,7 @@ import { escapeStringRegexp } from './escape-string-regexp';
 import { getAllOutputFilesWithExtension } from './get-all-output-files';
 import { isTanaOutput } from './tana/is-tana-output';
 import { updateFileContentSafely } from './file-utils';
+import { getClosestFileName } from './filename-utils';
 
 export const applyLinks = (options: YarleOptions, outputNotebookFolders: Array<string>): void => {
     const linkNameMap = RuntimePropertiesSingleton.getInstance();
@@ -24,7 +25,12 @@ export const applyLinks = (options: YarleOptions, outputNotebookFolders: Array<s
         if (allconvertedFiles.find(fn => fn.includes(uniqueId))) {
             fileName = truncatFileName(fileName, uniqueId);
         }
-
+        if (options.useLevenshteinForLinks){
+            const fileNames = allconvertedFiles.map(convertedFileName => {
+                return convertedFileName.split(path.sep).reverse()[0].split('.')[0]
+            })
+            fileName = getClosestFileName(fileName, fileNames);
+        }
         const notebookName: string = (linkProps as any)['notebookName'];
         const encodedFileName = options.urlEncodeFileNamesAndLinks ? encodeURI(fileName as string) : fileName as string;
 

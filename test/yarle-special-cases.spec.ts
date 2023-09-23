@@ -506,6 +506,7 @@ dateFormat: undefined,
       plainTextNotesOnly: false,
       templateFile: undefined,
       outputFormat: OutputFormat.StandardMD,
+
     };
     await dropTheRopeRunner.run(options);
 
@@ -533,6 +534,95 @@ dateFormat: undefined,
         'utf8',
       )),
       fs.readFileSync(`${__dirname}/data/test-linksNoteB.md`, 'utf8'),
+    );
+  });
+
+  it.only('Enex file with internal Levenshtein links ', async () => {
+    const options: YarleOptions = {
+      enexSources: [ `${testDataFolder}test-levenshtein-links.enex` ],
+      outputDir: 'out',
+      outputFormat: OutputFormat.StandardMD,
+      useLevenshteinForLinks: false,
+      templateFile: "./sampleTemplate.tmpl",
+      "keepOriginalHtml": false,
+      "isMetadataNeeded": false,
+      "isNotebookNameNeeded": false,
+      "isZettelkastenNeeded": false,
+      "useZettelIdAsFilename": false,
+      "plainTextNotesOnly": false,
+      "skipLocation": false,
+      "skipCreationTime": false,
+      "skipUpdateTime": false,
+      "skipSourceUrl": false,
+      "skipWebClips": false,
+      "skipTags": false,
+      "useHashTags": true,
+      "taskOutputFormat": TaskOutputFormat.ObsidianMD,
+      "keepImageSize": OutputFormat.ObsidianMD,
+      "skipEnexFileNameFromOutputPath": false,
+      "keepOriginalAmountOfNewlines": false,
+      "urlEncodeFileNamesAndLinks": false,
+      "pathSeparator": "/",
+      "sanitizeResourceNameSpaces": false,
+      "haveEnexLevelResources": false,
+      "haveGlobalResources": false,
+      "useUniqueUnknownFileNames": false,
+  
+      "replacementChar": "_",
+      "replacementCharacterMap": {
+          "<": "_",
+          ">": "_",
+          ":": "_",
+          "\"": "_",
+          "/": "_",
+          "\\": "_", 
+          "|": "_",
+          "?": "_",
+          "*": "_"
+      },
+      "logseqSettings": {
+          "journalNotes": false
+      },
+      "obsidianSettings": {
+          "omitLinkDisplayName": false
+      },
+      "nestedTags": {
+          "separatorInEN": "_",
+          "replaceSeparatorWith": "---",
+          "replaceSpaceWith": "-"
+      },
+      "resourcesDir": "",
+      "keepMDCharactersOfENNotes": false,
+      "monospaceIsCodeBlock": false,
+      "dateFormat": "YYYY-MM-DD"
+
+    };
+    await dropTheRopeRunner.run(options);
+
+    assert.equal(
+      fs.existsSync(`${__dirname}/../out/notes/test-levenshtein-links/NoteA.md`),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-levenshtein-links/NoteA.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-levenshtein-linksNoteA.md`, 'utf8'),
+    );
+
+    assert.equal(
+      fs.existsSync(`${__dirname}/../out/notes/test-levenshtein-links/NoteB.md`),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-levenshtein-links/NoteB.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-levenshtein-linksNoteB.md`, 'utf8'),
     );
   });
 
