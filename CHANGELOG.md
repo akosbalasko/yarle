@@ -1,3 +1,10 @@
+## [5.8.1](https://github.com/akosbalasko/yarle/compare/v5.8.0...v5.8.1) (2023-09-25)
+
+
+### Bug Fixes
+
+* zip-a-folder 3.0.0 ([#534](https://github.com/akosbalasko/yarle/issues/534)) ([30da556](https://github.com/akosbalasko/yarle/commit/30da5564a74a633458451a07a6c4e4165fa77dff))
+
 # [5.8.0](https://github.com/akosbalasko/yarle/compare/v5.7.0...v5.8.0) (2023-09-23)
 
 
