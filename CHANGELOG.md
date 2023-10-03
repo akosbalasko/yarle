@@ -1,3 +1,10 @@
+## [5.8.2](https://github.com/akosbalasko/yarle/compare/v5.8.1...v5.8.2) (2023-10-03)
+
+
+### Bug Fixes
+
+* getting unique name fixed ([#537](https://github.com/akosbalasko/yarle/issues/537)) ([f6d4a4a](https://github.com/akosbalasko/yarle/commit/f6d4a4abd10dea3cb1da209aaa2a40292d9f2aeb))
+
 ## [5.8.1](https://github.com/akosbalasko/yarle/compare/v5.8.0...v5.8.1) (2023-09-25)
 
 
