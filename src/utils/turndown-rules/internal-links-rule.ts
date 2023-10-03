@@ -24,9 +24,9 @@ const isEvernoteLink = (value: string): boolean => {
 }
 const getEvernoteUniqueId = (value: string): string => {
     const urlSpl = value.split('/').reverse()
-    return (urlSpl[0] !== '')
-        ? urlSpl[0]
-        : urlSpl[1]
+    return ((urlSpl[0] !== '')
+        ? [urlSpl[0],urlSpl[1]]
+        : [urlSpl[1],urlSpl[2]]).join('/')
 }
 export const wikiStyleLinksRule = {
     filter: filterByNodeName('A'),
