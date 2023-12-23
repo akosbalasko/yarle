@@ -1,3 +1,10 @@
+## [5.8.3](https://github.com/akosbalasko/yarle/compare/v5.8.2...v5.8.3) (2023-12-23)
+
+
+### Bug Fixes
+
+* utimes version update to work with Mac Silicon ([#547](https://github.com/akosbalasko/yarle/issues/547)) ([2651f27](https://github.com/akosbalasko/yarle/commit/2651f27b5bf7c19fe25cc50fa93ec33edead3b04))
+
 ## [5.8.2](https://github.com/akosbalasko/yarle/compare/v5.8.1...v5.8.2) (2023-10-03)
 
 
