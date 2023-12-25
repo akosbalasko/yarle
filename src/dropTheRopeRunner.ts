@@ -11,7 +11,10 @@ import { clearLogFile } from './utils/clearLogFile';
 import { applyLinks } from './utils/apply-links';
 import { createTanaOutput } from './utils/tana/create-tana-output';
 import { isTanaOutput } from './utils/tana/is-tana-output';
+import {isMemOutput, transformNotes, batchMemImport } from './utils/mem/mem-client';
 const { isHeptaOutput } = require('./utils/heptabase/is-hepta-output');
+
+
 const { zipFolder } = require('./utils/heptabase/zip-folder');
 
 export const run = async (opts?: YarleOptions) => {
@@ -49,5 +52,9 @@ export const run = async (opts?: YarleOptions) => {
     if (isHeptaOutput()){
         await zipFolder(options, outputNotebookFolders)
       }
+    if (isMemOutput()){
+        await transformNotes(outputNotebookFolders)
+        await batchMemImport(outputNotebookFolders)
+    }
     
 };

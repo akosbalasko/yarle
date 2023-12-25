@@ -18,8 +18,10 @@ import { isTOC } from './utils/is-toc';
 import { RuntimePropertiesSingleton } from './runtime-properties';
 import { OutputFormat } from './output-format';
 import { convert2TanaNode } from './utils/tana/convert-to-tana-node';
-import { saveTanaFile } from './utils/save-tana-file';
+import { convert2MemNode } from './utils/mem/mem-client';
+import { saveJsonFile } from './utils/save-json-file';
 import { isTanaOutput } from './utils/tana/is-tana-output';
+import { isMemOutput } from 'utils/mem/mem-client';
 
 export const processNode = (note: any, notebookName: string): void => {
 
@@ -59,7 +61,11 @@ export const processNode = (note: any, notebookName: string): void => {
 
     if (isTanaOutput()){
       const tanaJson = convert2TanaNode({...noteData, content: data}, yarleOptions)
-      saveTanaFile(tanaJson, note)
+      saveJsonFile(tanaJson, note)
+    }
+    else if (isMemOutput()) {
+      const memJson = convert2MemNode({...noteData, content: data}, yarleOptions)
+      saveJsonFile(memJson, note)
     }
     else saveMdFile(data, note);
 

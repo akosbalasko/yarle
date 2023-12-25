@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "@electron/remote": "2.0.8",
+    "@mem-labs/mem-node": "^0.1.1",
     "@types/fs-extra": "8.1.0",
     "chai": "4.2.0",
     "chokidar": "3.4.3",

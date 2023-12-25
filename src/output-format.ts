@@ -3,7 +3,9 @@ export enum OutputFormat {
     StandardMD= 'StandardMD',
     LogSeqMD = 'LogSeqMD',
     Tana = 'Tana Internal Format',
-    Heptabase = 'Heptabase'
+    Heptabase = 'Heptabase',
+    Mem = 'Mem'
+
 }
 
 module.exports={OutputFormat}
