@@ -182,10 +182,8 @@ app.whenReady().then(() => {
         return
       } else if (filePaths) {
         const configFilePath = filePaths[0];
-        const fileContent = fs.readFileSync(configFilePath, {encoding: 'base64'});
-        let plainConfig = Buffer.from(fileContent, 'base64').toString('utf8')
-        plainConfig = Buffer.from(plainConfig, 'base64').toString('utf8')
-        mainWindow.webContents.send('configLoaded', configFilePath, JSON.parse(plainConfig));
+        const fileContent = fs.readFileSync(configFilePath);
+        mainWindow.webContents.send('configLoaded', configFilePath, JSON.parse(fileContent));
       }
 
   });
