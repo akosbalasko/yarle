@@ -1,3 +1,10 @@
+# [5.9.0](https://github.com/akosbalasko/yarle/compare/v5.8.3...v5.9.0) (2023-12-26)
+
+
+### Features
+
+* config store and management ([#548](https://github.com/akosbalasko/yarle/issues/548)) ([49cd956](https://github.com/akosbalasko/yarle/commit/49cd956b30b80be833e086559bc5a22ad1f2c2a5))
+
 ## [5.8.3](https://github.com/akosbalasko/yarle/compare/v5.8.2...v5.8.3) (2023-12-23)
 
 
