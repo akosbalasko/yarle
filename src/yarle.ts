@@ -210,6 +210,7 @@ const saveOptionsAsConfig = (options: YarleOptions): void => {
 export const dropTheRope = async (options: YarleOptions): Promise<Array<string>> => {
   clearLogFile();
   setOptions(options);
+  utils.createRootOutputDir();
   saveOptionsAsConfig(options)
   const outputNotebookFolders = [];
   for (const enex of options.enexSources) {
