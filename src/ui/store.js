@@ -29,6 +29,7 @@ const schema = {
     keepMDCharactersOfENNotes: { type: 'boolean', default: false },
     monospaceIsCodeBlock: { type: 'boolean', default: false },
     resourcesDir: {type: 'string', default: '_resources'},
+    configFilePath: {type: 'string'}
 };
 
 let store = new Store({schema, watch: true});

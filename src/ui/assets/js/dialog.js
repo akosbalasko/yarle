@@ -78,6 +78,7 @@ ipcRenderer.on('defaultTemplateLoaded', (event, store) => {
 ipcRenderer.on('logSeqModeSelected', (event, config, template) => {
 
   const flatConfig = flatten(JSON.parse(config));
+  flatConfig.replacementCharacterMap = config.replacementCharacterMap
   flatConfig.currentTemplate = template;
   updateDomByFlatConfig(flatConfig, true);
   document.getElementById('currentTemplate').disabled = false;
@@ -89,6 +90,8 @@ ipcRenderer.on('logSeqModeSelected', (event, config, template) => {
 ipcRenderer.on('logSeqModeDeselected', (event, config, template) => {
 
   const flatConfig = flatten(JSON.parse(config));
+  flatConfig.replacementCharacterMap = config.replacementCharacterMap
+
   updateDomByFlatConfig(flatConfig, false);
   document.getElementById('currentTemplate').value = template;
 
@@ -98,7 +101,6 @@ ipcRenderer.on('logSeqModeDeselected', (event, config, template) => {
   updateConfigStore('resourcesDir', '_resources');
   updateConfigStore('currentTemplate', template);
 });
-
 
 window.dialog = window.dialog || {},
 function(n) {
@@ -141,7 +143,7 @@ function(n) {
         $('#selectOutputFolder').click( function () {
           ipcRenderer.send('selectOutputFolder');
         });
-
+        
         $('#showErrorBox').click( function () {
           dialog.handler.showErrorBox();
         })

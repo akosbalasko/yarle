@@ -22,6 +22,9 @@ contextBridge.exposeInMainWorld('electronAPI', {
   selectOutputFolder: async () => {
     return ipcRenderer.invoke('dialog:selectOutputFolder')
   },
+  loadConfigFile: async () => {
+    return ipcRenderer.invoke('dialog:selectConfigFile')
+  },
   readFileSync: fs.readFileSync,
   getConfigByType: (type) => {
     let configFile;
@@ -99,6 +102,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
     ipcRenderer.on('logSeqModeSelected', callback)
   },
   onLogSeqModeDeSelected: (callback) => ipcRenderer.on('logSeqModeDeSelected', callback),
+  onConfigLoaded: (callback) => ipcRenderer.on('configLoaded', callback),
   onTanaModeSelected: (callback) => {
     console.log('onTanaModeSelected triggered')
     ipcRenderer.on('tanaModeSelected', callback)

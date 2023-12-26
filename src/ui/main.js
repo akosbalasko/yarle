@@ -71,6 +71,7 @@ const createWindow = () => {
 
     ipcMain.on('startConversion', async (event, data) => {
       const settings = mapSettingsToYarleOptions();
+
       const outputNotebookFolders = await yarle.dropTheRope(settings);
       // apply internal links
       applyLinks(settings, outputNotebookFolders);
@@ -109,7 +110,6 @@ const createWindow = () => {
 
     mainWindow.show();
     mainWindow.webContents.send('logSeqModeDeSelected');
-
 
   });
   
@@ -166,6 +166,26 @@ app.whenReady().then(() => {
         console.log(`outputDir: ${outputPath}`);
         return outputPath;
 
+      }
+
+  });
+  ipcMain.handle('dialog:selectConfigFile', async () => {
+    const { canceled, filePaths } = await dialog.showOpenDialog(
+      {
+        properties: ['openFile'],
+        filters: [
+  
+          { name: 'Yarle config file', extensions: ['config']},
+        ],
+      });
+      if (canceled) {
+        return
+      } else if (filePaths) {
+        const configFilePath = filePaths[0];
+        const fileContent = fs.readFileSync(configFilePath, {encoding: 'base64'});
+        let plainConfig = Buffer.from(fileContent, 'base64').toString('utf8')
+        plainConfig = Buffer.from(plainConfig, 'base64').toString('utf8')
+        mainWindow.webContents.send('configLoaded', configFilePath, JSON.parse(plainConfig));
       }
 
   });

@@ -161,19 +161,27 @@
 		                            </div>
 		                            <div class="tab-pane" id="configuration">
 										<div class="configurationSection">
-											<h5 class="info-text"> Target Dialect </h5>
-												<div class="configurationSectionItems">
-													<div class="form-group">
-														<select name="outputFormat" id="outputFormat" class="form-control configurationItem">
-														<option value="ObsidianMD">Obsidian</option>
-														<option value="LogSeqMD">LogSeq</option>
-														<option value="Heptabase">Heptabase</option>
-														<option value="Tana Internal Format">Tana Internal Format</option>
-														<option value="StandardMD">Other Standard Markdown-based application</option>
-														</select>
-													</div>
+											  
+											<div class="configurationSectionItems flex-center">
+												  <input type='button' id="selectConfigFileDialogBtn" class='btn btn-fill btn-danger btn-wd' name='selectConfigFileDialogBtn' value='Load config file' />
+												<div style='font-size: 12px;'><i>(After a conversion you can find the actual settings in file 'yarle.config' within the specified output directory.)</i></div>
+
+											</div>
+										</div>				  
+										<div class="configurationSection">
+										<h5 class="info-text"> Target Dialect </h5>
+											<div class="configurationSectionItems">
+												<div class="form-group">
+													<select name="outputFormat" id="outputFormat" class="form-control configurationItem">
+													<option value="ObsidianMD">Obsidian</option>
+													<option value="LogSeqMD">LogSeq</option>
+													<option value="Heptabase">Heptabase</option>
+													<option value="Tana Internal Format">Tana Internal Format</option>
+													<option value="StandardMD">Other Standard Markdown-based application</option>
+													</select>
 												</div>
 											</div>
+										</div>
 											<div class="configurationSection">
 												<h5 class="info-text">General </h5>
 													<div class="configurationSectionItems">
