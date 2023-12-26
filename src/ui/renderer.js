@@ -15,6 +15,16 @@ selectOutputFolderDialogBtn.addEventListener('click', async () => {
   outputFolderElement.innerText = outputFolder
 })
 
+
+const selectConfigFileDialogBtn = document.getElementById('selectConfigFileDialogBtn')
+const configFileElement = document.getElementById('configFilePath')
+
+selectConfigFileDialogBtn.addEventListener('click', async (event) => {
+  const configFile = await window.electronAPI.loadConfigFile()
+  configFileElement.innerText = configFile
+
+})
+
 const outputFormatSelect = document.getElementById('outputFormat')
 
 outputFormatSelect.addEventListener('change', async (event) => {
@@ -25,6 +35,21 @@ window.electronAPI.onLogSeqModeDeSelected((event, value) => {
   console.log('onLogSeqModeDeselected triggered')
   handleOutputFormatChange(event, window.electronAPI.outputFormat.ObsidianMD)
 })
+
+window.electronAPI.onConfigLoaded(async (event, configFilePath, configObj) => {
+  console.log('onConfigLoaded triggered')
+  console.log(JSON.stringify(configObj))
+  updateOutputFormat(configObj.outputFormat)
+  const flatConfigObj = flatten(configObj)
+  flatConfigObj.replacementCharacterMap = configObj.replacementCharacterMap
+  updateDomByFlatConfig(flatConfigObj, false);
+ 
+  window.electronAPI.store.set('configFilePath', configFilePath);
+  // tslint:disable-next-line:no-console
+  console.log(`configFilePath: ${configFilePath}`);
+  return configFilePath;
+})
+
 
 const configItems = document.getElementsByClassName('configurationItem')
 for(const configItem of configItems){
@@ -100,7 +125,6 @@ const handleOutputFormatChange = ((event, initValue) => {
         //const logSeqTemplate = window.electronAPI.readFileSync(`${window.electronAPI.currentDir}/../../sampleTemplate_logseq.tmpl`, 'utf-8');
         const flatConfig = flatten(JSON.parse(defaultConfig));
         flatConfig.currentTemplate = defaultTemplate;
-        
         updateDomByFlatConfig(flatConfig, false);
         document.getElementById('currentTemplate').removeAttribute('disabled');
     
@@ -134,26 +158,42 @@ function isBooleanString(value) {
 function isCharacterMap(value) {
   return typeof value === 'CharacterMap'
 }
-
+const updateOutputFormat = (outputFormat) => {
+  updateDomAndConfig({name: 'outputFormat', value: outputFormat})
+}
 const updateDomByFlatConfig = (flatConfig, disable) => {
   for (const configItem in flatConfig){
     if (configItem !== 'outputFormat' && !configItem.startsWith('enexSources') && configItem!== 'outputDir'){
-      const domItem = document.getElementById(configItem);
-      if (domItem){
-        if (domItem.getAttribute('type') === 'checkbox'){
-          document.getElementById(configItem).checked = flatConfig[configItem];
-        } else {
-          document.getElementById(configItem).value = flatConfig[configItem];
-        }
-      if (!disable)
-      document.getElementById(configItem).removeAttribute('disabled')
-      else document.getElementById(configItem).disabled = true;
-
-      }
-      window.electronAPI.store.set(configItem, flatConfig[configItem])
-      
+      updateDomAndConfig({name: configItem, value: flatConfig[configItem]})
     }
   }
+}
+const updateDomAndConfig = (configItem, disable) => {
+  const domItem = document.getElementById(configItem.name);
+  let itemValueToStore = configItem.value
+  if (domItem){
+    if (domItem.getAttribute('type') === 'checkbox'){
+      document.getElementById(configItem.name).checked = configItem.value;
+    } else {
+      if (isObject(itemValueToStore)){
+        itemValueToStore =  JSON.stringify(configItem.value)
+        document.getElementById(configItem.name).value = JSON.stringify(configItem.value, undefined, 2);;
+      }
+      else {
+        
+      document.getElementById(configItem.name).value = configItem.value;
+    }
+  }
+  if (!disable)
+    document.getElementById(configItem.name).removeAttribute('disabled')
+  else document.getElementById(configItem.name).disabled = true;
+
+  }
+  window.electronAPI.store.set(configItem.name, itemValueToStore)
+  
+}
+const isObject = (value) => {  
+  return Object.prototype.toString.call(value) === '[object Object]'
 }
 
 const flatten = (data) => {

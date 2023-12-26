@@ -202,9 +202,16 @@ export const parseStream = async (options: YarleOptions, enexSource: string): Pr
   });
 };
 
+const saveOptionsAsConfig = (options: YarleOptions): void => {
+  const yarleConfigName = 'yarle.config'
+  const encoded = Buffer.from(JSON.stringify(options), 'utf8').toString('base64')
+  fs.writeFileSync(path.join(options.outputDir, yarleConfigName), encoded);
+}
 export const dropTheRope = async (options: YarleOptions): Promise<Array<string>> => {
   clearLogFile();
   setOptions(options);
+  utils.createRootOutputDir();
+  saveOptionsAsConfig(options)
   const outputNotebookFolders = [];
   for (const enex of options.enexSources) {
     utils.setPaths(enex);

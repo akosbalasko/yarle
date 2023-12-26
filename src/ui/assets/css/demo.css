@@ -253,3 +253,9 @@
 .fixed-plugin ul > li:last-child a{
     margin-bottom: 15px;
 }
+
+.flex-center {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+}

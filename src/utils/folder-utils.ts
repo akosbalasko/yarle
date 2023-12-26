@@ -84,6 +84,12 @@ export const getRelativeResourceDir = (note: any): string => {
     : `.${enexFolder}${path.sep}${getResourceDir(paths.mdPath, note)}.resources`;
 };
 
+export const createRootOutputDir = (): void => {
+  const outputDir = path.isAbsolute(yarleOptions.outputDir)
+  ? yarleOptions.outputDir
+  : `${process.cwd()}${path.sep}${yarleOptions.outputDir}`;
+  fsExtra.mkdirsSync(outputDir)
+}
 export const getAbsoluteResourceDir = (note: any): string => {
   if (yarleOptions.haveGlobalResources) {
     return path.resolve(paths.resourcePath, '..', '..', yarleOptions.resourcesDir);
