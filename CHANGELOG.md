@@ -1,3 +1,13 @@
+# [6.0.0](https://github.com/akosbalasko/yarle/compare/v5.9.0...v6.0.0) (2023-12-28)
+
+
+* configs saved with timestamps (#553) ([a515fb2](https://github.com/akosbalasko/yarle/commit/a515fb2fef5fb7b6986d6e15af229af2464d61bb)), closes [#553](https://github.com/akosbalasko/yarle/issues/553)
+
+
+### BREAKING CHANGES
+
+* configs are saved as plain text, no base64 encoding
+
 # [5.9.0](https://github.com/akosbalasko/yarle/compare/v5.8.3...v5.9.0) (2023-12-26)
 
 
