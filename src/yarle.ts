@@ -203,8 +203,11 @@ export const parseStream = async (options: YarleOptions, enexSource: string): Pr
 };
 
 const saveOptionsAsConfig = (options: YarleOptions): void => {
-  const yarleConfigName = 'yarle.config'
-  const encoded = Buffer.from(JSON.stringify(options), 'utf8').toString('base64')
+  const now = new Date();
+  const formattedDateString = `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')}_${String(now.getHours()).padStart(2, '0')}${String(now.getMinutes()).padStart(2, '0')}${String(now.getSeconds()).padStart(2, '0')}`;
+
+  const yarleConfigName = `yarle_${formattedDateString}.config`;
+  const encoded = Buffer.from(JSON.stringify(options))
   fs.writeFileSync(path.join(options.outputDir, yarleConfigName), encoded);
 }
 export const dropTheRope = async (options: YarleOptions): Promise<Array<string>> => {
