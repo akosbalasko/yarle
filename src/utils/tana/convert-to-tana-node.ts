@@ -106,7 +106,7 @@ export const convertChild = (data: NoteData, child: string) => {
     return convertedChild
 }
 
-export const convert2TanaNode = (data: NoteData, node: any):TanaIntermediateFile => {
+export const convert2TanaNode = (data: NoteData):TanaIntermediateFile => {
     const firstLevelChildren = data.content.replace(/(\n|\r\n)+/g, '\n').split('\n')
     const rootContent = data.title
     

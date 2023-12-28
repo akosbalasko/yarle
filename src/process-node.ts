@@ -14,12 +14,8 @@ import { convertHtml2Md } from './convert-html-to-md';
 import { convert2Html } from './convert-to-html';
 import { NoteData } from './models/NoteData';
 import { loggerInfo } from './utils/loggerInfo';
-import { isTOC } from './utils/is-toc';
 import { RuntimePropertiesSingleton } from './runtime-properties';
-import { OutputFormat } from './output-format';
-import { convert2TanaNode } from './utils/tana/convert-to-tana-node';
-import { saveTanaFile } from './utils/save-tana-file';
-import { isTanaOutput } from './utils/tana/is-tana-output';
+import { LanguageFactory } from './outputLanguages/LanguageFactory';
 
 export const processNode = (note: any, notebookName: string): void => {
 
@@ -56,22 +52,14 @@ export const processNode = (note: any, notebookName: string): void => {
     const data = applyTemplate(noteData, yarleOptions);
     // tslint:disable-next-line:no-console
     // loggerInfo(`data =>\n ${JSON.stringify(data)} \n***`);
-
-    if (isTanaOutput()){
-      const tanaJson = convert2TanaNode({...noteData, content: data}, yarleOptions)
-      saveTanaFile(tanaJson, note)
-    }
-    else saveMdFile(data, note);
+    const langaugeFactory = new LanguageFactory();
+    const targetLanguage = langaugeFactory.createLanguage(yarleOptions.outputFormat)
+    targetLanguage.noteProcess({...noteData, content: data}, note)
 
     if (yarleOptions.keepOriginalHtml) {
       convert2Html(noteData);
       saveHtmlFile(noteData, note);
     }
-
-    /* if (isTOC(noteData.title)) {
-      const  noteIdNameMap = RuntimePropertiesSingleton.getInstance();
-      noteIdNameMap.extendNoteIdNameMap(noteData);
-    }*/
 
   } catch (e) {
     // tslint:disable-next-line:no-console

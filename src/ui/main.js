@@ -7,10 +7,7 @@ const { mapSettingsToYarleOptions } = require('./settingsMapper')
 const yarle = require('../yarle')
 const {OutputFormat} = require('./../output-format')
 const { applyLinks } = require('./../utils/apply-links');
-const { isTanaOutput } = require('./../utils/tana/is-tana-output');
-const { isHeptaOutput } = require('./../utils/heptabase/is-hepta-output');
-const {createTanaOutput } = require('./../utils/tana/create-tana-output');
-const { zipFolder } = require('./../utils/heptabase/zip-folder');
+const { LanguageFactory } = require('./../outputLanguages/LanguageFactory');
 
 initialize();
 // tslint:disable-next-line:no-require-imports variable-name
@@ -75,13 +72,10 @@ const createWindow = () => {
       const outputNotebookFolders = await yarle.dropTheRope(settings);
       // apply internal links
       applyLinks(settings, outputNotebookFolders);
-    
-      if (isTanaOutput()){
-        createTanaOutput(settings, outputNotebookFolders)
-    }
-      if (isHeptaOutput()){
-        await zipFolder(settings, outputNotebookFolders)
-      }
+
+      const langaugeFactory = new LanguageFactory();
+      const targetLanguage = langaugeFactory.createLanguage(settings.outputFormat)
+      targetLanguage.postProcess(settings, outputNotebookFolders)
     });
 
 
