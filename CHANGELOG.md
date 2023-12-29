@@ -1,3 +1,10 @@
+## [6.0.2](https://github.com/akosbalasko/yarle/compare/v6.0.1...v6.0.2) (2023-12-29)
+
+
+### Bug Fixes
+
+* filename urlEncoding ([#556](https://github.com/akosbalasko/yarle/issues/556)) ([67950aa](https://github.com/akosbalasko/yarle/commit/67950aaa5149fd4d2b6391e195051aa2e68bbc4a))
+
 ## [6.0.1](https://github.com/akosbalasko/yarle/compare/v6.0.0...v6.0.1) (2023-12-29)
 
 
