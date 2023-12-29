@@ -32,13 +32,15 @@ export const wikiStyleLinksRule = {
     filter: filterByNodeName('A'),
     replacement: (content: any, node: any) => {
         const nodeProxy = getAttributeProxy(node);
-
-        if (!nodeProxy.href) {
-            return '';
-        }
         let internalTurndownedContent =
             getTurndownService(yarleOptions).turndown(removeBrackets(node.innerHTML));
         internalTurndownedContent = removeDoubleBackSlashes(internalTurndownedContent);
+        if (!nodeProxy.href) {
+            return (node.innerHTML === '' || !node.innerHTML)
+                ? ''
+                : internalTurndownedContent;
+        }
+
         const lexer = new marked.Lexer({});
         const tokens = lexer.lex(internalTurndownedContent) as any;
         const extension = yarleOptions.addExtensionToInternalLinks ? '.md' : '';
@@ -50,7 +52,7 @@ export const wikiStyleLinksRule = {
             token = tokens[0];
             token['mdKeyword'] = `${'#'.repeat(tokens[0]['depth'])} `;
         }
-        const value = nodeProxy.href.value;
+        const value = nodeProxy.href ? nodeProxy.href.value : internalTurndownedContent;
         const type = nodeProxy.type ? nodeProxy.type.value : undefined ;
         const realValue = yarleOptions.urlEncodeFileNamesAndLinks ? encodeURI(value) : value;
 

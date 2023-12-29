@@ -30,7 +30,7 @@ export const imagesRule = {
       return `![](${realValue}${sizeString})`;
     } else if (yarleOptions.keepImageSize === OutputFormat.ObsidianMD) {
       sizeString = (widthParam || heightParam) ? `|${widthParam || 0}x${heightParam || 0}` : '';
-      if (realValue.startsWith('./')) {
+      if (realValue.startsWith('./') || realValue.startsWith('..')) {
         return `![[${realValue}${sizeString}]]`;
       } else {
         return `![${sizeString}](${realValue})`;
