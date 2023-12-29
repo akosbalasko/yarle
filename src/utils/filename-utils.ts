@@ -72,7 +72,9 @@ export const getResourceFileProperties = (workDir: string, resource: any): Resou
   if (yarleOptions.sanitizeResourceNameSpaces) {
     fileName = fileName.replace(/ /g, yarleOptions.replacementChar);
   }
-
+  if (yarleOptions.urlEncodeFileNamesAndLinks && yarleOptions.outputFormat === OutputFormat.ObsidianMD) {
+    fileName = encodeURI(fileName);
+  }
   const index = getFileIndex(workDir, fileName);
   const fileNameWithIndex = index > 0 ? `${fileName}.${index}` : fileName;
 
