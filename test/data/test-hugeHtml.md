@@ -77,7 +77,7 @@ Last modified on Monday 27 July 2015 15.47 BST](http://twitter.com/harrietsherw
 <http://twitter.com/harrietsherwood>* <http://twitter.com/harrietsherwood>[Share on Facebook](https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fgu.com%2Fp%2F4azh6%2Fsfb&ref=responsive)
 
 * [Share on Twitter](https://twitter.com/intent/tweet?text=Dying+for+Christianity%3A+millions+at+risk+amid+rise+in+persecution+across+the+globe&url=http%3A%2F%2Fgu.com%2Fp%2F4azh6%2Fstw)
-* 
+* Share via Email
 * [Share on Pinterest](http://www.pinterest.com/pin/find/?url=http%3A%2F%2Fwww.theguardian.com%2Fworld%2F2015%2Fjul%2F27%2Fdying-for-christianity-millions-at-risk-amid-rise-in-persecution-across-the-globe)
 * [Share on LinkedIn](http://www.linkedin.com/shareArticle?mini=true&title=Dying+for+Christianity%3A+millions+at+risk+amid+rise+in+persecution+across+the+globe&url=http%3A%2F%2Fgu.com%2Fp%2F4azh6)
 * [Share on Google+](https://plus.google.com/share?url=http%3A%2F%2Fgu.com%2Fp%2F4azh6%2Fsgp&amp;hl=en-GB&amp;wwc=1)
@@ -229,7 +229,7 @@ Topics
 * [Share on Facebook](https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fgu.com%2Fp%2F4azh6%2Fsfb&ref=responsive)
 
 * [Share on Twitter](https://twitter.com/intent/tweet?text=Dying+for+Christianity%3A+millions+at+risk+amid+rise+in+persecution+across+the+globe&url=http%3A%2F%2Fgu.com%2Fp%2F4azh6%2Fstw)
-* 
+* Share via Email
 * [Share on Pinterest](http://www.pinterest.com/pin/find/?url=http%3A%2F%2Fwww.theguardian.com%2Fworld%2F2015%2Fjul%2F27%2Fdying-for-christianity-millions-at-risk-amid-rise-in-persecution-across-the-globe)
 * [Share on LinkedIn](http://www.linkedin.com/shareArticle?mini=true&title=Dying+for+Christianity%3A+millions+at+risk+amid+rise+in+persecution+across+the+globe&url=http%3A%2F%2Fgu.com%2Fp%2F4azh6)
 * [Share on Google+](https://plus.google.com/share?url=http%3A%2F%2Fgu.com%2Fp%2F4azh6%2Fsgp&amp;hl=en-GB&amp;wwc=1)
