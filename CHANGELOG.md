@@ -1,3 +1,10 @@
+## [6.0.1](https://github.com/akosbalasko/yarle/compare/v6.0.0...v6.0.1) (2023-12-29)
+
+
+### Bug Fixes
+
+* handling links that have internalHtml but no href ([#555](https://github.com/akosbalasko/yarle/issues/555)) ([e95a286](https://github.com/akosbalasko/yarle/commit/e95a286cfaefc47b7311830f48f5b8c48f4eef9b))
+
 # [6.0.0](https://github.com/akosbalasko/yarle/compare/v5.9.0...v6.0.0) (2023-12-28)
 
 
