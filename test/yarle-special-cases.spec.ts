@@ -762,6 +762,31 @@ dateFormat: undefined,
       true,
     );
   });
+  it.only('Debug', async () => {
+    const options: YarleOptions = {
+      dateFormat: undefined,
+      enexSources: [ `${testDataFolder}test-webclip-base64image-in-link.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      plainTextNotesOnly: false,
+      urlEncodeFileNamesAndLinks: true,
+      outputFormat: OutputFormat.ObsidianMD
+    }
+    
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-URLEncodingLinksAndFiles/URLEncodedPdfAttachment.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-URLEncodingLinksAndFiles/_resources/URLEncodedPdfAttachment.resources/WLAN-Artikel_der_c't,_Ma%CC%88rz_2016.pdf`,
+      ),
+      true,
+    );
+  });
   it.skip('2 Enex files with the same PDF attachment - global resource folder ', async () => {
     const options: YarleOptions = {
 		enexSources: [
