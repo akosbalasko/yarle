@@ -1,3 +1,10 @@
+## [6.0.4](https://github.com/akosbalasko/yarle/compare/v6.0.3...v6.0.4) (2023-12-31)
+
+
+### Bug Fixes
+
+* images within a link ([#561](https://github.com/akosbalasko/yarle/issues/561)) ([359c6f8](https://github.com/akosbalasko/yarle/commit/359c6f83b07bcb858859e5da0e72dfb4e7e50975))
+
 ## [6.0.3](https://github.com/akosbalasko/yarle/compare/v6.0.2...v6.0.3) (2023-12-31)
 
 
