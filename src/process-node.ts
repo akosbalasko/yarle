@@ -20,6 +20,7 @@ import { OutputFormat } from './output-format';
 import { convert2TanaNode } from './utils/tana/convert-to-tana-node';
 import { saveTanaFile } from './utils/save-tana-file';
 import { isTanaOutput } from './utils/tana/is-tana-output';
+import { cloneDeep } from 'lodash';
 
 export const processNode = (note: any, notebookName: string): void => {
 
@@ -53,7 +54,7 @@ export const processNode = (note: any, notebookName: string): void => {
     noteData = {...noteData, ...getMetadata(note, notebookName)};
     noteData = {...noteData, ...getTags(note)};
 
-    const data = applyTemplate(noteData, yarleOptions);
+    let data = applyTemplate(noteData, yarleOptions);
     // tslint:disable-next-line:no-console
     // loggerInfo(`data =>\n ${JSON.stringify(data)} \n***`);
 
@@ -61,7 +62,10 @@ export const processNode = (note: any, notebookName: string): void => {
       const tanaJson = convert2TanaNode({...noteData, content: data}, yarleOptions)
       saveTanaFile(tanaJson, note)
     }
-    else saveMdFile(data, note);
+    else {
+      data = fixImagesInLink(data)
+      saveMdFile(data, note);
+    }
 
     if (yarleOptions.keepOriginalHtml) {
       convert2Html(noteData);
@@ -84,3 +88,19 @@ export const processNode = (note: any, notebookName: string): void => {
   loggerInfo(`Note "${noteData.title}" converted successfully in ${conversionDuration} seconds.`);
 
 };
+
+const fixImagesInLink = (content: string):string => {
+  let updatedContent = cloneDeep(content);
+  // Regular expression for the whole string with two groups
+  const patternWholeString = /\[!\[\[(.*?)\]\]\]\((.*?)\)/g;
+
+  let match;
+  while ((match = patternWholeString.exec(content)) !== null) {
+      updatedContent = updatedContent.replace(`[![[${match[1]}]]](${match[2]})`, `![${match[2]}](${match[1]})`)
+      const group1 = match[1];
+      const group2 = match[2];
+      console.log("Group 1:", group1);
+      console.log("Group 2:", group2);
+  }
+  return updatedContent;
+} 
