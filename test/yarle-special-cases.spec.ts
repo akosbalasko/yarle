@@ -762,6 +762,33 @@ dateFormat: undefined,
       true,
     );
   });
+  it('Enex file - link with images', async () => {
+    const options: YarleOptions = {
+      dateFormat: undefined,
+      enexSources: [ `${testDataFolder}test-webclip-with-image-in-link-2.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      plainTextNotesOnly: false,
+      urlEncodeFileNamesAndLinks: true,
+      outputFormat: OutputFormat.ObsidianMD
+    }
+    
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-webclip-with-image-in-link-2/Not So Humble Pie_ White Chocolate Caramel Cheesecake.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-webclip-with-image-in-link-2/Not So Humble Pie_ White Chocolate Caramel Cheesecake.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-link-with-images.md`, 'utf8'),
+    );
+  });
+
   it.skip('2 Enex files with the same PDF attachment - global resource folder ', async () => {
     const options: YarleOptions = {
 		enexSources: [
