@@ -1,3 +1,10 @@
+## [6.0.3](https://github.com/akosbalasko/yarle/compare/v6.0.2...v6.0.3) (2023-12-31)
+
+
+### Bug Fixes
+
+* template made comliant with Obsidian 1.5.3 ([#562](https://github.com/akosbalasko/yarle/issues/562)) ([1bf22b4](https://github.com/akosbalasko/yarle/commit/1bf22b4265c8cd393a0f09ea187bfcd468b18192))
+
 ## [6.0.2](https://github.com/akosbalasko/yarle/compare/v6.0.1...v6.0.2) (2023-12-29)
 
 
