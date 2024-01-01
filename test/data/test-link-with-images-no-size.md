@@ -2,17 +2,17 @@
 
 ## Wednesday, April 14, 2010
 
-### [White Chocolate Caramel Cheesecake](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html)![http://notsohumblepie.blogspot.com/|235x37](./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/piegohome.jpg)
+### [White Chocolate Caramel Cheesecake](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html)![http://notsohumblepie.blogspot.com/](./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/piegohome.jpg)
 
-![https://3.bp.blogspot.com/_WhPHUKwckUw/S8Xn_LDn0II/AAAAAAAACZA/lHtVIA7bKAY/s1600/white_chocolate_caramel_cheesecake2t.JPG|400x400](./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/white_chocolate_caramel_cheesecake2t.JPG)
+![https://3.bp.blogspot.com/_WhPHUKwckUw/S8Xn_LDn0II/AAAAAAAACZA/lHtVIA7bKAY/s1600/white_chocolate_caramel_cheesecake2t.JPG](./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/white_chocolate_caramel_cheesecake2t.JPG)
 I'm back and I've brought cheesecake! I was really excited this morning to slice into this cheesecake and taste it. While my husband was getting ready for work, I was brushing my teeth, channeling Liz Lemon, doing my _'I'm gonna' eat cheesecake for breakfast'_ song and dance routine.
 Why he stays married to me I do not know.
 So, I was given this recipe from a friend who insisted that I would love it. A recipe for white chocolate caramel cheesecake. She was right about me loving it, I've been itching to make it. How can one _not love_ a cheesecake brazen enough to incorporate nearly a pound of white chocolate ganache into the batter and then slather the whole pie in caramel sauce?!
-![https://1.bp.blogspot.com/_WhPHUKwckUw/S8XoAv8XKWI/AAAAAAAACZY/vppGaLLnBTg/s1600/white_chocolate_caramel_cheesecake5t.JPG|268x400](./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/white_chocolate_caramel_cheesecake5t.JPG)
+![https://1.bp.blogspot.com/_WhPHUKwckUw/S8XoAv8XKWI/AAAAAAAACZY/vppGaLLnBTg/s1600/white_chocolate_caramel_cheesecake5t.JPG](./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/white_chocolate_caramel_cheesecake5t.JPG)
 She was right, I love it. So delicious with a near perfect texture. Woooo!
 Yea, I'm riding a serious cheesecake breakfast induced sugar high at the moment.
 Feeling good. Let's get down to it...
-![https://2.bp.blogspot.com/_WhPHUKwckUw/S8XoACwCmaI/AAAAAAAACZQ/7ed1kWvu3mY/s1600/white_chocolate_caramel_cheesecake4t.JPG|309x400](./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/white_chocolate_caramel_cheesecake4t.JPG)
+![https://2.bp.blogspot.com/_WhPHUKwckUw/S8XoACwCmaI/AAAAAAAACZQ/7ed1kWvu3mY/s1600/white_chocolate_caramel_cheesecake4t.JPG](./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/white_chocolate_caramel_cheesecake4t.JPG)
 **White Chocolate Cheesecake with Caramel Glaze**
 adapted from [Ray's Boathouse: Seafood Secrets of the Pacific Northwest](http://www.amazon.com/gp/product/0971908427?ie=UTF8&tag=nosohupi-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0971908427)
 _
@@ -26,7 +26,7 @@ In a medium sauce pan over medium high heat (I'm using non-stick for this), comb
 Continue to cook and swirl until it sugar turns a medium amber color. Watch it carefully, the sugar will quickly darken and should it become dark brown or black it will taste bitter and unpleasant.
 When the sauce turns the right color slowly whisk in the cream. If the caramel hardens with the addition of the cream, do not worry. Just continue to add the cream and bring the mixture back to a a boil over medium heat. Continue to stir until the sugar has remelted. Allow to boil for 5 minutes then remove from heat and stir in the butter.
 Pour into a heat safe container and chill until ready to use.
-![https://2.bp.blogspot.com/_WhPHUKwckUw/S8Xn_pYQW_I/AAAAAAAACZI/aJ3EQYU5V5w/s1600/white_chocolate_caramel_cheesecake3t.JPG|268x400](./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/white_chocolate_caramel_cheesecake3t.JPG)
+![https://2.bp.blogspot.com/_WhPHUKwckUw/S8Xn_pYQW_I/AAAAAAAACZI/aJ3EQYU5V5w/s1600/white_chocolate_caramel_cheesecake3t.JPG](./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/white_chocolate_caramel_cheesecake3t.JPG)
 _Crust_
 10 ounces graham crackers, crushed into crumbs
 7 tablespoons unsalted butter
@@ -50,14 +50,14 @@ Set the cheesecake into a large roasting pan and then place in the oven. Pour th
 Remove from the oven and allow to cool completely on a wire rack. Once cool chill for at least 4 hours before serving.
 To glaze, gently warm the 1 cup of the caramel sauce on the stove or in the microwave until slightly runny and then pour onto the cheesecake. Smooth the caramel over the cake and you're ready to serve.
 Enjoy.
-![https://1.bp.blogspot.com/_WhPHUKwckUw/S8Xn-l2HPtI/AAAAAAAACY4/TS84PmhSvMg/s1600/white_chocolate_caramel_cheesecake1t.JPG|400x400](./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/white_chocolate_caramel_cheesecake1t.JPG)
+![https://1.bp.blogspot.com/_WhPHUKwckUw/S8Xn-l2HPtI/AAAAAAAACY4/TS84PmhSvMg/s1600/white_chocolate_caramel_cheesecake1t.JPG](./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/white_chocolate_caramel_cheesecake1t.JPG)
 **Save**[[#|]]
 
 Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Caramel](https://notsohumblepie.blogspot.com/search/label/Caramel), [Cheesecake](https://notsohumblepie.blogspot.com/search/label/Cheesecake), [Chocolate](https://notsohumblepie.blogspot.com/search/label/Chocolate), [Desserts](https://notsohumblepie.blogspot.com/search/label/Desserts), [Recipe](https://notsohumblepie.blogspot.com/search/label/Recipe)
 
 #### 40 comments:
 
-1. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/blogger_logo_round_35.png|35x35]]
+1. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/blogger_logo_round_35.png]]
 	
 	[Becky](https://www.blogger.com/profile/00191586387834309858)[April 14, 2010 at 10:05 AM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1271264732298#c7039023429984777898)
 	
@@ -65,7 +65,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-2. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/blank.gif|1x1]]
+2. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/blank.gif]]
 	
 	Anonymous[April 14, 2010 at 10:09 AM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1271264995930#c8239048553981583732)
 	
@@ -73,7 +73,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-3. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/myapron1-1.jpeg|36x36]]
+3. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/myapron1-1.jpeg]]
 	
 	[Ms. Humble](https://www.blogger.com/profile/06960224421093634330)[April 14, 2010 at 10:12 AM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1271265175695#c73391960998979014)
 	
@@ -82,7 +82,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-4. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/P1000810.JPG|36x36]]
+4. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/P1000810.JPG]]
 	
 	[T. The Destructor](https://www.blogger.com/profile/15618008582071260106)[April 14, 2010 at 10:28 AM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1271266115793#c700427383182914511)
 	
@@ -91,7 +91,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-5. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/blank.gif|1x1]]
+5. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/blank.gif]]
 	
 	Anonymous[April 14, 2010 at 10:37 AM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1271266628972#c1128099327882529042)
 	
@@ -99,7 +99,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-6. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/myapron1-1.jpeg|36x36]]
+6. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/myapron1-1.jpeg]]
 	
 	[Ms. Humble](https://www.blogger.com/profile/06960224421093634330)[April 14, 2010 at 10:42 AM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1271266930023#c6954352106447385720)
 	
@@ -108,7 +108,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-7. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/blank.gif|1x1]]
+7. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/blank.gif]]
 	
 	Anonymous[April 14, 2010 at 10:51 AM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1271267510982#c5804198158848716557)
 	
@@ -116,7 +116,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-8. ![|35x35](https://4.bp.blogspot.com/-HYSsMR683P0/UytN48r_jFI/AAAAAAAAC6E/MoyMIon9o5g/s35/*)
+8. ![*](https://4.bp.blogspot.com/-HYSsMR683P0/UytN48r_jFI/AAAAAAAAC6E/MoyMIon9o5g/s35/*)
 	
 	[Chocolate Freckles](https://www.blogger.com/profile/15315827608101582077)[April 14, 2010 at 10:57 AM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1271267842419#c8986434232161681909)
 	
@@ -124,7 +124,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-9. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/smitten_logo_jpg.jpg|36x36]]
+9. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/smitten_logo_jpg.jpg]]
 	
 	[Smitten Sugar](https://www.blogger.com/profile/15587913937401477595)[April 14, 2010 at 11:45 AM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1271270742062#c7642024836184409035)
 	
@@ -132,7 +132,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-10. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/blank.gif|1x1]]
+10. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/blank.gif]]
 	
 	Anonymous[April 14, 2010 at 11:58 AM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1271271502442#c9198145456442702594)
 	
@@ -140,7 +140,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-11. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/my-2Bface.jpg|35x35]]
+11. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/my-2Bface.jpg]]
 	
 	[Memória](https://www.blogger.com/profile/05445694569829238462)[April 14, 2010 at 12:33 PM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1271273604836#c7668699985982224295)
 	
@@ -148,7 +148,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-12. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/green-2B005.JPG|35x35]]
+12. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/green-2B005.JPG]]
 	
 	[DLSarmywife](https://www.blogger.com/profile/11426800215808518848)[April 14, 2010 at 12:45 PM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1271274336129#c2145502524304377303)
 	
@@ -156,7 +156,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-13. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/blank.gif|1x1]]
+13. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/blank.gif]]
 	
 	Anonymous[April 14, 2010 at 2:26 PM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1271280366050#c8138844936635997125)
 	
@@ -164,7 +164,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-14. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/blank.gif|1x1]]
+14. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/blank.gif]]
 	
 	Anonymous[April 14, 2010 at 2:30 PM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1271280639431#c168518986226125244)
 	
@@ -173,7 +173,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-15. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/myapron1-1.jpeg|36x36]]
+15. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/myapron1-1.jpeg]]
 	
 	[Ms. Humble](https://www.blogger.com/profile/06960224421093634330)[April 14, 2010 at 2:33 PM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1271280808952#c1559781800754126838)
 	
@@ -182,7 +182,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-16. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/-.jpeg|36x36]]
+16. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/-.jpeg]]
 	
 	[Aniko](https://www.blogger.com/profile/05276581665529870846)[April 14, 2010 at 2:43 PM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1271281412307#c4457412108066832206)
 	
@@ -193,7 +193,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-17. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/blank.gif|1x1]]
+17. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/blank.gif]]
 	
 	Anonymous[April 14, 2010 at 3:39 PM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1271284765369#c7188347940645835735)
 	
@@ -201,7 +201,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-18. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/pic.jpg|36x36]]
+18. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/pic.jpg]]
 	
 	[Laurin](https://www.blogger.com/profile/13488446275025976863)[April 14, 2010 at 4:12 PM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1271286741634#c6377460591763232056)
 	
@@ -213,7 +213,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-19. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/myapron1-1.jpeg|36x36]]
+19. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/myapron1-1.jpeg]]
 	
 	[Ms. Humble](https://www.blogger.com/profile/06960224421093634330)[April 14, 2010 at 4:16 PM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1271286962593#c8233240936385269406)
 	
@@ -222,7 +222,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-20. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/blogger_logo_round_35.png|35x35]]
+20. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/blogger_logo_round_35.png]]
 	
 	[linda](https://www.blogger.com/profile/01942642253140734302)[April 14, 2010 at 5:28 PM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1271291334540#c8038729872516890917)
 	
@@ -231,7 +231,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-21. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/myapron1-1.jpeg|36x36]]
+21. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/myapron1-1.jpeg]]
 	
 	[Ms. Humble](https://www.blogger.com/profile/06960224421093634330)[April 14, 2010 at 5:39 PM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1271291993221#c1723358841950796483)
 	
@@ -240,7 +240,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-22. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/-.1.jpeg|36x36]]
+22. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/-.1.jpeg]]
 	
 	[AnaMarie](https://www.blogger.com/profile/04465405043936026373)[April 14, 2010 at 7:14 PM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1271297658465#c4094210252660688025)
 	
@@ -249,7 +249,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-23. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/RaspChocMousseCake_Slice.JPG|36x36]]
+23. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/RaspChocMousseCake_Slice.JPG]]
 	
 	[Hanaâ](https://www.blogger.com/profile/15660317268731033542)[April 14, 2010 at 8:55 PM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1271303744125#c7453455197467779559)
 	
@@ -257,7 +257,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-24. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/Summer-2BLebanon-2B2008-2B388_2.jpg|35x35]]
+24. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/Summer-2BLebanon-2B2008-2B388_2.jpg]]
 	
 	[Cherine](https://www.blogger.com/profile/07130927909505836018)[April 15, 2010 at 12:33 AM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1271316832742#c8254169987620941585)
 	
@@ -265,7 +265,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-25. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/Bilde-2Btatt-2B29.jpg|36x36]]
+25. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/Bilde-2Btatt-2B29.jpg]]
 	
 	[K.M.](https://www.blogger.com/profile/12467809348618421676)[April 15, 2010 at 12:52 PM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1271361173923#c5274477479388401616)
 	
@@ -273,7 +273,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-26. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/heidi2.jpg|36x36]]
+26. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/heidi2.jpg]]
 	
 	[Heidi](https://www.blogger.com/profile/06100845188874598788)[April 18, 2010 at 8:23 AM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1271604196172#c5919140700570048638)
 	
@@ -281,7 +281,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-27. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/-.3.jpeg|35x35]]
+27. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/-.3.jpeg]]
 	
 	[The sloth](https://www.blogger.com/profile/12419973149626099457)[April 19, 2010 at 1:18 PM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1271708292979#c8357724089154821637)
 	
@@ -290,7 +290,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-28. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/crackcookies.jpg|36x36]]
+28. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/crackcookies.jpg]]
 	
 	[The Urban Baker](https://www.blogger.com/profile/02561212652465463688)[April 19, 2010 at 4:09 PM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1271718572567#c193393323174013606)
 	
@@ -298,7 +298,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-29. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/439px-Raimundo_Madrazo_-_Hot_Chocolate.jpg|36x36]]
+29. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/439px-Raimundo_Madrazo_-_Hot_Chocolate.jpg]]
 	
 	[Pattycake](https://www.blogger.com/profile/14486034531312726825)[April 21, 2010 at 5:02 PM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1271894552204#c8033850058749185922)
 	
@@ -309,7 +309,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-30. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/avatar.png|36x36]]
+30. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/avatar.png]]
 	
 	[Pulgarcita](https://www.blogger.com/profile/12149305760932748996)[October 22, 2010 at 5:34 AM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1287750859520#c8907921457188752458)
 	
@@ -319,7 +319,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-31. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/blogger_logo_round_35.png|35x35]]
+31. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/blogger_logo_round_35.png]]
 	
 	[Unknown](https://www.blogger.com/profile/03246342498387779904)[April 6, 2011 at 6:12 PM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1302138747614#c3840079623893014921)
 	
@@ -327,7 +327,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-32. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/blogger_logo_round_35.png|35x35]]
+32. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/blogger_logo_round_35.png]]
 	
 	[Unknown](https://www.blogger.com/profile/14051773446519016212)[September 24, 2011 at 8:03 PM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1316919795442#c2752862500473617754)
 	
@@ -335,7 +335,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-33. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/blogger_logo_round_35.png|35x35]]
+33. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/blogger_logo_round_35.png]]
 	
 	[Heather Veska](https://www.blogger.com/profile/17375463377388785356)[October 19, 2011 at 3:20 PM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1319062858209#c4229251302151976870)
 	
@@ -343,7 +343,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-34. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/SPIFFSBBQ.jpg|36x36]]
+34. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/SPIFFSBBQ.jpg]]
 	
 	[Spiffs](https://www.blogger.com/profile/02035466505427598601)[October 31, 2011 at 1:02 PM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1320091335450#c6904915908676774427)
 	
@@ -351,7 +351,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-35. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/myapron1-1.jpeg|36x36]]
+35. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/myapron1-1.jpeg]]
 	
 	[Ms. Humble](https://www.blogger.com/profile/06960224421093634330)[October 31, 2011 at 10:54 PM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1320126850646#c9064296577244211538)
 	
@@ -360,7 +360,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-36. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/SPIFFSBBQ.jpg|36x36]]
+36. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/SPIFFSBBQ.jpg]]
 	
 	[Spiffs](https://www.blogger.com/profile/02035466505427598601)[November 1, 2011 at 12:50 PM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1320177007358#c2208269190017142003)
 	
@@ -369,7 +369,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-37. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/-.2.jpeg|36x36]]
+37. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/-.2.jpeg]]
 	
 	[Elif](https://www.blogger.com/profile/18159685017802285792)[November 7, 2011 at 6:40 AM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1320676822683#c366699046891899942)
 	
@@ -377,7 +377,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-38. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/blogger_logo_round_35.png|35x35]]
+38. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/blogger_logo_round_35.png]]
 	
 	[Sophiade](https://www.blogger.com/profile/08683699239123823256)[November 26, 2011 at 9:58 AM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1322330306116#c3033323804071060645)
 	
@@ -386,7 +386,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-39. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/blogger_logo_round_35.png|35x35]]
+39. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/blogger_logo_round_35.png]]
 	
 	[NaomiG](https://www.blogger.com/profile/16624787865427431008)[January 10, 2012 at 5:37 PM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1326245832442#c1346044499407299947)
 	
@@ -394,7 +394,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-40. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/myapron1-1.jpeg|36x36]]
+40. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/myapron1-1.jpeg]]
 	
 	[Ms. Humble](https://www.blogger.com/profile/06960224421093634330)[January 11, 2012 at 11:24 AM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1326309857788#c8756158945673906666)
 	
@@ -403,7 +403,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	[[#|Reply]]
 	
 
-![https://www.blogger.com/profile/09922269532720951312|35x35](./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/Balasko-Akos-250x250.jpg)
+![https://www.blogger.com/profile/09922269532720951312](./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/Balasko-Akos-250x250.jpg)
 
 Enter Comment
 
