@@ -92,15 +92,17 @@ export const processNode = (note: any, notebookName: string): void => {
 const fixImagesInLink = (content: string):string => {
   let updatedContent = cloneDeep(content);
   // Regular expression for the whole string with two groups
-  const patternWholeString = /\[!\[\[(.*?)\]\]\]\((.*?)\)/g;
+  const patternWholeString = /\[!\[\[(.*?)(?:\|(.*?))?\]\]\]\((.*?)\)/g;
 
   let match;
   while ((match = patternWholeString.exec(content)) !== null) {
-      updatedContent = updatedContent.replace(`[![[${match[1]}]]](${match[2]})`, `![${match[2]}](${match[1]})`)
-      const group1 = match[1];
-      const group2 = match[2];
-      console.log("Group 1:", group1);
-      console.log("Group 2:", group2);
+    const bracketContent = match[1];
+    const dimensions = match[2] || ''; // Use empty string if dimensions are not present
+    const parenthesesContent = match[3];
+      updatedContent = (dimensions === "")
+        ? updatedContent.replace(`[![[${bracketContent}]]](${parenthesesContent})`, `![${parenthesesContent}](${bracketContent})`)
+        : updatedContent.replace(`[![[${bracketContent}|${dimensions}]]](${parenthesesContent})`, `![${parenthesesContent}|${dimensions}](${bracketContent})`)
+
   }
   return updatedContent;
 } 
