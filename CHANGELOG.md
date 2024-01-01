@@ -1,3 +1,10 @@
+## [6.0.5](https://github.com/akosbalasko/yarle/compare/v6.0.4...v6.0.5) (2024-01-01)
+
+
+### Bug Fixes
+
+* imagesize in links ([#563](https://github.com/akosbalasko/yarle/issues/563)) ([f6f88fa](https://github.com/akosbalasko/yarle/commit/f6f88fa87852db7bbdd3a69293ba8a6fb2c3c084))
+
 ## [6.0.4](https://github.com/akosbalasko/yarle/compare/v6.0.3...v6.0.4) (2023-12-31)
 
 
