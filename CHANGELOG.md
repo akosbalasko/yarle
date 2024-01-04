@@ -1,3 +1,10 @@
+## [6.0.6](https://github.com/akosbalasko/yarle/compare/v6.0.5...v6.0.6) (2024-01-04)
+
+
+### Bug Fixes
+
+* handling base64 images as href in links ([#567](https://github.com/akosbalasko/yarle/issues/567)) ([570ab36](https://github.com/akosbalasko/yarle/commit/570ab36b4c6215c80132e8d45e732a84559b2900))
+
 ## [6.0.5](https://github.com/akosbalasko/yarle/compare/v6.0.4...v6.0.5) (2024-01-01)
 
 
