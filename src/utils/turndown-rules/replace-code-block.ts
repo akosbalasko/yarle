@@ -6,12 +6,27 @@ import { isTanaOutput } from '../tana/is-tana-output';
 const markdownBlock = '\n```\n';
 const tanaCodeBlock ='<YARLE_TANA_CODE_BLOCK>';
 
+const checkAttributeInStyle = (nodeProxy: any, attribute: string): boolean => {
+    return nodeProxy.style && nodeProxy.style.value.indexOf(attribute) >= 0;
+
+}
+/*
 const isCodeBlock = (node: any)  => {
     const nodeProxy = getAttributeProxy(node);
     const codeBlockFlag = '-en-codeblock:true';
 
     return nodeProxy.style && nodeProxy.style.value.indexOf(codeBlockFlag) >= 0;
-};
+};*/
+
+const isCodeBlock = (node: any) => {
+    const nodeProxy = getAttributeProxy(node);
+    const codeblockV10 = '--en-task-group:true';
+    const codeblockV7 = '-en-codeblock:true';
+    const hasV10CodeBlock = checkAttributeInStyle(nodeProxy, codeblockV10)
+    const hasV7CodeBlock = checkAttributeInStyle(nodeProxy, codeblockV7)
+
+    return hasV10CodeBlock || hasV7CodeBlock
+}
 
 const getIntendNumber = (node: any): number => {
     const nodeProxy = getAttributeProxy(node);

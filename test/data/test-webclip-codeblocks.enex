@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE en-export SYSTEM "http://xml.evernote.com/pub/evernote-export4.dtd">
+<en-export export-date="20240104T143507Z" application="Evernote" version="10.68.3">
+  <note>
+    <title>MultiSelect Code block test</title>
+    <created>20240104T142808Z</created>
+    <updated>20240104T142852Z</updated>
+    <note-attributes>
+      <source>web.clip7</source>
+      <source-url>https://amethyst-juliana-94.tiiny.site/</source-url>
+      <source-application>webclipper.evernote</source-application>
+    </note-attributes>
+    <content>
+      <![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd"><en-note><div><b>Clip source: </b><a href="https://amethyst-juliana-94.tiiny.site/" rev="en_rl_none">Code block test</a></div><div><br/></div><div><span style="font-size: 16px;">     This is not a code block. 	</span></div><div style="--en-codeblock:true; --en-lineWrapping:false;box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;"><div>      This is a code block.</div><div>    </div></div><div><span style="font-size: 16px;">     This is not a codeblock     </span></div></en-note>      ]]>
+    </content>
+  </note>
+  <note>
+    <title>Simplified Article Code block test</title>
+    <created>20240104T142732Z</created>
+    <updated>20240104T142754Z</updated>
+    <note-attributes>
+      <source>web.clip7</source>
+      <source-url>https://amethyst-juliana-94.tiiny.site/</source-url>
+      <source-application>webclipper.evernote</source-application>
+    </note-attributes>
+    <content>
+      <![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd"><en-note><div><b>Clip source: </b><a href="https://amethyst-juliana-94.tiiny.site/" rev="en_rl_none">Code block test</a></div><div><br/></div><h1><span style="font-family: &quot;PT Serif&quot;;"><span style="font-size: 35px;">Code block test</span></span></h1><div style="--en-codeblock:true; --en-lineWrapping:false;box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;"><div>      This is a code block.</div><div>    </div></div><div>     This is not a codeblock     </div></en-note>      ]]>
+    </content>
+  </note>
+  <note>
+    <title>Article Code block test</title>
+    <created>20240104T142659Z</created>
+    <updated>20240104T142722Z</updated>
+    <note-attributes>
+      <source>web.clip7</source>
+      <source-url>https://amethyst-juliana-94.tiiny.site/</source-url>
+      <source-application>webclipper.evernote</source-application>
+    </note-attributes>
+    <content>
+      <![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd"><en-note><div><br/></div><div style="--en-clipped-content:article; --en-clipped-source-url:https://amethyst-juliana-94.tiiny.site/; --en-clipped-source-title:Code block test;">
+<div><br/></div><div style="min-height: 93px; font-size: 16px; display: block; min-width: 100%; position: relative;"> <div><div><span>
+    This is not a code block.
+	</span><pre>	  This is a code block.
+	</pre>
+    This is not a codeblock
+  
+ </div></div></div>
+</div><div><br/></div></en-note>      ]]>
+    </content>
+  </note>
+  <note>
+    <title>Fullpage Code block test</title>
+    <created>20240104T142648Z</created>
+    <updated>20240104T142713Z</updated>
+    <note-attributes>
+      <source>web.clip7</source>
+      <source-url>https://amethyst-juliana-94.tiiny.site/</source-url>
+      <source-application>webclipper.evernote</source-application>
+    </note-attributes>
+    <content>
+      <![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd"><en-note><div><br/></div><div style="--en-clipped-content:fullPage; --en-clipped-source-url:https://amethyst-juliana-94.tiiny.site/; --en-clipped-source-title:Code block test;">
+<div><br/></div><div style="min-height: 93px; font-size: 16px; display: block; min-width: 100%; position: relative;"> <div><div><span>
+    This is not a code block.
+	</span><pre>	  This is a code block.
+	</pre>
+    This is not a codeblock
+  
+ </div></div></div>
+</div><div><br/></div></en-note>      ]]>
+    </content>
+  </note>
+</en-export>

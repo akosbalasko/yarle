@@ -824,6 +824,172 @@ dateFormat: undefined,
       fs.readFileSync(`${__dirname}/data/test-webclip-imagelink-base64.md`, 'utf8'),
     );
   });
+
+  it('Enex file - webclip - codeblocks', async () => {
+    const options: YarleOptions = {
+
+      enexSources: [ `${testDataFolder}test-webclip-codeblocks.enex` ],
+      outputDir: 'out',
+        isMetadataNeeded: true,
+        isNotebookNameNeeded: false,
+        isZettelkastenNeeded: false,
+        useZettelIdAsFilename: false,
+        plainTextNotesOnly: false,
+        skipLocation: true,
+        skipCreationTime: true,
+        skipUpdateTime: true,
+        skipSourceUrl: true,
+        skipWebClips: false,
+        skipTags: true,
+        useHashTags: true,
+        outputFormat: OutputFormat.ObsidianMD,
+        obsidianTaskTag: "",
+        taskOutputFormat: TaskOutputFormat.ObsidianMD,
+        skipEnexFileNameFromOutputPath: false,
+        keepMDCharactersOfENNotes: false,
+        monospaceIsCodeBlock: false,
+        keepOriginalHtml: false,
+        currentTemplate: "---\n{created-at-block}Created at: {created-at}{end-created-at-block}\n{updated-at-block}Last updated at: {updated-at}{end-updated-at-block}\n{source-url-block}Source: {source-url}{end-source-url-block}\n{tags-block}Tags: {tags}{end-tags-block}\n---\n{source-url-block}Source: {source-url}{end-source-url-block}\n{tags-block}Tags: {tags}{end-tags-block}\n\n{content-block}{content}{end-content-block}\n\n",
+        resourcesDir: "_filesFromEN",
+        nestedTags: {
+          separatorInEN: "_",
+          replaceSeparatorWith: "---",
+          replaceSpaceWith: "-"
+       },
+        logseqSettings: { journalNotes: false },
+        obsidianSettings: { omitLinkDisplayName: false },
+        dateFormat: "YYYY-MM-DD hh:mm",
+        keepImageSize: OutputFormat.ObsidianMD,
+        keepOriginalAmountOfNewlines: true,
+        addExtensionToInternalLinks: true,
+        generateNakedUrls: false,
+        urlEncodeFileNamesAndLinks: false,
+        haveEnexLevelResources: false,
+        haveGlobalResources: true,
+        useUniqueUnknownFileNames: false,
+        useLevenshteinForLinks: false,
+        sanitizeResourceNameSpaces: true,
+     
+    }
+    
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-webclip-codeblocks/Article Code block test.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-webclip-codeblocks/Fullpage Code block test.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-webclip-codeblocks/MultiSelect Code block test.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-webclip-codeblocks/Simplified Article Code block test.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-webclip-codeblocks/Article Code block test.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-webclip-codeblocks-1.md`, 'utf8'),
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-webclip-codeblocks/Fullpage Code block test.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-webclip-codeblocks-2.md`, 'utf8'),
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-webclip-codeblocks/MultiSelect Code block test.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-webclip-codeblocks-3.md`, 'utf8'),
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-webclip-codeblocks/Simplified Article Code block test.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-webclip-codeblocks-4.md`, 'utf8'),
+    );
+  });
+
+
+  it.skip('Enex file - webclip - startswith tabs', async () => {
+    const options: YarleOptions = {
+
+      enexSources: [ `${testDataFolder}test-webclip-codeblocks.enex` ],
+      outputDir: 'out',
+        isMetadataNeeded: true,
+        isNotebookNameNeeded: false,
+        isZettelkastenNeeded: false,
+        useZettelIdAsFilename: false,
+        plainTextNotesOnly: false,
+        skipLocation: true,
+        skipCreationTime: true,
+        skipUpdateTime: true,
+        skipSourceUrl: true,
+        skipWebClips: false,
+        skipTags: true,
+        useHashTags: true,
+        outputFormat: OutputFormat.ObsidianMD,
+        obsidianTaskTag: "",
+        taskOutputFormat: TaskOutputFormat.ObsidianMD,
+        skipEnexFileNameFromOutputPath: false,
+        keepMDCharactersOfENNotes: false,
+        monospaceIsCodeBlock: false,
+        keepOriginalHtml: false,
+        currentTemplate: "---\n{created-at-block}Created at: {created-at}{end-created-at-block}\n{updated-at-block}Last updated at: {updated-at}{end-updated-at-block}\n{source-url-block}Source: {source-url}{end-source-url-block}\n{tags-block}Tags: {tags}{end-tags-block}\n---\n{source-url-block}Source: {source-url}{end-source-url-block}\n{tags-block}Tags: {tags}{end-tags-block}\n\n{content-block}{content}{end-content-block}\n\n",
+        resourcesDir: "_filesFromEN",
+        nestedTags: {
+          separatorInEN: "_",
+          replaceSeparatorWith: "---",
+          replaceSpaceWith: "-"
+       },
+        logseqSettings: { journalNotes: false },
+        obsidianSettings: { omitLinkDisplayName: false },
+        dateFormat: "YYYY-MM-DD hh:mm",
+        keepImageSize: OutputFormat.ObsidianMD,
+        keepOriginalAmountOfNewlines: true,
+        addExtensionToInternalLinks: true,
+        generateNakedUrls: false,
+        urlEncodeFileNamesAndLinks: false,
+        haveEnexLevelResources: false,
+        haveGlobalResources: true,
+        useUniqueUnknownFileNames: false,
+        useLevenshteinForLinks: false,
+        sanitizeResourceNameSpaces: true,
+     
+    }
+    
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-webclip-imagelink-base64/test-webclip-imagelink-base64.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-webclip-imagelink-base64/test-webclip-imagelink-base64.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-webclip-imagelink-base64.md`, 'utf8'),
+    );
+  });
   it.skip('Enex file - nohref', async () => {
     const options: YarleOptions = {
 
