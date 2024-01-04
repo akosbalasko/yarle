@@ -104,19 +104,19 @@ export const extractDataUrlResources = (
   note: any,
   content: string,
 ): string => {
-  if (content.indexOf('src="data:') < 0) {
+  if (content.indexOf('src="data:') < 0 && content.indexOf('href="data:') < 0) {
     return content; // no data urls
   }
 
   const {absoluteResourceWorkDir, relativeResourceWorkDir} = getResourceWorkDirs(note);
   fsExtra.mkdirsSync(absoluteResourceWorkDir);
 
-  // src="data:image/svg+xml;base64,..." --> src="resourceDir/fileName"
-  return content.replace(/src="data:([^;,]*)(;base64)?,([^"]*)"/g, (match, mediatype, encoding, data) => {
+  // src|href="data:image/svg+xml;base64,..." --> src="resourceDir/fileName"
+  return content.replace(/([^= ]*)="data:([^;,]*)(;base64)?,([^"]*)"/g, (match,argument, mediatype, encoding, data) => {
     const fileName = createResourceFromData(mediatype, encoding === ';base64', data, absoluteResourceWorkDir, note);
-    const src = `${relativeResourceWorkDir}${yarleOptions.pathSeparator}${fileName}`;
+    const argValue = `${relativeResourceWorkDir}${yarleOptions.pathSeparator}${fileName}`;
 
-    return `src="${src}"`;
+    return `yarle-file-resource="true" ${argument}="${argValue}"`;
   });
 };
 

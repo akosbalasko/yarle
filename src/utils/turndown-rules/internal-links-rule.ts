@@ -55,8 +55,8 @@ export const wikiStyleLinksRule = {
         const value = nodeProxy.href ? nodeProxy.href.value : internalTurndownedContent;
         const type = nodeProxy.type ? nodeProxy.type.value : undefined ;
         const realValue = yarleOptions.urlEncodeFileNamesAndLinks ? encodeURI(value) : value;
-
-        if (type === 'file') {
+        const isYarleResource =  Boolean(node.getAttribute('yarle-file-resource'))
+        if (type === 'file' || isYarleResource) {
             return isHeptaOrObsidianOutput()
                 ? `![[${realValue}]]`
                 : getShortLinkIfPossible(token, value);
