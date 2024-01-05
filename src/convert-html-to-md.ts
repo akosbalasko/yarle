@@ -38,11 +38,19 @@ const fixSublistsInContent = (content: string): string => {
 };
 
 const fixSublists = (node: HTMLElement) => {
+    // TODO: Here is the place where img of a list item disappears
     const ulElements: Array<HTMLElement> = Array.from(node.getElementsByTagName('ul'));
     const olElements: Array<HTMLElement> = Array.from(node.getElementsByTagName('ol'));
     const listElements = ulElements.concat(olElements);
+    if (node.outerHTML.includes("15744e6612b51875a726e4c664000db3")){
+        console.log("here we are")
+    }
+    const l1 = listElements.find(element => element.textContent.includes("15744e6612b51875a726e4c664000db3"))
 
-    listElements.forEach(listNode => {
+    for (const listNode of listElements) {
+        if (listNode.outerHTML.includes("15744e6612b51875a726e4c664000db3")){
+            console.log("here we are")
+        }
         if (listNode.parentElement.tagName === 'LI') {
             listNode.parentElement.replaceWith(listNode);
         }
@@ -54,8 +62,10 @@ const fixSublists = (node: HTMLElement) => {
             // https://stackoverflow.com/questions/7555442/move-an-element-to-another-parent-after-changing-its-id
             listNode.previousElementSibling.appendChild(listNode);
         }
-    });
-
+    };
+    if (node.outerHTML.includes("15744e6612b51875a726e4c664000db3")){
+        console.log("here we are")
+    }
     for (const n of listElements) {
         const parentElement = n.parentElement;
         if (parentElement?.tagName === 'DIV' &&
@@ -68,18 +78,27 @@ const fixSublists = (node: HTMLElement) => {
             unwrapElement(parentElement);
         }
     }
-
+    if (node.outerHTML.includes("15744e6612b51875a726e4c664000db3")){
+        console.log("here we are")
+    }
     // The contents of every EN list item are wrapped by a div element. `<li><div>foo</div></li>`
     // We need to remove this `<div>`, since it's a block element and will lead to unwanted whitespace otherwise
     const liElements: Array<HTMLElement> = Array.from(node.getElementsByTagName('li'));
     for (const liNode of liElements) {
         const listNodeDiv = liNode.firstElementChild;
         if (listNodeDiv && listNodeDiv.tagName === 'DIV') {
-            const childElementsArr = Array.from(listNodeDiv.childNodes);
-            listNodeDiv.replaceWith(...childElementsArr);
+            if (liNode.innerHTML.includes("15744e6612b51875a726e4c664000db3")){
+                console.log("here we are")
+            }
+            if (listNodeDiv.innerHTML === listNodeDiv.textContent){
+                const childElementsArr = Array.from(listNodeDiv.childNodes);
+                listNodeDiv.replaceWith(...childElementsArr);
+            }
         }
     }
-
+    if (node.outerHTML.includes("15744e6612b51875a726e4c664000db3")){
+        console.log("here we are")
+    }
     return node;
 };
 
@@ -87,14 +106,22 @@ export const convertHtml2Md = (yarleOptions: YarleOptions, { htmlContent }: Note
 
     const content = htmlContent.replace(/<!DOCTYPE en-note [^>]*>/, '<!DOCTYPE html>')
       .replace(/(<a [^>]*)\/>/, '$1></a>').replace(/<div[^\/\<]*\/>/g, '');
+    if (content.includes("eb6fa6ab91de1d014ce280331224c873") || content.includes("15744e6612b51875a726e4c664000db3"))
+        console.log("ttt")
+    const contentNode = new JSDOM(fixSublistsInContent(content)).window.document.getElementsByTagName('en-note').item(0) as any as HTMLElement;
+    if (contentNode.outerHTML.includes("eb6fa6ab91de1d014ce280331224c873") || contentNode.outerHTML.includes("15744e6612b51875a726e4c664000db3"))
+      console.log("ttt2t2")
+    const fixedSublists =fixSublists(contentNode)
+    if (fixedSublists.outerHTML.includes("eb6fa6ab91de1d014ce280331224c873") || fixedSublists.outerHTML.includes("15744e6612b51875a726e4c664000db3"))
+        console.log("ttt2t233333")
+    const fixedTasks = fixTasks(fixedSublists)
+    if (fixedTasks.outerHTML.includes("eb6fa6ab91de1d014ce280331224c873") || fixedTasks.outerHTML.includes("15744e6612b51875a726e4c664000db3"))
+        console.log("ttt2t233344")
+    let contentInMd = getTurndownService(yarleOptions).turndown(fixedTasks);
+    if (contentInMd.includes("eb6fa6ab91de1d014ce280331224c873") || contentInMd.includes("15744e6612b51875a726e4c664000db3"))
+        console.log("ttt2t2333")
 
-    const contentNode = new JSDOM(fixSublistsInContent(content)).window.document
-      .getElementsByTagName('en-note').item(0) as any as HTMLElement;
-
-    let contentInMd = getTurndownService(yarleOptions)
-        .turndown(fixTasks(fixSublists(contentNode)));
-
-    const newLinePlaceholder = new RegExp('<YARLE_NEWLINE_PLACEHOLDER>', 'g');
+        const newLinePlaceholder = new RegExp('<YARLE_NEWLINE_PLACEHOLDER>', 'g');
     contentInMd = contentInMd.replace(newLinePlaceholder, '');
 
     if (yarleOptions.outputFormat === OutputFormat.LogSeqMD) {
