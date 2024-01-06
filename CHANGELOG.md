@@ -1,3 +1,10 @@
+## [6.0.8](https://github.com/akosbalasko/yarle/compare/v6.0.7...v6.0.8) (2024-01-06)
+
+
+### Bug Fixes
+
+* escaping pipe if the link is Obsidian-style ([#569](https://github.com/akosbalasko/yarle/issues/569)) ([bb4df9c](https://github.com/akosbalasko/yarle/commit/bb4df9c48082f85a8bf544ca10b8879e5f295c32))
+
 ## [6.0.7](https://github.com/akosbalasko/yarle/compare/v6.0.6...v6.0.7) (2024-01-06)
 
 
