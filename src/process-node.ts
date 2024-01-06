@@ -101,7 +101,7 @@ const fixImagesInLink = (content: string):string => {
     const parenthesesContent = match[3];
       updatedContent = (dimensions === "")
         ? updatedContent.replace(`[![[${bracketContent}]]](${parenthesesContent})`, `![${parenthesesContent}](${bracketContent})`)
-        : updatedContent.replace(`[![[${bracketContent}|${dimensions}]]](${parenthesesContent})`, `![${parenthesesContent}|${dimensions}](${bracketContent})`)
+        : updatedContent.replace(`[![[${bracketContent}|${dimensions}]]](${parenthesesContent})`, `![${parenthesesContent}\\|${dimensions}](${bracketContent})`)
 
   }
   return updatedContent;
