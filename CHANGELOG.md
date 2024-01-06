@@ -1,3 +1,10 @@
+## [6.0.7](https://github.com/akosbalasko/yarle/compare/v6.0.6...v6.0.7) (2024-01-06)
+
+
+### Bug Fixes
+
+* embedded file generalization fixed - alt used ([#571](https://github.com/akosbalasko/yarle/issues/571)) ([9930d6e](https://github.com/akosbalasko/yarle/commit/9930d6ef77e6ca011d028cf2aa4766da11f21250))
+
 ## [6.0.6](https://github.com/akosbalasko/yarle/compare/v6.0.5...v6.0.6) (2024-01-04)
 
 
