@@ -1,3 +1,10 @@
+# [6.1.0](https://github.com/akosbalasko/yarle/compare/v6.0.9...v6.1.0) (2024-01-06)
+
+
+### Features
+
+* trim starting tabs ([#574](https://github.com/akosbalasko/yarle/issues/574)) ([7e835e3](https://github.com/akosbalasko/yarle/commit/7e835e3a6fcbdb389fab711d03a2e588fe127b73))
+
 ## [6.0.9](https://github.com/akosbalasko/yarle/compare/v6.0.8...v6.0.9) (2024-01-06)
 
 
