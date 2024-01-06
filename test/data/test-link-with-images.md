@@ -2,17 +2,17 @@
 
 ## Wednesday, April 14, 2010
 
-### [White Chocolate Caramel Cheesecake](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html)![http://notsohumblepie.blogspot.com/|235x37](./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/piegohome.jpg)
+### [White Chocolate Caramel Cheesecake](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html)![http://notsohumblepie.blogspot.com/\|235x37](./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/piegohome.jpg)
 
-![https://3.bp.blogspot.com/_WhPHUKwckUw/S8Xn_LDn0II/AAAAAAAACZA/lHtVIA7bKAY/s1600/white_chocolate_caramel_cheesecake2t.JPG|400x400](./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/white_chocolate_caramel_cheesecake2t.JPG)
+![https://3.bp.blogspot.com/_WhPHUKwckUw/S8Xn_LDn0II/AAAAAAAACZA/lHtVIA7bKAY/s1600/white_chocolate_caramel_cheesecake2t.JPG\|400x400](./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/white_chocolate_caramel_cheesecake2t.JPG)
 I'm back and I've brought cheesecake! I was really excited this morning to slice into this cheesecake and taste it. While my husband was getting ready for work, I was brushing my teeth, channeling Liz Lemon, doing my _'I'm gonna' eat cheesecake for breakfast'_ song and dance routine.
 Why he stays married to me I do not know.
 So, I was given this recipe from a friend who insisted that I would love it. A recipe for white chocolate caramel cheesecake. She was right about me loving it, I've been itching to make it. How can one _not love_ a cheesecake brazen enough to incorporate nearly a pound of white chocolate ganache into the batter and then slather the whole pie in caramel sauce?!
-![https://1.bp.blogspot.com/_WhPHUKwckUw/S8XoAv8XKWI/AAAAAAAACZY/vppGaLLnBTg/s1600/white_chocolate_caramel_cheesecake5t.JPG|268x400](./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/white_chocolate_caramel_cheesecake5t.JPG)
+![https://1.bp.blogspot.com/_WhPHUKwckUw/S8XoAv8XKWI/AAAAAAAACZY/vppGaLLnBTg/s1600/white_chocolate_caramel_cheesecake5t.JPG\|268x400](./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/white_chocolate_caramel_cheesecake5t.JPG)
 She was right, I love it. So delicious with a near perfect texture. Woooo!
 Yea, I'm riding a serious cheesecake breakfast induced sugar high at the moment.
 Feeling good. Let's get down to it...
-![https://2.bp.blogspot.com/_WhPHUKwckUw/S8XoACwCmaI/AAAAAAAACZQ/7ed1kWvu3mY/s1600/white_chocolate_caramel_cheesecake4t.JPG|309x400](./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/white_chocolate_caramel_cheesecake4t.JPG)
+![https://2.bp.blogspot.com/_WhPHUKwckUw/S8XoACwCmaI/AAAAAAAACZQ/7ed1kWvu3mY/s1600/white_chocolate_caramel_cheesecake4t.JPG\|309x400](./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/white_chocolate_caramel_cheesecake4t.JPG)
 **White Chocolate Cheesecake with Caramel Glaze**
 adapted from [Ray's Boathouse: Seafood Secrets of the Pacific Northwest](http://www.amazon.com/gp/product/0971908427?ie=UTF8&tag=nosohupi-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0971908427)
 _
@@ -26,7 +26,7 @@ In a medium sauce pan over medium high heat (I'm using non-stick for this), comb
 Continue to cook and swirl until it sugar turns a medium amber color. Watch it carefully, the sugar will quickly darken and should it become dark brown or black it will taste bitter and unpleasant.
 When the sauce turns the right color slowly whisk in the cream. If the caramel hardens with the addition of the cream, do not worry. Just continue to add the cream and bring the mixture back to a a boil over medium heat. Continue to stir until the sugar has remelted. Allow to boil for 5 minutes then remove from heat and stir in the butter.
 Pour into a heat safe container and chill until ready to use.
-![https://2.bp.blogspot.com/_WhPHUKwckUw/S8Xn_pYQW_I/AAAAAAAACZI/aJ3EQYU5V5w/s1600/white_chocolate_caramel_cheesecake3t.JPG|268x400](./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/white_chocolate_caramel_cheesecake3t.JPG)
+![https://2.bp.blogspot.com/_WhPHUKwckUw/S8Xn_pYQW_I/AAAAAAAACZI/aJ3EQYU5V5w/s1600/white_chocolate_caramel_cheesecake3t.JPG\|268x400](./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/white_chocolate_caramel_cheesecake3t.JPG)
 _Crust_
 10 ounces graham crackers, crushed into crumbs
 7 tablespoons unsalted butter
@@ -50,7 +50,7 @@ Set the cheesecake into a large roasting pan and then place in the oven. Pour th
 Remove from the oven and allow to cool completely on a wire rack. Once cool chill for at least 4 hours before serving.
 To glaze, gently warm the 1 cup of the caramel sauce on the stove or in the microwave until slightly runny and then pour onto the cheesecake. Smooth the caramel over the cake and you're ready to serve.
 Enjoy.
-![https://1.bp.blogspot.com/_WhPHUKwckUw/S8Xn-l2HPtI/AAAAAAAACY4/TS84PmhSvMg/s1600/white_chocolate_caramel_cheesecake1t.JPG|400x400](./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/white_chocolate_caramel_cheesecake1t.JPG)
+![https://1.bp.blogspot.com/_WhPHUKwckUw/S8Xn-l2HPtI/AAAAAAAACY4/TS84PmhSvMg/s1600/white_chocolate_caramel_cheesecake1t.JPG\|400x400](./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/white_chocolate_caramel_cheesecake1t.JPG)
 **Save**[[#|]]
 
 Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Caramel](https://notsohumblepie.blogspot.com/search/label/Caramel), [Cheesecake](https://notsohumblepie.blogspot.com/search/label/Cheesecake), [Chocolate](https://notsohumblepie.blogspot.com/search/label/Chocolate), [Desserts](https://notsohumblepie.blogspot.com/search/label/Desserts), [Recipe](https://notsohumblepie.blogspot.com/search/label/Recipe)
@@ -403,7 +403,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	[[#|Reply]]
 	
 
-![https://www.blogger.com/profile/09922269532720951312|35x35](./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/Balasko-Akos-250x250.jpg)
+![https://www.blogger.com/profile/09922269532720951312\|35x35](./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/Balasko-Akos-250x250.jpg)
 
 Enter Comment
 
