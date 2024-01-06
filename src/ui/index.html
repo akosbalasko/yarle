@@ -398,6 +398,19 @@
 														<option value="false" selected>No</option>
 													  </select>
 												</div>
+												<div class="form-group">
+													<label for="trimStartingTabs" class="pure-checkbox">
+														Remove starting tab characters
+													  <br><div style='font-size: 12px;'><i>(
+														It it is selected, tabs from the beginning of each line in the note will be removed, otherwise Obsidian recognizes these lines as Codeblocks)</i></div>
+													</label>
+
+													<select class="form-control configurationItem" name="trimStartingTabs" id="trimStartingTabs">
+														<option value="true">Yes</option>
+														<option value="false" selected>No</option>
+													  </select>
+												</div>
+
 											</div>
 										</div>
 										<div class="configurationSection">
@@ -760,6 +773,14 @@
 													  Keep Markdown characters Of EN Notes
 													  <br><div style='font-size: 12px;'><i>(
 														Set it true, if you used Markdown format in your EN notes.)</i></div>
+													</label>
+												  </div>
+												  												  <h2>Notes</h2>
+												  <div class="field">
+													<input type="checkbox" value="false" id='trimStartingTabs'>
+													<label for="trimStartingTabs" class="pure-checkbox">
+													  Remove starting tab characters as Obsidian recognizes it as Codeblocks
+													  <br><div style='font-size: 12px;'><i>(It it is selected, tabs from the beginning of each line in the note will be removed)</i></div>
 													</label>
 												  </div>
 												</section>

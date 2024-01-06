@@ -39,6 +39,7 @@ export const defaultYarleOptions: YarleOptions = {
   plainTextNotesOnly: false,
   skipWebClips: false,
   useHashTags: true,
+  trimStartingTabs: false,
   nestedTags: {
     separatorInEN: '_',
     replaceSeparatorWith: '/',

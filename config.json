@@ -12,6 +12,7 @@
     "plainTextNotesOnly": false,
     "skipLocation": false,
     "skipCreationTime": false,
+    "trimStartingTabs": false,
     "skipUpdateTime": false,
     "skipSourceUrl": false,
     "skipWebClips": false,
