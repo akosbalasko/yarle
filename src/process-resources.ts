@@ -111,27 +111,43 @@ export const extractDataUrlResources = (
   const {absoluteResourceWorkDir, relativeResourceWorkDir} = getResourceWorkDirs(note);
   fsExtra.mkdirsSync(absoluteResourceWorkDir);
 
-  // src|href="data:image/svg+xml;base64,..." --> src="resourceDir/fileName"
-  return content.replace(/([^= ]*)="data:([^;,]*)(;base64)?,([^"]*)"/g, (match,argument, mediatype, encoding, data) => {
-    const fileName = createResourceFromData(mediatype, encoding === ';base64', data, absoluteResourceWorkDir, note);
-    const argValue = `${relativeResourceWorkDir}${yarleOptions.pathSeparator}${fileName}`;
+  // src="data:image/svg+xml;base64,..." --> src="resourceDir/fileName"
+  content =  content.replace(/src="data:([^;,]*)(;base64)?,([^"]*)"/g, (match, mediatype, encoding, data) => {
+    const fileName = createResourceFromData(match, mediatype, encoding === ';base64', data, absoluteResourceWorkDir, note);
+    const src = `${relativeResourceWorkDir}${yarleOptions.pathSeparator}${fileName}`;
 
-    return `yarle-file-resource="true" ${argument}="${argValue}"`;
+    return `src="${src}"`;
+  });
+
+  return content.replace(/([^= ]*)="data:([^;,]*)(;base64)?,(.*)<\/a>/g, (match, mediatype, encoding, data) => {
+    const fileName = createResourceFromData(match, mediatype, encoding === ';base64', data, absoluteResourceWorkDir, note);
+    const src = `${relativeResourceWorkDir}${yarleOptions.pathSeparator}${fileName}`;
+
+    return `src="${src}"`;
   });
 };
 
 // returns filename of new resource
 const createResourceFromData = (
+  match: string,
   mediatype: string,
   base64: boolean,
   data: string,
   absoluteResourceWorkDir: string,
   note: any,
 ): string => {
-  const baseName = 'embedded'; // data doesn't seem to include useful base filename
-  const extension = extensionForMimeType(mediatype) || '.dat';
+
+  let baseName = 'embedded'; // data doesn't seem to include useful base filename
+  let extension = extensionForMimeType(mediatype) || '.dat';
+
   const index = utils.getFileIndex(absoluteResourceWorkDir, baseName);
-  const fileName = index < 1 ? `${baseName}.${extension}` : `${baseName}.${index}.${extension}`;
+  let fileName = index < 1 ? `${baseName}.${extension}` : `${baseName}.${index}.${extension}`;
+
+  if (mediatype === 'href'){
+    const baseNameCandidate = match.split("alt=\"")[1]?.split("\"")[0]
+    if (baseNameCandidate)
+    fileName = baseNameCandidate
+  }
   const absFilePath = `${absoluteResourceWorkDir}${path.sep}${fileName}`;
 
   if (!base64 && !data.startsWith('&lt;svg')) { // TODO: handle <svg, tags, they may be checkboxes
