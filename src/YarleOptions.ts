@@ -26,6 +26,7 @@ export interface YarleOptions {
     skipTags?: boolean;
     useHashTags?: boolean;
     outputFormat?: OutputFormat;
+    trimStartingTabs?: boolean;
     logseqSettings?: {
         journalNotes: boolean,
     };

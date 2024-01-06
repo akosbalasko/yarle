@@ -26,6 +26,8 @@ export const divRule = {
             ? `<YARLE-EN-V10-TASK>${getTaskGroupId(node)}</YARLE-EN-V10-TASK>`
             : (yarleOptions.monospaceIsCodeBlock)
                 ? replaceMonospaceCodeBlock(content, node)
-                : replaceCodeBlock(content, node);
+                : yarleOptions.trimStartingTabs
+                    ? `${content}\n` 
+                    : replaceCodeBlock(content, node);
     },
 };

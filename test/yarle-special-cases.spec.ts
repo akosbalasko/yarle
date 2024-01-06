@@ -363,7 +363,30 @@ dateFormat: undefined,
       fs.readFileSync(`${__dirname}/data/test-threePictures.md`, 'utf8'),
     );
   });
+  it('Enex file with tabbed text ', async () => {
+    const options: YarleOptions = {
+dateFormat: undefined,
+      enexSources: [ `${testDataFolder}test-normal+tabbed text.enex` ],
+      outputDir: 'out',
+      trimStartingTabs: true,
+      isMetadataNeeded: true,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-normal+tabbed text/test-normal+tabbed text.md`,
+      ),
+      true,
+    );
 
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-normal+tabbed text/test-normal+tabbed text.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-normal+tabbed text.md`, 'utf8'),
+    );
+  });
   it('Enex file with images using data urls', async () => {
     const options: YarleOptions = {
 dateFormat: undefined,
