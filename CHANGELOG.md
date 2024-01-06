@@ -1,3 +1,10 @@
+## [6.0.9](https://github.com/akosbalasko/yarle/compare/v6.0.8...v6.0.9) (2024-01-06)
+
+
+### Bug Fixes
+
+* pipes in non-obsidianlinks as well ([#573](https://github.com/akosbalasko/yarle/issues/573)) ([eb41646](https://github.com/akosbalasko/yarle/commit/eb4164670becc7914c2deee7e237fbbf0f1eae76))
+
 ## [6.0.8](https://github.com/akosbalasko/yarle/compare/v6.0.7...v6.0.8) (2024-01-06)
 
 
