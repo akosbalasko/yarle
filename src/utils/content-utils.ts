@@ -7,6 +7,7 @@ import { MetaData } from './../models/MetaData';
 import { NoteData } from './../models';
 import { getHtmlFileLink } from './folder-utils';
 import { escapeStringRegexp } from './escape-string-regexp';
+import { OutputFormat } from './../output-format';
 
 export const getMetadata = (note: any, notebookName: string): MetaData => {
 
@@ -104,7 +105,8 @@ export const logTags = (note: any): string => {
       const replaceSpaceWith = (tagOptions && tagOptions.replaceSpaceWith) || '-';
 
       cleanTag = cleanTag.replace(/ /g, replaceSpaceWith);
-
+      if (yarleOptions.outputFormat === OutputFormat.ObsidianMD)
+        cleanTag = cleanTag.replace(/[^A-Za-z0-9_/\\-]/g, '')
       return `${yarleOptions.useHashTags ? '#' : ''}${cleanTag}`;
     });
 
