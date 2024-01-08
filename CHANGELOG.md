@@ -1,3 +1,10 @@
+# [6.2.0](https://github.com/akosbalasko/yarle/compare/v6.1.0...v6.2.0) (2024-01-08)
+
+
+### Features
+
+* invalid char regexp in tags implemented ([#575](https://github.com/akosbalasko/yarle/issues/575)) ([51ac0b9](https://github.com/akosbalasko/yarle/commit/51ac0b9309dcc7177ffc0ec37e1a274b03a64d0f))
+
 # [6.1.0](https://github.com/akosbalasko/yarle/compare/v6.0.9...v6.1.0) (2024-01-06)
 
 
