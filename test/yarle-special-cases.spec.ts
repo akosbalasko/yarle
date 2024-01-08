@@ -84,6 +84,31 @@ dateFormat: undefined,
       fs.readFileSync(`${__dirname}/data/sanitize_fulltest/title_lessthangreaterThancolonapostrophebackslashslashlinequestionstar_endOfTitle.md`, 'utf8'),
     );
   });
+  it('Replace invalid tags', async () => {
+    const options: YarleOptions = {
+dateFormat: undefined,
+      enexSources: [ `.${path.sep}test${path.sep}data${path.sep}test-invalid-tags.enex` ],
+      outputDir: 'out',
+      outputFormat: OutputFormat.ObsidianMD,
+      isMetadataNeeded: true,
+    };
+    await yarle.dropTheRope(options);
+    // tslint:disable-next-line:no-console
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-invalid-tags/invalid-tags.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-invalid-tags/invalid-tags.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-invalid-tags.md`, 'utf8'),
+    );
+  });
 
   it('Enex file with note containing a picture', async () => {
     const options: YarleOptions = {
