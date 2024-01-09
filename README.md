@@ -140,6 +140,7 @@ To configure Yarle, you must create a config file. By default it looks like this
     "keepOriginalAmountOfNewlines": false,
     "addExtensionToInternalLinks": true,
     "trimStartingTabs": false,
+    "convertPlainHtmlNewlines": false,
     "nestedTags": {
       "separatorInEN": "_",
       "replaceSeparatorWith": "/",
@@ -205,7 +206,8 @@ The following configurational properties are available:
 | ```logseqSettings``` | `{...}` | settings for Logseq output, currently ```journalNotes``` property is supported, if it is set to `true`, then the notes will be converted to be recognizable by Logseq as Journal notes, the notes will be named by their creation date and they will be collected under `journal` folder. If it is `false`, then they will be converted to be `Pages` (e.g. simple notes, collected in `pages` folder).
 | ```taskOutputFormat``` | `ObsidianMD` or `StandardMD` | Output format of Evernote v10+ tasks. ObsidianMD will connvert tasks to match with Obsidian Tasks plugin's requirements. StandardMD will create plain tasks, loosing many features like reminders or due dates.
 | ```obsidianTaskTag``` | string | a tag to put to a task converted from Evernote v10+ tasks. Optional by Obsidian Tasks plugin, pls check the details there. 
-| ```trimStartingTabs``` | true or false | Removes the tab characters from the beginning of every line in a note. It is meaningful, because Obsidian recognizes tabs as codeblocks by default and blocks recognition of links (for instance) in the line   
+| ```trimStartingTabs``` | true or false | Removes the tab characters from the beginning of every line in a note. It is meaningful, because Obsidian recognizes tabs as codeblocks by default and blocks recognition of links (for instance) in the line
+| ```convertPlainHtmlNewlines``` | true or false | Converts plain html newlines (<br>) to \n in the converted note.   
 |```useUniqueUnknownFileNames``` | boolean | generates a couple of random characters at the end of the resource file names if the exact name cannot be recognised. For instance: unknown_filename-d2fd86c3.pdf
 |```useLevenshteinForLinks```| boolean| it applies the link to the note with the filename that has the closest Levenshtein distance to the text of the link
 Metadata settings can be set via the template.

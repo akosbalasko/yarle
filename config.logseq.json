@@ -39,6 +39,7 @@
     "skipLocation": true,
     "skipCreationTime": false,
     "trimStartingTabs": false,
+    "convertPlainHtmlNewlines": false,
     "dateFormat": "YYYY-MM-DD",
     "skipUpdateTime": true,
     "skipSourceUrl": true,

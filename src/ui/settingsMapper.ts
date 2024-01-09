@@ -30,6 +30,7 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
         currentTemplate: store.get('currentTemplate') as string,
         resourcesDir: store.get('resourcesDir') as string,
         trimStartingTabs: store.get('trimStartingTabs') as boolean,
+        convertPlainHtmlNewlines: store.get('convertPlainHtmlNewlines') as boolean,
         nestedTags: {
             separatorInEN: store.get('nestedTags.separatorInEN') as string,
             replaceSeparatorWith: store.get('nestedTags.replaceSeparatorWith') as string,
