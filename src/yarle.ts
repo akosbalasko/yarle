@@ -40,6 +40,7 @@ export const defaultYarleOptions: YarleOptions = {
   skipWebClips: false,
   useHashTags: true,
   trimStartingTabs: false,
+  convertPlainHtmlNewlines: false,
   nestedTags: {
     separatorInEN: '_',
     replaceSeparatorWith: '/',

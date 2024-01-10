@@ -13,6 +13,7 @@
     "skipLocation": false,
     "skipCreationTime": false,
     "trimStartingTabs": false,
+    "convertPlainHtmlNewlines": false,
     "skipUpdateTime": false,
     "skipSourceUrl": false,
     "skipWebClips": false,

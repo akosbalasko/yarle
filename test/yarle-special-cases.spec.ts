@@ -110,6 +110,33 @@ dateFormat: undefined,
     );
   });
 
+  it('Replace newlines', async () => {
+    const options: YarleOptions = {
+dateFormat: undefined,
+      enexSources: [ `.${path.sep}test${path.sep}data${path.sep}test-newlines.enex` ],
+      outputDir: 'out',
+      outputFormat: OutputFormat.ObsidianMD,
+      convertPlainHtmlNewlines: true,
+      isMetadataNeeded: true,
+    };
+    await yarle.dropTheRope(options);
+    // tslint:disable-next-line:no-console
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-newlines/test-newlines.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-newlines/test-newlines.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-newlines.md`, 'utf8'),
+    );
+  });
+
   it('Enex file with note containing a picture', async () => {
     const options: YarleOptions = {
 dateFormat: undefined,
