@@ -1,3 +1,10 @@
+# [6.3.0](https://github.com/akosbalasko/yarle/compare/v6.2.0...v6.3.0) (2024-01-10)
+
+
+### Features
+
+* convert newlines implemented ([#577](https://github.com/akosbalasko/yarle/issues/577)) ([837f398](https://github.com/akosbalasko/yarle/commit/837f3988cae70ddd34c8b0383fb3a56e30e9adb6))
+
 # [6.2.0](https://github.com/akosbalasko/yarle/compare/v6.1.0...v6.2.0) (2024-01-08)
 
 
