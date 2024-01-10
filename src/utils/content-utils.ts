@@ -106,7 +106,7 @@ export const logTags = (note: any): string => {
 
       cleanTag = cleanTag.replace(/ /g, replaceSpaceWith);
       if (yarleOptions.outputFormat === OutputFormat.ObsidianMD)
-        cleanTag = cleanTag.replace(/[^A-Za-z0-9_/\\-]/g, '')
+        cleanTag = cleanTag.replace(/[^\wа-я0-9_/\\-]/g, '')
       return `${yarleOptions.useHashTags ? '#' : ''}${cleanTag}`;
     });
 
