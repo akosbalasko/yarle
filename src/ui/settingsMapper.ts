@@ -1,3 +1,4 @@
+import { CharacterMap } from './../CharacterMap';
 import { YarleOptions } from './../YarleOptions';
 const store = require ('./store');
 import { OutputFormat } from './../output-format';
@@ -28,6 +29,8 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
         keepOriginalHtml: store.get('keepOriginalHtml') as boolean,
         currentTemplate: store.get('currentTemplate') as string,
         resourcesDir: store.get('resourcesDir') as string,
+        trimStartingTabs: store.get('trimStartingTabs') as boolean,
+        convertPlainHtmlNewlines: store.get('convertPlainHtmlNewlines') as boolean,
         nestedTags: {
             separatorInEN: store.get('nestedTags.separatorInEN') as string,
             replaceSeparatorWith: store.get('nestedTags.replaceSeparatorWith') as string,
@@ -47,8 +50,10 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
         urlEncodeFileNamesAndLinks: store.get('urlEncodeFileNamesAndLinks') as boolean,
         haveEnexLevelResources: store.get('haveEnexLevelResources') as boolean,
         haveGlobalResources: store.get('haveGlobalResources') as boolean,
-    useUniqueUnknownFileNames: store.get('useUniqueUnknownFileNames') as boolean,
+        useUniqueUnknownFileNames: store.get('useUniqueUnknownFileNames') as boolean,
+        useLevenshteinForLinks: store.get('useLevenshteinForLinks') as boolean,
         sanitizeResourceNameSpaces: store.get('sanitizeResourceNameSpaces') as boolean,
         replacementChar: store.get('replacementChar') as string,
+        replacementCharacterMap: JSON.parse(store.get('replacementCharacterMap')) as CharacterMap,
     };
 };

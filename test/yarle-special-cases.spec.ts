@@ -3,12 +3,12 @@ import fs from 'fs';
 import eol from 'eol';
 import mockTimezone from 'timezone-mock';
 import * as path from 'path';
+
 import { OutputFormat } from './../src/output-format';
 import * as utils from './../src/utils';
 import * as yarle from './../src/yarle';
 import * as dropTheRopeRunner from './../src/dropTheRopeRunner';
 import { YarleOptions } from './../src/YarleOptions';
-import { LOGFILE } from './../src/utils';
 import { TaskOutputFormat } from '../src/task-output-format';
 
 const testDataFolder = `.${path.sep}test${path.sep}data${path.sep}`;
@@ -42,6 +42,100 @@ dateFormat: undefined,
     assert.equal(true, errorHappened);
   });
 
+  it('Custom filename Character map', async () => {
+    const options: YarleOptions = {
+dateFormat: undefined,
+      enexSources: [ `.${path.sep}test${path.sep}data${path.sep}sanitize_fulltest.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      replacementCharacterMap: {
+        "<": "lessthan",
+        ">": "greaterThan",
+        ":": "colon",
+        "\"": "apostrophe",
+        "/": "backslash",
+        "\\": "slash", 
+        "|": "line",
+        "?": "question",
+        "*": "star"
+    },
+    };
+    await yarle.dropTheRope(options);
+    // tslint:disable-next-line:no-console
+    console.log(`conversion log: ${fs.readFileSync(utils.LOGFILE)}`);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/sanitize_fulltest/title_lessthangreaterThancolonapostrophebackslashslashlinequestionstar_endOfTitle.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/sanitize_fulltest/_resources/title_lessthangreaterThancolonapostrophebackslashs.resources/imageTitle_lessthangreaterThan-apostrophecolonslashlinequestionstar_endOfImageTitle.pngquestion=imagePostfix_lessthangreaterThan-apostrophecolonslashlinequestionstar_endOfImagePostfix`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/sanitize_fulltest/title_lessthangreaterThancolonapostrophebackslashslashlinequestionstar_endOfTitle.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/sanitize_fulltest/title_lessthangreaterThancolonapostrophebackslashslashlinequestionstar_endOfTitle.md`, 'utf8'),
+    );
+  });
+  it('Replace invalid tags', async () => {
+    const options: YarleOptions = {
+dateFormat: undefined,
+      enexSources: [ `.${path.sep}test${path.sep}data${path.sep}test-invalid-tags.enex` ],
+      outputDir: 'out',
+      outputFormat: OutputFormat.ObsidianMD,
+      isMetadataNeeded: true,
+    };
+    await yarle.dropTheRope(options);
+    // tslint:disable-next-line:no-console
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-invalid-tags/invalid-tags.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-invalid-tags/invalid-tags.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-invalid-tags.md`, 'utf8'),
+    );
+  });
+
+  it('Replace newlines', async () => {
+    const options: YarleOptions = {
+dateFormat: undefined,
+      enexSources: [ `.${path.sep}test${path.sep}data${path.sep}test-newlines.enex` ],
+      outputDir: 'out',
+      outputFormat: OutputFormat.ObsidianMD,
+      convertPlainHtmlNewlines: true,
+      isMetadataNeeded: true,
+    };
+    await yarle.dropTheRope(options);
+    // tslint:disable-next-line:no-console
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-newlines/test-newlines.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-newlines/test-newlines.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-newlines.md`, 'utf8'),
+    );
+  });
 
   it('Enex file with note containing a picture', async () => {
     const options: YarleOptions = {
@@ -51,7 +145,8 @@ dateFormat: undefined,
       isMetadataNeeded: true,
     };
     await yarle.dropTheRope(options);
-    console.log(`conversion log: ${fs.readFileSync(LOGFILE)}`);
+    // tslint:disable-next-line:no-console
+    console.log(`conversion log: ${fs.readFileSync(utils.LOGFILE)}`);
     assert.equal(
       fs.existsSync(
         `${__dirname}/../out/notes/test-withPicture/test - note with picture.md`,
@@ -83,7 +178,8 @@ dateFormat: undefined,
       isMetadataNeeded: true,
     };
     await yarle.dropTheRope(options);
-    console.log(`conversion log: ${fs.readFileSync(LOGFILE)}`);
+    // tslint:disable-next-line:no-console
+    console.log(`conversion log: ${fs.readFileSync(utils.LOGFILE)}`);
     assert.equal(
       fs.existsSync(
         `${__dirname}/../out/notes/test-withPicture/test - note with picture.md`,
@@ -192,20 +288,20 @@ dateFormat: undefined,
     await yarle.dropTheRope(options);
     assert.equal(
       fs.existsSync(
-        `/tmp/out/notes/test-textWithImage/Untitled.md`,
+        '/tmp/out/notes/test-textWithImage/Untitled.md',
       ),
       true,
     );
     assert.equal(
       fs.existsSync(
-        `/tmp/out/notes/test-textWithImage/_resources/Untitled.resources`,
+        '/tmp/out/notes/test-textWithImage/_resources/Untitled.resources',
       ),
       true,
     );
 
     assert.equal(
       eol.auto(fs.readFileSync(
-        `/tmp/out/notes//test-textWithImage/Untitled.md`,
+        '/tmp/out/notes//test-textWithImage/Untitled.md',
         'utf8',
       )),
       fs.readFileSync(`${__dirname}/data/test-textWithImage.md`, 'utf8'),
@@ -254,7 +350,42 @@ dateFormat: undefined,
       fs.readFileSync(`${__dirname}/data/test-twoNotes-text.md`, 'utf8'),
     );
   });
+  it('Enex file with multiple notes, same journal notes, Logseq', async () => {
+    const options: YarleOptions = {
+      enexSources: [ `${testDataFolder}test-two-logseqNotes.enex` ],
+      outputDir: 'out',
+      dateFormat: 'YYYY-MM-DD',
+      templateFile: `${testDataFolder}template_logseq.tmpl`,
+      logseqSettings:{
+        journalNotes: true
+      },
+      outputFormat: OutputFormat.LogSeqMD,
 
+      isMetadataNeeded: true,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/journal/2018-10-06.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/_resources/2018-10-06.resources`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/journal/2018-10-06.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/multiple-notes-in-logseq-journal.md`, 'utf8'),
+    );
+
+  });
   it('Enex file with note containing more pictures', async () => {
     const options: YarleOptions = {
 dateFormat: undefined,
@@ -284,7 +415,30 @@ dateFormat: undefined,
       fs.readFileSync(`${__dirname}/data/test-threePictures.md`, 'utf8'),
     );
   });
+  it('Enex file with tabbed text ', async () => {
+    const options: YarleOptions = {
+dateFormat: undefined,
+      enexSources: [ `${testDataFolder}test-normal+tabbed text.enex` ],
+      outputDir: 'out',
+      trimStartingTabs: true,
+      isMetadataNeeded: true,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-normal+tabbed text/test-normal+tabbed text.md`,
+      ),
+      true,
+    );
 
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-normal+tabbed text/test-normal+tabbed text.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-normal+tabbed text.md`, 'utf8'),
+    );
+  });
   it('Enex file with images using data urls', async () => {
     const options: YarleOptions = {
 dateFormat: undefined,
@@ -427,6 +581,7 @@ dateFormat: undefined,
       plainTextNotesOnly: false,
       templateFile: undefined,
       outputFormat: OutputFormat.StandardMD,
+
     };
     await dropTheRopeRunner.run(options);
 
@@ -454,6 +609,49 @@ dateFormat: undefined,
         'utf8',
       )),
       fs.readFileSync(`${__dirname}/data/test-linksNoteB.md`, 'utf8'),
+    );
+  });
+
+  it('Enex file with internal Levenshtein links ', async () => {
+    const options: YarleOptions = {
+      dateFormat: undefined,
+
+      enexSources: [ `${testDataFolder}test-levenshtein-links.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      plainTextNotesOnly: false,
+      templateFile: undefined,
+      outputFormat: OutputFormat.StandardMD,
+      useLevenshteinForLinks: true,
+
+
+    };
+    await dropTheRopeRunner.run(options);
+
+    assert.equal(
+      fs.existsSync(`${__dirname}/../out/notes/test-levenshtein-links/NoteA.md`),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-levenshtein-links/NoteA.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-levenshtein-linksNoteA.md`, 'utf8'),
+    );
+
+    assert.equal(
+      fs.existsSync(`${__dirname}/../out/notes/test-levenshtein-links/NoteB.md`),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-levenshtein-links/NoteB.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-levenshtein-linksNoteB.md`, 'utf8'),
     );
   });
 
@@ -614,7 +812,274 @@ dateFormat: undefined,
       true,
     );
   });
+  it('Enex file with PDF attachment - urlencode', async () => {
+    const options: YarleOptions = {
+      dateFormat: undefined,
+      enexSources: [ `${testDataFolder}test-URLEncodingLinksAndFiles.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      plainTextNotesOnly: false,
+      urlEncodeFileNamesAndLinks: true,
+      outputFormat: OutputFormat.ObsidianMD
+    }
+    
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-URLEncodingLinksAndFiles/URLEncodedPdfAttachment.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-URLEncodingLinksAndFiles/_resources/URLEncodedPdfAttachment.resources/WLAN-Artikel_der_c't,_Ma%CC%88rz_2016.pdf`,
+      ),
+      true,
+    );
+  });
+  it('Enex file - href-base64', async () => {
+    const options: YarleOptions = {
 
+      enexSources: [ `${testDataFolder}test-webclip-imagelink-base64.enex` ],
+      outputDir: 'out',
+        isMetadataNeeded: true,
+        isNotebookNameNeeded: false,
+        isZettelkastenNeeded: false,
+        useZettelIdAsFilename: false,
+        plainTextNotesOnly: false,
+        skipLocation: true,
+        skipCreationTime: true,
+        skipUpdateTime: true,
+        skipSourceUrl: true,
+        skipWebClips: false,
+        skipTags: true,
+        useHashTags: true,
+        outputFormat: OutputFormat.ObsidianMD,
+        obsidianTaskTag: "",
+        taskOutputFormat: TaskOutputFormat.ObsidianMD,
+        skipEnexFileNameFromOutputPath: false,
+        keepMDCharactersOfENNotes: false,
+        monospaceIsCodeBlock: false,
+        keepOriginalHtml: false,
+        currentTemplate: "---\n{created-at-block}Created at: {created-at}{end-created-at-block}\n{updated-at-block}Last updated at: {updated-at}{end-updated-at-block}\n{source-url-block}Source: {source-url}{end-source-url-block}\n{tags-block}Tags: {tags}{end-tags-block}\n---\n{source-url-block}Source: {source-url}{end-source-url-block}\n{tags-block}Tags: {tags}{end-tags-block}\n\n{content-block}{content}{end-content-block}\n\n",
+        resourcesDir: "_filesFromEN",
+        nestedTags: {
+          separatorInEN: "_",
+          replaceSeparatorWith: "---",
+          replaceSpaceWith: "-"
+       },
+        logseqSettings: { journalNotes: false },
+        obsidianSettings: { omitLinkDisplayName: false },
+        dateFormat: "YYYY-MM-DD hh:mm",
+        keepImageSize: OutputFormat.ObsidianMD,
+        keepOriginalAmountOfNewlines: true,
+        addExtensionToInternalLinks: true,
+        generateNakedUrls: false,
+        urlEncodeFileNamesAndLinks: false,
+        haveEnexLevelResources: false,
+        haveGlobalResources: true,
+        useUniqueUnknownFileNames: false,
+        useLevenshteinForLinks: false,
+        sanitizeResourceNameSpaces: true,
+     
+    }
+    
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-webclip-imagelink-base64/test-webclip-imagelink-base64.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-webclip-imagelink-base64/test-webclip-imagelink-base64.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-webclip-imagelink-base64.md`, 'utf8'),
+    );
+  });
+  it.skip('Enex file - nohref', async () => {
+    const options: YarleOptions = {
+
+      enexSources: [ `${testDataFolder}test-imagelink-base64.enex` ],
+      outputDir: 'out',
+        isMetadataNeeded: true,
+        isNotebookNameNeeded: false,
+        isZettelkastenNeeded: false,
+        useZettelIdAsFilename: false,
+        plainTextNotesOnly: false,
+        skipLocation: true,
+        skipCreationTime: true,
+        skipUpdateTime: true,
+        skipSourceUrl: true,
+        skipWebClips: false,
+        skipTags: true,
+        useHashTags: true,
+        outputFormat: OutputFormat.ObsidianMD,
+        obsidianTaskTag: "",
+        taskOutputFormat: TaskOutputFormat.ObsidianMD,
+        skipEnexFileNameFromOutputPath: false,
+        keepMDCharactersOfENNotes: false,
+        monospaceIsCodeBlock: false,
+        keepOriginalHtml: false,
+        currentTemplate: "---\n{created-at-block}Created at: {created-at}{end-created-at-block}\n{updated-at-block}Last updated at: {updated-at}{end-updated-at-block}\n{source-url-block}Source: {source-url}{end-source-url-block}\n{tags-block}Tags: {tags}{end-tags-block}\n---\n{source-url-block}Source: {source-url}{end-source-url-block}\n{tags-block}Tags: {tags}{end-tags-block}\n\n{content-block}{content}{end-content-block}\n\n",
+        resourcesDir: "_filesFromEN",
+        nestedTags: {
+          separatorInEN: "_",
+          replaceSeparatorWith: "---",
+          replaceSpaceWith: "-"
+       },
+        logseqSettings: { journalNotes: false },
+        obsidianSettings: { omitLinkDisplayName: false },
+        dateFormat: "YYYY-MM-DD hh:mm",
+        keepImageSize: OutputFormat.ObsidianMD,
+        keepOriginalAmountOfNewlines: true,
+        addExtensionToInternalLinks: true,
+        generateNakedUrls: false,
+        urlEncodeFileNamesAndLinks: false,
+        haveEnexLevelResources: false,
+        haveGlobalResources: true,
+        useUniqueUnknownFileNames: false,
+        useLevenshteinForLinks: false,
+        sanitizeResourceNameSpaces: true,
+        replacementChar: "_",
+     
+    }
+    
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/Debug/Druckermeldung abschalten.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/Debug/Druckermeldung abschalten.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-webclips.md`, 'utf8'),
+    );
+  });
+
+  it.skip('Enex file - nohref', async () => {
+    const options: YarleOptions = {
+
+      enexSources: [ `${testDataFolder}test-webclip-no-link-in-md.enex` ],
+      outputDir: 'out',
+        isMetadataNeeded: true,
+        isNotebookNameNeeded: false,
+        isZettelkastenNeeded: false,
+        useZettelIdAsFilename: false,
+        plainTextNotesOnly: false,
+        skipLocation: true,
+        skipCreationTime: true,
+        skipUpdateTime: true,
+        skipSourceUrl: true,
+        skipWebClips: false,
+        skipTags: true,
+        useHashTags: true,
+        outputFormat: OutputFormat.ObsidianMD,
+        obsidianTaskTag: "",
+        taskOutputFormat: TaskOutputFormat.ObsidianMD,
+        skipEnexFileNameFromOutputPath: false,
+        keepMDCharactersOfENNotes: false,
+        monospaceIsCodeBlock: false,
+        keepOriginalHtml: false,
+        currentTemplate: "---\n{created-at-block}Created at: {created-at}{end-created-at-block}\n{updated-at-block}Last updated at: {updated-at}{end-updated-at-block}\n{source-url-block}Source: {source-url}{end-source-url-block}\n{tags-block}Tags: {tags}{end-tags-block}\n---\n{source-url-block}Source: {source-url}{end-source-url-block}\n{tags-block}Tags: {tags}{end-tags-block}\n\n{content-block}{content}{end-content-block}\n\n",
+        resourcesDir: "_filesFromEN",
+        nestedTags: {
+          separatorInEN: "_",
+          replaceSeparatorWith: "---",
+          replaceSpaceWith: "-"
+       },
+        logseqSettings: { journalNotes: false },
+        obsidianSettings: { omitLinkDisplayName: false },
+        dateFormat: "YYYY-MM-DD hh:mm",
+        keepImageSize: OutputFormat.ObsidianMD,
+        keepOriginalAmountOfNewlines: true,
+        addExtensionToInternalLinks: true,
+        generateNakedUrls: false,
+        urlEncodeFileNamesAndLinks: false,
+        haveEnexLevelResources: false,
+        haveGlobalResources: true,
+        useUniqueUnknownFileNames: false,
+        useLevenshteinForLinks: false,
+        sanitizeResourceNameSpaces: true,
+        replacementChar: "_",
+     
+    }
+    
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/Debug/Druckermeldung abschalten.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/Debug/Druckermeldung abschalten.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-webclips.md`, 'utf8'),
+    );
+  });
+
+  it('Enex file - link with images', async () => {
+    const options: YarleOptions = {
+      dateFormat: undefined,
+      enexSources: [ `${testDataFolder}test-webclip-with-image-in-link-2.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      plainTextNotesOnly: false,
+      urlEncodeFileNamesAndLinks: true,
+      keepImageSize: OutputFormat.ObsidianMD,
+      outputFormat: OutputFormat.ObsidianMD
+    }
+    
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-webclip-with-image-in-link-2/Not So Humble Pie_ White Chocolate Caramel Cheesecake.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-webclip-with-image-in-link-2/Not So Humble Pie_ White Chocolate Caramel Cheesecake.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-link-with-images.md`, 'utf8'),
+    );
+  });
+  it('Enex file - link with images - no keep size', async () => {
+    const options: YarleOptions = {
+      dateFormat: undefined,
+      enexSources: [ `${testDataFolder}test-webclip-with-image-in-link-2.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      plainTextNotesOnly: false,
+      urlEncodeFileNamesAndLinks: true,
+      outputFormat: OutputFormat.ObsidianMD
+    }
+    
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-webclip-with-image-in-link-2/Not So Humble Pie_ White Chocolate Caramel Cheesecake.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-webclip-with-image-in-link-2/Not So Humble Pie_ White Chocolate Caramel Cheesecake.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-link-with-images-no-size.md`, 'utf8'),
+    );
+  });
   it.skip('2 Enex files with the same PDF attachment - global resource folder ', async () => {
     const options: YarleOptions = {
 		enexSources: [
@@ -653,7 +1118,7 @@ dateFormat: undefined,
 		skipEnexFileNameFromOutputPath: false,
 		keepMDCharactersOfENNotes: false,
 		monospaceIsCodeBlock: false,
-		currentTemplate: '{title-block}- #{title}#{end-title-block}\r\n\r\n- \r\n  ---\r\n\r\n\r\n{content-block}{content}{end-content-block}\r\n\r\n- \r\n  ---\r\n\r\n{created-at-block}- _Created at {created-at}._{end-created-at-block}\r\n{updated-at-block}- _Last updated at {updated-at}._{end-updated-at-block}\r\n{source-url-block}- _Source URL: []({source-url})._{end-source-url-block}\r\n\r\n\r\n{tags-block}\r\n- Tagged: \r\n- \r\n```\r\n{tags}\r\n```\r\n{end-tags-block}',
+		currentTemplate: '{title-block}- #{title}#{end-title-block}\r\n\r\n- \r\n  ---\r\n\r\n\r\n{content-block}{content}{end-content-block}\r\n\r\n- \r\n  ---\r\n\r\n{created-at-block}- _Created at {created-at}._{end-created-at-block}\r\n{updated-at-block}- _Last updated at {updated-at}._{end-updated-at-block}\r\n{source-url-block}- _Source URL []({source-url})._{end-source-url-block}\r\n\r\n\r\n{tags-block}\r\n- Tagged: \r\n- \r\n```\r\n{tags}\r\n```\r\n{end-tags-block}',
 		logseqSettings: {
 			journalNotes: false,
 		},
@@ -916,7 +1381,7 @@ dateFormat: undefined,
   });
   it('tasks from Evernote v10+ - no global filter', async () => {
     const options: YarleOptions = {
-dateFormat: undefined,
+      dateFormat: undefined,
       enexSources: [ `${testDataFolder}test-things-to-do.enex` ],
       outputDir: 'out',
       templateFile: `${testDataFolder}full_template.templ`,
@@ -1025,6 +1490,51 @@ dateFormat: undefined,
       fs.readFileSync(`${__dirname}/data/test-old-note.md`, 'utf8'),
     );
   });
+  it('really long filename', async () => {
+    const options: YarleOptions = {
+      enexSources: [ `${testDataFolder}test-long-note.enex` ],
+      outputDir: 'out',
+      templateFile: `${testDataFolder}full_template.templ`,
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.ObsidianMD,
+      skipEnexFileNameFromOutputPath: false,
+
+    };
+    await yarle.dropTheRope(options);
+    const expectedFileNamePrefix = 'This is going to be a really reallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreally';
+
+    const fileList = fs.readdirSync(`${__dirname}/../out/notes/test-long-note`);
+    assert.equal(fileList.filter(fileName => fileName.startsWith(expectedFileNamePrefix)).length, 1);
+
+  });
+
+  it('really long filename - with link', async () => {
+    const options: YarleOptions = {
+      enexSources: [ `${testDataFolder}test-long-linked-notes.enex` ],
+      outputDir: 'out',
+      templateFile: `${testDataFolder}full_template.templ`,
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.ObsidianMD,
+      obsidianSettings: {omitLinkDisplayName: false},
+      skipEnexFileNameFromOutputPath: false,
+
+    };
+    await dropTheRopeRunner.run(options);
+    const expectedFileNamePrefix = 'This is going to be a really really';
+
+    const fileList = fs.readdirSync(`${__dirname}/../out/notes/test-long-linked-notes`);
+    assert.equal(fileList.filter(fileName => fileName.startsWith(expectedFileNamePrefix)).length, 1);
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-long-linked-notes/NoteB.md`,
+        'utf8',
+      )).includes('evernote://'),
+      false,
+    );
+
+  });
+
   it('yaml tags list', async () => {
     const options: YarleOptions = {
 dateFormat: undefined,
@@ -1051,6 +1561,195 @@ dateFormat: undefined,
         'utf8',
       )),
       fs.readFileSync(`${__dirname}/data/test -note with tags array.md`, 'utf8'),
+    );
+  });
+
+  it('dots in enex file name', async () => {
+    const options: YarleOptions = {
+      dateFormat: undefined,
+      enexSources: [ `${testDataFolder}test.dots.in.enex.File.Name.enex` ],
+      outputDir: 'out',
+      templateFile: `${testDataFolder}tags-array_template.templ`,
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.ObsidianMD,
+      skipEnexFileNameFromOutputPath: false,
+			skipTags: false,
+			useHashTags: false,
+
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test.dots.in.enex.File.Name/test.dots.in.enex.File.Name.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test.dots.in.enex.File.Name/test.dots.in.enex.File.Name.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test.dots.in.enex.File.Name.md`, 'utf8'),
+    );
+  });
+
+  it('case insensitive file names', async () => {
+    const options: YarleOptions = {
+      dateFormat: undefined,
+      enexSources: [ `${testDataFolder}case-insensitive.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.ObsidianMD,
+      skipEnexFileNameFromOutputPath: false,
+			skipTags: false,
+			useHashTags: false,
+
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/case-insensitive/test abc.1.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/case-insensitive/test ABC.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/case-insensitive/test ABC.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test ABC.md`, 'utf8'),
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/case-insensitive/test abc.1.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test abc.1.md`, 'utf8'),
+    );
+
+  });
+});
+
+describe('Yarle error cases', async () => {
+  before(() => {
+    mockTimezone.register('Europe/London');
+
+  });
+
+  after(() => {
+    mockTimezone.unregister();
+
+  });
+
+  it('really long filePath', async () => {
+    const options: YarleOptions = {
+      enexSources: [ `${testDataFolder}test-justText.enex` ],
+      outputDir: 'out/longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglongfolderName',
+      templateFile: `${testDataFolder}full_template.templ`,
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.ObsidianMD,
+      skipEnexFileNameFromOutputPath: false,
+
+    };
+    try {
+      await yarle.dropTheRope(options);
+      assert.equal(true, false);
+    } catch (e: any) {
+
+      assert.equal(e.message.startsWith('ENAMETOOLONG: name too long') || e.message.startsWith('EINVAL: invalid argument, mkdir'), true);
+    }
+  });
+
+  it('Tana recognization', async () => {
+    const options: YarleOptions = {
+      dateFormat:  "YYYY-MM-DD",
+      enexSources: [ `${testDataFolder}test-tana-notes.enex` ],
+      outputDir: 'out',
+      templateFile: `${testDataFolder}sampleTemplate_tana.tmpl`,
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.Tana,
+      skipEnexFileNameFromOutputPath: false,
+			skipTags: false,
+			useHashTags: false, // IMPORTANT, IT HAS TO BE FALSE
+      generateNakedUrls: true // IMPORTANT, IT HAS TO BE TRUE
+
+    };
+    await dropTheRopeRunner.run(options);
+
+  });
+  it('Tana recognization - highlights', async () => {
+    const options: YarleOptions = {
+      dateFormat:  "YYYY-MM-DD",
+      enexSources: [ `${testDataFolder}tana-highlight-test.enex` ],
+      outputDir: 'out',
+      templateFile: `${testDataFolder}sampleTemplate_tana.tmpl`,
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.Tana,
+      skipEnexFileNameFromOutputPath: false,
+			skipTags: false,
+			useHashTags: false, // IMPORTANT, IT HAS TO BE FALSE
+      generateNakedUrls: true // IMPORTANT, IT HAS TO BE TRUE
+
+    };
+    await dropTheRopeRunner.run(options);
+
+  });
+  it('Tana recognization - table', async () => {
+    const options: YarleOptions = {
+      dateFormat:  "YYYY-MM-DD",
+      enexSources: [ `${testDataFolder}test-tana-02.enex` ],
+      outputDir: 'out',
+      templateFile: `${testDataFolder}sampleTemplate_tana.tmpl`,
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.Tana,
+      skipEnexFileNameFromOutputPath: false,
+			skipTags: false,
+			useHashTags: false, // IMPORTANT, IT HAS TO BE FALSE
+      generateNakedUrls: true // IMPORTANT, IT HAS TO BE TRUE
+
+    };
+    await dropTheRopeRunner.run(options);
+
+  });
+
+  
+  it('Heptabase', async () => {
+    const options: YarleOptions = {
+dateFormat: undefined,
+      enexSources: [ `.${path.sep}test${path.sep}data${path.sep}test-hepta.enex` ],
+      outputDir: 'out',
+      outputFormat: OutputFormat.Heptabase,
+      templateFile: `${testDataFolder}full_template.templ`,
+      isMetadataNeeded: true,
+    };
+    await dropTheRopeRunner.run(options);
+    // tslint:disable-next-line:no-console
+    console.log(`conversion log: ${fs.readFileSync(utils.LOGFILE)}`);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-hepta.zip`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-hepta/test - note with picture.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-hepta/test - note with picture.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-hepta.md`, 'utf8'),
     );
   });
 });

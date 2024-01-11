@@ -5,6 +5,7 @@ import { YarleOptions } from './../YarleOptions';
 import {
     divRule,
     imagesRule,
+    italicRule,
     newLineRule,
     spanRule,
     strikethroughRule,
@@ -12,6 +13,9 @@ import {
     wikiStyleLinksRule } from './turndown-rules';
 import { OutputFormat } from './../output-format';
 import { taskListRule } from './turndown-rules/task-list-rule';
+import { removeNewlines } from './remove-newlines';
+import { tanaTableBlock, tanaTableColBlock, tanaTableRowBlock } from './../constants';
+import { underlineRule } from './turndown-rules/underline-rule';
 
 export const getTurndownService = (yarleOptions: YarleOptions) => {
     /* istanbul ignore next */
@@ -35,7 +39,8 @@ export const getTurndownService = (yarleOptions: YarleOptions) => {
     turndownService.addRule('wikistyle links', wikiStyleLinksRule);
     turndownService.addRule('images', imagesRule);
     turndownService.addRule('list', taskListRule);
-
+    turndownService.addRule('italic', italicRule);
+    turndownService.addRule('underline', underlineRule);
     if (yarleOptions.outputFormat === OutputFormat.LogSeqMD) {
         turndownService.addRule('logseq_hr', {
                 filter: ['hr'],
@@ -46,6 +51,26 @@ export const getTurndownService = (yarleOptions: YarleOptions) => {
         });
     }
 
+    if(yarleOptions.outputFormat === OutputFormat.Tana) {
+        turndownService.addRule('tanaSkipTableRule', {
+            filter: ['table'],
+            replacement(content: any) {
+                return `${tanaTableBlock}${removeNewlines(content)}`;
+            },
+        })
+        turndownService.addRule('tanaSkipTableRowRule', {
+            filter: ['tr'],
+            replacement(content: any) {
+                return `${tanaTableRowBlock}${removeNewlines(content)}`;
+            },
+        })
+        turndownService.addRule('tanaSkipTableColRule', {
+            filter: ['td'],
+            replacement(content: any) {
+                return `${tanaTableColBlock}${removeNewlines(content)}`;
+            },
+        })
+    }
     if (yarleOptions.keepMDCharactersOfENNotes) {
         turndownService.escape = ((str: string) => str);
     }

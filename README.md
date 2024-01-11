@@ -8,10 +8,16 @@
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green?style=for-the-badge)](https://github.com/akosbalasko/yarle/graphs/commit-activity)
 [![License: MIT](https://img.shields.io/github/license/akosbalasko/yarle?style=for-the-badge)](https://github.com/akosbalasko/yarle/blob/master/LICENSE)
 ![GitHub All Releases](https://img.shields.io/github/downloads/akosbalasko/yarle/total?style=for-the-badge)
+<br><br><br>
+## Download YARLE, the **ULTIMATE CONVERTER OF EVERNOTE** notes here:
+<br>
+<div id="downloadApp"></div>
 
+| <img src="./screens/macos-logo-02.png" width="100"> | <img src="./screens/windows-logo.png" width="200"> | <img src="./screens/linux-logo.jpeg" width="200"> |<img src="./screens/debian-logo.webp" width="200">  |
+|---|---|---|---|
+| [Get YARLE for Mac](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_mac_x64.zip)| <a class="button" href="https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_win_x64.exe">Get YARLE for Windows</a>| [Get YARLE for Linux (.rpm)](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_linux_x86_64.rpm)| [Get YARLE for Debian (.deb)](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_linux_amd64.deb)
 
-Yarle is the ultimate converter of Evernote notes to Markdown.
-
+<br><br>
 
 ## Features:
 
@@ -38,15 +44,22 @@ Yarle is the ultimate converter of Evernote notes to Markdown.
 - :hammer: Organizes all attachments into a _resources subfolder (to keep the notes' folder as simple as possible).
 
 
-## Binaries:
 
-[Windows](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_win_x64.exe)
 
-[Linux (.rpm)](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_linux_x86_64.rpm)
+## To where can I import the converted notes? 
 
-[Debian (.deb)](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_linux_amd64.deb)
+Any other note taking application which recognizes notes in standard markdown, like NotePlan or Craft, but Yarle supports some others that has specific format requirements too. These are: 
 
-[Mac](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_mac_x64.zip)
+<a href="https://github.com/kmaasrud/awesome-obsidian" rel="Awesome Obsidian">Obsidian</a>
+
+<a href="https://github.com/logseq/awesome-logseq" rel="Awesome Logseq">LogSeq</a>
+
+<a href="https://tana.inc" rel= "Tana">Tana</a> (check details and limitations <a href="#tana_limitations">here</a>)
+ 
+<a href="https://heptabase.com/" rel="Heptabase">Heptabase</a>
+
+
+
 
 ## Feedback, Appreciation, Donation:
 If you have an idea on how to improve the tool or face any problems, feel free to raise an issue, or even contribute!
@@ -54,23 +67,20 @@ If you like the product, you can give a star here on github, or you can <a href=
 
 ### Yarle's supporters said: 
 
-<!--START_SECTION:buy-me-a-coffee--><div><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"> from <b>Someone</b> </div>  <div><i>Very useful tool and great support. Thank you!</i></div><br>
-<div><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"> from <b>Someone</b> </div>  <div><i>Thank you for Yarle, it is very helpful</i></div><br>
+<!--START_SECTION:buy-me-a-coffee--><div><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"> from <b>Someone</b> </div>  <div><i>Thanks, this really helped me out of evernote!</i></div><br>
+<div><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"> from <b>john@thebeard.org</b> </div>  <div><i>YARLE has just allowed me to transfer several years-worth of Evernote notes to Obsidian painlessly and astonishingly quickly. Your work has made my day. Thank you.</i></div><br>
+<div><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"> from <b>@opscat</b> </div>  <div><i>Thanks so much!</i></div><br><!--END_SECTION:buy-me-a-coffe-->
 
-<div><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"> from
-<b>Derick Dean</b></div><div><i>
-Thank you for making Yarle
-</i></div><br>
-<div><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"><img src="https://github.com/akosbalasko/coffee-to-file/blob/main/assets/bmc-logo.png?raw=true" width="30"> from 
-<b>Someone</b></div><div><i>
-
-Thanks for making this Evernote to Obsidian converter! Saved me many hours!</i></div>
-<br><!--END_SECTION:buy-me-a-coffe-->
-
-## Proud to be proposed by: 
+## Proud to be suggested by: 
 
 <a href="https://github.com/kmaasrud/awesome-obsidian" rel="Awesome Obsidian">
 <img src="screens/obsidian-logo.png" alt="drawing" width="100"/>
+</a>
+<a href="https://www.twosapp.com/import" rel="Twos App">
+<img src="screens/twos-logo.jpeg" alt="drawing" width="100"/>
+</a>
+<a href="" rel="Tana Inc.">
+<img src="screens/tana-logo.svg" alt="drawing" width="100"/>
 </a>
 <a href="https://github.com/logseq/awesome-logseq" rel="Awesome Logseq">
 <img src="screens/logseq-logo.png" alt="drawing" width="100"/>
@@ -87,29 +97,29 @@ Thanks for making this Evernote to Obsidian converter! Saved me many hours!</i><
 
 ## Instructions
 
-Download the desktop app for your platform, and follow the instructions there.
+<a href="#downloadApp">Download the application</a> matching with your Operating system and double-click on it. (On mac, you need to right-click + Run to Open it, because Apple prevents to directly run an application downloaded from Internet)
 
 https://user-images.githubusercontent.com/11886731/213943491-97211b41-c130-4b6b-a1e9-1fc360741ff7.mov
 
  In order to perform conversion into Logseq format, please choose Logseq as Target format in the configuration panel, then choose the type of your notes (Journal Notes or Pages). For Logseq all the other options have already been pre-configured.
 
 
-## Prerequisite for legacy versions (below 4.0.0):
-
- - Required [Install Node.js](https://nodejs.org/en/download/) version 10.22.1 or higher.
-
-## Zero-install execution via command line
+## Using Yarle via command line
 Just open a terminal, specify config options in a config file (options detailed in [Configuration](#Configuration)) and type the following:
 
 ```javascript
 npx -p yarle-evernote-to-md@latest yarle --configFile <path_to_your_file e.g. ./config.json>
 ```
 
+## Yarle intro and usage videos on Youtube:
+<a href="https://www.youtube.com/watch?v=EPMkm5zRIts">How to migrate notes from Evernote to Obsidian (using Yarle)</a><br>
+<a href="https://www.youtube.com/watch?v=gZxMz67uYHg">YARLE: A lifeline to escape from Evernote</a>
+
 ## Configuration:
 
 To configure Yarle, you must create a config file. By default it looks like this:
 
-```
+```json
 {
     "enexSources": [
        "/absolute-path-of-your-enex-dir/test-template.enex"
@@ -129,11 +139,24 @@ To configure Yarle, you must create a config file. By default it looks like this
     "keepMDCharactersOfENNotes": false,
     "keepOriginalAmountOfNewlines": false,
     "addExtensionToInternalLinks": true,
+    "trimStartingTabs": false,
+    "convertPlainHtmlNewlines": false,
     "nestedTags": {
       "separatorInEN": "_",
       "replaceSeparatorWith": "/",
       "replaceSpaceWith": "-"
    },
+   "replacementCharacterMap": {
+      "<": "_",
+      ">": "_",
+      ":": "_",
+      "\"": "_",
+      "/": "_",
+      "\\": "_", 
+      "|": "_",
+      "?": "_",
+      "*": "_"
+    },
    "resourcesDir": "resources",
    "turndownOptions": {
       "headingStyle": "atx"
@@ -142,6 +165,7 @@ To configure Yarle, you must create a config file. By default it looks like this
    "haveEnexLevelResources": true,
    "haveGlobalResources": false,
    "useUniqueUnknownFileNames": false,
+   "useLevenshteinForLinks": false,
     "logseqSettings":{
         "journalNotes": false
     },
@@ -173,6 +197,7 @@ The following configurational properties are available:
 | ```urlEncodeFileNamesAndLinks``` | true or false | URL-encodes linked file names and internal EN links . e.g "linked file.jpg" will be converted to "linked%20file.jpg"
 | ```sanitizeResourceNameSpaces``` | true or false | Replace spaces in resource names with the `replacementChar`. e.g "linked file.jpg" will be converted to "linked_file.jpg"
 | ```replacementChar``` | string | the replacement character. e.g "linked*file.jpg" will be converted to "linked_file.jpg". It defaults to "_"
+| ```replacementCharacterMap``` | JSON Object | it contains character key-value pairs, the keys will be replaced by the proper values in the filename 
 | ```keepOriginalAmountOfNewlines``` | true or false | keep the original amount of newlines, default is false, when the multiple newlines are collapsed to one.
 | ```generateNakedUrls``` | true or false | if it's true, Yarle generates 'naked' external Urls without any extra characters. If its false, external Urls are wrapped by  '<' and '>' characters
 | ```addExtensionToInternalLinks``` | true or false | adds '.md' extensions at the end of internal file links, to make them recognizable by DevonThink and other tools
@@ -181,8 +206,10 @@ The following configurational properties are available:
 | ```logseqSettings``` | `{...}` | settings for Logseq output, currently ```journalNotes``` property is supported, if it is set to `true`, then the notes will be converted to be recognizable by Logseq as Journal notes, the notes will be named by their creation date and they will be collected under `journal` folder. If it is `false`, then they will be converted to be `Pages` (e.g. simple notes, collected in `pages` folder).
 | ```taskOutputFormat``` | `ObsidianMD` or `StandardMD` | Output format of Evernote v10+ tasks. ObsidianMD will connvert tasks to match with Obsidian Tasks plugin's requirements. StandardMD will create plain tasks, loosing many features like reminders or due dates.
 | ```obsidianTaskTag``` | string | a tag to put to a task converted from Evernote v10+ tasks. Optional by Obsidian Tasks plugin, pls check the details there. 
+| ```trimStartingTabs``` | true or false | Removes the tab characters from the beginning of every line in a note. It is meaningful, because Obsidian recognizes tabs as codeblocks by default and blocks recognition of links (for instance) in the line
+| ```convertPlainHtmlNewlines``` | true or false |  Yarle converts newline html tags to newlines, even if they are within Evernote paragraphs.   
 |```useUniqueUnknownFileNames``` | boolean | generates a couple of random characters at the end of the resource file names if the exact name cannot be recognised. For instance: unknown_filename-d2fd86c3.pdf
-
+|```useLevenshteinForLinks```| boolean| it applies the link to the note with the filename that has the closest Levenshtein distance to the text of the link
 Metadata settings can be set via the template.
 
 
@@ -194,3 +221,18 @@ In order to minimize the wrong conversion of links due to duplicated note names,
 2. Create a Table of Contents note
 3. Export the notebook together with the TOC file 
 4. Start yarle and convert your notes
+
+## <img src="screens/tana-logo.svg" alt="drawing" width="50"/>  Converting notes to Tana 
+
+Yarle converts your notes to Tana Internal Format. To achieve this, the only thing you need to do differently than the default usage is to the output format as Tana Internal Format. The conversion will produce one file only called `notes-in-TIF.json`. It will contain all of your notes in Tana Internal Format, then you can import this file to Tana. 
+
+### Limitations
+<div id="tana_limitations"><div>
+
+Currently Yarle (or any other converter), cannot convert images into Tana Internal Format. Moreover Yarle converts Evernote tables to Tana as plain text.
+
+Once Tana Internal Format supports these features, we are glad to fill these gaps in the conversion. 
+
+## <img src="screens/hepta-logo.png" alt="drawing" width="50"/> Converting notes to Heptabase
+
+Just select Heptabase as output format, and then a zip is going to be created as a result of the conversion that contains all of your notes with images, everything together, prepared to be uploaded to Heptabase. 

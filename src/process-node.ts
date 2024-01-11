@@ -16,6 +16,12 @@ import { NoteData } from './models/NoteData';
 import { loggerInfo } from './utils/loggerInfo';
 import { isTOC } from './utils/is-toc';
 import { RuntimePropertiesSingleton } from './runtime-properties';
+import { OutputFormat } from './output-format';
+import { convert2TanaNode } from './utils/tana/convert-to-tana-node';
+import { saveTanaFile } from './utils/save-tana-file';
+import { isTanaOutput } from './utils/tana/is-tana-output';
+import { cloneDeep } from 'lodash';
+
 export const processNode = (note: any, notebookName: string): void => {
 
   const dateStarted: Date = new Date();
@@ -48,11 +54,18 @@ export const processNode = (note: any, notebookName: string): void => {
     noteData = {...noteData, ...getMetadata(note, notebookName)};
     noteData = {...noteData, ...getTags(note)};
 
-    const data = applyTemplate(noteData, yarleOptions);
+    let data = applyTemplate(noteData, yarleOptions);
     // tslint:disable-next-line:no-console
     // loggerInfo(`data =>\n ${JSON.stringify(data)} \n***`);
 
-    saveMdFile(data, note);
+    if (isTanaOutput()){
+      const tanaJson = convert2TanaNode({...noteData, content: data}, yarleOptions)
+      saveTanaFile(tanaJson, note)
+    }
+    else {
+      data = fixImagesInLink(data)
+      saveMdFile(data, note);
+    }
 
     if (yarleOptions.keepOriginalHtml) {
       convert2Html(noteData);
@@ -75,3 +88,21 @@ export const processNode = (note: any, notebookName: string): void => {
   loggerInfo(`Note "${noteData.title}" converted successfully in ${conversionDuration} seconds.`);
 
 };
+
+const fixImagesInLink = (content: string):string => {
+  let updatedContent = cloneDeep(content);
+  // Regular expression for the whole string with two groups
+  const patternWholeString = /\[!\[\[(.*?)(?:\|(.*?))?\]\]\]\((.*?)\)/g;
+
+  let match;
+  while ((match = patternWholeString.exec(content)) !== null) {
+    const bracketContent = match[1];
+    const dimensions = match[2] || ''; // Use empty string if dimensions are not present
+    const parenthesesContent = match[3];
+      updatedContent = (dimensions === "")
+        ? updatedContent.replace(`[![[${bracketContent}]]](${parenthesesContent})`, `![${parenthesesContent}](${bracketContent})`)
+        : updatedContent.replace(`[![[${bracketContent}|${dimensions}]]](${parenthesesContent})`, `![${parenthesesContent}\\|${dimensions}](${bracketContent})`)
+
+  }
+  return updatedContent;
+} 

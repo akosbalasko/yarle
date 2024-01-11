@@ -161,17 +161,27 @@
 		                            </div>
 		                            <div class="tab-pane" id="configuration">
 										<div class="configurationSection">
-											<h5 class="info-text"> Target Dialect </h5>
-												<div class="configurationSectionItems">
-													<div class="form-group">
-														<select name="outputFormat" id="outputFormat" class="form-control configurationItem">
-														<option value="ObsidianMD">Obsidian</option>
-														<option value="LogSeqMD">LogSeq</option>
-														<option value="StandardMD">Other Standard Markdown-based application</option>
-														</select>
-													</div>
+											  
+											<div class="configurationSectionItems flex-center">
+												  <input type='button' id="selectConfigFileDialogBtn" class='btn btn-fill btn-danger btn-wd' name='selectConfigFileDialogBtn' value='Load config file' />
+												<div style='font-size: 12px;'><i>(After a conversion you can find the actual settings in file 'yarle.config' within the specified output directory.)</i></div>
+
+											</div>
+										</div>				  
+										<div class="configurationSection">
+										<h5 class="info-text"> Target Dialect </h5>
+											<div class="configurationSectionItems">
+												<div class="form-group">
+													<select name="outputFormat" id="outputFormat" class="form-control configurationItem">
+													<option value="ObsidianMD">Obsidian</option>
+													<option value="LogSeqMD">LogSeq</option>
+													<option value="Heptabase">Heptabase</option>
+													<option value="Tana Internal Format">Tana Internal Format</option>
+													<option value="StandardMD">Other Standard Markdown-based application</option>
+													</select>
 												</div>
 											</div>
+										</div>
 											<div class="configurationSection">
 												<h5 class="info-text">General </h5>
 													<div class="configurationSectionItems">
@@ -308,7 +318,7 @@
 												</select>
 													</div>
 													
-														<div class="form-group">
+												<div class="form-group">
 															<!--<input type="checkbox" value="false" id='addExtensionToInternalLinks'> -->
 												<label for="addExtensionToInternalLinks" class="pure-checkbox">
 												Add 'md' extension of internal links
@@ -320,7 +330,20 @@
 													<option value="false" selected>No</option>
 												</select>
 													</div>
-													
+												<div class="form-group">
+															<!--<input type="checkbox" value="false" id='addExtensionToInternalLinks'> -->
+												<label for="useLevenshteinForLinks" class="pure-checkbox">
+												Apply links to the note with the closest Levenshtein distance
+												<br><div style='font-size: 12px;'><i>(
+													it applies the link to the note with the filename that has the closest Levenshtein distance to the text of the link)</i></div>
+												</label>
+												<select class="form-control configurationItem" name="useLevenshteinForLinks" id="useLevenshteinForLinks">
+													<option value="true">Yes</option>
+													<option value="false" selected>No</option>
+												</select>
+													</div>
+												    
+	
 														<div class="form-group">
 															<!--<input type="checkbox" value="false" id='plainTextNotesOnly'> -->
 												<label for="plainTextNotesOnly" class="pure-checkbox">
@@ -375,6 +398,31 @@
 														<option value="false" selected>No</option>
 													  </select>
 												</div>
+												<div class="form-group">
+													<label for="trimStartingTabs" class="pure-checkbox">
+														Remove starting tab characters
+													  <br><div style='font-size: 12px;'><i>(
+														It it is selected, tabs from the beginning of each line in the note will be removed, otherwise Obsidian recognizes these lines as Codeblocks)</i></div>
+													</label>
+
+													<select class="form-control configurationItem" name="trimStartingTabs" id="trimStartingTabs">
+														<option value="true">Yes</option>
+														<option value="false" selected>No</option>
+													  </select>
+												</div>
+												<div class="form-group">
+													<label for="convertPlainHtmlNewlines" class="pure-checkbox">
+														Convert plain html newlines 
+													  <br><div style='font-size: 12px;'><i>(If it is selected, Yarle converts newline html tags to newlines, even if they are within Evernote paragraphs </i></div>
+													</label>
+
+													<select class="form-control configurationItem" name="convertPlainHtmlNewlines" id="convertPlainHtmlNewlines">
+														<option value="true">Yes</option>
+														<option value="false" selected>No</option>
+													  </select>
+												</div>
+												
+
 											</div>
 										</div>
 										<div class="configurationSection">
@@ -420,8 +468,7 @@
 											</select>
 											</div>
 											
-													<div class="form-group">
-														<!--<input type="checkbox" value="false" id='sanitizeResourceNameSpaces'> -->
+											<div class="form-group">
 											<label for="sanitizeResourceNameSpaces" class="pure-checkbox">
 												Sanitize spaces in resource names
 												<br>
@@ -430,16 +477,24 @@
 												<option value="true">Yes</option>
 												<option value="false" selected>No</option>
 											</select>
-												</div>
-												
-													<div class="form-group">
-														<label for="replacementChar" class="pure-checkbox">
-															Replacement character for sanitizing spaces in resource names
-														</label>
-														<input type="text"  class="form-control configurationItem"value="_" id='replacementChar'> 
+											</div>
+	
+											<div class="form-group">
+												<label for="replacementChar" class="pure-checkbox">
+													Replacement character for sanitizing spaces in resource names
+												</label>
+												<input type="text"  class="form-control configurationItem"value="_" id='replacementChar'> 
 														
-												</div>
-																									
+											</div>
+										
+											<div class="form-group">
+												<label for="replacementCharacterMap">
+													Replacement character map in filenames: 
+												</label>
+												<textarea class="form-control configurationItem" name="replacementCharacterMap" id="replacementCharacterMap" rows="15"></textarea>
+														
+											</div>
+
 												<div class="form-group">
 													<label for="resourcesDir">Custom resources folder:
 													</label>
@@ -704,7 +759,7 @@
 											  <div class="field">
 												<label for="resourcesDir">Custom resources folder:
 												</label>
-												<input type="text" name="resourcesDir" id="resourcesDir" value="_resources">
+""												<input type="text" name="resourcesDir" id="resourcesDir" value="_resources">
 											  </div>
 										  </section>
 										  
@@ -730,6 +785,14 @@
 													  Keep Markdown characters Of EN Notes
 													  <br><div style='font-size: 12px;'><i>(
 														Set it true, if you used Markdown format in your EN notes.)</i></div>
+													</label>
+												  </div>
+												  												  <h2>Notes</h2>
+												  <div class="field">
+													<input type="checkbox" value="false" id='trimStartingTabs'>
+													<label for="trimStartingTabs" class="pure-checkbox">
+													  Remove starting tab characters as Obsidian recognizes it as Codeblocks
+													  <br><div style='font-size: 12px;'><i>(It it is selected, tabs from the beginning of each line in the note will be removed)</i></div>
 													</label>
 												  </div>
 												</section>

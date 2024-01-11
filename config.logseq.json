@@ -16,9 +16,21 @@
     },
     "outputFormat": "StandardMD",
     "taskOutputFormat": "StandardMD",
+    "keepImageSize": "StandardMD",
     "urlEncodeFileNamesAndLinks": false,
     "sanitizeResourceNameSpaces": false, 
     "replacementChar": "_",
+    "replacementCharacterMap": {
+        "<": "_",
+        ">": "_",
+        ":": "_",
+        "\"": "_",
+        "/": "_",
+        "\\": "_", 
+        "|": "_",
+        "?": "_",
+        "*": "_"
+    },
     "pathSeparator": "/",
     "resourcesDir": "assets",
     "turndownOptions": {
@@ -26,6 +38,8 @@
     },
     "skipLocation": true,
     "skipCreationTime": false,
+    "trimStartingTabs": false,
+    "convertPlainHtmlNewlines": false,
     "dateFormat": "YYYY-MM-DD",
     "skipUpdateTime": true,
     "skipSourceUrl": true,
@@ -37,6 +51,7 @@
     "haveEnexLevelResources": true,
     "haveGlobalResources": false,
 	"useUniqueUnknownFileNames": false,
+    "useLevenshteinForLinks": false,
     "logseqSettings":{
         "journalNotes": false
     },

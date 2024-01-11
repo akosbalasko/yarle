@@ -3,6 +3,7 @@ import { yarleOptions } from '../../yarle';
 import { filterByNodeName } from './filter-by-nodename';
 import { getAttributeProxy } from './get-attribute-proxy';
 import { OutputFormat } from './../../output-format';
+import { isHeptaOrObsidianOutput } from './../is-hepta-or-obsidian-output';
 
 export const imagesRule = {
   filter: filterByNodeName('IMG'),
@@ -28,15 +29,15 @@ export const imagesRule = {
 
       return `![](${realValue}${sizeString})`;
     } else if (yarleOptions.keepImageSize === OutputFormat.ObsidianMD) {
-      sizeString = (widthParam || heightParam) ? `|${widthParam || 0}x${heightParam || 0}` : '';
-      if (realValue.startsWith('./')) {
-        return `![[${realValue}${sizeString}]]`;
+      sizeString = (widthParam || heightParam) ? `${widthParam || 0}x${heightParam || 0}` : '';
+      if (realValue.startsWith('./') || realValue.startsWith('..')) {
+        return sizeString != '' ? `![[${realValue}\\|${sizeString}]]` : `![[${realValue}${sizeString}]]`;
       } else {
         return `![${sizeString}](${realValue})`;
       }
     }
 
-    const useObsidianMD = yarleOptions.outputFormat === OutputFormat.ObsidianMD;
+    const useObsidianMD = isHeptaOrObsidianOutput();
     if (useObsidianMD && !value.match(/^[a-z]+:/)) {
       return `![[${realValue}]]`;
     }

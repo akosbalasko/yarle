@@ -6,6 +6,11 @@ const { initialize, enable } = require("@electron/remote/main")
 const { mapSettingsToYarleOptions } = require('./settingsMapper')
 const yarle = require('../yarle')
 const {OutputFormat} = require('./../output-format')
+const { applyLinks } = require('./../utils/apply-links');
+const { isTanaOutput } = require('./../utils/tana/is-tana-output');
+const { isHeptaOutput } = require('./../utils/heptabase/is-hepta-output');
+const {createTanaOutput } = require('./../utils/tana/create-tana-output');
+const { zipFolder } = require('./../utils/heptabase/zip-folder');
 
 initialize();
 // tslint:disable-next-line:no-require-imports variable-name
@@ -66,10 +71,17 @@ const createWindow = () => {
 
     ipcMain.on('startConversion', async (event, data) => {
       const settings = mapSettingsToYarleOptions();
+
       const outputNotebookFolders = await yarle.dropTheRope(settings);
       // apply internal links
       applyLinks(settings, outputNotebookFolders);
     
+      if (isTanaOutput()){
+        createTanaOutput(settings, outputNotebookFolders)
+    }
+      if (isHeptaOutput()){
+        await zipFolder(settings, outputNotebookFolders)
+      }
     });
 
 
@@ -98,7 +110,6 @@ const createWindow = () => {
 
     mainWindow.show();
     mainWindow.webContents.send('logSeqModeDeSelected');
-
 
   });
   
@@ -155,6 +166,24 @@ app.whenReady().then(() => {
         console.log(`outputDir: ${outputPath}`);
         return outputPath;
 
+      }
+
+  });
+  ipcMain.handle('dialog:selectConfigFile', async () => {
+    const { canceled, filePaths } = await dialog.showOpenDialog(
+      {
+        properties: ['openFile'],
+        filters: [
+  
+          { name: 'Yarle config file', extensions: ['config']},
+        ],
+      });
+      if (canceled) {
+        return
+      } else if (filePaths) {
+        const configFilePath = filePaths[0];
+        const fileContent = fs.readFileSync(configFilePath);
+        mainWindow.webContents.send('configLoaded', configFilePath, JSON.parse(fileContent));
       }
 
   });

@@ -32,6 +32,7 @@ export const mapEvernoteTask = (pureTask: any): EvernoteTask => {
         duedate: getDateFromProperty(pureTask.duedate),
         taskflag: pureTask.taskflag === 'true',
         reminderdate: pureTask.reminder ? getDateFromProperty(pureTask.reminder.reminderdate) : undefined,
+        sortweight: pureTask.sortweight
 
     };
 };

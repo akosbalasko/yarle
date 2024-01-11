@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE en-export SYSTEM "http://xml.evernote.com/pub/evernote-export4.dtd">
+<en-export export-date="20230622T190332Z" application="Evernote" version="10.56.9">
+  <note>
+    <title>Table</title>
+    <created>20230511T153412Z</created>
+    <updated>20230517T204040Z</updated>
+    <note-attributes>
+      <author>akos</author>
+    </note-attributes>
+    <content>
+      <![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd"><en-note><div><br/></div><table width="564px" style="border-collapse:collapse;width:564px;"><colgroup><col style="width: 188px;" /><col style="width: 188px;" /><col style="width: 188px;" /></colgroup><tbody><tr><td style="border-color:#ccc;border-width:1px;border-style:solid;padding:10px;"><div>TABLE0.0</div></td><td style="border-color:#ccc;border-width:1px;border-style:solid;padding:10px;"><div>Column1</div></td><td style="border-color:#ccc;border-width:1px;border-style:solid;padding:10px;"><div>Column2</div></td></tr><tr><td style="border-color:#ccc;border-width:1px;border-style:solid;padding:10px;"><div>Row1</div></td><td style="border-color:#ccc;border-width:1px;border-style:solid;padding:10px;"><div>Cell1.1</div></td><td style="border-color:#ccc;border-width:1px;border-style:solid;padding:10px;"><div>Cell1.2</div></td></tr><tr><td style="border-color:#ccc;border-width:1px;border-style:solid;padding:10px;"><div>Row2</div></td><td style="border-color:#ccc;border-width:1px;border-style:solid;padding:10px;"><div>Cell.2.1</div></td><td style="border-color:#ccc;border-width:1px;border-style:solid;padding:10px;"><div>Cell2.2</div></td></tr></tbody></table><div><br/></div></en-note>      ]]>
+    </content>
+  </note>
+</en-export>

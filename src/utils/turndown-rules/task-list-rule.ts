@@ -1,8 +1,9 @@
+import { isTanaOutput } from '../tana/is-tana-output';
 import { OutputFormat } from '../../output-format';
 import { yarleOptions } from '../../yarle';
 
-import { filterByNodeName } from './filter-by-nodename';
 import { getAttributeProxy } from './get-attribute-proxy';
+import { checkboxDone, checkboxTodo } from './../../constants';
 const indentCharacter = '	';
 export const taskListRule = {
     filter: 'li',
@@ -36,10 +37,10 @@ export const taskListRule = {
         let prefix =  indentCount > 0
             ? indentChars
             : (isTodoDoneBlock(node)
-                ? '- [x] '
+                ? `${checkboxDone} `
                 : (isTodoBlock(node)
-                    ? '- [ ] '
-                    :'* '))
+                    ? `${checkboxTodo} `
+                    : getListItem()))
                     ;
         const parent = node.parentNode;
         if (parent.nodeName === 'OL') {
@@ -54,3 +55,9 @@ export const taskListRule = {
 
         return ret;
 }};
+
+const getListItem = (): string => {
+    return isTanaOutput()
+    ? ''
+    : '* '
+}

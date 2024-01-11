@@ -1,6 +1,7 @@
 import { OutputFormat } from './output-format';
 import { TagSeparatorReplaceOptions } from './models';
 import { TaskOutputFormat } from './task-output-format';
+import { CharacterMap } from 'CharacterMap';
 
 export interface YarleOptions {
     enexDir?: string; // used by command line
@@ -25,6 +26,8 @@ export interface YarleOptions {
     skipTags?: boolean;
     useHashTags?: boolean;
     outputFormat?: OutputFormat;
+    trimStartingTabs?: boolean;
+    convertPlainHtmlNewlines?: boolean;
     logseqSettings?: {
         journalNotes: boolean,
     };
@@ -39,6 +42,7 @@ export interface YarleOptions {
     urlEncodeFileNamesAndLinks?: boolean;
     sanitizeResourceNameSpaces?: boolean;
     replacementChar?: string;
+    replacementCharacterMap?: CharacterMap;
     monospaceIsCodeBlock?: boolean;
     dateFormat?: string;
     nestedTags?: TagSeparatorReplaceOptions;
@@ -52,4 +56,5 @@ export interface YarleOptions {
     taskOutputFormat?: TaskOutputFormat;
     obsidianTaskTag?: string;
     useUniqueUnknownFileNames?: boolean;
+    useLevenshteinForLinks?: boolean;
 }

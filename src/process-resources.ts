@@ -72,7 +72,7 @@ const addMediaReference = (content: string, resourceHashes: any, hash: any, work
 
 const processResource = (workDir: string, resource: any): any => {
     const resourceHash: any = {};
-    const data = resource.data.$text;
+    const data = resource.data?.$text || '';
 
     const accessTime = utils.getTimeStampMoment(resource);
     const resourceFileProps = utils.getResourceFileProperties(workDir, resource);
@@ -104,24 +104,33 @@ export const extractDataUrlResources = (
   note: any,
   content: string,
 ): string => {
-  if (content.indexOf('src="data:') < 0) {
+  if (content.indexOf('src="data:') < 0 && content.indexOf('href="data:') < 0) {
     return content; // no data urls
   }
 
   const {absoluteResourceWorkDir, relativeResourceWorkDir} = getResourceWorkDirs(note);
   fsExtra.mkdirsSync(absoluteResourceWorkDir);
+ 
+  // change links hrefs
+  content = content.replace(/ (href)="data:([^;,]*)(;base64)?,([^"]*)"(.*?)<\/a>/g, (match,argument, mediatype, encoding, data, postfix) => {
+    const fileName = createResourceFromData(argument, match, mediatype, encoding === ';base64', data, absoluteResourceWorkDir, note);
+    const argValue = `${relativeResourceWorkDir}${yarleOptions.pathSeparator}${fileName}`;
 
-  // src="data:image/svg+xml;base64,..." --> src="resourceDir/fileName"
-  return content.replace(/src="data:([^;,]*)(;base64)?,([^"]*)"/g, (match, mediatype, encoding, data) => {
-    const fileName = createResourceFromData(mediatype, encoding === ';base64', data, absoluteResourceWorkDir, note);
-    const src = `${relativeResourceWorkDir}${yarleOptions.pathSeparator}${fileName}`;
+    return `yarle-file-resource="true" ${argument}="${argValue}"${postfix}`;
+  });
+  // src|href="data:image/svg+xml;base64,..." --> src="resourceDir/fileName"
+  return content.replace(/(src)="data:([^;,]*)(;base64)?,([^"]*)"/g, (match,argument, mediatype, encoding, data) => {
+    const fileName = createResourceFromData(argument, match, mediatype, encoding === ';base64', data, absoluteResourceWorkDir, note);
+    const argValue = `${relativeResourceWorkDir}${yarleOptions.pathSeparator}${fileName}`;
 
-    return `src="${src}"`;
+    return `yarle-file-resource="true" ${argument}="${argValue}"`;
   });
 };
 
 // returns filename of new resource
 const createResourceFromData = (
+  argument: string,
+  match: string,
   mediatype: string,
   base64: boolean,
   data: string,
@@ -131,15 +140,22 @@ const createResourceFromData = (
   const baseName = 'embedded'; // data doesn't seem to include useful base filename
   const extension = extensionForMimeType(mediatype) || '.dat';
   const index = utils.getFileIndex(absoluteResourceWorkDir, baseName);
-  const fileName = index < 1 ? `${baseName}.${extension}` : `${baseName}.${index}.${extension}`;
+  let fileName = index < 1 ? `${baseName}.${extension}` : `${baseName}.${index}.${extension}`;
+
+
+  if (argument === 'href'){
+    const baseNameCandidate = match.split("alt=\"")[1]?.split("\"")[0]
+    if (baseNameCandidate)
+    fileName = baseNameCandidate
+  }
   const absFilePath = `${absoluteResourceWorkDir}${path.sep}${fileName}`;
 
-  if (!base64) {
+  if (!base64 && !data.startsWith('&lt;svg')) { // TODO: handle <svg, tags, they may be checkboxes
     data = decodeURIComponent(data);
   }
 
   fs.writeFileSync(absFilePath, data, base64 ? 'base64' : undefined);
-  utils.setFileDates(absFilePath, note);
+  utils.setFileDates(absFilePath, note.created, note.updated);
 
   utils.loggerInfo(`data url resource ${fileName} added`);
 

@@ -12,6 +12,8 @@
     "plainTextNotesOnly": false,
     "skipLocation": false,
     "skipCreationTime": false,
+    "trimStartingTabs": false,
+    "convertPlainHtmlNewlines": false,
     "skipUpdateTime": false,
     "skipSourceUrl": false,
     "skipWebClips": false,
@@ -19,6 +21,7 @@
     "useHashTags": true,
     "outputFormat": "ObsidianMD",
     "taskOutputFormat": "ObsidianMD",
+    "keepImageSize": "ObsidianMD",
     "skipEnexFileNameFromOutputPath": false,
     "keepOriginalAmountOfNewlines": false,
     "urlEncodeFileNamesAndLinks": false,
@@ -27,7 +30,20 @@
     "haveEnexLevelResources": false,
     "haveGlobalResources": false,
     "useUniqueUnknownFileNames": false,
+    "useLevenshteinForLinks": false,
+
     "replacementChar": "_",
+    "replacementCharacterMap": {
+        "<": "_",
+        ">": "_",
+        ":": "_",
+        "\"": "_",
+        "/": "_",
+        "\\": "_", 
+        "|": "_",
+        "?": "_",
+        "*": "_"
+    },
     "logseqSettings": {
         "journalNotes": false
     },

@@ -2,7 +2,7 @@
 
 
 ---
-Tags: ["tag1","tag2"]
+Tags ["tag1","tag2"]
 
 ---
 

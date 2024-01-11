@@ -169,6 +169,31 @@ export const yarleTests: Array<YarleTest> = [
   },
 
   {
+    name: 'Note with tel in link id',
+    options: {
+      enexSources: [ `.${testDataFolder}link to telephone 202-555-0179.enex` ],
+      outputDir: 'out',
+      outputFormat: OutputFormat.ObsidianMD,
+      isMetadataNeeded: true,
+      isZettelkastenNeeded: true,
+      useZettelIdAsFilename: false
+    },
+    testOutputPath: `notes${path.sep}link to telephone 202-555-0179${path.sep}202309161735 link to telephone_ 202-555-0179.md`,
+    expectedOutputPath: `${dataFolder}link to telephone_ 202-555-0179.md`,
+  },
+  {
+    name: 'Note text styles',
+    options: {
+      enexSources: [ `.${testDataFolder}text styles.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      useZettelIdAsFilename: false
+    },
+    testOutputPath: `notes${path.sep}text styles${path.sep}text styles.md`,
+
+    expectedOutputPath: `${dataFolder}text styles.md`,
+  },
+  {
     name: 'Note with zettelkastel id - use as filename',
     options: {
       enexSources: [ `.${testDataFolder}test-noteWithZettelKasten.enex` ],
@@ -767,7 +792,7 @@ export const yarleTests: Array<YarleTest> = [
       isMetadataNeeded: true,
       skipLocation: true,
       keepMDCharactersOfENNotes: true,
-      dateFormat: 'YYYY MMMM DD',
+      dateFormat: 'YYYY-MM-DD',
     },
     testOutputPath: `notes${path.sep}test-justTextButCustomDate${path.sep}test -note with text only.md`,
     expectedOutputPath: `${dataFolder}test-justTextButCustomDate.md`,

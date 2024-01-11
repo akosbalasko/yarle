@@ -1,7 +1,10 @@
 import { filterByNodeName } from './filter-by-nodename';
 import { getAttributeProxy } from './get-attribute-proxy';
+import { OutputFormat } from './../../output-format';
+import { isTanaOutput } from '../tana/is-tana-output';
 
 const markdownBlock = '\n```\n';
+const tanaCodeBlock ='<YARLE_TANA_CODE_BLOCK>';
 
 const isCodeBlock = (node: any)  => {
     const nodeProxy = getAttributeProxy(node);
@@ -38,8 +41,8 @@ export const replaceCodeBlock = (content: string, node: any): any => {
         // turndown has already escaped markdown chars (and all '\') in content;
         // reverse that to avoid extraneous backslashes in code block.
         content = unescapeMarkdown(content);
-
-        return `${markdownBlock}${content}${markdownBlock}`;
+        const codeBlock = isTanaOutput() ? tanaCodeBlock: markdownBlock
+        return `${codeBlock}${content}${codeBlock}`;
     }
 
     if (node.parentElement && isCodeBlock(node.parentElement) && node.parentElement.firstElementChild === node) {
