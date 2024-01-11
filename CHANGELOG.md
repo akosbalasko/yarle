@@ -1,3 +1,10 @@
+## [6.3.2](https://github.com/akosbalasko/yarle/compare/v6.3.1...v6.3.2) (2024-01-11)
+
+
+### Bug Fixes
+
+* capital cyrill ([#580](https://github.com/akosbalasko/yarle/issues/580)) ([f333f92](https://github.com/akosbalasko/yarle/commit/f333f929359539b1532fe11597dcce83610b8fa8))
+
 ## [6.3.1](https://github.com/akosbalasko/yarle/compare/v6.3.0...v6.3.1) (2024-01-10)
 
 
