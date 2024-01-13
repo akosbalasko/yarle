@@ -137,6 +137,34 @@ dateFormat: undefined,
     );
   });
 
+  it('Encrypted lines in notes', async () => {
+    const options: YarleOptions = {
+dateFormat: undefined,
+      enexSources: [ `.${path.sep}test${path.sep}data${path.sep}test-encryption.enex` ],
+      outputDir: 'out',
+      outputFormat: OutputFormat.ObsidianMD,
+      convertPlainHtmlNewlines: true,
+      isMetadataNeeded: true,
+      encryptionPasswords: ["wrong_password","password"]
+    };
+    await yarle.dropTheRope(options);
+    // tslint:disable-next-line:no-console
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-encryption/Encryption.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-encryption/Encryption.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-encryption.md`, 'utf8'),
+    );
+  });
+
   it('Enex file with note containing a picture', async () => {
     const options: YarleOptions = {
 dateFormat: undefined,

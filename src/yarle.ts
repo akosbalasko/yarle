@@ -41,6 +41,7 @@ export const defaultYarleOptions: YarleOptions = {
   useHashTags: true,
   trimStartingTabs: false,
   convertPlainHtmlNewlines: false,
+  encryptionPasswords: [],
   nestedTags: {
     separatorInEN: '_',
     replaceSeparatorWith: '/',

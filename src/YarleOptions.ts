@@ -28,6 +28,7 @@ export interface YarleOptions {
     outputFormat?: OutputFormat;
     trimStartingTabs?: boolean;
     convertPlainHtmlNewlines?: boolean;
+    encryptionPasswords?: Array<string>;
     logseqSettings?: {
         journalNotes: boolean,
     };
