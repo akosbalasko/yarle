@@ -1,3 +1,10 @@
+# [6.4.0](https://github.com/akosbalasko/yarle/compare/v6.3.2...v6.4.0) (2024-01-13)
+
+
+### Features
+
+* notes decryption supported ([#581](https://github.com/akosbalasko/yarle/issues/581)) ([c67e524](https://github.com/akosbalasko/yarle/commit/c67e524e004dced358b1b0295e5ce2c3ee793c65))
+
 ## [6.3.2](https://github.com/akosbalasko/yarle/compare/v6.3.1...v6.3.2) (2024-01-11)
 
 
