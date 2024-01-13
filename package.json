@@ -42,8 +42,10 @@
   "dependencies": {
     "@electron/remote": "2.0.8",
     "@types/fs-extra": "8.1.0",
+    "base64-js": "1.5.1",
     "chai": "4.2.0",
     "chokidar": "3.4.3",
+    "crypto-js": "4.2.0",
     "electron-store": "8.0.1",
     "fast-xml-parser": "3.12.5",
     "fastest-levenshtein": "1.0.16",
