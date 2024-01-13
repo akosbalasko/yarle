@@ -1,3 +1,10 @@
+## [6.4.1](https://github.com/akosbalasko/yarle/compare/v6.4.0...v6.4.1) (2024-01-13)
+
+
+### Bug Fixes
+
+* encryption fixed ([#582](https://github.com/akosbalasko/yarle/issues/582)) ([b0a8b86](https://github.com/akosbalasko/yarle/commit/b0a8b868f1ce490cf08b992a526ca949a8cf88d3))
+
 # [6.4.0](https://github.com/akosbalasko/yarle/compare/v6.3.2...v6.4.0) (2024-01-13)
 
 
