@@ -71,4 +71,5 @@ export const performDecryption = (encryptedText: string, passwords: Array<string
     }catch(e: any){
         console.log(e.message)
     }
+    return encryptedText;
 }
