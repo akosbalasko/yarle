@@ -1,3 +1,10 @@
+# [6.5.0](https://github.com/akosbalasko/yarle/compare/v6.4.1...v6.5.0) (2024-01-15)
+
+
+### Features
+
+* evernote guid és evernote link in templates implemented ([#583](https://github.com/akosbalasko/yarle/issues/583)) ([49088b7](https://github.com/akosbalasko/yarle/commit/49088b7c7a408f3d6a8a81b229542f757c8bcf2c))
+
 ## [6.4.1](https://github.com/akosbalasko/yarle/compare/v6.4.0...v6.4.1) (2024-01-13)
 
 
