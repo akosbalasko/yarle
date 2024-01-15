@@ -234,28 +234,28 @@ dateFormat: undefined,
         `${__dirname}/../out/notes/test-original-links/EvernoteNoteA.md`,
         'utf8',
       )),
-      fs.readFileSync(`${__dirname}/data/test-originalLink-EvernoteNoteA.md`, 'utf8'),
+      fs.readFileSync(`${__dirname}/data/test-originallink-EvernoteNoteA.md`, 'utf8'),
     );
     assert.equal(
       eol.auto(fs.readFileSync(
         `${__dirname}/../out/notes/test-original-links/EvernoteNoteB.md`,
         'utf8',
       )),
-      fs.readFileSync(`${__dirname}/data/test-originalLink-EvernoteNoteB.md`, 'utf8'),
+      fs.readFileSync(`${__dirname}/data/test-originallink-EvernoteNoteB.md`, 'utf8'),
     );
     assert.equal(
       eol.auto(fs.readFileSync(
         `${__dirname}/../out/notes/test-original-links/EvernoteNoteC.md`,
         'utf8',
       )),
-      fs.readFileSync(`${__dirname}/data/test-originalLink-EvernoteNoteC.md`, 'utf8'),
+      fs.readFileSync(`${__dirname}/data/test-originallink-EvernoteNoteC.md`, 'utf8'),
     );
     assert.equal(
       eol.auto(fs.readFileSync(
         `${__dirname}/../out/notes/test-original-links/Table of Contents.md`,
         'utf8',
       )),
-      fs.readFileSync(`${__dirname}/data/test-originalLink-Table of Contents.md`, 'utf8'),
+      fs.readFileSync(`${__dirname}/data/test-originallink-Table of Contents.md`, 'utf8'),
     );
   });
 
