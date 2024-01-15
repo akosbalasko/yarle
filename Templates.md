@@ -43,6 +43,19 @@ A custom template file can have any file name and extension.
 | Link to the HTML file | `{link-to-original-block}{link-to-original}{end-link-to-original-block}` | Generate an HTML version of the note in the note's resource folder. A link to the HTML file is included here. |
 | Location | `{location-block}{location}{end-location-block}` | The GPS coordinates of the location from the EN location details. |
 
+## Extra template blocks if there is TOC
+
+If a Table of contents is generated in the enex, feel free to add these blocks to the template: 
+
+Table of contents can be created in EN v10+ if you select all of your notes, then right click and choose `Copy internal links` then `Copy app links` . Then create a new note, title MUST BE: Table of Contents, and paste the internal links into the note's body. That's all. 
+
+| Name | Block and content tags | Description |
+|-|-|-|
+| Evernote link |  `{evernotelink-block}{evernotelink}{end-evernotelink-block}`| Link to the original note in Evernote |
+| Evernote guid |  `{evernoteguid-block}{evernoteguid}{end-evernoteguid-block}`| Guid of the original note in Evernote |
+
+
+
 ## Example template:
 
 This example puts the note title at the top, preceded by `#`. The tags are listed next, surrounded by horizontal rules. The note content follows. Finally, the note's metadata is included, indented, at the bottom of the note. The output also includes an HTML version of the note, with a link to it in the Markdown file.

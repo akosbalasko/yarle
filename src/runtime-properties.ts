@@ -1,14 +1,23 @@
+import { cloneDeep } from 'lodash';
 import { InternalLink, NoteData } from './models';
 export interface NoteIdNameEntry {
     title: string;
     noteName: string;
     notebookName: string;
     uniqueEnd: string;
-    url: string
+    url: string,
+    guid: string,
 }
 
 export interface NoteIdNames {
  [key: string]: NoteIdNameEntry;
+}
+
+const getGuid = (linkItem: InternalLink): string => {
+    const linkSpl = cloneDeep(linkItem.url).split('/').reverse().filter(item => !!item)
+    return (linkSpl.length > 1)
+        ? linkSpl[1]
+        : linkSpl[0]
 }
 export class RuntimePropertiesSingleton {
 
@@ -35,9 +44,11 @@ export class RuntimePropertiesSingleton {
     }
 
     addItemToMap(linkItem: InternalLink): void {
+
         this.noteIdNameMap[linkItem.id] = {
             ...this.noteIdNameMap[linkItem.id],
             url: linkItem.url,
+            guid: getGuid(linkItem),
             title: linkItem.title,
             noteName: this.currentNoteName,
             notebookName: this.currentNotebookName,
@@ -46,10 +57,12 @@ export class RuntimePropertiesSingleton {
         };
     }
     addItemToTOCMap(linkItem: InternalLink): void {
+        
         this.noteIdNameTOCMap[linkItem.id] = {
             ...this.noteIdNameMap[linkItem.id],
             title: linkItem.title,
             url: linkItem.url,
+            guid: getGuid(linkItem),
             noteName: this.currentNoteName,
             notebookName: this.currentNotebookName,
             uniqueEnd: linkItem.uniqueEnd,

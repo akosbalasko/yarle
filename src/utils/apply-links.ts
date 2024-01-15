@@ -11,6 +11,7 @@ import { getAllOutputFilesWithExtension } from './get-all-output-files';
 import { isTanaOutput } from './tana/is-tana-output';
 import { updateFileContentSafely } from './file-utils';
 import { getClosestFileName } from './filename-utils';
+import { TOCNoteName } from './../constants'
 
 export const applyLinks = (options: YarleOptions, outputNotebookFolders: Array<string>): void => {
     const linkNameMap = RuntimePropertiesSingleton.getInstance();
@@ -66,8 +67,19 @@ export const applyLinks = (options: YarleOptions, outputNotebookFolders: Array<s
                 }
                 const regexp = new RegExp(escapeStringRegexp(linkName), 'g');
                 updatedContent = updatedContent.replace(regexp, realFileNameInContent);
- 
+                
+                if ((`${fileName}.md` === targetFile || targetFile === linkProps.title) &&
+                    linkProps.noteName === TOCNoteName &&
+                    notebookFolder.endsWith(notebookName)){
+                    // TODO APPLY EVERNOTE LINK 
+                    const evernoteInternalLinkPlaceholderRegExp = new RegExp('<YARLE_EVERNOTE_LINK_PLACEHOLDER>', 'g');
+                    updatedContent = updatedContent.replace(evernoteInternalLinkPlaceholderRegExp, (linkProps as any)['url']);
 
+
+                    // TODO APPLY EVERNOTE GUID 
+                    const evernoteGuidPlaceholderRegExp = new RegExp('<YARLE_EVERNOTE_GUID_PLACEHOLDER>', 'g');
+                    updatedContent = updatedContent.replace(evernoteGuidPlaceholderRegExp, (linkProps as any)['guid']);
+                }
                 if (fileContent !== updatedContent) {
                     const filePath = `${notebookFolder}${path.sep}${targetFile}`;
                     updateFileContentSafely(filePath, updatedContent);

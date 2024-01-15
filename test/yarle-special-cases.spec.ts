@@ -192,6 +192,74 @@ dateFormat: undefined,
       fs.readFileSync(`${__dirname}/data/test-encryption-nopassword.md`, 'utf8'),
     );
   });
+
+  it('Original links', async () => {
+    const options: YarleOptions = {
+dateFormat: undefined,
+      enexSources: [ `.${path.sep}test${path.sep}data${path.sep}test-original-links.enex` ],
+      outputDir: 'out',
+      outputFormat: OutputFormat.ObsidianMD,
+      convertPlainHtmlNewlines: true,
+      isMetadataNeeded: true,
+      templateFile: `${testDataFolder}evernotelink-template.templ`,
+    };
+    await dropTheRopeRunner.run(options);
+    // tslint:disable-next-line:no-console
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-original-links/EvernoteNoteA.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-original-links/EvernoteNoteB.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-original-links/EvernoteNoteC.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-original-links/Table of Contents.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-original-links/EvernoteNoteA.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-originallink-EvernoteNoteA.md`, 'utf8'),
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-original-links/EvernoteNoteB.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-originallink-EvernoteNoteB.md`, 'utf8'),
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-original-links/EvernoteNoteC.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-originallink-EvernoteNoteC.md`, 'utf8'),
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-original-links/Table of Contents.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-originallink-Table of Contents.md`, 'utf8'),
+    );
+  });
+
+
   it('Enex file with note containing a picture', async () => {
     const options: YarleOptions = {
 dateFormat: undefined,

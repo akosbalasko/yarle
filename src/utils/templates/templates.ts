@@ -3,7 +3,7 @@ import { cloneDeep } from 'lodash';
 
 import { YarleOptions } from '../../YarleOptions';
 import { NoteData } from '../../models/NoteData';
-
+import { TOCNoteName } from './../../constants';
 import * as T from './placeholders/metadata-placeholders';
 import * as M from './match-all';
 import {
@@ -20,6 +20,8 @@ import {
   applyTagsTemplate,
   applyTitleTemplate,
   applyUpdatedAtTemplate,
+  applyEvernoteLinkTemplate,
+  applyEvernoteGuidTemplate
   } from './apply-functions';
 import {
   removeCreatedAtPlaceholder,
@@ -32,6 +34,8 @@ import {
   removeReminderTimePlaceholder,
   removeSourceUrlPlaceholder,
   removeUpdatedAtPlaceholder,
+  removeEvernoteLinkPlaceholder,
+  removeEvernoteGuidPlaceholder
  } from './remove-functions';
 
 export const applyTemplate = (noteData: NoteData, yarleOptions: YarleOptions) => {
@@ -41,6 +45,13 @@ export const applyTemplate = (noteData: NoteData, yarleOptions: YarleOptions) =>
   result = applyTitleTemplate(noteData, result, () => noteData.title);
   result = applyTagsTemplate(noteData, result, () => !yarleOptions.skipTags);
   result = applyTagsArrayTemplate(noteData, result, () => !yarleOptions.skipTags);
+  result = noteData.title === TOCNoteName
+    ? removeEvernoteLinkPlaceholder(result)
+    : applyEvernoteLinkTemplate(noteData, result)
+
+  result = noteData.title === TOCNoteName
+    ? removeEvernoteGuidPlaceholder(result) 
+    : applyEvernoteGuidTemplate(noteData, result)
 
   result = applyContentTemplate(noteData, result, () => noteData.content);
 
