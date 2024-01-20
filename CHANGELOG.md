@@ -1,3 +1,10 @@
+## [6.5.1](https://github.com/akosbalasko/yarle/compare/v6.5.0...v6.5.1) (2024-01-20)
+
+
+### Bug Fixes
+
+* Invalid note links breaking other links during replacement ([#585](https://github.com/akosbalasko/yarle/issues/585)) ([38baa37](https://github.com/akosbalasko/yarle/commit/38baa374948013c716cbe4b683969557e713fc94)), closes [#487](https://github.com/akosbalasko/yarle/issues/487) [#584](https://github.com/akosbalasko/yarle/issues/584)
+
 # [6.5.0](https://github.com/akosbalasko/yarle/compare/v6.4.1...v6.5.0) (2024-01-15)
 
 
