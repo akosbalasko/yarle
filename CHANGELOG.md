@@ -1,3 +1,139 @@
+## [6.5.1](https://github.com/akosbalasko/yarle/compare/v6.5.0...v6.5.1) (2024-01-20)
+
+
+### Bug Fixes
+
+* Invalid note links breaking other links during replacement ([#585](https://github.com/akosbalasko/yarle/issues/585)) ([38baa37](https://github.com/akosbalasko/yarle/commit/38baa374948013c716cbe4b683969557e713fc94)), closes [#487](https://github.com/akosbalasko/yarle/issues/487) [#584](https://github.com/akosbalasko/yarle/issues/584)
+
+# [6.5.0](https://github.com/akosbalasko/yarle/compare/v6.4.1...v6.5.0) (2024-01-15)
+
+
+### Features
+
+* evernote guid és evernote link in templates implemented ([#583](https://github.com/akosbalasko/yarle/issues/583)) ([49088b7](https://github.com/akosbalasko/yarle/commit/49088b7c7a408f3d6a8a81b229542f757c8bcf2c))
+
+## [6.4.1](https://github.com/akosbalasko/yarle/compare/v6.4.0...v6.4.1) (2024-01-13)
+
+
+### Bug Fixes
+
+* encryption fixed ([#582](https://github.com/akosbalasko/yarle/issues/582)) ([b0a8b86](https://github.com/akosbalasko/yarle/commit/b0a8b868f1ce490cf08b992a526ca949a8cf88d3))
+
+# [6.4.0](https://github.com/akosbalasko/yarle/compare/v6.3.2...v6.4.0) (2024-01-13)
+
+
+### Features
+
+* notes decryption supported ([#581](https://github.com/akosbalasko/yarle/issues/581)) ([c67e524](https://github.com/akosbalasko/yarle/commit/c67e524e004dced358b1b0295e5ce2c3ee793c65))
+
+## [6.3.2](https://github.com/akosbalasko/yarle/compare/v6.3.1...v6.3.2) (2024-01-11)
+
+
+### Bug Fixes
+
+* capital cyrill ([#580](https://github.com/akosbalasko/yarle/issues/580)) ([f333f92](https://github.com/akosbalasko/yarle/commit/f333f929359539b1532fe11597dcce83610b8fa8))
+
+## [6.3.1](https://github.com/akosbalasko/yarle/compare/v6.3.0...v6.3.1) (2024-01-10)
+
+
+### Bug Fixes
+
+* cyrill tags fixed ([#579](https://github.com/akosbalasko/yarle/issues/579)) ([585e949](https://github.com/akosbalasko/yarle/commit/585e949e49cbdcfd6d3050c7611b03bb72d70b19))
+
+# [6.3.0](https://github.com/akosbalasko/yarle/compare/v6.2.0...v6.3.0) (2024-01-10)
+
+
+### Features
+
+* convert newlines implemented ([#577](https://github.com/akosbalasko/yarle/issues/577)) ([837f398](https://github.com/akosbalasko/yarle/commit/837f3988cae70ddd34c8b0383fb3a56e30e9adb6))
+
+# [6.2.0](https://github.com/akosbalasko/yarle/compare/v6.1.0...v6.2.0) (2024-01-08)
+
+
+### Features
+
+* invalid char regexp in tags implemented ([#575](https://github.com/akosbalasko/yarle/issues/575)) ([51ac0b9](https://github.com/akosbalasko/yarle/commit/51ac0b9309dcc7177ffc0ec37e1a274b03a64d0f))
+
+# [6.1.0](https://github.com/akosbalasko/yarle/compare/v6.0.9...v6.1.0) (2024-01-06)
+
+
+### Features
+
+* trim starting tabs ([#574](https://github.com/akosbalasko/yarle/issues/574)) ([7e835e3](https://github.com/akosbalasko/yarle/commit/7e835e3a6fcbdb389fab711d03a2e588fe127b73))
+
+## [6.0.9](https://github.com/akosbalasko/yarle/compare/v6.0.8...v6.0.9) (2024-01-06)
+
+
+### Bug Fixes
+
+* pipes in non-obsidianlinks as well ([#573](https://github.com/akosbalasko/yarle/issues/573)) ([eb41646](https://github.com/akosbalasko/yarle/commit/eb4164670becc7914c2deee7e237fbbf0f1eae76))
+
+## [6.0.8](https://github.com/akosbalasko/yarle/compare/v6.0.7...v6.0.8) (2024-01-06)
+
+
+### Bug Fixes
+
+* escaping pipe if the link is Obsidian-style ([#569](https://github.com/akosbalasko/yarle/issues/569)) ([bb4df9c](https://github.com/akosbalasko/yarle/commit/bb4df9c48082f85a8bf544ca10b8879e5f295c32))
+
+## [6.0.7](https://github.com/akosbalasko/yarle/compare/v6.0.6...v6.0.7) (2024-01-06)
+
+
+### Bug Fixes
+
+* embedded file generalization fixed - alt used ([#571](https://github.com/akosbalasko/yarle/issues/571)) ([9930d6e](https://github.com/akosbalasko/yarle/commit/9930d6ef77e6ca011d028cf2aa4766da11f21250))
+
+## [6.0.6](https://github.com/akosbalasko/yarle/compare/v6.0.5...v6.0.6) (2024-01-04)
+
+
+### Bug Fixes
+
+* handling base64 images as href in links ([#567](https://github.com/akosbalasko/yarle/issues/567)) ([570ab36](https://github.com/akosbalasko/yarle/commit/570ab36b4c6215c80132e8d45e732a84559b2900))
+
+## [6.0.5](https://github.com/akosbalasko/yarle/compare/v6.0.4...v6.0.5) (2024-01-01)
+
+
+### Bug Fixes
+
+* imagesize in links ([#563](https://github.com/akosbalasko/yarle/issues/563)) ([f6f88fa](https://github.com/akosbalasko/yarle/commit/f6f88fa87852db7bbdd3a69293ba8a6fb2c3c084))
+
+## [6.0.4](https://github.com/akosbalasko/yarle/compare/v6.0.3...v6.0.4) (2023-12-31)
+
+
+### Bug Fixes
+
+* images within a link ([#561](https://github.com/akosbalasko/yarle/issues/561)) ([359c6f8](https://github.com/akosbalasko/yarle/commit/359c6f83b07bcb858859e5da0e72dfb4e7e50975))
+
+## [6.0.3](https://github.com/akosbalasko/yarle/compare/v6.0.2...v6.0.3) (2023-12-31)
+
+
+### Bug Fixes
+
+* template made comliant with Obsidian 1.5.3 ([#562](https://github.com/akosbalasko/yarle/issues/562)) ([1bf22b4](https://github.com/akosbalasko/yarle/commit/1bf22b4265c8cd393a0f09ea187bfcd468b18192))
+
+## [6.0.2](https://github.com/akosbalasko/yarle/compare/v6.0.1...v6.0.2) (2023-12-29)
+
+
+### Bug Fixes
+
+* filename urlEncoding ([#556](https://github.com/akosbalasko/yarle/issues/556)) ([67950aa](https://github.com/akosbalasko/yarle/commit/67950aaa5149fd4d2b6391e195051aa2e68bbc4a))
+
+## [6.0.1](https://github.com/akosbalasko/yarle/compare/v6.0.0...v6.0.1) (2023-12-29)
+
+
+### Bug Fixes
+
+* handling links that have internalHtml but no href ([#555](https://github.com/akosbalasko/yarle/issues/555)) ([e95a286](https://github.com/akosbalasko/yarle/commit/e95a286cfaefc47b7311830f48f5b8c48f4eef9b))
+
+# [6.0.0](https://github.com/akosbalasko/yarle/compare/v5.9.0...v6.0.0) (2023-12-28)
+
+
+* configs saved with timestamps (#553) ([a515fb2](https://github.com/akosbalasko/yarle/commit/a515fb2fef5fb7b6986d6e15af229af2464d61bb)), closes [#553](https://github.com/akosbalasko/yarle/issues/553)
+
+
+### BREAKING CHANGES
+
+* configs are saved as plain text, no base64 encoding
+
 # [5.9.0](https://github.com/akosbalasko/yarle/compare/v5.8.3...v5.9.0) (2023-12-26)
 
 

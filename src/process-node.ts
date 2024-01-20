@@ -49,7 +49,7 @@ export const processNode = (note: any, notebookName: string): void => {
     noteData = {...noteData, ...getMetadata(note, notebookName)};
     noteData = {...noteData, ...getTags(note)};
 
-    const data = applyTemplate(noteData, yarleOptions);
+    let data = applyTemplate(noteData, yarleOptions);
     // tslint:disable-next-line:no-console
     // loggerInfo(`data =>\n ${JSON.stringify(data)} \n***`);
     const langaugeFactory = new LanguageFactory();

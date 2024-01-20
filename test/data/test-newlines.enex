@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE en-export SYSTEM "http://xml.evernote.com/pub/evernote-export3.dtd">
+<en-export export-date="20240108T214207Z" application="Evernote" version="Evernote Mac 7.14 (458265)">
+<note><title>test-newlines</title><content><![CDATA[<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd"><en-note>
+Line 1<br></br>
+Line 2<br>
+Line 3<br/>
+Line 4<br />
+Line 5<br clear="none"/>
+Line 6<p></p>
+<p>Line 7</p>
+<div>Line 8<br></br></div>
+<div>Line 9<br></div>
+<div>Line 10<br/></div>
+<div>Line 11<br /></div>
+<div>Line 12<br clear="none"/></div>
+<div>Line 13<p></p></div>
+<div><p>Line 14</p></div>
+<div>Line 15</div>
+<div>Line 16</div>
+</en-note>]]></content><created>20240108T214113Z</created><updated>20240108T214144Z</updated><tag>test2</tag><tag>test1</tag><note-attributes><latitude>41.87312697527578</latitude><longitude>-88.07482909555657</longitude><altitude>0</altitude><author>Matt Maldre</author><source>desktop.mac</source><reminder-order>0</reminder-order></note-attributes></note>
+</en-export>

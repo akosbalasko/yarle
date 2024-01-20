@@ -95,7 +95,7 @@ export const convertHtml2Md = (yarleOptions: YarleOptions, { htmlContent }: Note
         .turndown(fixTasks(fixSublists(contentNode)));
 
     const newLinePlaceholder = new RegExp('<YARLE_NEWLINE_PLACEHOLDER>', 'g');
-    contentInMd = contentInMd.replace(newLinePlaceholder, '');
+    contentInMd = contentInMd.replace(newLinePlaceholder, yarleOptions.convertPlainHtmlNewlines ? '\n': '');
 
     if (yarleOptions.outputFormat === OutputFormat.LogSeqMD) {
 

@@ -20,7 +20,25 @@ export const removeDoubleBackSlashes = (str: string): string => {
     return str.replace(/\\/g, '');
 };
 const isEvernoteLink = (value: string): boolean => {
-    return value.startsWith('evernote:///view') || value.startsWith('https://www.evernote.com')
+    let url;
+    try {
+        url = new URL(value);
+    } catch(e){
+        return false;
+    }
+    // NOTE: URL automatically converts to lowercase
+    if (url.protocol === 'evernote:') {
+        // Internal link format: evernote:///view/92167309/s714/00ba720b-e3f1-49fd-9b43-5d915a3bca8a/00ba720b-e3f1-49fd-9b43-5d915a3bca8a/
+        const pathSpl = url.pathname.split('/').filter(Boolean); // Split and removes empty strings
+        if (pathSpl[0] !== 'view' || pathSpl.length < 4) return false;
+        return true;
+    } else if ((url.protocol === 'http:' || url.protocol === 'https:') && url.host === 'www.evernote.com') {
+        // External link format: https://www.evernote.com/shard/s714/nl/92167309/00ba720b-e3f1-49fd-9b43-5d915a3bca8a/
+        const pathSpl = url.pathname.split('/').filter(Boolean); // Removes empty strings
+        if (pathSpl[0] !== 'shard' || pathSpl.length < 5) return false;
+        return true;
+    }
+    return false;
 }
 const getEvernoteUniqueId = (value: string): string => {
     const urlSpl = value.split('/').reverse()
@@ -32,13 +50,15 @@ export const wikiStyleLinksRule = {
     filter: filterByNodeName('A'),
     replacement: (content: any, node: any) => {
         const nodeProxy = getAttributeProxy(node);
-
-        if (!nodeProxy.href) {
-            return '';
-        }
         let internalTurndownedContent =
             getTurndownService(yarleOptions).turndown(removeBrackets(node.innerHTML));
         internalTurndownedContent = removeDoubleBackSlashes(internalTurndownedContent);
+        if (!nodeProxy.href) {
+            return (node.innerHTML === '' || !node.innerHTML)
+                ? ''
+                : internalTurndownedContent;
+        }
+
         const lexer = new marked.Lexer({});
         const tokens = lexer.lex(internalTurndownedContent) as any;
         const extension = yarleOptions.addExtensionToInternalLinks ? '.md' : '';
@@ -50,16 +70,18 @@ export const wikiStyleLinksRule = {
             token = tokens[0];
             token['mdKeyword'] = `${'#'.repeat(tokens[0]['depth'])} `;
         }
-        const value = nodeProxy.href.value;
+        const value = nodeProxy.href ? nodeProxy.href.value : internalTurndownedContent;
         const type = nodeProxy.type ? nodeProxy.type.value : undefined ;
         const realValue = yarleOptions.urlEncodeFileNamesAndLinks ? encodeURI(value) : value;
-
-        if (type === 'file') {
+        const isYarleResource =  Boolean(node.getAttribute('yarle-file-resource'))
+        if (type === 'file' || isYarleResource) {
             return isHeptaOrObsidianOutput()
                 ? `![[${realValue}]]`
                 : getShortLinkIfPossible(token, value);
         }
-        if (value.match(/^(https?:|tel:|www\.|file:|busycalevent:|ftp:|mailto:)/) && !value.startsWith("https://www.evernote.com")) {
+        
+        const isValueEvernoteLink = isEvernoteLink(value);
+        if (value.match(/^(https?:|tel:|www\.|file:|busycalevent:|ftp:|mailto:)/) && !isValueEvernoteLink) {
             return getShortLinkIfPossible(token, value);
         }
 
@@ -72,7 +94,7 @@ export const wikiStyleLinksRule = {
             && yarleOptions.obsidianSettings?.omitLinkDisplayName;
         const renderedObsidianDisplayName = omitObsidianLinksDisplayName ? '' : `|${displayName}`;
 
-        if (isEvernoteLink(value) ) {
+        if (isValueEvernoteLink) {
             const fileName = normalizeTitle(token['text']);
             const noteIdNameMap = RuntimePropertiesSingleton.getInstance();
             const uniqueEnd = getUniqueId();

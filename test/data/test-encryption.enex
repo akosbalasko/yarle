@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE en-export SYSTEM "http://xml.evernote.com/pub/evernote-export4.dtd">
+<en-export export-date="20240112T072747Z" application="Evernote" version="10.70.2">
+  <note>
+    <title>Encryption</title>
+    <created>20240112T072527Z</created>
+    <updated>20240112T072741Z</updated>
+    <note-attributes>
+    </note-attributes>
+    <content>
+      <![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd"><en-note><div>This is NOT an encrypted test</div><en-crypt hint="this is a hint" cipher="AES" length="128">RU5DMCR2SQ/8U0qVD+xGDzmnMy6oAqeGr8h/g31V3E8g6RGPFpO1lnyzsCv2gWba2VhCqaGHk3Hd6iDqWUpYxVmDdUeKnBFxz7Sr7gKteM65cNG9k8thhEav8g19qsIrA80DHk79HULx/EklgDqaJZFebKvDUXODy6Biyaf1XQ0HVO12</en-crypt><div>This is NOT an encrypted test again</div></en-note>      ]]>
+    </content>
+  </note>
+</en-export>

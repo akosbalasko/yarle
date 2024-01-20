@@ -11,3 +11,5 @@ export * from './apply-remindertime-template';
 export * from './apply-reminderorder-template';
 export * from './apply-reminderdonetime-template';
 export * from './apply-tags-array-template';
+export * from './apply-evernotelink-template';
+export * from './apply-evernoteguid-template';

@@ -8,3 +8,5 @@ export * from './remove-link-to-original-placeholder';
 export * from './remove-remindertime-placeholder';
 export * from './remove-reminderdonetime-placeholder';
 export * from './remove-reminderorder-placeholder';
+export * from './remove-evernoteguid-placeholder';
+export * from './remove-evernotelink-placeholder';
