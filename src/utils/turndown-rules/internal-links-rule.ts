@@ -20,7 +20,12 @@ export const removeDoubleBackSlashes = (str: string): string => {
     return str.replace(/\\/g, '');
 };
 const isEvernoteLink = (value: string): boolean => {
-    const url = new URL(value);
+    let url;
+    try {
+        url = new URL(value);
+    } catch(e){
+        return false;
+    }
     // NOTE: URL automatically converts to lowercase
     if (url.protocol === 'evernote:') {
         // Internal link format: evernote:///view/92167309/s714/00ba720b-e3f1-49fd-9b43-5d915a3bca8a/00ba720b-e3f1-49fd-9b43-5d915a3bca8a/
