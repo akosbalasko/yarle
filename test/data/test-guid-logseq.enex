@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE en-export SYSTEM "http://xml.evernote.com/pub/evernote-export3.dtd">
+<en-export export-date="20240118T195033Z" application="Evernote" version="Evernote Mac 7.14 (458244)">
+  <note>
+    <title>Table of Contents</title>
+    <content><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd">
+<en-note>
+<ol>
+<li><a style="color:#69aa35;" href="evernote:///view/917719711/s714/3f89d36f-edad-4712-8aaa-a1399658b848/3f89d36f-edad-4712-8aaa-a1399658b848/">Note 1</a></li>
+<li><a style="color:#69aa35;" href="evernote:///view/917719711/s714/5307021b-27b2-42cf-a219-88e4007e0755/5307021b-27b2-42cf-a219-88e4007e0755/">Note 2</a></li>
+<li><a style="color:#69aa35;" href="evernote:///view/917719711/s714/60442084-0688-490e-a8e4-6ccd9b6ee544/60442084-0688-490e-a8e4-6ccd9b6ee544/">Note 3</a></li>
+</ol>
+</en-note>
+]]></content>
+    <created>20240118T195015Z</created>
+    <updated>20240118T195015Z</updated>
+    <note-attributes>
+      <author></author>
+      <source>desktop.mac</source>
+      <reminder-order>0</reminder-order>
+    </note-attributes>
+  </note>
+  <note>
+    <title>Note 1</title>
+    <content><![CDATA[<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd"><en-note><div>This note must come first in the ENEX</div><div><br/></div><div>TEST 1: If the conversion has issues, the <code>{evernotelink}</code> of this note might be munged.</div></en-note>]]></content>
+    <created>20240118T194654Z</created>
+    <updated>20240118T195007Z</updated>
+    <note-attributes>
+      <author></author>
+      <source>desktop.mac</source>
+      <reminder-order>0</reminder-order>
+    </note-attributes>
+  </note>
+  <note>
+    <title>Note 2</title>
+    <content><![CDATA[<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd"><en-note><div>TEST 2: Link to <a href="https://www.evernote.com" style="color: rgb(105, 170, 53);">https://www.evernote.com</a> which should look like <code>&lt;https://www.evernote.com&gt;</code> after conversion.</div><div><br/></div><div>TEST 3: This is an External Evernote Note Link which should be converted to a wiki style internal note link to Note 1: <a href="https://www.evernote.com/shard/s714/nl/917719711/3f89d36f-edad-4712-8aaa-a1399658b848/">Note 1</a></div></en-note>]]></content>
+    <created>20240118T194758Z</created>
+    <updated>20240118T194850Z</updated>
+    <note-attributes>
+      <author></author>
+      <source>desktop.mac</source>
+      <reminder-order>0</reminder-order>
+    </note-attributes>
+  </note>
+  <note>
+    <title>Note 3</title>
+    <content><![CDATA[<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd"><en-note><div>This note must come last in the ENEX</div><div><br /></div><div>This is a broken link that might cause <code>{evernotelink}</code> template replacement in Note 1 might get munged (see TEST 1): <a href="evernote:///view">evernote:///view</a></div><div><br /></div></en-note>]]></content>
+    <created>20240118T194709Z</created>
+    <updated>20240118T194758Z</updated>
+    <note-attributes>
+      <author></author>
+      <source>desktop.mac</source>
+      <reminder-order>0</reminder-order>
+    </note-attributes>
+  </note>
+</en-export>
