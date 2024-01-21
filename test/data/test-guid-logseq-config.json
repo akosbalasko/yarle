@@ -1,0 +1,63 @@
+{
+  "enexSources": [
+    "/Volumes/Data/Temp/WIP/O4cuLM/Attempt 4/DebugNoteLinkIssue4.enex"
+  ],
+  "outputDir": "/Volumes/Data/Temp/WIP/O4cuLM/Attempt 4/output_LogSeqMD",
+  "isMetadataNeeded": true,
+  "isNotebookNameNeeded": false,
+  "isZettelkastenNeeded": false,
+  "useZettelIdAsFilename": false,
+  "plainTextNotesOnly": false,
+  "skipLocation": true,
+  "skipCreationTime": true,
+  "skipUpdateTime": true,
+  "skipSourceUrl": true,
+  "skipWebClips": true,
+  "skipTags": true,
+  "useHashTags": true,
+  "outputFormat": "LogSeqMD",
+  "taskOutputFormat": "ObsidianMD",
+  "skipEnexFileNameFromOutputPath": false,
+  "keepMDCharactersOfENNotes": false,
+  "monospaceIsCodeBlock": false,
+  "keepOriginalHtml": false,
+  "currentTemplate": "---\n{evernoteguid-block}id: {evernoteguid}{end-evernoteguid-block}\n{created-at-block}Created at: {created-at}{end-created-at-block}\n{updated-at-block}Last updated at: {updated-at}{end-updated-at-block}\n{source-url-block}Source URL: {source-url}{end-source-url-block}\n{tags-block}tags: {tags}{end-tags-block}\n{evernotelink-block}evernote: {evernotelink}{end-evernotelink-block}\n---\n\n{title-block}# {title}{end-title-block}\n\n{content-block}{content}{end-content-block}",
+  "resourcesDir": "_resources",
+  "trimStartingTabs": false,
+  "convertPlainHtmlNewlines": false,
+  "encryptionPasswords": [
+    ""
+  ],
+  "nestedTags": {
+    "separatorInEN": "_",
+    "replaceSeparatorWith": "---",
+    "replaceSpaceWith": "-"
+  },
+  "logseqSettings": {
+    "journalNotes": false
+  },
+  "obsidianSettings": {
+    "omitLinkDisplayName": false
+  },
+  "dateFormat": "YYYY-MM-DD",
+  "keepImageSize": "ObsidianMD",
+  "keepOriginalAmountOfNewlines": false,
+  "urlEncodeFileNamesAndLinks": false,
+  "haveEnexLevelResources": false,
+  "haveGlobalResources": false,
+  "useUniqueUnknownFileNames": false,
+  "useLevenshteinForLinks": false,
+  "sanitizeResourceNameSpaces": false,
+  "replacementChar": "_",
+  "replacementCharacterMap": {
+    "<": "_",
+    ">": "_",
+    ":": "_",
+    "\"": "_",
+    "/": "_",
+    "\\": "_",
+    "|": "_",
+    "?": "_",
+    "*": "_"
+  }
+}

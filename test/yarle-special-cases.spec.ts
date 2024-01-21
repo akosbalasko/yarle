@@ -193,6 +193,72 @@ dateFormat: undefined,
     );
   });
 
+  it('Original links - logSeq', async () => {
+    const options: YarleOptions = {
+dateFormat: undefined,
+      enexSources: [ `.${path.sep}test${path.sep}data${path.sep}test-guid-logseq.enex` ],
+      outputDir: 'out',
+      outputFormat: OutputFormat.LogSeqMD,
+      convertPlainHtmlNewlines: true,
+      isMetadataNeeded: true,
+      templateFile: `${testDataFolder}evernotelink-template.templ`,
+    };
+    await dropTheRopeRunner.run(options);
+    // tslint:disable-next-line:no-console
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/pages/Note 1.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/pages/Note 2.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/pages/Note 3.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/pages/Table of Contents.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/pages/Note 1.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-logseq-guid-pages/Note 1.md`, 'utf8'),
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/pages/Note 2.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-logseq-guid-pages/Note 2.md`, 'utf8'),
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/pages/Note 3.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-logseq-guid-pages/Note 3.md`, 'utf8'),
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/pages/Table of Contents.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-logseq-guid-pages/Table of Contents.md`, 'utf8'),
+    );
+
+  });
   it('Original links', async () => {
     const options: YarleOptions = {
 dateFormat: undefined,
