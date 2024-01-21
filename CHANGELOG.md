@@ -1,3 +1,10 @@
+## [6.5.2](https://github.com/akosbalasko/yarle/compare/v6.5.1...v6.5.2) (2024-01-21)
+
+
+### Bug Fixes
+
+* Evernote GUID and Note Link template placeholders in LogSeqMD ([fb8cb07](https://github.com/akosbalasko/yarle/commit/fb8cb0790a308f1a2a6b1456e6f9ef400a0266da))
+
 ## [6.5.1](https://github.com/akosbalasko/yarle/compare/v6.5.0...v6.5.1) (2024-01-20)
 
 
