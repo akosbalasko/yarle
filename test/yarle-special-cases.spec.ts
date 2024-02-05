@@ -1382,7 +1382,7 @@ dateFormat: undefined,
     );
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/notes/test-scriptAttachment/_resources/scriptAttachment.resources/sample.scpt`,
+        `${__dirname}/../out/notes/test-scriptAttachment/_resources/scriptAttachment.resources/sample.pdf.scpt`,
       ),
       true,
     );

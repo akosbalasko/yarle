@@ -265,7 +265,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-25. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/Bilde-2Btatt-2B29.jpg\|36x36]]
+25. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/Bilde-2Btatt-2B29.09.2010-2Bkl.-2B17.37-2B-233.jpg\|36x36]]
 	
 	[K.M.](https://www.blogger.com/profile/12467809348618421676)[April 15, 2010 at 12:52 PM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1271361173923#c5274477479388401616)
 	
@@ -290,7 +290,7 @@ Labels: [Baking](https://notsohumblepie.blogspot.com/search/label/Baking), [Cara
 	
 	[[#|Reply]]
 	
-28. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/crackcookies.jpg\|36x36]]
+28. ![[./_resources/Not_So_Humble_Pie__White_Chocolate_Caramel_Cheesec.resources/crackcookies.hand.jpg\|36x36]]
 	
 	[The Urban Baker](https://www.blogger.com/profile/02561212652465463688)[April 19, 2010 at 4:09 PM](https://notsohumblepie.blogspot.com/2010/04/white-chocolate-caramel-cheesecake.html?showComment=1271718572567#c193393323174013606)
 	
