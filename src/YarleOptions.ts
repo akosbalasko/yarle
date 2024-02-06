@@ -58,4 +58,5 @@ export interface YarleOptions {
     obsidianTaskTag?: string;
     useUniqueUnknownFileNames?: boolean;
     useLevenshteinForLinks?: boolean;
+    keepFontColors?: boolean;
 }

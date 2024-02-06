@@ -53,6 +53,7 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
         haveGlobalResources: store.get('haveGlobalResources') as boolean,
         useUniqueUnknownFileNames: store.get('useUniqueUnknownFileNames') as boolean,
         useLevenshteinForLinks: store.get('useLevenshteinForLinks') as boolean,
+        keepFontColors: store.get('keepFontColors') as boolean,
         sanitizeResourceNameSpaces: store.get('sanitizeResourceNameSpaces') as boolean,
         replacementChar: store.get('replacementChar') as string,
         replacementCharacterMap: JSON.parse(store.get('replacementCharacterMap')) as CharacterMap,

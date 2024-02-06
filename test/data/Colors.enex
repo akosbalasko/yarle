@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE en-export SYSTEM "http://xml.evernote.com/pub/evernote-export4.dtd">
+<en-export export-date="20240206T182025Z" application="Evernote" version="10.74.1">
+  <note>
+    <title>Colors</title>
+    <created>20240206T070948Z</created>
+    <updated>20240206T182007Z</updated>
+    <note-attributes>
+    </note-attributes>
+    <content>
+      <![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd"><en-note><div>Normal line</div><div><span style="color:rgb(252, 18, 51);">Red line</span></div><div><span style="color:rgb(229, 158, 37);">Yellow line</span></div><div><span style="color:rgb(24, 133, 226);">Blue line</span></div><div><span style="color:rgb(24, 168, 65);">Green line</span></div><div><span style="--en-highlight:yellow;background-color: #ffef9e;"><span style="color:rgb(51, 51, 51);">Yellow Highlighted line</span></span></div><div><span style="--en-highlight:red;background-color: #fec1d0;"><span style="color:rgb(51, 51, 51);">Red Highlighted line</span></span></div><div><span style="--en-highlight:red;background-color: #fec1d0;"><span style="color:rgb(252, 18, 51);">Red highlighed red line</span></span></div><div><span style="--en-highlight:red;background-color: #fec1d0;"><span style="color:rgb(252, 18, 51);"><span style="--en-markholder:true;"><br/></span></span></span></div><div>BOLD</div><div><b><span style="--en-highlight:red;background-color: #fec1d0;"><span style="color:rgb(252, 18, 51);">Red highlighed red line</span></span></b></div><div>ITALIC</div><div><span style="--en-highlight:red;background-color: #fec1d0;"><i><span style="color:rgb(252, 18, 51);">Red highlighed red line</span></i></span></div><div>UNDERSCORE</div><div><span style="--en-highlight:red;background-color: #fec1d0;"><span style="color:rgb(252, 18, 51);"><u>Red highlighed red line</u></span></span></div><div>Large header</div><h1><span style="--en-highlight:red;background-color: #fec1d0;">Red highlighed red line</span></h1><div>Medium header</div><h2><span style="--en-highlight:red;background-color: #fec1d0;">Red highlighed red line</span></h2><div>Small header</div><h3><span style="--en-highlight:red;background-color: #fec1d0;">Red highlighed red line</span></h3><div>Custom font</div><div><span style="--en-fontfamily: monospace; font-family: &quot;Source Code Pro&quot;,monospace"><span style="font-size: 14px;"><span style="--en-highlight:red;background-color: #fec1d0;"><span style="color:rgb(252, 18, 51);">Red highlighed red line</span></span></span></span></div><div><br/></div></en-note>      ]]>
+    </content>
+  </note>
+</en-export>
