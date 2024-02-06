@@ -155,7 +155,7 @@ export const getNoteName = (dstPath: string, note: any): string => {
 };
 
 export const getNotebookName = (enexFile: string): string => {
-  const notebookName = path.basename(enexFile, '.enex');
+  const notebookName = normalizeTitle(path.basename(enexFile, '.enex'));
 
   return notebookName;
 };
