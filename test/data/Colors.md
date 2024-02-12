@@ -28,7 +28,7 @@ Small header
 ### ==<span style="background-color: #fec1d0">Red highlighed red line</span>==
 
 Custom font
-==<span style="background-color: #fec1d0"><span style="color:rgb(252, 18, 51);">Red highlighed red line</span></span>==
+<span style="--en-fontfamily: monospace; font-family: "><span style="font-size: 14px;">==<span style="background-color: #fec1d0"><span style="color:rgb(252, 18, 51);">Red highlighed red line</span></span>==</span></span>
 
     Created at: 2024-02-06T07:09:48+00:00
     Updated at: 2024-02-06T18:20:07+00:00

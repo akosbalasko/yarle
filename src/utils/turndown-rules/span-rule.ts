@@ -29,7 +29,7 @@ export const spanRule = {
                 if (hasBold && hasItalic) { return `${languageItems.italic}${languageItems.bold}${content}${languageItems.bold}${languageItems.italic}`; }
             }
             if (yarleOptions.keepFontColors){
-                const match = nodeValue.match(/color:rgb\(\d{0,3}, \d{0,3}, \d{0,3}\);|background-color: #([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})/)
+                const match = nodeValue.match(/color:rgb\(\d{0,3}, \d{0,3}, \d{0,3}\);|background-color: #([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})|--en-fontfamily:[^"]*|font-size:[^"]*/)
                 if (match)
                     content =  `<span style="${match[0]}">${content}</span>`
             }
