@@ -66,8 +66,10 @@ export const applyLinks = (options: YarleOptions, outputNotebookFolders: Array<s
                     }
 
                 }
-                const regexp = new RegExp(escapeStringRegexp(linkName), 'g');
-                updatedContent = updatedContent.replace(regexp, realFileNameInContent);
+                if (!options.keepEvernoteLinkIfNoNoteFound){
+                    const regexp = new RegExp(escapeStringRegexp(linkName), 'g');
+                    updatedContent = updatedContent.replace(regexp, realFileNameInContent);
+                }
                 
                 if ((`${fileName}.md` === targetFile || targetFile === linkProps.title) &&
                     linkProps.noteName === TOCNoteName &&

@@ -496,6 +496,36 @@ dateFormat: undefined,
       fs.readFileSync(`${__dirname}/data/test-textWithImage.md`, 'utf8'),
     );
   });
+  it.only('Missing links', async () => {
+    const options: YarleOptions = {
+      dateFormat: undefined,
+      enexSources: [ `${testDataFolder}missing-link.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      keepEvernoteLinkIfNoNoteFound: true
+    };
+    await dropTheRopeRunner.run(options);
+    assert.equal(
+      fs.existsSync(
+        '/tmp/out/notes/test-textWithImage/Untitled.md',
+      ),
+      true,
+    );
+    assert.equal(
+      fs.existsSync(
+        '/tmp/out/notes/test-textWithImage/_resources/Untitled.resources',
+      ),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        '/tmp/out/notes//test-textWithImage/Untitled.md',
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-textWithImage.md`, 'utf8'),
+    );
+  });
   it('Enex file with multiple notes', async () => {
     const options: YarleOptions = {
 dateFormat: undefined,

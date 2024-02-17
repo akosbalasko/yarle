@@ -32,6 +32,9 @@
     "haveGlobalResources": false,
     "useUniqueUnknownFileNames": false,
     "useLevenshteinForLinks": false,
+    "keepEvernoteLinkIfNoNoteFound": false,
+
+
 
     "replacementChar": "_",
     "replacementCharacterMap": {
