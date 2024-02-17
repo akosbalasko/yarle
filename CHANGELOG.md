@@ -1,3 +1,10 @@
+## [6.5.3](https://github.com/akosbalasko/yarle/compare/v6.5.2...v6.5.3) (2024-02-17)
+
+
+### Bug Fixes
+
+* filename with multiple dots ([#597](https://github.com/akosbalasko/yarle/issues/597)) ([119beab](https://github.com/akosbalasko/yarle/commit/119beab44d7511990c3480d38fe36ee5352ddde7))
+
 ## [6.5.2](https://github.com/akosbalasko/yarle/compare/v6.5.1...v6.5.2) (2024-01-21)
 
 
