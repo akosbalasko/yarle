@@ -1,6 +1,6 @@
-import { isTanaOutput } from '../tana/is-tana-output';
 import { OutputFormat } from '../../output-format';
 import { yarleOptions } from '../../yarle';
+import { getLanguageItems } from './../../outputLanguages/LanguageFactory';
 
 import { getAttributeProxy } from './get-attribute-proxy';
 import { checkboxDone, checkboxTodo } from './../../constants';
@@ -33,6 +33,7 @@ export const taskListRule = {
             .replace(/^\n+/, '') // Remove leading newlines
             .replace(/\n+$/, '\n') // Replace trailing newlines with just a single one
             .replace(/\n/gm, `\n${indentCharacter}`); // Indent
+        const languageItems = getLanguageItems(yarleOptions.outputFormat);
 
         let prefix =  indentCount > 0
             ? indentChars
@@ -40,7 +41,7 @@ export const taskListRule = {
                 ? `${checkboxDone} `
                 : (isTodoBlock(node)
                     ? `${checkboxTodo} `
-                    : getListItem()))
+                    : languageItems.listItem))
                     ;
         const parent = node.parentNode;
         if (parent.nodeName === 'OL') {
@@ -55,9 +56,3 @@ export const taskListRule = {
 
         return ret;
 }};
-
-const getListItem = (): string => {
-    return isTanaOutput()
-    ? ''
-    : '* '
-}

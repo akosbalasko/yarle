@@ -11,6 +11,7 @@ import { getAllOutputFilesWithExtension } from './get-all-output-files';
 import { isTanaOutput } from './tana/is-tana-output';
 import { updateFileContentSafely } from './file-utils';
 import { getClosestFileName } from './filename-utils';
+import { LanguageFactory } from './../outputLanguages/LanguageFactory';
 import { TOCNoteName } from './../constants'
 import { OutputFormat } from './../output-format';
 
@@ -47,8 +48,9 @@ export const applyLinks = (options: YarleOptions, outputNotebookFolders: Array<s
             console.log(`Files in output dir: ${JSON.stringify(filesInOutputDir)}`);
             console.log(`notebookFolder: ${notebookFolder}`);
             console.log(`realFileName: ${realFileName}`);
-
-            const extension = isTanaOutput() ? '.json': '.md';
+            const langaugeFactory = new LanguageFactory();
+            const targetLanguage = langaugeFactory.createLanguage(options.outputFormat)
+            const extension = targetLanguage.noteExtension;
 
             const targetFiles = filesInOutputDir.filter(file => {
                 return path.extname(file).toLowerCase() === extension;
