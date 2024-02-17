@@ -1,5 +1,4 @@
 import { yarleOptions } from '../../yarle';
-import { getLanguageItems } from './../../outputLanguages/outputLanguages';
 import { getAttributeProxy } from './get-attribute-proxy';
 import { performDecryption } from './../decrypt' 
 import { getTurndownService } from '../turndown-service';

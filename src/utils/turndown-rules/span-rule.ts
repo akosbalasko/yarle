@@ -4,7 +4,7 @@ import { OutputFormat } from '../../output-format';
 
 import { filterByNodeName } from './filter-by-nodename';
 import { getAttributeProxy } from './get-attribute-proxy';
-import { getLanguageItems } from './../../outputLanguages/outputLanguages';
+import { getLanguageItems } from './../../outputLanguages/LanguageFactory';
 
 const EVERNOTE_HIGHLIGHT = '-evernote-highlight:true;';
 const EVERNOTE_COLORHIGHLIGHT = '--en-highlight';
@@ -14,11 +14,12 @@ const ITALIC = 'italic';
 export const spanRule = {
     filter: filterByNodeName('SPAN'),
     replacement: (content: any, node: any) => {
-        const languageItems = getLanguageItems(yarleOptions.outputFormat);
+
         //const HIGHLIGHT_SEPARATOR = yarleOptions.outputFormat === OutputFormat.ObsidianMD ? '==' : '`' ;
         const nodeProxy = getAttributeProxy(node);
         if (nodeProxy.style && content.trim() !== '') {
             const nodeValue: string = nodeProxy.style.value;
+            const languageItems = getLanguageItems(yarleOptions.outputFormat)
 
             // this aims to care for bold text generated as <span style="font-weight: bold;">Bold</span>
             if (content !== '<YARLE_NEWLINE_PLACEHOLDER>') {

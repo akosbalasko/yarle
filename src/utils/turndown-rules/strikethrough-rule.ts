@@ -1,5 +1,5 @@
 import { yarleOptions } from '../../yarle';
-import { getLanguageItems } from './../../outputLanguages/outputLanguages';
+import { getLanguageItems } from './../../outputLanguages/LanguageFactory';
 
 // Note: this rule must appear *after* use(gfm) so it can override
 // turndown-plugin-gfm rule for strikethrough (which always uses single '~')
