@@ -32,6 +32,7 @@
     "haveGlobalResources": false,
     "useUniqueUnknownFileNames": false,
     "useLevenshteinForLinks": false,
+    "keepFontColors": false,
     "replacementChar": "_",
     "replacementCharacterMap": {
         "<": "_",

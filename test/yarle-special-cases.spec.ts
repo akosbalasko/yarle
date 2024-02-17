@@ -467,6 +467,63 @@ dateFormat: undefined,
       fs.readFileSync(`${__dirname}/data/test-textWithImage.md`, 'utf8'),
     );
   });
+
+  it('Colors in text', async () => {
+    const options: YarleOptions = {
+dateFormat: undefined,
+      enexSources: [ `${testDataFolder}Colors.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      keepFontColors: true,
+      plainTextNotesOnly: false,
+      outputFormat: OutputFormat.ObsidianMD,
+      keepMDCharactersOfENNotes: false,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      
+      fs.existsSync(
+        `${__dirname}/../out/notes/Colors/Colors.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/Colors/Colors.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/Colors.md`, 'utf8'),
+    );
+  });
+  it('Custom font', async () => {
+    const options: YarleOptions = {
+      dateFormat: undefined,
+      enexSources: [ `${testDataFolder}customfont.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      keepFontColors: true,
+      plainTextNotesOnly: false,
+      outputFormat: OutputFormat.ObsidianMD,
+      keepMDCharactersOfENNotes: false,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      
+      fs.existsSync(
+        `${__dirname}/../out/notes/customfont/customfont.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/customfont/customfont.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/customfont.md`, 'utf8'),
+    );
+  });
   it('Absolute paths', async () => {
     const options: YarleOptions = {
 dateFormat: undefined,

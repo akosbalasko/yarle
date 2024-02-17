@@ -167,6 +167,7 @@ To configure Yarle, you must create a config file. By default it looks like this
    "haveGlobalResources": false,
    "useUniqueUnknownFileNames": false,
    "useLevenshteinForLinks": false,
+   "keepFontColors": false,
     "logseqSettings":{
         "journalNotes": false
     },
@@ -212,6 +213,8 @@ The following configurational properties are available:
 | ```encryptionPasswords``` | string | list of passwords used in any notes, separated by commas
 |```useUniqueUnknownFileNames``` | boolean | generates a couple of random characters at the end of the resource file names if the exact name cannot be recognised. For instance: unknown_filename-d2fd86c3.pdf
 |```useLevenshteinForLinks```| boolean| it applies the link to the note with the filename that has the closest Levenshtein distance to the text of the link
+|```keepFontColors```| boolean | it keeps the custom font family and colors encoded as inline styles in span
+ 
 Metadata settings can be set via the template.
 
 
