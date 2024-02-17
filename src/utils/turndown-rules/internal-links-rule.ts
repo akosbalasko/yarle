@@ -109,8 +109,11 @@ export const wikiStyleLinksRule = {
             }
 
             const linkedNoteId = id; // todo add evernotelink value
-            if (isHeptaOrObsidianOutput()) {
+            if (isHeptaOrObsidianOutput() && !yarleOptions.keepEvernoteLinkIfNoNoteFound) {
                 return `${mdKeyword}[[${linkedNoteId}${extension}${renderedObsidianDisplayName}]]`;
+            }
+            if (yarleOptions.keepEvernoteLinkIfNoNoteFound){
+                return `<YARLE_EVERNOTE_LINK>${mdKeyword}[[${linkedNoteId}${extension}${renderedObsidianDisplayName}]]<-->[${displayName}](${linkedNoteId}${extension})</YARLE_EVERNOTE_LINK>`
             }
 
             return `${mdKeyword}[${displayName}](${linkedNoteId}${extension})`;

@@ -502,6 +502,7 @@ dateFormat: undefined,
       enexSources: [ `${testDataFolder}missing-link.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
+      
       keepEvernoteLinkIfNoNoteFound: true
     };
     await dropTheRopeRunner.run(options);
