@@ -1,3 +1,10 @@
+## [6.6.1](https://github.com/akosbalasko/yarle/compare/v6.6.0...v6.6.1) (2024-02-18)
+
+
+### Bug Fixes
+
+* ui fixed ([#608](https://github.com/akosbalasko/yarle/issues/608)) ([c63230d](https://github.com/akosbalasko/yarle/commit/c63230d5960a449cd7e8718ef5e907a17c6744ea))
+
 # [6.6.0](https://github.com/akosbalasko/yarle/compare/v6.5.3...v6.6.0) (2024-02-17)
 
 
