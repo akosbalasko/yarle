@@ -1,7 +1,7 @@
-import { OutputFormat } from './output-format';
-import { TagSeparatorReplaceOptions } from './models';
-import { TaskOutputFormat } from './task-output-format';
 import { CharacterMap } from 'CharacterMap';
+import { TagSeparatorReplaceOptions } from './models';
+import { OutputFormat } from './output-format';
+import { TaskOutputFormat } from './task-output-format';
 
 export interface YarleOptions {
     enexDir?: string; // used by command line
@@ -10,6 +10,7 @@ export interface YarleOptions {
     currentTemplate?: string;
     outputDir?: string;
     keepOriginalHtml?: boolean;
+    posixHtmlPath?: boolean;
     isMetadataNeeded?: boolean;
     isNotebookNameNeeded?: boolean;
     isZettelkastenNeeded?: boolean;

@@ -30,6 +30,7 @@ export const defaultYarleOptions: YarleOptions = {
   enexSources: ['notebook.enex'],
   outputDir: './mdNotes',
   keepOriginalHtml: false,
+  posixHtmlPath: false,
   isMetadataNeeded: false,
   isNotebookNameNeeded: false,
   isZettelkastenNeeded: false,
@@ -132,7 +133,7 @@ export const parseStream = async (options: YarleOptions, enexSource: string): Pr
         loggerInfo(`Notes processed: ${noteNumber}\n\n`);
       }
       noteAttributes = null;
-      
+
       const runtimeProps = RuntimePropertiesSingleton.getInstance();
       const currentNotePath = runtimeProps.getCurrentNotePath();
       if (currentNotePath) {
@@ -149,7 +150,7 @@ export const parseStream = async (options: YarleOptions, enexSource: string): Pr
           updatedContent = language.tagProcess(fileContent, sortedTasks, taskPlaceholder, updatedContent)
 
           fs.writeFileSync(currentNotePath, updatedContent);
-          
+
         }
       }
     });
