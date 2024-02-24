@@ -54,7 +54,7 @@ export const processNode = (note: any, notebookName: string): void => {
     // loggerInfo(`data =>\n ${JSON.stringify(data)} \n***`);
     const langaugeFactory = new LanguageFactory();
     const targetLanguage = langaugeFactory.createLanguage(yarleOptions.outputFormat)
-    targetLanguage.noteProcess({...noteData, content: data}, note)
+    targetLanguage.noteProcess(yarleOptions, {...noteData, content: data}, note)
 
     if (yarleOptions.keepOriginalHtml) {
       convert2Html(noteData);

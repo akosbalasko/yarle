@@ -136,7 +136,36 @@ dateFormat: undefined,
       fs.readFileSync(`${__dirname}/data/test-newlines.md`, 'utf8'),
     );
   });
+  it.only('Replacement settings', async () => {
+    const options: YarleOptions = {
+      dateFormat: undefined,
+      enexSources: [ `.${path.sep}test${path.sep}data${path.sep}test-replacements.enex` ],
+      outputDir: 'out',
+      outputFormat: OutputFormat.ObsidianMD,
+      convertPlainHtmlNewlines: true,
+      isMetadataNeeded: true,
+      contentReplacementSettings: [
+        {regex: "b", replace: "c"},
+        {regex: "a", replace: "b"}
+      ]
+    };
+    await dropTheRopeRunner.run(options);
+    // tslint:disable-next-line:no-console
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-newlines/test-newlines.md`,
+      ),
+      true,
+    );
 
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-newlines/test-newlines.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-newlines.md`, 'utf8'),
+    );
+  });
   it('Encrypted lines in notes', async () => {
     const options: YarleOptions = {
 dateFormat: undefined,

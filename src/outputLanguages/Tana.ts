@@ -7,6 +7,8 @@ import { cleanTanaContent, convert2TanaNode } from "./../utils/tana/convert-to-t
 import { saveTanaFile } from "./../utils/save-tana-file";
 import { NodeType } from "./../utils/tana/types";
 import { checkboxDone, checkboxTodo } from './../constants';
+import { replacePostProcess } from "./../utils";
+import { ReplaceType } from "./../models";
 
 export class Tana extends StandardMD implements Language  {
     constructor(){
@@ -26,10 +28,15 @@ export class Tana extends StandardMD implements Language  {
         createTanaOutput(options, outputNotebookFolders);
     };
     noteExtension = '.json';
-    noteProcess = (data: NoteData, note: any) => {
+    noteProcess = (options: YarleOptions, data: NoteData, note: any) => {
 
-        const tanaJson = convert2TanaNode(data)
-        saveTanaFile(tanaJson, note)
+        let updatedData = {...data}
+        let updatedNote = {...note}
+        updatedNote = replacePostProcess(options, updatedNote, ReplaceType.title);
+        updatedData = replacePostProcess(options, updatedData, ReplaceType.content);
+        const tanaJson = convert2TanaNode(updatedData)
+
+        saveTanaFile(tanaJson, updatedNote)
     };
     tagProcess = (content: string, tasks: Map<string, string>, currentTaskPlaceholder: string, updatedContent: string): string => {
         const tanaNote = JSON.parse(content);

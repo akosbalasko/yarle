@@ -1,8 +1,9 @@
 import { cloneDeep } from "lodash";
 import { NoteData } from "./../models/NoteData";
-import { saveMdFile } from "./../utils";
+import { replacePostProcess, saveMdFile } from "./../utils";
 import { YarleOptions } from "./../YarleOptions";
 import { Language } from "./language";
+import { ReplaceType } from "models";
 
 export class StandardMD implements Language {
     constructor(){}
@@ -18,10 +19,14 @@ export class StandardMD implements Language {
 
     postProcess= async(options: YarleOptions, outputNotebookFolders: string[]) => {};
     noteExtension= '.md';
-    noteProcess= (data: NoteData, note: any)  => {
-        data = (data)
+    noteProcess= (options: YarleOptions, data: NoteData, note: any)  => {
+        let updatedData = {...data}
+        let updatedNote = {...note}
+        updatedNote = replacePostProcess(options, updatedNote, ReplaceType.title);
+        updatedData = replacePostProcess(options, updatedData, ReplaceType.content);
 
-        saveMdFile(fixImagesInLink(data.content), note)
+
+        saveMdFile(fixImagesInLink(updatedData.content), updatedNote)
     };
     tagProcess= (content: string, tasks: Map<string, string>, currentTaskPlaceholder: string, updatedContent: string): string => {
         return updatedContent;
