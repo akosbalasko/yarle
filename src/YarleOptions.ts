@@ -2,6 +2,7 @@ import { OutputFormat } from './output-format';
 import { TagSeparatorReplaceOptions } from './models';
 import { TaskOutputFormat } from './task-output-format';
 import { CharacterMap } from 'CharacterMap';
+import { ImageSizeFormat } from 'image-size-format';
 
 export interface YarleOptions {
     enexDir?: string; // used by command line
@@ -47,7 +48,8 @@ export interface YarleOptions {
     monospaceIsCodeBlock?: boolean;
     dateFormat?: string;
     nestedTags?: TagSeparatorReplaceOptions;
-    keepImageSize?: OutputFormat;
+    imageSizeFormat?: ImageSizeFormat;
+    keepImageSize?: boolean;
     keepOriginalAmountOfNewlines?: boolean;
     generateNakedUrls?: boolean;
     addExtensionToInternalLinks?: boolean;

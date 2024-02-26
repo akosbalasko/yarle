@@ -264,15 +264,27 @@
 
 													</div>
 													
-														
+													<div class="form-group">
+														<label for="keepImageSize" class="pure-checkbox">
+															Keep Image size
+															
+														</label>
+															<select name="keepImageSize" id="keepImageSize" class="form-control configurationItem">
+															<option value="true">Yes </option>
+															<option value="false" selected>No</option>
+
+															</select>
+															<br>
+													</div>
 														<div class="form-group">
-															<label for="keepImageSize" class="pure-checkbox">
-																Keep Image size
+															<label for="imageSizeFormat" class="pure-checkbox">
+																Image size format
 																
 															</label>
-																<select name="keepImageSize" id="keepImageSize" class="form-control configurationItem">
-																<option value="ObsidianMD">Yes</option>
-																<option value="StandardMD">No</option>
+																<select name="imageSizeFormat" id="imageSizeFormat" class="form-control configurationItem">
+																<option value="ObsidianMD" selected>Obsidian</option>
+																<option value="StandardMD">Standard</option>
+
 																</select>
 																<br><div style='font-size: 12px;'><i>(
 																Preserves the images' width and height in the chosen format.)</i></div>
