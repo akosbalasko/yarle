@@ -10,6 +10,7 @@ import * as yarle from './../src/yarle';
 import * as dropTheRopeRunner from './../src/dropTheRopeRunner';
 import { YarleOptions } from './../src/YarleOptions';
 import { TaskOutputFormat } from '../src/task-output-format';
+import { ReplaceType } from '../src/models';
 
 const testDataFolder = `.${path.sep}test${path.sep}data${path.sep}`;
 
@@ -145,8 +146,8 @@ dateFormat: undefined,
       convertPlainHtmlNewlines: true,
       isMetadataNeeded: true,
       contentReplacementSettings: [
-        {regex: "b", replace: "c"},
-        {regex: "a", replace: "b"}
+        {type: ReplaceType.content ,regex: "b", replace: "c"},
+        {type: ReplaceType.content ,regex: "a", replace: "b"}
       ]
     };
     await dropTheRopeRunner.run(options);

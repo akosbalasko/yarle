@@ -3,7 +3,7 @@ import { NoteData } from "./../models/NoteData";
 import { replacePostProcess, saveMdFile } from "./../utils";
 import { YarleOptions } from "./../YarleOptions";
 import { Language } from "./language";
-import { ReplaceType } from "models";
+import { ReplaceType } from "./../models";
 
 export class StandardMD implements Language {
     constructor(){}
