@@ -3,10 +3,11 @@ const Store = require('electron-store');
 
 const { OutputFormat }  = require('../output-format');
 const schema = {
-  keepOriginalHtml: {
-    type: 'boolean',
-    default: true,
-  },
+    keepOriginalHtml: {
+        type: 'boolean',
+        default: true,
+    },
+    posixHtmlPath: { type: 'boolean', default: false },
     enexSources: {},
     // templateFile: {type: 'string'},
     outputDir: {type: 'string'},
