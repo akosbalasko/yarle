@@ -36,6 +36,7 @@ export const applyLinks = (options: YarleOptions, outputNotebookFolders: Array<s
         }
         const notebookName: string = (linkProps as any)['notebookName'];
         const encodedFileName = options.urlEncodeFileNamesAndLinks ? encodeURI(fileName as string) : fileName as string;
+        let linkDoesntExist = !allconvertedFiles.find(convertedFile => convertedFile.endsWith(`${encodedFileName}.md`));
 
         for (const notebookFolder of outputNotebookFolders) {
             let realFileName = encodedFileName;
@@ -48,6 +49,8 @@ export const applyLinks = (options: YarleOptions, outputNotebookFolders: Array<s
             console.log(`Files in output dir: ${JSON.stringify(filesInOutputDir)}`);
             console.log(`notebookFolder: ${notebookFolder}`);
             console.log(`realFileName: ${realFileName}`);
+
+
             const langaugeFactory = new LanguageFactory();
             const targetLanguage = langaugeFactory.createLanguage(options.outputFormat)
             const extension = targetLanguage.noteExtension;
@@ -68,8 +71,23 @@ export const applyLinks = (options: YarleOptions, outputNotebookFolders: Array<s
                     }
 
                 }
-                const regexp = new RegExp(escapeStringRegexp(linkName), 'g');
-                updatedContent = updatedContent.replace(regexp, realFileNameInContent);
+                if (options.keepEvernoteLinkIfNoNoteFound){
+                    if (linkDoesntExist){
+                        const regexp = new RegExp(`<YARLE_EVERNOTE_LINK>(.)*<-->`)// replace
+                        updatedContent = updatedContent.replace(regexp, '');
+                        updatedContent = updatedContent.replace('</YARLE_EVERNOTE_LINK>', '');
+
+                    }else {
+                        const regexp = new RegExp(`<-->(.)*<\/YARLE_EVERNOTE_LINK>`)// replace
+                        updatedContent = updatedContent.replace(regexp, '');
+                        updatedContent = updatedContent.replace('<YARLE_EVERNOTE_LINK>', '');
+                    }
+
+                }
+                else {
+                    const regexp = new RegExp(escapeStringRegexp(linkName), 'g');
+                    updatedContent = updatedContent.replace(regexp, realFileNameInContent);
+                }
                 
                 if ((`${fileName}.md` === targetFile || targetFile === linkProps.title) &&
                     linkProps.noteName === TOCNoteName &&

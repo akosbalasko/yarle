@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE en-export SYSTEM "http://xml.evernote.com/pub/evernote-export4.dtd">
+<en-export export-date="20240213T214139Z" application="Evernote" version="10.74.1">
+  <note>
+    <title>NoteA</title>
+    <created>20240213T213939Z</created>
+    <updated>20240213T214124Z</updated>
+    <note-attributes>
+    </note-attributes>
+    <content>
+      <![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd"><en-note><div><br/></div><div>What happens in case of bad linking? </div><div><br/></div><div>Here is <a href="evernote:///view/244421476/s470/3f94055f-3e2b-7a42-4e58-661d5754dcb8/d8ce9322-b866-453a-90b3-81923b70c474">NoteB</a></div></en-note>      ]]>
+    </content>
+  </note>
+</en-export>

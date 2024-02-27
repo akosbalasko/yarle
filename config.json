@@ -33,6 +33,7 @@
     "haveGlobalResources": false,
     "useUniqueUnknownFileNames": false,
     "useLevenshteinForLinks": false,
+    "keepEvernoteLinkIfNoNoteFound": false,
     "keepFontColors": false,
 
     "replacementChar": "_",

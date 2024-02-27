@@ -668,6 +668,57 @@ dateFormat: undefined,
       fs.readFileSync(`${__dirname}/data/test-textWithImage.md`, 'utf8'),
     );
   });
+  it('Missing links', async () => {
+    const options: YarleOptions = {
+      dateFormat: undefined,
+      enexSources: [ `${testDataFolder}missing-link.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      
+      keepEvernoteLinkIfNoNoteFound: true
+    };
+    await dropTheRopeRunner.run(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/missing-link/NoteA.md`,
+      ),
+      true,
+    );
+
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/missing-link/NoteA.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-missing-link.md`, 'utf8'),
+    );
+  });
+  it('Missing links - no keep ', async () => {
+    const options: YarleOptions = {
+      dateFormat: undefined,
+      enexSources: [ `${testDataFolder}missing-link-nokeep.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      
+    };
+    await dropTheRopeRunner.run(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/missing-link-nokeep/NoteA.md`,
+      ),
+      true,
+    );
+
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/missing-link-nokeep/NoteA.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-missing-link-nokeep.md`, 'utf8'),
+    );
+  });
   it('Enex file with multiple notes', async () => {
     const options: YarleOptions = {
 dateFormat: undefined,
