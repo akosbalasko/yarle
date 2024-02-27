@@ -1,3 +1,10 @@
+# [6.9.0](https://github.com/akosbalasko/yarle/compare/v6.8.0...v6.9.0) (2024-02-27)
+
+
+### Features
+
+* keep en link if not found ([#607](https://github.com/akosbalasko/yarle/issues/607)) ([e7f67c5](https://github.com/akosbalasko/yarle/commit/e7f67c5fab856a6ad624cfaedc8b18e8fcefe81d))
+
 # [6.8.0](https://github.com/akosbalasko/yarle/compare/v6.7.0...v6.8.0) (2024-02-27)
 
 
