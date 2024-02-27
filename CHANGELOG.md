@@ -1,3 +1,10 @@
+# [6.7.0](https://github.com/akosbalasko/yarle/compare/v6.6.1...v6.7.0) (2024-02-27)
+
+
+### Features
+
+* sanitized notebooks with interenex links ([#602](https://github.com/akosbalasko/yarle/issues/602)) ([3aea389](https://github.com/akosbalasko/yarle/commit/3aea389470e173fdfdec84b7de65717e6692f676))
+
 ## [6.6.1](https://github.com/akosbalasko/yarle/compare/v6.6.0...v6.6.1) (2024-02-18)
 
 
