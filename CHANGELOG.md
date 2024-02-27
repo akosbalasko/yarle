@@ -1,3 +1,10 @@
+## [6.9.2](https://github.com/akosbalasko/yarle/compare/v6.9.1...v6.9.2) (2024-02-27)
+
+
+### Bug Fixes
+
+* unit test fixed ([#614](https://github.com/akosbalasko/yarle/issues/614)) ([9d2591e](https://github.com/akosbalasko/yarle/commit/9d2591ebfc795a13e616f8d07d1952c8f92e9e18))
+
 ## [6.9.1](https://github.com/akosbalasko/yarle/compare/v6.9.0...v6.9.1) (2024-02-27)
 
 
