@@ -1,3 +1,10 @@
+## [6.9.1](https://github.com/akosbalasko/yarle/compare/v6.9.0...v6.9.1) (2024-02-27)
+
+
+### Bug Fixes
+
+* unrecognized guid/links added ([#612](https://github.com/akosbalasko/yarle/issues/612)) ([99da0ef](https://github.com/akosbalasko/yarle/commit/99da0efa5076561ad1c142756479114dbbfd665f))
+
 # [6.9.0](https://github.com/akosbalasko/yarle/compare/v6.8.0...v6.9.0) (2024-02-27)
 
 
