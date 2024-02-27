@@ -33,6 +33,7 @@
     "useUniqueUnknownFileNames": false,
     "useLevenshteinForLinks": false,
     "keepEvernoteLinkIfNoNoteFound": false,
+    "keepFontColors": false,
     "replacementChar": "_",
     "replacementCharacterMap": {
         "<": "_",

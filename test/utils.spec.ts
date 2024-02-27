@@ -162,11 +162,21 @@ describe('filename', () => {
         const resource = {
             mime: 'image/png',
             'resource-attributes': {
-                'file-name': 'fileName.jpg',
+                'file-name': 'fileName.dot.jpg',
             },
         };
         const fileProps = utils.getResourceFileProperties('./test/data', resource);
-        assert.equal(fileProps.fileName, 'fileName.jpg');
+        assert.equal(fileProps.fileName, 'fileName.dot.jpg');
+    });
+    it('filename returned, exists, with dots, extendsion', () => {
+        const resource = {
+            mime: 'image/png',
+            'resource-attributes': {
+                'file-name': 'simple_file.dot.dat',
+            },
+        };
+        const fileProps = utils.getResourceFileProperties('./test/data', resource);
+        assert.equal(fileProps.fileName, 'simple_file.dot.1.dat');
     });
     it('filename returned, file already exists, no extension', () => {
         const resource = {

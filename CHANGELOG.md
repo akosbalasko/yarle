@@ -1,3 +1,24 @@
+## [6.6.1](https://github.com/akosbalasko/yarle/compare/v6.6.0...v6.6.1) (2024-02-18)
+
+
+### Bug Fixes
+
+* ui fixed ([#608](https://github.com/akosbalasko/yarle/issues/608)) ([c63230d](https://github.com/akosbalasko/yarle/commit/c63230d5960a449cd7e8718ef5e907a17c6744ea))
+
+# [6.6.0](https://github.com/akosbalasko/yarle/compare/v6.5.3...v6.6.0) (2024-02-17)
+
+
+### Features
+
+* storing font colors as inline styles in span ([#598](https://github.com/akosbalasko/yarle/issues/598)) ([25cad1b](https://github.com/akosbalasko/yarle/commit/25cad1bd3bb732d2841f9546edd3b6ad7603498a))
+
+## [6.5.3](https://github.com/akosbalasko/yarle/compare/v6.5.2...v6.5.3) (2024-02-17)
+
+
+### Bug Fixes
+
+* filename with multiple dots ([#597](https://github.com/akosbalasko/yarle/issues/597)) ([119beab](https://github.com/akosbalasko/yarle/commit/119beab44d7511990c3480d38fe36ee5352ddde7))
+
 ## [6.5.2](https://github.com/akosbalasko/yarle/compare/v6.5.1...v6.5.2) (2024-01-21)
 
 
