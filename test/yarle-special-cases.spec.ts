@@ -1109,7 +1109,7 @@ dateFormat: undefined,
 
   it('Multiple enex files with interEnex links', async () => {
     const options: YarleOptions = {
-dateFormat: undefined,
+      dateFormat: undefined,
       enexSources: [ `${process.cwd()}${path.sep}test${path.sep}data${path.sep}LinkedInterNotebooks` ],
       outputDir: 'out',
       isMetadataNeeded: true,
@@ -1199,6 +1199,93 @@ dateFormat: undefined,
         'utf8',
       )),
       fs.readFileSync(`${__dirname}/data/LinkedInterNotebooks/test-internotebook_links_B/Note in Notebook B.md`, 'utf8'),
+    );
+
+  });
+
+  it('Multiple untitled note - unregognized guid/link', async () => {
+    const options: YarleOptions = {
+      templateFile: `${testDataFolder}evernotelink-template.templ`,
+      enexSources: [ `${testDataFolder}two-untitled-notes-with-toc.enex` ],
+        "isMetadataNeeded": true,
+        "isNotebookNameNeeded": false,
+        "isZettelkastenNeeded": false,
+        "useZettelIdAsFilename": false,
+        "plainTextNotesOnly": false,
+        "skipLocation": true,
+        "skipCreationTime": true,
+        "skipUpdateTime": true,
+        "skipSourceUrl": true,
+        "skipWebClips": false,
+        "skipTags": true,
+        "useHashTags": true,
+        "outputFormat": OutputFormat.ObsidianMD,
+        "taskOutputFormat": TaskOutputFormat.ObsidianMD,
+        "skipEnexFileNameFromOutputPath": false,
+        "keepMDCharactersOfENNotes": false,
+        "monospaceIsCodeBlock": false,
+        "keepOriginalHtml": true,
+        "resourcesDir": "_resources",
+        "trimStartingTabs": false,
+        "convertPlainHtmlNewlines": false,
+        "encryptionPasswords": [
+          ""
+        ],
+        "logseqSettings": {
+          "journalNotes": false
+        },
+        "obsidianSettings": {
+          "omitLinkDisplayName": false
+        },
+        "dateFormat": "YYYY-MM-DD HH:mm",
+        "keepImageSize": OutputFormat.ObsidianMD,
+        "keepOriginalAmountOfNewlines": true,
+        "addExtensionToInternalLinks": false,
+        "generateNakedUrls": true,
+        "urlEncodeFileNamesAndLinks": false,
+        "haveEnexLevelResources": false,
+        "haveGlobalResources": false,
+        "useUniqueUnknownFileNames": true,
+        "useLevenshteinForLinks": false,
+        "sanitizeResourceNameSpaces": false,
+        "replacementChar": "_",
+        "replacementCharacterMap": {
+          "<": "_",
+          ">": "_",
+          ":": "_",
+          "\"": "_",
+          "/": "_",
+          "\\": "_",
+          "|": "_",
+          "?": "_",
+          "*": "_"
+        }
+      
+    };
+    await dropTheRopeRunner.run(options);
+
+    assert.equal(
+      fs.existsSync(`${__dirname}/../out/notes/two-untitled-notes-with-toc/Untitled Note.1.md`),
+      true,
+    );
+    assert.equal(
+      fs.existsSync(`${__dirname}/../out/notes/two-untitled-notes-with-toc/Untitled Note.md`),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/two-untitled-notes-with-toc/Untitled Note.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/two-untitled-notes-with-toc.md`, 'utf8'),
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/two-untitled-notes-with-toc/Untitled Note.1.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/two-untitled-notes-with-toc.1.md`, 'utf8'),
     );
 
   });

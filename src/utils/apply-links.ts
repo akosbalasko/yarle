@@ -107,7 +107,31 @@ export const applyLinks = (options: YarleOptions, outputNotebookFolders: Array<s
                     
                 }
             }
+
+
         }
+
+
+
+    }
+    const unrecognizable = "Unrecognizable";
+
+    for (const targetFile of allconvertedFiles) {
+        const fileContent = fs.readFileSync(targetFile, 'UTF-8');
+
+        // TODO APPLY EVERNOTE LINK 
+        const evernoteInternalLinkPlaceholderRegExp = new RegExp('<YARLE_EVERNOTE_LINK_PLACEHOLDER>', 'g');
+        let updatedContent = fileContent.replace(evernoteInternalLinkPlaceholderRegExp, unrecognizable);
+
+
+        // TODO APPLY EVERNOTE GUID 
+        const evernoteGuidPlaceholderRegExp = new RegExp('<YARLE_EVERNOTE_GUID_PLACEHOLDER>', 'g');
+        updatedContent = updatedContent.replace(evernoteGuidPlaceholderRegExp, unrecognizable);
+    
+    if (fileContent !== updatedContent) {
+        updateFileContentSafely(targetFile, updatedContent);
+        
+    }
     }
 };
 
