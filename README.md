@@ -195,7 +195,8 @@ The following configurational properties are available:
 | ```dateFormat``` | string | ISO 8601 specification of the expected date format (e.g. YYYY-MM-DD)
 |```keepMDCharactersOfENNotes```| true or false | set it true, if you used Markdown format in your EN notes|
 | ```nestedTags``` | it's a complex property contains the following subitems: "separatorInEN", "replaceSeparatorWith" and  "replaceSpaceWith" | separatorInEN stores the tag separator used in Evernote, replaceSeparatorWith is the string to what separatorInEN should be replaced to, and replaceSpaceWith is the string to what the space character should be replaced to in the tags. For example using the default settings a tag ```tag1_sub tag of tag1``` is going to be converted to ```tag1/sub-tag-of-tag1```
-| ```keepImageSize``` | `ObsidianMD` or `StandardMD` | preserve an image's width and height in the chosen format when specified
+|```keepImageSize``` | boolean | preserve the images' size or not
+| ```imageSizeFormat``` | `ObsidianMD` or `StandardMD` | specifies the format if keepImageSize is set to True
 | ```urlEncodeFileNamesAndLinks``` | true or false | URL-encodes linked file names and internal EN links . e.g "linked file.jpg" will be converted to "linked%20file.jpg"
 | ```sanitizeResourceNameSpaces``` | true or false | Replace spaces in resource names with the `replacementChar`. e.g "linked file.jpg" will be converted to "linked_file.jpg"
 | ```replacementChar``` | string | the replacement character. e.g "linked*file.jpg" will be converted to "linked_file.jpg". It defaults to "_"

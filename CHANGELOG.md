@@ -370,7 +370,7 @@
 
 ### Bug Fixes
 
-* keepImageSize added to config ([#458](https://github.com/akosbalasko/yarle/issues/458)) ([b0ed312](https://github.com/akosbalasko/yarle/commit/b0ed31295cd799b644dd3aa56029047cdced7539))
+* imageSizeFormat added to config ([#458](https://github.com/akosbalasko/yarle/issues/458)) ([b0ed312](https://github.com/akosbalasko/yarle/commit/b0ed31295cd799b644dd3aa56029047cdced7539))
 
 ## [5.0.8](https://github.com/akosbalasko/yarle/compare/v5.0.7...v5.0.8) (2023-02-28)
 
