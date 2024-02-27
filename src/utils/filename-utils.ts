@@ -34,7 +34,7 @@ const applyCharacterMap = (title: string): string => {
   return appliedTitle;
 }
 
-export const normalizeTitle = (title: string) => {
+export const normalizeFilenameString = (title: string) => {
   // Allow setting a specific replacement character for file and resource names
   // Default to a retrocompatible value
   const normalizedTitle = sanitize(applyCharacterMap(title), {replacement: yarleOptions.replacementChar || '_'}).replace(/[\[\]\#\^]/g, '')
@@ -89,7 +89,7 @@ export const getResourceFileProperties = (workDir: string, resource: any): Resou
 };
 
 export const getFilePrefix = (note: any): string => {
-  return normalizeTitle(note['title'] ? `${note['title'].toString()}` : 'Untitled');
+  return normalizeFilenameString(note['title'] ? `${note['title'].toString()}` : 'Untitled');
 };
 
 export const getNoteFileName = (dstPath: string, note: any, extension: string = 'md'): string => {
@@ -158,7 +158,7 @@ export const getNoteName = (dstPath: string, note: any): string => {
 };
 
 export const getNotebookName = (enexFile: string): string => {
-  const notebookName = path.basename(enexFile, '.enex');
+  const notebookName = normalizeFilenameString(path.basename(enexFile, '.enex'));
 
   return notebookName;
 };
