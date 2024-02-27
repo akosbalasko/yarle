@@ -1,3 +1,10 @@
+# [6.8.0](https://github.com/akosbalasko/yarle/compare/v6.7.0...v6.8.0) (2024-02-27)
+
+
+### Features
+
+* disable imagesize ([#613](https://github.com/akosbalasko/yarle/issues/613)) ([9bc5631](https://github.com/akosbalasko/yarle/commit/9bc56315594047b1f6c5f956f53a6f0926171a36))
+
 # [6.7.0](https://github.com/akosbalasko/yarle/compare/v6.6.1...v6.7.0) (2024-02-27)
 
 
