@@ -5,7 +5,7 @@ import * as path from 'path';
 import { Path } from '../paths';
 import { yarleOptions } from '../yarle';
 
-import { getNoteFileName, getNoteName, getUniqueId, normalizeTitle } from './filename-utils';
+import { getNoteFileName, getNoteName, getUniqueId, normalizeFilenameString } from './filename-utils';
 import { loggerInfo } from './loggerInfo';
 import { OutputFormat } from './../output-format';
 import { RuntimePropertiesSingleton } from './../runtime-properties';
@@ -31,7 +31,7 @@ export const truncatFileName = (fileName: string, uniqueId: string): string => 
 const truncateFilePath = (note: any, fileName: string, fullFilePath: string): string => {
   const noteIdNameMap = RuntimePropertiesSingleton.getInstance();
 
-  const noteIdMap = noteIdNameMap.getNoteIdNameMapByNoteTitle(normalizeTitle(note.title))[0] || {uniqueEnd: getUniqueId()};
+  const noteIdMap = noteIdNameMap.getNoteIdNameMapByNoteTitle(normalizeFilenameString(note.title))[0] || {uniqueEnd: getUniqueId()};
 
 
   if (fileName.length <= 11) {
@@ -44,7 +44,7 @@ const truncateFilePath = (note: any, fileName: string, fullFilePath: string): st
 
 const getFilePath = (dstPath: string, note: any, extension: string): string => {
   const fileName = getNoteFileName(dstPath, note, extension);
-  const fullFilePath = `${dstPath}${path.sep}${normalizeTitle(fileName)}`;
+  const fullFilePath = `${dstPath}${path.sep}${normalizeFilenameString(fileName)}`;
 
   return fullFilePath.length <  MAX_PATH ? fullFilePath : truncateFilePath(note, fileName, fullFilePath);
 };
@@ -128,7 +128,8 @@ export const setPaths = (enexSource: string): void => {
   // loggerInfo('setting paths');
   const enexFolder = enexSource.split(path.sep);
   // loggerInfo(`enex folder split: ${JSON.stringify(enexFolder)}`);
-  const enexFile = (enexFolder.length >= 1 ?  enexFolder[enexFolder.length - 1] : enexFolder[0]).split(/.enex$/)[0];
+  let enexFile = (enexFolder.length >= 1 ?  enexFolder[enexFolder.length - 1] : enexFolder[0]).split(/.enex$/)[0];
+  enexFile = normalizeFilenameString(enexFile);
   // loggerInfo(`enex file: ${enexFile}`);
 
   const outputDir = path.isAbsolute(yarleOptions.outputDir)

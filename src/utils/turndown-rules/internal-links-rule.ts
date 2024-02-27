@@ -1,7 +1,7 @@
 import marked, { Token } from 'marked';
 import * as _ from 'lodash';
 
-import { getUniqueId, normalizeTitle } from '../filename-utils';
+import { getUniqueId, normalizeFilenameString } from '../filename-utils';
 import { OutputFormat } from '../../output-format';
 import { yarleOptions } from '../../yarle';
 import { getTurndownService } from '../turndown-service';
@@ -95,7 +95,7 @@ export const wikiStyleLinksRule = {
         const renderedObsidianDisplayName = omitObsidianLinksDisplayName ? '' : `|${displayName}`;
 
         if (isValueEvernoteLink) {
-            const fileName = normalizeTitle(token['text']);
+            const fileName = normalizeFilenameString(token['text']);
             const noteIdNameMap = RuntimePropertiesSingleton.getInstance();
             const uniqueEnd = getUniqueId();
             const id = getEvernoteUniqueId(value)
