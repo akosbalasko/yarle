@@ -40,7 +40,8 @@
     "omitLinkDisplayName": false
   },
   "dateFormat": "YYYY-MM-DD",
-  "keepImageSize": "ObsidianMD",
+  "imageSizeFormat": "ObsidianMD",
+  "keepImageSize": true,
   "keepOriginalAmountOfNewlines": false,
   "urlEncodeFileNamesAndLinks": false,
   "haveEnexLevelResources": false,

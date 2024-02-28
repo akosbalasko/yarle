@@ -1,3 +1,4 @@
+import { ImageSizeFormat } from 'image-size-format';
 import { CharacterMap } from './../CharacterMap';
 import { YarleOptions } from './../YarleOptions';
 const store = require ('./store');
@@ -44,7 +45,8 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
             omitLinkDisplayName: store.get('obsidianSettings.omitLinkDisplayName') as boolean,
         },
         dateFormat: store.get('dateFormat') as string,
-        keepImageSize: store.get('keepImageSize') as OutputFormat,
+        imageSizeFormat: store.get('imageSizeFormat') as ImageSizeFormat,
+        keepImageSize: store.get('keepImageSize') as boolean,
         keepOriginalAmountOfNewlines: store.get('keepOriginalAmountOfNewlines') as boolean,
         addExtensionToInternalLinks: store.get('addExtensionToInternalLinks') as boolean,
         generateNakedUrls: store.get('generateNakedUrls') as boolean,

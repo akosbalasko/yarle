@@ -1,7 +1,7 @@
 import marked, { Token } from 'marked';
 import * as _ from 'lodash';
 
-import { getUniqueId, normalizeTitle } from '../filename-utils';
+import { getUniqueId, normalizeFilenameString } from '../filename-utils';
 import { OutputFormat } from '../../output-format';
 import { yarleOptions } from '../../yarle';
 import { getTurndownService } from '../turndown-service';
@@ -41,6 +41,8 @@ const isEvernoteLink = (value: string): boolean => {
     return false;
 }
 const getEvernoteUniqueId = (value: string): string => {
+    if (yarleOptions.keepEvernoteLinkIfNoNoteFound)
+        return value;
     const urlSpl = value.split('/').reverse()
     return ((urlSpl[0] !== '')
         ? [urlSpl[0],urlSpl[1]]
@@ -95,7 +97,7 @@ export const wikiStyleLinksRule = {
         const renderedObsidianDisplayName = omitObsidianLinksDisplayName ? '' : `|${displayName}`;
 
         if (isValueEvernoteLink) {
-            const fileName = normalizeTitle(token['text']);
+            const fileName = normalizeFilenameString(token['text']);
             const noteIdNameMap = RuntimePropertiesSingleton.getInstance();
             const uniqueEnd = getUniqueId();
             const id = getEvernoteUniqueId(value)
@@ -106,9 +108,12 @@ export const wikiStyleLinksRule = {
                 noteIdNameMap.addItemToMap({ id, url: value, title: fileName, uniqueEnd  });
             }
 
-            const linkedNoteId = id;
-            if (isHeptaOrObsidianOutput()) {
+            const linkedNoteId = id; // todo add evernotelink value
+            if (isHeptaOrObsidianOutput() && !yarleOptions.keepEvernoteLinkIfNoNoteFound) {
                 return `${mdKeyword}[[${linkedNoteId}${extension}${renderedObsidianDisplayName}]]`;
+            }
+            if (yarleOptions.keepEvernoteLinkIfNoNoteFound){
+                return `<YARLE_EVERNOTE_LINK>${mdKeyword}[[${linkedNoteId}${extension}${renderedObsidianDisplayName}]]<-->[${displayName}](${linkedNoteId}${extension})</YARLE_EVERNOTE_LINK>`
             }
 
             return `${mdKeyword}[${displayName}](${linkedNoteId}${extension})`;
