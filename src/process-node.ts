@@ -10,12 +10,13 @@ import {
 } from './utils';
 import { yarleOptions } from './yarle';
 import { extractDataUrlResources, processResources } from './process-resources';
-import { convertHtml2Md } from './convert-html-to-md';
+import { convertHtml2MdContent } from './convert-html-to-md';
 import { convert2Html } from './convert-to-html';
 import { NoteData } from './models/NoteData';
 import { loggerInfo } from './utils/loggerInfo';
 import { RuntimePropertiesSingleton } from './runtime-properties';
 import { LanguageFactory } from './outputLanguages/LanguageFactory';
+import { performRegexpOnTitle } from './utils/get-title';
 
 export const processNode = (note: any, notebookName: string): void => {
 
@@ -30,7 +31,9 @@ export const processNode = (note: any, notebookName: string): void => {
     note.content = note.content.join('');
   }
   let noteData: NoteData = {
-    title: note.title,
+    created: note.created,
+    title: performRegexpOnTitle(yarleOptions, note.title),
+    noteName: note.title,
     content: note.content,
     htmlContent: note.content,
     originalContent: note.content,
@@ -41,20 +44,21 @@ export const processNode = (note: any, notebookName: string): void => {
 
   try {
     if (isComplex(note)) {
-      noteData.htmlContent = processResources(note);
+      noteData.htmlContent = processResources({...note, noteName: noteData.noteName});
     }
-    noteData.htmlContent = extractDataUrlResources(note, noteData.htmlContent);
+    // TODO: Create different types for different usages and implemente getters e.g. getResourceSettings(notedata): ResourceData
+    noteData.htmlContent = extractDataUrlResources({...note, noteName: noteData.noteName }, noteData.htmlContent);
 
-    noteData = {...noteData, ...convertHtml2Md(yarleOptions, noteData)};
+    noteData.content = convertHtml2MdContent(yarleOptions, noteData);
     noteData = {...noteData, ...getMetadata(note, notebookName)};
-    noteData = {...noteData, ...getTags(note)};
+    noteData.tags = getTags(note);
 
     let data = applyTemplate(noteData, yarleOptions);
     // tslint:disable-next-line:no-console
     // loggerInfo(`data =>\n ${JSON.stringify(data)} \n***`);
     const langaugeFactory = new LanguageFactory();
     const targetLanguage = langaugeFactory.createLanguage(yarleOptions.outputFormat)
-    targetLanguage.noteProcess(yarleOptions, {...noteData, content: data}, note)
+    targetLanguage.noteProcess(yarleOptions, {...noteData, content: data}, {...note, noteName: noteData.noteName})
 
     if (yarleOptions.keepOriginalHtml) {
       convert2Html(noteData);

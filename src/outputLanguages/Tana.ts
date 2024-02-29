@@ -29,14 +29,9 @@ export class Tana extends StandardMD implements Language  {
     };
     noteExtension = '.json';
     noteProcess = (options: YarleOptions, data: NoteData, note: any) => {
+        const tanaJson = convert2TanaNode(data)
 
-        let updatedData = {...data}
-        let updatedNote = {...note}
-        updatedNote = replacePostProcess(options, updatedNote, ReplaceType.title);
-        updatedData = replacePostProcess(options, updatedData, ReplaceType.content);
-        const tanaJson = convert2TanaNode(updatedData)
-
-        saveTanaFile(tanaJson, updatedNote)
+        saveTanaFile(tanaJson, note)
     };
     tagProcess = (content: string, tasks: Map<string, string>, currentTaskPlaceholder: string, updatedContent: string): string => {
         const tanaNote = JSON.parse(content);

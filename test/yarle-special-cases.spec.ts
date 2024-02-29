@@ -137,7 +137,7 @@ dateFormat: undefined,
       fs.readFileSync(`${__dirname}/data/test-newlines.md`, 'utf8'),
     );
   });
-  it.only('Replacement settings', async () => {
+  it('Replacement settings', async () => {
     const options: YarleOptions = {
       dateFormat: undefined,
       enexSources: [ `.${path.sep}test${path.sep}data${path.sep}test-replacements.enex` ],
@@ -146,26 +146,40 @@ dateFormat: undefined,
       convertPlainHtmlNewlines: true,
       isMetadataNeeded: true,
       contentReplacementSettings: [
-        {type: ReplaceType.content ,regex: "b", replace: "c"},
-        {type: ReplaceType.content ,regex: "a", replace: "b"}
+        {type: ReplaceType.title ,regex: "X", replace: "<replaced_X>"},
+        {type: ReplaceType.content ,regex: "a", replace: "<replaced_a>"}
       ]
     };
     await dropTheRopeRunner.run(options);
-    // tslint:disable-next-line:no-console
     assert.equal(
       fs.existsSync(
-        `${__dirname}/../out/notes/test-newlines/test-newlines.md`,
+        `${__dirname}/../out/notes/test-replacements/NoteX.md`,
       ),
       true,
     );
 
     assert.equal(
       eol.auto(fs.readFileSync(
-        `${__dirname}/../out/notes/test-newlines/test-newlines.md`,
+        `${__dirname}/../out/notes/test-replacements/NoteX.md`,
         'utf8',
       )),
-      fs.readFileSync(`${__dirname}/data/test-newlines.md`, 'utf8'),
+      fs.readFileSync(`${__dirname}/data/test-replacements-NoteX.md`, 'utf8'),
     );
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-replacements/NoteY.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-replacements/NoteY.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-replacements-NoteY.md`, 'utf8'),
+    );
+
   });
   it('Encrypted lines in notes', async () => {
     const options: YarleOptions = {

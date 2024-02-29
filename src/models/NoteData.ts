@@ -2,6 +2,8 @@ import { InternalLink } from './InternalLink';
 
 export interface NoteData {
     title?: string;
+    created?:string;
+    noteName?: string;
     tags?: string;
     content?: string;
     originalContent?: string;
@@ -17,3 +19,4 @@ export interface NoteData {
     reminderDoneTime?: string;
     reminderOrder?: string;
   }
+

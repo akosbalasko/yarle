@@ -20,13 +20,9 @@ export class StandardMD implements Language {
     postProcess= async(options: YarleOptions, outputNotebookFolders: string[]) => {};
     noteExtension= '.md';
     noteProcess= (options: YarleOptions, data: NoteData, note: any)  => {
-        let updatedData = {...data}
-        let updatedNote = {...note}
-        updatedNote = replacePostProcess(options, updatedNote, ReplaceType.title);
-        updatedData = replacePostProcess(options, updatedData, ReplaceType.content);
 
 
-        saveMdFile(fixImagesInLink(updatedData.content), updatedNote)
+        saveMdFile(fixImagesInLink(data.content), data)
     };
     tagProcess= (content: string, tasks: Map<string, string>, currentTaskPlaceholder: string, updatedContent: string): string => {
         return updatedContent;

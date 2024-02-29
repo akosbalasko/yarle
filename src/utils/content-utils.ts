@@ -84,8 +84,8 @@ export const getReminderDoneTime = (note: any): string => {
 <reminder-order>
 <reminder-time>
 <reminder-done-time> */
-export const getTags = (note: any): NoteData => {
-  return {tags: logTags(note)};
+export const getTags = (note: any): string => {
+  return logTags(note);
 
 };
 
