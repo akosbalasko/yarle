@@ -8,6 +8,8 @@ export interface NoteData {
     content?: string;
     originalContent?: string;
     htmlContent?: string;
+    markdownContent?: string;
+    appliedMarkdownContent?: string;
     createdAt?: string;
     updatedAt?: string;
     sourceUrl?: string;
@@ -20,3 +22,25 @@ export interface NoteData {
     reminderOrder?: string;
   }
 
+export interface EvernoteNoteData {
+  title?: string;
+  created?: string;
+  updated?: string;
+  content?: string;
+  resource?: any;
+  noteName?: string;
+  tag?: any;
+  "note-attributes"?: NoteAttributes;
+}
+
+interface NoteAttributes {
+  'source-application'?: string;
+  'source-url'?: string;
+  'source'?: string;
+  'reminder-time'?: string;
+  'reminder-order'?: string;
+  'reminder-done-time'?: string;
+  longitude?: string;
+  latitude?: string;
+  
+}

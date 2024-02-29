@@ -25,6 +25,7 @@ import { mapEvernoteTask } from './models/EvernoteTask';
 import { TaskOutputFormat } from './task-output-format';
 import { isTanaOutput } from './utils/tana/is-tana-output';
 import { LanguageFactory } from './outputLanguages/LanguageFactory';
+import { EvernoteNoteData } from './models';
 
 export const defaultYarleOptions: YarleOptions = {
   enexSources: ['notebook.enex'],
@@ -117,7 +118,7 @@ export const parseStream = async (options: YarleOptions, enexSource: string): Pr
       noteAttributes = na;
     });
 
-    xml.on('tag:note', (note: any) => {
+    xml.on('tag:note', (note: EvernoteNoteData) => {
       if (options.skipWebClips && isWebClip(note)) {
         ++skipped;
         loggerInfo(`Notes skipped: ${skipped}`);
@@ -126,7 +127,7 @@ export const parseStream = async (options: YarleOptions, enexSource: string): Pr
           // make sure single attributes are not collapsed
           note['note-attributes'] = noteAttributes;
         }
-
+        note.noteName = note.title?.slice();
         processNode(note, notebookName);
         ++noteNumber;
         loggerInfo(`Notes processed: ${noteNumber}\n\n`);

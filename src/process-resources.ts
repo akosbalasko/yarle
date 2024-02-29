@@ -8,6 +8,7 @@ import { ResourceHashItem } from './models/ResourceHash';
 import * as utils from './utils';
 import { yarleOptions } from './yarle';
 import { OutputFormat } from './output-format';
+import { EvernoteNoteData } from './models';
 
 const getResourceWorkDirs = (note: any) => {
   const pathSepRegExp = new RegExp(`\\${path.sep}`, 'g');
@@ -17,13 +18,12 @@ const getResourceWorkDirs = (note: any) => {
   return {absoluteResourceWorkDir, relativeResourceWorkDir};
 };
 
-export const processResources = (note: any): string => {
+export const processResources = (note: EvernoteNoteData): string => {
     let resourceHashes: any = {};
     let updatedContent = cloneDeep(note.content);
     const {absoluteResourceWorkDir, relativeResourceWorkDir} = getResourceWorkDirs(note);
 
     utils.loggerInfo(`relative resource work dir: ${relativeResourceWorkDir}`);
-
     utils.loggerInfo(`absolute resource work dir: ${absoluteResourceWorkDir}`);
 
     utils.clearResourceDir(note);
@@ -100,7 +100,7 @@ const processResource = (workDir: string, resource: any): any => {
     return resourceHash;
 };
 
-export const extractDataUrlResources = (
+export const prepareContentByExtractingDataUrlResources = (
   note: any,
   content: string,
 ): string => {

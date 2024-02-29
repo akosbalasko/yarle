@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE en-export SYSTEM "http://xml.evernote.com/pub/evernote-export4.dtd">
+<en-export export-date="20240228T215609Z" application="Evernote" version="10.74.1">
+  <note>
+    <title>Custom fonts at the beginning</title>
+    <created>20240228T215416Z</created>
+    <updated>20240228T215551Z</updated>
+    <note-attributes>
+    </note-attributes>
+    <content>
+      <![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd"><en-note><div>Default text with no custom font </div><div><br/></div><div><span style="--en-fontfamily: monospace; font-family: &quot;Source Code Pro&quot;,monospace"><span style="font-size: 20px;">Paragraph starting with Custom font</span></span></div><div><span style="--en-fontfamily: monospace; font-family: &quot;Source Code Pro&quot;,monospace"><span style="font-size: 20px;"><span style="--en-markholder:true;"><br/></span></span></span></div><div><span style="font-size: 15px;">Normal paragraph, but </span><span style="--en-fontfamily: monospace; font-family: &quot;Source Code Pro&quot;,monospace"><span style="font-size: 20px;">it contains custom font</span></span><span style="font-size: 15px;"> in the middle.</span></div></en-note>      ]]>
+    </content>
+  </note>
+</en-export>

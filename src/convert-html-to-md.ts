@@ -84,7 +84,7 @@ const fixSublists = (node: HTMLElement) => {
     return node;
 };
 
-export const convertHtml2MdContent = (yarleOptions: YarleOptions, { htmlContent }: NoteData): string => {
+export const convertHtml2MdContent = (yarleOptions: YarleOptions, htmlContent: string): string => {
 
     const content = htmlContent.replace(/<!DOCTYPE en-note [^>]*>/, '<!DOCTYPE html>')
       .replace(/(<a [^>]*)\/>/, '$1></a>').replace(/<div[^\/\<]*\/>/g, '');
