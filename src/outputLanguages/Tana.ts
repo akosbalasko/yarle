@@ -2,7 +2,7 @@ import { YarleOptions } from "./../YarleOptions";
 import { Language } from "./language";
 import { createTanaOutput } from "./../utils/tana/create-tana-output";
 import { StandardMD } from "./StandardMD";
-import { NoteData } from "./../models/NoteData";
+import { EvernoteNoteData, NoteData } from "./../models/NoteData";
 import { cleanTanaContent, convert2TanaNode } from "./../utils/tana/convert-to-tana-node";
 import { saveTanaFile } from "./../utils/save-tana-file";
 import { NodeType } from "./../utils/tana/types";
@@ -26,9 +26,9 @@ export class Tana extends StandardMD implements Language  {
         createTanaOutput(options, outputNotebookFolders);
     };
     noteExtension = '.json';
-    noteProcess = (data: NoteData, note: any) => {
-
+    noteProcess = (options: YarleOptions, data: NoteData, note: EvernoteNoteData) => {
         const tanaJson = convert2TanaNode(data)
+
         saveTanaFile(tanaJson, note)
     };
     tagProcess = (content: string, tasks: Map<string, string>, currentTaskPlaceholder: string, updatedContent: string): string => {

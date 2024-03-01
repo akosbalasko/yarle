@@ -520,12 +520,13 @@
 												<option value="false" selected>No</option>
 											</select>
 											</div>
-	
 											<div class="form-group">
-												<label for="replacementChar" class="pure-checkbox">
-													Replacement character for sanitizing spaces in resource names
+												<label for="globalReplacementSettings">
+													Global search and replace (regexp) in note title and content
+													<br><div style='font-size: 12px;'><i>(
+													Please provide settings in valid JSON Array format, each item has to have <b>type</b> ('title' or 'content'), <b>regex</b> (what you want to replace as a valid regular expression) and <b>replace</b> (what you want to push instead of the matched text) properties)</i></div> 
 												</label>
-												<input type="text"  class="form-control configurationItem"value="_" id='replacementChar'> 
+												<textarea class="form-control configurationItem" name="globalReplacementSettings" id="globalReplacementSettings" rows="15"></textarea>
 														
 											</div>
 											
@@ -537,6 +538,14 @@
 														
 											</div>
 
+
+											<div class="form-group">
+												<label for="replacementChar" class="pure-checkbox">
+													Replacement character for sanitizing spaces in resource names
+												</label>
+												<input type="text"  class="form-control configurationItem"value="_" id='replacementChar'> 
+														
+											</div>
 												<div class="form-group">
 													<label for="resourcesDir">Custom resources folder:
 													</label>

@@ -158,6 +158,18 @@ To configure Yarle, you must create a config file. By default it looks like this
       "?": "_",
       "*": "_"
     },
+   "globalReplacementSettings": [
+        {
+         "type": "title" ,
+         "regex": "X",
+         "replace": "<replaced_X>"
+         },
+        {
+         "type": "content",
+         "regex": "a",
+         "replace": "<replaced_a>"
+        }
+      ]
    "resourcesDir": "resources",
    "turndownOptions": {
       "headingStyle": "atx"
@@ -201,6 +213,7 @@ The following configurational properties are available:
 | ```sanitizeResourceNameSpaces``` | true or false | Replace spaces in resource names with the `replacementChar`. e.g "linked file.jpg" will be converted to "linked_file.jpg"
 | ```replacementChar``` | string | the replacement character. e.g "linked*file.jpg" will be converted to "linked_file.jpg". It defaults to "_"
 | ```replacementCharacterMap``` | JSON Object | it contains character key-value pairs, the keys will be replaced by the proper values in the filename 
+| ```globalReplacementSettings``` | JSON Array | it contains search and replace pairs, the keys will be replaced by the proper values according to the given type (title or content). Please note: this property has to be in valid JSON Array format, and each item has to have <b>type</b> ('title' or 'content'), <b>regex</b> (what you want to replace as a valid regular expression) and <b>replace</b> (what you want to push instead of the matched text) properties)
 | ```keepOriginalAmountOfNewlines``` | true or false | keep the original amount of newlines, default is false, when the multiple newlines are collapsed to one.
 | ```generateNakedUrls``` | true or false | if it's true, Yarle generates 'naked' external Urls without any extra characters. If its false, external Urls are wrapped by  '<' and '>' characters
 | ```addExtensionToInternalLinks``` | true or false | adds '.md' extensions at the end of internal file links, to make them recognizable by DevonThink and other tools

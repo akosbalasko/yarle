@@ -4,7 +4,21 @@ import { YarleOptions } from './../YarleOptions';
 const store = require ('./store');
 import { OutputFormat } from './../output-format';
 import { TaskOutputFormat } from './../task-output-format';
+import { SearchAndReplace } from 'models';
+enum DefaultRootType {
+    array = 'array',
+    object = 'object'
 
+}
+const loadJSONSafely = (jsonString: string, defaultRootTyoe: DefaultRootType): any => {
+    try {
+        return JSON.parse(jsonString);
+    }catch(e){
+        return defaultRootTyoe === DefaultRootType.array
+            ? []
+            : {}
+    }
+}
 export const mapSettingsToYarleOptions = (): YarleOptions => {
     return {
         enexSources: store.get('enexSources') as Array<string>,
@@ -58,6 +72,7 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
         keepFontColors: store.get('keepFontColors') as boolean,
         sanitizeResourceNameSpaces: store.get('sanitizeResourceNameSpaces') as boolean,
         replacementChar: store.get('replacementChar') as string,
-        replacementCharacterMap: JSON.parse(store.get('replacementCharacterMap')) as CharacterMap,
+        replacementCharacterMap: loadJSONSafely(store.get('replacementCharacterMap'), DefaultRootType.object) as CharacterMap,
+        globalReplacementSettings: loadJSONSafely(store.get('globalReplacementSettings'), DefaultRootType.array) as Array<SearchAndReplace>
     };
 };

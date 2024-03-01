@@ -1,5 +1,5 @@
 import { OutputFormat } from './output-format';
-import { TagSeparatorReplaceOptions } from './models';
+import { TagSeparatorReplaceOptions, SearchAndReplace } from './models';
 import { TaskOutputFormat } from './task-output-format';
 import { CharacterMap } from 'CharacterMap';
 import { ImageSizeFormat } from 'image-size-format';
@@ -62,4 +62,5 @@ export interface YarleOptions {
     useLevenshteinForLinks?: boolean;
     keepEvernoteLinkIfNoNoteFound?: boolean;
     keepFontColors?: boolean;
+    globalReplacementSettings?: Array<SearchAndReplace>;
 }

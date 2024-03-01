@@ -4,61 +4,63 @@ import { applyTemplate } from './utils/templates/templates';
 import {
   getMetadata,
   getTags,
-  isComplex,
+  hasResource,
   saveHtmlFile,
   saveMdFile,
 } from './utils';
 import { yarleOptions } from './yarle';
-import { extractDataUrlResources, processResources } from './process-resources';
-import { convertHtml2Md } from './convert-html-to-md';
+import { prepareContentByExtractingDataUrlResources, processResources } from './process-resources';
+import { convertHtml2MdContent } from './convert-html-to-md';
 import { convert2Html } from './convert-to-html';
-import { NoteData } from './models/NoteData';
+import { EvernoteNoteData, NoteData } from './models/NoteData';
 import { loggerInfo } from './utils/loggerInfo';
 import { RuntimePropertiesSingleton } from './runtime-properties';
 import { LanguageFactory } from './outputLanguages/LanguageFactory';
+import { performRegexpOnTitle } from './utils/get-title';
 
-export const processNode = (note: any, notebookName: string): void => {
+export const processNode = (pureNote: EvernoteNoteData, notebookName: string): void => {
 
   const dateStarted: Date = new Date();
   loggerInfo(EOL);
   loggerInfo(`Conversion started at ${dateStarted}`);
 
   const runtimeProps = RuntimePropertiesSingleton.getInstance();
-  runtimeProps.setCurrentNoteName(note.title);
+  runtimeProps.setCurrentNoteName(pureNote.title);
 
-  if (Array.isArray(note.content)) {
-    note.content = note.content.join('');
-  }
+
   let noteData: NoteData = {
-    title: note.title,
-    content: note.content,
-    htmlContent: note.content,
-    originalContent: note.content,
+    created: pureNote.created,
+    title: performRegexpOnTitle(yarleOptions, pureNote.title),
+    noteName: pureNote.title,
+    content: Array.isArray(pureNote.content) ? pureNote.content.join('') : pureNote.content,
+    originalContent: pureNote.content,
   };
 
   // tslint:disable-next-line:no-console
   loggerInfo(`Converting note "${noteData.title}"...`);
 
   try {
-    if (isComplex(note)) {
-      noteData.htmlContent = processResources(note);
+    let htmlContent = noteData.content; 
+    if (hasResource(pureNote)) {
+      htmlContent = processResources(pureNote);
     }
-    noteData.htmlContent = extractDataUrlResources(note, noteData.htmlContent);
+    htmlContent = prepareContentByExtractingDataUrlResources(pureNote, htmlContent);
 
-    noteData = {...noteData, ...convertHtml2Md(yarleOptions, noteData)};
-    noteData = {...noteData, ...getMetadata(note, notebookName)};
-    noteData = {...noteData, ...getTags(note)};
+    noteData.markdownContent = convertHtml2MdContent(yarleOptions, htmlContent);
+    noteData = {...noteData, ...getMetadata(pureNote, notebookName)};
+    noteData.tags = getTags(pureNote);
 
-    let data = applyTemplate(noteData, yarleOptions);
+    noteData.appliedMarkdownContent = applyTemplate(noteData, yarleOptions);
     // tslint:disable-next-line:no-console
     // loggerInfo(`data =>\n ${JSON.stringify(data)} \n***`);
     const langaugeFactory = new LanguageFactory();
     const targetLanguage = langaugeFactory.createLanguage(yarleOptions.outputFormat)
-    targetLanguage.noteProcess({...noteData, content: data}, note)
+
+    targetLanguage.noteProcess(yarleOptions, noteData, pureNote)
 
     if (yarleOptions.keepOriginalHtml) {
       convert2Html(noteData);
-      saveHtmlFile(noteData, note);
+      saveHtmlFile(noteData, pureNote);
     }
 
   } catch (e) {

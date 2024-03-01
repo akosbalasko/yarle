@@ -32,6 +32,18 @@
         "?": "_",
         "*": "_"
     },
+    "globalReplacementSettings": [
+        {
+        "type": "title" ,
+        "regex": "",
+        "replace": ""
+        },
+        {
+        "type": "content",
+        "regex": "",
+        "replace": ""
+        }
+    ],
     "pathSeparator": "/",
     "resourcesDir": "assets",
     "turndownOptions": {

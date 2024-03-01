@@ -53,7 +53,7 @@ export const applyTemplate = (noteData: NoteData, yarleOptions: YarleOptions) =>
     ? removeEvernoteGuidPlaceholder(result) 
     : applyEvernoteGuidTemplate(noteData, result)
 
-  result = applyContentTemplate(noteData, result, () => noteData.content);
+  result = applyContentTemplate(noteData, result, () => noteData.markdownContent);
 
   result = (yarleOptions.keepOriginalHtml && noteData.linkToOriginal)
       ? applyLinkToOriginalTemplate(noteData, result)

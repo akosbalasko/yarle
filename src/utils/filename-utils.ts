@@ -89,7 +89,7 @@ export const getResourceFileProperties = (workDir: string, resource: any): Resou
 };
 
 export const getFilePrefix = (note: any): string => {
-  return normalizeFilenameString(note['title'] ? `${note['title'].toString()}` : 'Untitled');
+  return normalizeFilenameString(note['noteName'] ? `${note['noteName'].toString()}` : 'Untitled');
 };
 
 export const getNoteFileName = (dstPath: string, note: any, extension: string = 'md'): string => {

@@ -8,7 +8,7 @@ import { getTemplateBlockSettings } from './get-templateblock-settings';
 
 export const applyContentTemplate = (noteData: NoteData, inputText: string, check: Function): string => {
     const result = cloneDeep(inputText);
-    const contentTemplateSettings = getTemplateBlockSettings(result, check, P, noteData.content);
+    const contentTemplateSettings = getTemplateBlockSettings(result, check, P, noteData.markdownContent);
 
     return applyTemplateOnBlock(contentTemplateSettings);
 };
