@@ -7,8 +7,6 @@ import { cleanTanaContent, convert2TanaNode } from "./../utils/tana/convert-to-t
 import { saveTanaFile } from "./../utils/save-tana-file";
 import { NodeType } from "./../utils/tana/types";
 import { checkboxDone, checkboxTodo } from './../constants';
-import { replacePostProcess } from "./../utils";
-import { ReplaceType } from "./../models";
 
 export class Tana extends StandardMD implements Language  {
     constructor(){

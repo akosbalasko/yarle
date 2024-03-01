@@ -145,7 +145,7 @@ dateFormat: undefined,
       outputFormat: OutputFormat.ObsidianMD,
       convertPlainHtmlNewlines: true,
       isMetadataNeeded: true,
-      contentReplacementSettings: [
+      globalReplacementSettings: [
         {type: ReplaceType.title ,regex: "X", replace: "<replaced_X>"},
         {type: ReplaceType.content ,regex: "a", replace: "<replaced_a>"}
       ]

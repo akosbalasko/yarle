@@ -6,7 +6,7 @@ export const regexpProcess = (options: YarleOptions, inputString: string, replac
     if (!inputString)
         return inputString;
     let cloneString = inputString.slice();
-    const replaceOptions = options.contentReplacementSettings?.filter(option => option.type === replaceType);
+    const replaceOptions = options.globalReplacementSettings?.filter(option => option.type === replaceType);
     if (!replaceOptions || replaceOptions.length === 0 )
         return inputString;
 

@@ -4,6 +4,7 @@ import { YarleOptions } from './../YarleOptions';
 const store = require ('./store');
 import { OutputFormat } from './../output-format';
 import { TaskOutputFormat } from './../task-output-format';
+import { SearchAndReplace } from 'models';
 
 export const mapSettingsToYarleOptions = (): YarleOptions => {
     return {
@@ -59,5 +60,6 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
         sanitizeResourceNameSpaces: store.get('sanitizeResourceNameSpaces') as boolean,
         replacementChar: store.get('replacementChar') as string,
         replacementCharacterMap: JSON.parse(store.get('replacementCharacterMap')) as CharacterMap,
+        globalReplacementSettings: JSON.parse(store.get('globalReplacementSettings')) as Array<SearchAndReplace>
     };
 };

@@ -47,6 +47,18 @@
         "?": "_",
         "*": "_"
     },
+    "globalReplacementSettings": [
+        {
+        "type": "title" ,
+        "regex": "",
+        "replace": ""
+        },
+        {
+        "type": "content",
+        "regex": "",
+        "replace": ""
+        }
+    ],
     "generateNakedUrls": true,
     "logseqSettings": {
         "journalNotes": false

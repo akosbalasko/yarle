@@ -53,6 +53,7 @@ export const defaultYarleOptions: YarleOptions = {
   sanitizeResourceNameSpaces: false,
   replacementChar: '_',
   replacementCharacterMap: {},
+  globalReplacementSettings: [],
   pathSeparator: '/',
   resourcesDir: '_resources',
   turndownOptions: {
