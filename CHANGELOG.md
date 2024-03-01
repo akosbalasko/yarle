@@ -1,3 +1,10 @@
+# [6.10.0](https://github.com/akosbalasko/yarle/compare/v6.9.2...v6.10.0) (2024-03-01)
+
+
+### Features
+
+* search and replace in title and content ([#616](https://github.com/akosbalasko/yarle/issues/616)) ([5b10a27](https://github.com/akosbalasko/yarle/commit/5b10a27757c0301743c3200231cf9530f85b5af6))
+
 ## [6.9.2](https://github.com/akosbalasko/yarle/compare/v6.9.1...v6.9.2) (2024-02-27)
 
 
