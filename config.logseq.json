@@ -67,7 +67,7 @@
 	"useUniqueUnknownFileNames": false,
     "useLevenshteinForLinks": false,
     "keepEvernoteLinkIfNoNoteFound": false,
-    "keepFontColors": false,
+    "convertColorsToMDHighlight": false,
     "logseqSettings":{
         "journalNotes": false
     },

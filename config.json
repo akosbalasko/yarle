@@ -34,7 +34,7 @@
     "useUniqueUnknownFileNames": false,
     "useLevenshteinForLinks": false,
     "keepEvernoteLinkIfNoNoteFound": false,
-    "keepFontColors": false,
+    "convertColorsToMDHighlight": false,
 
     "replacementChar": "_",
     "replacementCharacterMap": {
