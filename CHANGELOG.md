@@ -1,3 +1,10 @@
+## [6.10.1](https://github.com/akosbalasko/yarle/compare/v6.10.0...v6.10.1) (2024-03-07)
+
+
+### Bug Fixes
+
+* storing keepEvernoteLinkIfNoNoteFound fixed ([#617](https://github.com/akosbalasko/yarle/issues/617)) ([97885a9](https://github.com/akosbalasko/yarle/commit/97885a9a0cca01104414b9791b87f69c012844af))
+
 # [6.10.0](https://github.com/akosbalasko/yarle/compare/v6.9.2...v6.10.0) (2024-03-01)
 
 
