@@ -1,3 +1,10 @@
+# [6.11.0](https://github.com/akosbalasko/yarle/compare/v6.10.1...v6.11.0) (2024-03-13)
+
+
+### Features
+
+* colors and custom fonts transformed to default markdown highlights ([#619](https://github.com/akosbalasko/yarle/issues/619)) ([2579b48](https://github.com/akosbalasko/yarle/commit/2579b48e867ebf2f64ab9daf6434fd9024c1a637))
+
 ## [6.10.1](https://github.com/akosbalasko/yarle/compare/v6.10.0...v6.10.1) (2024-03-07)
 
 
