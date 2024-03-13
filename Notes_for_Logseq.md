@@ -52,7 +52,7 @@ Please use settings below
   	"useUniqueUnknownFileNames": false,
     "useLevenshteinForLinks": false,
     "keepEvernoteLinkIfNoNoteFound": false,
-    "keepFontColors": false,
+    "convertColorsToMDHighlight": false,
     "logseqSettings":{
       "journalNotes": false
     }

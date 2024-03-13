@@ -12,8 +12,10 @@ enum DefaultRootType {
 }
 const loadJSONSafely = (jsonString: string, defaultRootTyoe: DefaultRootType): any => {
     try {
+        console.log(jsonString);
         return JSON.parse(jsonString);
     }catch(e){
+        console.log("ERROR", e);
         return defaultRootTyoe === DefaultRootType.array
             ? []
             : {}
@@ -69,7 +71,7 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
         haveGlobalResources: store.get('haveGlobalResources') as boolean,
         useUniqueUnknownFileNames: store.get('useUniqueUnknownFileNames') as boolean,
         useLevenshteinForLinks: store.get('useLevenshteinForLinks') as boolean,
-        keepFontColors: store.get('keepFontColors') as boolean,
+        convertColorsToMDHighlight: store.get('convertColorsToMDHighlight') as boolean,
         keepEvernoteLinkIfNoNoteFound: store.get('keepEvernoteLinkIfNoNoteFound') as boolean,
         sanitizeResourceNameSpaces: store.get('sanitizeResourceNameSpaces') as boolean,
         replacementChar: store.get('replacementChar') as string,
