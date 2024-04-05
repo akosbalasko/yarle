@@ -1,6 +1,5 @@
 import Moment from 'moment';
-import { utimesSync } from 'fs';
-import { utimes } from 'utimes';
+import { utimesSync } from 'utimes';
 
 import { yarleOptions } from './../yarle';
 import { MetaData } from './../models/MetaData';
@@ -116,19 +115,15 @@ export const logTags = (note: EvernoteNoteData): string => {
   return undefined;
 };
 
-export const setFileDates = (path: string, created: any, updated: any): void => {
-  const updatedMoment = Moment(updated).valueOf();
-  const mtime = updatedMoment / 1000;
-  utimesSync(path, mtime, mtime);
-  // also set creation time where supported
-  const creationTime = Moment(created);
+export const setFileDates = (path: string, created?: string | Date, updated?: string | Date): void => {
+  const createdTime = created ? Math.max(0, Moment(created).valueOf()) : 0;
+  const updatedTime = updated ? Math.max(0, Moment(updated).valueOf()) : createdTime;
 
-  const createdMoment = (Moment('1970-01-01 00:00:00.000').isBefore(creationTime)
-    ? creationTime
-    : Moment('1970-01-01 00:00:00.001')).valueOf();
-  if (createdMoment) {
-    utimes(path, {btime: createdMoment});
-  }
+  utimesSync(path, {
+    btime: createdTime,
+    mtime: updatedTime,
+    atime: updatedTime
+  });
 };
 
 export const getTimeStampMoment = (resource: any): any => {
