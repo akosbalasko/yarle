@@ -42,20 +42,20 @@ describe('SetFileDates', () => {
     });
     it('set to created time if no updated field in note', () => {
         notes['note']['updated'] = undefined;
-        const { birthtime: oldBirthtime } = fs.statSync('./test/data/test-justText.enex')
+        const { birthtime: oldBirthtime } = fs.statSync('./test/data/test-justText.enex');
         utils.setFileDates('./test/data/test-justText.enex', notes['note']['created'], notes['note']['updated']);
         const fStat = fs.statSync('./test/data/test-justText.enex');
-        const created = moment(notes['note']['created']).valueOf()
+        const created = moment(notes['note']['created']).valueOf();
 
-        const btime = fStat.birthtime.valueOf()
+        const btime = fStat.birthtime.valueOf();
         const atime = fStat.atime.valueOf();
         const mtime = fStat.mtime.valueOf();
 
         // Linux does not support setting btime, so btime maybe equal to previous value
         // see: https://www.npmjs.com/package/utimes#caveats
-        assert.ok(btime === created || btime === oldBirthtime.valueOf())
-        assert.equal(atime, created)
-        assert.equal(mtime, created)
+        assert.ok(btime === created || btime === oldBirthtime.valueOf());
+        assert.equal(atime, created);
+        assert.equal(mtime, created);
     });
 });
 
