@@ -1,10 +1,11 @@
 import { ImageSizeFormat } from 'image-size-format';
 import { CharacterMap } from './../CharacterMap';
 import { YarleOptions } from './../YarleOptions';
-const store = require ('./store');
 import { OutputFormat } from './../output-format';
 import { TaskOutputFormat } from './../task-output-format';
 import { SearchAndReplace } from 'models';
+
+const store = require ('./store');
 enum DefaultRootType {
     array = 'array',
     object = 'object'
@@ -39,6 +40,7 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
         keepMDCharactersOfENNotes: store.get('keepMDCharactersOfENNotes') as boolean,
         monospaceIsCodeBlock: store.get('monospaceIsCodeBlock') as boolean,
         keepOriginalHtml: store.get('keepOriginalHtml') as boolean,
+        posixHtmlPath: store.get('posixHtmlPath') as boolean,
         currentTemplate: store.get('currentTemplate') as string,
         resourcesDir: store.get('resourcesDir') as string,
         trimStartingTabs: store.get('trimStartingTabs') as boolean,
