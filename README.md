@@ -105,11 +105,22 @@ https://user-images.githubusercontent.com/11886731/213943491-97211b41-c130-4b6b-
 
 
 ## Using Yarle via command line
+
 Just open a terminal, specify config options in a config file (options detailed in [Configuration](#Configuration)) and type the following:
 
-```javascript
-npx -p yarle-evernote-to-md@latest yarle --configFile <path_to_your_file e.g. ./config.json>
+```sh
+npx -p yarle-evernote-to-md@latest yarle --configFile ./config.json # path to your config file
 ```
+
+You can also override properties in the configuration file with command-line arguments. Note that only properties of types like `string`, `string[]`, and `boolean` can be overridden. 
+
+```sh
+npx -p yarle-evernote-to-md@latest yarle \
+  --configFile ./config.json \
+  --enexSources ./test.enex \
+  --outputDir out-new
+```
+
 
 ## Yarle intro and usage videos on Youtube:
 <a href="https://www.youtube.com/watch?v=EPMkm5zRIts">How to migrate notes from Evernote to Obsidian (using Yarle)</a><br>
@@ -193,7 +204,7 @@ The following configurational properties are available:
 |
 |Property Name| Property value | Meaning |
 |-------------|----------------|---------|
-|```enexSources```| multiple enex files, or a folder of the enex files(if you specify it via command line) | specifies the exported Evernote notebook(s) as an absolute path|
+|```enexSources```| multiple enex files, or a folder of the enex files | specifies the exported Evernote notebook(s) as an absolute path|
 |```templateFile``` | path of your custom template file | if its not specified, a [default template](https://github.com/akosbalasko/yarle/blob/master/src/utils/templates/default-template.ts) will be used
 |```outputDir``` | path to your output dir (absolute or relative) | this is the main output dir where the extracted markdown files and the external resources, images, pdf-s are going to be created|
 |```resourcesDir``` | `_resources` | subdir where attachments/external resources will be placed
