@@ -6,6 +6,7 @@ import { yarleOptions } from './../yarle';
 import { isLogseqJournal } from './is-logseq-journal';
 import {getCreationTime} from './content-utils'
 import { EvernoteNoteData } from './../models';
+import { resolve } from 'path';
 
 export const writeFile = (absFilePath: string, noteContent: string, pureNoteData: EvernoteNoteData): void => {
     try {
@@ -37,4 +38,16 @@ export const writeFile = (absFilePath: string, noteContent: string, pureNoteData
     console.log(`replaced output written to: ${filePath}`);
     fs.writeFileSync(filePath, updatedContent);
     setFileDates(filePath, birthtime, mtime)
+}
+
+export function* recursiveReaddirSync(dir: string): Generator<string> {
+  const dirents = fs.readdirSync(dir, { withFileTypes: true });
+  for (const dirent of dirents) {
+    const res = resolve(dir, dirent.name);
+    if (dirent.isDirectory()) {
+      yield* recursiveReaddirSync(res);
+    } else {
+      yield res;
+    }
+  }
 }
