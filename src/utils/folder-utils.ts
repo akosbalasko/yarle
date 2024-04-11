@@ -8,12 +8,13 @@ import { yarleOptions } from '../yarle';
 import { getNoteFileName, getNoteName, getUniqueId, normalizeFilenameString } from './filename-utils';
 import { OutputFormat } from './../output-format';
 import { RuntimePropertiesSingleton } from './../runtime-properties';
+import { EvernoteNoteData } from '../models';
 import { loggerInfo } from './loggerInfo';
 
 export const paths: Path = {};
 const MAX_PATH = 249;
 
-export const getResourceDir = (dstPath: string, note: any): string => {
+export const getResourceDir = (dstPath: string, note: EvernoteNoteData): string => {
   return getNoteName(dstPath, note).replace(/\s/g, '_').substr(0, 50);
 };
 
@@ -28,7 +29,7 @@ export const truncatFileName = (fileName: string, uniqueId: string): string => 
   return fullPath.length <  MAX_PATH ? fileName : `${fileName.slice(0, MAX_PATH - 11)}_${uniqueId}.md`;
 };
 
-const truncateFilePath = (note: any, fileName: string, fullFilePath: string): string => {
+const truncateFilePath = (note: EvernoteNoteData, fileName: string, fullFilePath: string): string => {
   const noteIdNameMap = RuntimePropertiesSingleton.getInstance();
 
   const noteIdMap = noteIdNameMap.getNoteIdNameMapByNoteTitle(normalizeFilenameString(note.title))[0] || {uniqueEnd: getUniqueId()};
@@ -42,25 +43,25 @@ const truncateFilePath = (note: any, fileName: string, fullFilePath: string): st
   // -11 is the nanoid 5 char +_+ the max possible extension of the note (.md vs .html)
 };
 
-const getFilePath = (dstPath: string, note: any, extension: string): string => {
+const getFilePath = (dstPath: string, note: EvernoteNoteData, extension: string): string => {
   const fileName = getNoteFileName(dstPath, note, extension);
   const fullFilePath = `${dstPath}${path.sep}${normalizeFilenameString(fileName)}`;
 
   return fullFilePath.length < MAX_PATH ? fullFilePath : truncateFilePath(note, fileName, fullFilePath);
 };
 
-export const getMdFilePath = (note: any): string => {
+export const getMdFilePath = (note: EvernoteNoteData): string => {
   return getFilePath(paths.mdPath, note, 'md');
 };
 
-export const getJsonFilePath = (note: any): string => {
+export const getJsonFilePath = (note: EvernoteNoteData): string => {
   return getFilePath(paths.mdPath, note, 'json');
 };
-export const getHtmlFilePath = (note: any): string => {
+export const getHtmlFilePath = (note: EvernoteNoteData): string => {
   return getFilePath(paths.resourcePath, note, 'html');
 };
 
-export const getHtmlFileLink = (note: any): string => {
+export const getHtmlFileLink = (note: EvernoteNoteData): string => {
   const filePath = getHtmlFilePath(note);
   const relativePath = `.${filePath.slice(paths.resourcePath.lastIndexOf(path.sep))}`;
   if (yarleOptions.posixHtmlPath && path.sep !== path.posix.sep) {
@@ -76,7 +77,7 @@ const clearDistDir = (dstPath: string): void => {
   fs.mkdirSync(dstPath);
 };
 
-export const getRelativeResourceDir = (note: any): string => {
+export const getRelativeResourceDir = (note: EvernoteNoteData): string => {
   const enexFolder = `${path.sep}${yarleOptions.resourcesDir}`;
   if (yarleOptions.haveGlobalResources) {
     return `..${enexFolder}`;
@@ -93,7 +94,7 @@ export const createRootOutputDir = (): void => {
   : `${process.cwd()}${path.sep}${yarleOptions.outputDir}`;
   fsExtra.mkdirsSync(outputDir)
 }
-export const getAbsoluteResourceDir = (note: any): string => {
+export const getAbsoluteResourceDir = (note: EvernoteNoteData): string => {
   if (yarleOptions.haveGlobalResources) {
     return path.resolve(paths.resourcePath, '..', '..', yarleOptions.resourcesDir);
   }
@@ -104,7 +105,7 @@ export const getAbsoluteResourceDir = (note: any): string => {
 };
 
 const resourceDirClears = new Map<string, number>();
-export const clearResourceDir = (note: any): void => {
+export const clearResourceDir = (note: EvernoteNoteData): void => {
   const resPath = getAbsoluteResourceDir(note);
   if (!resourceDirClears.has(resPath)) {
     resourceDirClears.set(resPath, 0);

@@ -23,6 +23,7 @@ export interface NoteData {
   }
 
 export interface EvernoteNoteData {
+  _type_id: 'EvernoteNoteData';
   title?: string;
   created?: string;
   updated?: string;

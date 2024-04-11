@@ -1,5 +1,5 @@
 import assert from 'assert';
-import fs from 'fs';
+import fs, { fstat } from 'fs';
 import parser from 'fast-xml-parser';
 import moment from 'moment';
 
@@ -40,19 +40,24 @@ describe('SetFileDates', () => {
         assert.ok(errorHappened);
 
     });
-    it('set to now if no updated field in note',  () => {
-            notes['note']['updated'] = undefined;
-            utils.setFileDates('./test/data/test-justText.enex', notes['note']['created'], notes['note']['updated']);
-            const fStat = fs.statSync('./test/data/test-justText.enex');
-            const atime = moment(fStat.atime);
-            const mtime = moment(fStat.mtime);
-            const referTimeLo = moment().subtract(3, 's');
-            const referTimeHi = moment().add(3, 's');
-            assert.ok(atime.isBetween(referTimeLo, referTimeHi));
-            assert.ok(mtime.isBetween(referTimeLo, referTimeHi));
-    });
+    it('set to created time if no updated field in note', () => {
+        notes['note']['updated'] = undefined;
+        const { birthtime: oldBirthtime } = fs.statSync('./test/data/test-justText.enex');
+        utils.setFileDates('./test/data/test-justText.enex', notes['note']['created'], notes['note']['updated']);
+        const fStat = fs.statSync('./test/data/test-justText.enex');
+        const created = moment(notes['note']['created']).valueOf();
 
-   });
+        const btime = fStat.birthtime.valueOf();
+        const atime = fStat.atime.valueOf();
+        const mtime = fStat.mtime.valueOf();
+
+        // Linux does not support setting btime, so btime maybe equal to previous value
+        // see: https://www.npmjs.com/package/utimes#caveats
+        assert.ok(btime === created || btime === oldBirthtime.valueOf());
+        assert.equal(atime, created);
+        assert.equal(mtime, created);
+    });
+});
 
 describe('file utils', () => {
     it('update file content safely', () => {

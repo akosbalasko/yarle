@@ -10,7 +10,7 @@ import { yarleOptions } from './yarle';
 import { OutputFormat } from './output-format';
 import { EvernoteNoteData } from './models';
 
-const getResourceWorkDirs = (note: any) => {
+const getResourceWorkDirs = (note: EvernoteNoteData) => {
   const pathSepRegExp = new RegExp(`\\${path.sep}`, 'g');
   const relativeResourceWorkDir = utils.getRelativeResourceDir(note).replace(pathSepRegExp, yarleOptions.pathSeparator);
   const absoluteResourceWorkDir = utils.getAbsoluteResourceDir(note); // .replace(pathSepRegExp,yarleOptions.pathSeparator)
@@ -101,7 +101,7 @@ const processResource = (workDir: string, resource: any): any => {
 };
 
 export const prepareContentByExtractingDataUrlResources = (
-  note: any,
+  note: EvernoteNoteData,
   content: string,
 ): string => {
   if (content.indexOf('src="data:') < 0 && content.indexOf('href="data:') < 0) {
@@ -135,7 +135,7 @@ const createResourceFromData = (
   base64: boolean,
   data: string,
   absoluteResourceWorkDir: string,
-  note: any,
+  note: EvernoteNoteData,
 ): string => {
   const baseName = 'embedded'; // data doesn't seem to include useful base filename
   const extension = extensionForMimeType(mediatype) || '.dat';
