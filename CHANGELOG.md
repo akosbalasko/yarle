@@ -1,3 +1,52 @@
+# [6.11.0](https://github.com/akosbalasko/yarle/compare/v6.10.1...v6.11.0) (2024-03-13)
+
+
+### Features
+
+* colors and custom fonts transformed to default markdown highlights ([#619](https://github.com/akosbalasko/yarle/issues/619)) ([2579b48](https://github.com/akosbalasko/yarle/commit/2579b48e867ebf2f64ab9daf6434fd9024c1a637))
+
+## [6.10.1](https://github.com/akosbalasko/yarle/compare/v6.10.0...v6.10.1) (2024-03-07)
+
+
+### Bug Fixes
+
+* storing keepEvernoteLinkIfNoNoteFound fixed ([#617](https://github.com/akosbalasko/yarle/issues/617)) ([97885a9](https://github.com/akosbalasko/yarle/commit/97885a9a0cca01104414b9791b87f69c012844af))
+
+# [6.10.0](https://github.com/akosbalasko/yarle/compare/v6.9.2...v6.10.0) (2024-03-01)
+
+
+### Features
+
+* search and replace in title and content ([#616](https://github.com/akosbalasko/yarle/issues/616)) ([5b10a27](https://github.com/akosbalasko/yarle/commit/5b10a27757c0301743c3200231cf9530f85b5af6))
+
+## [6.9.2](https://github.com/akosbalasko/yarle/compare/v6.9.1...v6.9.2) (2024-02-27)
+
+
+### Bug Fixes
+
+* unit test fixed ([#614](https://github.com/akosbalasko/yarle/issues/614)) ([9d2591e](https://github.com/akosbalasko/yarle/commit/9d2591ebfc795a13e616f8d07d1952c8f92e9e18))
+
+## [6.9.1](https://github.com/akosbalasko/yarle/compare/v6.9.0...v6.9.1) (2024-02-27)
+
+
+### Bug Fixes
+
+* unrecognized guid/links added ([#612](https://github.com/akosbalasko/yarle/issues/612)) ([99da0ef](https://github.com/akosbalasko/yarle/commit/99da0efa5076561ad1c142756479114dbbfd665f))
+
+# [6.9.0](https://github.com/akosbalasko/yarle/compare/v6.8.0...v6.9.0) (2024-02-27)
+
+
+### Features
+
+* keep en link if not found ([#607](https://github.com/akosbalasko/yarle/issues/607)) ([e7f67c5](https://github.com/akosbalasko/yarle/commit/e7f67c5fab856a6ad624cfaedc8b18e8fcefe81d))
+
+# [6.8.0](https://github.com/akosbalasko/yarle/compare/v6.7.0...v6.8.0) (2024-02-27)
+
+
+### Features
+
+* disable imagesize ([#613](https://github.com/akosbalasko/yarle/issues/613)) ([9bc5631](https://github.com/akosbalasko/yarle/commit/9bc56315594047b1f6c5f956f53a6f0926171a36))
+
 # [6.7.0](https://github.com/akosbalasko/yarle/compare/v6.6.1...v6.7.0) (2024-02-27)
 
 
@@ -370,7 +419,7 @@
 
 ### Bug Fixes
 
-* keepImageSize added to config ([#458](https://github.com/akosbalasko/yarle/issues/458)) ([b0ed312](https://github.com/akosbalasko/yarle/commit/b0ed31295cd799b644dd3aa56029047cdced7539))
+* imageSizeFormat added to config ([#458](https://github.com/akosbalasko/yarle/issues/458)) ([b0ed312](https://github.com/akosbalasko/yarle/commit/b0ed31295cd799b644dd3aa56029047cdced7539))
 
 ## [5.0.8](https://github.com/akosbalasko/yarle/compare/v5.0.7...v5.0.8) (2023-02-28)
 

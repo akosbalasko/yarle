@@ -44,6 +44,9 @@ contextBridge.exposeInMainWorld('electronAPI', {
     if (config.replacementCharacterMap){
       config.replacementCharacterMap = JSON.stringify(config.replacementCharacterMap, null, 2);
     }
+    if (config.globalReplacementSettings){
+      config.globalReplacementSettings = JSON.stringify(config.globalReplacementSettings, null, 2);
+    }
     if (config.encryptionPasswords){
       config.encryptionPasswords = config.encryptionPasswords.join(',');
     }

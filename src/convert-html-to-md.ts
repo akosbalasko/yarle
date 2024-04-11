@@ -4,6 +4,7 @@ import { getTurndownService } from './utils/turndown-service';
 import { NoteData } from './models/NoteData';
 import { YarleOptions } from './YarleOptions';
 import { OutputFormat } from './output-format';
+import { performRegexpOnContent } from './utils/get-title';
 
 const unwrapElement = (node: Element) => {
     node.replaceWith(...Array.from(node.children));
@@ -83,7 +84,7 @@ const fixSublists = (node: HTMLElement) => {
     return node;
 };
 
-export const convertHtml2Md = (yarleOptions: YarleOptions, { htmlContent }: NoteData): NoteData => {
+export const convertHtml2MdContent = (yarleOptions: YarleOptions, htmlContent: string): string => {
 
     const content = htmlContent.replace(/<!DOCTYPE en-note [^>]*>/, '<!DOCTYPE html>')
       .replace(/(<a [^>]*)\/>/, '$1></a>').replace(/<div[^\/\<]*\/>/g, '');
@@ -112,5 +113,5 @@ export const convertHtml2Md = (yarleOptions: YarleOptions, { htmlContent }: Note
 
     }
 
-    return contentInMd && contentInMd !== 'undefined' ? { content: contentInMd } : {content: ''};
+    return contentInMd && contentInMd !== 'undefined' ? performRegexpOnContent(yarleOptions, contentInMd): '';
 };

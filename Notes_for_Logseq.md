@@ -51,7 +51,8 @@ Please use settings below
     "haveGlobalResources": false,
   	"useUniqueUnknownFileNames": false,
     "useLevenshteinForLinks": false,
-    "keepFontColors": false,
+    "keepEvernoteLinkIfNoNoteFound": false,
+    "convertColorsToMDHighlight": false,
     "logseqSettings":{
       "journalNotes": false
     }

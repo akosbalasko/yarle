@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE en-export SYSTEM "http://xml.evernote.com/pub/evernote-export4.dtd">
+<en-export export-date="20240309T065929Z" application="Evernote" version="10.78.2">
+  <note>
+    <title>charmap|#^@ globalRegex[@][#]</title>
+    <created>20240309T065602Z</created>
+    <updated>20240309T065840Z</updated>
+    <note-attributes>
+    </note-attributes>
+    <content>
+      <![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd"><en-note><div>Charactermap:</div><div><br/></div><div><span style="color:rgb(34, 34, 34);">{</span></div><div><span style="color:rgb(34, 34, 34);">  "|": "--",</span></div><div><span style="color:rgb(34, 34, 34);">  "#": "*",</span></div><div><span style="color:rgb(80, 0, 80);">  "^": "*",</span></div><div><span style="color:rgb(80, 0, 80);">  "@": "!",</span></div><div><span style="color:rgb(80, 0, 80);">}</span></div><div><span style="color:rgb(80, 0, 80);"><span style="--en-markholder:true;"><br/></span></span></div><div><span style="color:rgb(80, 0, 80);">Global Regexp on title: </span></div><div><span style="color:rgb(80, 0, 80);">{</span></div><div><span style="color:rgb(80, 0, 80);">    "type": "title",</span></div><div><span style="color:rgb(80, 0, 80);">    "regex": "[@]",</span></div><div><span style="color:rgb(80, 0, 80);">    "replace": "!"</span></div><div><span style="color:rgb(80, 0, 80);">  },</span></div><div><br/></div><div><span style="color:rgb(80, 0, 80);">  {</span></div><div><span style="color:rgb(80, 0, 80);">    "type": "title",</span></div><div><span style="color:rgb(80, 0, 80);">    "regex": "[#]",</span></div><div><span style="color:rgb(80, 0, 80);">    "replace": "\*"</span></div><div><span style="color:rgb(80, 0, 80);">  },</span></div><div><br/></div></en-note>      ]]>
+    </content>
+  </note>
+</en-export>

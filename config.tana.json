@@ -22,7 +22,8 @@
     "useHashTags": false,
     "outputFormat": "Tana Internal Format",
     "taskOutputFormat": "ObsidianMD",
-    "keepImageSize": "ObsidianMD",
+    "imageSizeFormat": "ObsidianMD",
+    "keepImageSize": true,
     "skipEnexFileNameFromOutputPath": false,
     "keepOriginalAmountOfNewlines": false,
     "urlEncodeFileNamesAndLinks": false,
@@ -32,7 +33,8 @@
     "haveGlobalResources": false,
     "useUniqueUnknownFileNames": false,
     "useLevenshteinForLinks": false,
-    "keepFontColors": false,
+    "keepEvernoteLinkIfNoNoteFound": false,
+    "convertColorsToMDHighlight": false,
     "replacementChar": "_",
     "replacementCharacterMap": {
         "<": "_",
@@ -45,6 +47,18 @@
         "?": "_",
         "*": "_"
     },
+    "globalReplacementSettings": [
+        {
+        "type": "title" ,
+        "regex": "",
+        "replace": ""
+        },
+        {
+        "type": "content",
+        "regex": "",
+        "replace": ""
+        }
+    ],
     "generateNakedUrls": true,
     "logseqSettings": {
         "journalNotes": false

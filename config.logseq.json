@@ -16,7 +16,8 @@
     },
     "outputFormat": "StandardMD",
     "taskOutputFormat": "StandardMD",
-    "keepImageSize": "StandardMD",
+    "imageSizeFormat": "StandardMD",
+    "keepImageSize": true,
     "urlEncodeFileNamesAndLinks": false,
     "sanitizeResourceNameSpaces": false, 
     "replacementChar": "_",
@@ -31,6 +32,18 @@
         "?": "_",
         "*": "_"
     },
+    "globalReplacementSettings": [
+        {
+        "type": "title" ,
+        "regex": "",
+        "replace": ""
+        },
+        {
+        "type": "content",
+        "regex": "",
+        "replace": ""
+        }
+    ],
     "pathSeparator": "/",
     "resourcesDir": "assets",
     "turndownOptions": {
@@ -53,7 +66,8 @@
     "haveGlobalResources": false,
 	"useUniqueUnknownFileNames": false,
     "useLevenshteinForLinks": false,
-    "keepFontColors": false,
+    "keepEvernoteLinkIfNoNoteFound": false,
+    "convertColorsToMDHighlight": false,
     "logseqSettings":{
         "journalNotes": false
     },

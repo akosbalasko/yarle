@@ -42,6 +42,7 @@ window.electronAPI.onConfigLoaded(async (event, configFilePath, configObj) => {
   updateOutputFormat(configObj.outputFormat)
   const flatConfigObj = flatten(configObj)
   flatConfigObj.replacementCharacterMap = configObj.replacementCharacterMap
+  flatConfigObj.globalReplacementSettings = configObj.globalReplacementSettings;
   flatConfigObj.encryptionPasswords = configObj.encryptionPasswords.join(',');
   updateDomByFlatConfig(flatConfigObj, false);
  

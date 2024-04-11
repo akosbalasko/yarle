@@ -1,5 +1,5 @@
 import { cloneDeep } from "lodash";
-import { NoteData } from "./../models/NoteData";
+import { EvernoteNoteData, NoteData } from "./../models/NoteData";
 import { saveMdFile } from "./../utils";
 import { YarleOptions } from "./../YarleOptions";
 import { Language } from "./language";
@@ -18,10 +18,9 @@ export class StandardMD implements Language {
 
     postProcess= async(options: YarleOptions, outputNotebookFolders: string[]) => {};
     noteExtension= '.md';
-    noteProcess= (data: NoteData, note: any)  => {
-        data = (data)
+    noteProcess= (options: YarleOptions, noteData: NoteData, note: EvernoteNoteData)  => {
 
-        saveMdFile(fixImagesInLink(data.content), note)
+        saveMdFile(fixImagesInLink(noteData.appliedMarkdownContent), noteData)
     };
     tagProcess= (content: string, tasks: Map<string, string>, currentTaskPlaceholder: string, updatedContent: string): string => {
         return updatedContent;

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE en-export SYSTEM "http://xml.evernote.com/pub/evernote-export4.dtd">
+<en-export export-date="20240218T202043Z" application="Evernote" version="10.74.1">
+  <note>
+    <title>NoteX</title>
+    <created>20240218T201950Z</created>
+    <updated>20240218T202026Z</updated>
+    <note-attributes>
+    </note-attributes>
+    <content>
+      <![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd"><en-note><div>Replace all A letters with B, And B-s with C</div></en-note>      ]]>
+    </content>
+  </note>
+  <note>
+    <title>NoteY</title>
+    <created>20240218T201918Z</created>
+    <updated>20240218T202021Z</updated>
+    <note-attributes>
+    </note-attributes>
+    <content>
+      <![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd"><en-note><div>Replace all A letters with B, And B-s with C</div><div><br/></div></en-note>      ]]>
+    </content>
+  </note>
+</en-export>

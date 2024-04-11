@@ -79,6 +79,7 @@ ipcRenderer.on('logSeqModeSelected', (event, config, template) => {
 
   const flatConfig = flatten(JSON.parse(config));
   flatConfig.replacementCharacterMap = config.replacementCharacterMap
+  flatConfig.globalReplacementSettings = config.globalReplacementSettings
   flatConfig.currentTemplate = template;
   updateDomByFlatConfig(flatConfig, true);
   document.getElementById('currentTemplate').disabled = false;

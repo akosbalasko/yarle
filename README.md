@@ -158,6 +158,18 @@ To configure Yarle, you must create a config file. By default it looks like this
       "?": "_",
       "*": "_"
     },
+   "globalReplacementSettings": [
+        {
+         "type": "title" ,
+         "regex": "X",
+         "replace": "<replaced_X>"
+         },
+        {
+         "type": "content",
+         "regex": "a",
+         "replace": "<replaced_a>"
+        }
+      ]
    "resourcesDir": "resources",
    "turndownOptions": {
       "headingStyle": "atx"
@@ -167,7 +179,7 @@ To configure Yarle, you must create a config file. By default it looks like this
    "haveGlobalResources": false,
    "useUniqueUnknownFileNames": false,
    "useLevenshteinForLinks": false,
-   "keepFontColors": false,
+   "convertColorsToMDHighlight": false,
     "logseqSettings":{
         "journalNotes": false
     },
@@ -195,11 +207,13 @@ The following configurational properties are available:
 | ```dateFormat``` | string | ISO 8601 specification of the expected date format (e.g. YYYY-MM-DD)
 |```keepMDCharactersOfENNotes```| true or false | set it true, if you used Markdown format in your EN notes|
 | ```nestedTags``` | it's a complex property contains the following subitems: "separatorInEN", "replaceSeparatorWith" and  "replaceSpaceWith" | separatorInEN stores the tag separator used in Evernote, replaceSeparatorWith is the string to what separatorInEN should be replaced to, and replaceSpaceWith is the string to what the space character should be replaced to in the tags. For example using the default settings a tag ```tag1_sub tag of tag1``` is going to be converted to ```tag1/sub-tag-of-tag1```
-| ```keepImageSize``` | `ObsidianMD` or `StandardMD` | preserve an image's width and height in the chosen format when specified
+|```keepImageSize``` | boolean | preserve the images' size or not
+| ```imageSizeFormat``` | `ObsidianMD` or `StandardMD` | specifies the format if keepImageSize is set to True
 | ```urlEncodeFileNamesAndLinks``` | true or false | URL-encodes linked file names and internal EN links . e.g "linked file.jpg" will be converted to "linked%20file.jpg"
 | ```sanitizeResourceNameSpaces``` | true or false | Replace spaces in resource names with the `replacementChar`. e.g "linked file.jpg" will be converted to "linked_file.jpg"
 | ```replacementChar``` | string | the replacement character. e.g "linked*file.jpg" will be converted to "linked_file.jpg". It defaults to "_"
 | ```replacementCharacterMap``` | JSON Object | it contains character key-value pairs, the keys will be replaced by the proper values in the filename 
+| ```globalReplacementSettings``` | JSON Array | it contains search and replace pairs, the keys will be replaced by the proper values according to the given type (title or content). Please note: this property has to be in valid JSON Array format, and each item has to have <b>type</b> ('title' or 'content'), <b>regex</b> (what you want to replace as a valid regular expression) and <b>replace</b> (what you want to push instead of the matched text) properties)
 | ```keepOriginalAmountOfNewlines``` | true or false | keep the original amount of newlines, default is false, when the multiple newlines are collapsed to one.
 | ```generateNakedUrls``` | true or false | if it's true, Yarle generates 'naked' external Urls without any extra characters. If its false, external Urls are wrapped by  '<' and '>' characters
 | ```addExtensionToInternalLinks``` | true or false | adds '.md' extensions at the end of internal file links, to make them recognizable by DevonThink and other tools
@@ -213,7 +227,8 @@ The following configurational properties are available:
 | ```encryptionPasswords``` | string | list of passwords used in any notes, separated by commas
 |```useUniqueUnknownFileNames``` | boolean | generates a couple of random characters at the end of the resource file names if the exact name cannot be recognised. For instance: unknown_filename-d2fd86c3.pdf
 |```useLevenshteinForLinks```| boolean| it applies the link to the note with the filename that has the closest Levenshtein distance to the text of the link
-|```keepFontColors```| boolean | it keeps the custom font family and colors encoded as inline styles in span
+|```keepEvernoteLinkIfNoNoteFound```| boolean | it keeps the link to the evernote note if no such note found among the converted files
+|```convertColorsToMDHighlight```| boolean | it converts colored highlights and custom font spans to standard markdown highlights
  
 Metadata settings can be set via the template.
 

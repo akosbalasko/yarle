@@ -10,6 +10,7 @@ import * as yarle from './../src/yarle';
 import * as dropTheRopeRunner from './../src/dropTheRopeRunner';
 import { YarleOptions } from './../src/YarleOptions';
 import { TaskOutputFormat } from '../src/task-output-format';
+import { ReplaceType } from '../src/models';
 
 const testDataFolder = `.${path.sep}test${path.sep}data${path.sep}`;
 
@@ -136,7 +137,50 @@ dateFormat: undefined,
       fs.readFileSync(`${__dirname}/data/test-newlines.md`, 'utf8'),
     );
   });
+  it('Replacement settings', async () => {
+    const options: YarleOptions = {
+      dateFormat: undefined,
+      enexSources: [ `.${path.sep}test${path.sep}data${path.sep}test-replacements.enex` ],
+      outputDir: 'out',
+      outputFormat: OutputFormat.ObsidianMD,
+      convertPlainHtmlNewlines: true,
+      isMetadataNeeded: true,
+      globalReplacementSettings: [
+        {type: ReplaceType.title ,regex: "X", replace: "<replaced_X>"},
+        {type: ReplaceType.content ,regex: "a", replace: "<replaced_a>"}
+      ]
+    };
+    await dropTheRopeRunner.run(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-replacements/NoteX.md`,
+      ),
+      true,
+    );
 
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-replacements/NoteX.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-replacements-NoteX.md`, 'utf8'),
+    );
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-replacements/NoteY.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-replacements/NoteY.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-replacements-NoteY.md`, 'utf8'),
+    );
+
+  });
   it('Encrypted lines in notes', async () => {
     const options: YarleOptions = {
 dateFormat: undefined,
@@ -589,7 +633,7 @@ dateFormat: undefined,
       enexSources: [ `${testDataFolder}Colors.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
-      keepFontColors: true,
+      convertColorsToMDHighlight: true,
       plainTextNotesOnly: false,
       outputFormat: OutputFormat.ObsidianMD,
       keepMDCharactersOfENNotes: false,
@@ -617,7 +661,7 @@ dateFormat: undefined,
       enexSources: [ `${testDataFolder}customfont.enex` ],
       outputDir: 'out',
       isMetadataNeeded: true,
-      keepFontColors: true,
+      convertColorsToMDHighlight: true,
       plainTextNotesOnly: false,
       outputFormat: OutputFormat.ObsidianMD,
       keepMDCharactersOfENNotes: false,
@@ -666,6 +710,57 @@ dateFormat: undefined,
         'utf8',
       )),
       fs.readFileSync(`${__dirname}/data/test-textWithImage.md`, 'utf8'),
+    );
+  });
+  it('Missing links', async () => {
+    const options: YarleOptions = {
+      dateFormat: undefined,
+      enexSources: [ `${testDataFolder}missing-link.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      
+      keepEvernoteLinkIfNoNoteFound: true
+    };
+    await dropTheRopeRunner.run(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/missing-link/NoteA.md`,
+      ),
+      true,
+    );
+
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/missing-link/NoteA.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-missing-link.md`, 'utf8'),
+    );
+  });
+  it('Missing links - no keep ', async () => {
+    const options: YarleOptions = {
+      dateFormat: undefined,
+      enexSources: [ `${testDataFolder}missing-link-nokeep.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      
+    };
+    await dropTheRopeRunner.run(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/missing-link-nokeep/NoteA.md`,
+      ),
+      true,
+    );
+
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/missing-link-nokeep/NoteA.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-missing-link-nokeep.md`, 'utf8'),
     );
   });
   it('Enex file with multiple notes', async () => {
@@ -1058,7 +1153,7 @@ dateFormat: undefined,
 
   it('Multiple enex files with interEnex links', async () => {
     const options: YarleOptions = {
-dateFormat: undefined,
+      dateFormat: undefined,
       enexSources: [ `${process.cwd()}${path.sep}test${path.sep}data${path.sep}LinkedInterNotebooks` ],
       outputDir: 'out',
       isMetadataNeeded: true,
@@ -1151,6 +1246,94 @@ dateFormat: undefined,
     );
 
   });
+
+  it('Multiple untitled note - unregognized guid/link', async () => {
+    const options: YarleOptions = {
+      templateFile: `${testDataFolder}evernotelink-template.templ`,
+      enexSources: [ `${testDataFolder}two-untitled-notes-with-toc.enex` ],
+        "isMetadataNeeded": true,
+        "isNotebookNameNeeded": false,
+        "isZettelkastenNeeded": false,
+        "useZettelIdAsFilename": false,
+        "plainTextNotesOnly": false,
+        "skipLocation": true,
+        "skipCreationTime": true,
+        "skipUpdateTime": true,
+        "skipSourceUrl": true,
+        "skipWebClips": false,
+        "skipTags": true,
+        "useHashTags": true,
+        "outputFormat": OutputFormat.ObsidianMD,
+        "taskOutputFormat": TaskOutputFormat.ObsidianMD,
+        "skipEnexFileNameFromOutputPath": false,
+        "keepMDCharactersOfENNotes": false,
+        "monospaceIsCodeBlock": false,
+        "keepOriginalHtml": true,
+        "resourcesDir": "_resources",
+        "trimStartingTabs": false,
+        "convertPlainHtmlNewlines": false,
+        "encryptionPasswords": [
+          ""
+        ],
+        "logseqSettings": {
+          "journalNotes": false
+        },
+        "obsidianSettings": {
+          "omitLinkDisplayName": false
+        },
+        "dateFormat": "YYYY-MM-DD HH:mm",
+        "imageSizeFormat": OutputFormat.ObsidianMD,
+        "keepImageSize": true,
+        "keepOriginalAmountOfNewlines": true,
+        "addExtensionToInternalLinks": false,
+        "generateNakedUrls": true,
+        "urlEncodeFileNamesAndLinks": false,
+        "haveEnexLevelResources": false,
+        "haveGlobalResources": false,
+        "useUniqueUnknownFileNames": true,
+        "useLevenshteinForLinks": false,
+        "sanitizeResourceNameSpaces": false,
+        "replacementChar": "_",
+        "replacementCharacterMap": {
+          "<": "_",
+          ">": "_",
+          ":": "_",
+          "\"": "_",
+          "/": "_",
+          "\\": "_",
+          "|": "_",
+          "?": "_",
+          "*": "_"
+        }
+      
+    };
+    await dropTheRopeRunner.run(options);
+
+    assert.equal(
+      fs.existsSync(`${__dirname}/../out/notes/two-untitled-notes-with-toc/Untitled Note.1.md`),
+      true,
+    );
+    assert.equal(
+      fs.existsSync(`${__dirname}/../out/notes/two-untitled-notes-with-toc/Untitled Note.md`),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/two-untitled-notes-with-toc/Untitled Note.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/two-untitled-notes-with-toc.md`, 'utf8'),
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/two-untitled-notes-with-toc/Untitled Note.1.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/two-untitled-notes-with-toc.1.md`, 'utf8'),
+    );
+
+  });
   it('Enex file with PDF attachment', async () => {
     const options: YarleOptions = {
 dateFormat: undefined,
@@ -1232,7 +1415,8 @@ dateFormat: undefined,
         logseqSettings: { journalNotes: false },
         obsidianSettings: { omitLinkDisplayName: false },
         dateFormat: "YYYY-MM-DD hh:mm",
-        keepImageSize: OutputFormat.ObsidianMD,
+        imageSizeFormat: OutputFormat.ObsidianMD,
+        keepImageSize: true,
         keepOriginalAmountOfNewlines: true,
         addExtensionToInternalLinks: true,
         generateNakedUrls: false,
@@ -1294,7 +1478,8 @@ dateFormat: undefined,
         logseqSettings: { journalNotes: false },
         obsidianSettings: { omitLinkDisplayName: false },
         dateFormat: "YYYY-MM-DD hh:mm",
-        keepImageSize: OutputFormat.ObsidianMD,
+        imageSizeFormat: OutputFormat.ObsidianMD,
+        keepImageSize: true,
         keepOriginalAmountOfNewlines: true,
         addExtensionToInternalLinks: true,
         generateNakedUrls: false,
@@ -1358,7 +1543,8 @@ dateFormat: undefined,
         logseqSettings: { journalNotes: false },
         obsidianSettings: { omitLinkDisplayName: false },
         dateFormat: "YYYY-MM-DD hh:mm",
-        keepImageSize: OutputFormat.ObsidianMD,
+        imageSizeFormat: OutputFormat.ObsidianMD,
+        keepImageSize: true,
         keepOriginalAmountOfNewlines: true,
         addExtensionToInternalLinks: true,
         generateNakedUrls: false,
@@ -1396,7 +1582,8 @@ dateFormat: undefined,
       isMetadataNeeded: true,
       plainTextNotesOnly: false,
       urlEncodeFileNamesAndLinks: true,
-      keepImageSize: OutputFormat.ObsidianMD,
+      imageSizeFormat: OutputFormat.ObsidianMD,
+      keepImageSize: true,
       outputFormat: OutputFormat.ObsidianMD
     }
     

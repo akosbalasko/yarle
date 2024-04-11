@@ -278,15 +278,27 @@
 
 													</div>
 													
-														
+													<div class="form-group">
+														<label for="keepImageSize" class="pure-checkbox">
+															Keep Image size
+															
+														</label>
+															<select name="keepImageSize" id="keepImageSize" class="form-control configurationItem">
+															<option value="true">Yes </option>
+															<option value="false" selected>No</option>
+
+															</select>
+															<br>
+													</div>
 														<div class="form-group">
-															<label for="keepImageSize" class="pure-checkbox">
-																Keep Image size
+															<label for="imageSizeFormat" class="pure-checkbox">
+																Image size format
 																
 															</label>
-																<select name="keepImageSize" id="keepImageSize" class="form-control configurationItem">
-																<option value="ObsidianMD">Yes</option>
-																<option value="StandardMD">No</option>
+																<select name="imageSizeFormat" id="imageSizeFormat" class="form-control configurationItem">
+																<option value="ObsidianMD" selected>Obsidian</option>
+																<option value="StandardMD">Standard</option>
+
 																</select>
 																<br><div style='font-size: 12px;'><i>(
 																Preserves the images' width and height in the chosen format.)</i></div>
@@ -356,13 +368,25 @@
 													<option value="false" selected>No</option>
 												</select>
 													</div>
+												    
 													<div class="form-group">
 														<!--<input type="checkbox" value="false" id='addExtensionToInternalLinks'> -->
-											<label for="keepFontColors" class="pure-checkbox">
+											<label for="keepEvernoteLinkIfNoNoteFound" class="pure-checkbox">
+											Keeps link to Evernote note if no such note found among the converted files 
+											<br>
+											</label>
+											<select class="form-control configurationItem" name="keepEvernoteLinkIfNoNoteFound" id="keepEvernoteLinkIfNoNoteFound">
+                        <option value="true">Yes</option>
+												<option value="false" selected>No</option>
+											</select>
+												</div>
+													<div class="form-group">
+														<!--<input type="checkbox" value="false" id='addExtensionToInternalLinks'> -->
+											<label for="convertColorsToMDHighlight" class="pure-checkbox">
 											Keeps custom font family and font colors encoded as inline style in span
 											<br><div style='font-size: 12px;'><i>Please note that this feature keeps spans as html tags, so it won't produce a standard Markdown file</i></div>
 											</label>
-											<select class="form-control configurationItem" name="keepFontColors" id="keepFontColors">
+											<select class="form-control configurationItem" name="convertColorsToMDHighlight" id="convertColorsToMDHighlight">
 												<option value="true">Yes</option>
 												<option value="false" selected>No</option>
 											</select>
@@ -510,12 +534,13 @@
 												<option value="false" selected>No</option>
 											</select>
 											</div>
-	
 											<div class="form-group">
-												<label for="replacementChar" class="pure-checkbox">
-													Replacement character for sanitizing spaces in resource names
+												<label for="globalReplacementSettings">
+													Global search and replace (regexp) in note title and content
+													<br><div style='font-size: 12px;'><i>(
+													Please provide settings in valid JSON Array format, each item has to have <b>type</b> ('title' or 'content'), <b>regex</b> (what you want to replace as a valid regular expression) and <b>replace</b> (what you want to push instead of the matched text) properties)</i></div> 
 												</label>
-												<input type="text"  class="form-control configurationItem"value="_" id='replacementChar'> 
+												<textarea class="form-control configurationItem" name="globalReplacementSettings" id="globalReplacementSettings" rows="15"></textarea>
 														
 											</div>
 											
@@ -527,6 +552,14 @@
 														
 											</div>
 
+
+											<div class="form-group">
+												<label for="replacementChar" class="pure-checkbox">
+													Replacement character for sanitizing spaces in resource names
+												</label>
+												<input type="text"  class="form-control configurationItem"value="_" id='replacementChar'> 
+														
+											</div>
 												<div class="form-group">
 													<label for="resourcesDir">Custom resources folder:
 													</label>

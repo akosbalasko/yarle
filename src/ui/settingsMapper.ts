@@ -1,9 +1,27 @@
+import { ImageSizeFormat } from 'image-size-format';
 import { CharacterMap } from './../CharacterMap';
 import { YarleOptions } from './../YarleOptions';
 import { OutputFormat } from './../output-format';
 import { TaskOutputFormat } from './../task-output-format';
-const store = require ('./store');
+import { SearchAndReplace } from 'models';
 
+const store = require ('./store');
+enum DefaultRootType {
+    array = 'array',
+    object = 'object'
+
+}
+const loadJSONSafely = (jsonString: string, defaultRootTyoe: DefaultRootType): any => {
+    try {
+        console.log(jsonString);
+        return JSON.parse(jsonString);
+    }catch(e){
+        console.log("ERROR", e);
+        return defaultRootTyoe === DefaultRootType.array
+            ? []
+            : {}
+    }
+}
 export const mapSettingsToYarleOptions = (): YarleOptions => {
     return {
         enexSources: store.get('enexSources') as Array<string>,
@@ -45,7 +63,8 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
             omitLinkDisplayName: store.get('obsidianSettings.omitLinkDisplayName') as boolean,
         },
         dateFormat: store.get('dateFormat') as string,
-        keepImageSize: store.get('keepImageSize') as OutputFormat,
+        imageSizeFormat: store.get('imageSizeFormat') as ImageSizeFormat,
+        keepImageSize: store.get('keepImageSize') as boolean,
         keepOriginalAmountOfNewlines: store.get('keepOriginalAmountOfNewlines') as boolean,
         addExtensionToInternalLinks: store.get('addExtensionToInternalLinks') as boolean,
         generateNakedUrls: store.get('generateNakedUrls') as boolean,
@@ -54,9 +73,11 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
         haveGlobalResources: store.get('haveGlobalResources') as boolean,
         useUniqueUnknownFileNames: store.get('useUniqueUnknownFileNames') as boolean,
         useLevenshteinForLinks: store.get('useLevenshteinForLinks') as boolean,
-        keepFontColors: store.get('keepFontColors') as boolean,
+        convertColorsToMDHighlight: store.get('convertColorsToMDHighlight') as boolean,
+        keepEvernoteLinkIfNoNoteFound: store.get('keepEvernoteLinkIfNoNoteFound') as boolean,
         sanitizeResourceNameSpaces: store.get('sanitizeResourceNameSpaces') as boolean,
         replacementChar: store.get('replacementChar') as string,
-        replacementCharacterMap: JSON.parse(store.get('replacementCharacterMap')) as CharacterMap,
+        replacementCharacterMap: loadJSONSafely(store.get('replacementCharacterMap'), DefaultRootType.object) as CharacterMap,
+        globalReplacementSettings: loadJSONSafely(store.get('globalReplacementSettings'), DefaultRootType.array) as Array<SearchAndReplace>
     };
 };

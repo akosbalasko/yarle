@@ -41,6 +41,8 @@ const isEvernoteLink = (value: string): boolean => {
     return false;
 }
 const getEvernoteUniqueId = (value: string): string => {
+    if (yarleOptions.keepEvernoteLinkIfNoNoteFound)
+        return value;
     const urlSpl = value.split('/').reverse()
     return ((urlSpl[0] !== '')
         ? [urlSpl[0],urlSpl[1]]
@@ -106,9 +108,12 @@ export const wikiStyleLinksRule = {
                 noteIdNameMap.addItemToMap({ id, url: value, title: fileName, uniqueEnd  });
             }
 
-            const linkedNoteId = id;
-            if (isHeptaOrObsidianOutput()) {
+            const linkedNoteId = id; // todo add evernotelink value
+            if (isHeptaOrObsidianOutput() && !yarleOptions.keepEvernoteLinkIfNoNoteFound) {
                 return `${mdKeyword}[[${linkedNoteId}${extension}${renderedObsidianDisplayName}]]`;
+            }
+            if (yarleOptions.keepEvernoteLinkIfNoNoteFound){
+                return `<YARLE_EVERNOTE_LINK>${mdKeyword}[[${linkedNoteId}${extension}${renderedObsidianDisplayName}]]<-->[${displayName}](${linkedNoteId}${extension})</YARLE_EVERNOTE_LINK>`
             }
 
             return `${mdKeyword}[${displayName}](${linkedNoteId}${extension})`;
