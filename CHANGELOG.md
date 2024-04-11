@@ -1,3 +1,10 @@
+## [6.11.1](https://github.com/akosbalasko/yarle/compare/v6.11.0...v6.11.1) (2024-04-11)
+
+
+### Bug Fixes
+
+* loading webclips settings in config ([#625](https://github.com/akosbalasko/yarle/issues/625)) ([71785c7](https://github.com/akosbalasko/yarle/commit/71785c76f7bf71e758f83678b575d6ab6dc316f9))
+
 # [6.11.0](https://github.com/akosbalasko/yarle/compare/v6.10.1...v6.11.0) (2024-03-13)
 
 
