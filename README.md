@@ -121,7 +121,6 @@ npx -p yarle-evernote-to-md@latest yarle \
   --outputDir out-new
 ```
 
-
 ## Yarle intro and usage videos on Youtube:
 <a href="https://www.youtube.com/watch?v=EPMkm5zRIts">How to migrate notes from Evernote to Obsidian (using Yarle)</a><br>
 <a href="https://www.youtube.com/watch?v=gZxMz67uYHg">YARLE: A lifeline to escape from Evernote</a>
