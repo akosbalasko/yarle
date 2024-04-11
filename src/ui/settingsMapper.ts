@@ -1,10 +1,11 @@
 import { ImageSizeFormat } from 'image-size-format';
 import { CharacterMap } from './../CharacterMap';
 import { YarleOptions } from './../YarleOptions';
-const store = require ('./store');
 import { OutputFormat } from './../output-format';
 import { TaskOutputFormat } from './../task-output-format';
 import { SearchAndReplace } from 'models';
+
+const store = require ('./store');
 enum DefaultRootType {
     array = 'array',
     object = 'object'
@@ -30,12 +31,7 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
         isZettelkastenNeeded: store.get('isZettelkastenNeeded') as boolean,
         useZettelIdAsFilename: store.get('useZettelIdAsFilename') as boolean,
         plainTextNotesOnly: store.get('plainTextNotesOnly') as boolean,
-        skipLocation: !(store.get('addLocation') as boolean),
-        skipCreationTime: !(store.get('addCreationTime') as boolean),
-        skipUpdateTime: !(store.get('addUpdateTime') as boolean),
-        skipSourceUrl: !(store.get('addSourceUrl') as boolean),
-        skipWebClips: !(store.get('addWebClips') as boolean),
-        skipTags: !(store.get('addTags') as boolean),
+        skipWebClips: (store.get('skipWebClips') as boolean),
         useHashTags: store.get('useHashTags') as boolean,
         outputFormat: store.get('outputFormat') as OutputFormat,
         obsidianTaskTag: store.get('obsidianTaskTag') as string,
@@ -44,6 +40,7 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
         keepMDCharactersOfENNotes: store.get('keepMDCharactersOfENNotes') as boolean,
         monospaceIsCodeBlock: store.get('monospaceIsCodeBlock') as boolean,
         keepOriginalHtml: store.get('keepOriginalHtml') as boolean,
+        posixHtmlPath: store.get('posixHtmlPath') as boolean,
         currentTemplate: store.get('currentTemplate') as string,
         resourcesDir: store.get('resourcesDir') as string,
         trimStartingTabs: store.get('trimStartingTabs') as boolean,

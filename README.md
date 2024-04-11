@@ -129,7 +129,7 @@ To configure Yarle, you must create a config file. By default it looks like this
     "isZettelkastenNeeded": false,
     "useZettelIdAsFilename": false,
     "plainTextNotesOnly": false,
-    "skipWebClips": false,
+    "skipWebClips": true,
     "useHashTags": true,
     "outputFormat": "StandardMD",
     "taskOutputFormat": "StandardMD",

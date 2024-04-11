@@ -1,15 +1,15 @@
-import fsExtra from 'fs-extra';
 import fs from 'fs';
-import * as path from 'path';
+import fsExtra from 'fs-extra';
+import * as path from 'path';
 
 import { Path } from '../paths';
 import { yarleOptions } from '../yarle';
 
 import { getNoteFileName, getNoteName, getUniqueId, normalizeFilenameString } from './filename-utils';
-import { loggerInfo } from './loggerInfo';
 import { OutputFormat } from './../output-format';
 import { RuntimePropertiesSingleton } from './../runtime-properties';
 import { EvernoteNoteData } from '../models';
+import { loggerInfo } from './loggerInfo';
 
 export const paths: Path = {};
 const MAX_PATH = 249;
@@ -47,7 +47,7 @@ const getFilePath = (dstPath: string, note: EvernoteNoteData, extension: string)
   const fileName = getNoteFileName(dstPath, note, extension);
   const fullFilePath = `${dstPath}${path.sep}${normalizeFilenameString(fileName)}`;
 
-  return fullFilePath.length <  MAX_PATH ? fullFilePath : truncateFilePath(note, fileName, fullFilePath);
+  return fullFilePath.length < MAX_PATH ? fullFilePath : truncateFilePath(note, fileName, fullFilePath);
 };
 
 export const getMdFilePath = (note: EvernoteNoteData): string => {
@@ -63,8 +63,11 @@ export const getHtmlFilePath = (note: EvernoteNoteData): string => {
 
 export const getHtmlFileLink = (note: EvernoteNoteData): string => {
   const filePath = getHtmlFilePath(note);
-
-  return `.${filePath.slice(paths.resourcePath.lastIndexOf(path.sep))}`;
+  const relativePath = `.${filePath.slice(paths.resourcePath.lastIndexOf(path.sep))}`;
+  if (yarleOptions.posixHtmlPath && path.sep !== path.posix.sep) {
+    return relativePath.split(path.sep).join(path.posix.sep);
+  }
+  return relativePath;
 };
 
 const clearDistDir = (dstPath: string): void => {
@@ -154,7 +157,7 @@ export const setPaths = (enexSource: string): void => {
   }
 
   fsExtra.mkdirsSync(paths.mdPath);
-  if ((!yarleOptions.haveEnexLevelResources && !yarleOptions.haveGlobalResources) || 
+  if ((!yarleOptions.haveEnexLevelResources && !yarleOptions.haveGlobalResources) ||
     yarleOptions.outputFormat === OutputFormat.LogSeqMD) {
     fsExtra.mkdirsSync(paths.resourcePath);
   }

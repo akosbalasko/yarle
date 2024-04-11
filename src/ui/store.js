@@ -3,10 +3,11 @@ const Store = require('electron-store');
 
 const { OutputFormat }  = require('../output-format');
 const schema = {
-  keepOriginalHtml: {
-    type: 'boolean',
-    default: true,
-  },
+    keepOriginalHtml: {
+        type: 'boolean',
+        default: true,
+    },
+    posixHtmlPath: { type: 'boolean', default: false },
     enexSources: {},
     // templateFile: {type: 'string'},
     outputDir: {type: 'string'},
@@ -15,12 +16,7 @@ const schema = {
     isZettelkastenNeeded: { type: 'boolean', default: false },
     useZettelIdAsFilename: { type: 'boolean', default: false},
     plainTextNotesOnly: { type: 'boolean', default: false },
-    addLocation: { type: 'boolean', default: false },
-    addCreationTime: { type: 'boolean', default: false },
-    addUpdateTime: { type: 'boolean', default: false },
-    addSourceUrl: { type: 'boolean', default: false },
-    addWebClips: { type: 'boolean', default: false },
-    addTags: { type: 'boolean', default: false },
+    skipWebClips: { type: 'boolean', default: true },
     useHashTags: { type: 'boolean', default: false },
     outputFormat: {type: 'string', default: OutputFormat.ObsidianMD},
     obsidianTaskTag: { type: 'string' },

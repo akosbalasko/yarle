@@ -1,3 +1,17 @@
+# [6.12.0](https://github.com/akosbalasko/yarle/compare/v6.11.1...v6.12.0) (2024-04-11)
+
+
+### Features
+
+* Add option to force POSIX path for link to original HTML file ([28a225b](https://github.com/akosbalasko/yarle/commit/28a225b597016b2305889f08c06dc89f0da8a6e3)), closes [#610](https://github.com/akosbalasko/yarle/issues/610)
+
+## [6.11.1](https://github.com/akosbalasko/yarle/compare/v6.11.0...v6.11.1) (2024-04-11)
+
+
+### Bug Fixes
+
+* loading webclips settings in config ([#625](https://github.com/akosbalasko/yarle/issues/625)) ([71785c7](https://github.com/akosbalasko/yarle/commit/71785c76f7bf71e758f83678b575d6ab6dc316f9))
+
 # [6.11.0](https://github.com/akosbalasko/yarle/compare/v6.10.1...v6.11.0) (2024-03-13)
 
 
