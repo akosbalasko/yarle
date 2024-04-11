@@ -1,3 +1,10 @@
+# [6.12.0](https://github.com/akosbalasko/yarle/compare/v6.11.1...v6.12.0) (2024-04-11)
+
+
+### Features
+
+* Add option to force POSIX path for link to original HTML file ([28a225b](https://github.com/akosbalasko/yarle/commit/28a225b597016b2305889f08c06dc89f0da8a6e3)), closes [#610](https://github.com/akosbalasko/yarle/issues/610)
+
 ## [6.11.1](https://github.com/akosbalasko/yarle/compare/v6.11.0...v6.11.1) (2024-04-11)
 
 
