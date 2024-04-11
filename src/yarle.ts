@@ -36,7 +36,7 @@ export const defaultYarleOptions: YarleOptions = {
   isZettelkastenNeeded: false,
   useZettelIdAsFilename: false,
   plainTextNotesOnly: false,
-  skipWebClips: false,
+  skipWebClips: true,
   useHashTags: true,
   trimStartingTabs: false,
   convertPlainHtmlNewlines: false,
