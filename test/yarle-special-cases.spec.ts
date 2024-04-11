@@ -897,7 +897,7 @@ dateFormat: undefined,
   });
   it('Enex file with images using data urls', async () => {
     const options: YarleOptions = {
-dateFormat: undefined,
+      dateFormat: undefined,
       enexSources: [`${testDataFolder}test-image-dataUrl.enex`],
       outputDir: 'out',
       isMetadataNeeded: true,

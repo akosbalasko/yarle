@@ -17,7 +17,7 @@
     "encryptionPasswords": [],
     "skipUpdateTime": false,
     "skipSourceUrl": false,
-    "skipWebClips": false,
+    "skipWebClips": true,
     "skipTags": false,
     "useHashTags": false,
     "outputFormat": "Tana Internal Format",
