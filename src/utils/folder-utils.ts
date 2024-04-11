@@ -6,10 +6,8 @@ import { Path } from '../paths';
 import { yarleOptions } from '../yarle';
 
 import { getNoteFileName, getNoteName, getUniqueId, normalizeFilenameString } from './filename-utils';
-import { loggerInfo } from './loggerInfo';
 import { OutputFormat } from './../output-format';
 import { RuntimePropertiesSingleton } from './../runtime-properties';
-import { getNoteFileName, getNoteName, getUniqueId, normalizeTitle } from './filename-utils';
 import { loggerInfo } from './loggerInfo';
 
 export const paths: Path = {};
