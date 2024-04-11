@@ -1,3 +1,10 @@
+## [6.12.1](https://github.com/akosbalasko/yarle/compare/v6.12.0...v6.12.1) (2024-04-11)
+
+
+### Bug Fixes
+
+* timestamp of MD file ([#624](https://github.com/akosbalasko/yarle/issues/624)) ([#627](https://github.com/akosbalasko/yarle/issues/627)) ([b35c8c4](https://github.com/akosbalasko/yarle/commit/b35c8c413eba37ef1beb0092b97214cd74242895))
+
 # [6.12.0](https://github.com/akosbalasko/yarle/compare/v6.11.1...v6.12.0) (2024-04-11)
 
 
