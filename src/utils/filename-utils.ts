@@ -14,6 +14,7 @@ import { getCreationTime } from './content-utils';
 import { escapeStringRegexp } from './escape-string-regexp';
 import { isLogseqJournal } from './is-logseq-journal';
 import { closest } from 'fastest-levenshtein';
+import { EvernoteNoteData } from '../models';
 
 const applyCharacterMapSafely = (title: string): string => {
   return applyCharacterMap(title).replace(/[/\\?%*:|"<>\[\]\+]/g, '-');
@@ -88,11 +89,11 @@ export const getResourceFileProperties = (workDir: string, resource: any): Resou
   };
 };
 
-export const getFilePrefix = (note: any): string => {
+export const getFilePrefix = (note: EvernoteNoteData): string => {
   return normalizeFilenameString(note['noteName'] ? `${note['noteName'].toString()}` : 'Untitled');
 };
 
-export const getNoteFileName = (dstPath: string, note: any, extension: string = 'md'): string => {
+export const getNoteFileName = (dstPath: string, note: EvernoteNoteData, extension: string = 'md'): string => {
   return `${getNoteName(dstPath, note)}.${extension}`;
 };
 export const getExtensionFromResourceFileName = (resource: any): string => {
@@ -120,7 +121,7 @@ export const getExtension = (resource: any): string => {
   return getExtensionFromResourceFileName(resource) || getExtensionFromMime(resource) || UNKNOWNEXTENSION;
 };
 
-export const getZettelKastelId = (note: any, dstPath: string): string => {
+export const getZettelKastelId = (note: EvernoteNoteData, dstPath: string): string => {
   return Moment(note['created']).format('YYYYMMDDHHmm');
 
 };
@@ -129,7 +130,7 @@ export const getUniqueId = (): string => {
   return nanoid(5);
 };
 
-export const getNoteName = (dstPath: string, note: any): string => {
+export const getNoteName = (dstPath: string, note: EvernoteNoteData): string => {
   let noteName;
 
   if (yarleOptions.isZettelkastenNeeded || yarleOptions.useZettelIdAsFilename) {
