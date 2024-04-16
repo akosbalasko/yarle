@@ -1,3 +1,10 @@
+# [6.13.0](https://github.com/akosbalasko/yarle/compare/v6.12.1...v6.13.0) (2024-04-16)
+
+
+### Features
+
+* tags yaml list ([#629](https://github.com/akosbalasko/yarle/issues/629)) ([c8a6ff3](https://github.com/akosbalasko/yarle/commit/c8a6ff378ee9a8741494f5856d5ed8a083c7e641))
+
 ## [6.12.1](https://github.com/akosbalasko/yarle/compare/v6.12.0...v6.12.1) (2024-04-11)
 
 
