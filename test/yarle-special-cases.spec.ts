@@ -2083,7 +2083,7 @@ dateFormat: undefined,
 
   });
 
-  it('yaml tags list', async () => {
+  it('yaml tags array', async () => {
     const options: YarleOptions = {
 dateFormat: undefined,
       enexSources: [ `${testDataFolder}test-noteWithTags.enex` ],
@@ -2112,6 +2112,34 @@ dateFormat: undefined,
     );
   });
 
+  it('yaml tags list', async () => {
+    const options: YarleOptions = {
+dateFormat: undefined,
+      enexSources: [ `${testDataFolder}test-noteWithTags-yaml-list.enex` ],
+      outputDir: 'out',
+      templateFile: `${testDataFolder}tags-yaml-list_template.templ`,
+      isMetadataNeeded: true,
+      outputFormat: OutputFormat.ObsidianMD,
+      skipEnexFileNameFromOutputPath: false,
+			skipTags: false,
+			useHashTags: false,
+
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-noteWithTags-yaml-list/test -note with text only - yaml-list-tags.md`,
+      ),
+      true,
+    );
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-noteWithTags-yaml-list/test -note with text only - yaml-list-tags.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test -note with text only - yaml-list-tags.md`, 'utf8'),
+    );
+  });
   it('dots in enex file name', async () => {
     const options: YarleOptions = {
       dateFormat: undefined,

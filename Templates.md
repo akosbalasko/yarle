@@ -31,6 +31,7 @@ A custom template file can have any file name and extension.
 |-|-|-|
 | Title | `{title-block}{title}{end-title-block}` | Note title |
 | Tags | `{tags-block}{tags}{end-tags-block}` | Note tags |
+| Tags as Yaml list | `{tags-yaml-list-block}tags: {tags-yaml-list}{end-tags-yaml-list-block}` | Note tags as yaml list
 | Array Tags |`{tags-array-block}{tags-array}{end-tags-array-block}` | Note tags in array format (to be compatible with Obsidian's Yaml Frontmatter)
 | Content | `{content-block}{content}{end-content-block}` | Note content |
 | Date of creation | `{created-at-block}{created-at}{end-created-at-block}` | Creation date of the note |

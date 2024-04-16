@@ -13,3 +13,4 @@ export * from './apply-reminderdonetime-template';
 export * from './apply-tags-array-template';
 export * from './apply-evernotelink-template';
 export * from './apply-evernoteguid-template';
+export * from './apply-tags-yaml-list-template';
