@@ -21,7 +21,8 @@ import {
   applyTitleTemplate,
   applyUpdatedAtTemplate,
   applyEvernoteLinkTemplate,
-  applyEvernoteGuidTemplate
+  applyEvernoteGuidTemplate,
+  applyTagsYamlListTemplate
   } from './apply-functions';
 import {
   removeCreatedAtPlaceholder,
@@ -44,7 +45,8 @@ export const applyTemplate = (noteData: NoteData, yarleOptions: YarleOptions) =>
 
   result = applyTitleTemplate(noteData, result, () => noteData.title);
   result = applyTagsTemplate(noteData, result, () => !yarleOptions.skipTags);
-  result = applyTagsArrayTemplate(noteData, result, () => !yarleOptions.skipTags);
+  result = applyTagsArrayTemplate(noteData, result, () => !yarleOptions.skipTags );
+  result = applyTagsYamlListTemplate(noteData, result, () => !yarleOptions.skipTags);
   result = noteData.title === TOCNoteName
     ? removeEvernoteLinkPlaceholder(result)
     : applyEvernoteLinkTemplate(noteData, result)
