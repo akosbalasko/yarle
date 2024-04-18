@@ -112,7 +112,7 @@ Just open a terminal, specify config options in a config file (options detailed 
 npx -p yarle-evernote-to-md@latest yarle --configFile ./config.json # path to your config file
 ```
 
-You can also override properties in the configuration file with command-line arguments. Note that only properties of types like `string`, `string[]`, and `boolean` can be overridden. 
+You can also override properties in the configuration file with command-line arguments. Note that only properties of types like `string`, `string[]`, and `boolean` can be overridden.
 
 ```sh
 npx -p yarle-evernote-to-md@latest yarle \
