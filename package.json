@@ -71,7 +71,7 @@
     "zip-a-folder": "2.0.0"
   },
   "engines": {
-    "node": ">=10.18.1",
+    "node": ">=14.21.2",
     "npm": ">=5.6.0"
   },
   "repository": {
