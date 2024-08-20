@@ -17,8 +17,9 @@ jobs:
         with:
           node-version: 16
 
-      - name: Electron Builder Action(Using Node 20)
-        uses: vingeraycn/action-electron-builder@v1.0.1
+      - name: Electron Builder Action (node16)
+        uses: gugiserman/action-electron-builder@v1.6.1-node16
+            
         with:
           # GitHub token, automatically provided to the action
           # (No need to define this secret in the repo settings)
