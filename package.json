@@ -72,7 +72,7 @@
   },
   "engines": {
     "node": ">=10.18.1",
-    "npm": ">=5.6.0"
+    "npm": ">=10.10.0"
   },
   "repository": {
     "type": "git",
