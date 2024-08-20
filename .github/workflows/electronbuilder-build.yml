@@ -19,6 +19,8 @@ jobs:
 
       - name: Electron Builder Action(Using Node 20)
         uses: vingeraycn/action-electron-builder@v1.0.1
+        env:
+          DEBUG: electron-builder
         with:
           # GitHub token, automatically provided to the action
           # (No need to define this secret in the repo settings)
