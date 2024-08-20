@@ -1,3 +1,10 @@
+## [6.14.8](https://github.com/akosbalasko/yarle/compare/v6.14.7...v6.14.8) (2024-08-20)
+
+
+### Bug Fixes
+
+* electron builder ([#647](https://github.com/akosbalasko/yarle/issues/647)) ([596e7af](https://github.com/akosbalasko/yarle/commit/596e7af1183280d32c67fa90e34047bd910f2eec))
+
 ## [6.14.7](https://github.com/akosbalasko/yarle/compare/v6.14.6...v6.14.7) (2024-08-20)
 
 
