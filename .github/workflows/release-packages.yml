@@ -15,7 +15,7 @@ jobs:
       - name: Install Node.js, NPM and Yarn
         uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 20
 
       - name: Electron Builder Action(Using Node 20)
         uses: vingeraycn/action-electron-builder@v1.0.1
