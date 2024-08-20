@@ -1,3 +1,10 @@
+## [6.14.6](https://github.com/akosbalasko/yarle/compare/v6.14.5...v6.14.6) (2024-08-20)
+
+
+### Bug Fixes
+
+* back to node 16 ([#645](https://github.com/akosbalasko/yarle/issues/645)) ([ad4207f](https://github.com/akosbalasko/yarle/commit/ad4207fff2deac8d04bd809f6a2e771e9c078021))
+
 ## [6.14.5](https://github.com/akosbalasko/yarle/compare/v6.14.4...v6.14.5) (2024-08-20)
 
 
