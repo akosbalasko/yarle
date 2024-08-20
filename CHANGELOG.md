@@ -1,3 +1,10 @@
+# [6.14.0](https://github.com/akosbalasko/yarle/compare/v6.13.0...v6.14.0) (2024-08-20)
+
+
+### Features
+
+* option to remove utf tags ([#639](https://github.com/akosbalasko/yarle/issues/639)) ([3dc2711](https://github.com/akosbalasko/yarle/commit/3dc2711586e695c09e7c8b361ae9d2247db7e3ca))
+
 # [6.13.0](https://github.com/akosbalasko/yarle/compare/v6.12.1...v6.13.0) (2024-04-16)
 
 
