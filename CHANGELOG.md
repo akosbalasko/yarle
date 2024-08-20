@@ -1,3 +1,10 @@
+## [6.14.5](https://github.com/akosbalasko/yarle/compare/v6.14.4...v6.14.5) (2024-08-20)
+
+
+### Bug Fixes
+
+* node version forced for release ([#644](https://github.com/akosbalasko/yarle/issues/644)) ([4589324](https://github.com/akosbalasko/yarle/commit/4589324a0017f07834e88c7bf55cb00cdd670f3c))
+
 ## [6.14.4](https://github.com/akosbalasko/yarle/compare/v6.14.3...v6.14.4) (2024-08-20)
 
 
