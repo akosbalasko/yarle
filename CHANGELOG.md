@@ -1,3 +1,45 @@
+## [6.14.5](https://github.com/akosbalasko/yarle/compare/v6.14.4...v6.14.5) (2024-08-20)
+
+
+### Bug Fixes
+
+* node version forced for release ([#644](https://github.com/akosbalasko/yarle/issues/644)) ([4589324](https://github.com/akosbalasko/yarle/commit/4589324a0017f07834e88c7bf55cb00cdd670f3c))
+
+## [6.14.4](https://github.com/akosbalasko/yarle/compare/v6.14.3...v6.14.4) (2024-08-20)
+
+
+### Bug Fixes
+
+* macos-latest -> macos-13 ([#643](https://github.com/akosbalasko/yarle/issues/643)) ([cadd5c2](https://github.com/akosbalasko/yarle/commit/cadd5c2ee722e3077db705b6a26ba248a822635e))
+
+## [6.14.3](https://github.com/akosbalasko/yarle/compare/v6.14.2...v6.14.3) (2024-08-20)
+
+
+### Bug Fixes
+
+* checkout action version updated ([#642](https://github.com/akosbalasko/yarle/issues/642)) ([6f8b72b](https://github.com/akosbalasko/yarle/commit/6f8b72bc8f1815007b9494e9f5f21aac0fbf7ec1))
+
+## [6.14.2](https://github.com/akosbalasko/yarle/compare/v6.14.1...v6.14.2) (2024-08-20)
+
+
+### Bug Fixes
+
+* actions updated ([#641](https://github.com/akosbalasko/yarle/issues/641)) ([11c41e0](https://github.com/akosbalasko/yarle/commit/11c41e08c3e593311277c9e3b7e84da599aed2c8))
+
+## [6.14.1](https://github.com/akosbalasko/yarle/compare/v6.14.0...v6.14.1) (2024-08-20)
+
+
+### Bug Fixes
+
+* github action node version increased ([#640](https://github.com/akosbalasko/yarle/issues/640)) ([4086511](https://github.com/akosbalasko/yarle/commit/408651146c400220c1887e43fcb3e792e022d34d))
+
+# [6.14.0](https://github.com/akosbalasko/yarle/compare/v6.13.0...v6.14.0) (2024-08-20)
+
+
+### Features
+
+* option to remove utf tags ([#639](https://github.com/akosbalasko/yarle/issues/639)) ([3dc2711](https://github.com/akosbalasko/yarle/commit/3dc2711586e695c09e7c8b361ae9d2247db7e3ca))
+
 # [6.13.0](https://github.com/akosbalasko/yarle/compare/v6.12.1...v6.13.0) (2024-04-16)
 
 
