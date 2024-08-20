@@ -10,7 +10,7 @@ jobs:
       new_release_published: ${{ steps.semantic.outputs.new_release_published }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4.1.7
       - name: Install Node.js, NPM and Yarn
         uses: actions/setup-node@v4
         with:
