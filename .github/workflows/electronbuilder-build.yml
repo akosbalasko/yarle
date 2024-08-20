@@ -13,12 +13,12 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Install Node.js, NPM and Yarn
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: 16
 
-      - name: Build/release Electron app
-        uses: samuelmeuli/action-electron-builder@v1
+      - name: Electron Builder Action(Using Node 20)
+        uses: vingeraycn/action-electron-builder@v1.0.1
         with:
           # GitHub token, automatically provided to the action
           # (No need to define this secret in the repo settings)
