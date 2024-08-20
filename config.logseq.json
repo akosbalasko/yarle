@@ -9,6 +9,7 @@
     "plainTextNotesOnly": false,
     "skipWebClips": true,
     "useHashTags": false,
+    "removeUnicodeCharsFromTags": false,
     "nestedTags": {
         "separatorInEN": "_",
         "replaceSeparatorWith": "---",

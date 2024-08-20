@@ -45,6 +45,7 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
         resourcesDir: store.get('resourcesDir') as string,
         trimStartingTabs: store.get('trimStartingTabs') as boolean,
         convertPlainHtmlNewlines: store.get('convertPlainHtmlNewlines') as boolean,
+        removeUnicodeCharsFromTags: store.get('removeUnicodeCharsFromTags') as boolean,
         encryptionPasswords: ((store.get('encryptionPasswords') as string)||'').split(',').map(pwd => pwd.trim()),
         nestedTags: {
             separatorInEN: store.get('nestedTags.separatorInEN') as string,
