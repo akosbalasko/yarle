@@ -1,3 +1,10 @@
+## [6.14.7](https://github.com/akosbalasko/yarle/compare/v6.14.6...v6.14.7) (2024-08-20)
+
+
+### Bug Fixes
+
+* action version 16 ([#646](https://github.com/akosbalasko/yarle/issues/646)) ([202855a](https://github.com/akosbalasko/yarle/commit/202855a99b24b1187c6baf61433156802366e7e0))
+
 ## [6.14.6](https://github.com/akosbalasko/yarle/compare/v6.14.5...v6.14.6) (2024-08-20)
 
 
