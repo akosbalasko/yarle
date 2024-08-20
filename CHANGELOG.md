@@ -1,3 +1,10 @@
+## [6.14.4](https://github.com/akosbalasko/yarle/compare/v6.14.3...v6.14.4) (2024-08-20)
+
+
+### Bug Fixes
+
+* macos-latest -> macos-13 ([#643](https://github.com/akosbalasko/yarle/issues/643)) ([cadd5c2](https://github.com/akosbalasko/yarle/commit/cadd5c2ee722e3077db705b6a26ba248a822635e))
+
 ## [6.14.3](https://github.com/akosbalasko/yarle/compare/v6.14.2...v6.14.3) (2024-08-20)
 
 
