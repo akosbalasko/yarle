@@ -1,3 +1,10 @@
+## [6.14.3](https://github.com/akosbalasko/yarle/compare/v6.14.2...v6.14.3) (2024-08-20)
+
+
+### Bug Fixes
+
+* checkout action version updated ([#642](https://github.com/akosbalasko/yarle/issues/642)) ([6f8b72b](https://github.com/akosbalasko/yarle/commit/6f8b72bc8f1815007b9494e9f5f21aac0fbf7ec1))
+
 ## [6.14.2](https://github.com/akosbalasko/yarle/compare/v6.14.1...v6.14.2) (2024-08-20)
 
 
