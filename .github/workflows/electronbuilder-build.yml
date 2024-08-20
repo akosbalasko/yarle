@@ -16,6 +16,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 16
+      - name: 'change npm version'
+        uses: reedyuk/npm-version@1.1.1
+        with:
+          version: '10.10'
 
       - name: Electron Builder Action(Using Node 20)
         uses: vingeraycn/action-electron-builder@v1.0.1
