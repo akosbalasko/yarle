@@ -10,9 +10,9 @@ jobs:
       new_release_published: ${{ steps.semantic.outputs.new_release_published }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4.1.7
       - name: Install Node.js, NPM and Yarn
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: 14
 
@@ -42,19 +42,19 @@ jobs:
     # if: needs.release.outputs.new_release_published == 'true'
     # strategy:
     #   matrix:
-    #     os: [macos-latest, ubuntu-latest, windows-2019]
+    #     os: [macos-13, ubuntu-latest, windows-2019]
 
     # steps:
     #   - name: Check out Git repository
     #     uses: actions/checkout@v1
 
     #   - name: Install Node.js, NPM and Yarn
-    #     uses: actions/setup-node@v1
+    #     uses: actions/setup-node@v4
     #     with:
-    #       node-version: 14
+    #       node-version: 16
 
-    #   - name: Build/release Electron app
-    #     uses: samuelmeuli/action-electron-builder@v1
+    #   - name: Electron Builder Action(Using Node 20)
+    #     uses: vingeraycn/action-electron-builder@v1.0.1
     #     with:
     #       # GitHub token, automatically provided to the action
     #       # (No need to define this secret in the repo settings)
