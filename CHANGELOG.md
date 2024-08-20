@@ -1,3 +1,10 @@
+## [6.14.1](https://github.com/akosbalasko/yarle/compare/v6.14.0...v6.14.1) (2024-08-20)
+
+
+### Bug Fixes
+
+* github action node version increased ([#640](https://github.com/akosbalasko/yarle/issues/640)) ([4086511](https://github.com/akosbalasko/yarle/commit/408651146c400220c1887e43fcb3e792e022d34d))
+
 # [6.14.0](https://github.com/akosbalasko/yarle/compare/v6.13.0...v6.14.0) (2024-08-20)
 
 
