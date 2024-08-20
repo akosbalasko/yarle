@@ -22,6 +22,7 @@ export interface YarleOptions {
     skipUpdateTime?: boolean;
     skipSourceUrl?: boolean;
     skipWebClips?: boolean;
+    removeUnicodeCharsFromTags?: boolean
     skipReminderTime?: boolean;
     skipReminderOrder?: boolean;
     skipReminderDoneTime?: boolean;
