@@ -2305,10 +2305,10 @@ dateFormat: undefined,
 });
 
 describe('Yarle CMD cases', () => {
-  const node1 = path.join('test', 'data', 'test-cmd-args-node-1.enex')
-  const node2 = path.join('test', 'data', 'test-cmd-args-node-2.enex')
-  const BIN = 'node ./dist/dropTheRope.js'
-  const OUTPUT = `out${path.sep}cmd-cases`
+  const node1 = path.join('test', 'data', 'test-cmd-args-node-1.enex');
+  const node2 = path.join('test', 'data', 'test-cmd-args-node-2.enex');
+  const BIN = 'node ./dist/dropTheRope.js';
+  const OUTPUT = `out${path.sep}cmd-cases`;
   const getOutputNodePath = (node: string) => {
     const nodeName = path.basename(node, '.enex');
     return path.join(OUTPUT, 'notes', nodeName, nodeName + '.md');
@@ -2316,18 +2316,18 @@ describe('Yarle CMD cases', () => {
 
   afterEach(() => {
     if (fs.existsSync(OUTPUT)) {
-      fsExtra.removeSync(OUTPUT)
+      fsExtra.removeSync(OUTPUT);
     }
   });
 
   it('CMD args - set output dir', () => {
-    cp.execSync(`${BIN} --enexSources ${node1} --outputDir ${OUTPUT}`, { encoding: 'utf8' })
-    assert.equal(fs.existsSync(getOutputNodePath(node1)), true)
+    cp.execSync(`${BIN} --enexSources ${node1} --outputDir ${OUTPUT}`, { encoding: 'utf8' });
+    assert.equal(fs.existsSync(getOutputNodePath(node1)), true);
   });
 
   it('CMD args - multi enex files', () => {
-    cp.execSync(`${BIN} --enexSources ${node1} --enexSources ${node2} --outputDir ${OUTPUT}`, { encoding: 'utf8' })
-    assert.equal(fs.existsSync(getOutputNodePath(node1)), true)
-    assert.equal(fs.existsSync(getOutputNodePath(node2)), true)
+    cp.execSync(`${BIN} --enexSources ${node1} --enexSources ${node2} --outputDir ${OUTPUT}`, { encoding: 'utf8' });
+    assert.equal(fs.existsSync(getOutputNodePath(node1)), true);
+    assert.equal(fs.existsSync(getOutputNodePath(node2)), true);
   });
 });
