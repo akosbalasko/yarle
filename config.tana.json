@@ -58,6 +58,11 @@
         "type": "content",
         "regex": "",
         "replace": ""
+        },
+        {
+        "type": "tag",
+        "regex": "",
+        "replace": ""
         }
     ],
     "generateNakedUrls": true,
