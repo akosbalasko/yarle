@@ -1,3 +1,10 @@
+# [6.15.0](https://github.com/akosbalasko/yarle/compare/v6.14.8...v6.15.0) (2024-09-09)
+
+
+### Features
+
+* adding tags to global regexp ([#649](https://github.com/akosbalasko/yarle/issues/649)) ([c8d63f5](https://github.com/akosbalasko/yarle/commit/c8d63f52e9e4147e9ead09da3c83c5e1dd25700e))
+
 ## [6.14.8](https://github.com/akosbalasko/yarle/compare/v6.14.7...v6.14.8) (2024-08-20)
 
 
