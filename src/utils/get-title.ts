@@ -26,3 +26,7 @@ export const performRegexpOnTitle = (options: YarleOptions, title: string): stri
 export const performRegexpOnContent = (options: YarleOptions, content: string): string => {
     return regexpProcess(options, content, ReplaceType.content);
 }
+
+export const performRegexpOnTag = (options: YarleOptions, tag: string): string => {
+    return regexpProcess(options, tag, ReplaceType.tag)
+}

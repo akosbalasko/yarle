@@ -1,4 +1,5 @@
 export enum ReplaceType {
     title = 'title',
-    content = 'content'
+    content = 'content',
+    tag = 'tag'
 }
