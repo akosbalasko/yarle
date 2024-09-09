@@ -2,6 +2,7 @@ import { YarleTest } from './yarle-test';
 import { OutputFormat } from "../src/output-format";
 import * as path from 'path';
 import { YarleTestModifierOptions } from './yarle-test-modifier-options';
+import { ReplaceType } from '../src/models';
 
 const dataFolder = `${path.sep}data${path.sep}`;
 const testDataFolder = `${path.sep}test${dataFolder}`;
@@ -94,6 +95,24 @@ export const yarleTests: Array<YarleTest> = [
     testOutputPath: `notes${path.sep}test-noteWithNestedTags${path.sep}test -note with text only.md`,
 
     expectedOutputPath: `${dataFolder}test-noteWithNestedTags.md`,
+  },
+  {
+    name: 'Note with nested tags with global regexp',
+    options: {
+      enexSources: [ `.${testDataFolder}test-noteWithNestedTagsWithGlobalRegex.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      globalReplacementSettings: [
+        {
+        type: ReplaceType.tag,
+        regex: "_+",
+        replace: "/"
+        }
+    ],
+      useHashTags: true
+    },
+    testOutputPath: `notes${path.sep}test-noteWithNestedTagsWithGlobalRegex${path.sep}test -note with text only.md`,
+    expectedOutputPath: `${dataFolder}test-noteWithNestedTagsWithGlobalRegex.md`,
   },
   {
     name: 'Note with nested tags containing spaces',

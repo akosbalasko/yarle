@@ -177,7 +177,7 @@ const updateDomAndConfig = (configItem, disable) => {
     if (domItem.getAttribute('type') === 'checkbox'){
       document.getElementById(configItem.name).checked = configItem.value;
     } else {
-      if (isObject(itemValueToStore)){
+      if (isObject(itemValueToStore) || Array.isArray(itemValueToStore)){
         itemValueToStore =  JSON.stringify(configItem.value)
         document.getElementById(configItem.name).value = JSON.stringify(configItem.value, undefined, 2);;
       }
