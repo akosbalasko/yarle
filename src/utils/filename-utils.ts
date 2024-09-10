@@ -38,7 +38,7 @@ const applyCharacterMap = (title: string): string => {
 export const normalizeFilenameString = (title: string) => {
   // Allow setting a specific replacement character for file and resource names
   // Default to a retrocompatible value
-  const normalizedTitle = sanitize(applyCharacterMap(title), {replacement: yarleOptions.replacementChar || '_'}).replace(/[\[\]\#\^]/g, '')
+  const normalizedTitle = sanitize(applyCharacterMap(title), {replacement: yarleOptions.replacementChar || '_'}).replace(/[\[\]\#\^]/g, '').replace(/^\./g, '');
   console.log(normalizedTitle)
   return normalizedTitle;
   ;

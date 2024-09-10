@@ -208,6 +208,32 @@ dateFormat: undefined,
     );
 
   });
+
+
+  it.skip('Replacement settings', async () => {
+    const options: YarleOptions = {
+      dateFormat: undefined,
+      enexSources: [ `.${path.sep}test${path.sep}data${path.sep}export trial.enex` ],
+      outputDir: 'out',
+      outputFormat: OutputFormat.ObsidianMD,
+      convertPlainHtmlNewlines: true,
+      isMetadataNeeded: true,
+      globalReplacementSettings: [
+        {type:ReplaceType.title, regex:"\\[",replace:"_"},
+        {type:ReplaceType.title,regex:"\\]",replace:"_"},
+        {type:ReplaceType.title,regex:"^\\.",replace:""},
+        {type:ReplaceType.tag,regex:"^\\.",replace:""},
+        {type:ReplaceType.tag,regex:"\\.",replace:"_"}
+      ],
+      replacementCharacterMap: {
+        "[": "",
+        "]": ""
+      }
+
+    };
+    await dropTheRopeRunner.run(options);
+  });
+
   it('Encrypted lines in notes', async () => {
     const options: YarleOptions = {
 dateFormat: undefined,
