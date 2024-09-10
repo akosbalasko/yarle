@@ -1,3 +1,10 @@
+## [6.15.1](https://github.com/akosbalasko/yarle/compare/v6.15.0...v6.15.1) (2024-09-10)
+
+
+### Bug Fixes
+
+* hidden files after sanitizing ([#650](https://github.com/akosbalasko/yarle/issues/650)) ([ea4bfb2](https://github.com/akosbalasko/yarle/commit/ea4bfb251631f505355d3d34eedd048c0b6beac3))
+
 # [6.15.0](https://github.com/akosbalasko/yarle/compare/v6.14.8...v6.15.0) (2024-09-09)
 
 
