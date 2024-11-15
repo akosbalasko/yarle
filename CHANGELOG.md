@@ -1,3 +1,10 @@
+## [6.15.2](https://github.com/akosbalasko/yarle/compare/v6.15.1...v6.15.2) (2024-11-15)
+
+
+### Bug Fixes
+
+* keep html ([#654](https://github.com/akosbalasko/yarle/issues/654)) ([71568bd](https://github.com/akosbalasko/yarle/commit/71568bd03887a65ee30dd901c4bf067b93dcfa09))
+
 ## [6.15.1](https://github.com/akosbalasko/yarle/compare/v6.15.0...v6.15.1) (2024-09-10)
 
 
