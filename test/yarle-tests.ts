@@ -865,4 +865,18 @@ export const yarleTests: Array<YarleTest> = [
     expectedOutputPath: `${dataFolder}test-hugeHtml.md`,
 
   },
+
+  {
+    name: 'Note with all possible note-attributes',
+    options: {
+      enexSources: [ `.${testDataFolder}test-note-attributes.enex` ],
+      outputDir: 'out',
+      templateFile: `.${testDataFolder}test-note-attributes.tmpl`,
+      isMetadataNeeded: true,
+    },
+    testOutputPath: `notes${path.sep}test-note-attributes${path.sep}__Test__.md`,
+
+
+    expectedOutputPath: `${dataFolder}test-note-attributes.md`,
+  },
 ]

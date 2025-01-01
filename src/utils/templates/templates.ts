@@ -11,11 +11,19 @@ import {
   applyCreatedAtTemplate,
   applyLinkToOriginalTemplate,
   applyLocationTemplate,
+  applyAltitudeTemplate,
   applyNotebookTemplate,
   applyReminderDoneTimeTemplate,
   applyReminderOrderTemplate,
   applyReminderTimeTemplate,
+  applySubjectDateTemplate,
+  applyAuthorTemplate,
+  applySourceTemplate,
   applySourceUrlTemplate,
+  applySourceApplicationTemplate,
+  applyPlaceNameTemplate,
+  applyContentClassTemplate,
+  applyApplicationDataTemplate,
   applyTagsArrayTemplate,
   applyTagsTemplate,
   applyTitleTemplate,
@@ -28,12 +36,20 @@ import {
   removeCreatedAtPlaceholder,
   removeLinkToOriginalTemplate,
   removeLocationPlaceholder,
+  removeAltitudePlaceholder,
   removeMetadataBlockPlaceholder,
   removeNotebookPlaceholder,
   removeReminderDoneTimePlaceholder,
   removeReminderOrderPlaceholder,
   removeReminderTimePlaceholder,
+  removeSubjectDatePlaceholder,
+  removeAuthorPlaceholder,
+  removeSourcePlaceholder,
   removeSourceUrlPlaceholder,
+  removeSourceApplicationPlaceholder,
+  removePlaceNamePlaceholder,
+  removeContentClassPlaceholder,
+  removeApplicationDataPlaceholder,
   removeUpdatedAtPlaceholder,
   removeEvernoteLinkPlaceholder,
   removeEvernoteGuidPlaceholder
@@ -69,13 +85,45 @@ export const applyTemplate = (noteData: NoteData, yarleOptions: YarleOptions) =>
       ? applyUpdatedAtTemplate(noteData, result)
       : removeUpdatedAtPlaceholder(result);
 
+  result = (!yarleOptions.skipSubjectDate && noteData.subjectDate)
+      ? applySubjectDateTemplate(noteData, result)
+      : removeSubjectDatePlaceholder(result);
+
+  result = (!yarleOptions.skipAuthor && noteData.author)
+      ? applyAuthorTemplate(noteData, result)
+      : removeAuthorPlaceholder(result);
+
+  result = (!yarleOptions.skipSource && noteData.source)
+      ? applySourceTemplate(noteData, result)
+      : removeSourcePlaceholder(result);
+
   result = (!yarleOptions.skipSourceUrl && noteData.sourceUrl)
       ? applySourceUrlTemplate(noteData, result)
       : removeSourceUrlPlaceholder(result);
 
+  result = (!yarleOptions.skipSourceApplication && noteData.sourceApplication)
+      ? applySourceApplicationTemplate(noteData, result)
+      : removeSourceApplicationPlaceholder(result);
+
   result = (!yarleOptions.skipLocation && noteData.location)
       ? applyLocationTemplate(noteData, result)
       : removeLocationPlaceholder(result);
+
+  result = (!yarleOptions.skipAltitude && noteData.altitude)
+      ? applyAltitudeTemplate(noteData, result)
+      : removeAltitudePlaceholder(result);
+
+  result = (!yarleOptions.skipPlaceName && noteData.placeName)
+      ? applyPlaceNameTemplate(noteData, result)
+      : removePlaceNamePlaceholder(result);
+
+  result = (!yarleOptions.skipContentClass && noteData.contentClass)
+      ? applyContentClassTemplate(noteData, result)
+      : removeContentClassPlaceholder(result);
+  
+  result = (!yarleOptions.skipApplicationData && noteData.applicationData)
+      ? applyApplicationDataTemplate(noteData, result)
+      : removeApplicationDataPlaceholder(result);
 
   result = (yarleOptions.isNotebookNameNeeded && noteData.notebookName)
       ? applyNotebookTemplate(noteData, result)

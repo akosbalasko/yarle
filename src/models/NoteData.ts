@@ -12,8 +12,16 @@ export interface NoteData {
     appliedMarkdownContent?: string;
     createdAt?: string;
     updatedAt?: string;
+    subjectDate?: string;
+    author?: string;
+    source?: string;
     sourceUrl?: string;
+    sourceApplication?: string;
+    placeName?: string;
+    contentClass?: string;
+    applicationData?: string;
     location?: string;
+    altitude?: string;
     linkToOriginal?: string;
     notebookName?: string;
     internalLinks?: Array<InternalLink>;
@@ -35,13 +43,18 @@ export interface EvernoteNoteData {
 }
 
 interface NoteAttributes {
-  'source-application'?: string;
-  'source-url'?: string;
+  'subject-date'?: string;
+  'longitude'?: string;
+  'latitude'?: string;
+  'altitude'?: string;
+  'author'?: string;
   'source'?: string;
-  'reminder-time'?: string;
+  'source-url'?: string;
+  'source-application'?: string;
   'reminder-order'?: string;
+  'reminder-time'?: string;
   'reminder-done-time'?: string;
-  longitude?: string;
-  latitude?: string;
-  
+  'place-name'?: string;
+  'content-class'?: string;
+  'application-data'?: string;
 }

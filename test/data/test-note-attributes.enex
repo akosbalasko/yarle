@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE en-export SYSTEM "http://xml.evernote.com/pub/evernote-export4.dtd">
+<en-export export-date="20241225T173839Z" application="Evernote" version="10.120.3">
+  <note>
+    <title>\\Test//</title>
+    <created>20241222T222542Z</created>
+    <updated>20241223T151903Z</updated>
+    <tag>test</tag>
+    <tag>note-attributes</tag>
+    <note-attributes>
+      <subject-date>20241221T125100Z</subject-date>
+      <latitude>52.518654</latitude>
+      <longitude>13.376102</longitude>
+      <altitude>50</altitude>
+      <author>alexander.bockstaller@no.spam</author>
+      <source>github</source>
+      <source-url>https://github.com/akosbalasko/yarle/tree/master/test/data/test-note-attributes.enex</source-url>
+      <source-application>Notepad++</source-application>
+      <reminder-time>2025-01-01T00:00:00+00:00</reminder-time>
+      <reminder-order>1486928645922</reminder-order>
+      <reminder-done-time>2025-01-01T00:00:18+00:00</reminder-done-time>
+      <place-name>Reichstag Building, Berlin</place-name>
+      <content-class>democratic-content</content-class>
+      <application-data key="color">blue</application-data>
+      <application-data key="priority">high</application-data>
+      <application-data key="impact">medium</application-data>
+    </note-attributes>
+    <content>
+      <![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd"><en-note>Slartibartfast</en-note>      ]]>
+    </content>
+  </note>
+</en-export>

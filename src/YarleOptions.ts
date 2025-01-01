@@ -18,9 +18,17 @@ export interface YarleOptions {
     useZettelIdAsFilename?: boolean;
     plainTextNotesOnly?: boolean;
     skipLocation?: boolean;
+    skipAltitude?: boolean;
     skipCreationTime?: boolean;
     skipUpdateTime?: boolean;
+    skipSubjectDate?: boolean;
+    skipAuthor?: boolean;
+    skipSource?: boolean;
     skipSourceUrl?: boolean;
+    skipSourceApplication?: boolean;
+    skipPlaceName?: boolean;
+    skipContentClass?: boolean;
+    skipApplicationData?: boolean;
     skipWebClips?: boolean;
     removeUnicodeCharsFromTags?: boolean
     skipReminderTime?: boolean;

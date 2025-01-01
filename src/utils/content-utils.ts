@@ -14,8 +14,16 @@ export const getMetadata = (note: EvernoteNoteData, notebookName: string): MetaD
   return {
         createdAt: getCreationTime(note),
         updatedAt: getUpdateTime(note),
+        subjectDate: getSubjectDate(note),
+        author: getAuthor(note),
+        source: getSource(note),
         sourceUrl: getSourceUrl(note),
+        sourceApplication: getSourceApplication(note),
         location: getLatLong(note),
+        altitude: getAltitude(note),
+        placeName: getPlaceName(note),
+        contentClass: getContentClass(note),
+        applicationData: getApplicationData(note),
         linkToOriginal: getLinkToOriginal(note),
         reminderTime: getReminderTime(note),
         reminderOrder: getReminderOrder(note),
@@ -40,16 +48,12 @@ export const getUpdateTime = (note: EvernoteNoteData): string => {
     : undefined;
 };
 
-export const getSourceUrl = (note: EvernoteNoteData): string => {
-  return !yarleOptions.skipSourceUrl &&
+//////// Note Attributes
+export const getSubjectDate = (note: EvernoteNoteData): string => {
+  return !yarleOptions.skipSubjectDate &&
     note['note-attributes']
-    ? note['note-attributes']['source-url']
+    ? note['note-attributes']['subject-date']
     : undefined;
-};
-
-export const getLinkToOriginal = (note: EvernoteNoteData): string => {
-  return yarleOptions.keepOriginalHtml ?
-    getHtmlFileLink(note) : undefined;
 };
 
 export const getLatLong = (note: EvernoteNoteData): string => {
@@ -59,6 +63,77 @@ export const getLatLong = (note: EvernoteNoteData): string => {
     ? `${note['note-attributes'].latitude},${note['note-attributes'].longitude}`
     : undefined;
 };
+
+export const getAltitude = (note: EvernoteNoteData): string => {
+  return !yarleOptions.skipAltitude &&
+    note['note-attributes']
+    ? note['note-attributes']['altitude']
+    : undefined;
+};
+
+export const getAuthor = (note: EvernoteNoteData): string => {
+  return !yarleOptions.skipAuthor &&
+    note['note-attributes']
+    ? note['note-attributes']['author']
+    : undefined;
+};
+
+export const getSource = (note: EvernoteNoteData): string => {
+  return !yarleOptions.skipSource &&
+    note['note-attributes']
+    ? note['note-attributes']['source']
+    : undefined;
+};
+
+export const getSourceUrl = (note: EvernoteNoteData): string => {
+  return !yarleOptions.skipSourceUrl &&
+    note['note-attributes']
+    ? note['note-attributes']['source-url']
+    : undefined;
+};
+
+export const getSourceApplication = (note: EvernoteNoteData): string => {
+  return !yarleOptions.skipSourceApplication &&
+    note['note-attributes']
+    ? note['note-attributes']['source-application']
+    : undefined;
+};
+
+export const getPlaceName = (note: EvernoteNoteData): string => {
+  return !yarleOptions.skipPlaceName &&
+    note['note-attributes']
+    ? note['note-attributes']['place-name']
+    : undefined;
+};
+
+export const getContentClass = (note: EvernoteNoteData): string => {
+  return !yarleOptions.skipContentClass &&
+    note['note-attributes']
+    ? note['note-attributes']['content-class']
+    : undefined;
+};
+
+export const getApplicationData = (note: EvernoteNoteData): string => {
+  if (!yarleOptions.skipApplicationData && note['note-attributes'] && note['note-attributes']['application-data']) {
+    const appdataArray = Array.isArray(note['note-attributes']['application-data'])
+      ? note['note-attributes']['application-data']
+      : [note['note-attributes']['application-data']];
+    const appdata = appdataArray.map((enexNode) => {
+      return `  - ${enexNode.$attrs.key}: ${enexNode.$text}`;
+    });
+   return '\n'+appdata.join('\n');
+  }
+  else
+  {
+    return undefined;
+  }
+};
+
+export const getLinkToOriginal = (note: EvernoteNoteData): string => {
+  return yarleOptions.keepOriginalHtml ?
+    getHtmlFileLink(note) : undefined;
+};
+
 export const getReminderTime = (note: EvernoteNoteData): string => {
   return !yarleOptions.skipReminderTime &&
     note['note-attributes'] &&
@@ -66,6 +141,7 @@ export const getReminderTime = (note: EvernoteNoteData): string => {
     ? Moment(note['note-attributes']['reminder-time']).format(yarleOptions.dateFormat)
     : undefined;
 };
+
 export const getReminderOrder = (note: EvernoteNoteData): string => {
   return !yarleOptions.skipReminderOrder &&
     note['note-attributes'] &&
