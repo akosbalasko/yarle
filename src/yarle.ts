@@ -69,6 +69,7 @@ export const defaultYarleOptions: YarleOptions = {
   turndownOptions: {
     headingStyle: 'atx',
   },
+  onlyConvertEnHighlights: false,
 };
 
 export let yarleOptions: YarleOptions = { ...defaultYarleOptions };
