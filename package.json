@@ -16,6 +16,7 @@
   },
   "type": "commonjs",
   "scripts": {
+    "postinstall": "cd node_modules/utimes && npm run build || echo 'Warning: Failed to build utimes native addon. File creation times may not be set correctly on macOS.'",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
     "clean-by-rimraf": "rimraf ./out && rimraf ./dist && rimraf \"node_modules/!(rimraf|.bin)\"",
