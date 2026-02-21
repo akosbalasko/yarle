@@ -23,6 +23,10 @@ const loadJSONSafely = (jsonString: string, defaultRootTyoe: DefaultRootType): a
     }
 }
 export const mapSettingsToYarleOptions = (): YarleOptions => {
+    const preserveColorsAsHtml =
+        (store.get('preserveColorsAsHtml') as boolean) ?? false;
+    const convertColorsToMDHighlight =
+        (store.get('convertColorsToMDHighlight') as boolean) ?? false;
     return {
         enexSources: store.get('enexSources') as Array<string>,
         outputDir: store.get('outputDir') as string,
@@ -69,7 +73,8 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
         haveGlobalResources: store.get('haveGlobalResources') as boolean,
         useUniqueUnknownFileNames: store.get('useUniqueUnknownFileNames') as boolean,
         useLevenshteinForLinks: store.get('useLevenshteinForLinks') as boolean,
-        convertColorsToMDHighlight: store.get('convertColorsToMDHighlight') as boolean,
+        preserveColorsAsHtml,
+	convertColorsToMDHighlight: preserveColorsAsHtml ? false : convertColorsToMDHighlight,
         keepEvernoteLinkIfNoNoteFound: store.get('keepEvernoteLinkIfNoNoteFound') as boolean,
         sanitizeResourceNameSpaces: store.get('sanitizeResourceNameSpaces') as boolean,
         replacementChar: store.get('replacementChar') as string,
