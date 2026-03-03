@@ -23,10 +23,7 @@ jobs:
         run: npm i && npm run compile
       - name: Semantic Release
         id: semantic
-        with:
-          branch: master
         run: npx semantic-release
-
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Do something when a new release published
