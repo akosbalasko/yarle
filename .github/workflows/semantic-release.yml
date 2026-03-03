@@ -9,10 +9,10 @@ jobs:
     runs-on: ubuntu-latest
         # Map a step output to a job output
     permissions:
-    contents: write # to be able to publish a GitHub release
-    issues: write # to be able to comment on released issues
-    pull-requests: write # to be able to comment on released pull requests
-    id-token: write # to enable use of OIDC for trusted publishing and npm provenance
+      contents: write # to be able to publish a GitHub release
+      issues: write # to be able to comment on released issues
+      pull-requests: write # to be able to comment on released pull requests
+      id-token: write # to enable use of OIDC for trusted publishing and npm provenance
     outputs:
       new_release_published: ${{ steps.semantic.outputs.new_release_published }}
     steps:
