@@ -1,11 +1,20 @@
 {
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      "@semantic-release/changelog",
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/changelog",
+    [
       "@semantic-release/npm",
-      ["@semantic-release/git",{
+      {
+        "npmPublish": true,
+        "verifyConditions": false
+      }
+    ],
+    [
+      "@semantic-release/git",
+      {
         "message": "v${nextRelease.version}\n\n${nextRelease.notes}"
-      }]
+      }
     ]
+  ]
 }
