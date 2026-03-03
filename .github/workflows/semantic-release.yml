@@ -18,14 +18,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-
+          registry-url: https://registry.npmjs.org
       - name: build code
         run: npm i && npm run compile
       - name: Semantic Release
         id: semantic
-        uses: cycjimmy/semantic-release-action@v3
         with:
           branch: master
+        run: npx semantic-release
+
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Do something when a new release published
