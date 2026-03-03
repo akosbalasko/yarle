@@ -2,6 +2,9 @@ name: Tag + Release NPM
 on:
   push:
       branches: [master]
+permissions:
+  id-token: write  # Required for OIDC
+  contents: read
 jobs:
   release:
     runs-on: ubuntu-latest
