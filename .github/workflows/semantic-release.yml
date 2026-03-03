@@ -3,14 +3,16 @@ on:
   push:
       branches: [master]
 permissions:
-  contents: write # to be able to publish a GitHub release
-  issues: write # to be able to comment on released issues
-  pull-requests: write # to be able to comment on released pull requests
-  id-token: write # to enable use of OIDC for trusted publishing and npm provenance
+  contents: read # for checkout
 jobs:
   release:
     runs-on: ubuntu-latest
         # Map a step output to a job output
+    permissions:
+    contents: write # to be able to publish a GitHub release
+    issues: write # to be able to comment on released issues
+    pull-requests: write # to be able to comment on released pull requests
+    id-token: write # to enable use of OIDC for trusted publishing and npm provenance
     outputs:
       new_release_published: ${{ steps.semantic.outputs.new_release_published }}
     steps:
@@ -25,11 +27,9 @@ jobs:
         run: npm i && npm run compile
       - name: Semantic Release
         id: semantic
-        run: npx semantic-release  --no-ci
+        run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: publish
-        run: npm publish
       - name: Do something when a new release published
         if: steps.semantic.outputs.new_release_published == 'true'
         run: |
