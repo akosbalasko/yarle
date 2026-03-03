@@ -1,3 +1,10 @@
+## [6.16.1](https://github.com/akosbalasko/yarle/compare/v6.16.0...v6.16.1) (2026-03-03)
+
+
+### Bug Fixes
+
+* preserve file mtime when processing tasks ([#683](https://github.com/akosbalasko/yarle/issues/683)) ([fd3bff2](https://github.com/akosbalasko/yarle/commit/fd3bff26d9027c33c62755b4655a86f63d5fd5ff))
+
 # [6.16.0](https://github.com/akosbalasko/yarle/compare/v6.15.2...v6.16.0) (2025-01-13)
 
 
