@@ -28,7 +28,6 @@ jobs:
           branch: master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Do something when a new release published
         if: steps.semantic.outputs.new_release_published == 'true'
         run: |
