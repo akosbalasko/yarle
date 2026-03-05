@@ -5,6 +5,7 @@ import * as path from 'path';
 import flow from 'xml-flow';
 
 import * as utils from './utils';
+import { updateFileContentSafely } from './utils/file-utils';
 import { YarleOptions } from './YarleOptions';
 import { processNode } from './process-node';
 import { isWebClip } from './utils/note-utils';
@@ -169,7 +170,7 @@ export const parseStream = async (options: YarleOptions, enexSource: string): Pr
           const language = languageFactory.createLanguage(yarleOptions.outputFormat)
           updatedContent = language.tagProcess(fileContent, sortedTasks, taskPlaceholder, updatedContent)
 
-          fs.writeFileSync(currentNotePath, updatedContent);
+          updateFileContentSafely(currentNotePath, updatedContent);
 
         }
       }
