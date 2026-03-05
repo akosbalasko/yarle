@@ -97,7 +97,7 @@ const setOptions = (options: YarleOptions): void => {
   yarleOptions.skipTags = !hasAnyTagsInTemplate(template) && !isTanaOutput();
   yarleOptions.skipUpdateTime = !hasUpdateTimeInTemplate(template);
   yarleOptions.isNotebookNameNeeded = hasNotebookInTemplate(template);
-  yarleOptions.keepOriginalHtml = hasLinkToOriginalInTemplate(template);
+  yarleOptions.keepOriginalHtml = yarleOptions.keepOriginalHtml && hasLinkToOriginalInTemplate(template);
 
   yarleOptions.currentTemplate = template;
 

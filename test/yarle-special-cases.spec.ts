@@ -488,13 +488,14 @@ dateFormat: undefined,
     );
   });
 
-  it.skip('should keep Html content', async () => {
+  it('should keep Html content', async () => {
 
     const options: YarleOptions = {
 dateFormat: undefined,
       enexSources: [ `${testDataFolder}test-withPicture-keep-html.enex` ],
       templateFile: `${testDataFolder}keephtml-template.tmpl`,
       outputDir: 'out',
+      keepOriginalHtml: true,
     };
 
     await yarle.dropTheRope(options);
