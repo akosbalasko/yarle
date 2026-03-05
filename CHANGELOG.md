@@ -1,3 +1,10 @@
+# [6.17.0](https://github.com/akosbalasko/yarle/compare/v6.16.1...v6.17.0) (2026-03-05)
+
+
+### Features
+
+* fix keepOriginalHtml config option ([#679](https://github.com/akosbalasko/yarle/issues/679)) ([4bff9a1](https://github.com/akosbalasko/yarle/commit/4bff9a1e9d4895d9ee53e10cba037dbe12dc202d))
+
 ## [6.16.1](https://github.com/akosbalasko/yarle/compare/v6.16.0...v6.16.1) (2026-03-03)
 
 
