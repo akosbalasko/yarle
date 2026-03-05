@@ -113,7 +113,7 @@ export const wikiStyleLinksRule = {
                 return `${mdKeyword}[[${linkedNoteId}${extension}${renderedObsidianDisplayName}]]`;
             }
             if (yarleOptions.keepEvernoteLinkIfNoNoteFound){
-                return `<YARLE_EVERNOTE_LINK>${mdKeyword}[[${linkedNoteId}${extension}${renderedObsidianDisplayName}]]<-->[${displayName}](${linkedNoteId}${extension})</YARLE_EVERNOTE_LINK>`
+                return `<YARLE_EVERNOTE_LINK>${linkedNoteId}<-->${mdKeyword}[[${linkedNoteId}${extension}${renderedObsidianDisplayName}]]<-->[${displayName}](${linkedNoteId}${extension})</YARLE_EVERNOTE_LINK>`
             }
 
             return `${mdKeyword}[${displayName}](${linkedNoteId}${extension})`;
