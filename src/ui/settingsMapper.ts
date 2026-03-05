@@ -70,6 +70,7 @@ export const mapSettingsToYarleOptions = (): YarleOptions => {
         useUniqueUnknownFileNames: store.get('useUniqueUnknownFileNames') as boolean,
         useLevenshteinForLinks: store.get('useLevenshteinForLinks') as boolean,
         convertColorsToMDHighlight: store.get('convertColorsToMDHighlight') as boolean,
+        onlyConvertEnHighlights: store.get('onlyConvertEnHighlights') as boolean,
         keepEvernoteLinkIfNoNoteFound: store.get('keepEvernoteLinkIfNoNoteFound') as boolean,
         sanitizeResourceNameSpaces: store.get('sanitizeResourceNameSpaces') as boolean,
         replacementChar: store.get('replacementChar') as string,

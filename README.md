@@ -229,6 +229,7 @@ The following configurational properties are available:
 |```useLevenshteinForLinks```| boolean| it applies the link to the note with the filename that has the closest Levenshtein distance to the text of the link
 |```keepEvernoteLinkIfNoNoteFound```| boolean | it keeps the link to the evernote note if no such note found among the converted files
 |```convertColorsToMDHighlight```| boolean | it converts colored highlights and custom font spans to standard markdown highlights
+|```onlyConvertEnHighlights```| boolean | when true, only converts spans with `--en-highlight` attribute; when false (default), converts all colored/styled spans. Note: requires `convertColorsToMDHighlight` to be true to have any effect
 |```removeUnicodeCharsFromTags```| boolean | it removes the unicode characters (like éáűőú) from tags 
  
 Metadata settings can be set via the template.
