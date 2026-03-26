@@ -15,7 +15,7 @@
 
 | <img src="./screens/macos-logo-02.png" width="100"> | <img src="./screens/windows-logo.png" width="200"> | <img src="./screens/linux-logo.jpeg" width="200"> |<img src="./screens/debian-logo.webp" width="200">  |
 |---|---|---|---|
-| [Get YARLE for Mac](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_mac_x64.zip)| <a class="button" href="https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_win_x64.exe">Get YARLE for Windows</a>| [Get YARLE for Linux (.rpm)](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_linux_x86_64.rpm)| [Get YARLE for Debian (.deb)](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_linux_amd64.deb)
+| [Get YARLE for Mac](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_mac_arm64.zip)| <a class="button" href="https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_win_x64.exe">Get YARLE for Windows</a>| [Get YARLE for Linux (.rpm)](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_linux_x86_64.rpm)| [Get YARLE for Debian (.deb)](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_linux_amd64.deb)
 
 <br><br>
 
