@@ -17,6 +17,8 @@
 |---|---|---|---|
 | [Get YARLE for Mac](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_mac_arm64.zip)| <a class="button" href="https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_win_x64.exe">Get YARLE for Windows</a>| [Get YARLE for Linux (.rpm)](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_linux_x86_64.rpm)| [Get YARLE for Debian (.deb)](https://github.com/akosbalasko/yarle/releases/latest/download/yarle-evernote-to-md_linux_amd64.deb)
 
+**Note**: If Mac refuses to run Yarle and shows that it is damaged, please check the solution [here](https://github.com/akosbalasko/yarle/issues/705#issuecomment-4164932585).
+
 <br><br>
 
 ## Features:
