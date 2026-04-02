@@ -30,10 +30,14 @@ export const spanRule = {
                 if (hasBold && hasItalic) { return `${languageItems.italic}${languageItems.bold}${content}${languageItems.bold}${languageItems.italic}`; }
             }
             const match = nodeValue.match(/color:rgb\(\d{0,3}, \d{0,3}, \d{0,3}\);|background-color: #([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})|--en-fontfamily:[^"]*/)
+            const hasEnHighlight = nodeValue.includes(EVERNOTE_COLORHIGHLIGHT);
 
-            return nodeValue.includes(EVERNOTE_HIGHLIGHT) ||
-                nodeValue.includes(EVERNOTE_COLORHIGHLIGHT) ||
-                (yarleOptions.convertColorsToMDHighlight && match)?
+            // Check if we should convert this span to a highlight
+            const isEnHighlight = nodeValue.includes(EVERNOTE_HIGHLIGHT) || hasEnHighlight;
+            const shouldConvert = isEnHighlight ||
+                (yarleOptions.convertColorsToMDHighlight && match && !yarleOptions.onlyConvertEnHighlights);
+
+            return shouldConvert ?
                 `${languageItems.highlight}${content}${languageItems.highlight}` :
                 content;
         }

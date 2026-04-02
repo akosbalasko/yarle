@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE en-export SYSTEM "http://xml.evernote.com/pub/evernote-export4.dtd">
+<en-export export-date="20240206T182025Z" application="Evernote" version="10.74.1">
+  <note>
+    <title>Preserve Highlight Colors Test</title>
+    <created>20240206T070948Z</created>
+    <updated>20240206T182007Z</updated>
+    <note-attributes>
+    </note-attributes>
+    <content>
+      <![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd"><en-note><div>Normal text</div><div><span style="--en-highlight:yellow;background-color: #ffef9e;">Yellow highlight</span></div><div><span style="--en-highlight:red;background-color: #fec1d0;">Red highlight</span></div><div><span style="--en-highlight:green;background-color: #ccffd4;">Green highlight</span></div><div><span style="--en-highlight:blue;background-color: #d4e2fc;">Blue highlight</span></div><div>More normal text</div></en-note>      ]]>
+    </content>
+  </note>
+</en-export>

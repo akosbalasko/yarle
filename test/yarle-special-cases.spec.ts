@@ -737,6 +737,151 @@ dateFormat: undefined,
       fs.readFileSync(`${__dirname}/data/customfont.md`, 'utf8'),
     );
   });
+
+  it('onlyConvertEnHighlights: true - converts only Evernote highlights', async () => {
+    const options: YarleOptions = {
+      dateFormat: undefined,
+      enexSources: [ `${testDataFolder}test-mixed-highlights.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      convertColorsToMDHighlight: true,
+      onlyConvertEnHighlights: true,
+      plainTextNotesOnly: false,
+      outputFormat: OutputFormat.ObsidianMD,
+      keepMDCharactersOfENNotes: false,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-mixed-highlights/Mixed Highlights Test.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-mixed-highlights/Mixed Highlights Test.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-mixed-highlights-only-en.md`, 'utf8'),
+    );
+  });
+
+  it('onlyConvertEnHighlights: false - converts all colored spans', async () => {
+    const options: YarleOptions = {
+      dateFormat: undefined,
+      enexSources: [ `${testDataFolder}test-mixed-highlights.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      convertColorsToMDHighlight: true,
+      onlyConvertEnHighlights: false,
+      plainTextNotesOnly: false,
+      outputFormat: OutputFormat.ObsidianMD,
+      keepMDCharactersOfENNotes: false,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-mixed-highlights/Mixed Highlights Test.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-mixed-highlights/Mixed Highlights Test.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-mixed-highlights-all.md`, 'utf8'),
+    );
+  });
+
+  it('onlyConvertEnHighlights: true with convertColorsToMDHighlight: false - still converts Evernote highlights', async () => {
+    const options: YarleOptions = {
+      dateFormat: undefined,
+      enexSources: [ `${testDataFolder}text styles.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      convertColorsToMDHighlight: false,
+      onlyConvertEnHighlights: true,
+      plainTextNotesOnly: false,
+      outputFormat: OutputFormat.ObsidianMD,
+      keepMDCharactersOfENNotes: false,
+    };
+    await yarle.dropTheRope(options);
+    
+    const content = fs.readFileSync(
+      `${__dirname}/../out/notes/text styles/text styles.md`,
+      'utf8',
+    );
+    
+    // Should still convert Evernote highlights even when convertColorsToMDHighlight is false
+    assert.equal(content.includes('==This is a highlighted text=='), true);
+  });
+
+  it('keepOriginalHtml: false - converts highlights to markdown syntax', async () => {
+    const options: YarleOptions = {
+      dateFormat: undefined,
+      enexSources: [ `${testDataFolder}test-preserve-highlight-colors.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      convertColorsToMDHighlight: true,
+      keepOriginalHtml: false,
+      plainTextNotesOnly: false,
+      outputFormat: OutputFormat.ObsidianMD,
+      keepMDCharactersOfENNotes: false,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-preserve-highlight-colors/Preserve Highlight Colors Test.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-preserve-highlight-colors/Preserve Highlight Colors Test.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-preserve-highlight-colors-standard.md`, 'utf8'),
+    );
+  });
+
+  it('keepOriginalHtml: true - preserves highlight colors as HTML mark tags', async () => {
+    const options: YarleOptions = {
+      dateFormat: undefined,
+      enexSources: [ `${testDataFolder}test-preserve-highlight-colors.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      convertColorsToMDHighlight: true,
+      keepOriginalHtml: true,
+      plainTextNotesOnly: false,
+      outputFormat: OutputFormat.ObsidianMD,
+      keepMDCharactersOfENNotes: false,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-preserve-highlight-colors/Preserve Highlight Colors Test.md`,
+      ),
+      true,
+    );
+
+    const content = fs.readFileSync(
+      `${__dirname}/../out/notes/test-preserve-highlight-colors/Preserve Highlight Colors Test.md`,
+      'utf8',
+    );
+
+    // Should preserve colors as <mark> tags instead of ==...==
+    assert.equal(content.includes('<mark style="background-color: #ffef9e;">Yellow highlight</mark>'), true);
+    assert.equal(content.includes('<mark style="background-color: #fec1d0;">Red highlight</mark>'), true);
+    assert.equal(content.includes('<mark style="background-color: #ccffd4;">Green highlight</mark>'), true);
+    assert.equal(content.includes('<mark style="background-color: #d4e2fc;">Blue highlight</mark>'), true);
+    // Should NOT contain markdown highlight syntax
+    assert.equal(content.includes('==Yellow highlight=='), false);
+  });
+
   it('Absolute paths', async () => {
     const options: YarleOptions = {
 dateFormat: undefined,
