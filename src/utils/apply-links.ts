@@ -71,18 +71,17 @@ export const applyLinks = (options: YarleOptions, outputNotebookFolders: Array<s
                     }
 
                 }
-                if (options.keepEvernoteLinkIfNoNoteFound){
-                    if (linkDoesntExist){
-                        const regexp = new RegExp(`<YARLE_EVERNOTE_LINK>(.)*<-->`)// replace
-                        updatedContent = updatedContent.replace(regexp, '');
-                        updatedContent = updatedContent.replace('</YARLE_EVERNOTE_LINK>', '');
+                if (options.keepEvernoteLinkIfNoNoteFound) {
+                    const id = escapeStringRegexp(linkName);
+                    const regexp = new RegExp(`<YARLE_EVERNOTE_LINK>${id}<-->(.*?)<-->(.*?)<\/YARLE_EVERNOTE_LINK>`, 'g');
 
-                    }else {
-                        const regexp = new RegExp(`<-->(.)*<\/YARLE_EVERNOTE_LINK>`)// replace
-                        updatedContent = updatedContent.replace(regexp, '');
-                        updatedContent = updatedContent.replace('<YARLE_EVERNOTE_LINK>', '');
-                    }
-
+                    updatedContent = updatedContent.replace(regexp, (match, firstGroup, secondGroup) => {
+                        if (linkDoesntExist) {
+                            return secondGroup;
+                        } else {
+                            return firstGroup.replace(new RegExp(id, 'g'), realFileNameInContent);
+                        }
+                    });
                 }
                 else {
                     const regexp = new RegExp(escapeStringRegexp(linkName), 'g');
