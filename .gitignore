@@ -16,3 +16,7 @@ release-builds
 conversion.log
 error.log
 bckp/
+web/node_modules/
+web/uploads/
+web/output/
+web/result.zip
