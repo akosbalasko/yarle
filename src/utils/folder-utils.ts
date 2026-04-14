@@ -129,25 +129,32 @@ export const clearMdNotesDistDir = (): void => {
 };
 
 export const setPaths = (enexSource: string): void => {
-  // loggerInfo('setting paths');
   const enexFolder = enexSource.split(path.sep);
-  // loggerInfo(`enex folder split: ${JSON.stringify(enexFolder)}`);
   let enexFile = (enexFolder.length >= 1 ?  enexFolder[enexFolder.length - 1] : enexFolder[0]).split(/.enex$/)[0];
   enexFile = normalizeFilenameString(enexFile);
-  // loggerInfo(`enex file: ${enexFile}`);
 
   const outputDir = path.isAbsolute(yarleOptions.outputDir)
     ? yarleOptions.outputDir
     : `${process.cwd()}${path.sep}${yarleOptions.outputDir}`;
 
+  const relativeDir = yarleOptions._currentEnexRelativeDir || '';
+
+  let notebookFolder = enexFile;
+
+  if (relativeDir) {
+    if (yarleOptions.preserveStackFolderStructure) {
+      notebookFolder = `${relativeDir}${path.sep}${enexFile}`;
+    } else if (yarleOptions.preserveStackNamingStructure) {
+      notebookFolder = `${relativeDir} - ${enexFile}`;
+    }
+  }
+
   paths.mdPath = `${outputDir}${path.sep}notes${path.sep}`;
   paths.resourcePath = `${outputDir}${path.sep}notes${path.sep}${yarleOptions.resourcesDir}`;
 
-  // loggerInfo(`Skip enex filename from output? ${yarleOptions.skipEnexFileNameFromOutputPath}`);
   if (!yarleOptions.skipEnexFileNameFromOutputPath) {
-    paths.mdPath = `${paths.mdPath}${enexFile}`;
-    // loggerInfo(`mdPath: ${paths.mdPath}`);
-    paths.resourcePath = `${outputDir}${path.sep}notes${path.sep}${enexFile}${path.sep}${yarleOptions.resourcesDir}`;
+    paths.mdPath = `${paths.mdPath}${notebookFolder}`;
+    paths.resourcePath = `${outputDir}${path.sep}notes${path.sep}${notebookFolder}${path.sep}${yarleOptions.resourcesDir}`;
   }
 
   if (yarleOptions.outputFormat === OutputFormat.LogSeqMD) {
@@ -162,8 +169,6 @@ export const setPaths = (enexSource: string): void => {
     fsExtra.mkdirsSync(paths.resourcePath);
   }
   loggerInfo(`path ${paths.mdPath} created`);
-  // clearDistDir(paths.simpleMdPath);
-  // clearDistDir(paths.complexMdPath);
 };
 
 export const getNotesPath = (): string => {

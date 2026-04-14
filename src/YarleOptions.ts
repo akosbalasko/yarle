@@ -73,4 +73,10 @@ export interface YarleOptions {
     keepEvernoteLinkIfNoNoteFound?: boolean;
     convertColorsToMDHighlight?: boolean;
     globalReplacementSettings?: Array<SearchAndReplace>;
+    preserveStackFolderStructure?: boolean;
+    preserveStackNamingStructure?: boolean;
+    // Internal: maps enex full paths to their relative stack directory (set by expandEnexSourceDirs)
+    _enexRelativeDirs?: Record<string, string>;
+    // Internal: the relative stack dir for the enex file currently being processed
+    _currentEnexRelativeDir?: string;
 }

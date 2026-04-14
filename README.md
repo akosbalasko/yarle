@@ -232,8 +232,24 @@ The following configurational properties are available:
 |```keepEvernoteLinkIfNoNoteFound```| boolean | it keeps the link to the evernote note if no such note found among the converted files
 |```convertColorsToMDHighlight```| boolean | it converts colored highlights and custom font spans to standard markdown highlights
 |```removeUnicodeCharsFromTags```| boolean | it removes the unicode characters (like éáűőú) from tags 
+| `preserveStackFolderStructure` | false | When converting a directory, recreate subdirectory (stack) hierarchy in the output folder structure. E.g., `Stack/Notebook.enex` outputs to `notes/Stack/Notebook/` |
+| `preserveStackNamingStructure` | false | When converting a directory, prefix output folder names with the stack name. E.g., `Stack/Notebook.enex` outputs to `notes/Stack - Notebook/`. Ignored when `preserveStackFolderStructure` is `true` |
  
 Metadata settings can be set via the template.
+
+### Evernote Stacks (Nested Directories)
+
+When `enexSources` points to a directory, yarle recursively scans all subdirectories for `.enex` files. This supports Evernote's "stack" export format where stacks become subdirectories.
+
+By default, all discovered `.enex` files are output to flat folders. Use the options below to control how stack hierarchy appears in output:
+
+| `preserveStackFolderStructure` | `preserveStackNamingStructure` | Output for `Stack/Notebook.enex` |
+|---|---|---|
+| `false` (default) | `false` (default) | `notes/Notebook/` |
+| `true` | n/a | `notes/Stack/Notebook/` |
+| `false` | `true` | `notes/Stack - Notebook/` |
+
+If a name collision is detected (e.g., `Notebook.enex` exists at both the top level and inside a stack), `preserveStackNamingStructure` is automatically enabled to prevent data loss.
 
 
 ## Note links over notebooks? No problem, here is what to do: 
