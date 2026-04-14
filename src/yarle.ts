@@ -67,6 +67,8 @@ export const defaultYarleOptions: YarleOptions = {
   globalReplacementSettings: [],
   pathSeparator: '/',
   resourcesDir: '_resources',
+  preserveStackFolderStructure: false,
+  preserveStackNamingStructure: false,
   turndownOptions: {
     headingStyle: 'atx',
   },
