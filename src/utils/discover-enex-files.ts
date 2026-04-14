@@ -27,10 +27,12 @@ const findEnexFilesRecursively = (sourceDir: string, relativeDir: string = ''): 
 };
 
 export const expandEnexSourceDirs = (options: YarleOptions): void => {
-    if (options.enexSources.length === 1 && options.enexSources[0].endsWith('.enex')) {
+    // If all entries are already .enex file paths, nothing to expand
+    if (options.enexSources.every(s => s.endsWith('.enex'))) {
         return;
     }
 
+    // Expand the first directory source (matches original CLI behavior)
     const sourceDir = options.enexSources[0];
 
     if (!fs.statSync(sourceDir).isDirectory()) {
