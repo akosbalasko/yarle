@@ -218,12 +218,17 @@ export const dropTheRope = async (options: YarleOptions): Promise<Array<string>>
   setOptions(options);
   utils.createRootOutputDir();
   saveOptionsAsConfig(options)
+
+  // Expand directory sources to individual .enex files with relative paths
+  utils.expandEnexSourceDirs(yarleOptions);
+
   const outputNotebookFolders = [];
-  for (const enex of options.enexSources) {
+  for (const enex of yarleOptions.enexSources) {
+    yarleOptions._currentEnexRelativeDir = yarleOptions._enexRelativeDirs?.[enex] || '';
     utils.setPaths(enex);
     const runtimeProps = RuntimePropertiesSingleton.getInstance();
     runtimeProps.setCurrentNotebookName(utils.getNotebookName(enex));
-    await parseStream(options, enex);
+    await parseStream(yarleOptions, enex);
     outputNotebookFolders.push(utils.getNotesPath());
   }
 
