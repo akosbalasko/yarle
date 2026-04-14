@@ -879,4 +879,68 @@ export const yarleTests: Array<YarleTest> = [
 
     expectedOutputPath: `${dataFolder}test-note-attributes.md`,
   },
+
+  // --- Recursive stacks tests ---
+  {
+    name: 'Nested stacks - flat mode discovers stacked enex files',
+    options: {
+      enexSources: [ `.${testDataFolder}test-nested-stacks` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+    },
+    testOutputPath: `notes${path.sep}stacked-notebook${path.sep}stacked note.md`,
+    expectedOutputPath: undefined,
+  },
+  {
+    name: 'Nested stacks - flat mode discovers top-level enex files',
+    options: {
+      enexSources: [ `.${testDataFolder}test-nested-stacks` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+    },
+    testOutputPath: `notes${path.sep}top-level-notebook${path.sep}top level note.md`,
+    expectedOutputPath: undefined,
+  },
+  {
+    name: 'Nested stacks - preserveStackFolderStructure recreates hierarchy',
+    options: {
+      enexSources: [ `.${testDataFolder}test-nested-stacks` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      preserveStackFolderStructure: true,
+    },
+    testOutputPath: `notes${path.sep}MyStack${path.sep}stacked-notebook${path.sep}stacked note.md`,
+    expectedOutputPath: undefined,
+  },
+  {
+    name: 'Nested stacks - preserveStackNamingStructure prefixes folder name',
+    options: {
+      enexSources: [ `.${testDataFolder}test-nested-stacks` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      preserveStackNamingStructure: true,
+    },
+    testOutputPath: `notes${path.sep}MyStack - stacked-notebook${path.sep}stacked note.md`,
+    expectedOutputPath: undefined,
+  },
+  {
+    name: 'Nested stacks - collision auto-promotes stacked file to naming structure',
+    options: {
+      enexSources: [ `.${testDataFolder}test-nested-stacks-collision` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+    },
+    testOutputPath: `notes${path.sep}CollisionStack - same-name${path.sep}collision stacked note.md`,
+    expectedOutputPath: undefined,
+  },
+  {
+    name: 'Nested stacks - collision leaves top-level file unaffected',
+    options: {
+      enexSources: [ `.${testDataFolder}test-nested-stacks-collision` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+    },
+    testOutputPath: `notes${path.sep}same-name${path.sep}collision top note.md`,
+    expectedOutputPath: undefined,
+  },
 ]
