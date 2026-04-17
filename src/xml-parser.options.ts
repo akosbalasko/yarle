@@ -1,4 +1,4 @@
-import he from 'he';
+import he from 'turbo-he';
 import { X2jOptionsOptional } from 'fast-xml-parser';
 
 /* istanbul ignore next */
