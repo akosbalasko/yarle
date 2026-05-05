@@ -12,7 +12,8 @@
   ],
   "main": "dist/ui/main.js",
   "bin": {
-    "yarle": "./dist/dropTheRope.js"
+    "yarle": "./dist/dropTheRope.js",
+    "yarle-web": "./dist/web-server.js"
   },
   "type": "commonjs",
   "scripts": {
@@ -32,6 +33,7 @@
     "test-watch": "mocha --watch",
     "compile": "npm run build && copyfiles -u 1 \"src/ui/**/*\" dist",
     "start": "electron .",
+    "start:web": "npm run build && node ./dist/web-server.js",
     "publish-npm": "npm run compile && npm publish",
     "release": "npx semantic-release",
     "package-mac": "electron-builder . --overwrite --asar --platform=darwin --arch=x64 --icon=./src/ui/assets/icons/mac/icon.icns --prune=true --out=release-builds --darwinDarkModeSupport=true",
