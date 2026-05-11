@@ -174,6 +174,14 @@ export const logTags = (note: EvernoteNoteData): string => {
       let cleanTag = tag
         .toString()
         .replace(/^#/, '');
+
+      if (yarleOptions.replacementCharacterMap) {
+        for (const key of Object.keys(yarleOptions.replacementCharacterMap)) {
+          const replacement = yarleOptions.replacementCharacterMap[key as any];
+          const regex: RegExp = new RegExp(escapeStringRegexp(key), 'g');
+          cleanTag = cleanTag.replace(regex, replacement);
+        }
+      }
         
       cleanTag = performRegexpOnTag(yarleOptions, cleanTag)
       if (tagOptions) {

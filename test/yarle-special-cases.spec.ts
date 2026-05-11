@@ -138,6 +138,37 @@ dateFormat: undefined,
     );
   });
 
+  it('Apply replacementCharacterMap to tags', async () => {
+    const options: YarleOptions = {
+dateFormat: undefined,
+      enexSources: [ `.${path.sep}test${path.sep}data${path.sep}test-tag-char-replacement.enex` ],
+      outputDir: 'out',
+      outputFormat: OutputFormat.ObsidianMD,
+      isMetadataNeeded: true,
+      replacementCharacterMap: {
+        ":": "/",
+        "+": "-plus-",
+        "@": "-at-"
+      },
+      removeUnicodeCharsFromTags: false,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-tag-char-replacement/tag-replace.md`,
+      ),
+      true,
+    );
+
+    assert.equal(
+      eol.auto(fs.readFileSync(
+        `${__dirname}/../out/notes/test-tag-char-replacement/tag-replace.md`,
+        'utf8',
+      )),
+      fs.readFileSync(`${__dirname}/data/test-tag-char-replacement.md`, 'utf8'),
+    );
+  });
+
   it('Replace newlines', async () => {
     const options: YarleOptions = {
 dateFormat: undefined,
