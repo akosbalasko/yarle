@@ -21,6 +21,33 @@
 
 <br><br>
 
+## Experimental web app
+
+Yarle now includes an experimental web entrypoint for running conversions from a
+browser without launching the Electron desktop shell.
+
+### Start locally
+
+```bash
+npm install
+npm run start:web
+```
+
+Then open `http://127.0.0.1:4317/`.
+
+### Current capabilities
+
+- upload one or more `.enex` files from the browser
+- choose an output format
+- run the existing conversion pipeline on the server
+- download the generated result as a zip archive
+
+When the browser supports the File System Access API, the result can be saved
+via the native save dialog. Otherwise, Yarle falls back to a regular file
+download.
+
+<br><br>
+
 ## Features:
 
 ### Yarle can convert:

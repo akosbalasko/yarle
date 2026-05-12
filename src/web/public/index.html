@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Yarle Web</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 0;
+        padding: 2rem;
+        background: #111827;
+        color: #f9fafb;
+      }
+      main {
+        max-width: 760px;
+        margin: 0 auto;
+      }
+      .card {
+        background: #1f2937;
+        border: 1px solid #374151;
+        border-radius: 16px;
+        padding: 1.5rem;
+      }
+      h1 {
+        margin-top: 0;
+      }
+      label,
+      select,
+      input,
+      button {
+        display: block;
+        width: 100%;
+        margin-top: 0.75rem;
+      }
+      button {
+        background: #2563eb;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 0.9rem 1rem;
+        cursor: pointer;
+        font-weight: 600;
+      }
+      button:disabled {
+        opacity: 0.7;
+        cursor: progress;
+      }
+      .status {
+        margin-top: 1rem;
+        color: #93c5fd;
+        min-height: 1.5rem;
+      }
+      .hint {
+        color: #9ca3af;
+        font-size: 0.95rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="card">
+        <h1>Yarle Web</h1>
+        <p class="hint">
+          Convert one or more Evernote <code>.enex</code> exports into Markdown
+          in the browser, then download the generated archive.
+        </p>
+        <label for="files">ENEX files</label>
+        <input id="files" type="file" accept=".enex" multiple />
+
+        <label for="format">Output format</label>
+        <select id="format">
+          <option value="ObsidianMD">Obsidian Markdown</option>
+          <option value="StandardMD">Standard Markdown</option>
+          <option value="LogSeqMD">Logseq Markdown</option>
+          <option value="Tana Internal Format">Tana Internal Format</option>
+          <option value="Heptabase">Heptabase</option>
+        </select>
+
+        <button id="convert">Convert and download zip</button>
+        <div class="status" id="status"></div>
+      </div>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+  </html>
