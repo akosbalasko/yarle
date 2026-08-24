@@ -1778,6 +1778,46 @@ dateFormat: undefined,
       true,
     );
   });
+  it('Enex file with PDF attachment, UPPERCASE en-media hash - ObsidianMD format', async () => {
+    // Regression: Evernote emits the en-media hash attribute in either case, but the internal
+    // lookup key is lowercase hex (md5File.sync). With a case-sensitive match the resource was
+    // still written to disk while the link was silently never inserted, so the attachment was
+    // dropped and the note rendered as empty. Output must be identical to the lowercase fixture.
+    const options: YarleOptions = {
+dateFormat: undefined,
+      enexSources: [ `${testDataFolder}test-pdfAttachment-uppercaseHash-ObsidianMD.enex` ],
+      outputDir: 'out',
+      isMetadataNeeded: true,
+      plainTextNotesOnly: false,
+      outputFormat: OutputFormat.ObsidianMD,
+    };
+    await yarle.dropTheRope(options);
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-pdfAttachment-uppercaseHash-ObsidianMD/pdfAttachment.md`,
+      ),
+      true,
+    );
+    const noteContent = eol.auto(fs.readFileSync(
+      `${__dirname}/../out/notes/test-pdfAttachment-uppercaseHash-ObsidianMD/pdfAttachment.md`,
+      'utf8',
+    ));
+    // the embed link must be present, exactly as for the lowercase-hash fixture
+    assert.equal(
+      noteContent,
+      fs.readFileSync(`${__dirname}/data/test-pdfAttachment-ObsidianMD.md`, 'utf8'),
+    );
+    assert.equal(
+      noteContent.includes('![[./_resources/pdfAttachment.resources/sample.pdf]]'),
+      true,
+    );
+    assert.equal(
+      fs.existsSync(
+        `${__dirname}/../out/notes/test-pdfAttachment-uppercaseHash-ObsidianMD/_resources/pdfAttachment.resources/sample.pdf`,
+      ),
+      true,
+    );
+  });
   it('Enex file with attachment - extension comes from mime', async () => {
     const options: YarleOptions = {
 dateFormat: undefined,

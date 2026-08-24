@@ -51,7 +51,12 @@ const addMediaReference = (content: string, resourceHashes: any, hash: any, work
   utils.loggerInfo(`mediaReference src ${src} added`);
   let updatedContent = cloneDeep(content);
   const replace = `<en-media ([^>]*)hash="${hash}".([^>]*)>`;
-  const re = new RegExp(replace, 'g');
+  // 'i': Evernote emits the en-media hash attribute in either case (even within a single
+  // notebook), while our lookup key is lowercase hex (md5File.sync always lowercases).
+  // Without case-insensitive matching the replace below is a silent no-op: the resource file
+  // has already been written to disk, but no link is ever inserted into the note, so the
+  // attachment is dropped from the output and the note reads as empty.
+  const re = new RegExp(replace, 'gi');
   const matchedElements = content.match(re);
 
   const mediaType = matchedElements && matchedElements.length > 0 && matchedElements[0].split('type=');
@@ -89,7 +94,9 @@ const processResource = (workDir: string, resource: any): any => {
     fs.utimesSync(absFilePath, atime, atime);
 
     if (resource.recognition && fileName) {
-      const hashIndex = resource.recognition.match(/[a-f0-9]{32}/);
+      // 'i': recognition objIDs may be uppercase hex; a lowercase-only class would miss them
+      // and fall through to an undefined key, dropping the attachment (see note above).
+      const hashIndex = resource.recognition.match(/[a-f0-9]{32}/i);
       utils.loggerInfo(`resource ${fileName} addid in hash ${hashIndex}`);
       resourceHash[hashIndex as any] = {fileName, alreadyUsed: false} as ResourceHashItem;
     } else {
