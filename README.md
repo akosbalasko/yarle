@@ -96,6 +96,9 @@ If you like the product, you can give a star here on github, or you can <a href=
 <a href="https://wiki.dendron.so/notes/700b02fc-1e6c-46b1-8d68-5d8e17a55d33/" rel="Dendron import proposal">
 <img src="screens/dendron-logo.png" alt="drawing" width="100"/>
 </a>
+<a href="https://hjarni.com/docs/import-from-evernote" rel="Hjarni import guide">
+<img src="screens/hjarni-logo.png" alt="drawing" width="100"/>
+</a>
 
 ## Instructions
 
