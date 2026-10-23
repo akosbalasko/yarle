@@ -33,7 +33,7 @@ export const codeBlockRule = {
 export const replaceCodeBlock = (content: string, node: any): any => {
     const nodeProxy = getAttributeProxy(node);
     const intend = getIntendNumber(node);
-    content = `${'\t'.repeat(intend)}${content}`;
+    content = `${'\t'.repeat(Math.max(0, Number.isFinite(intend) ? intend : 0))}${content}`;
     if (isCodeBlock(node)) {
         // turndown has already escaped markdown chars (and all '\') in content;
         // reverse that to avoid extraneous backslashes in code block.
