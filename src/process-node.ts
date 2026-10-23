@@ -19,6 +19,9 @@ import { LanguageFactory } from './outputLanguages/LanguageFactory';
 import { performRegexpOnTitle } from './utils/get-title';
 
 export const processNode = (pureNote: EvernoteNoteData, notebookName: string): void => {
+  if (Array.isArray(pureNote.content)) {
+    pureNote.content = pureNote.content.join('');
+  }
 
   const dateStarted: Date = new Date();
   loggerInfo(EOL);
@@ -32,7 +35,7 @@ export const processNode = (pureNote: EvernoteNoteData, notebookName: string): v
     created: pureNote.created,
     title: performRegexpOnTitle(yarleOptions, pureNote.title),
     noteName: pureNote.title,
-    content: Array.isArray(pureNote.content) ? pureNote.content.join('') : pureNote.content,
+    content: pureNote.content,
     originalContent: pureNote.content,
   };
 

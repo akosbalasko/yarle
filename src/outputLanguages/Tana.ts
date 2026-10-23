@@ -33,29 +33,28 @@ export class Tana extends StandardMD implements Language  {
     };
     tagProcess = (content: string, tasks: Map<string, string>, currentTaskPlaceholder: string, updatedContent: string): string => {
         const tanaNote = JSON.parse(content);
-        const rootTaskChild = tanaNote.nodes?.[0].children?.find((child:any) => child.name === currentTaskPlaceholder)
-        if (rootTaskChild){
-          for (const taskItem of tasks.values()){
-            // split by tasks
-            const todoState = taskItem.startsWith(checkboxTodo)? 'todo':'done'
-            tanaNote.nodes?.[0].children?.push({
-          
-                uid: 'uuid' + Math.random(),
-                createdAt: rootTaskChild.createdAt,
-                editedAt: rootTaskChild.editedAt,
-                type: 'node' as NodeType,
-
-                name: cleanTanaContent(taskItem, todoState === 'todo' ? checkboxTodo: checkboxDone),
-                todoState: todoState as "todo"|"done",
-                refs:[],
-            }
-
-            )
+        const rootNode = tanaNote.nodes?.[0];
+        const rootTaskChild = rootNode?.children?.find((child: any) => child.name === currentTaskPlaceholder);
+        if (rootNode) {
+          rootNode.children = rootNode.children || [];
+          for (const taskItem of tasks.values()) {
+            const todoState = taskItem.startsWith(checkboxTodo) ? 'todo' : 'done';
+            rootNode.children.push({
+              uid: 'uuid' + Math.random(),
+              createdAt: rootTaskChild?.createdAt || rootNode.createdAt,
+              editedAt: rootTaskChild?.editedAt || rootNode.editedAt,
+              type: 'node' as NodeType,
+              name: cleanTanaContent(taskItem, todoState === 'todo' ? checkboxTodo : checkboxDone),
+              todoState: todoState as 'todo' | 'done',
+              refs: [],
+            });
           }
-        tanaNote.nodes?.[0].children.splice(tanaNote.nodes?.[0].children.indexOf(rootTaskChild), 1)
-        return JSON.stringify(tanaNote)
-      }
-      return updatedContent
+          if (rootTaskChild) {
+            rootNode.children.splice(rootNode.children.indexOf(rootTaskChild), 1);
+          }
+          return JSON.stringify(tanaNote);
+        }
+        return updatedContent;
     }
 
 }

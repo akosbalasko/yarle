@@ -140,6 +140,7 @@ export const parseStream = async (options: YarleOptions, enexSource: string): Pr
     });
 
     xml.on('tag:note', (note: EvernoteNoteData) => {
+      let currentNotePath: string | undefined;
       if (options.skipWebClips && isWebClip(note)) {
         ++skipped;
         loggerInfo(`Notes skipped: ${skipped}`);
@@ -152,27 +153,32 @@ export const parseStream = async (options: YarleOptions, enexSource: string): Pr
         processNode(note, notebookName);
         ++noteNumber;
         loggerInfo(`Notes processed: ${noteNumber}\n\n`);
+        const runtimeProps = RuntimePropertiesSingleton.getInstance();
+        currentNotePath = runtimeProps.getCurrentNotePath();
       }
       noteAttributes = null;
 
-      const runtimeProps = RuntimePropertiesSingleton.getInstance();
-      const currentNotePath = runtimeProps.getCurrentNotePath();
       if (currentNotePath) {
         for (const task of Object.keys(tasks)) {
 
-          const taskPlaceholder = `<YARLE-EN-V10-TASK>${task}</YARLE-EN-V10-TASK>`
+          const taskPlaceholder = `<YARLE-EN-V10-TASK>${task}</YARLE-EN-V10-TASK>`;
           const fileContent = fs.readFileSync(currentNotePath, 'UTF-8');
           const sortedTasks = new Map([...tasks[task]].sort());
+          const taskContent = [...sortedTasks.values()].join('\n');
+          const hasTaskPlaceholder = fileContent.includes(taskPlaceholder);
+          let updatedContent = hasTaskPlaceholder
+            ? fileContent.replace(taskPlaceholder, taskContent)
+            : `${fileContent.replace(/(?:\r?\n)+$/, '')}\n${taskContent}\n`;
 
-          let updatedContent = fileContent.replace(taskPlaceholder, [...sortedTasks.values()].join('\n'));
-
-          const languageFactory  = new LanguageFactory();
-          const language = languageFactory.createLanguage(yarleOptions.outputFormat)
-          updatedContent = language.tagProcess(fileContent, sortedTasks, taskPlaceholder, updatedContent)
+          const languageFactory = new LanguageFactory();
+          const language = languageFactory.createLanguage(yarleOptions.outputFormat);
+          updatedContent = language.tagProcess(fileContent, sortedTasks, taskPlaceholder, updatedContent);
 
           updateFileContentSafely(currentNotePath, updatedContent);
-
         }
+      }
+      for (const task of Object.keys(tasks)) {
+        delete tasks[task];
       }
     });
 

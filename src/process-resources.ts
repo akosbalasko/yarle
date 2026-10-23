@@ -143,10 +143,22 @@ const createResourceFromData = (
   let fileName = index < 1 ? `${baseName}.${extension}` : `${baseName}.${index}.${extension}`;
 
 
-  if (argument === 'href'){
-    const baseNameCandidate = match.split("alt=\"")[1]?.split("\"")[0]
-    if (baseNameCandidate)
-    fileName = baseNameCandidate
+  if (argument === 'href') {
+    const baseNameCandidate = match.split('alt="')[1]?.split('"')[0];
+    if (baseNameCandidate) {
+      fileName = baseNameCandidate;
+      const candidatePath = path.join(absoluteResourceWorkDir, fileName);
+      if (fs.existsSync(candidatePath)) {
+        const extensionIndex = fileName.lastIndexOf('.');
+        const base = extensionIndex > 0 ? fileName.slice(0, extensionIndex) : fileName;
+        const suffix = extensionIndex > 0 ? fileName.slice(extensionIndex) : '';
+        let index = 1;
+        do {
+          fileName = `${base}.${index}${suffix}`;
+          index += 1;
+        } while (fs.existsSync(path.join(absoluteResourceWorkDir, fileName)));
+      }
+    }
   }
   const absFilePath = `${absoluteResourceWorkDir}${path.sep}${fileName}`;
 

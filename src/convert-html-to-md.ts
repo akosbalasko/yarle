@@ -87,7 +87,9 @@ const fixSublists = (node: HTMLElement) => {
 export const convertHtml2MdContent = (yarleOptions: YarleOptions, htmlContent: string): string => {
 
     const content = htmlContent.replace(/<!DOCTYPE en-note [^>]*>/, '<!DOCTYPE html>')
-      .replace(/(<a [^>]*)\/>/, '$1></a>').replace(/<div[^\/\<]*\/>/g, '');
+      .replace(/(<a [^>]*)\/>/, '$1></a>').replace(/<div[^\/\<]*\/>/g, '')
+      // At-rules are invalid in inline CSS; strip only those style attributes before jsdom parses them.
+      .replace(/\sstyle="[^"]*@media\b[^"]*"|\sstyle='[^']*@media\b[^']*'/gi, '');
 
     const contentNode = new JSDOM(fixSublistsInContent(content)).window.document
       .getElementsByTagName('en-note').item(0) as any as HTMLElement;

@@ -51,7 +51,7 @@ export const getFileIndex = (dstPath: string, fileNamePrefix: string): number | 
       // make sure we get the first copy with no count suffix or the copies whose filename changed
       // drop the extension to compare with filename prefix
       const filePrefix = file.split('.').slice(0, -1).join('.');
-      return filePrefix.toLowerCase().startsWith(fileNamePrefix.toLowerCase());
+      return filePrefix.normalize('NFC').toLowerCase().startsWith(fileNamePrefix.normalize('NFC').toLowerCase());
     })
     .length;
 
@@ -93,8 +93,30 @@ export const getFilePrefix = (note: EvernoteNoteData): string => {
   return normalizeFilenameString(note['noteName'] ? `${note['noteName'].toString()}` : 'Untitled');
 };
 
+const truncateUtf8 = (value: string, maxBytes: number): string => {
+  let result = '';
+  let bytes = 0;
+  for (const character of value) {
+    const characterBytes = Buffer.byteLength(character, 'utf8');
+    if (bytes + characterBytes > maxBytes) {
+      break;
+    }
+    result += character;
+    bytes += characterBytes;
+  }
+  return result;
+};
+
 export const getNoteFileName = (dstPath: string, note: EvernoteNoteData, extension: string = 'md'): string => {
-  return `${getNoteName(dstPath, note)}.${extension}`;
+  const suffix = `.${extension}`;
+  const normalizedName = normalizeFilenameString(`${getNoteName(dstPath, note)}${suffix}`);
+  const normalizedSuffix = suffix;
+  const nameWithoutSuffix = normalizedName.endsWith(normalizedSuffix)
+    ? normalizedName.slice(0, -normalizedSuffix.length)
+    : normalizedName;
+  const maxNameBytes = Math.max(0, 255 - Buffer.byteLength(normalizedSuffix, 'utf8'));
+
+  return `${truncateUtf8(nameWithoutSuffix, maxNameBytes)}${normalizedSuffix}`;
 };
 export const getExtensionFromResourceFileName = (resource: any): string => {
   if (!(resource['resource-attributes'] &&
